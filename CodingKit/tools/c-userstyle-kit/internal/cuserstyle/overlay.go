@@ -121,13 +121,19 @@ func validateEffectiveConfig(cfg Config) error {
 	) {
 		return fmt.Errorf("effective documentation modificationHistoryPolicy is invalid")
 	}
-	if !oneOf(cfg.Macro.SimpleObjectCommentStyle, "block", "doxygen", "either") {
+	if !oneOf(cfg.Docs.SingleBriefStyle, "compact", "either") {
+		return fmt.Errorf("effective documentation singleBriefStyle is invalid")
+	}
+	if !oneOf(cfg.Macro.SimpleObjectCommentStyle, "trailing", "block", "doxygen", "either") {
 		return fmt.Errorf("effective macros simpleObjectCommentStyle is invalid")
 	}
 	if cfg.Readability.ComplexFunction.MinEffectiveLines <= 0 ||
 		cfg.Readability.ComplexFunction.MinBranches <= 0 ||
 		cfg.Readability.ComplexFunction.MinNesting <= 0 {
 		return fmt.Errorf("effective readability complexFunction thresholds must be positive")
+	}
+	if err := validateKeyFlowCommentPolicy(cfg.Readability.KeyFlowComments); err != nil {
+		return fmt.Errorf("effective config: %w", err)
 	}
 	if cfg.Hook.MaxDiagnostics <= 0 {
 		return fmt.Errorf("effective hook maxDiagnostics must be positive")

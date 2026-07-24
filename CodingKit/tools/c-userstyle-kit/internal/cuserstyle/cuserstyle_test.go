@@ -89,9 +89,19 @@ func TestSnippetCatalogAndRendering(t *testing.T) {
 		t.Fatalf("expected 9 snippets, got %d", len(catalog))
 	}
 	macroSnippet := catalog["C Simple Object Macro"]
-	if len(macroSnippet.Body) == 0 || !strings.HasPrefix(macroSnippet.Body[0], "/* ") ||
-		strings.HasPrefix(macroSnippet.Body[0], "/**") {
-		t.Fatalf("simple object macro snippet must start with an ordinary one-line block comment: %+v", macroSnippet)
+	if len(macroSnippet.Body) == 0 || !strings.HasPrefix(macroSnippet.Body[0], "#define ") ||
+		!strings.Contains(macroSnippet.Body[0], "/**< ") {
+		t.Fatalf("simple object macro snippet must use a trailing Doxygen comment: %+v", macroSnippet)
+	}
+	structSnippet := catalog["C Struct Brief"]
+	if !strings.Contains(strings.Join(structSnippet.Body, "\n"), ";}  /**< ") {
+		t.Fatalf("struct member snippet must use a trailing Doxygen comment: %+v", structSnippet)
+	}
+	enumSnippet := catalog["C Enum Brief"]
+	if len(enumSnippet.Body) == 0 || !strings.HasPrefix(enumSnippet.Body[0], "/** @brief ") ||
+		!strings.HasSuffix(enumSnippet.Body[0], " */") ||
+		!strings.Contains(strings.Join(enumSnippet.Body, "\n"), "/**< ") {
+		t.Fatalf("enum snippet must use compact type documentation and trailing item comments: %+v", enumSnippet)
 	}
 	snippet := catalog["C File Header (CN)"]
 	rendered := renderSnippet(
@@ -214,6 +224,54 @@ int32_t DEMO_Bad(int32_t value)
 	}
 }
 
+func TestSingleBriefDoxygenUsesCompactLine(t *testing.T) {
+	cfg := focusedLintConfig(t)
+	cfg.Docs.AllFunctions = true
+	cfg.Docs.RequireBrief = true
+	cfg.Docs.RequireDefinitionDetails = false
+	cfg.Docs.RequirePublicPerformance = false
+	cfg.Docs.RequirePublicReentrancy = false
+	cfg.Docs.SingleBriefStyle = "compact"
+
+	valid := `/** @brief 将已解析命令压入固定深度队列。 */
+void DEMO_QueuePush(void);
+`
+	if ds := lintContent("brief.c", []byte(valid), nil, cfg, false); len(ds) != 0 {
+		t.Fatalf("compact single-brief Doxygen must pass: %+v", ds)
+	}
+
+	invalid := `/**
+ * @brief 将已解析命令压入固定深度队列。
+ */
+void DEMO_QueuePush(void);
+`
+	ds := lintContent("brief.c", []byte(invalid), nil, cfg, false)
+	if countRule(ds, "documentation.compact-single-brief") != 1 {
+		t.Fatalf("expected one compact single-brief diagnostic: %+v", ds)
+	}
+	changed := []LineRange{{Start: 2, End: 2}}
+	ds = lintContent("brief.c", []byte(invalid), changed, cfg, true)
+	if countRule(ds, "documentation.compact-single-brief") != 1 {
+		t.Fatalf("changed line inside expanded block must trigger the style rule: %+v", ds)
+	}
+
+	detailed := `/**
+ * @brief 将已解析命令压入固定深度队列。
+ *
+ * @details 队列满时拒绝写入，已有数据保持不变。
+ */
+void DEMO_QueuePush(void);
+`
+	if ds := lintContent("brief.c", []byte(detailed), nil, cfg, false); hasRule(ds, "documentation.compact-single-brief") {
+		t.Fatalf("multi-tag Doxygen must remain multiline: %+v", ds)
+	}
+
+	cfg.Docs.SingleBriefStyle = "either"
+	if ds := lintContent("brief.c", []byte(invalid), nil, cfg, false); hasRule(ds, "documentation.compact-single-brief") {
+		t.Fatalf("either style must allow expanded single-brief Doxygen: %+v", ds)
+	}
+}
+
 func TestUnsafeBodyFails(t *testing.T) {
 	cfg, _ := LoadConfig(configPath())
 	src := `/**
@@ -247,7 +305,9 @@ func TestConfigPolicyDefaults(t *testing.T) {
 	}
 	cfg.Docs.EmployeeIDPolicy = ""
 	cfg.Docs.ModificationHistoryPolicy = ""
+	cfg.Docs.SingleBriefStyle = ""
 	cfg.Macro.SimpleObjectCommentStyle = ""
+	cfg.Readability.KeyFlowComments = KeyFlowCommentPolicy{}
 	data, err := json.Marshal(cfg)
 	if err != nil {
 		t.Fatal(err)
@@ -262,8 +322,12 @@ func TestConfigPolicyDefaults(t *testing.T) {
 	}
 	if loaded.Docs.EmployeeIDPolicy != "whenProvided" ||
 		loaded.Docs.ModificationHistoryPolicy != "disabled" ||
-		loaded.Macro.SimpleObjectCommentStyle != "block" {
-		t.Fatalf("unexpected defaults: %+v %+v", loaded.Docs, loaded.Macro)
+		loaded.Docs.SingleBriefStyle != "compact" ||
+		loaded.Macro.SimpleObjectCommentStyle != "trailing" ||
+		loaded.Readability.KeyFlowComments.RuleID != keyFlowCommentRuleID ||
+		!loaded.Readability.KeyFlowComments.RequiredForComplexFunctions ||
+		loaded.Readability.KeyFlowComments.MinimumIntentComments != 1 {
+		t.Fatalf("unexpected defaults: %+v %+v %+v", loaded.Docs, loaded.Macro, loaded.Readability)
 	}
 }
 
@@ -337,17 +401,22 @@ func TestFileMetadataPolicies(t *testing.T) {
 	}
 }
 
-func TestSimpleObjectMacroUsesOrdinaryBlockComment(t *testing.T) {
+func TestSimpleObjectMacroUsesTrailingDoxygenComment(t *testing.T) {
 	cfg := focusedLintConfig(t)
 	cfg.Macro.RequireDocumentation = true
-	cfg.Macro.SimpleObjectCommentStyle = "block"
-	valid := "/* 最大映射数量。 */\n#define DEMO_MAX_MAPPINGS 8U\n"
+	cfg.Macro.SimpleObjectCommentStyle = "trailing"
+	valid := "#define DEMO_MAX_MAPPINGS 8U /**< 最大映射数量。 */\n"
 	if ds := lintContent("macro.c", []byte(valid), nil, cfg, false); len(ds) != 0 {
-		t.Fatalf("ordinary one-line block comment must pass: %+v", ds)
+		t.Fatalf("trailing Doxygen comment must pass: %+v", ds)
 	}
-	invalid := "/** @brief 最大映射数量。 */\n#define DEMO_MAX_MAPPINGS 8U\n"
+	invalid := "/* 最大映射数量。 */\n#define DEMO_MAX_MAPPINGS 8U\n"
 	if ds := lintContent("macro.c", []byte(invalid), nil, cfg, false); !hasRule(ds, "documentation.simple-macro-comment") {
 		t.Fatalf("expected simple macro comment diagnostic: %+v", ds)
+	}
+
+	cfg.Macro.SimpleObjectCommentStyle = "block"
+	if ds := lintContent("macro.c", []byte(invalid), nil, cfg, false); len(ds) != 0 {
+		t.Fatalf("explicit block compatibility mode must pass: %+v", ds)
 	}
 }
 
@@ -368,6 +437,7 @@ func TestComplexFunctionRequiresSequentialNumberedFlow(t *testing.T) {
  */
 int32_t DEMO_NumberedFlow(int32_t value)
 {
+    /* 正值才属于可发布结果；其他输入统一收敛为安全默认值。 */
     if (value > 0)
     {
         return value;
@@ -377,7 +447,8 @@ int32_t DEMO_NumberedFlow(int32_t value)
 `
 	summary := analyzeReadability("flow.c", []byte(valid), cfg)
 	if len(summary.Functions) != 1 || !summary.Functions[0].Complex ||
-		!summary.Functions[0].NumberedFlowDocumented {
+		!summary.Functions[0].NumberedFlowDocumented ||
+		summary.Functions[0].KeyFlowCommentCount != 1 {
 		t.Fatalf("unexpected readability summary: %+v", summary)
 	}
 	if ds := lintContent("flow.c", []byte(valid), nil, cfg, false); hasRule(ds, "documentation.function-flow") {
@@ -388,6 +459,97 @@ int32_t DEMO_NumberedFlow(int32_t value)
 		" * 检查输入并返回结果。\n", 1)
 	if ds := lintContent("flow.c", []byte(invalid), nil, cfg, false); !hasRule(ds, "documentation.function-flow") {
 		t.Fatalf("expected numbered flow diagnostic: %+v", ds)
+	}
+}
+
+func TestComplexFunctionRequiresKeyFlowIntentComment(t *testing.T) {
+	cfg := focusedLintConfig(t)
+	cfg.Readability.ComplexFunction = ComplexFunctionPolicy{
+		MinEffectiveLines:   1,
+		MinBranches:         1,
+		MinNesting:          1,
+		RequireNumberedFlow: false,
+	}
+	valid := `int32_t DEMO_KeyFlow(int32_t value)
+{
+    /* 仅发布有效业务值；非法输入不改变调用方可见状态。 */
+    if (value > 0)
+    {
+        return value;
+    }
+    return 0;
+}
+`
+	if ds := lintContent("key_flow.c", []byte(valid), nil, cfg, false); hasRule(ds, keyFlowCommentRuleID) {
+		t.Fatalf("a complex function with a body intent comment must pass: %+v", ds)
+	}
+	summary := analyzeReadability("key_flow.c", []byte(valid), cfg)
+	if len(summary.Functions) != 1 || summary.Functions[0].KeyFlowCommentCount != 1 ||
+		!hasReviewRule(summary.ManualReview, keyFlowCommentRuleID) {
+		t.Fatalf("unexpected key-flow summary: %+v", summary)
+	}
+
+	invalid := strings.Replace(valid,
+		"    /* 仅发布有效业务值；非法输入不改变调用方可见状态。 */\n",
+		"",
+		1)
+	if ds := lintContent("key_flow.c", []byte(invalid), nil, cfg, false); !hasRule(ds, keyFlowCommentRuleID) {
+		t.Fatalf("expected stable key-flow rule diagnostic: %+v", ds)
+	}
+
+	doxygenOnly := strings.Replace(valid,
+		"    /* 仅发布有效业务值；非法输入不改变调用方可见状态。 */",
+		"    /** @brief 这不是函数体逻辑段注释。 */",
+		1)
+	if ds := lintContent("key_flow.c", []byte(doxygenOnly), nil, cfg, false); !hasRule(ds, keyFlowCommentRuleID) {
+		t.Fatalf("body Doxygen must not satisfy the intent-comment gate: %+v", ds)
+	}
+}
+
+func TestKeyFlowRuleMetadataIsRetrievable(t *testing.T) {
+	cfg, err := LoadConfig(configPath())
+	if err != nil {
+		t.Fatal(err)
+	}
+	policy := cfg.Readability.KeyFlowComments
+	if policy.RuleID != keyFlowCommentRuleID ||
+		policy.HumanGuide != keyFlowCommentHumanGuide ||
+		len(policy.SourceRuleIDs) != len(keyFlowCommentSourceRuleIDs) {
+		t.Fatalf("unexpected key-flow machine contract: %+v", policy)
+	}
+
+	root := filepath.Join("..", "..")
+	catalogData, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(cfg.Reference.RuleCatalog)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	var catalog struct {
+		Clauses []struct {
+			ID string `json:"id"`
+		} `json:"clauses"`
+	}
+	if err := json.Unmarshal(catalogData, &catalog); err != nil {
+		t.Fatal(err)
+	}
+	knownRuleIDs := make(map[string]bool, len(catalog.Clauses))
+	for _, clause := range catalog.Clauses {
+		knownRuleIDs[clause.ID] = true
+	}
+	for _, sourceRuleID := range policy.SourceRuleIDs {
+		if !knownRuleIDs[sourceRuleID] {
+			t.Fatalf("source rule %s is missing from the machine catalog", sourceRuleID)
+		}
+	}
+
+	guidePath := strings.Split(policy.HumanGuide, "#")[0]
+	guideData, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(guidePath)))
+	if err != nil {
+		t.Fatal(err)
+	}
+	guide := string(guideData)
+	if !strings.Contains(guide, `<a id="cstyle-comment-flow-001"></a>`) ||
+		!strings.Contains(guide, keyFlowCommentRuleID) {
+		t.Fatalf("human guide does not expose the stable key-flow anchor and rule id")
 	}
 }
 

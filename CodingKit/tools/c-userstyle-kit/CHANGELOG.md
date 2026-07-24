@@ -1,5 +1,22 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- 新增 `documentation.singleBriefStyle`，默认 `compact`；仅含一个非空 `@brief` 的 Doxygen
+  必须使用 `/** @brief ... */`，多标签或带补充正文的文档仍保持多行。
+- lint 新增 `documentation.compact-single-brief` 正反例，并让紧凑单行 Doxygen 可作为函数、
+  类型和复杂宏的有效前置文档。
+- `macros.simpleObjectCommentStyle` 默认改为 `trailing`；简单对象式宏在定义同行右侧使用
+  `/**< ... */`，并保留 `block`、`doxygen`、`either` 兼容模式。
+- 新增稳定规则 `CSTYLE-COMMENT-FLOW-001`：配置登记华为来源条款和人类文档入口，lint 对复杂
+  函数执行最低函数体意图注释门禁，可读性摘要用同一 ID 提醒人或 Agent 复核语义完整性。
+
+### Changed
+
+- 宏、结构体和枚举 snippets/template 使用同行尾注释；纯单标签 Doxygen 改为紧凑单行。
+
 ## 1.2.0 - 2026-07-15
 
 ### Added

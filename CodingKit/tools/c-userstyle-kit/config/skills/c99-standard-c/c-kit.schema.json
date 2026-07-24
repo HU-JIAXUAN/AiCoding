@@ -89,7 +89,7 @@
     "documentation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["fileHeader", "requireFileMetadata", "allFunctions", "types", "macros", "requireBrief", "requireParamTags", "requireParamDirection", "requireReturnTag", "requireDefinitionDetails", "requirePublicPerformance", "requirePublicReentrancy", "requireBarePrivatePrototype", "requireCaseIntentComment", "requireGlobalVariableDetail", "requireExternC", "employeeIdPolicy", "modificationHistoryPolicy"],
+      "required": ["fileHeader", "requireFileMetadata", "allFunctions", "types", "macros", "requireBrief", "singleBriefStyle", "requireParamTags", "requireParamDirection", "requireReturnTag", "requireDefinitionDetails", "requirePublicPerformance", "requirePublicReentrancy", "requireBarePrivatePrototype", "requireCaseIntentComment", "requireGlobalVariableDetail", "requireExternC", "employeeIdPolicy", "modificationHistoryPolicy"],
       "properties": {
         "fileHeader": {"type": "boolean"},
         "requireFileMetadata": {"type": "boolean"},
@@ -97,6 +97,7 @@
         "types": {"type": "boolean"},
         "macros": {"type": "boolean"},
         "requireBrief": {"type": "boolean"},
+        "singleBriefStyle": {"enum": ["compact", "either"]},
         "requireParamTags": {"type": "boolean"},
         "requireParamDirection": {"type": "boolean"},
         "requireReturnTag": {"type": "boolean"},
@@ -151,13 +152,13 @@
         "protectFinalExpression": {"type": "boolean"},
         "multiStatementDoWhile": {"type": "boolean"},
         "requireDocumentation": {"type": "boolean"},
-        "simpleObjectCommentStyle": {"enum": ["block", "doxygen", "either"]}
+        "simpleObjectCommentStyle": {"enum": ["trailing", "block", "doxygen", "either"]}
       }
     },
     "readability": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["complexFunction", "requireNumberedIntentCommentPlacement", "reportNonObviousBranches", "reportSingleCallStaticHelpers"],
+      "required": ["complexFunction", "keyFlowComments", "requireNumberedIntentCommentPlacement", "reportNonObviousBranches", "reportSingleCallStaticHelpers"],
       "properties": {
         "complexFunction": {
           "type": "object",
@@ -168,6 +169,27 @@
             "minBranches": {"type": "integer", "minimum": 1},
             "minNesting": {"type": "integer", "minimum": 1},
             "requireNumberedFlow": {"type": "boolean"}
+          }
+        },
+        "keyFlowComments": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ruleId", "sourceRuleIds", "humanGuide", "requiredForComplexFunctions", "minimumIntentComments"],
+          "properties": {
+            "ruleId": {"const": "CSTYLE-COMMENT-FLOW-001"},
+            "sourceRuleIds": {
+              "type": "array",
+              "prefixItems": [
+                {"const": "HW-C99-08-P-03"},
+                {"const": "HW-C99-08-R-03"},
+                {"const": "HW-C99-08-R-05"}
+              ],
+              "items": false,
+              "minItems": 3
+            },
+            "humanGuide": {"const": "docs/COMMENTING_METHOD.md#cstyle-comment-flow-001"},
+            "requiredForComplexFunctions": {"type": "boolean"},
+            "minimumIntentComments": {"type": "integer", "minimum": 1}
           }
         },
         "requireNumberedIntentCommentPlacement": {"type": "boolean"},

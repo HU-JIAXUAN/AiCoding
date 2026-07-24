@@ -58,6 +58,9 @@ func TestConfigOverlayRejectsUnsafeShapes(t *testing.T) {
 		{name: "unknown", content: `{"documentation":{"unknownRule":true}}`, want: "unknown field"},
 		{name: "duplicate", content: `{"id":"one","id":"two"}`, want: "duplicate JSON key"},
 		{name: "invalid-policy", content: `{"documentation":{"employeeIdPolicy":"never"}}`, want: "employeeIdPolicy"},
+		{name: "invalid-single-brief-style", content: `{"documentation":{"singleBriefStyle":"expanded"}}`, want: "singleBriefStyle"},
+		{name: "invalid-key-flow-rule-id", content: `{"readability":{"keyFlowComments":{"ruleId":"LOCAL-RULE"}}}`, want: "ruleId"},
+		{name: "invalid-key-flow-minimum", content: `{"readability":{"keyFlowComments":{"minimumIntentComments":0}}}`, want: "minimumIntentComments"},
 	}
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {

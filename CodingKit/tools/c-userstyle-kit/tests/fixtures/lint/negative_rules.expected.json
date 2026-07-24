@@ -1,5 +1,6 @@
 {
   "requiredRuleIds": [
+    "documentation.compact-single-brief",
     "naming.global-variable",
     "documentation.global-variable",
     "documentation.private-prototype",

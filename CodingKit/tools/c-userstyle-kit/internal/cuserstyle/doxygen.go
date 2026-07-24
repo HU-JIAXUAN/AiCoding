@@ -16,13 +16,14 @@ type functionInfo struct {
 }
 
 var (
-	functionLineRE      = regexp.MustCompile(`^\s*(static\s+)?([A-Za-z_][A-Za-z0-9_\s\*]*?)\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(([^;{}]*)\)\s*(?:;|\{)?\s*$`)
-	pointerReturnNameRE = regexp.MustCompile(`(\*+)\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(`)
-	doxygenBriefRE      = regexp.MustCompile(`(?m)^\s*\*\s*@brief\s+\S`)
-	doxygenReturnRE     = regexp.MustCompile(`(?m)^\s*\*\s*@return\s+\S`)
-	doxygenDetailsRE    = regexp.MustCompile(`(?m)^\s*\*\s*@details(?:\s|$)`)
-	numberedFlowItemRE  = regexp.MustCompile(`^\s*\*\s*([1-9][0-9]*)[.)、]\s+\S`)
-	doxygenTagRE        = regexp.MustCompile(`^\s*\*\s*@([A-Za-z_][A-Za-z0-9_]*)\b`)
+	functionLineRE       = regexp.MustCompile(`^\s*(static\s+)?([A-Za-z_][A-Za-z0-9_\s\*]*?)\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(([^;{}]*)\)\s*(?:;|\{)?\s*$`)
+	pointerReturnNameRE  = regexp.MustCompile(`(\*+)\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(`)
+	doxygenBriefRE       = regexp.MustCompile(`(?m)^\s*(?:/\*\*\s*|\*\s*)@brief\s+\S`)
+	doxygenReturnRE      = regexp.MustCompile(`(?m)^\s*\*\s*@return\s+\S`)
+	doxygenDetailsRE     = regexp.MustCompile(`(?m)^\s*\*\s*@details(?:\s|$)`)
+	numberedFlowItemRE   = regexp.MustCompile(`^\s*\*\s*([1-9][0-9]*)[.)、]\s+\S`)
+	doxygenTagRE         = regexp.MustCompile(`^\s*\*\s*@([A-Za-z_][A-Za-z0-9_]*)\b`)
+	singleBriefContentRE = regexp.MustCompile(`^@brief\s+\S(?:.*\S)?$`)
 )
 
 func parseFunctionLine(line string, lineNo int) (functionInfo, bool) {
@@ -107,7 +108,14 @@ func precedingDoxygen(lines []string, index int) string {
 	for i >= 0 && strings.TrimSpace(lines[i]) == "" {
 		i--
 	}
-	if i < 0 || strings.TrimSpace(lines[i]) != "*/" {
+	if i < 0 {
+		return ""
+	}
+	trimmed := strings.TrimSpace(lines[i])
+	if strings.HasPrefix(trimmed, "/**") && strings.HasSuffix(trimmed, "*/") {
+		return lines[i]
+	}
+	if trimmed != "*/" {
 		return ""
 	}
 	end := i
@@ -121,6 +129,66 @@ func precedingDoxygen(lines []string, index int) string {
 		i--
 	}
 	return ""
+}
+
+func validateSingleBriefStyle(
+	path string,
+	lines []string,
+	ranges []LineRange,
+	cfg Config,
+	changedOnly bool,
+) []Diagnostic {
+	if cfg.Docs.SingleBriefStyle != "compact" {
+		return nil
+	}
+
+	var diagnostics []Diagnostic
+	for start := 0; start < len(lines); start++ {
+		trimmed := strings.TrimSpace(lines[start])
+		if !strings.HasPrefix(trimmed, "/**") {
+			continue
+		}
+
+		end := start
+		for !strings.Contains(lines[end], "*/") {
+			end++
+			if end >= len(lines) {
+				return diagnostics
+			}
+		}
+		if end > start && isSingleBriefDoxygen(lines[start:end+1]) &&
+			(!changedOnly || spanSelected(start+1, end+1, ranges)) {
+			diagnostics = append(diagnostics, diag(
+				path,
+				start+1,
+				"documentation.compact-single-brief",
+				"仅包含一个 @brief 的 Doxygen 必须写成单行：/** @brief ... */。",
+			))
+		}
+		start = end
+	}
+	return diagnostics
+}
+
+func isSingleBriefDoxygen(lines []string) bool {
+	content := make([]string, 0, len(lines))
+	for index, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if index == 0 {
+			trimmed = strings.TrimSpace(strings.TrimPrefix(trimmed, "/**"))
+		}
+		if index == len(lines)-1 {
+			trimmed = strings.TrimSpace(strings.TrimSuffix(trimmed, "*/"))
+		}
+		trimmed = strings.TrimSpace(strings.TrimPrefix(trimmed, "*"))
+		if trimmed != "" {
+			content = append(content, trimmed)
+		}
+	}
+	if len(content) != 1 {
+		return false
+	}
+	return singleBriefContentRE.MatchString(content[0])
 }
 
 func hasSequentialNumberedFlow(block string) bool {

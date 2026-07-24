@@ -10,6 +10,17 @@ import (
 	"strings"
 )
 
+const (
+	keyFlowCommentRuleID     = "CSTYLE-COMMENT-FLOW-001"
+	keyFlowCommentHumanGuide = "docs/COMMENTING_METHOD.md#cstyle-comment-flow-001"
+)
+
+var keyFlowCommentSourceRuleIDs = [...]string{
+	"HW-C99-08-P-03",
+	"HW-C99-08-R-03",
+	"HW-C99-08-R-05",
+}
+
 func LoadConfig(path string) (Config, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -64,11 +75,17 @@ func LoadConfig(path string) (Config, error) {
 	if !oneOf(cfg.Docs.ModificationHistoryPolicy, "disabled", "maintenance-release", "required") {
 		return Config{}, fmt.Errorf("documentation modificationHistoryPolicy must be disabled, maintenance-release or required")
 	}
-	if cfg.Macro.SimpleObjectCommentStyle == "" {
-		cfg.Macro.SimpleObjectCommentStyle = "block"
+	if cfg.Docs.SingleBriefStyle == "" {
+		cfg.Docs.SingleBriefStyle = "compact"
 	}
-	if !oneOf(cfg.Macro.SimpleObjectCommentStyle, "block", "doxygen", "either") {
-		return Config{}, fmt.Errorf("macros simpleObjectCommentStyle must be block, doxygen or either")
+	if !oneOf(cfg.Docs.SingleBriefStyle, "compact", "either") {
+		return Config{}, fmt.Errorf("documentation singleBriefStyle must be compact or either")
+	}
+	if cfg.Macro.SimpleObjectCommentStyle == "" {
+		cfg.Macro.SimpleObjectCommentStyle = "trailing"
+	}
+	if !oneOf(cfg.Macro.SimpleObjectCommentStyle, "trailing", "block", "doxygen", "either") {
+		return Config{}, fmt.Errorf("macros simpleObjectCommentStyle must be trailing, block, doxygen or either")
 	}
 	if cfg.Readability.ComplexFunction.MinEffectiveLines <= 0 {
 		cfg.Readability.ComplexFunction.MinEffectiveLines = 20
@@ -78,6 +95,12 @@ func LoadConfig(path string) (Config, error) {
 	}
 	if cfg.Readability.ComplexFunction.MinNesting <= 0 {
 		cfg.Readability.ComplexFunction.MinNesting = 3
+	}
+	if keyFlowCommentPolicyOmitted(cfg.Readability.KeyFlowComments) {
+		cfg.Readability.KeyFlowComments = defaultKeyFlowCommentPolicy()
+	}
+	if err := validateKeyFlowCommentPolicy(cfg.Readability.KeyFlowComments); err != nil {
+		return Config{}, err
 	}
 	if cfg.Hook.MaxDiagnostics <= 0 {
 		cfg.Hook.MaxDiagnostics = 80
@@ -96,6 +119,46 @@ func LoadConfig(path string) (Config, error) {
 		return Config{}, fmt.Errorf("header gates must use c99 and c++17")
 	}
 	return cfg, nil
+}
+
+func defaultKeyFlowCommentPolicy() KeyFlowCommentPolicy {
+	sourceRuleIDs := append([]string(nil), keyFlowCommentSourceRuleIDs[:]...)
+	return KeyFlowCommentPolicy{
+		RuleID:                      keyFlowCommentRuleID,
+		SourceRuleIDs:               sourceRuleIDs,
+		HumanGuide:                  keyFlowCommentHumanGuide,
+		RequiredForComplexFunctions: true,
+		MinimumIntentComments:       1,
+	}
+}
+
+func keyFlowCommentPolicyOmitted(policy KeyFlowCommentPolicy) bool {
+	return policy.RuleID == "" &&
+		len(policy.SourceRuleIDs) == 0 &&
+		policy.HumanGuide == "" &&
+		!policy.RequiredForComplexFunctions &&
+		policy.MinimumIntentComments == 0
+}
+
+func validateKeyFlowCommentPolicy(policy KeyFlowCommentPolicy) error {
+	if policy.RuleID != keyFlowCommentRuleID {
+		return fmt.Errorf("readability keyFlowComments ruleId must be %s", keyFlowCommentRuleID)
+	}
+	if policy.HumanGuide != keyFlowCommentHumanGuide {
+		return fmt.Errorf("readability keyFlowComments humanGuide must be %s", keyFlowCommentHumanGuide)
+	}
+	if len(policy.SourceRuleIDs) != len(keyFlowCommentSourceRuleIDs) {
+		return fmt.Errorf("readability keyFlowComments sourceRuleIds must retain the Huawei clause mapping")
+	}
+	for index, ruleID := range keyFlowCommentSourceRuleIDs {
+		if policy.SourceRuleIDs[index] != ruleID {
+			return fmt.Errorf("readability keyFlowComments sourceRuleIds must retain the Huawei clause mapping")
+		}
+	}
+	if policy.MinimumIntentComments <= 0 {
+		return fmt.Errorf("readability keyFlowComments minimumIntentComments must be positive")
+	}
+	return nil
 }
 
 func oneOf(value string, allowed ...string) bool {

@@ -1,9 +1,9 @@
-# 验证报告（2026-07-15）
+# 验证报告（2026-07-24）
 
 ## 结论
 
 Option D 的独立 Kit 已完成：61 页 PDF 参考、可检索 Markdown、139 条规则目录、简单入口、
-公开高级样例、VS Code 风格 snippets、第 8 章注释方法、可读性摘要、Go lint 正负例、
+公开高级样例、VS Code 风格 snippets、第 8 章注释方法、可检索关键流程规则、可读性摘要、Go lint 正负例、
 GCC/Clang 严格 C99、独立头文件、行为测试和外部 fast/full 验证全部通过。
 
 ## 需求逐项证据
@@ -22,15 +22,17 @@ GCC/Clang 严格 C99、独立头文件、行为测试和外部 fast/full 验证�
 | 定义处完整函数注释 | 通过 | lint 规则 `documentation.definition-details` 及所有函数定义的 `@details` |
 | 第 8 章文件头字段 | 通过 | 9 个 C/H 文件均含版权、日期、作者、内容、功能和关系；资产版本由 `MANIFEST.json`、`CHANGELOG.md` 与 Tag/Release 管理，未知工号省略，源码修改历史由 Git 管理 |
 | 复杂函数注释层级 | 通过 | `docs/COMMENTING_METHOD.md`、`documentation.function-flow`；定义处编号总览，函数体按空行、逻辑段和领域意图组织 |
+| 函数体关键流程规则 | 通过 | `CSTYLE-COMMENT-FLOW-001` 由 `readability.keyFlowComments` 连接华为 `HW-C99-08-P-03/R-03/R-05`、固定人类文档锚点、lint 诊断和 manual review；正例、零注释负例、Doxygen 冒充负例及检索完整性测试通过 |
 | 非显然分支与 `case` | 通过 | `comment.case-intent`、`comment.case-fallthrough`、黄金 Demo；连续空标签例外，语义准确性保留人工评审 |
-| 简单对象宏注释 | 通过 | `simpleObjectCommentStyle=block`；对象式宏使用独占一行的普通 `/* ... */` |
+| 简单声明尾注释 | 通过 | `simpleObjectCommentStyle=trailing`；简单对象宏、结构体成员和枚举项 snippets 使用声明同行右侧的 `/**< ... */`，复杂说明保留多行 |
+| 纯 `@brief` Doxygen | 通过 | `singleBriefStyle=compact`；正例识别 `/** @brief ... */`，三行纯单标签负例命中 `documentation.compact-single-brief`，多标签块保持多行 |
 | 公开声明性能和重入约束 | 通过 | lint `documentation.performance`、`documentation.reentrancy` |
 | 全局数据详细注释 | 通过 | `s_protocol_version` 说明取值范围、只读所有权和访问限制；lint `documentation.global-variable` |
 | 每个 case/default 有注释 | 通过 | lint `comment.case-intent`；核心状态机全部分支均有中文意图注释 |
 | 头文件保护宏 | 通过 | `DEMO_H` 与三个 `ADVANCED_*_H` 保护宏均唯一 |
 | snippets 自定义 | 通过 | 9 个 VS Code 兼容片段可列举/渲染；`init` 安装且默认不覆盖用户修改 |
 | JSON 和 schema | 通过 | `c-kit`、snippets、139 条规则目录和 external verify target 分别通过 checked-in schema |
-| lint 正例、负例与可读性 | 通过 | 9 个 C/H 黄金文件零诊断；负例命中预期规则 ID；JSON summary 输出复杂函数、扇出和人工评审项 |
+| lint 正例、负例与可读性 | 通过 | 9 个 C/H 黄金文件零诊断；负例命中预期规则 ID；JSON summary 输出复杂函数、`keyFlowCommentCount`、扇出和人工评审项 |
 | 指针返回函数识别 | 通过 | 覆盖 `TYPE *Function`、`TYPE **Function`、星号分隔写法和表达式误判负例；PDO 的 19 个函数全部进入调用图 |
 | GCC 严格 C99 | 通过 | GCC 14.2，`-Werror -Wvla -Wconversion -Wsign-conversion -Wshadow -Wmissing-prototypes -Wstrict-prototypes -Wformat=2` |
 | Clang 严格 C99 | 通过 | Clang 17 前端使用相同严格告警；本机 RISC-V 发行版通过 MinGW host target 语法编译 |

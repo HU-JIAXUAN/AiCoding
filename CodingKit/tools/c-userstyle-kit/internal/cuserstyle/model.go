@@ -60,6 +60,7 @@ type Docs struct {
 	Types                       bool   `json:"types"`
 	Macros                      bool   `json:"macros"`
 	RequireBrief                bool   `json:"requireBrief"`
+	SingleBriefStyle            string `json:"singleBriefStyle"`
 	RequireParamTags            bool   `json:"requireParamTags"`
 	RequireParamDirection       bool   `json:"requireParamDirection"`
 	RequireReturnTag            bool   `json:"requireReturnTag"`
@@ -132,6 +133,7 @@ type Macro struct {
 
 type Readability struct {
 	ComplexFunction                       ComplexFunctionPolicy `json:"complexFunction"`
+	KeyFlowComments                       KeyFlowCommentPolicy  `json:"keyFlowComments"`
 	RequireNumberedIntentCommentPlacement bool                  `json:"requireNumberedIntentCommentPlacement"`
 	ReportNonObviousBranches              bool                  `json:"reportNonObviousBranches"`
 	ReportSingleCallStaticHelpers         bool                  `json:"reportSingleCallStaticHelpers"`
@@ -142,6 +144,14 @@ type ComplexFunctionPolicy struct {
 	MinBranches         int  `json:"minBranches"`
 	MinNesting          int  `json:"minNesting"`
 	RequireNumberedFlow bool `json:"requireNumberedFlow"`
+}
+
+type KeyFlowCommentPolicy struct {
+	RuleID                      string   `json:"ruleId"`
+	SourceRuleIDs               []string `json:"sourceRuleIds"`
+	HumanGuide                  string   `json:"humanGuide"`
+	RequiredForComplexFunctions bool     `json:"requiredForComplexFunctions"`
+	MinimumIntentComments       int      `json:"minimumIntentComments"`
 }
 
 type Template struct {
@@ -197,6 +207,7 @@ type FunctionReadability struct {
 	IncomingDirectCalls    int      `json:"incomingDirectCalls"`
 	Complex                bool     `json:"complex"`
 	NumberedFlowDocumented bool     `json:"numberedFlowDocumented"`
+	KeyFlowCommentCount    int      `json:"keyFlowCommentCount"`
 	SingleCallStaticHelper bool     `json:"singleCallStaticHelper"`
 }
 

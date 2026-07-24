@@ -1,6 +1,7 @@
 package cuserstyle
 
 import (
+	"fmt"
 	"path/filepath"
 	"regexp"
 	"sort"
@@ -13,6 +14,7 @@ var (
 	caseBranchRE     = regexp.MustCompile(`\bcase\b[^:\n]*:`)
 	defaultBranchRE  = regexp.MustCompile(`\bdefault\s*:`)
 	numberedIntentRE = regexp.MustCompile(`^\s*/\*\s*[1-9][0-9]*[.)、]\s+\S.*\*/\s*$`)
+	keyFlowIntentRE  = regexp.MustCompile(`^\s*/\*\s+\S(?:.*\S)?\s+\*/\s*$`)
 	fallthroughRE    = regexp.MustCompile(`(?i)fall[ -]?through|贯穿|继续执行下一`)
 	caseExitRE       = regexp.MustCompile(`\b(?:break|continue|return)\b`)
 )
@@ -97,6 +99,7 @@ func analyzeSourceReadability(path string, data []byte, cfg Config) sourceReadab
 		}
 
 		body := functionBodyText(cleanLines, openLine, openCol, endLine, endCol)
+		originalBody := functionBodyText(originalLines, openLine, openCol, endLine, endCol)
 		effectiveLines, maxNesting := measureFunctionBody(cleanLines, openLine, openCol, endLine, endCol)
 		branchCount := len(ifBranchRE.FindAllStringIndex(body, -1)) +
 			len(caseBranchRE.FindAllStringIndex(body, -1)) +
@@ -118,6 +121,7 @@ func analyzeSourceReadability(path string, data []byte, cfg Config) sourceReadab
 			Callees:                callees,
 			Complex:                complex,
 			NumberedFlowDocumented: hasSequentialNumberedFlow(precedingDoxygen(originalLines, lineIndex)),
+			KeyFlowCommentCount:    countKeyFlowIntentComments(originalBody),
 		}
 		analysis.functions = append(analysis.functions, analyzedFunction{
 			info:      fn,
@@ -163,8 +167,8 @@ func completeCallGraph(analysis *sourceReadabilityAnalysis, cleanText string, cf
 				File:     analysis.summary.File,
 				Line:     functionSummary.Line,
 				Function: functionSummary.Name,
-				Rule:     "review.comment.logical-blocks",
-				Message:  "人工确认编号概览与函数内主要逻辑块、非显然 if/else 的真实意图一致。",
+				Rule:     keyFlowCommentRuleID,
+				Message:  "人工确认所有关键流程均有准确的意图注释，并与编号概览、代码顺序和副作用保持一致。",
 			})
 		}
 		if !cfg.Readability.ReportSingleCallStaticHelpers || !functionSummary.Static ||
@@ -201,11 +205,37 @@ func readabilityDiagnostics(path string, analysis sourceReadabilityAnalysis, ran
 				"documentation.function-flow",
 				"复杂函数的定义文档必须包含从 1、2 开始的连续编号流程概览。"))
 		}
+		keyFlowPolicy := cfg.Readability.KeyFlowComments
+		if functionSummary.Complex && keyFlowPolicy.RequiredForComplexFunctions &&
+			functionSummary.KeyFlowCommentCount < keyFlowPolicy.MinimumIntentComments {
+			diagnostics = append(diagnostics, diag(
+				path,
+				functionSummary.Line,
+				keyFlowPolicy.RuleID,
+				fmt.Sprintf(
+					"复杂函数至少需要 %d 条独立成行的函数体意图注释；当前检测到 %d 条。",
+					keyFlowPolicy.MinimumIntentComments,
+					functionSummary.KeyFlowCommentCount,
+				),
+			))
+		}
 	}
 	if cfg.Readability.RequireNumberedIntentCommentPlacement {
 		diagnostics = append(diagnostics, validateNumberedIntentPlacement(path, analysis, ranges, changedOnly)...)
 	}
 	return diagnostics
+}
+
+func countKeyFlowIntentComments(body string) int {
+	count := 0
+	for _, line := range strings.Split(body, "\n") {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "/**") || !keyFlowIntentRE.MatchString(line) {
+			continue
+		}
+		count++
+	}
+	return count
 }
 
 func validateNumberedIntentPlacement(path string, analysis sourceReadabilityAnalysis, ranges []LineRange, changedOnly bool) []Diagnostic {

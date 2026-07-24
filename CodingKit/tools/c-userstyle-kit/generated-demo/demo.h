@@ -21,26 +21,20 @@
 extern "C" {
 #endif
 
-/**
- * @brief 单次评估允许读取的最大采样数量。
- */
+/** @brief 单次评估允许读取的最大采样数量。 */
 enum
 {
     DEMO_SAMPLE_MAX_COUNT = 8
 };
 
-/**
- * @brief 采样评估操作结果。
- */
+/** @brief 采样评估操作结果。 */
 typedef enum
 {
     DEMO_EVALUATE_RESULT_OK = 0,
     DEMO_EVALUATE_RESULT_INVALID_ARGUMENT
 } demo_evaluate_result_t;
 
-/**
- * @brief 平均值相对于阈值的等级。
- */
+/** @brief 平均值相对于阈值的等级。 */
 typedef enum
 {
     DEMO_SAMPLE_LEVEL_LOW = 0,
@@ -59,9 +53,7 @@ typedef struct
     uint16_t high;  /**< 平均值高于该值时判定为高等级。 */
 } demo_thresholds_t;
 
-/**
- * @brief 一次采样评估的输出摘要。
- */
+/** @brief 一次采样评估的输出摘要。 */
 typedef struct
 {
     uint16_t average;          /**< 向下取整后的整数平均值。 */

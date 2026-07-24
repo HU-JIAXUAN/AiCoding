@@ -58,6 +58,7 @@ host 工具，不接受 shell 命令、不调用 TI/CCS 或固件构建，见
 | --- | --- |
 | Skill 配置 | `config/skills/c99-standard-c/skill.json:1-32` 是 Skill 绑定、工具路径与排除策略权威。 |
 | Kit manifest | `config/kits/c-userstyle-kit.json:1-167` 声明 1.2.0、external-cli 命令、导出和 trust。 |
+| Kit 注释配置 | `CodingKit/tools/c-userstyle-kit/examples/c-kit.json` 与 schema 定义项目级注释约束；`singleBriefStyle=compact` 约束纯单标签 Doxygen，`simpleObjectCommentStyle=trailing` 约束简单声明尾注释，`readability.keyFlowComments` 用稳定 ID `CSTYLE-COMMENT-FLOW-001` 连接华为来源条款、人类文档、lint 和 manual review。 |
 | clang-format | `config/skills/c99-standard-c/style/clang-format.yaml:1-26` 是源；根 `.clang-format:1-27` 是兼容投影。C99-005 对两者的关键字段及 source-of-truth 声明做静态校验，见 `internal/testengine/engine.go:908-926`。 |
 | CLI 外壳 | 唯一 `report.Result` 字段为 `schemaVersion/command/ok/errorKind/message/repoRoot/inputDigest/planDigest/checked/data/warnings/errors/elapsedMs`，见 `internal/report/result.go:22-36`；领域细节放入 `data`。 |
 | verify payload | 外部进程必须返回单一 `cstylekit.verify.v1` JSON，profile 与请求一致、`ok` 为 true，见 `internal/cstyle/verify.go:158-190`。 |

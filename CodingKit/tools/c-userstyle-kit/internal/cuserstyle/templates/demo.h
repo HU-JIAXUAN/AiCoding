@@ -22,17 +22,13 @@
 extern "C" {
 #endif
 
-/**
- * @brief 单批采样允许保存的元素数量。
- */
+/** @brief 单批采样允许保存的元素数量。 */
 enum
 {
     DEMO_SAMPLE_CAPACITY = 8
 };
 
-/**
- * @brief 核心模块运行状态。
- */
+/** @brief 核心模块运行状态。 */
 typedef enum
 {
     DEMO_STATE_IDLE = 0,
@@ -42,9 +38,7 @@ typedef enum
     DEMO_STATE_FAULT
 } demo_state_t;
 
-/**
- * @brief 核心模块操作结果。
- */
+/** @brief 核心模块操作结果。 */
 typedef enum
 {
     DEMO_RESULT_OK = 0,
@@ -73,9 +67,7 @@ typedef struct
     void *user_context;      /**< 原样传给 enter 和 leave 的平台上下文。 */
 } demo_critical_section_t;
 
-/**
- * @brief 核心模块可观察状态快照。
- */
+/** @brief 核心模块可观察状态快照。 */
 typedef struct
 {
     demo_state_t state;          /**< 读取快照时的状态机状态。 */

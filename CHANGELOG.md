@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **feat(c-userstyle)**: 将 C 注释规则收敛为可读、可检索且可验证的合同：纯单标签 Doxygen 默认使用 `/** @brief ... */`，简单对象式宏、结构体成员和枚举项默认使用同行 `/**< ... */`；新增稳定规则 `CSTYLE-COMMENT-FLOW-001`，由配置登记华为来源条款与人类检查入口，对复杂函数执行最低函数体意图注释门禁，并以同一 ID 保留语义完整性人工复核。同步 schema、模板、snippets、规则目录证据、正反例和 C99 Skill 文档。 / Makes the C commenting policy readable, searchable, and verifiable with compact single-brief Doxygen, trailing declaration comments, and the stable `CSTYLE-COMMENT-FLOW-001` contract linking Huawei clauses, human guidance, a conservative complex-function lint gate, and explicit semantic review.
+
 - **docs(architecture)**: 完成 TODO 0046：逐条真跑并记录 Roadmap 七项地基证据，确认 typed catalog 与八动词、三档 profile、schemaVersion=1 报告、Taskfile 纯路由、PowerShell 六类棘轮和已移除入口防复活全部由现有精确门禁覆盖；据此宣布架构阶段结束，后续默认归类为功能扩展或模块内部优化，解冻仍必须同时具备 ADR、现实问题、稳定变化点和两个真实消费者。 / Closes the architecture stage after recording executable evidence for all seven groundwork contracts, classifies subsequent work as feature expansion or module-internal optimization, and preserves the four-part ADR thaw rule.
 
 - **docs(validation)**: 完成 TODO 0045：把 `VALIDATION_EVIDENCE_BUDGET` 原 §9–11 的第三至第五期过程样本逐字归档到 evidence 目录，主文档只保留已承接结论与链接；搬运块 SHA-256 前后一致，§12 至文件末尾的工具链限制解决记录、晋级计数、数据库裁决及 ADR 0014 默认值翻转记录保持逐字不变，可继续沿 Git 历史追溯。 / Archives the byte-identical phase-three-through-five process evidence from the validation budget, leaves only conclusions and a link in the main document, and preserves every byte from section 12 through the ADR 0014 default-promotion record with Git-traceable history.

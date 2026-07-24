@@ -41,9 +41,18 @@
 - `test`：运行时边界、错误返回、状态、资源和故障注入。
 - `manual`：职责、命名语义、注释准确性、架构耦合等需要判断的规则。
 
-注释规则采用分层证据：lint 只检查可稳定判断的形式、位置、空行和分支结构；复杂函数总览是否
-覆盖真实职责、分支注释是否说明领域意图，由 `AGENTS.md`、`docs/COMMENTING_METHOD.md`、黄金样例
-和人工评审共同保证。禁止仅凭注释关键词声称完成语义验证。
+注释规则采用分层证据：lint 只检查可稳定判断的形式、位置、空行、分支结构，以及复杂函数是否
+至少存在配置要求的函数体意图注释；关键流程是否覆盖真实职责、分支注释是否说明领域意图，由
+`AGENTS.md`、`docs/COMMENTING_METHOD.md`、黄金样例和人工评审共同保证。禁止仅凭注释关键词或
+数量声称完成语义验证。
+
+`CSTYLE-COMMENT-FLOW-001` 是项目级稳定规则 ID。`examples/c-kit.json` 的
+`readability.keyFlowComments` 同时登记华为来源条款、文档锚点、启用条件和最低数量；lint 诊断与
+可读性摘要的 `manualReview` 复用同一 ID，使机器能够从配置确定性跳转到来源与人类检查方法。
+
+`documentation.singleBriefStyle=compact` 是 Kit 的项目级排版约束：lint 只在 Doxygen 块确实仅含
+一个非空 `@brief` 时要求 `/** @brief ... */`，多标签或带补充正文的块不压缩。该规则不改变上游
+139 条编号条款的数量。
 
 139 条编号条款和第 0/16 章等非编号内容都必须有证据，但不要求也不允许把所有语义规则伪装成
 正则 lint。`tools/rules/build_rule_catalog.py --check` 保证分类和证据不丢失。

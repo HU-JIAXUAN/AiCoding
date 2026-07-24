@@ -63,6 +63,7 @@
     "types": true,
     "macros": true,
     "requireBrief": true,
+    "singleBriefStyle": "compact",
     "requireParamTags": true,
     "requireParamDirection": true,
     "requireReturnTag": true,
@@ -115,7 +116,7 @@
     "protectFinalExpression": true,
     "multiStatementDoWhile": true,
     "requireDocumentation": true,
-    "simpleObjectCommentStyle": "block"
+    "simpleObjectCommentStyle": "trailing"
   },
   "readability": {
     "complexFunction": {
@@ -123,6 +124,17 @@
       "minBranches": 3,
       "minNesting": 3,
       "requireNumberedFlow": true
+    },
+    "keyFlowComments": {
+      "ruleId": "CSTYLE-COMMENT-FLOW-001",
+      "sourceRuleIds": [
+        "HW-C99-08-P-03",
+        "HW-C99-08-R-03",
+        "HW-C99-08-R-05"
+      ],
+      "humanGuide": "docs/COMMENTING_METHOD.md#cstyle-comment-flow-001",
+      "requiredForComplexFunctions": true,
+      "minimumIntentComments": 1
     },
     "requireNumberedIntentCommentPlacement": true,
     "reportNonObviousBranches": true,

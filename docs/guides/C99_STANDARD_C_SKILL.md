@@ -25,6 +25,21 @@ C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit �
 华为 C 语言编程规范 DKBA 2826-2011.5 的 PDF 与完整 Markdown 参考副本位于 C Kit 的
 `references/`，经用户明确授权可随 AiCoding 的 kit/component 发布包分发。
 
+## 注释规则与机器检索
+
+- 仅含一个非空 `@brief` 且没有正文续行或其他标签时，使用紧凑形式
+  `/** @brief ... */`；多标签文档保持多行。
+- 简单对象式宏、结构体/联合体成员和枚举项默认使用声明同行右侧的 `/**< ... */`。
+- 函数体关键流程使用稳定规则 ID `CSTYLE-COMMENT-FLOW-001`。机器入口是
+  `CodingKit/tools/c-userstyle-kit/examples/c-kit.json` 的 `readability.keyFlowComments`：
+  `sourceRuleIds` 指向华为规则目录，`humanGuide` 指向人类可读检查方法，lint 诊断和可读性摘要
+  的 `manualReview` 复用同一 ID。
+
+`minimumIntentComments` 只定义复杂函数的最低存在性门禁。人或 Agent 仍须按
+`CodingKit/tools/c-userstyle-kit/docs/COMMENTING_METHOD.md#cstyle-comment-flow-001` 检查输入边界、
+状态迁移、硬件时序、临界区、错误收敛和最终发布等真实关键流程，不能把“lint 通过”解释为语义
+已经完整。
+
 ## Taskfile 入口
 
 ```bash

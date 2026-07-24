@@ -108,12 +108,11 @@
   "C Simple Object Macro": {
     "prefix": "简单宏",
     "body": [
-      "/* ${1:说明宏的领域含义、单位或约束。} */",
-      "#define ${2:MACRO_NAME} ${3:value}",
+      "#define ${2:MACRO_NAME} ${3:value}  /**< ${1:说明宏的领域含义、单位或约束。} */",
       "",
       "$0"
     ],
-    "description": "生成带单行块注释的简单对象式宏"
+    "description": "生成带同行 Doxygen 尾注释的简单对象式宏"
   },
   "C Struct Brief": {
     "prefix": "结构体",
@@ -126,8 +125,8 @@
       " */",
       "typedef struct",
       "{",
-      "    ${3:/* members */}",
-      "} ${4:type_name_t};",
+      "    ${3:uint32_t value;}  /**< ${4:说明成员含义、单位和范围。} */",
+      "} ${5:type_name_t};",
       "",
       "$0"
     ],
@@ -136,19 +135,17 @@
   "C Enum Brief": {
     "prefix": "枚举",
     "body": [
-      "/**",
-      " * @brief ${1:枚举类型说明}",
-      " */",
+      "/** @brief ${1:枚举类型说明} */",
       "typedef enum",
       "{",
-      "    ${2:ENUM_ITEM_0} = 0,",
-      "    ${3:ENUM_ITEM_1},",
-      "    ${4:ENUM_ITEM_2}",
-      "} ${5:enum_name_t};",
+      "    ${2:ENUM_ITEM_0} = 0,  /**< ${3:说明第一个枚举值。} */",
+      "    ${4:ENUM_ITEM_1},      /**< ${5:说明第二个枚举值。} */",
+      "    ${6:ENUM_ITEM_2}       /**< ${7:说明第三个枚举值。} */",
+      "} ${8:enum_name_t};",
       "",
       "$0"
     ],
-    "description": "生成枚举类型定义（带说明）"
+    "description": "生成带紧凑单标签 Doxygen 的枚举类型定义"
   },
   "C Common Includes": {
     "prefix": "常用头文件",

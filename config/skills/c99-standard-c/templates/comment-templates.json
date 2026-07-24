@@ -168,25 +168,23 @@
       "variables": {
         "brief": { "description": "结构体名称或用途简述。", "default": "结构体名称", "required": true },
         "details": { "description": "结构体用途、字段含义及使用场景说明。", "default": "结构体用途、字段含义及使用场景说明" },
-        "members": { "description": "结构体成员列表，成员应逐项说明单位和范围。", "default": "/* members */" },
+        "members": { "description": "结构体成员列表，简短说明默认使用同行 /**< ... */。", "default": "uint32_t value; /**< 说明成员含义、单位和范围。 */" },
         "type_name": { "description": "结构体类型名。", "default": "type_name_t" }
       }
     },
     {
       "id": "c-enum-brief",
       "title": "C Enum Brief",
-      "description": "枚举类型定义模板。",
+      "description": "使用紧凑单标签 Doxygen 的枚举类型定义模板。",
       "language": "c",
       "kind": "enum",
       "body": [
-        "/**",
-        " * @brief {{brief}}",
-        " */",
+        "/** @brief {{brief}} */",
         "typedef enum",
         "{",
-        "    {{enum_item_0}} = 0,",
-        "    {{enum_item_1}},",
-        "    {{enum_item_2}}",
+        "    {{enum_item_0}} = 0, /**< {{enum_item_0_brief}} */",
+        "    {{enum_item_1}},     /**< {{enum_item_1_brief}} */",
+        "    {{enum_item_2}}      /**< {{enum_item_2_brief}} */",
         "} {{type_name}};"
       ],
       "variables": {
@@ -194,6 +192,9 @@
         "enum_item_0": { "description": "第一个枚举值。", "default": "ENUM_ITEM_0" },
         "enum_item_1": { "description": "第二个枚举值。", "default": "ENUM_ITEM_1" },
         "enum_item_2": { "description": "第三个枚举值。", "default": "ENUM_ITEM_2" },
+        "enum_item_0_brief": { "description": "第一个枚举值说明。", "default": "说明第一个枚举值" },
+        "enum_item_1_brief": { "description": "第二个枚举值说明。", "default": "说明第二个枚举值" },
+        "enum_item_2_brief": { "description": "第三个枚举值说明。", "default": "说明第三个枚举值" },
         "type_name": { "description": "枚举类型名。", "default": "enum_name_t" }
       }
     },

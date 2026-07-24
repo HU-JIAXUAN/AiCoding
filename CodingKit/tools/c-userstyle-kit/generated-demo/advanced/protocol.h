@@ -22,18 +22,14 @@
 extern "C" {
 #endif
 
-/**
- * @brief 演示协议固定字段值。
- */
+/** @brief 演示协议固定字段值。 */
 enum
 {
     DEMO_PROTOCOL_VERSION = 1,
     DEMO_PROTOCOL_FRAME_SIZE = 8
 };
 
-/**
- * @brief 协议解析结果。
- */
+/** @brief 协议解析结果。 */
 typedef enum
 {
     DEMO_PROTOCOL_RESULT_OK = 0,
@@ -44,9 +40,7 @@ typedef enum
     DEMO_PROTOCOL_RESULT_OUTPUT_TOO_SMALL
 } demo_protocol_result_t;
 
-/**
- * @brief 从固定网络字节序帧解析出的消息。
- */
+/** @brief 从固定网络字节序帧解析出的消息。 */
 typedef struct
 {
     uint16_t command;  /**< 两字节无符号命令字。 */

@@ -11,6 +11,14 @@
  * 文件关系：只由 Go 单元测试读取，禁止加入任何编译目标。
  */
 
+/**
+ * @brief 该纯单标签块故意展开为多行。
+ */
+typedef enum
+{
+    DEMO_BAD_VALUE = 0
+} demo_bad_t;
+
 uint32_t bad_global = 0U;
 
 /**

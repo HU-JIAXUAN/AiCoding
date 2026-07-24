@@ -22,18 +22,14 @@
 extern "C" {
 #endif
 
-/**
- * @brief 资源池固定布局参数。
- */
+/** @brief 资源池固定布局参数。 */
 enum
 {
     DEMO_POOL_CAPACITY = 4,
     DEMO_POOL_PAYLOAD_CAPACITY = 16
 };
 
-/**
- * @brief 资源池操作结果。
- */
+/** @brief 资源池操作结果。 */
 typedef enum
 {
     DEMO_POOL_RESULT_OK = 0,
@@ -43,9 +39,7 @@ typedef enum
     DEMO_POOL_RESULT_OUTPUT_TOO_SMALL
 } demo_pool_result_t;
 
-/**
- * @brief 标识一次具体资源占用的代际句柄。
- */
+/** @brief 标识一次具体资源占用的代际句柄。 */
 typedef struct
 {
     uint16_t slot;        /**< 固定槽索引，范围为 0 到 3。 */
