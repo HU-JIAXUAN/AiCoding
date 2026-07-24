@@ -11,9 +11,9 @@
   "commentTemplates": "templates/comment-templates.json",
   "rules": "rules/embedded-c-rules.md",
   "kit": {
-    "id": "c-userstyle-kit",
+    "id": "c-kit",
     "version": "1.2.0",
-    "root": "CodingKit/tools/c-userstyle-kit",
+    "root": "CodingKit/tools/c-kit",
     "config": "examples/c-kit.json",
     "snippets": "examples/c-snippets.json",
     "quickTarget": "examples/verify-target.json"
@@ -27,6 +27,6 @@
     "build",
     "out",
     "dist",
-    "CodingKit/tools/c-userstyle-kit"
+    "CodingKit/tools/c-kit"
   ]
 }

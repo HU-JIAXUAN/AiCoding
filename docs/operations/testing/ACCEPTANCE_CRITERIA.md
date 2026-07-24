@@ -24,11 +24,11 @@ Doctor 的环境缺失可以是可解释 warning；Verify 的 REQUIRED 静态/�
 
 1. `skill c99-standard-c status --json` 成功。
 2. `skill c99-standard-c templates --json` 成功。
-3. `skill c99-standard-c verify --json` 成功，并明确执行 C UserStyle Kit `fast` profile。
+3. `skill c99-standard-c verify --json` 成功，并明确执行 C Kit `fast` profile。
 4. `check --scope paths --path testdata/style-samples/foc_sample.c --json` 成功，或报告明确样例不存在。
-5. `config/skills/c99-standard-c/skill.json` 指向 style、templates、rules 和 `c-userstyle-kit` 元数据。
+5. `config/skills/c99-standard-c/skill.json` 指向 style、templates、rules 和 `c-kit` 元数据。
 6. `.clang-format` 明确是投影，source-of-truth 为 skill 配置。
-7. 排除项包含 vendor/third_party/generated/Drivers/device/build/out/dist，并仅按仓库相对路径排除自包含的 `CodingKit/tools/c-userstyle-kit`。
+7. 排除项包含 vendor/third_party/generated/Drivers/device/build/out/dist，并仅按仓库相对路径排除自包含的 `CodingKit/tools/c-kit`。
 8. C Kit 1.2.0 的黄金/高级样例、139 条规则目录、snippets、PDF 与 Markdown 参考副本存在。
 
 ## 3. Go 并发验收

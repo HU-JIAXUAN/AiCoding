@@ -14,7 +14,7 @@ import (
 
 const (
 	kitVerifyTimeout    = 6 * time.Minute
-	verifyPayloadSchema = "cstylekit.verify.v1"
+	verifyPayloadSchema = "ckit.verify.v1"
 )
 
 type VerifyOptions struct {
@@ -52,7 +52,7 @@ func (osVerifyCommandRunner) Run(
 	kitRoot string,
 	args []string,
 ) ([]byte, []byte, error) {
-	goArgs := append([]string{"-C", kitRoot, "run", "./cmd/cstylekit"}, args...)
+	goArgs := append([]string{"-C", kitRoot, "run", "./cmd/ckit"}, args...)
 	cmd := exec.CommandContext(ctx, "go", goArgs...)
 	cmd.Dir = repoRoot
 

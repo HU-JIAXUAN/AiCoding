@@ -41,8 +41,8 @@
 | C99-003 | 样例路径格式检查 | `bin/aicoding.exe skill c99-standard-c check --scope paths --path testdata/style-samples/foc_sample.c --json` | 样例存在时退出码 0 | REQUIRED |
 | C99-004 | staged C/H 检查入口 | `bin/aicoding.exe skill c99-standard-c check --scope staged --json` | 退出码 0 或明确无 staged 文件 | REQUIRED |
 | C99-005 | source-of-truth 配置 | 检查 `config/skills/c99-standard-c/*` 与 `.clang-format` | 配置文件存在，投影包含关键字段 | REQUIRED |
-| C99-006 | 排除目录与自包含 Kit 边界策略 | 解析 `skill.json` 并执行 Go 回归测试 | 包含常规目录名排除项与 `CodingKit/tools/c-userstyle-kit` 仓库相对路径排除项，且不误排其他 `tools` 内容 | REQUIRED |
-| C99-007 | C UserStyle Kit 快速验证 | `bin/aicoding.exe skill c99-standard-c verify --json` | fast profile 成功，输出统一 JSON，且不调用固件工具链 | REQUIRED |
+| C99-006 | 排除目录与自包含 Kit 边界策略 | 解析 `skill.json` 并执行 Go 回归测试 | 包含常规目录名排除项与 `CodingKit/tools/c-kit` 仓库相对路径排除项，且不误排其他 `tools` 内容 | REQUIRED |
+| C99-007 | C Kit 快速验证 | `bin/aicoding.exe skill c99-standard-c verify --json` | fast profile 成功，输出统一 JSON，且不调用固件工具链 | REQUIRED |
 | C99-008 | C Kit 资产与参考完整性 | 检查 kit manifest、黄金/高级样例、规则目录、snippets、PDF 和 Markdown 参考 | 资产存在，manifest version 为 1.2.0 | REQUIRED |
 | SKILL-001 | 全部启用 Skill Smoke 验证 | `bin/aicoding.exe skill verify --all --profile Smoke --json` | 统一 Skill registry 验证通过 | REQUIRED |
 

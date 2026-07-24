@@ -69,7 +69,7 @@ tasks:
       - bin/aicoding.exe skill c99-standard-c templates --json
 
   style:c:verify:
-    desc: Run the C UserStyle Kit fast host verification
+    desc: Run the C Kit fast host verification
     deps: [ensure-bin]
     cmds:
       - bin/aicoding.exe skill c99-standard-c verify --depth fast --timings --json

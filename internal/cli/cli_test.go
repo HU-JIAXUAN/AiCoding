@@ -473,11 +473,11 @@ func TestC99StandardCSkillCommandsRouteToCStyle(t *testing.T) {
 
 }
 
-func TestC99StandardCSkillVerifyWrapsCStyleKitJSON(t *testing.T) {
+func TestC99StandardCSkillVerifyWrapsCKitJSON(t *testing.T) {
 	t.Parallel()
 	repo := t.TempDir()
 	writeC99SkillFixture(t, repo)
-	writeFakeCStyleKit(t, repo)
+	writeFakeCKit(t, repo)
 	mustWrite(t, filepath.Join(repo, "fixtures", "target.json"), "{}\n")
 	mustWrite(t, filepath.Join(repo, "overlays", "project.json"), "{}\n")
 
@@ -669,12 +669,12 @@ func writeC99SkillFixture(t *testing.T, repo string) {
   "commentTemplates": "templates/comment-templates.json",
   "rules": "rules/embedded-c-rules.md",
   "kit": {
-    "id": "c-userstyle-kit",
+    "id": "c-kit",
     "version": "test",
-    "root": "CodingKit/tools/c-userstyle-kit",
-    "config": "CodingKit/tools/c-userstyle-kit/examples/c-kit.json",
-    "snippets": "CodingKit/tools/c-userstyle-kit/examples/c-snippets.json",
-    "quickTarget": "CodingKit/tools/c-userstyle-kit/examples/verify-target.json"
+    "root": "CodingKit/tools/c-kit",
+    "config": "CodingKit/tools/c-kit/examples/c-kit.json",
+    "snippets": "CodingKit/tools/c-kit/examples/c-snippets.json",
+    "quickTarget": "CodingKit/tools/c-kit/examples/verify-target.json"
   },
   "excludedDirectories": ["vendor", "third_party", "generated", "Drivers", "device", "build", "out", "dist"]
 }
@@ -698,11 +698,11 @@ func writeC99SkillFixture(t *testing.T, repo string) {
 	mustWrite(t, filepath.Join(repo, "config", "skills", "c99-standard-c", "rules", "embedded-c-rules.md"), "# rules\n")
 }
 
-func writeFakeCStyleKit(t *testing.T, repo string) {
+func writeFakeCKit(t *testing.T, repo string) {
 	t.Helper()
 	root := filepath.Join(repo, filepath.FromSlash(cstyle.DefaultKitRoot))
-	mustWrite(t, filepath.Join(root, "go.mod"), "module c-userstyle-kit\n\ngo 1.22\n")
-	mustWrite(t, filepath.Join(root, "cmd", "cstylekit", "main.go"), `package main
+	mustWrite(t, filepath.Join(root, "go.mod"), "module c-kit\n\ngo 1.22\n")
+	mustWrite(t, filepath.Join(root, "cmd", "ckit", "main.go"), `package main
 
 import (
 	"encoding/json"
@@ -711,7 +711,7 @@ import (
 
 func main() {
 	_ = json.NewEncoder(os.Stdout).Encode(map[string]interface{}{
-		"schema":  "cstylekit.verify.v1",
+		"schema":  "ckit.verify.v1",
 		"ok":      true,
 		"profile": "fast",
 	})

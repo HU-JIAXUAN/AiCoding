@@ -2,7 +2,7 @@
 
 > 本文件由 `config/internal-capabilities.json` 生成，请运行 `bin/aicoding.exe capability index --write` 更新。
 
-Registry digest: `sha256:cdc4c7c38b0f0acb4d33282e0e84baa64a2964441c37d3becf4c168fc8a3f1d5`
+Registry digest: `sha256:9e6afd51d2fffcb8e3eca9b242d848135f3d849c173617c4c3592834cf10f49d`
 
 共登记 29 个 `internal/` 一级包；文档义务按公共入口、内部实现域和 Primitive 分级。
 
@@ -15,7 +15,7 @@ Registry digest: `sha256:cdc4c7c38b0f0acb4d33282e0e84baa64a2964441c37d3becf4c168
 |---|---|---|---|---|---|---|---|
 | `adr-review` | `internal/adrreview` | `internal-only` | `stable` | 检查新 Primitive ADR 是否包含必需的自评清单。 | — | — | `go test ./internal/adrreview/...` |
 | `bootstrap` | `internal/bootstrap` | `product-workflow` | `stable` | 检查并构建 AiCoding Go CLI 的最小本地启动路径。 | `aicoding bootstrap` | [文档](architecture/AICODING_CORE_ARCHITECTURE.md) | `go test ./internal/bootstrap/...` |
-| `c-style` | `internal/cstyle` | `domain-capability` | `stable` | 统一 C99 风格、注释、格式化与宿主验证入口。 | `aicoding skill c99-standard-c check`<br>`aicoding skill c99-standard-c verify` | [文档](architecture/C_USERSTYLE_KIT_ARCHITECTURE.md) | `go test ./internal/cstyle/...` |
+| `c-style` | `internal/cstyle` | `domain-capability` | `stable` | 统一 C99 风格、注释、格式化与宿主验证入口。 | `aicoding skill c99-standard-c check`<br>`aicoding skill c99-standard-c verify` | [文档](architecture/C_KIT_ARCHITECTURE.md) | `go test ./internal/cstyle/...` |
 | `cache` | `internal/cache` | `domain-capability` | `stable` | 观测并按证据保护规则回收已注册的本地生成物与临时资源。 | `aicoding cache status`<br>`aicoding cache clean` | [文档](architecture/01-system-architecture.md) | `go test ./internal/cache/...` |
 | `capability` | `internal/capability` | `domain-capability` | `beta` | 把 internal 包投影为可查询、可生成且可治理的单一能力目录。 | `aicoding capability list`<br>`aicoding capability describe`<br>`aicoding capability index` | [文档](architecture/01-system-architecture.md) | `go test ./internal/capability/...` |
 | `cli` | `internal/cli` | `product-workflow` | `stable` | 拥有 typed command catalog、参数解析、帮助、JSON stdout 与退出码。 | `aicoding --help` | [文档](architecture/AICODING_CORE_ARCHITECTURE.md) | `go test ./internal/cli/...` |
@@ -64,7 +64,7 @@ Registry digest: `sha256:cdc4c7c38b0f0acb4d33282e0e84baa64a2964441c37d3becf4c168
 
 - 当前状态：`stable`（`domain-capability`）
 - 是什么：统一 C99 风格、注释、格式化与宿主验证入口。
-- 架构图：[文档](architecture/C_USERSTYLE_KIT_ARCHITECTURE.md)
+- 架构图：[文档](architecture/C_KIT_ARCHITECTURE.md)
 - 怎么用：
   1. `aicoding skill c99-standard-c status --json`
   2. `aicoding skill c99-standard-c verify --depth fast --json`

@@ -9,4 +9,4 @@
 | 资产身份不带版本 | path/id/code/README title scan | asset identity version opacity |
 | README 版本只走 badge | 三语 badge equality + exact target | README version badge authority |
 | 第三方链接准确 | upstream version URL binding | Go/PowerShell/Python/LLVM exact links |
-| 本地 Kit 链接准确 | badge -> local guide -> manifest version | C UserStyle Kit manifest comparison |
+| 本地 Kit 链接准确 | badge -> local guide -> manifest version | C Kit manifest comparison |

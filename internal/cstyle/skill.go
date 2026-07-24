@@ -11,8 +11,8 @@ import (
 
 const (
 	DefaultSkillID        = "c99-standard-c"
-	DefaultKitID          = "c-userstyle-kit"
-	DefaultKitRoot        = "CodingKit/tools/c-userstyle-kit"
+	DefaultKitID          = "c-kit"
+	DefaultKitRoot        = "CodingKit/tools/c-kit"
 	DefaultKitConfig      = "examples/c-kit.json"
 	DefaultKitSnippets    = "examples/c-snippets.json"
 	DefaultKitQuickTarget = "examples/verify-target.json"

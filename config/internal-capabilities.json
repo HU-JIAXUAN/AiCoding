@@ -96,7 +96,7 @@
       "status": "stable",
       "summary": "统一 C99 风格、注释、格式化与宿主验证入口。",
       "publicEntries": ["aicoding skill c99-standard-c check","aicoding skill c99-standard-c verify"],
-      "architectureDoc": "docs/architecture/C_USERSTYLE_KIT_ARCHITECTURE.md",
+      "architectureDoc": "docs/architecture/C_KIT_ARCHITECTURE.md",
       "quickstart": {
         "steps": ["aicoding skill c99-standard-c status --json","aicoding skill c99-standard-c verify --depth fast --json"]
       },

@@ -28,10 +28,10 @@
       "manifest": "config/kits/common-control-kit.json"
     },
     {
-      "id": "c-userstyle-kit",
+      "id": "c-kit",
       "enabled": true,
       "order": 75,
-      "manifest": "config/kits/c-userstyle-kit.json"
+      "manifest": "config/kits/c-kit.json"
     },
     {
       "id": "release-governance-overlay-kit",

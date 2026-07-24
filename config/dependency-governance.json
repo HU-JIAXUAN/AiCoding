@@ -175,12 +175,12 @@
         "displayVersion": "17.0.2"
       },
       {
-        "label": "C UserStyle Kit",
-        "imageFragment": "C%20UserStyle%20Kit-1.2.0-A8B9CC?logo=c&logoColor=black",
+        "label": "C Kit",
+        "imageFragment": "C%20Kit-1.2.0-A8B9CC?logo=c&logoColor=black",
         "target": "docs/guides/C99_STANDARD_C_SKILL.md",
         "authority": "local-kit",
         "displayVersion": "1.2.0",
-        "manifest": "config/kits/c-userstyle-kit.json"
+        "manifest": "config/kits/c-kit.json"
       }
     ]
   },
@@ -223,11 +223,11 @@
         ]
       },
       {
-        "id": "c-userstyle-kit",
+        "id": "c-kit",
         "layer": "capability",
         "platformAgnostic": true,
         "roots": [
-          "CodingKit/tools/c-userstyle-kit"
+          "CodingKit/tools/c-kit"
         ],
         "dependsOn": [
           "runtime:c99"

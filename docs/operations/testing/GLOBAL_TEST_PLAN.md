@@ -7,7 +7,7 @@
 核心问题：
 
 1. **功能是否收敛到 Go CLI 正式控制面**：lifecycle/doctor/verify/test/release 是否职责清晰，Smoke/Full/Release 是否只由唯一 test engine 执行。
-2. **C 语言 skill 是否可验证风格一致性**：`c99-standard-c` 的 status、templates、fmt/check、C UserStyle Kit fast verify、`.clang-format` 投影与 source-of-truth 是否一致。
+2. **C 语言 skill 是否可验证风格一致性**：`c99-standard-c` 的 status、templates、fmt/check、C Kit fast verify、`.clang-format` 投影与 source-of-truth 是否一致。
 3. **下载安装外部 skill / 创建用户 skill 相关流程是否规范**：kit registry、manifest、lifecycle plan、export、rollback/fresh-clone 路径是否可检查。
 4. **Go 并发和核心对象是否可靠**：ExecutionPlan 的不可变选择、snapshot/digest、runner 并发、race 检查和 CLI 并发只读调用是否稳定。
 5. **README 与文档是否同步**：README/README_CN/README_EN、COMMANDS、C99 skill 文档、DocSync gate 是否对齐。
@@ -98,7 +98,7 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 - Task `ensure-bin` 通过 checksum 在输入变化时生成 `bin/aicoding.exe`；BOOT-002/003 验证 CLI 与静态前置条件且不重复构建。
 - `doctor --all --json` 和 `verify --profile Smoke --json` 成功或仅产生可解释 warning。
 - `test --profile Smoke --json` 成功。
-- C99 status/templates 与 C UserStyle Kit fast verify 成功。
+- C99 status/templates 与 C Kit fast verify 成功。
 - README/COMMANDS/C99 文档存在且包含必要入口。
 - Git hooks/repo-text 至少可执行或给出明确失败原因。
 

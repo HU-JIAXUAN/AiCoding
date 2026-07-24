@@ -865,13 +865,13 @@ func runStatic(cfg Config, tc TestCase) Result {
 			"config/skills/c99-standard-c/templates/comment-templates.json",
 			"config/skills/c99-standard-c/rules/embedded-c-rules.md",
 			".clang-format",
-			"CodingKit/tools/c-userstyle-kit/go.mod",
-			"CodingKit/tools/c-userstyle-kit/cmd/cstylekit/main.go",
-			"CodingKit/tools/c-userstyle-kit/examples/c-kit.json",
-			"CodingKit/tools/c-userstyle-kit/examples/c-snippets.json",
-			"CodingKit/tools/c-userstyle-kit/examples/verify-target.json",
-			"CodingKit/tools/c-userstyle-kit/config/rules/huawei-c-language-programming-standard.rules.json",
-			"CodingKit/tools/c-userstyle-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.pdf",
+			"CodingKit/tools/c-kit/go.mod",
+			"CodingKit/tools/c-kit/cmd/ckit/main.go",
+			"CodingKit/tools/c-kit/examples/c-kit.json",
+			"CodingKit/tools/c-kit/examples/c-snippets.json",
+			"CodingKit/tools/c-kit/examples/verify-target.json",
+			"CodingKit/tools/c-kit/config/rules/huawei-c-language-programming-standard.rules.json",
+			"CodingKit/tools/c-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.pdf",
 		)
 		if err == nil {
 			err = checkC99Projection(cfg.Repo)
@@ -879,7 +879,7 @@ func runStatic(cfg Config, tc TestCase) Result {
 	case "C99-006":
 		err = checkC99ExcludedDirs(cfg.Repo)
 	case "C99-008":
-		err = checkCStyleKitAssets(cfg.Repo)
+		err = checkCKitAssets(cfg.Repo)
 	case "EXP-002":
 		err = checkExportDefinitions(cfg.Repo)
 	case "FRESH-003":
@@ -977,26 +977,26 @@ func requirePaths(repo string, rels ...string) error {
 	return nil
 }
 
-func checkCStyleKitAssets(repo string) error {
+func checkCKitAssets(repo string) error {
 	const expectedVersion = "1.2.0"
 	required := []string{
-		"config/kits/c-userstyle-kit.json",
-		"CodingKit/tools/c-userstyle-kit/MANIFEST.json",
-		"CodingKit/tools/c-userstyle-kit/config/rules/huawei-c-language-programming-standard.rules.json",
-		"CodingKit/tools/c-userstyle-kit/examples/c-snippets.json",
-		"CodingKit/tools/c-userstyle-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.pdf",
-		"CodingKit/tools/c-userstyle-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.md",
-		"CodingKit/tools/c-userstyle-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.raw.md",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/demo.c",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/demo.h",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/README.md",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/state_machine.c",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/state_machine.h",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/protocol.c",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/protocol.h",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/fixed_pool.c",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/fixed_pool.h",
-		"CodingKit/tools/c-userstyle-kit/generated-demo/advanced/tests/advanced_test.c",
+		"config/kits/c-kit.json",
+		"CodingKit/tools/c-kit/MANIFEST.json",
+		"CodingKit/tools/c-kit/config/rules/huawei-c-language-programming-standard.rules.json",
+		"CodingKit/tools/c-kit/examples/c-snippets.json",
+		"CodingKit/tools/c-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.pdf",
+		"CodingKit/tools/c-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.md",
+		"CodingKit/tools/c-kit/references/huawei-c-language-programming-standard-dkba-2826-2011-5.raw.md",
+		"CodingKit/tools/c-kit/generated-demo/demo.c",
+		"CodingKit/tools/c-kit/generated-demo/demo.h",
+		"CodingKit/tools/c-kit/generated-demo/advanced/README.md",
+		"CodingKit/tools/c-kit/generated-demo/advanced/state_machine.c",
+		"CodingKit/tools/c-kit/generated-demo/advanced/state_machine.h",
+		"CodingKit/tools/c-kit/generated-demo/advanced/protocol.c",
+		"CodingKit/tools/c-kit/generated-demo/advanced/protocol.h",
+		"CodingKit/tools/c-kit/generated-demo/advanced/fixed_pool.c",
+		"CodingKit/tools/c-kit/generated-demo/advanced/fixed_pool.h",
+		"CodingKit/tools/c-kit/generated-demo/advanced/tests/advanced_test.c",
 	}
 	if err := requirePaths(repo, required...); err != nil {
 		return err
@@ -1006,13 +1006,13 @@ func checkCStyleKitAssets(repo string) error {
 		ID      string `json:"id"`
 		Version string `json:"version"`
 	}
-	if err := decodeJSONFile(filepath.Join(repo, "config/kits/c-userstyle-kit.json"), &kitManifest); err != nil {
+	if err := decodeJSONFile(filepath.Join(repo, "config/kits/c-kit.json"), &kitManifest); err != nil {
 		return err
 	}
 	var assetManifest struct {
 		Version string `json:"version"`
 	}
-	if err := decodeJSONFile(filepath.Join(repo, "CodingKit/tools/c-userstyle-kit/MANIFEST.json"), &assetManifest); err != nil {
+	if err := decodeJSONFile(filepath.Join(repo, "CodingKit/tools/c-kit/MANIFEST.json"), &assetManifest); err != nil {
 		return err
 	}
 	var skillConfig struct {
@@ -1026,13 +1026,13 @@ func checkCStyleKitAssets(repo string) error {
 		return err
 	}
 
-	if kitManifest.ID != "c-userstyle-kit" || skillConfig.Kit.ID != kitManifest.ID {
+	if kitManifest.ID != "c-kit" || skillConfig.Kit.ID != kitManifest.ID {
 		return fmt.Errorf("c kit id mismatch: manifest=%q skill=%q", kitManifest.ID, skillConfig.Kit.ID)
 	}
 	if kitManifest.Version != expectedVersion || assetManifest.Version != expectedVersion || skillConfig.Kit.Version != expectedVersion {
 		return fmt.Errorf("c kit version mismatch: kit=%q asset=%q skill=%q expected=%q", kitManifest.Version, assetManifest.Version, skillConfig.Kit.Version, expectedVersion)
 	}
-	if skillConfig.Kit.Root != "CodingKit/tools/c-userstyle-kit" {
+	if skillConfig.Kit.Root != "CodingKit/tools/c-kit" {
 		return fmt.Errorf("unexpected c kit root: %q", skillConfig.Kit.Root)
 	}
 	return nil
@@ -1171,7 +1171,7 @@ func checkC99ExcludedDirs(repo string) error {
 		"build",
 		"out",
 		"dist",
-		"CodingKit/tools/c-userstyle-kit",
+		"CodingKit/tools/c-kit",
 	}
 	have := map[string]bool{}
 	for _, d := range data.Excluded {

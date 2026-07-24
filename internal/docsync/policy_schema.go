@@ -32,7 +32,7 @@ var policySchemaBindings = []policySchemaBinding{
 	{Config: "config/internal-capabilities.json", Schema: "config/schemas/internal-capabilities.schema.json"},
 	{Config: "config/kit-registry.json", Schema: "config/schemas/kit-registry.schema.json"},
 	{Config: "config/kits/aicoding-platform.json", Schema: "config/schemas/kit-manifest.schema.json"},
-	{Config: "config/kits/c-userstyle-kit.json", Schema: "config/schemas/kit-manifest.schema.json"},
+	{Config: "config/kits/c-kit.json", Schema: "config/schemas/kit-manifest.schema.json"},
 	{Config: "config/kits/common-control-kit.json", Schema: "config/schemas/kit-manifest.schema.json"},
 	{Config: "config/kits/docsync-plus.json", Schema: "config/schemas/kit-manifest.schema.json"},
 	{Config: "config/kits/loop-engineering-kit.json", Schema: "config/schemas/kit-manifest.schema.json"},

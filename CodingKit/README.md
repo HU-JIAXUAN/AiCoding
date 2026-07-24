@@ -1,4 +1,4 @@
-﻿# CodingKit
+# CodingKit
 
 CodingKit is the platform layer for local AI-assisted embedded development.
 
@@ -15,7 +15,7 @@ CodingKit/
 └── tools/             Local tools and diagnostics
 ```
 
-`tools/c-userstyle-kit` 是首方 C99 生成与验证资产。它由 kit registry 管理，并通过现有
+`tools/c-kit` 是首方 C99 生成与验证资产。它由 kit registry 管理，并通过现有
 `skill c99-standard-c` 用户入口调用；不会创建第二套顶层 formatting 命令。
 
 ## Codex Kit
@@ -39,9 +39,9 @@ Plugin skills and hooks discover CodingKit assets by this protocol:
 3. resolve `examples`, `modules`, `platforms`, `tests`, and `tools` from that manifest;
 4. treat missing optional assets as unavailable capability, not as plugin failure.
 
-## C UserStyle Kit
+## C Kit
 
-C UserStyle Kit 位于 `CodingKit/tools/c-userstyle-kit`，包含黄金 Demo、高级规则覆盖样例、
+C Kit 位于 `CodingKit/tools/c-kit`，包含黄金 Demo、高级规则覆盖样例、
 139 条规则目录、VS Code 兼容 snippets、lint、主机编译与行为测试。华为 C 语言编程规范
 DKBA 2826-2011.5 的 PDF 和 Markdown 参考副本随该首方资产发布。
 

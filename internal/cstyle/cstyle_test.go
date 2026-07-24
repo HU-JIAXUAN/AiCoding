@@ -57,7 +57,7 @@ func writeSkillConfig(t *testing.T, root string, style string) {
 func writeSkillKitFixture(t *testing.T, root string) {
 	t.Helper()
 	kitRoot := filepath.Join(root, filepath.FromSlash(DefaultKitRoot))
-	writeFile(t, filepath.Join(kitRoot, "go.mod"), "module c-userstyle-kit\n\ngo 1.22\n")
+	writeFile(t, filepath.Join(kitRoot, "go.mod"), "module c-kit\n\ngo 1.22\n")
 	writeFile(t, filepath.Join(kitRoot, filepath.FromSlash(DefaultKitConfig)), "{}\n")
 	writeFile(t, filepath.Join(kitRoot, filepath.FromSlash(DefaultKitSnippets)), "{}\n")
 	writeFile(t, filepath.Join(kitRoot, filepath.FromSlash(DefaultKitQuickTarget)), "{}\n")
@@ -115,8 +115,8 @@ func TestCollectFilesAllExcludesVendorAndGenerated(t *testing.T) {
 
 func TestCollectFilesAllSupportsRepoRelativeExclusion(t *testing.T) {
 	root := t.TempDir()
-	writeFile(t, filepath.Join(root, "CodingKit", "tools", "c-userstyle-kit", "golden", "demo.c"), "int demo(void);\n")
-	writeFile(t, filepath.Join(root, "CodingKit", "tools", "c-userstyle-kit-old", "keep.c"), "int keep_similar(void);\n")
+	writeFile(t, filepath.Join(root, "CodingKit", "tools", "c-kit", "golden", "demo.c"), "int demo(void);\n")
+	writeFile(t, filepath.Join(root, "CodingKit", "tools", "c-kit-old", "keep.c"), "int keep_similar(void);\n")
 	writeFile(t, filepath.Join(root, "CodingKit", "tools", "other-kit", "keep.c"), "int keep_tool(void);\n")
 	writeFile(t, filepath.Join(root, "CodingKit", "modules", "keep.h"), "int keep_module(void);\n")
 	writeFile(t, filepath.Join(root, "tools", "keep.c"), "int keep_root_tool(void);\n")
@@ -125,7 +125,7 @@ func TestCollectFilesAllSupportsRepoRelativeExclusion(t *testing.T) {
 		root,
 		ScopeAll,
 		nil,
-		[]string{"CodingKit/tools/c-userstyle-kit"},
+		[]string{"CodingKit/tools/c-kit"},
 	)
 	if err != nil {
 		t.Fatal(err)
@@ -135,12 +135,12 @@ func TestCollectFilesAllSupportsRepoRelativeExclusion(t *testing.T) {
 	for _, file := range files {
 		got[file] = true
 	}
-	if got["CodingKit/tools/c-userstyle-kit/golden/demo.c"] {
+	if got["CodingKit/tools/c-kit/golden/demo.c"] {
 		t.Fatalf("repo-relative exclusion must omit only the configured subtree, got %#v", files)
 	}
 	for _, want := range []string{
 		"CodingKit/modules/keep.h",
-		"CodingKit/tools/c-userstyle-kit-old/keep.c",
+		"CodingKit/tools/c-kit-old/keep.c",
 		"CodingKit/tools/other-kit/keep.c",
 		"tools/keep.c",
 	} {
@@ -151,18 +151,18 @@ func TestCollectFilesAllSupportsRepoRelativeExclusion(t *testing.T) {
 }
 
 func TestRepoRelativeExclusionUsesPlatformPathSemantics(t *testing.T) {
-	excluded := excludedSet([]string{"CodingKit/tools/c-userstyle-kit", "vendor"})
-	if !isExcluded("CodingKit/tools/c-userstyle-kit/generated-demo/demo.c", excluded) {
+	excluded := excludedSet([]string{"CodingKit/tools/c-kit", "vendor"})
+	if !isExcluded("CodingKit/tools/c-kit/generated-demo/demo.c", excluded) {
 		t.Fatal("configured repo-relative subtree must be excluded")
 	}
-	if isExcluded("CodingKit/tools/c-userstyle-kit-old/demo.c", excluded) {
+	if isExcluded("CodingKit/tools/c-kit-old/demo.c", excluded) {
 		t.Fatal("repo-relative exclusion must stop at a path boundary")
 	}
 
 	if runtime.GOOS != "windows" {
 		return
 	}
-	if !isExcluded(`codingkit\TOOLS\C-USERSTYLE-KIT\generated-demo\demo.c`, excluded) {
+	if !isExcluded(`codingkit\TOOLS\C-KIT\generated-demo\demo.c`, excluded) {
 		t.Fatal("Windows path matching must ignore case and accept backslashes")
 	}
 	if !isExcluded(`src\VENDOR\driver.c`, excluded) {
@@ -170,13 +170,13 @@ func TestRepoRelativeExclusionUsesPlatformPathSemantics(t *testing.T) {
 	}
 
 	root := t.TempDir()
-	target := filepath.Join(root, "CodingKit", "tools", "c-userstyle-kit", "generated-demo", "demo.c")
+	target := filepath.Join(root, "CodingKit", "tools", "c-kit", "generated-demo", "demo.c")
 	writeFile(t, target, "int demo(void);\n")
 	files, err := CollectFilesWithExclusions(
 		root,
 		ScopePaths,
 		[]string{strings.ToLower(target)},
-		[]string{"CodingKit/tools/c-userstyle-kit"},
+		[]string{"CodingKit/tools/c-kit"},
 	)
 	if err != nil {
 		t.Fatal(err)
@@ -339,7 +339,7 @@ func TestVerifyBySkillResolvesPathsAndParsesSingleJSON(t *testing.T) {
 	writeFile(t, filepath.Join(root, "fixtures", "target.json"), "{}\n")
 	writeFile(t, filepath.Join(root, "overlays", "project.json"), "{}\n")
 
-	runner := &fakeVerifyRunner{stdout: []byte(`{"schema":"cstylekit.verify.v1","ok":true,"profile":"full"}`)}
+	runner := &fakeVerifyRunner{stdout: []byte(`{"schema":"ckit.verify.v1","ok":true,"profile":"full"}`)}
 	result, err := verifyBySkill(DefaultSkillID, VerifyOptions{
 		RepoRoot: root,
 		Profile:  "full",
@@ -384,10 +384,10 @@ func TestVerifyBySkillRejectsInvalidOrFailedJSON(t *testing.T) {
 		{name: "invalid", stdout: "not-json", want: "invalid c kit verify JSON"},
 		{name: "multiple", stdout: `{"ok":true} {"ok":true}`, want: "multiple JSON values"},
 		{name: "wrong schema", stdout: `{"schema":"other","profile":"fast","ok":true}`, want: "schema must be"},
-		{name: "wrong profile", stdout: `{"schema":"cstylekit.verify.v1","profile":"full","ok":true}`, want: "profile must match"},
-		{name: "failed result", stdout: `{"schema":"cstylekit.verify.v1","profile":"fast","ok":false}`, runErr: errors.New("exit status 1"), want: "ok=false"},
-		{name: "failed process", stdout: `{"schema":"cstylekit.verify.v1","profile":"fast","ok":true}`, runErr: errors.New("exit status 1"), want: "process failed"},
-		{name: "missing ok", stdout: `{"schema":"cstylekit.verify.v1","profile":"fast"}`, want: "field ok must be boolean"},
+		{name: "wrong profile", stdout: `{"schema":"ckit.verify.v1","profile":"full","ok":true}`, want: "profile must match"},
+		{name: "failed result", stdout: `{"schema":"ckit.verify.v1","profile":"fast","ok":false}`, runErr: errors.New("exit status 1"), want: "ok=false"},
+		{name: "failed process", stdout: `{"schema":"ckit.verify.v1","profile":"fast","ok":true}`, runErr: errors.New("exit status 1"), want: "process failed"},
+		{name: "missing ok", stdout: `{"schema":"ckit.verify.v1","profile":"fast"}`, want: "field ok must be boolean"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			runner := &fakeVerifyRunner{stdout: []byte(tc.stdout), err: tc.runErr}

@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+- **feat(c-kit)**: 将首方 C99 工具资产从 `c-userstyle-kit` 统一更名为 `c-kit`，同步目录、manifest/
+  registry ID、Go module、`ckit` CLI、JSON schema、平台适配、三语 README 和架构文档；同时把
+  C-FILAS F01—F07 落为 `CSTYLE-COMMENT-FLOW-001` 的稳定 `reviewTriggerIds`，补齐函数合同按需
+  Doxygen 标签、补充资料冲突矩阵和机器/人工评审边界。历史 Changelog、已归档计划和原始验证
+  证据保留旧名称以维持审计真实性。 / Renames the active first-party C99 asset to `c-kit` across
+  its path, registry identity, module, CLI, schemas, platform bindings, READMEs, and architecture docs,
+  while adding stable F01-F07 review triggers and conflict-governed function-comment guidance; historical
+  records retain the former name.
+
 - **feat(c-userstyle)**: 将 C 注释规则收敛为可读、可检索且可验证的合同：纯单标签 Doxygen 默认使用 `/** @brief ... */`，简单对象式宏、结构体成员和枚举项默认使用同行 `/**< ... */`；新增稳定规则 `CSTYLE-COMMENT-FLOW-001`，由配置登记华为来源条款与人类检查入口，对复杂函数执行最低函数体意图注释门禁，并以同一 ID 保留语义完整性人工复核。同步 schema、模板、snippets、规则目录证据、正反例和 C99 Skill 文档。 / Makes the C commenting policy readable, searchable, and verifiable with compact single-brief Doxygen, trailing declaration comments, and the stable `CSTYLE-COMMENT-FLOW-001` contract linking Huawei clauses, human guidance, a conservative complex-function lint gate, and explicit semantic review.
 
 - **docs(architecture)**: 完成 TODO 0046：逐条真跑并记录 Roadmap 七项地基证据，确认 typed catalog 与八动词、三档 profile、schemaVersion=1 报告、Taskfile 纯路由、PowerShell 六类棘轮和已移除入口防复活全部由现有精确门禁覆盖；据此宣布架构阶段结束，后续默认归类为功能扩展或模块内部优化，解冻仍必须同时具备 ADR、现实问题、稳定变化点和两个真实消费者。 / Closes the architecture stage after recording executable evidence for all seven groundwork contracts, classifies subsequent work as feature expansion or module-internal optimization, and preserves the four-part ADR thaw rule.

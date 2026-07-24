@@ -17,7 +17,7 @@
 - 不因本次改动格式化无关 C/H 文件。
 - 保持 C99、嵌入式风格和 Doxygen 注释。
 - 函数体关键流程按 `CSTYLE-COMMENT-FLOW-001` 注释。先从
-  `CodingKit/tools/c-userstyle-kit/examples/c-kit.json:readability.keyFlowComments` 取得稳定规则
+  `CodingKit/tools/c-kit/examples/c-kit.json:readability.keyFlowComments` 取得稳定规则
   ID、华为来源条款和人类文档入口；lint 的最低数量门禁通过后仍必须检查关键流程是否完整、准确。
 - 简单对象式宏、结构体/联合体成员和枚举项的简短说明默认放在声明同行右侧，使用
   `/**< ... */`；只有复杂约束才在声明上方使用多行说明。

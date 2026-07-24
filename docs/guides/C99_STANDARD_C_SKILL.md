@@ -1,7 +1,7 @@
 # C99 Standard C Skill
 
-C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit 暴露。C UserStyle Kit
-1.2.0 是该 skill 使用的首方外部工具资产，注册为 `c-userstyle-kit`，但不新增用户命令命名空间。
+C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit 暴露。C Kit
+1.2.0 是该 skill 使用的首方外部工具资产，注册为 `c-kit`，但不新增用户命令命名空间。
 
 ## 配置边界
 
@@ -10,16 +10,16 @@ C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit �
 - 注释模板：`config/skills/c99-standard-c/templates/comment-templates.json`
 - 嵌入式 C 规则：`config/skills/c99-standard-c/rules/embedded-c-rules.md`
 - Go 实现：`internal/cstyle`
-- C Kit 根目录：`CodingKit/tools/c-userstyle-kit`
-- C Kit 配置：`CodingKit/tools/c-userstyle-kit/examples/c-kit.json`
-- 用户 snippets：`CodingKit/tools/c-userstyle-kit/examples/c-snippets.json`
-- 快速验证目标：`CodingKit/tools/c-userstyle-kit/examples/verify-target.json`
-- Kit manifest：`config/kits/c-userstyle-kit.json`
+- C Kit 根目录：`CodingKit/tools/c-kit`
+- C Kit 配置：`CodingKit/tools/c-kit/examples/c-kit.json`
+- 用户 snippets：`CodingKit/tools/c-kit/examples/c-snippets.json`
+- 快速验证目标：`CodingKit/tools/c-kit/examples/verify-target.json`
+- Kit manifest：`config/kits/c-kit.json`
 
 根目录 `.clang-format` 只是工具投影；source of truth 是 skill 配置。`.vscode` 不入仓。
 
 机械格式和原有模板入口继续使用仓库级 skill 配置；黄金 Demo、139 条规则目录、第 8 章注释方法、
-高级规则覆盖样例、snippets、lint、主机编译和行为测试由 C UserStyle Kit 提供。高级样例对最终用户可见，
+高级规则覆盖样例、snippets、lint、主机编译和行为测试由 C Kit 提供。高级样例对最终用户可见，
 便于先检查代码与注释表达，再调整 JSON 配置。
 
 华为 C 语言编程规范 DKBA 2826-2011.5 的 PDF 与完整 Markdown 参考副本位于 C Kit 的
@@ -31,14 +31,17 @@ C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit �
   `/** @brief ... */`；多标签文档保持多行。
 - 简单对象式宏、结构体/联合体成员和枚举项默认使用声明同行右侧的 `/**< ... */`。
 - 函数体关键流程使用稳定规则 ID `CSTYLE-COMMENT-FLOW-001`。机器入口是
-  `CodingKit/tools/c-userstyle-kit/examples/c-kit.json` 的 `readability.keyFlowComments`：
+  `CodingKit/tools/c-kit/examples/c-kit.json` 的 `readability.keyFlowComments`：
   `sourceRuleIds` 指向华为规则目录，`humanGuide` 指向人类可读检查方法，lint 诊断和可读性摘要
-  的 `manualReview` 复用同一 ID。
+  的 `manualReview` 复用同一 ID；`reviewTriggerIds` 固定登记 F01—F07 七类语义复核入口。
+- 公开声明的核心 Doxygen 标签继续由 `documentation.*` 配置控制；`@pre`、`@retval`、`@note`、
+  `@warning`、`@see`、`@deprecated` 和 `@code` 只在存在对应合同事实时按需添加。
 
 `minimumIntentComments` 只定义复杂函数的最低存在性门禁。人或 Agent 仍须按
-`CodingKit/tools/c-userstyle-kit/docs/COMMENTING_METHOD.md#cstyle-comment-flow-001` 检查输入边界、
-状态迁移、硬件时序、临界区、错误收敛和最终发布等真实关键流程，不能把“lint 通过”解释为语义
-已经完整。
+`reviewTriggerIds` 和
+`CodingKit/tools/c-kit/docs/COMMENTING_METHOD.md#cstyle-comment-flow-001` 检查阶段边界、
+复合条件、状态迁移、算法、硬件时序、错误收敛和资源生命周期，不能把“lint 通过”解释为语义
+已经完整，也不能把 F01—F07 标签机械写入源码。
 
 ## Taskfile 入口
 
@@ -93,7 +96,7 @@ schema 或子进程返回的 profile 不匹配都会使命令非零退出。
 底层等价命令由 manifest 固定为：
 
 ```bash
-go -C CodingKit/tools/c-userstyle-kit run ./cmd/cstylekit verify \
+go -C CodingKit/tools/c-kit run ./cmd/ckit verify \
   --config ./examples/c-kit.json \
   --target ./examples/verify-target.json \
   --profile fast --timings --json
@@ -108,7 +111,7 @@ go -C CodingKit/tools/c-userstyle-kit run ./cmd/cstylekit verify \
 - `paths`: `--path` 显式路径。
 - `all`: 全仓 C/H 文件，但不作为默认 Taskfile 路由。
 
-默认排除项来自 `skill.json`：单个目录名（例如 `vendor`、`generated`）在任意层级匹配；含 `/` 的条目按仓库相对路径前缀匹配。除常规生成目录外，平台格式检查排除自带独立规则与门禁的 `CodingKit/tools/c-userstyle-kit`，但不排除其他 `CodingKit` 或 `tools` 内容。
+默认排除项来自 `skill.json`：单个目录名（例如 `vendor`、`generated`）在任意层级匹配；含 `/` 的条目按仓库相对路径前缀匹配。除常规生成目录外，平台格式检查排除自带独立规则与门禁的 `CodingKit/tools/c-kit`，但不排除其他 `CodingKit` 或 `tools` 内容。
 
 ## 验证
 
