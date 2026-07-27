@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+- **refactor(modules)**: 将 VOFA+ 通用模块收敛为 `heavy/` 与 `lightweight/` 两个明确变体，
+  删除与 `heavy/` 逐字节重复的根目录 6 个旧文件，并纳入 100 行 `modules/` 通用代码设计理念；
+  保留重协议能力与轻量移植路径，按 C99 staged gate 机械格式化两变体的 10 个 C/H 文件，
+  避免同一实现存在两个权威位置。 / Splits the VOFA+ common
+  module into explicit heavy and lightweight variants, removes the six byte-identical legacy root files,
+  adds the 100-line reusable-module design guide, and applies the repository C99 formatter so each
+  implementation has one authoritative, gate-compliant path.
+
 - **chore(skills)**: 将 `CodingKit/agents/skills` 子模块推进到 `cd826eb`，纳入 11 个上游提交及嵌入式架构 skill 的重建：以 ID 引用的规范体系（`AP-*` 原则、`SL-*` 语义角色、`DR-*`/`GATE-*` 规则门禁、`AM-*` 方法、`PAT-*` 模式、`SYN-*` 成熟度、`SIG-*` 泄漏信号）、自校验的文档拓扑、与具体项目解耦的分层检查器，以及在判断输入不完整时拒绝给出结论而非静默报 0 的门禁行为。 / Advances the skills submodule to pick up upstream work plus the embedded architecture skill rebuild: an ID-referenced rule set with a self-validating document topology, a project-decoupled layering checker, and a checker that refuses to conclude on incomplete judgement inputs.
 
 - **feat(c-kit)**: 将首方 C99 工具资产从 `c-userstyle-kit` 统一更名为 `c-kit`，同步目录、manifest/

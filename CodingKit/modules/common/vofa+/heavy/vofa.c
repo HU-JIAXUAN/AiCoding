@@ -110,11 +110,8 @@ static float vofa_decode_float_le(const vofa_octet_t in[VOFA_FLOAT_OCTETS])
 {
     vofa_float_bits_t bits;
 
-    bits.bits =
-        ((uint32_t)(in[0] & 0xFFU)) |
-        ((uint32_t)(in[1] & 0xFFU) << 8U) |
-        ((uint32_t)(in[2] & 0xFFU) << 16U) |
-        ((uint32_t)(in[3] & 0xFFU) << 24U);
+    bits.bits = ((uint32_t)(in[0] & 0xFFU)) | ((uint32_t)(in[1] & 0xFFU) << 8U) |
+                ((uint32_t)(in[2] & 0xFFU) << 16U) | ((uint32_t)(in[3] & 0xFFU) << 24U);
 
     return bits.value;
 }
@@ -147,11 +144,8 @@ static uint16_t vofa_crc16(const vofa_octet_t *data, uint16_t length)
 }
 
 /** @brief 生成 JustFloat 帧中的某一个 octet。 */
-static vofa_result_t vofa_make_channel_octet(
-    const float *channels,
-    uint16_t channel_count,
-    uint32_t index,
-    vofa_octet_t *octet)
+static vofa_result_t vofa_make_channel_octet(const float *channels, uint16_t channel_count,
+                                             uint32_t index, vofa_octet_t *octet)
 {
     uint32_t data_octets = (uint32_t)channel_count * VOFA_FLOAT_OCTETS;
 
@@ -173,11 +167,20 @@ static vofa_result_t vofa_make_channel_octet(
 
     switch (index - data_octets)
     {
-        case 0U: *octet = VOFA_JUSTFLOAT_TAIL0; return VOFA_OK;
-        case 1U: *octet = VOFA_JUSTFLOAT_TAIL1; return VOFA_OK;
-        case 2U: *octet = VOFA_JUSTFLOAT_TAIL2; return VOFA_OK;
-        case 3U: *octet = VOFA_JUSTFLOAT_TAIL3; return VOFA_OK;
-        default: break;
+        case 0U:
+            *octet = VOFA_JUSTFLOAT_TAIL0;
+            return VOFA_OK;
+        case 1U:
+            *octet = VOFA_JUSTFLOAT_TAIL1;
+            return VOFA_OK;
+        case 2U:
+            *octet = VOFA_JUSTFLOAT_TAIL2;
+            return VOFA_OK;
+        case 3U:
+            *octet = VOFA_JUSTFLOAT_TAIL3;
+            return VOFA_OK;
+        default:
+            break;
     }
 
     return VOFA_ERROR_RANGE;
@@ -195,7 +198,8 @@ static int32_t vofa_memory_write(const vofa_octet_t *data, uint32_t length)
 
         if (next == g_vofa.memory_port.read_index)
         {
-            g_vofa.memory_port.read_index = (g_vofa.memory_port.read_index + 1UL) % VOFA_MEMORY_BUFFER_SIZE;
+            g_vofa.memory_port.read_index =
+                (g_vofa.memory_port.read_index + 1UL) % VOFA_MEMORY_BUFFER_SIZE;
             g_vofa.memory_port.overflow_count++;
             vofa_stat_inc(&g_vofa.statistics.memory_overflow_count);
         }
@@ -214,9 +218,8 @@ static int32_t vofa_port_write(const vofa_octet_t *data, uint32_t length)
 {
 #if (VOFA_PORT_TYPE == VOFA_PORT_MEMORY_VALUE)
     return vofa_memory_write(data, length);
-#elif (VOFA_PORT_TYPE == VOFA_PORT_SCI_VALUE) || \
-      (VOFA_PORT_TYPE == VOFA_PORT_USER_VALUE) || \
-      (VOFA_PORT_TYPE == VOFA_PORT_ETHERCAT_VALUE)
+#elif (VOFA_PORT_TYPE == VOFA_PORT_SCI_VALUE) || (VOFA_PORT_TYPE == VOFA_PORT_USER_VALUE) ||       \
+    (VOFA_PORT_TYPE == VOFA_PORT_ETHERCAT_VALUE)
     if (g_vofa.write_fn == NULL)
     {
         return (int32_t)VOFA_ERROR_INVALID_ARGUMENT;
@@ -343,8 +346,7 @@ static void vofa_handle_new_frame(uint16_t length)
         return;
     }
 
-    received_crc = (uint16_t)(g_vofa.rx_frame[length - 2U] |
-                              (g_vofa.rx_frame[length - 1U] << 8U));
+    received_crc = (uint16_t)(g_vofa.rx_frame[length - 2U] | (g_vofa.rx_frame[length - 1U] << 8U));
     computed_crc = vofa_crc16(g_vofa.rx_frame, (uint16_t)(length - 2U));
     if (received_crc != computed_crc)
     {
@@ -392,7 +394,7 @@ static void vofa_rx_feed_one(vofa_octet_t octet)
             else
 #endif
 #if (VOFA_ENABLE_NEW_COMMAND != 0U)
-            if (value == VOFA_NEW_HEADER0)
+                if (value == VOFA_NEW_HEADER0)
             {
                 g_vofa.rx_state = VOFA_RX_NEW_HEADER1;
                 g_vofa.rx_frame[0] = value;
@@ -477,7 +479,8 @@ static void vofa_rx_feed_one(vofa_octet_t octet)
                 {
                     g_vofa.rx_payload_length = (uint16_t)(g_vofa.rx_frame[10] & 0xFFU);
                     if ((g_vofa.rx_payload_length > VOFA_FLOAT_OCTETS) ||
-                        ((uint16_t)(VOFA_NEW_FRAME_MIN_OCTETS + g_vofa.rx_payload_length) > VOFA_RX_BUFFER_SIZE))
+                        ((uint16_t)(VOFA_NEW_FRAME_MIN_OCTETS + g_vofa.rx_payload_length) >
+                         VOFA_RX_BUFFER_SIZE))
                     {
                         vofa_rx_reset();
                     }
@@ -542,7 +545,8 @@ static void vofa_execute_command(const vofa_command_t *command)
                 }
                 else
                 {
-                    result = Vofa_AppWriteParameterPending(command->object_id, command->parameter_id, value);
+                    result = Vofa_AppWriteParameterPending(command->object_id,
+                                                           command->parameter_id, value);
                 }
             }
             else
@@ -679,7 +683,8 @@ vofa_result_t Vofa_SendChannels(const float *channels, uint16_t channel_count)
     return Vofa_SendChannelsEx(channels, channel_count, (vofa_tx_mode_t)VOFA_DEFAULT_TX_MODE);
 }
 
-vofa_result_t Vofa_SendChannelsEx(const float *channels, uint16_t channel_count, vofa_tx_mode_t mode)
+vofa_result_t Vofa_SendChannelsEx(const float *channels, uint16_t channel_count,
+                                  vofa_tx_mode_t mode)
 {
 #if (VOFA_ENABLE_JUSTFLOAT == 0U)
     (void)channels;
@@ -795,7 +800,8 @@ void Vofa_TxEventHandler(void)
         return;
     }
 
-    if (vofa_make_channel_octet(g_vofa.tx_channels, g_vofa.tx_channel_count, g_vofa.tx_octet_index, &octet) != VOFA_OK)
+    if (vofa_make_channel_octet(g_vofa.tx_channels, g_vofa.tx_channel_count, g_vofa.tx_octet_index,
+                                &octet) != VOFA_OK)
     {
         g_vofa.tx_busy = false;
         return;

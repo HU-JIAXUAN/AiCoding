@@ -32,16 +32,38 @@ void Vofa_AppInit(void) {}
 void Vofa_AppProcess(void) {}
 vofa_result_t Vofa_AppWriteParameterPending(uint16_t object_id, uint16_t parameter_id, float value)
 {
-    (void)object_id; (void)parameter_id; (void)value; return VOFA_OK;
+    (void)object_id;
+    (void)parameter_id;
+    (void)value;
+    return VOFA_OK;
 }
 vofa_result_t Vofa_AppReadParameter(uint16_t object_id, uint16_t parameter_id, float *value)
 {
-    (void)object_id; (void)parameter_id; if (value != NULL) { *value = 0.0F; } return VOFA_OK;
+    (void)object_id;
+    (void)parameter_id;
+    if (value != NULL)
+    {
+        *value = 0.0F;
+    }
+    return VOFA_OK;
 }
-vofa_result_t Vofa_AppSaveParameters(void) { return VOFA_OK; }
-vofa_result_t Vofa_AppLoadDefaults(void) { return VOFA_OK; }
-vofa_result_t Vofa_AppSetSampleRate(float sample_rate_hz) { (void)sample_rate_hz; return VOFA_OK; }
-uint32_t Vofa_AppGetStatus(void) { return 0UL; }
+vofa_result_t Vofa_AppSaveParameters(void)
+{
+    return VOFA_OK;
+}
+vofa_result_t Vofa_AppLoadDefaults(void)
+{
+    return VOFA_OK;
+}
+vofa_result_t Vofa_AppSetSampleRate(float sample_rate_hz)
+{
+    (void)sample_rate_hz;
+    return VOFA_OK;
+}
+uint32_t Vofa_AppGetStatus(void)
+{
+    return 0UL;
+}
 void Vofa_AppStartStream(void) {}
 void Vofa_AppStopStream(void) {}
 
@@ -49,7 +71,8 @@ static int expect(uint32_t index, uint16_t expected)
 {
     if ((g_tx[index] & 0xFFU) != expected)
     {
-        printf("octet[%lu] expected 0x%02X got 0x%02X\n", (unsigned long)index, expected, g_tx[index] & 0xFFU);
+        printf("octet[%lu] expected 0x%02X got 0x%02X\n", (unsigned long)index, expected,
+               g_tx[index] & 0xFFU);
         return 1;
     }
     return 0;
@@ -143,7 +166,8 @@ int main(void)
     g_busy = false;
 
     stats = Vofa_GetStatistics();
-    if ((stats->tx_frame_count < 3U) || (stats->tx_busy_count == 0U) || (stats->tx_timeout_count == 0U))
+    if ((stats->tx_frame_count < 3U) || (stats->tx_busy_count == 0U) ||
+        (stats->tx_timeout_count == 0U))
     {
         printf("stats failed\n");
         return 1;

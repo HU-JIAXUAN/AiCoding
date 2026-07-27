@@ -21,7 +21,10 @@ static int32_t test_write(void *user, const vofa_octet_t *data, uint32_t length)
 }
 
 void Vofa_AppInit(void) {}
-void Vofa_AppProcess(void) { ++g_process_count; }
+void Vofa_AppProcess(void)
+{
+    ++g_process_count;
+}
 vofa_result_t Vofa_AppWriteParameterPending(uint16_t object_id, uint16_t parameter_id, float value)
 {
     g_pending_object = object_id;
@@ -32,14 +35,40 @@ vofa_result_t Vofa_AppWriteParameterPending(uint16_t object_id, uint16_t paramet
 }
 vofa_result_t Vofa_AppReadParameter(uint16_t object_id, uint16_t parameter_id, float *value)
 {
-    (void)object_id; (void)parameter_id; if (value != NULL) { *value = 2.0F; } return VOFA_OK;
+    (void)object_id;
+    (void)parameter_id;
+    if (value != NULL)
+    {
+        *value = 2.0F;
+    }
+    return VOFA_OK;
 }
-vofa_result_t Vofa_AppSaveParameters(void) { return VOFA_OK; }
-vofa_result_t Vofa_AppLoadDefaults(void) { return VOFA_OK; }
-vofa_result_t Vofa_AppSetSampleRate(float sample_rate_hz) { g_sample_rate = sample_rate_hz; return VOFA_OK; }
-uint32_t Vofa_AppGetStatus(void) { ++g_status_count; return 0x55UL; }
-void Vofa_AppStartStream(void) { g_stream = true; }
-void Vofa_AppStopStream(void) { g_stream = false; }
+vofa_result_t Vofa_AppSaveParameters(void)
+{
+    return VOFA_OK;
+}
+vofa_result_t Vofa_AppLoadDefaults(void)
+{
+    return VOFA_OK;
+}
+vofa_result_t Vofa_AppSetSampleRate(float sample_rate_hz)
+{
+    g_sample_rate = sample_rate_hz;
+    return VOFA_OK;
+}
+uint32_t Vofa_AppGetStatus(void)
+{
+    ++g_status_count;
+    return 0x55UL;
+}
+void Vofa_AppStartStream(void)
+{
+    g_stream = true;
+}
+void Vofa_AppStopStream(void)
+{
+    g_stream = false;
+}
 
 static uint16_t crc16(const vofa_octet_t *data, uint16_t length)
 {
@@ -67,7 +96,11 @@ static uint16_t crc16(const vofa_octet_t *data, uint16_t length)
 
 static void encode_float(float value, vofa_octet_t out[4])
 {
-    union { float f; uint32_t u; } bits;
+    union
+    {
+        float f;
+        uint32_t u;
+    } bits;
 
     bits.f = value;
     out[0] = (vofa_octet_t)(bits.u & 0xFFU);
@@ -147,8 +180,8 @@ int main(void)
         return 1;
     }
     Vofa_Process();
-    if ((g_pending_count != 2U) || (g_pending_object != 0x0001U) || (g_pending_parameter != 0x0002U) ||
-        (fabsf(g_pending_value - 3.5F) > 0.0001F))
+    if ((g_pending_count != 2U) || (g_pending_object != 0x0001U) ||
+        (g_pending_parameter != 0x0002U) || (fabsf(g_pending_value - 3.5F) > 0.0001F))
     {
         printf("new process failed\n");
         return 1;
@@ -204,7 +237,8 @@ int main(void)
         Vofa_Process();
     }
     stats = Vofa_GetStatistics();
-    if ((stats->crc_error_count == 0U) || (stats->rx_timeout_count == 0U) || (g_process_count == 0U))
+    if ((stats->crc_error_count == 0U) || (stats->rx_timeout_count == 0U) ||
+        (g_process_count == 0U))
     {
         printf("stats failed\n");
         return 1;
