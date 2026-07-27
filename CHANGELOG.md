@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- **chore(skills)**: 将 `CodingKit/agents/skills` 从 `cd826eb` 推进到已推送的 `78f61f6`，
+  纳入架构 Skill 可机器验证的门禁规则/人工反馈确认章节，以及从干净 `2a4a67c` canonical
+  源树生成的官方 AiCoding Plugin（`BUILDINFO.json` 为 `dirtySource=false`）。 / Advances the
+  skills submodule to the pushed, verified package commit with machine-checkable architecture gates
+  and clean official plugin build metadata.
+
 - **refactor(modules)**: 将 VOFA+ 通用模块收敛为 `heavy/` 与 `lightweight/` 两个明确变体，
   删除与 `heavy/` 逐字节重复的根目录 6 个旧文件，并纳入 100 行 `modules/` 通用代码设计理念；
   保留重协议能力与轻量移植路径，按 C99 staged gate 机械格式化两变体的 10 个 C/H 文件，
