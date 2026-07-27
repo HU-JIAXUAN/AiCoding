@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"strings"
 	"time"
+
+	"github.com/JiaxI2/AiCoding/internal/runner"
 )
 
 func DoctorComponents(repo string, entries []RegistryEntry) []CommandResult {
@@ -25,16 +27,50 @@ func DoctorCatalogComponentsContext(ctx context.Context, repo string, snapshots 
 }
 
 func doctorComponentInputs(ctx context.Context, repo string, inputs []componentInput) []CommandResult {
-	results := make([]CommandResult, 0, len(inputs))
-	for _, input := range inputs {
-		component, err := resolvedComponent(repo, input)
-		if err != nil {
-			results = append(results, CommandResult{OK: false, Errors: []string{err.Error()}})
+	return doctorComponentInputsWithStep(ctx, repo, inputs, runPythonStep)
+}
+
+func doctorComponentInputsWithStep(
+	ctx context.Context,
+	repo string,
+	inputs []componentInput,
+	runStep func(context.Context, string, string, []string) CommandResult,
+) []CommandResult {
+	tasks := make([]runner.Task, len(inputs))
+	for index, input := range inputs {
+		index := index
+		input := input
+		tasks[index] = runner.Task{
+			ID:     fmt.Sprintf("mcp.doctor.%d", index),
+			Action: "mcp.doctor",
+			Run: func(taskContext context.Context) runner.TaskResult {
+				component, err := resolvedComponent(repo, input)
+				if err != nil {
+					result := CommandResult{OK: false, Errors: []string{err.Error()}}
+					return runner.TaskResult{OK: false, Errors: append([]string{}, result.Errors...), Data: result}
+				}
+				root := componentRoot(repo, component)
+				result := runStep(taskContext, root, venvPython(root), component.Doctor.Args)
+				return runner.TaskResult{OK: result.OK, Errors: append([]string{}, result.Errors...), Data: result}
+			},
+		}
+	}
+
+	taskResults := runner.Run(ctx, tasks, runner.Options{MaxParallel: 4})
+	results := make([]CommandResult, len(taskResults))
+	for index, taskResult := range taskResults {
+		if result, ok := taskResult.Data.(CommandResult); ok {
+			results[index] = result
 			continue
 		}
-		root := componentRoot(repo, component)
-		python := venvPython(root)
-		results = append(results, runPythonStep(ctx, root, python, component.Doctor.Args))
+		errorsFound := append([]string{}, taskResult.Errors...)
+		if len(errorsFound) == 0 {
+			errorsFound = append(errorsFound, taskResult.Warnings...)
+		}
+		if len(errorsFound) == 0 {
+			errorsFound = []string{"MCP doctor task returned no command result"}
+		}
+		results[index] = CommandResult{OK: false, Errors: errorsFound}
 	}
 	return results
 }

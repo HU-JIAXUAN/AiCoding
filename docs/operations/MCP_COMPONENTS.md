@@ -26,6 +26,7 @@ bin\aicoding.exe mcp doctor ppt-mcp --json
   与全部 referenced component manifests；
 - `status` 检查 component root、`.venv`、安装状态、受管配置块和同名非受管冲突；
 - `doctor` 在 component 隔离环境中运行 manifest 声明的诊断命令。
+- 产品级 `doctor --all` 会以最多 4 路有界并发诊断已安装 components，输出仍保持 registry 顺序。
 
 需要检查其他 Codex 配置文件时使用 `--codex-config <PATH>`。
 

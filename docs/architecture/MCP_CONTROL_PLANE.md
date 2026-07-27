@@ -78,6 +78,10 @@ Go 控制面按 component manifest 执行以下流程：
 `mcp list --json` 同时返回只覆盖 registry 的 `registryDigest` 与覆盖 registry + manifests 的
 `catalogDigest`；正式 lifecycle 另返回 adapter catalog、domain input 与 plan digest。
 
+产品级 `doctor --all` 对已安装 components 执行 manifest 声明的只读诊断时，复用
+`internal/runner` 以最多 4 路有界并发启动彼此独立的 component 进程，并按 registry 索引稳定
+写回结果。并行只缩短聚合等待时间，不改变单 component 的诊断命令、错误语义或报告顺序。
+
 同名但没有受管标记的 Codex MCP 配置视为用户所有，install、update 和 uninstall 都拒绝覆盖或删除。
 若活跃 MCP 进程锁定 `.venv`，暂存步骤会在修改 Codex 配置前失败，避免出现半卸载状态。
 

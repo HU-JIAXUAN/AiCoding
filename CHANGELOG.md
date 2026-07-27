@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+- **fix(mcp-doctor)**: `doctor --all` 对已安装 MCP components 的只读 manifest 诊断改为复用
+  `internal/runner` 有界并发执行（上限 4），同时按 registry 索引稳定写回结果；本机两个已安装
+  Office components 的 `doctor.mcp` 从串行 4574ms 降至 2848ms，`doctor perf` 中位数
+  2698.305ms、由 FAIL 降为环境差异容忍范围内的 WARN，未削减任何诊断内容。 / Runs installed
+  MCP component doctors through the existing bounded runner while preserving registry order, removing
+  serial external-process latency without weakening product diagnostics.
+
 - **chore(skills)**: 将 `CodingKit/agents/skills` 从 `cd826eb` 推进到已推送的 `78f61f6`，
   纳入架构 Skill 可机器验证的门禁规则/人工反馈确认章节，以及从干净 `2a4a67c` canonical
   源树生成的官方 AiCoding Plugin（`BUILDINFO.json` 为 `dirtySource=false`）。 / Advances the

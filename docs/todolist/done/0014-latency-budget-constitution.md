@@ -99,3 +99,16 @@ bin\aicoding.exe test --profile Full --json
 
 网络耗时不作为本项硬门禁：日常 `git pull` 不递归同步 skills 子模块；需要更新依赖时仍由
 lifecycle install/update 显式执行。没有引入浅克隆、partial clone、镜像或第二套性能预算。
+
+## MCP 诊断串行回退修复证据（2026-07-27）
+
+官方 Marketplace 刷新后，本机同时安装 `visio-mcp` 与 `ppt-mcp`，暴露出此前未覆盖的真实
+多组件路径：`doctor.mcp` 串行耗时 4574ms，其中 Visio 2663ms、PowerPoint 1908ms，导致
+`doctor perf` 的 `doctor --all` 中位数 4813.111ms，超过 standard 预算 3 倍而 FAIL。
+
+修复只在 `internal/mcpcontrol` 内把互不依赖的只读 component doctor 交给既有
+`internal/runner`，并发上限 4、结果按 registry 索引写回；诊断命令和内容均未削减。修复后
+单次 `doctor.mcp` 为 2848ms，`doctor perf` 三次样本为
+2760.946 / 2698.305 / 2610.604ms，中位数 2698.305ms，门禁由 FAIL 降为 WARN。并发启动与
+稳定顺序由 `TestDoctorComponentInputsRunConcurrentlyAndPreserveOrder` 用同步屏障验证，不依赖
+易波动的墙钟阈值。
