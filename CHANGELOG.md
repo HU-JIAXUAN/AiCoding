@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **chore(skills)**: 将 `CodingKit/agents/skills` 子模块推进到 `cd826eb`，纳入 11 个上游提交及嵌入式架构 skill 的重建：以 ID 引用的规范体系（`AP-*` 原则、`SL-*` 语义角色、`DR-*`/`GATE-*` 规则门禁、`AM-*` 方法、`PAT-*` 模式、`SYN-*` 成熟度、`SIG-*` 泄漏信号）、自校验的文档拓扑、与具体项目解耦的分层检查器，以及在判断输入不完整时拒绝给出结论而非静默报 0 的门禁行为。 / Advances the skills submodule to pick up upstream work plus the embedded architecture skill rebuild: an ID-referenced rule set with a self-validating document topology, a project-decoupled layering checker, and a checker that refuses to conclude on incomplete judgement inputs.
+
 - **feat(c-kit)**: 将首方 C99 工具资产从 `c-userstyle-kit` 统一更名为 `c-kit`，同步目录、manifest/
   registry ID、Go module、`ckit` CLI、JSON schema、平台适配、三语 README 和架构文档；同时把
   C-FILAS F01—F07 落为 `CSTYLE-COMMENT-FLOW-001` 的稳定 `reviewTriggerIds`，补齐函数合同按需
