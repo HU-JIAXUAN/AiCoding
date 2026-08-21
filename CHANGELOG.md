@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+- **refactor(skills)**: 将 `CodingKit/agents/skills` 推进到已推送并验证的 `ec02dfa`，把本地通用
+  Skill 收敛到 `standalone/`，注册完整的 external/local source catalog，并将 `full` profile
+  缩为明确白名单，同时从 Kit catalog 移除已停止打包的总入口；profile 收敛会清除两个用户
+  Skill 根中已注册但未被选择的旧路径，避免 25 个 Matt 来源重新全部暴露到运行时。 /
+  Advances the verified skills submodule, removes the retired umbrella from the Kit catalog, separates
+  the complete standalone source catalog from the runtime allowlist, and removes registered but
+  unselected paths during profile convergence.
+
 - **fix(mcp-doctor)**: `doctor --all` 对已安装 MCP components 的只读 manifest 诊断改为复用
   `internal/runner` 有界并发执行（上限 4），同时按 registry 索引稳定写回结果；本机两个已安装
   Office components 的 `doctor.mcp` 从串行 4574ms 降至 2848ms，`doctor perf` 中位数

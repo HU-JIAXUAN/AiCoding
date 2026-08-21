@@ -87,9 +87,9 @@ This link is local generated state. It must not be used to copy plugin files int
 
 `CodingKit/agents/skills` is a submodule and must not be linked wholesale into a user Skill Root.
 
-Normal runtime should expose `aicoding-*` skills through the installed AiCoding plugin. Personal standalone skills are linked selectively from `%USERPROFILE%\.agents\skills` by default. The complete registry lives in `config/codex-kit.json` under `standaloneSkillRegistry`, and compatibility installs can target `%USERPROFILE%\.codex\skills` only when `set-codex-skill-profile.ps1 -StandaloneRoot codex` is explicitly selected.
+Normal runtime should expose `aicoding-*` skills through the installed AiCoding plugin. Personal standalone skills are linked selectively from `%USERPROFILE%\.agents\skills` by default. In `config/codex-kit.json`, `standaloneSkillRegistry.skills` is the complete available source catalog while `profiles.full.standaloneSkills` is the explicit runtime allowlist. Profile convergence removes registered but unselected paths from both supported roots. Compatibility installs can target `%USERPROFILE%\.codex\skills` only when `set-codex-skill-profile.ps1 -StandaloneRoot codex` is explicitly selected.
 
-GitHub-sourced standalone Skills are not copied into AiCoding. They are pinned as nested submodules under `Codex-Skills/external/`, and `standaloneSkillRegistry.sourcePaths` maps each runtime name to the nested directory that contains its `SKILL.md`. Clone and update flows therefore use recursive submodule initialization.
+GitHub-sourced standalone Skills are not copied into AiCoding. They are pinned as nested submodules under `Codex-Skills/external/`, and `standaloneSkillRegistry.sourcePaths` maps each runtime name to the nested directory that contains its `SKILL.md`. Locally maintained general-purpose Skills use the same mapping to `Codex-Skills/standalone/<skill-name>/`. Clone and update flows therefore use recursive submodule initialization.
 
 When compatibility mode keeps `%USERPROFILE%\.codex\skills`, keep `.system` and selected standalone links only. Remove source checkout directories such as `embedded`, `platform`, and `plugins/AiCoding/skills` from active runtime exposure after backing them up.
 

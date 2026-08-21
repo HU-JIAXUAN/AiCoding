@@ -161,6 +161,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/specialty/set-codex-sk
 
 The audit enumerates direct Skill directories in both user roots so Windows junctions are not skipped. By default it inspects only the installed AiCoding plugin cache and compares its `BUILDINFO.json` with the released package; `-IncludeAllPluginCaches` is an explicit forensic mode, not an active-plugin inventory.
 
+`standaloneSkillRegistry.skills` is the complete source catalog, not the default installation set. `profiles.full.standaloneSkills` is the explicit runtime allowlist. Applying either `runtime` or `full` removes registered paths that the selected profile does not expose from both supported user roots; unmanaged paths require `-MigrateUnmanaged` and are moved to the rollback backup before replacement or removal.
+
 To converge registered standalone Skills on the canonical root, review the dry-run and then use:
 
 ```powershell

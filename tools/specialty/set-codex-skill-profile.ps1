@@ -131,6 +131,9 @@ function Remove-RegisteredPath {
 
 $repo = Get-AiCodingRoot $PSScriptRoot
 $config = Read-CodexKitConfig $repo
+$registeredStandaloneSkills = @($config.standaloneSkillRegistry.skills)
+$fullStandaloneSkills = @($config.profiles.full.standaloneSkills)
+$fullExcludedStandaloneSkills = @($registeredStandaloneSkills | Where-Object { $fullStandaloneSkills -notcontains $_ })
 $agentsRoot = Expand-RuntimePath $config.skillRuntime.canonicalUserRoot
 $codexRoot = Expand-RuntimePath $config.skillRuntime.codexUserRoot
 $standaloneInstallRoot = Resolve-StandaloneRoot $config $StandaloneRoot
@@ -157,9 +160,9 @@ if ($Profile -eq 'runtime') {
     $actions += 'Use AiCoding Plugin as the only aicoding-* runtime source.'
     $actions += 'Do not link canonical embedded/ or platform/ sources.'
     $actions += 'Do not install standalone skills unless Profile full is selected.'
-    $removeNames = if ($Skill) { @($Skill) } else { @($config.profiles.full.standaloneSkills) }
+    $removeNames = if ($Skill) { @($Skill) } else { $registeredStandaloneSkills }
     foreach ($standalone in $removeNames) {
-        if (@($config.standaloneSkillRegistry.skills) -notcontains $standalone) { throw "Standalone Skill is not registered: $standalone" }
+        if ($registeredStandaloneSkills -notcontains $standalone) { throw "Standalone Skill is not registered: $standalone" }
         $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
         $target = Join-Path $SourceRepository $sourcePath
         foreach ($rootPath in @($agentsRoot, $codexRoot)) {
@@ -171,13 +174,20 @@ if ($Profile -eq 'runtime') {
 }
 elseif ($Profile -eq 'full') {
     $actions += 'Use AiCoding Plugin as the only aicoding-* runtime source.'
-    foreach ($standalone in @($config.profiles.full.standaloneSkills)) {
+    foreach ($standalone in $fullStandaloneSkills) {
         $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
         $target = Join-Path $SourceRepository $sourcePath
         $link = Join-Path $standaloneInstallRoot $standalone
         $actions += "Ensure standalone skill link: $link -> $target (source: $sourcePath)"
         $actions += "Remove duplicate registered path from other root: $(Join-Path $otherStandaloneRoot $standalone)"
         if (-not (Test-Path -LiteralPath $target)) { $warnings += "Standalone skill target missing: $target" }
+    }
+    foreach ($standalone in $fullExcludedStandaloneSkills) {
+        $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
+        $target = Join-Path $SourceRepository $sourcePath
+        foreach ($rootPath in @($agentsRoot, $codexRoot)) {
+            $actions += "Remove registered standalone skill excluded from full profile if present: $(Join-Path $rootPath $standalone) -> $target"
+        }
     }
     $actions += 'Run audit-runtime-skills.ps1 -ExpectedProfile full.'
 }
@@ -193,7 +203,7 @@ else {
 
 if (-not $DryRun) {
     if ($Profile -eq 'runtime') {
-        $removeNames = if ($Skill) { @($Skill) } else { @($config.profiles.full.standaloneSkills) }
+        $removeNames = if ($Skill) { @($Skill) } else { $registeredStandaloneSkills }
         foreach ($standalone in $removeNames) {
             $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
             $target = Join-Path $SourceRepository $sourcePath
@@ -202,12 +212,18 @@ if (-not $DryRun) {
         }
     }
     elseif ($Profile -eq 'full') {
-        foreach ($standalone in @($config.profiles.full.standaloneSkills)) {
+        foreach ($standalone in $fullStandaloneSkills) {
             $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
             $target = Join-Path $SourceRepository $sourcePath
             if (-not (Test-Path -LiteralPath (Join-Path $target 'SKILL.md'))) { throw "Missing standalone Skill target: $target" }
             Assert-ExistingPathManageable -PathValue (Join-Path $standaloneInstallRoot $standalone) -Target $target
             Assert-ExistingPathManageable -PathValue (Join-Path $otherStandaloneRoot $standalone) -Target $target
+        }
+        foreach ($standalone in $fullExcludedStandaloneSkills) {
+            $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
+            $target = Join-Path $SourceRepository $sourcePath
+            Assert-ExistingPathManageable -PathValue (Join-Path $agentsRoot $standalone) -Target $target
+            Assert-ExistingPathManageable -PathValue (Join-Path $codexRoot $standalone) -Target $target
         }
     }
     elseif ($Profile -eq 'skill-development') {
@@ -220,7 +236,7 @@ if (-not $DryRun) {
     New-Item -ItemType Directory -Force -Path $agentsRoot | Out-Null
     New-Item -ItemType Directory -Force -Path $standaloneInstallRoot | Out-Null
     if ($Profile -eq 'runtime') {
-        $removeNames = if ($Skill) { @($Skill) } else { @($config.profiles.full.standaloneSkills) }
+        $removeNames = if ($Skill) { @($Skill) } else { $registeredStandaloneSkills }
         foreach ($standalone in $removeNames) {
             $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
             $target = Join-Path $SourceRepository $sourcePath
@@ -235,7 +251,7 @@ if (-not $DryRun) {
         }
     }
     elseif ($Profile -eq 'full') {
-        foreach ($standalone in @($config.profiles.full.standaloneSkills)) {
+        foreach ($standalone in $fullStandaloneSkills) {
             $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
             $target = Join-Path $SourceRepository $sourcePath
             $link = Join-Path $standaloneInstallRoot $standalone
@@ -244,6 +260,18 @@ if (-not $DryRun) {
             $otherLink = Join-Path $otherStandaloneRoot $standalone
             $otherOperation = Remove-RegisteredPath -Link $otherLink -Target $target -ManagedRoot $otherStandaloneRoot -RootName $otherStandaloneRootName
             $changes += [pscustomobject]@{ name=$standalone; sourcePath=$sourcePath; link=$otherLink; target=$target; result=$otherOperation.result; backedUpTo=$otherOperation.backedUpTo }
+        }
+        foreach ($standalone in $fullExcludedStandaloneSkills) {
+            $sourcePath = Resolve-StandaloneSkillSourcePath -Config $config -SkillName $standalone
+            $target = Join-Path $SourceRepository $sourcePath
+            foreach ($rootInfo in @(
+                [pscustomobject]@{ name='agents'; path=$agentsRoot },
+                [pscustomobject]@{ name='codex'; path=$codexRoot }
+            )) {
+                $link = Join-Path $rootInfo.path $standalone
+                $operation = Remove-RegisteredPath -Link $link -Target $target -ManagedRoot $rootInfo.path -RootName $rootInfo.name
+                $changes += [pscustomobject]@{ name=$standalone; sourcePath=$sourcePath; link=$link; target=$target; result=$operation.result; backedUpTo=$operation.backedUpTo }
+            }
         }
     }
     elseif ($Profile -eq 'skill-development') {

@@ -53,7 +53,7 @@
         "config/mcp/components/ppt-mcp.json",
         "config/schemas/mcp-registry.schema.json",
         "config/schemas/mcp-component.schema.json",
-        "CodingKit/agents/skills/visio-diagram/SKILL.md",
+        "CodingKit/agents/skills/standalone/visio-diagram/SKILL.md",
         "internal/kit/structure.go",
         "internal/governance/dependencies.go",
         "internal/mcpcontrol/registry.go",
@@ -106,16 +106,6 @@
     }
   },
   "skills": {
-    "umbrella": {
-      "id": "aicoding-embedded",
-      "path": "CodingKit/agents/skills/plugins/AiCoding/skills/aicoding-embedded/SKILL.md",
-      "role": "router",
-      "description": "Umbrella entry for embedded AiCoding workflows.",
-      "tags": [
-        "embedded",
-        "router"
-      ]
-    },
     "members": [
       {
         "id": "aicoding-kit-maintenance",

@@ -266,7 +266,7 @@ func structureRepo(t *testing.T, withPluginPackage bool) string {
 		mustWriteLifecycle(t, filepath.Join(repo, rel, ".keep"), "")
 	}
 	if withPluginPackage {
-		mustWriteLifecycle(t, filepath.Join(repo, "CodingKit", "agents", "skills", "plugins", "AiCoding", "skills", "aicoding-embedded", ".keep"), "")
+		mustWriteLifecycle(t, filepath.Join(repo, "CodingKit", "agents", "skills", "plugins", "AiCoding", "skills", "aicoding-kit-maintenance", ".keep"), "")
 	}
 	mustWriteLifecycle(t, filepath.Join(repo, ".agents", "plugins", "marketplace.json"), `{"name":"aicoding-platform","plugins":[{"name":"aicoding","source":{"source":"local","path":"./CodingKit/agents/skills/plugins/AiCoding"}}]}`)
 	mustWriteLifecycle(t, filepath.Join(repo, "config", "codex-kit.json"), `{"name":"AiCoding","version":"0.1.0","codingKitRoot":"./CodingKit","agents":{"skillsSubmodule":"./CodingKit/agents/skills","pluginPath":"./CodingKit/agents/skills/plugins/AiCoding","marketplacePath":"./.agents/plugins/marketplace.json"},"assets":{"examples":"./CodingKit/examples","modules":"./CodingKit/modules","platforms":"./CodingKit/platforms","tests":"./CodingKit/tests","tools":"./CodingKit/tools"},"rules":{"buildPluginInSubmodule":false,"pluginInstallUsesMarketplace":true,"hooksAreAuxiliaryConstraints":true}}`)
