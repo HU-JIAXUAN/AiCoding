@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- **feat(skills)**: 将 `full` profile 中的 Matt Pocock Skill 从 11 个扩展到正式发布的全部
+  25 个，通过现有 Codex-Skills 稳定版绑定和 runtime-skill lifecycle 创建独立 junction；
+  保留其他 standalone Skill，排除上游 `misc` / `in-progress` 目录。 /
+  Enables all 25 published Matt Pocock Skills through the existing pinned source mappings and
+  managed runtime lifecycle, preserving other standalone selections and excluding unpublished Skills.
+
 - **refactor(skills)**: 将 `CodingKit/agents/skills` 推进到已推送并验证的 `ec02dfa`，把本地通用
   Skill 收敛到 `standalone/`，注册完整的 external/local source catalog，并将 `full` profile
   缩为明确白名单，同时从 Kit catalog 移除已停止打包的总入口；profile 收敛会清除两个用户

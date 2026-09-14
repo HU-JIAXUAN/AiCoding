@@ -163,6 +163,14 @@ The audit enumerates direct Skill directories in both user roots so Windows junc
 
 `standaloneSkillRegistry.skills` is the complete source catalog, not the default installation set. `profiles.full.standaloneSkills` is the explicit runtime allowlist. Applying either `runtime` or `full` removes registered paths that the selected profile does not expose from both supported user roots; unmanaged paths require `-MigrateUnmanaged` and are moved to the rollback backup before replacement or removal.
 
+The `full` profile exposes all 25 published Matt Pocock engineering/productivity Skills from the Codex-Skills binding manifest, alongside the existing local standalone Skills and drawio-skill. It excludes upstream `misc` and `in-progress` directories. Review upstream stable-tag updates in Codex-Skills first; when the pinned release and bindings already match, only runtime profile synchronization is needed:
+
+```powershell
+bin/aicoding.exe lifecycle plan --action update --scope runtime-skill --runtime-profile full --standalone-root agents --json
+bin/aicoding.exe lifecycle update --scope runtime-skill --runtime-profile full --standalone-root agents --json
+bin/aicoding.exe lifecycle verify --scope runtime-skill --runtime-profile full --standalone-root agents --json
+```
+
 To converge registered standalone Skills on the canonical root, review the dry-run and then use:
 
 ```powershell
