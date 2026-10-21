@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- **fix(toolchain)**: 将 Go 构建工具链从 1.26.5 更新到 1.26.10 安全补丁，修复
+  GO-006 报告的可达标准库漏洞；同步 CI 四处固定版本、三份 README badge、依赖治理
+  锚点及契约检查，保留 Go 1.22 语言最低版本和原有漏洞阻塞策略。 / Updates the
+  pinned Go toolchain to the 1.26.10 security patch, synchronizes CI, README badges and
+  governance checks, and preserves the language baseline and required vulnerability gate.
+
 - **feat(if)**: 完成 S3 独立 C99 I-f 控制链，复用共享 PI、变换和 SVPWM，提供固定方向激励、
   软件电角度、两轴电流闭环、矢量限压及最终 duty 电压回算；接入合同要求的基础参考与
   生命周期行为。新增真实 C 入口、12,960 组调制及独立 R-L 闭环测试，验证降母线、饱和和恢复，

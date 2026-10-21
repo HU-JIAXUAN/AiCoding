@@ -393,7 +393,7 @@ func TestCIPinsEffectiveGoVersionAndEveryActionBySHA(t *testing.T) {
 		t.Fatal(err)
 	}
 	workflow := string(data)
-	if got := strings.Count(workflow, "go-version: '1.26.5'"); got != 4 {
+	if got := strings.Count(workflow, "go-version: '1.26.10'"); got != 4 {
 		t.Fatalf("setup-go explicit go-version count = %d, want 4", got)
 	}
 	if strings.Contains(workflow, "go-version-file:") {
