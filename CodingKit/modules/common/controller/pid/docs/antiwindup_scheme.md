@@ -44,3 +44,9 @@ I(k+1) = I(k) + Ki * [e(k) + Kaw * aw(k)] * Ts
 | `e` | `state.error` |
 
 C 实现保留通用 PID 边界，不绑定参考模型中的具体数值。参考模型用于验证拓扑，工程中可按对象修改 `kp / ki / antiWindupGain / outputLimit`。
+
+## 下游最终输出
+
+常规 `pid()` 以自身输出限幅结果作为 u，行为保持兼容。若下游还有约束，使用 `pid_eval()` 得到不推进积分的 `PidStep.next.rawOutput`，再由 `pid_track(controller, appliedOutput, step)` 把最终施加输出作为 u 回算一次。积分限幅在这一次完整回算之后执行，不能先限幅积分再补一个外部修正量。
+
+`pid_runtime` 的确定算例会区分正确的 0.2375 与错误二次回算的 0.225，并覆盖持续外部饱和和恢复；共享组件测试还从真实最终 duty 重建输出，验证二维矢量约束的回算。原有参考模型及其拓扑没有因接口扩展而修改。

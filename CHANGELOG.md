@@ -2,6 +2,30 @@
 
 ## [Unreleased]
 
+- **feat(if)**: 完成 S3 独立 C99 I-f 控制链，复用共享 PI、变换和 SVPWM，提供固定方向激励、
+  软件电角度、两轴电流闭环、矢量限压及最终 duty 电压回算；接入合同要求的基础参考与
+  生命周期行为。新增真实 C 入口、12,960 组调制及独立 R-L 闭环测试，验证降母线、饱和和恢复，
+  保持原 FOC/PID 及示例源码兼容；同步 IF 实现、证据和剩余阶段计划。 / Implements the
+  standalone I-f current-control chain with shared primitives, software electrical phase, two-axis PI,
+  vector voltage limits and final-duty tracking, with compiled entry-point, modulation and independent
+  R-L regressions while preserving existing FOC/PID behavior and documenting remaining stages.
+
+- **feat(controller)**: 完成 IF S2 共享基础：拆出唯一 PID、数学与 SVPWM 链接目标，
+  新增不改变原结构布局的 PID 评估/最终输出跟踪接口，保留原 PID/FOC 入口及行为；建立
+  修改前实际 C 固定状态参考、六个原示例独立宿主和 64,800 组调制归一化验证，同步
+  IF/PID/FOC 文档、构建入口及示例迁移基线。 / Completes shared controller primitives,
+  adds transactional PID evaluation and final-output tracking without changing existing layouts,
+  and preserves legacy behavior with compiled baselines, isolated example hosts and SVPWM checks.
+
+- **docs(if)**: 建立独立 I-f 控制器的完整分阶段计划，明确完整电流闭环、共享基础组件、
+  应用层校准边界及开源参考；完成 S1 的 API/字段、物理单位、离散时序、矢量限幅、
+  最终 duty 电压回算、启停与故障恢复合同，给出 12 组算例、相位精度及 R-L 闭环验收指标；
+  补齐六个现有示例的整理、迁移和编译链接、多周期、引用同步要求；不安排平台移植。 /
+  Documents the standalone I-f roadmap and S1 contracts for interfaces, units, discrete timing,
+  vector limits, final-duty anti-windup, lifecycle and recovery, with 12 reference cases, phase and
+  R-L acceptance criteria, source references, and existing-example migration requirements; no code
+  changes or platform work.
+
 - **feat(skills)**: 将 `full` profile 中的 Matt Pocock Skill 从 11 个扩展到正式发布的全部
   25 个，通过现有 Codex-Skills 稳定版绑定和 runtime-skill lifecycle 创建独立 junction；
   保留其他 standalone Skill，排除上游 `misc` / `in-progress` 目录。 /

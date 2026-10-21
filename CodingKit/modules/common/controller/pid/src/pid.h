@@ -43,7 +43,8 @@
 #include <stdint.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* 控制频率合法性判断阈值，单位 Hz。 */
@@ -56,102 +57,137 @@ extern "C" {
 #define PID_DEFAULT_CONTROL_FREQ_HZ (1000.0f)
 #endif
 
-/** @brief PID 运行状态码。 */
-typedef enum {
-    PID_OK = 0,          /* 计算正常。 */
-    PID_ERR_NULL = -1,   /* 控制器指针为空。 */
-    PID_ERR_FREQ = -2,   /* 控制频率非法。 */
-    PID_ERR_LIMIT = -3   /* 限幅配置非法。 */
-} PidStatus;
+    /** @brief PID 运行状态码。 */
+    typedef enum
+    {
+        PID_OK = 0,          /* 计算正常。 */
+        PID_ERR_NULL = -1,   /* 控制器指针为空。 */
+        PID_ERR_FREQ = -2,   /* 控制频率非法。 */
+        PID_ERR_LIMIT = -3,  /* 限幅配置非法。 */
+        PID_ERR_NUMBER = -4, /* 两阶段计算包含非有限数。 */
+        PID_ERR_STEP = -5    /* 两阶段对象无效或原对象已改变。 */
+    } PidStatus;
 
-/** @brief 通用上下限，单位由具体字段决定。 */
-typedef struct {
-    bool enable; /* 启用开关，无单位。 */
-    float min;   /* 下限，单位同被限幅字段；标幺时为 pu。 */
-    float max;   /* 上限，单位同被限幅字段；标幺时为 pu。 */
-} PidLimit;
+    /** @brief 通用上下限，单位由具体字段决定。 */
+    typedef struct
+    {
+        bool enable; /* 启用开关，无单位。 */
+        float min;   /* 下限，单位同被限幅字段；标幺时为 pu。 */
+        float max;   /* 上限，单位同被限幅字段；标幺时为 pu。 */
+    } PidLimit;
 
-/** @brief 本周期输入。 */
-typedef struct {
-    float setpoint;    /* 目标值，单位同被控量；标幺时为 pu。 */
-    float feedback;    /* 反馈值，单位同被控量；标幺时为 pu。 */
-    float feedforward; /* 前馈量，单位同输出；标幺时为 pu。 */
-} PidInput;
+    /** @brief 本周期输入。 */
+    typedef struct
+    {
+        float setpoint;    /* 目标值，单位同被控量；标幺时为 pu。 */
+        float feedback;    /* 反馈值，单位同被控量；标幺时为 pu。 */
+        float feedforward; /* 前馈量，单位同输出；标幺时为 pu。 */
+    } PidInput;
 
-/** @brief 控制器配置。 */
-typedef struct {
-    /* PID 参数。 */
-    float kp;          /* 比例增益，输出单位/被控量单位；标幺时为 pu/pu。 */
-    float ki;          /* 积分增益，输出单位/(被控量单位*s)；标幺时为 pu/(pu*s)。 */
-    float kd;          /* 微分增益，输出单位*s/被控量单位；标幺时为 pu*s/pu。 */
-    float controlFreq; /* 控制频率，单位 Hz。 */
+    /** @brief 控制器配置。 */
+    typedef struct
+    {
+        /* PID 参数。 */
+        float kp;          /* 比例增益，输出单位/被控量单位；标幺时为 pu/pu。 */
+        float ki;          /* 积分增益，输出单位/(被控量单位*s)；标幺时为 pu/(pu*s)。 */
+        float kd;          /* 微分增益，输出单位*s/被控量单位；标幺时为 pu*s/pu。 */
+        float controlFreq; /* 控制频率，单位 Hz。 */
 
-    /* 输入整形与误差保护。 */
-    PidLimit setpointLimit; /* 目标限幅，单位同被控量；标幺时为 pu。 */
-    PidLimit feedbackLimit; /* 反馈限幅，单位同被控量；标幺时为 pu。 */
-    PidLimit errorLimit;    /* 误差限幅，单位同被控量；标幺时为 pu。 */
-    bool setpointRateEnable; /* 目标斜率限幅开关，无单位。 */
-    float setpointRate;      /* 目标最大变化率，单位为被控量单位/s；标幺时为 pu/s。 */
+        /* 输入整形与误差保护。 */
+        PidLimit setpointLimit;  /* 目标限幅，单位同被控量；标幺时为 pu。 */
+        PidLimit feedbackLimit;  /* 反馈限幅，单位同被控量；标幺时为 pu。 */
+        PidLimit errorLimit;     /* 误差限幅，单位同被控量；标幺时为 pu。 */
+        bool setpointRateEnable; /* 目标斜率限幅开关，无单位。 */
+        float setpointRate;      /* 目标最大变化率，单位为被控量单位/s；标幺时为 pu/s。 */
 
-    /* 微分滤波。 */
-    float derivativeFilterCoef; /* 微分滤波系数，无单位，范围 [0, 1]。 */
+        /* 微分滤波。 */
+        float derivativeFilterCoef; /* 微分滤波系数，无单位，范围 [0, 1]。 */
 
-    /* 积分和输出保护。 */
-    PidLimit integralLimit; /* 积分限幅，单位同输出；标幺时为 pu。 */
-    PidLimit outputLimit;   /* 输出限幅，单位同输出；标幺时为 pu。 */
-    float antiWindupGain;  /* 抗饱和增益，单位为被控量单位/输出单位；标幺时为 pu/pu。 */
-    float deadband;        /* 输出死区，单位同输出；标幺时为 pu。 */
-} PidConfig;
+        /* 积分和输出保护。 */
+        PidLimit integralLimit; /* 积分限幅，单位同输出；标幺时为 pu。 */
+        PidLimit outputLimit;   /* 输出限幅，单位同输出；标幺时为 pu。 */
+        float antiWindupGain;   /* 抗饱和增益，单位为被控量单位/输出单位；标幺时为 pu/pu。 */
+        float deadband;         /* 输出死区，单位同输出；标幺时为 pu。 */
+    } PidConfig;
 
-/** @brief 控制器状态与观测量。 */
-typedef struct {
-    float setpoint;        /* 原始目标，单位同被控量；标幺时为 pu。 */
-    float setpointLimited; /* 限幅目标，单位同被控量；标幺时为 pu。 */
-    float feedback;        /* 原始反馈，单位同被控量；标幺时为 pu。 */
-    float feedbackLimited; /* 限幅反馈，单位同被控量；标幺时为 pu。 */
-    float error;           /* 当前误差，单位同被控量；标幺时为 pu。 */
-    float previousError;   /* 上一拍误差，单位同被控量；标幺时为 pu。 */
+    /** @brief 控制器状态与观测量。 */
+    typedef struct
+    {
+        float setpoint;        /* 原始目标，单位同被控量；标幺时为 pu。 */
+        float setpointLimited; /* 限幅目标，单位同被控量；标幺时为 pu。 */
+        float feedback;        /* 原始反馈，单位同被控量；标幺时为 pu。 */
+        float feedbackLimited; /* 限幅反馈，单位同被控量；标幺时为 pu。 */
+        float error;           /* 当前误差，单位同被控量；标幺时为 pu。 */
+        float previousError;   /* 上一拍误差，单位同被控量；标幺时为 pu。 */
 
-    float derivative;         /* 原始微分，单位为被控量单位/s；标幺时为 pu/s。 */
-    float derivativeFiltered; /* 滤波微分，单位为被控量单位/s；标幺时为 pu/s。 */
+        float derivative;         /* 原始微分，单位为被控量单位/s；标幺时为 pu/s。 */
+        float derivativeFiltered; /* 滤波微分，单位为被控量单位/s；标幺时为 pu/s。 */
 
-    float proportional;   /* P 分量，单位同输出；标幺时为 pu。 */
-    float integral;       /* I 分量，单位同输出；标幺时为 pu。 */
-    float derivativeTerm; /* D 分量，单位同输出；标幺时为 pu。 */
-    float feedforward;    /* 前馈分量，单位同输出；标幺时为 pu。 */
+        float proportional;   /* P 分量，单位同输出；标幺时为 pu。 */
+        float integral;       /* I 分量，单位同输出；标幺时为 pu。 */
+        float derivativeTerm; /* D 分量，单位同输出；标幺时为 pu。 */
+        float feedforward;    /* 前馈分量，单位同输出；标幺时为 pu。 */
 
-    float rawOutput; /* 限幅前输出，单位同输出；标幺时为 pu。 */
-    float output;    /* 最终输出，单位同输出；标幺时为 pu。 */
+        float rawOutput; /* 限幅前输出，单位同输出；标幺时为 pu。 */
+        float output;    /* 最终输出，单位同输出；标幺时为 pu。 */
 
-    bool saturated;   /* 输出饱和标志，无单位。 */
-    bool initialized; /* 历史状态有效标志，无单位。 */
-    PidStatus status; /* 最近状态码，无单位。 */
-} PidState;
+        bool saturated;   /* 输出饱和标志，无单位。 */
+        bool initialized; /* 历史状态有效标志，无单位。 */
+        PidStatus status; /* 最近状态码，无单位。 */
+    } PidState;
 
-/** @brief PID 控制器对象。 */
-typedef struct {
-    PidConfig config; /* 配置区。 */
-    PidInput input;   /* 输入区。 */
-    PidState state;   /* 状态区。 */
-} Pid;
+    /** @brief PID 控制器对象。 */
+    typedef struct
+    {
+        PidConfig config; /* 配置区。 */
+        PidInput input;   /* 输入区。 */
+        PidState state;   /* 状态区。 */
+    } Pid;
 
+    /** @brief 两阶段候选步骤；调用方持有，成员只读，允许直接丢弃未跟踪的候选。 */
+    typedef struct
+    {
+        const Pid *owner; /* 原实例；有效期覆盖评估至跟踪，不允许复制活动候选。 */
+        Pid before;       /* 原对象字节快照；模块内部用于拒绝交错修改。 */
+        PidState next;    /* 候选观测量；rawOutput/output 单位同输出，积分尚未更新。 */
+        bool ready;       /* 候选是否有效；跟踪尝试后失效。 */
+    } PidStep;
 
-/**
- * @brief 初始化 PID 控制器对象。
- * @param[out] controller 控制器对象。
- * @return true 表示初始化成功，false 表示对象为空。
- *
- * 初始化内容：清零输入和状态，关闭可选限幅/斜率/死区工具，设置默认控制频率。
- * 默认值只保证对象处于确定状态；实际 kp、ki、kd 和 controlFreq 仍应由工程覆盖。
- */
-bool pid_init(Pid *controller);
+    /**
+     * @brief 初始化 PID 控制器对象。
+     * @param[out] controller 控制器对象。
+     * @return true 表示初始化成功，false 表示对象为空。
+     *
+     * 初始化内容：清零输入和状态，关闭可选限幅/斜率/死区工具，设置默认控制频率。
+     * 默认值只保证对象处于确定状态；实际 kp、ki、kd 和 controlFreq 仍应由工程覆盖。
+     */
+    bool pid_init(Pid *controller);
 
-/**
- * @brief 执行一次 PID 更新。
- * @param[in,out] controller 控制器对象；首次使用前清零。
- * @return 当前输出，单位同输出；等同于 controller->state.output。
- */
-float pid(Pid *controller);
+    /**
+     * @brief 执行一次 PID 更新。
+     * @param[in,out] controller 控制器对象；首次使用前清零。
+     * @return 当前输出，单位同输出；等同于 controller->state.output。
+     */
+    float pid(Pid *controller);
+
+    /**
+     * @brief 评估本周期原始及局部限幅输出，不修改原实例或积分。
+     * @param[in] controller 原实例；不能为空，步骤完成前须保持地址和全部内容不变。
+     * @param[out] step 调用方存储；不能为空且不与原实例重叠，每次评估完整覆盖。
+     * @return PID_OK 时 next 有效；否则候选失效，原实例不变。
+     * @note 同一实例只允许一个活动候选；无阻塞、无硬件访问，不同实例可重入。
+     */
+    PidStatus pid_eval(const Pid *controller, PidStep *step);
+
+    /**
+     * @brief 以最终施加输出更新一次积分并发布候选状态。
+     * @param[in,out] controller 评估时的同一实例；不能为空。
+     * @param[in] appliedOutput 最终施加输出，单位同输出，须有限；不再次做单轴输出限幅。
+     * @param[in,out] step 同一有效候选；不能为空，尝试跟踪后即失效。
+     * @return PID_OK 表示状态已更新；失败时原实例连同 status 保持不变。
+     * @note 评估与跟踪之间禁止旧入口调用或修改实例；只能检查返回码判定本次成功。
+     */
+    PidStatus pid_track(Pid *controller, float appliedOutput, PidStep *step);
 
 #ifdef __cplusplus
 }

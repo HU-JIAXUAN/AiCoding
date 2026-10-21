@@ -71,8 +71,8 @@ Ts = 1 / controlFreq
 6. 对 error 做可选限幅
 7. 计算 P 项、I 项、D 项和 feedforward
 8. 对 D 项微分做一阶低通滤波
-9. 对 output 做限幅
-10. 对 output 做 deadband
+9. 对求和后的原始 output 做 deadband
+10. 对 output 做限幅
 11. 根据 output 饱和情况执行 back-calculation 抗积分饱和
 12. 更新 state 观测量
 ```
@@ -100,7 +100,7 @@ Ts = 1 / controlFreq
 ## 设计边界
 
 - 控制器单元不依赖上层应用。
-- 对外只暴露初始化与单周期更新：`pid_init()` 和 `pid()`。
+- 常规入口保持 `pid_init()` 和 `pid()`；需要跟踪下游最终输出时使用 `pid_eval()` 与 `pid_track()`。
 - P / PI / PD / PID 不需要模式枚举，由 `kp / ki / kd` 是否为 `0.0f` 自动决定。
 - PI 和 PID 只要 `ki != 0.0f`，都会执行 back-calculation 积分抗饱和。
 - P 和 PD 没有积分状态，因此不执行积分抗饱和。
@@ -233,6 +233,36 @@ simulink/
 docs/design.md
 reports/
 ```
+
+
+## 最终输出跟踪
+
+下游还有矢量约束、执行器缩放或其他最终输出处理时，可使用两阶段接口：
+
+```c
+PidStatus pid_eval(const Pid *controller, PidStep *step);
+PidStatus pid_track(Pid *controller, float appliedOutput, PidStep *step);
+```
+
+调用方持有 `PidStep`。评估成功后，`step.next.rawOutput` 是原始输出，`step.next.output` 是已有单轴工具处理的输出；原实例及积分均未改变。下游完成全部约束后，把最终实际施加值交给一次 `pid_track()`；它使用旧积分、当周期误差和原始输出计算回算，最后执行积分限幅并发布状态。不能先用 `pid()` 更新积分，再追加一次外部回算。
+
+同一实例只允许一个活动候选，评估到跟踪之间不改实例的配置、输入或状态，不混用旧入口，也不复制活动候选。候选可以直接丢弃或重新评估覆盖。跟踪校验归属和原对象字节快照，每次尝试后均失效，防止重复、跨实例及交错使用。候选存储不得与原实例重叠；原实例地址和生命周期覆盖评估至跟踪。
+
+新路径增加 `PID_ERR_NUMBER`（非有限数或算术溢出）与 `PID_ERR_STEP`（候选失效、对象不同或原对象已改变）。失败时原实例连同 `state.status` 保持不变，必须使用返回码判定成功。所有数值标量须有限；未启用限幅的边界不参与检查。最终施加值不再被 `outputLimit` 重复限幅，`state.output` 记录该值。
+
+`PidLimit/PidInput/PidConfig/PidState/Pid` 的成员类型和顺序不变；既有 `pid()`、状态码和非法配置处理保持兼容。新旧路径共用输出评估与积分公式，不引入被控对象或硬件依赖。
+
+## 实际 C 验证与共享构建
+
+在本目录用 CMake 配置后运行 CTest，可执行 `pid_runtime`：两阶段评估/跟踪、单次回算与积分裁剪顺序、持续外部饱和和恢复、错误原子性，以及 3,000 周期的新旧成功路径等价。测试 C 文件为 UTF-8；src 与 examples 保持原 GBK，头文件 CRLF、源文件 LF 均保留。
+
+```text
+cmake -S . -B build-host -DBUILD_TESTING=ON
+cmake --build build-host
+ctest --test-dir build-host --output-on-failure
+```
+
+[controller 级共享构建](../CMakeLists.txt)还包含修改前实际 C 的固定 PID/FOC 状态基线、调制与变换测试、六个现有示例宿主。原 `pid_controller` 目标保持可独立链接，FOC 通过传递依赖复用它。[固定基线来源](../tests/fixtures/README.md)可查采集提交和源码哈希；Python 模型及静态检查继续保留，不能代替这些实际 C 结果。
 
 ## no-compile 验证
 

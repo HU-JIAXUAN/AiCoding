@@ -9,8 +9,8 @@ DESIGN = (ROOT / "docs" / "design.md").read_text(encoding="utf-8")
 
 
 def test_public_function_declarations():
-    pid_decls = re.findall(r"^float\s+pid\s*\(\s*Pid\s*\*\s*controller\s*\)\s*;", HEADER, re.M)
-    init_decls = re.findall(r"^bool\s+pid_init\s*\(\s*Pid\s*\*\s*controller\s*\)\s*;", HEADER, re.M)
+    pid_decls = re.findall(r"^[ \t]*float\s+pid\s*\(\s*Pid\s*\*\s*controller\s*\)\s*;", HEADER, re.M)
+    init_decls = re.findall(r"^[ \t]*bool\s+pid_init\s*\(\s*Pid\s*\*\s*controller\s*\)\s*;", HEADER, re.M)
     assert len(pid_decls) == 1
     assert len(init_decls) == 1
     assert "float pid(Pid *controller, float" not in HEADER
@@ -20,7 +20,9 @@ def test_public_function_declarations():
 
 def test_external_function_definitions_are_limited():
     external_defs = re.findall(r"^(?!static)(?:[A-Za-z_][\w\s\*]+)\s+([A-Za-z_]\w*)\s*\([^;]*\)\s*\{", SOURCE, re.M)
-    assert external_defs == ["pid_init", "pid"]
+    assert external_defs == ["pid_init", "pid", "pid_eval", "pid_track"]
+    assert "PidStatus pid_eval(const Pid *controller, PidStep *step);" in HEADER
+    assert "PidStatus pid_track(Pid *controller, float appliedOutput, PidStep *step);" in HEADER
 
 
 def test_core_has_no_application_terms():

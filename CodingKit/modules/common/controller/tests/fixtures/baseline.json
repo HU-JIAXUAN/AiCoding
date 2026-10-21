@@ -1,0 +1,49 @@
+{
+  "sourceCommit": "a262e484cc33d1da104cae1f14fc47e2cf55f1b8",
+  "capturedBeforePidChanges": true,
+  "compiler": "GCC 14.2.0, MinGW UCRT64",
+  "captureFlags": [
+    "-std=c99",
+    "-O0",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-pedantic"
+  ],
+  "driver": "test_legacy.c",
+  "comparison": {
+    "absoluteTolerance": 1e-06,
+    "relativeTolerance": 3e-06,
+    "nanMatchesNan": true
+  },
+  "originalSourceSha256": {
+    "pid/src/pid.c": "752cfbf0b54d76e7d001021c05835d090a96467b806907a72ea7784fdc24db0e",
+    "pid/src/pid.h": "73e1b23e7365989e6d5682699688d69b17127f5e032e2f37148091c3d8cbd096",
+    "foc/src/foc_math.c": "6cc98a553bdd258594affc51721703d6c75189ac2b42e322d0bdb4531e63262e",
+    "foc/src/foc_math.h": "a789f5616cb942b6a3d54d0f3b9f3f1b994c068219040048adb6d049e066c778",
+    "foc/src/foc_svpwm.c": "74d8e37b7a14cc6b233884f22fb7a49110b97ea87e95e8618ab0db93ab6865d3",
+    "foc/src/foc_svpwm.h": "a38c196849541d8435412411c09bfcece8165d077c434dfc83f75914e57c9f28",
+    "foc/src/foc.c": "1c934da70f0f087b17ade545c19ff3e69d375116d93ef59e809d4c5ffdd05a22",
+    "foc/src/foc.h": "28457a2b680d94881772c503eea36356b5653a645066c0c63f1208025b20928c",
+    "foc/examples/current_loop_example.c": "e4dabfac385e8582c8711ef344c946f201be3eaa5d9a4b1ddc29d89c633908e3",
+    "foc/examples/flat_vf_if_example.c": "aa6c7d2484ed3dbce4a5aedda66987c2e304109c588c58d8f18fc337fc86ad1a",
+    "foc/examples/minimal_example.c": "9777bc631b1ba9125b8518ab38906d5ed045f9d294107d3737d2893bfd95d65b",
+    "foc/examples/motion_loop_example.c": "7635d10dd0fb0c3c4bafd021280ff0e1aac2170f12712872d9408483c2b17f1c",
+    "foc/examples/open_loop_current_example.c": "a1862af0314a02bb375cb6d44feceee5e1d04b500d8ee987842d05411b1f2f38",
+    "foc/examples/with_pid_controller_example.c": "e668a4c53da0e6fa731ca6b5444637ed2330570d98ca494241206ff3ccdd26b3"
+  },
+  "fixtures": {
+    "legacy_pid.txt": {
+      "sha256": "1f5afbb9cadeb28d1b63adcd4fc11b278e73ab732fc47c74dd613c72af9e847d",
+      "sampledRows": 72,
+      "scenarios": 8,
+      "ticksPerScenario": 64
+    },
+    "legacy_foc.txt": {
+      "sha256": "5dcda3de789a8c8bf335b06b2b4c535e1bb37f025b691108a0eec7f3bd359949",
+      "sampledRows": 55,
+      "scenarios": 5,
+      "ticksPerScenario": 128
+    }
+  }
+}

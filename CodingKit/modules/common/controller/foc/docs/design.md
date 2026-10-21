@@ -39,6 +39,12 @@ phase current abc
 
 FOC 直接复用 `common/controller/pid`。位置环、速度环、d 轴电流环和 q 轴电流环分别对应 `pid_pos`、`pid_vel`、`pid_id`、`pid_iq`，通过 `enable_pos_loop`、`enable_vel_loop`、`enable_id_loop`、`enable_iq_loop` 控制是否参与本周期。
 
+## 共享构建
+
+共享 CMake 入口为 `../cmake/ControllerPrimitives.cmake`，构建 `pid_controller`、`controller_math` 和 `controller_svpwm`，通过 `controller_primitives` 汇合。FOC 仅编译自己的控制链并传递链接这些目标，原源码和公共头路径不变。后续 IF 使用相同基础目标。
+
+当前 FOC/PID 调用顺序、公共结构和默认值由修改前实际 C 的固定状态记录回归；六个原示例独立编译、链接并由宿主记录其当前生命周期。没有在此阶段迁移示例或改变 FOC 控制语义。
+
 ## 历史边界
 
 本目录不保留历史兼容层。第一版接口、入口函数和辅助模块只通过 Git history / tag 查看，不在当前源码、示例、测试或文档中作为可用接口描述。

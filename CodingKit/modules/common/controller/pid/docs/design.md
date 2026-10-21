@@ -2,7 +2,7 @@
 
 ## 模块定位
 
-本模块定位为“通用 PID 控制单元”，不是裸 PID 内核。它保留 `pid()` 单入口，但在单次调用内部完成目标整形、误差调节、微分滤波、输出保护和积分抗饱和。
+本模块定位为“通用 PID 控制单元”，不是裸 PID 内核。它保留 `pid()` 常规入口，在单次调用内部完成目标整形、误差调节、微分滤波、输出保护和积分抗饱和；下游最终输出跟踪另外使用评估/跟踪两阶段入口。
 
 这些功能属于控制器通用工具，不属于上层应用语义。模块不绑定具体被控对象、硬件外设或执行器。
 
@@ -17,23 +17,28 @@ setpoint/input
   -> error 可选限幅
   -> P/I/D + feedforward
   -> D 项一阶滤波
-  -> output 限幅
   -> output deadband
+  -> output 限幅
   -> back-calculation 抗积分饱和
   -> state 更新
 ```
 
-`outputLimit` 与抗积分饱和保持在同一个控制单元内，是为了让积分器知道输出是否已经被限幅；如果输出限幅完全放到外部，积分器无法判断实际饱和状态。
+`outputLimit` 与抗积分饱和保持在同一个控制单元内，是为了让积分器知道输出是否已经被限幅；下游还存在其他约束时，由 `pid_eval()` / `pid_track()` 把最终施加输出显式传回积分器。
 
 ## API 收敛
 
-v1.6 对外只保留：
+常规入口保持兼容，新增通用的最终输出跟踪：
 
 ```c
+bool pid_init(Pid *controller);
 float pid(Pid *controller);
+PidStatus pid_eval(const Pid *controller, PidStep *step);
+PidStatus pid_track(Pid *controller, float appliedOutput, PidStep *step);
 ```
 
 输入从 `controller->input` 读取，输出写入 `controller->state.output` 并作为返回值返回。配置、输入和状态集中在一个对象里，适合多实例管理。
+
+`PidStep` 存储原对象快照和候选状态，评估不推进原实例，跟踪在最终施加输出已知后更新一次积分。原五个公共结构保持布局不变；失败不发布部分状态，同实例活动候选不允许交错使用。旧入口与新路径共用计算原语，差别仅在最终输出由谁提供及新路径更明确的失败语义。
 
 ## 内置可选工具
 
