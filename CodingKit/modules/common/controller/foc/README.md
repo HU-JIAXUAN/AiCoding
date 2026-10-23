@@ -125,7 +125,7 @@ pid_iq  -> out_vq
 
 调制输入是 `v_alpha_beta/Vbus`。在此归一化下，全角度圆形线性区为 `1/sqrt(3)`，若 duty 两端保留 eta，则为 `(1-2*eta)/sqrt(3)`。为保持原调用行为，本阶段没有更改现有 FOC 默认调制上限；共享组件测试同时记录旧默认可能发生逐相裁剪的现状，并验证显式配置后的线性区。
 
-从本目录 CMake 配置且启用 `BUILD_TESTING` 后，CTest 运行 10 项实际 C 测试，包括原 PID/FOC 固定状态参考、PID 最终输出跟踪、720 角度变换、64,800 组调制组合和六个示例宿主。示例宿主链接真实库，每个原入口执行两次，确认当前每次重建对象的行为；持续调用与示例迁移仍按 [IF 计划](../IF/README.md)后续阶段实施。
+从本目录 CMake 配置且启用 `BUILD_TESTING` 后，CTest 运行 10 项实际 C 测试，包括原 PID/FOC 固定状态参考、PID 最终输出跟踪、720 角度变换、64,800 组调制组合和六个示例宿主。示例宿主链接真实库，每个原入口执行两次，确认当前每次重建对象的行为。六个原示例继续保留；需要自动 D 轴强拉与持续 I-f 运行时，使用独立 [IF 控制器](../IF/README.md) 的周期入口。
 
 ```text
 cmake -S . -B build-host -DBUILD_TESTING=ON
@@ -133,7 +133,7 @@ cmake --build build-host
 ctest --test-dir build-host --output-on-failure
 ```
 
-修改前固定参考的来源、字段与兼容边界见 [基线说明](../tests/fixtures/README.md)。FOC 仍通过原 `pid()` 调用，未切换成两阶段接口；后续 IF 可独立链接共享组件，不包含整个 Foc 对象。
+修改前固定参考的来源、字段与兼容边界见 [基线说明](../tests/fixtures/README.md)。FOC 仍通过原 `pid()` 调用，未切换成两阶段接口；IF 独立链接共享组件，不包含整个 Foc 对象。
 
 ## 验证
 

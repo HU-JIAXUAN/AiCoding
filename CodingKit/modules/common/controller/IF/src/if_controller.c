@@ -1,407 +1,102 @@
 /**
  * @file if_controller.c
- * @brief I-f 相电流到 duty 的完整离散控制链。
+ * @brief D 轴强拉、零电压交接和带电流闭环的软件频率启动。
  * @author HU JIAXUAN
  */
-
 #include "if_controller.h"
 #include "foc_math.h"
 #include "foc_svpwm.h"
 
 #include <float.h>
 #include <math.h>
+#include <stddef.h>
 
-#if FLT_RADIX != 2 || FLT_MANT_DIG < 24 || FLT_MAX_EXP < 128 || FLT_MIN_EXP > -125
-#error "IF requires at least binary32 float precision and exponent range"
+#if FLT_RADIX != 2 || FLT_MANT_DIG < 24 || FLT_MAX_EXP < 128
+#error "IF requires at least binary32 float"
 #endif
 #if defined(__FAST_MATH__) || (defined(__FINITE_MATH_ONLY__) && __FINITE_MATH_ONLY__ > 0)
-#error "IF requires finite-number checks; fast-math is unsupported"
+#error "IF requires finite-number checks"
 #endif
 
-#define IF_DUTY_TOL (2.0e-6f) /**< duty 边界和调制舍入容差，无单位。 */
-
-static bool if_positive(float value);
-static bool if_pi_valid(const IfPiConfig *pi, const IfConfig *config);
-static bool if_config_valid(const IfConfig *config);
-static bool if_clear(IfController *controller);
-static IfStatus if_invalid(IfOutput *output, IfState state, IfStatus status);
+static bool if_ticks(float seconds, float periodS, uint32_t *ticks);
+static void if_clear(IfController *controller);
 static IfStatus if_fail(IfController *controller, IfOutput *output, IfStatus status);
-static FocDq if_clip(FocDq value, float limit, bool *limited);
-static FocDq if_slew(FocDq previous, FocDq target, float step);
-static float if_move(float previous, float target, float step);
-static void if_reference(IfController *next, const IfInput *input, IfOutput *output);
-static IfStatus if_input_valid(const IfController *next, const IfInput *input, bool starting);
-static bool if_feedback(const IfInput *input, FocSinCos angle, FocDq *feedback);
-static bool if_modulate(FocDq voltage, float bus, float limit, float margin, IfOutput *output,
-                        FocSinCos angle);
-static bool if_control(IfController *next, const IfInput *input, IfOutput *output);
-static bool if_advance(IfController *next, IfOutput *output);
+static bool if_advance(float *angle, float *compensation, float increment);
+static bool if_control(IfController *controller, const IfInput *input, IfOutput *output);
 
-/** @brief 判断需保持非零的有限正量。 */
-static bool if_positive(float value)
+/** @brief 秒换算为最近的控制周期；正时间至少一拍，拒绝计数溢出。 */
+static bool if_ticks(float seconds, float periodS, uint32_t *ticks)
 {
-    return isfinite(value) && value > 0.0f;
-}
-
-/** @brief 检查单轴 PI 的物理范围及回算离散增益。 */
-static bool if_pi_valid(const IfPiConfig *pi, const IfConfig *config)
-{
-    float gain;
-
-    if (!if_positive(pi->kp) || !isfinite(pi->ki) || pi->ki < 0.0f || !isfinite(pi->kaw) ||
-        pi->kaw < 0.0f || !if_positive(pi->integralLimitV) ||
-        pi->integralLimitV > config->voltageLimitV)
+    const float count = roundf(seconds / periodS);
+    if (!isfinite(seconds) || seconds < 0.0f || !isfinite(count) || count >= 4294967296.0f)
     {
         return false;
     }
-    if (pi->ki == 0.0f)
-    {
-        return true;
-    }
-    gain = pi->ki * pi->kaw;
-    if (!if_positive(gain) || !if_positive(pi->ki * config->periodS))
-    {
-        return false;
-    }
-    gain *= config->periodS;
-    return if_positive(gain) && gain <= 1.0f;
-}
-
-/** @brief 在改写对象前检查配置、乘积及 float 斜坡可推进性。 */
-static bool if_config_valid(const IfConfig *config)
-{
-    float currentStep;
-    float frequencyStep;
-    float frequencyPeriod;
-    float controlFrequency;
-
-    if (!if_positive(config->periodS) || !if_positive(config->currentLimitA) ||
-        !if_positive(config->frequencyLimitHz) || !if_positive(config->currentSlewAps) ||
-        !if_positive(config->frequencySlewHzps) || !if_positive(config->voltageLimitV) ||
-        !if_positive(config->busMinV) || !isfinite(config->dutyMargin) ||
-        config->dutyMargin < 0.0f || config->dutyMargin >= 0.5f)
-    {
-        return false;
-    }
-    /* 零斜率、正量下溢、倒数溢出均不能变成隐含的关闭选项。 */
-    currentStep = config->currentSlewAps * config->periodS;
-    frequencyStep = config->frequencySlewHzps * config->periodS;
-    frequencyPeriod = config->frequencyLimitHz * config->periodS;
-    controlFrequency = 1.0f / config->periodS;
-    if (!if_positive(currentStep) || !if_positive(frequencyStep) || !if_positive(frequencyPeriod) ||
-        frequencyPeriod >= 0.5f || !if_positive(controlFrequency) ||
-        controlFrequency <= PID_EPSILON)
-    {
-        return false;
-    }
-    return config->currentLimitA - fminf(currentStep, config->currentLimitA) <
-               config->currentLimitA &&
-           config->frequencyLimitHz - fminf(frequencyStep, config->frequencyLimitHz) <
-               config->frequencyLimitHz &&
-           if_pi_valid(&config->piD, config) && if_pi_valid(&config->piQ, config);
-}
-
-/** @brief 保留配置与相位，通过共享初始化入口清参考、积分和故障。 */
-static bool if_clear(IfController *controller)
-{
-    int axis;
-
-    for (axis = 0; axis < 2; ++axis)
-    {
-        const IfPiConfig *pi = axis == 0 ? &controller->config.piD : &controller->config.piQ;
-        Pid *shared = &controller->pi[axis];
-
-        if (!pid_init(shared))
-        {
-            return false;
-        }
-        shared->config.controlFreq = 1.0f / controller->config.periodS;
-        shared->config.kp = pi->kp;
-        shared->config.ki = pi->ki;
-        shared->config.antiWindupGain = pi->kaw;
-        shared->config.integralLimit = (PidLimit){true, -pi->integralLimitV, pi->integralLimitV};
-        controller->currentRefDqA[axis] = 0.0f;
-    }
-    controller->frequencyRefHz = 0.0f;
-    controller->fault = IF_OK;
-    controller->state = IF_STATE_STOPPED;
+    *ticks = seconds == 0.0f ? 0u : (uint32_t)fmaxf(1.0f, count);
     return true;
 }
 
-/** @brief 完整覆盖无效结果，防止调用方继续使用旧 duty 或观测量。 */
-static IfStatus if_invalid(IfOutput *output, IfState state, IfStatus status)
+/** @brief 用同一配置重建两个小 PI，清除强拉或故障遗留积分。 */
+static void if_clear(IfController *controller)
 {
-    if (output != (IfOutput *)0)
-    {
-        *output = (IfOutput){0};
-        output->state = state;
-        output->status = status;
-    }
+    controller->pi[0] = (PidPi){controller->config.piD.kp, controller->config.piD.ki, 0.0f};
+    controller->pi[1] = (PidPi){controller->config.piQ.kp, controller->config.piQ.ki, 0.0f};
+}
+
+/** @brief 失败当拍停止激励，直到显式停止或复位；硬件由调用方关断。 */
+static IfStatus if_fail(IfController *controller, IfOutput *output, IfStatus status)
+{
+    if_clear(controller);
+    controller->state = IF_STATE_FAULT;
+    controller->status = status;
+    *output = (IfOutput){0};
+    output->state = IF_STATE_FAULT;
     return status;
 }
 
-/** @brief 锁存本次首次故障，清运行激励且保留故障前的相位。 */
-static IfStatus if_fail(IfController *controller, IfOutput *output, IfStatus status)
+/** @brief 有界补偿加法保留微小频率，单拍增量小于 pi，无无界环绕。 */
+static bool if_advance(float *angle, float *compensation, float increment)
 {
-    if (!if_clear(controller))
+    const float addition = increment - *compensation;
+    float next = *angle + addition;
+    if (increment == 0.0f)
     {
-        status = IF_ERR_CALC;
+        return true;
     }
-    controller->state = IF_STATE_FAULT;
-    controller->fault = status;
-    return if_invalid(output, controller->state, status);
+    *compensation = (next - *angle) - addition;
+    if (next < 0.0f)
+    {
+        const float wrapped = next + FOC_TWO_PI;
+        *compensation += (wrapped - FOC_TWO_PI) - next;
+        next = wrapped;
+    }
+    if (next >= FOC_TWO_PI)
+    {
+        next -= FOC_TWO_PI;
+    }
+    *angle = next;
+    return isfinite(next) && isfinite(*compensation);
 }
 
-/** @brief 用缩放范数径向限幅，避免大数平方溢出后伪装成有效输出。 */
-static FocDq if_clip(FocDq value, float limit, bool *limited)
+/** @brief 两轴反馈、先积分 PI、统一限压和共享调制，不访问设备。 */
+static bool if_control(IfController *controller, const IfInput *input, IfOutput *output)
 {
-    const float scale = fmaxf(fabsf(value.d), fabsf(value.q));
-    float d;
-    float q;
-    float length;
-    float radius;
-
-    *limited = false;
-    if (scale == 0.0f)
-    {
-        return value;
-    }
-    d = value.d / scale;
-    q = value.q / scale;
-    length = sqrtf(d * d + q * q);
-    radius = limit / length;
-    if (scale > radius)
-    {
-        *limited = true;
-        value = (FocDq){d * radius, q * radius};
-    }
-    return value;
-}
-
-/** @brief 沿电流目标的直线限制单步欧氏距离，末步精确落到目标。 */
-static FocDq if_slew(FocDq previous, FocDq target, float step)
-{
-    const float scale =
-        fmaxf(fmaxf(fabsf(previous.d), fabsf(previous.q)), fmaxf(fabsf(target.d), fabsf(target.q)));
-    FocDq difference;
-    float length;
-    float distance;
-
-    if (scale == 0.0f || scale <= step / 4.0f)
-    {
-        return target;
-    }
-    /* 先缩放再求差，允许两个相反的大有限参考而不先溢出。 */
-    difference.d = target.d / scale - previous.d / scale;
-    difference.q = target.q / scale - previous.q / scale;
-    length = sqrtf(difference.d * difference.d + difference.q * difference.q);
-    if (length <= step / scale)
-    {
-        return target;
-    }
-    distance = step / length;
-    return (FocDq){previous.d + difference.d * distance, previous.q + difference.q * distance};
-}
-
-/** @brief 沿同号目标或零点推进频率，不越过本段终点。 */
-static float if_move(float previous, float target, float step)
-{
-    const float difference = target - previous;
-
-    if (fabsf(difference) <= step)
-    {
-        return target;
-    }
-    return previous + copysignf(step, difference);
-}
-
-/** @brief 生成本周期参考；反向先过零，受控停机先降频率再降电流。 */
-static void if_reference(IfController *next, const IfInput *input, IfOutput *output)
-{
-    const IfConfig *config = &next->config;
-    const float currentStep = config->currentSlewAps * config->periodS;
-    const float frequencyStep = config->frequencySlewHzps * config->periodS;
-    const FocDq previous = {next->currentRefDqA[0], next->currentRefDqA[1]};
-    FocDq target = {0.0f, 0.0f};
-    FocDq reference = previous;
-    float frequencyTarget = 0.0f;
-    float frequencyGoal = 0.0f;
-    bool limited;
-
-    if (next->state == IF_STATE_STOPPING)
-    {
-        if (next->frequencyRefHz == 0.0f)
-        {
-            reference = if_slew(previous, target, currentStep);
-        }
-    }
-    else
-    {
-        target = if_clip((FocDq){input->currentTargetDqA[0], input->currentTargetDqA[1]},
-                         config->currentLimitA, &limited);
-        if (limited)
-        {
-            output->flags |= IF_FLAG_CURRENT_LIMITED;
-        }
-        reference = if_slew(previous, target, currentStep);
-        frequencyTarget = foc_clamp(input->frequencyTargetHz, -config->frequencyLimitHz,
-                                    config->frequencyLimitHz);
-        if (frequencyTarget != input->frequencyTargetHz)
-        {
-            output->flags |= IF_FLAG_FREQUENCY_LIMITED;
-        }
-        frequencyGoal = frequencyTarget;
-        if ((next->frequencyRefHz > 0.0f && frequencyTarget < 0.0f) ||
-            (next->frequencyRefHz < 0.0f && frequencyTarget > 0.0f))
-        {
-            frequencyGoal = 0.0f;
-        }
-    }
-    next->currentRefDqA[0] = reference.d;
-    next->currentRefDqA[1] = reference.q;
-    next->frequencyRefHz = if_move(next->frequencyRefHz, frequencyGoal, frequencyStep);
-    if (reference.d != target.d || reference.q != target.q)
-    {
-        output->flags |= IF_FLAG_CURRENT_SLEW;
-    }
-    if (next->frequencyRefHz != frequencyTarget)
-    {
-        output->flags |= IF_FLAG_FREQUENCY_SLEW;
-    }
-}
-
-/** @brief 按消费顺序校验采样、数值、母线及启动角度；忽略无关字段。 */
-static IfStatus if_input_valid(const IfController *next, const IfInput *input, bool starting)
-{
-    if (!input->sampleValid)
-    {
-        return IF_ERR_SAMPLE;
-    }
-    if (!isfinite(input->phaseCurrentA[0]) || !isfinite(input->phaseCurrentA[1]) ||
-        !isfinite(input->phaseCurrentA[2]) || !isfinite(input->busVoltageV))
-    {
-        return IF_ERR_NUMBER;
-    }
-    if (next->state == IF_STATE_RUNNING &&
-        (!isfinite(input->frequencyTargetHz) || !isfinite(input->currentTargetDqA[0]) ||
-         !isfinite(input->currentTargetDqA[1])))
-    {
-        return IF_ERR_NUMBER;
-    }
-    if (starting && !isfinite(input->startAngleRad))
-    {
-        return IF_ERR_NUMBER;
-    }
-    if (input->busVoltageV < next->config.busMinV)
-    {
-        return IF_ERR_VBUS;
-    }
-    if (starting && (input->startAngleRad < 0.0f || input->startAngleRad >= FOC_TWO_PI))
-    {
-        return IF_ERR_RANGE;
-    }
-    return IF_OK;
-}
-
-/** @brief 缩放去零序后复用 Clarke/Park，避免三相求和先溢出。 */
-static bool if_feedback(const IfInput *input, FocSinCos angle, FocDq *feedback)
-{
-    const float scale =
-        fmaxf(fabsf(input->phaseCurrentA[0]),
-              fmaxf(fabsf(input->phaseCurrentA[1]), fabsf(input->phaseCurrentA[2])));
-    FocPhase phase = {0.0f, 0.0f, 0.0f};
-    float mean;
-
-    if (scale != 0.0f)
-    {
-        phase = (FocPhase){input->phaseCurrentA[0] / scale, input->phaseCurrentA[1] / scale,
-                           input->phaseCurrentA[2] / scale};
-        mean = (phase.a + phase.b + phase.c) / 3.0f;
-        phase = (FocPhase){phase.a - mean, phase.b - mean, phase.c - mean};
-    }
-    *feedback = foc_park(foc_clarke(phase), angle);
-    feedback->d *= scale;
-    feedback->q *= scale;
-    return isfinite(feedback->d) && isfinite(feedback->q);
-}
-
-/** @brief 显式设置线性调制圆盘，检查隐藏裁剪并从最终 duty 重建 dq 电压。 */
-static bool if_modulate(FocDq voltage, float bus, float limit, float margin, IfOutput *output,
-                        FocSinCos angle)
-{
-    FocSvpwm pwm;
-    FocAb modulation = foc_inv_park(voltage, angle);
-    FocPhase phase;
-    FocPhase applied;
-    FocDq reconstructed;
-    float expected[3];
-    float common;
-    float mean;
-    int leg;
-
-    if (!foc_svpwm_init(&pwm))
-    {
-        return false;
-    }
-    modulation.alpha /= bus;
-    modulation.beta /= bus;
-    pwm.config.maxModulation = limit / bus;
-    pwm.input.modulation = modulation;
-    if (!if_positive(pwm.config.maxModulation) || !isfinite(modulation.alpha) ||
-        !isfinite(modulation.beta) || !foc_svpwm(&pwm) || !pwm.state.valid ||
-        !isfinite(pwm.state.scale) || fabsf(pwm.state.scale - 1.0f) > IF_DUTY_TOL)
-    {
-        return false;
-    }
-    /* 和调制前的理想中心化结果比较，不能只信底层 valid 或逐相硬裁剪。 */
-    phase = foc_inv_clarke(modulation);
-    common =
-        -0.5f * (fmaxf(phase.a, fmaxf(phase.b, phase.c)) + fminf(phase.a, fminf(phase.b, phase.c)));
-    expected[0] = 0.5f + phase.a + common;
-    expected[1] = 0.5f + phase.b + common;
-    expected[2] = 0.5f + phase.c + common;
-    output->duty[0] = pwm.state.dutyA;
-    output->duty[1] = pwm.state.dutyB;
-    output->duty[2] = pwm.state.dutyC;
-    for (leg = 0; leg < 3; ++leg)
-    {
-        const float duty = output->duty[leg];
-        const float corrected = foc_clamp(duty, margin, 1.0f - margin);
-
-        if (!isfinite(duty) || !isfinite(expected[leg]) || expected[leg] < margin - IF_DUTY_TOL ||
-            expected[leg] > 1.0f - margin + IF_DUTY_TOL ||
-            fabsf(duty - expected[leg]) > IF_DUTY_TOL || fabsf(duty - corrected) > IF_DUTY_TOL)
-        {
-            return false;
-        }
-        if (duty != corrected)
-        {
-            output->flags |= IF_FLAG_DUTY_ROUNDOFF;
-        }
-        output->duty[leg] = corrected;
-    }
-    /* 先在归一化域重建再乘母线，避免不必要的大电压中间差值。 */
-    mean = (output->duty[0] + output->duty[1] + output->duty[2]) / 3.0f;
-    applied = (FocPhase){output->duty[0] - mean, output->duty[1] - mean, output->duty[2] - mean};
-    reconstructed = foc_park(foc_clarke(applied), angle);
-    output->voltageAppliedDqV[0] = reconstructed.d * bus;
-    output->voltageAppliedDqV[1] = reconstructed.q * bus;
-    return isfinite(output->voltageAppliedDqV[0]) && isfinite(output->voltageAppliedDqV[1]);
-}
-
-/** @brief 在候选实例上完成两轴评估、矢量限压、最终 duty 与一次回算。 */
-static bool if_control(IfController *next, const IfInput *input, IfOutput *output)
-{
-    const FocSinCos angle = foc_sincos(next->thetaRad);
-    const float busLimit = (1.0f - 2.0f * next->config.dutyMargin) * FOC_ONE_BY_SQRT3;
-    PidStep steps[2];
-    FocDq feedback;
+    const IfConfig *config = &controller->config;
+    const float limit = fminf(config->voltageLimitV, (1.0f - 2.0f * config->dutyMargin) *
+                                                         FOC_ONE_BY_SQRT3 * input->busVoltageV);
+    const float mean =
+        (input->phaseCurrentA[0] + input->phaseCurrentA[1] + input->phaseCurrentA[2]) / 3.0f;
+    const FocPhase phase = {input->phaseCurrentA[0] - mean, input->phaseCurrentA[1] - mean,
+                            input->phaseCurrentA[2] - mean};
+    const FocSinCos angle = foc_sincos(output->thetaRad);
+    const FocDq feedback = foc_park(foc_clarke(phase), angle);
+    PidPiStep steps[2];
     FocDq voltage;
-    bool limited;
+    FocSvpwm pwm;
+    float magnitude;
     int axis;
 
-    output->voltageLimitV = fminf(next->config.voltageLimitV, busLimit * input->busVoltageV);
-    if (!if_positive(output->voltageLimitV) || !if_feedback(input, angle, &feedback))
+    if (!isfinite(limit) || limit <= 0.0f || !isfinite(feedback.d) || !isfinite(feedback.q))
     {
         return false;
     }
@@ -409,194 +104,247 @@ static bool if_control(IfController *next, const IfInput *input, IfOutput *outpu
     output->currentFeedbackDqA[1] = feedback.q;
     for (axis = 0; axis < 2; ++axis)
     {
-        next->pi[axis].input.setpoint = next->currentRefDqA[axis];
-        next->pi[axis].input.feedback = output->currentFeedbackDqA[axis];
-        if (pid_eval(&next->pi[axis], &steps[axis]) != PID_OK)
+        const float error = output->currentRefDqA[axis] - output->currentFeedbackDqA[axis];
+        if (pid_pi_eval(&controller->pi[axis], error, config->periodS, limit, &steps[axis]) !=
+            PID_OK)
         {
             return false;
         }
-        output->voltageRawDqV[axis] = steps[axis].next.rawOutput;
+        output->voltageDqV[axis] = steps[axis].output;
+        if (steps[axis].output != steps[axis].proportional + steps[axis].integral)
+        {
+            output->voltageLimited = true;
+        }
     }
-    voltage = if_clip((FocDq){output->voltageRawDqV[0], output->voltageRawDqV[1]},
-                      output->voltageLimitV, &limited);
-    if (limited)
-    {
-        output->flags |= IF_FLAG_VOLTAGE_LIMITED;
-    }
-    if (!if_modulate(voltage, input->busVoltageV, output->voltageLimitV, next->config.dutyMargin,
-                     output, angle))
+    magnitude = hypotf(output->voltageDqV[0], output->voltageDqV[1]);
+    if (!isfinite(magnitude))
     {
         return false;
     }
-    for (axis = 0; axis < 2; ++axis)
+    if (magnitude > limit)
     {
-        if (pid_track(&next->pi[axis], output->voltageAppliedDqV[axis], &steps[axis]) != PID_OK)
+        output->voltageDqV[0] *= limit / magnitude;
+        output->voltageDqV[1] *= limit / magnitude;
+        output->voltageLimited = true;
+    }
+    voltage = (FocDq){output->voltageDqV[0], output->voltageDqV[1]};
+    if (!foc_svpwm_init(&pwm))
+    {
+        return false;
+    }
+    pwm.input.modulation = foc_inv_park(voltage, angle);
+    pwm.input.modulation.alpha /= input->busVoltageV;
+    pwm.input.modulation.beta /= input->busVoltageV;
+    pwm.config.maxModulation = limit / input->busVoltageV;
+    if (!foc_svpwm(&pwm) || !pwm.state.valid || !isfinite(pwm.state.scale) ||
+        fabsf(pwm.state.scale - 1.0f) > 2e-6f)
+    {
+        return false;
+    }
+    output->duty[0] = pwm.state.dutyA;
+    output->duty[1] = pwm.state.dutyB;
+    output->duty[2] = pwm.state.dutyC;
+    for (axis = 0; axis < 3; ++axis)
+    {
+        const float duty = output->duty[axis];
+        if (!isfinite(duty) || duty < config->dutyMargin - 2e-6f ||
+            duty > 1.0f - config->dutyMargin + 2e-6f)
         {
             return false;
         }
-        output->integralDqV[axis] = next->pi[axis].state.integral;
+        output->duty[axis] = foc_clamp(duty, config->dutyMargin, 1.0f - config->dutyMargin);
+    }
+    /* 限幅后的指令只提交一次，不复制整个控制器或通用 PID 快照。 */
+    for (axis = 0; axis < 2; ++axis)
+    {
+        if (pid_pi_track(&controller->pi[axis], &steps[axis], output->voltageDqV[axis]) != PID_OK)
+        {
+            return false;
+        }
     }
     return true;
 }
 
-/** @brief 用有界补偿加法推进相位，每周期至多一次环绕；零频冻结补偿。 */
-static bool if_advance(IfController *next, IfOutput *output)
-{
-    float increment;
-    float angle;
-
-    output->thetaUsedRad = next->thetaRad;
-    output->deltaThetaRad = (next->frequencyRefHz * next->config.periodS) * FOC_TWO_PI;
-    if (output->deltaThetaRad == 0.0f)
-    {
-        return true;
-    }
-    increment = output->deltaThetaRad - next->thetaCompRad;
-    angle = next->thetaRad + increment;
-    next->thetaCompRad = (angle - next->thetaRad) - increment;
-    if (angle < 0.0f)
-    {
-        const float wrapped = angle + FOC_TWO_PI;
-
-        /* 负微小增量加到 2*pi 可能舍入成边界，保留这次舍入而非吞掉增量。 */
-        next->thetaCompRad += (wrapped - FOC_TWO_PI) - angle;
-        angle = wrapped;
-    }
-    if (angle >= FOC_TWO_PI)
-    {
-        angle -= FOC_TWO_PI;
-    }
-    next->thetaRad = angle;
-    return isfinite(angle) && isfinite(next->thetaCompRad) && angle >= 0.0f && angle < FOC_TWO_PI;
-}
-
-/** @brief 原子应用完整有效配置；活动对象与无效配置均保持不变。 */
+/** @brief 校验物理配置与有界时间计数，成功后才替换原对象。 */
 IfStatus if_init(IfController *controller, const IfConfig *config)
 {
     IfController next = {0};
+    uint32_t holdTicks;
+    const IfPiConfig *pi;
+    int axis;
 
-    if (controller == (IfController *)0 || config == (const IfConfig *)0)
+    if (controller == NULL || config == NULL)
     {
         return IF_ERR_NULL;
     }
-    if (controller->state != IF_STATE_UNINITIALIZED && controller->state != IF_STATE_STOPPED &&
-        controller->state != IF_STATE_FAULT)
+    if (!isfinite(config->periodS) || config->periodS <= 0.0f || !isfinite(config->currentLimitA) ||
+        config->currentLimitA <= 0.0f || !isfinite(config->voltageLimitV) ||
+        config->voltageLimitV <= 0.0f || !isfinite(config->busMinV) || config->busMinV <= 0.0f ||
+        !isfinite(config->dutyMargin) || config->dutyMargin < 0.0f || config->dutyMargin >= 0.5f ||
+        !isfinite(config->alignAngleRad) || config->alignAngleRad < 0.0f ||
+        config->alignAngleRad >= FOC_TWO_PI || !isfinite(config->alignCurrentA) ||
+        config->alignCurrentA <= 0.0f || config->alignCurrentA > config->currentLimitA)
     {
-        return IF_ERR_STATE;
+        return IF_ERR_CONFIG;
     }
-    if (!if_config_valid(config))
+    for (axis = 0; axis < 2; ++axis)
+    {
+        pi = axis == 0 ? &config->piD : &config->piQ;
+        if (!isfinite(pi->kp) || pi->kp <= 0.0f || !isfinite(pi->ki) || pi->ki < 0.0f)
+        {
+            return IF_ERR_CONFIG;
+        }
+    }
+    if (!if_ticks(config->alignRampS, config->periodS, &next.alignRampTicks) ||
+        !if_ticks(config->alignHoldS, config->periodS, &holdTicks) ||
+        !if_ticks(config->frequencyRampS, config->periodS, &next.rampTicks) ||
+        holdTicks >= UINT32_MAX - next.alignRampTicks)
+    {
+        return IF_ERR_CONFIG;
+    }
+    next.alignTicks = next.alignRampTicks + holdTicks;
+    if (next.alignTicks == 0u)
     {
         return IF_ERR_CONFIG;
     }
     next.config = *config;
-    if (!if_clear(&next))
-    {
-        return IF_ERR_CALC;
-    }
+    next.initialized = true;
     *controller = next;
-    return IF_OK;
+    return if_reset(controller);
 }
 
-/** @brief 通过同一已验证配置重新初始化，清相位但不启动。 */
+/** @brief 保留配置，清启动计数、积分、错误与相位；不产生有效输出。 */
 IfStatus if_reset(IfController *controller)
 {
-    IfConfig config;
-
-    if (controller == (IfController *)0)
+    if (controller == NULL)
     {
         return IF_ERR_NULL;
     }
-    if (controller->state != IF_STATE_STOPPED && controller->state != IF_STATE_FAULT)
+    if (!controller->initialized)
     {
         return IF_ERR_STATE;
     }
-    config = controller->config;
-    return if_init(controller, &config);
+    if_clear(controller);
+    controller->thetaRad = controller->config.alignAngleRad;
+    controller->thetaCompRad = 0.0f;
+    controller->tick = 0u;
+    controller->state = IF_STATE_STOPPED;
+    controller->status = IF_OK;
+    return IF_OK;
 }
 
-/** @brief 单周期事务：候选中计算，全部成功才发布；失败仅发布清激励的锁存故障。 */
+/** @brief 每拍准备启动参考并闭环；对齐、交接与运行共用同一电流链。 */
 IfStatus if_update(IfController *controller, const IfInput *input, IfOutput *output)
 {
-    IfController next;
-    IfInput snapshot;
-    IfOutput result = {0};
-    IfStatus status;
-    bool starting;
+    float angle, compensation;
+    int phase;
 
-    if (controller == (IfController *)0 || input == (const IfInput *)0 || output == (IfOutput *)0)
+    if (output != NULL)
     {
-        return if_invalid(
-            output, controller == (IfController *)0 ? IF_STATE_UNINITIALIZED : controller->state,
-            IF_ERR_NULL);
+        *output = (IfOutput){0};
     }
-    if (controller->state < IF_STATE_STOPPED || controller->state > IF_STATE_FAULT)
+    if (controller == NULL || input == NULL || output == NULL)
     {
-        return if_invalid(output, controller->state, IF_ERR_STATE);
+        return IF_ERR_NULL;
+    }
+    output->state = controller->state;
+    if (!controller->initialized)
+    {
+        return IF_ERR_STATE;
+    }
+    /* 停止优先于采样检查，允许在采样失效时立即关闭并重新武装。 */
+    if (!input->enable)
+    {
+        (void)if_reset(controller);
+        output->state = IF_STATE_STOPPED;
+        return IF_OK;
     }
     if (controller->state == IF_STATE_FAULT)
     {
-        return if_invalid(output, controller->state, controller->fault);
+        return controller->status;
     }
-    snapshot = *input;
-    if (snapshot.action < IF_ACTION_KEEP || snapshot.action > IF_ACTION_DISABLE)
+    if (!input->sampleValid || !isfinite(input->busVoltageV) ||
+        input->busVoltageV < controller->config.busMinV || !isfinite(input->currentA) ||
+        !isfinite(input->frequencyHz) ||
+        fabsf(input->frequencyHz) * controller->config.periodS >= 0.5f)
     {
-        return if_fail(controller, output, IF_ERR_ACTION);
+        return if_fail(controller, output, IF_ERR_INPUT);
     }
-    /* 立即禁用在采样检查之前生效；停止态不消费任何数值输入。 */
-    if (snapshot.action == IF_ACTION_DISABLE)
+    for (phase = 0; phase < 3; ++phase)
     {
-        if (!if_clear(controller))
+        if (!isfinite(input->phaseCurrentA[phase]))
         {
-            return if_fail(controller, output, IF_ERR_CALC);
+            return if_fail(controller, output, IF_ERR_INPUT);
         }
-        return if_invalid(output, controller->state, IF_OK);
     }
-    starting = controller->state == IF_STATE_STOPPED && snapshot.action == IF_ACTION_START;
-    if (controller->state == IF_STATE_STOPPED && !starting)
+    if (controller->state == IF_STATE_STOPPED)
     {
-        return if_invalid(output, controller->state, IF_OK);
+        controller->state = IF_STATE_ALIGN;
     }
-    next = *controller;
-    if (starting)
+    if (controller->state == IF_STATE_ALIGN && controller->tick == controller->alignTicks)
     {
-        next.state = IF_STATE_RUNNING;
+        if_clear(controller);
+        controller->tick = 0u;
+        controller->state = IF_STATE_HANDOFF;
+        output->state = IF_STATE_HANDOFF;
+        output->thetaRad = controller->thetaRad;
+        output->duty[0] = output->duty[1] = output->duty[2] = 0.5f;
+        output->outputValid = true;
+        return IF_OK;
     }
-    else if (snapshot.action == IF_ACTION_STOP)
+    if (controller->state == IF_STATE_HANDOFF)
     {
-        next.state = IF_STATE_STOPPING;
-    }
-    status = if_input_valid(&next, &snapshot, starting);
-    if (status != IF_OK)
-    {
-        return if_fail(controller, output, status);
-    }
-    if (starting)
-    {
-        next.thetaRad = snapshot.startAngleRad;
-        next.thetaCompRad = 0.0f;
-    }
-    if_reference(&next, &snapshot, &result);
-    if (next.state == IF_STATE_STOPPING && next.frequencyRefHz == 0.0f &&
-        next.currentRefDqA[0] == 0.0f && next.currentRefDqA[1] == 0.0f)
-    {
-        if (!if_clear(&next))
+        controller->thetaRad += input->currentA < 0.0f ? FOC_TWO_PI / 4.0f : -FOC_TWO_PI / 4.0f;
+        if (controller->thetaRad < 0.0f)
         {
-            return if_fail(controller, output, IF_ERR_CALC);
+            controller->thetaRad += FOC_TWO_PI;
         }
-        *controller = next;
-        return if_invalid(output, next.state, IF_OK);
+        else if (controller->thetaRad >= FOC_TWO_PI)
+        {
+            controller->thetaRad -= FOC_TWO_PI;
+        }
+        controller->thetaCompRad = 0.0f;
+        controller->state = IF_STATE_RUNNING;
     }
-    if (!if_control(&next, &snapshot, &result) || !if_advance(&next, &result))
+    if (controller->state == IF_STATE_ALIGN)
+    {
+        ++controller->tick;
+        output->currentRefDqA[0] = controller->config.alignCurrentA;
+        if (controller->tick < controller->alignRampTicks)
+        {
+            output->currentRefDqA[0] *= (float)controller->tick / controller->alignRampTicks;
+        }
+    }
+    else
+    {
+        if (controller->tick < controller->rampTicks)
+        {
+            ++controller->tick;
+        }
+        output->frequencyHz = input->frequencyHz;
+        if (controller->rampTicks != 0u)
+        {
+            output->frequencyHz *= (float)controller->tick / controller->rampTicks;
+        }
+        output->currentRefDqA[1] = foc_clamp(input->currentA, -controller->config.currentLimitA,
+                                             controller->config.currentLimitA);
+        output->currentLimited = output->currentRefDqA[1] != input->currentA;
+    }
+    angle = controller->thetaRad;
+    compensation = controller->thetaCompRad;
+    if (!if_advance(&angle, &compensation,
+                    (output->frequencyHz * controller->config.periodS) * FOC_TWO_PI))
     {
         return if_fail(controller, output, IF_ERR_CALC);
     }
-    result.currentRefDqA[0] = next.currentRefDqA[0];
-    result.currentRefDqA[1] = next.currentRefDqA[1];
-    result.frequencyRefHz = next.frequencyRefHz;
-    result.state = next.state;
-    result.status = IF_OK;
-    *controller = next;
-    result.outputValid = true;
-    *output = result;
+    output->thetaRad = angle;
+    if (!if_control(controller, input, output))
+    {
+        return if_fail(controller, output, IF_ERR_CALC);
+    }
+    controller->thetaRad = angle;
+    controller->thetaCompRad = compensation;
+    output->state = controller->state;
+    output->outputValid = true;
     return IF_OK;
 }

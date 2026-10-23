@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(pid_controller C)
 set(CMAKE_C_STANDARD 99)
-add_library(pid_controller src/pid.c)
+add_library(pid_controller src/pid.c src/pid_pi.c)
 target_include_directories(pid_controller PUBLIC src)
 set_target_properties(pid_controller PROPERTIES C_STANDARD_REQUIRED YES)
 

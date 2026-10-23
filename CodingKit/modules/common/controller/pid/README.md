@@ -79,6 +79,15 @@ Ts = 1 / controlFreq
 
 这些步骤不绑定任何上层业务。`setpoint` 可以来自任意控制对象，`output` 也可以交给任意执行层处理。
 
+## 轻量先积分 PI
+
+需要“先积分、后输出”的电流环时，可单独使用 [pid_pi.h](src/pid_pi.h)，无需创建通用 `Pid` 对象。`PidPi` 只保存 `kp`、`ki` 和积分，使用物理周期 `periodS`；这是一套独立接口，不改变下文通用 PID 的离散顺序与抗饱和行为。
+
+1. `pid_pi_eval()` 计算 `I_next = clamp(I + Ki*Ts*error, ±limit)`，再计算 `u = clamp(Kp*error + I_next, ±limit)`，暂不修改 PI。
+2. 调用方对多轴输出统一限幅后，将各轴最终指令交给 `pid_pi_track()`。指令变化时提交 `clamp(u_applied - Kp*error, ±limit)`，否则提交本拍积分候选。
+
+`ki=0` 时积分始终为零。两个函数检查非有限数与限幅，失败不修改目标对象；同一实例由一个执行者独占，每个候选只提交一次。该小接口不包含滤波、斜率、设备或启停状态，原 `pid()`、`pid_eval()`、`pid_track()`、`Pid` 布局及固定参考均保持兼容。新增源码与原 `src/` 一样使用 GBK、LF。
+
 ## 内置控制工具边界
 
 当前模块包含这些可选控制工具：
@@ -254,7 +263,7 @@ PidStatus pid_track(Pid *controller, float appliedOutput, PidStep *step);
 
 ## 实际 C 验证与共享构建
 
-在本目录用 CMake 配置后运行 CTest，可执行 `pid_runtime`：两阶段评估/跟踪、单次回算与积分裁剪顺序、持续外部饱和和恢复、错误原子性，以及 3,000 周期的新旧成功路径等价。测试 C 文件为 UTF-8；src 与 examples 保持原 GBK，头文件 CRLF、源文件 LF 均保留。
+在本目录用 CMake 配置后运行 CTest，可执行 `pid_runtime`：两阶段评估/跟踪、单次回算与积分裁剪顺序、持续外部饱和和恢复、错误原子性、轻量先积分 PI，以及 3,000 周期的新旧成功路径等价。测试 C 文件为 UTF-8；src 与 examples 保持原 GBK，当前 `pid.c/pid.h` 均为 LF，原文件字节不变。
 
 ```text
 cmake -S . -B build-host -DBUILD_TESTING=ON

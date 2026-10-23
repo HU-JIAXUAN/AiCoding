@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+- **feat(if)**: 以已验证的 ZK I-f 控制方法简化独立控制器，内置 D 轴电流缓升与保持、
+  单周期零电压交接、按电流符号补偿 90° 软件角度及启动频率爬升；保留 float、物理单位
+  和硬件解耦。共享 PID 增加独立的先积分 PI 与矢量限幅跟踪，原 PID/FOC 接口及示例
+  保持兼容；README 收敛为启动、参数、调用和验证说明，删除原分阶段规划。 /
+  Simplifies the standalone I-f controller around the verified ZK method with D-axis alignment,
+  a one-cycle neutral handoff, phase compensation and frequency ramping; adds a small shared PI
+  primitive while preserving legacy PID/FOC behavior and replacing the staged plan with usage docs.
+
 - **fix(toolchain)**: 将 Go 构建工具链从 1.26.5 更新到 1.26.10 安全补丁，修复
   GO-006 报告的可达标准库漏洞；同步 CI 四处固定版本、三份 README badge、依赖治理
   锚点及契约检查，保留 Go 1.22 语言最低版本和原有漏洞阻塞策略。 / Updates the

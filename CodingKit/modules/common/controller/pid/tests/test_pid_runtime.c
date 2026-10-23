@@ -5,6 +5,7 @@
  */
 
 #include "pid.h"
+#include "pid_pi.h"
 
 #include <float.h>
 #include <math.h>
@@ -30,6 +31,7 @@ static bool check_protocol(void);
 static bool check_numbers(void);
 static bool check_recovery(void);
 static bool check_compat(void);
+static bool check_pi(void);
 
 /**
  * @brief 配置一组可精确核算的普通 PI。
@@ -326,6 +328,29 @@ static bool check_compat(void)
     return true;
 }
 
+/** @brief PI 先积分、单轴限幅和一次矢量输出跟踪。 */
+static bool check_pi(void)
+{
+    PidPi controller = {1.0f, 10.0f, 0.0f};
+    PidPiStep step;
+    CHECK(pid_pi_eval(&controller, 1.0f, 0.01f, 1.0f, &step) == PID_OK);
+    CHECK(controller.integral == 0.0f);
+    CHECK(fabsf(step.integral - 0.1f) < 1e-6f && step.output == 1.0f);
+    CHECK(pid_pi_track(&controller, &step, 0.70710678f) == PID_OK);
+    CHECK(fabsf(controller.integral - (-0.29289322f)) < 1e-6f);
+    CHECK(pid_pi_eval(&controller, 1.0f, 0.01f, 1.0f, &step) == PID_OK);
+    CHECK(fabsf(step.output - 0.80710678f) < 1e-6f);
+    CHECK(pid_pi_track(&controller, &step, step.output) == PID_OK);
+    CHECK(fabsf(controller.integral - (-0.19289322f)) < 1e-6f);
+    CHECK(pid_pi_eval(&controller, INFINITY, 0.01f, 1.0f, &step) == PID_ERR_NUMBER);
+    CHECK(pid_pi_eval(&controller, 0.0f, 0.0f, 1.0f, &step) == PID_ERR_FREQ);
+    CHECK(pid_pi_eval(NULL, 0.0f, 0.01f, 1.0f, &step) == PID_ERR_NULL);
+    controller.ki = 0.0f;
+    CHECK(pid_pi_eval(&controller, 1.0f, 0.01f, 1.0f, &step) == PID_OK);
+    CHECK(pid_pi_track(&controller, &step, 0.5f) == PID_OK && controller.integral == 0.0f);
+    return true;
+}
+
 /**
  * @brief 执行全部两阶段测试。
  * @return 通过返回 EXIT_SUCCESS。
@@ -334,7 +359,7 @@ int main(void)
 {
     /* 每组失败直接使宿主测试失败，所有优化级别均有效。 */
     return check_tracking() && check_single() && check_protocol() && check_numbers() &&
-                   check_recovery() && check_compat()
+                   check_recovery() && check_compat() && check_pi()
                ? EXIT_SUCCESS
                : EXIT_FAILURE;
 }

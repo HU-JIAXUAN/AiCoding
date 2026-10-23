@@ -1,18 +1,16 @@
 /**
  * @file test_if_control.c
- * @brief 通过真实 IF 入口核对时序、两轴调节、最终 duty 与最小生命周期。
+ * @brief 实际 C 验证 D 轴强拉、交接、相位、限压与错误处理。
  * @author HU JIAXUAN
  */
-
 #include "if_controller.h"
 
 #include <float.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-#define TEST_PI (3.14159265358979323846) /**< 独立双精度圆周率。 */
+#define TEST_PI (3.14159265358979323846)
 #define CHECK(condition)                                                                           \
     do                                                                                             \
     {                                                                                              \
@@ -25,598 +23,301 @@
 
 static IfConfig test_config(void);
 static IfInput test_input(void);
-static bool check_invalid(const IfOutput *output, IfState state, IfStatus status);
-static void reconstruct(const IfOutput *output, float bus, double voltage[2]);
-static bool check_projection(void);
-static bool check_reference(void);
-static bool check_voltage(void);
-static bool check_tracking(void);
-static bool check_lifecycle(void);
+static bool enter_run(IfController *controller, IfInput *input, IfOutput *output);
+static bool check_start(void);
 static bool check_errors(void);
-static bool check_config(void);
-static bool check_sweep(void);
+static bool check_numeric(void);
 static bool check_phase(void);
 
-/** @brief 创建测试配置，不作为电机调参默认值交付。 */
+/** @brief 小整数拍数便于独立核对启动顺序。 */
 static IfConfig test_config(void)
 {
-    const IfPiConfig pi = {1.0f, 0.0f, 0.0f, 20.0f};
-    const IfConfig config = {0.01f, 20.0f, 10.0f, 10000.0f, 1000.0f, 20.0f, 1.0f, 0.0f, pi, pi};
-
+    const IfConfig config = {.periodS = 0.01f,
+                             .currentLimitA = 4.0f,
+                             .voltageLimitV = 20.0f,
+                             .busMinV = 1.0f,
+                             .dutyMargin = 0.05f,
+                             .piD = {1.0f, 10.0f},
+                             .piQ = {1.0f, 10.0f},
+                             .alignAngleRad = 0.7f,
+                             .alignCurrentA = 2.0f,
+                             .alignRampS = 0.02f,
+                             .alignHoldS = 0.02f,
+                             .frequencyRampS = 0.03f};
     return config;
 }
 
-/** @brief 创建零电流、有效母线和显式启动快照。 */
+/** @brief 默认零反馈、有电流和频率给定的有效采样。 */
 static IfInput test_input(void)
 {
     IfInput input = {0};
-
-    input.action = IF_ACTION_START;
+    input.enable = true;
     input.sampleValid = true;
     input.busVoltageV = 24.0f;
+    input.currentA = 3.0f;
+    input.frequencyHz = 1.0f;
     return input;
 }
 
-/** @brief 无效输出必须整体清空数值，不能只清 outputValid。 */
-static bool check_invalid(const IfOutput *output, IfState state, IfStatus status)
+/** @brief 通过真实入口推进启动，不改写控制器内部阶段。 */
+static bool enter_run(IfController *controller, IfInput *input, IfOutput *output)
 {
-    int axis;
-
-    CHECK(output->state == state && output->status == status && !output->outputValid);
-    CHECK(output->flags == 0u && output->frequencyRefHz == 0.0f && output->thetaUsedRad == 0.0f);
-    CHECK(output->deltaThetaRad == 0.0f && output->voltageLimitV == 0.0f);
-    for (axis = 0; axis < 3; ++axis)
+    unsigned count;
+    for (count = 0; count < 20u; ++count)
     {
-        CHECK(output->duty[axis] == 0.0f);
-        if (axis < 2)
+        CHECK(if_update(controller, input, output) == IF_OK && output->outputValid);
+        if (output->state == IF_STATE_RUNNING)
         {
-            CHECK(output->currentRefDqA[axis] == 0.0f && output->currentFeedbackDqA[axis] == 0.0f);
-            CHECK(output->voltageRawDqV[axis] == 0.0f && output->voltageAppliedDqV[axis] == 0.0f);
-            CHECK(output->integralDqV[axis] == 0.0f);
+            return true;
         }
     }
-    return true;
+    CHECK(false);
 }
 
-/** @brief 独立 double 公式从最终三相 duty 重建 dq，不调用生产变换。 */
-static void reconstruct(const IfOutput *output, float bus, double voltage[2])
+/** @brief 核对四拍对齐、一拍零电压及正负电流的 90 度交接。 */
+static bool check_start(void)
 {
-    const double alpha = bus * (2.0 * output->duty[0] - output->duty[1] - output->duty[2]) / 3.0;
-    const double beta = bus * (output->duty[1] - output->duty[2]) / sqrt(3.0);
-    const double angle = output->thetaUsedRad;
-
-    voltage[0] = alpha * cos(angle) + beta * sin(angle);
-    voltage[1] = -alpha * sin(angle) + beta * cos(angle);
-}
-
-/** @brief V01/V02：零序投影、q 轴正号以及旋转坐标的一致性。 */
-static bool check_projection(void)
-{
-    const float currents[4][3] = {{1.0f, -0.5f, -0.5f},
-                                  {1.2f, -0.3f, -0.3f},
-                                  {0.0f, 0.8660254038f, -0.8660254038f},
-                                  {0.0f, 0.8660254038f, -0.8660254038f}};
-    const IfConfig config = test_config();
-    int vector;
-
-    for (vector = 0; vector < 4; ++vector)
+    int sign;
+    for (sign = -1; sign <= 1; sign += 2)
     {
+        const IfConfig config = test_config();
         IfController controller = {0};
         IfInput input = test_input();
         IfOutput output;
-
-        memcpy(input.phaseCurrentA, currents[vector], sizeof(input.phaseCurrentA));
-        input.startAngleRad = vector == 3 ? (float)(TEST_PI / 2.0) : 0.0f;
+        int tick;
+        input.currentA *= (float)sign;
+        input.frequencyHz *= (float)sign;
         CHECK(if_init(&controller, &config) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(fabsf(output.currentFeedbackDqA[0] - (vector == 2 ? 0.0f : 1.0f)) < 1.0e-5f);
-        CHECK(fabsf(output.currentFeedbackDqA[1] - (vector == 2 ? 1.0f : 0.0f)) < 1.0e-5f);
-        CHECK(fabsf(output.voltageRawDqV[0] + output.currentFeedbackDqA[0]) < 1.0e-5f);
-        CHECK(fabsf(output.voltageRawDqV[1] + output.currentFeedbackDqA[1]) < 1.0e-5f);
+        for (tick = 0; tick < 4; ++tick)
+        {
+            CHECK(if_update(&controller, &input, &output) == IF_OK);
+            CHECK(output.outputValid && output.state == IF_STATE_ALIGN);
+            CHECK(fabsf(output.currentRefDqA[0] - (tick == 0 ? 1.0f : 2.0f)) < 1e-6f);
+            CHECK(output.currentRefDqA[1] == 0.0f && output.frequencyHz == 0.0f);
+            CHECK(output.thetaRad == config.alignAngleRad);
+        }
+        CHECK(if_update(&controller, &input, &output) == IF_OK);
+        CHECK(output.state == IF_STATE_HANDOFF && output.outputValid);
+        CHECK(output.duty[0] == 0.5f && output.duty[1] == 0.5f && output.duty[2] == 0.5f);
+        CHECK(controller.pi[0].integral == 0.0f && controller.pi[1].integral == 0.0f);
+        for (tick = 1; tick <= 3; ++tick)
+        {
+            CHECK(if_update(&controller, &input, &output) == IF_OK);
+            CHECK(output.state == IF_STATE_RUNNING && output.outputValid);
+            CHECK(fabsf(output.frequencyHz - (float)sign * (float)tick / 3.0f) < 1e-6f);
+            CHECK(output.currentRefDqA[0] == 0.0f && output.currentRefDqA[1] == input.currentA);
+            if (tick == 1)
+            {
+                double angle = config.alignAngleRad - sign * TEST_PI / 2.0 +
+                               2.0 * TEST_PI * output.frequencyHz * config.periodS;
+                angle = fmod(angle + 2.0 * TEST_PI, 2.0 * TEST_PI);
+                CHECK(fabs(angle - output.thetaRad) < 1e-6);
+            }
+        }
+        input.enable = false;
+        input.sampleValid = false;
+        input.busVoltageV = NAN;
+        CHECK(if_update(&controller, &input, &output) == IF_OK);
+        CHECK(!output.outputValid && output.state == IF_STATE_STOPPED);
+        input = test_input();
+        CHECK(if_update(&controller, &input, &output) == IF_OK);
+        CHECK(output.state == IF_STATE_ALIGN && output.currentRefDqA[0] == 1.0f);
+        CHECK(if_reset(&controller) == IF_OK && controller.state == IF_STATE_STOPPED);
     }
     return true;
 }
 
-/** @brief V03～V05：真实入口的圆盘、欧氏限速、首拍相位和反向过零。 */
-static bool check_reference(void)
-{
-    IfConfig config = test_config();
-    IfController controller = {0};
-    IfInput input = test_input();
-    IfOutput output;
-    float nextAngle;
-
-    config.currentLimitA = 2.0f;
-    config.currentSlewAps = 10.0f;
-    config.frequencySlewHzps = 10.0f;
-    input.currentTargetDqA[0] = 3.0f;
-    input.currentTargetDqA[1] = 4.0f;
-    input.frequencyTargetHz = 1.0f;
-    CHECK(if_init(&controller, &config) == IF_OK);
-    CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-    CHECK(fabsf(output.currentRefDqA[0] - 0.06f) < 1.0e-5f);
-    CHECK(fabsf(output.currentRefDqA[1] - 0.08f) < 1.0e-5f);
-    CHECK((output.flags & IF_FLAG_CURRENT_LIMITED) != 0u);
-    CHECK((output.flags & IF_FLAG_CURRENT_SLEW) != 0u);
-    CHECK(output.thetaUsedRad == 0.0f && fabsf(output.frequencyRefHz - 0.1f) < 1.0e-6f);
-    CHECK(fabs(output.deltaThetaRad - 0.0062831853) < 1.0e-7);
-    nextAngle = output.deltaThetaRad;
-    input.startAngleRad = NAN;
-    input.frequencyTargetHz = 0.05f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(fabsf(output.thetaUsedRad - nextAngle) < 1.0e-6f);
-    CHECK(output.frequencyRefHz == 0.05f);
-    input.frequencyTargetHz = -1.0f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(output.frequencyRefHz == 0.0f && output.deltaThetaRad == 0.0f);
-    CHECK((output.flags & IF_FLAG_FREQUENCY_SLEW) != 0u && output.currentRefDqA[0] > 0.0f);
-    nextAngle = output.thetaUsedRad;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(fabsf(output.frequencyRefHz + 0.1f) < 1.0e-6f && output.currentRefDqA[0] > 0.0f);
-    CHECK(output.thetaUsedRad == nextAngle && output.deltaThetaRad < 0.0f);
-    input.frequencyTargetHz = -100.0f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK((output.flags & IF_FLAG_FREQUENCY_LIMITED) != 0u);
-    return true;
-}
-
-/** @brief V06/V07：物理电压归一化、圆形边界和裕量均经过完整 IF 入口。 */
-static bool check_voltage(void)
-{
-    IfConfig config = test_config();
-    IfController controller = {0};
-    IfInput input = test_input();
-    IfOutput output;
-    int margin;
-
-    input.currentTargetDqA[0] = 12.0f;
-    CHECK(if_init(&controller, &config) == IF_OK);
-    CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-    CHECK(fabsf(output.duty[0] - 0.875f) < 2.0e-6f);
-    CHECK(fabsf(output.duty[1] - 0.125f) < 2.0e-6f);
-    CHECK(fabsf(output.duty[2] - 0.125f) < 2.0e-6f);
-    CHECK(fabsf(output.voltageAppliedDqV[0] - 12.0f) < 1.0e-4f);
-    for (margin = 0; margin < 2; ++margin)
-    {
-        IfController boundary = {0};
-        double voltage[2];
-
-        config.dutyMargin = margin == 0 ? 0.05f : 0.0f;
-        input.currentTargetDqA[0] = 20.0f;
-        input.startAngleRad = (float)(TEST_PI / 6.0);
-        CHECK(if_init(&boundary, &config) == IF_OK);
-        CHECK(if_update(&boundary, &input, &output) == IF_OK && output.outputValid);
-        CHECK((output.flags & IF_FLAG_VOLTAGE_LIMITED) != 0u);
-        CHECK(fabsf(output.duty[0] - (1.0f - config.dutyMargin)) < 2.0e-6f);
-        CHECK(fabsf(output.duty[1] - 0.5f) < 2.0e-6f);
-        CHECK(fabsf(output.duty[2] - config.dutyMargin) < 2.0e-6f);
-        CHECK(fabs(output.voltageLimitV - (1.0 - 2.0 * config.dutyMargin) * 24.0 / sqrt(3.0)) <
-              1.0e-4);
-        reconstruct(&output, input.busVoltageV, voltage);
-        CHECK(fabs(voltage[0] - output.voltageLimitV) < 1.0e-4 && fabs(voltage[1]) < 1.0e-4);
-    }
-    return true;
-}
-
-/** @brief V08：两轴积分只按最终 duty 电压更新一次，不由积分硬限幅替代回算。 */
-static bool check_tracking(void)
-{
-    IfConfig config = test_config();
-    IfController controller = {0};
-    IfInput input = test_input();
-    IfOutput output;
-    double voltage[2];
-    int axis;
-
-    config.voltageLimitV = 1.0f;
-    config.piD = (IfPiConfig){1.0f, 10.0f, 2.0f, 1.0f};
-    config.piQ = config.piD;
-    input.currentTargetDqA[0] = 1.0f;
-    input.currentTargetDqA[1] = 1.0f;
-    CHECK(if_init(&controller, &config) == IF_OK);
-    CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-    reconstruct(&output, input.busVoltageV, voltage);
-    for (axis = 0; axis < 2; ++axis)
-    {
-        CHECK(output.voltageRawDqV[axis] == 1.0f);
-        CHECK(fabs(voltage[axis] - 1.0 / sqrt(2.0)) < 1.0e-5);
-        CHECK(fabsf(output.integralDqV[axis] - 0.041421356f) < 1.0e-5f);
-        CHECK(fabs(output.integralDqV[axis] - 0.1 * (1.0 + 2.0 * (voltage[axis] - 1.0))) < 1.0e-5);
-    }
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(fabsf(output.voltageRawDqV[0] - 1.041421356f) < 1.0e-5f);
-    /* 不同轴增益必须各自生效，不能把 d 轴配置复制成两套相同调节器。 */
-    input.action = IF_ACTION_DISABLE;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    config.voltageLimitV = 10.0f;
-    config.piQ = (IfPiConfig){2.0f, 5.0f, 1.0f, 1.0f};
-    CHECK(if_init(&controller, &config) == IF_OK);
-    input.action = IF_ACTION_START;
-    input.currentTargetDqA[0] = 0.2f;
-    input.currentTargetDqA[1] = -0.3f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-    CHECK(fabsf(output.voltageRawDqV[0] - 0.2f) < 1.0e-5f);
-    CHECK(fabsf(output.voltageRawDqV[1] + 0.6f) < 1.0e-5f);
-    CHECK(fabsf(output.integralDqV[0] - 0.02f) < 1.0e-5f);
-    CHECK(fabsf(output.integralDqV[1] + 0.015f) < 1.0e-5f);
-    return true;
-}
-
-/** @brief V09/V10：停机终点不再激励，固定方向保持与立即禁用相互独立。 */
-static bool check_lifecycle(void)
-{
-    IfConfig config = test_config();
-    IfController controller = {0};
-    IfInput input = test_input();
-    IfOutput output;
-    const float expectedFrequency[3] = {0.1f, 0.0f, 0.0f};
-    const float expectedCurrent[3] = {0.2f, 0.2f, 0.1f};
-    float angle;
-    int tick;
-
-    config.currentSlewAps = 10.0f;
-    config.frequencySlewHzps = 10.0f;
-    input.currentTargetDqA[0] = 0.2f;
-    input.frequencyTargetHz = 0.2f;
-    CHECK(if_init(&controller, &config) == IF_OK);
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    input.action = IF_ACTION_STOP;
-    input.currentTargetDqA[0] = NAN;
-    input.frequencyTargetHz = NAN;
-    for (tick = 0; tick < 3; ++tick)
-    {
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(output.state == IF_STATE_STOPPING);
-        CHECK(fabsf(output.frequencyRefHz - expectedFrequency[tick]) < 1.0e-6f);
-        CHECK(fabsf(output.currentRefDqA[0] - expectedCurrent[tick]) < 1.0e-6f);
-        input.action = IF_ACTION_START;
-    }
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(check_invalid(&output, IF_STATE_STOPPED, IF_OK));
-    input.action = IF_ACTION_KEEP;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(check_invalid(&output, IF_STATE_STOPPED, IF_OK));
-    input = test_input();
-    input.currentTargetDqA[0] = 1.0f;
-    input.startAngleRad = 0.7f;
-    for (tick = 0; tick < 200; ++tick)
-    {
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(output.thetaUsedRad == 0.7f && output.deltaThetaRad == 0.0f);
-    }
-    input.action = IF_ACTION_DISABLE;
-    input.sampleValid = false;
-    input.phaseCurrentA[0] = NAN;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(check_invalid(&output, IF_STATE_STOPPED, IF_OK));
-    input = test_input();
-    input.frequencyTargetHz = 1.0f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    angle = output.thetaUsedRad + output.deltaThetaRad;
-    input.action = IF_ACTION_START;
-    input.startAngleRad = 2.0f;
-    CHECK(if_update(&controller, &input, &output) == IF_OK);
-    CHECK(fabsf(output.thetaUsedRad - angle) < 1.0e-5f);
-    return true;
-}
-
-/** @brief 检查故障优先级、锁存、NULL 原子性和失败后显式恢复。 */
+/** @brief 非法采样锁存错误，显式停止或复位后才允许重新对齐。 */
 static bool check_errors(void)
 {
-    const IfConfig config = test_config();
-    const IfStatus expected[] = {IF_ERR_SAMPLE, IF_ERR_NUMBER, IF_ERR_VBUS,
-                                 IF_ERR_RANGE,  IF_ERR_ACTION, IF_ERR_CALC};
-    int scenario;
-
-    for (scenario = 0; scenario < 6; ++scenario)
-    {
-        IfController controller = {0};
-        IfInput input = test_input();
-        IfOutput output;
-
-        CHECK(if_init(&controller, &config) == IF_OK);
-        if (scenario == 0)
-        {
-            input.sampleValid = false;
-            input.phaseCurrentA[0] = NAN;
-        }
-        else if (scenario == 1)
-        {
-            input.phaseCurrentA[1] = INFINITY;
-            input.busVoltageV = 0.0f;
-        }
-        else if (scenario == 2)
-        {
-            input.busVoltageV = 0.0f;
-            input.startAngleRad = -1.0f;
-        }
-        else if (scenario == 3)
-        {
-            input.startAngleRad = (float)(2.0 * TEST_PI);
-        }
-        else if (scenario == 4)
-        {
-            input.action = (IfAction)99;
-            input.sampleValid = false;
-        }
-        else
-        {
-            input.phaseCurrentA[0] = FLT_MAX;
-            input.phaseCurrentA[1] = -FLT_MAX;
-            input.phaseCurrentA[2] = -FLT_MAX;
-        }
-        CHECK(if_update(&controller, &input, &output) == expected[scenario]);
-        CHECK(check_invalid(&output, IF_STATE_FAULT, expected[scenario]));
-        input = test_input();
-        input.action = IF_ACTION_DISABLE;
-        CHECK(if_update(&controller, &input, &output) == expected[scenario]);
-        CHECK(check_invalid(&output, IF_STATE_FAULT, expected[scenario]));
-        CHECK(if_reset(&controller) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK);
-        CHECK(check_invalid(&output, IF_STATE_STOPPED, IF_OK));
-        input.action = IF_ACTION_START;
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(output.thetaUsedRad == 0.0f && output.integralDqV[0] == 0.0f);
-    }
-    /* V11 使用已经积累积分的运行实例，后续 START 也不能绕开锁存故障。 */
-    {
-        IfController controller = {0};
-        IfConfig integralConfig = test_config();
-        IfInput input = test_input();
-        IfOutput output;
-
-        integralConfig.piD = (IfPiConfig){1.0f, 10.0f, 1.0f, 20.0f};
-        integralConfig.piQ = integralConfig.piD;
-        input.currentTargetDqA[0] = 1.0f;
-        CHECK(if_init(&controller, &integralConfig) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK);
-        CHECK(output.integralDqV[0] > 0.0f);
-        input.phaseCurrentA[0] = NAN;
-        CHECK(if_update(&controller, &input, &output) == IF_ERR_NUMBER);
-        CHECK(check_invalid(&output, IF_STATE_FAULT, IF_ERR_NUMBER));
-        input.phaseCurrentA[0] = 0.0f;
-        CHECK(if_update(&controller, &input, &output) == IF_ERR_NUMBER);
-        CHECK(if_reset(&controller) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(output.voltageRawDqV[0] == 1.0f);
-    }
-    /* 第一轴跟踪成功后第二轴计算溢出，不能发布半完成的正常输出。 */
-    {
-        IfController controller = {0};
-        IfConfig extreme = test_config();
-        IfInput input = test_input();
-        IfOutput output;
-
-        extreme.piQ = (IfPiConfig){1.0f, FLT_MAX, FLT_MIN, 20.0f};
-        input.currentTargetDqA[0] = 1.0f;
-        input.currentTargetDqA[1] = 2.0f;
-        CHECK(if_init(&controller, &extreme) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_ERR_CALC);
-        CHECK(check_invalid(&output, IF_STATE_FAULT, IF_ERR_CALC));
-    }
-    /* 指针失败只覆盖可写输出，不修改运行实例。 */
-    {
-        IfController controller = {0};
-        IfController before;
-        IfInput input = test_input();
-        IfOutput output;
-
-        CHECK(if_update(&controller, &input, &output) == IF_ERR_STATE);
-        CHECK(check_invalid(&output, IF_STATE_UNINITIALIZED, IF_ERR_STATE));
-        CHECK(if_reset(&controller) == IF_ERR_STATE);
-        CHECK(if_init(&controller, &config) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK);
-        memcpy(&before, &controller, sizeof(before));
-        CHECK(if_update(&controller, NULL, &output) == IF_ERR_NULL);
-        CHECK(check_invalid(&output, IF_STATE_RUNNING, IF_ERR_NULL));
-        CHECK(if_update(&controller, &input, NULL) == IF_ERR_NULL);
-        CHECK(memcmp(&before, &controller, sizeof(before)) == 0);
-        CHECK(if_update(NULL, &input, &output) == IF_ERR_NULL);
-        CHECK(check_invalid(&output, IF_STATE_UNINITIALIZED, IF_ERR_NULL));
-        CHECK(if_init(NULL, &config) == IF_ERR_NULL && if_reset(NULL) == IF_ERR_NULL);
-        CHECK(if_init(&controller, NULL) == IF_ERR_NULL);
-        CHECK(if_reset(&controller) == IF_ERR_STATE &&
-              if_init(&controller, &config) == IF_ERR_STATE);
-        CHECK(memcmp(&before, &controller, sizeof(before)) == 0);
-    }
+    IfConfig config = test_config();
+    IfController controller = {0};
+    IfInput input = test_input();
+    IfOutput output;
+    CHECK(if_update(&controller, &input, &output) == IF_ERR_STATE);
+    config.alignCurrentA = 0.0f;
+    CHECK(if_init(&controller, &config) == IF_ERR_CONFIG);
+    config = test_config();
+    config.alignRampS = 1e30f;
+    CHECK(if_init(&controller, &config) == IF_ERR_CONFIG);
+    config = test_config();
+    CHECK(if_init(&controller, &config) == IF_OK);
+    input.sampleValid = false;
+    CHECK(if_update(&controller, &input, &output) == IF_ERR_INPUT);
+    CHECK(!output.outputValid && output.state == IF_STATE_FAULT);
+    input.sampleValid = true;
+    CHECK(if_update(&controller, &input, &output) == IF_ERR_INPUT);
+    input.enable = false;
+    CHECK(if_update(&controller, &input, &output) == IF_OK);
+    input.enable = true;
+    input.phaseCurrentA[0] = INFINITY;
+    CHECK(if_update(&controller, &input, &output) == IF_ERR_INPUT);
+    CHECK(if_reset(&controller) == IF_OK);
+    input.phaseCurrentA[0] = 0.0f;
+    input.busVoltageV = 0.5f;
+    CHECK(if_update(&controller, &input, &output) == IF_ERR_INPUT);
+    CHECK(if_update(NULL, &input, &output) == IF_ERR_NULL && !output.outputValid);
+    CHECK(if_update(&controller, &input, NULL) == IF_ERR_NULL);
     return true;
 }
 
-/** @brief V12：无效配置不能部分应用；覆盖乘积、下溢和不可推进斜坡。 */
-static bool check_config(void)
+/** @brief 独立 double 公式核对所有角度的两轴 PI、圆形限压和最终 duty。 */
+static bool check_numeric(void)
 {
-    int scenario;
-
-    for (scenario = 0; scenario < 12; ++scenario)
+    int busIndex, marginIndex, currentIndex, degree;
+    unsigned cases = 0u;
+    for (busIndex = 0; busIndex < 3; ++busIndex)
     {
-        IfConfig config = test_config();
-        IfController controller = {0};
-        IfController before;
-
-        CHECK(if_init(&controller, &config) == IF_OK);
-        memcpy(&before, &controller, sizeof(before));
-        switch (scenario)
+        for (marginIndex = 0; marginIndex < 3; ++marginIndex)
         {
-            case 0:
-                config.periodS = 0.0f;
-                break;
-            case 1:
-                config.currentLimitA = -1.0f;
-                break;
-            case 2:
-                config.dutyMargin = 0.5f;
-                break;
-            case 3:
-                config.piD = (IfPiConfig){1.0f, 1000.0f, 2.0f, 10.0f};
-                break;
-            case 4:
-                config.currentSlewAps = FLT_MIN;
-                break;
-            case 5:
-                config.periodS = FLT_MIN;
-                break;
-            case 6:
-                config.periodS = 2.0f;
-                config.frequencyLimitHz = 0.1f;
-                config.currentSlewAps = FLT_MAX;
-                break;
-            case 7:
-                config.frequencyLimitHz = 50.0f;
-                break;
-            case 8:
-                config.piQ.kp = INFINITY;
-                break;
-            case 9:
-                config.piQ.ki = 1.0f;
-                break;
-            case 10:
-                config.piQ.integralLimitV = 21.0f;
-                break;
-            default:
-                config.piD = (IfPiConfig){1.0f, FLT_MIN, FLT_MIN, 1.0f};
-                break;
-        }
-        CHECK(if_init(&controller, &config) == IF_ERR_CONFIG);
-        CHECK(memcmp(&before, &controller, sizeof(before)) == 0);
-    }
-    /* 巨大的有限目标仍能径向限幅；纯零序大电流不在投影时溢出。 */
-    {
-        IfController controller = {0};
-        IfConfig config = test_config();
-        IfInput input = test_input();
-        IfOutput output;
-
-        config.currentLimitA = 2.0f;
-        input.currentTargetDqA[0] = FLT_MAX;
-        input.currentTargetDqA[1] = FLT_MAX;
-        input.phaseCurrentA[0] = FLT_MAX;
-        input.phaseCurrentA[1] = FLT_MAX;
-        input.phaseCurrentA[2] = FLT_MAX;
-        CHECK(if_init(&controller, &config) == IF_OK);
-        CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-        CHECK(output.currentFeedbackDqA[0] == 0.0f && output.currentFeedbackDqA[1] == 0.0f);
-        CHECK(fabsf(output.currentRefDqA[0] - sqrtf(2.0f)) < 1.0e-5f);
-    }
-    return true;
-}
-
-/** @brief 在全扇区和两轴上独立核对完整入口的电压圆盘、duty 及施加电压。 */
-static bool check_sweep(void)
-{
-    const float buses[] = {6.0f, 24.0f, 60.0f};
-    const float margins[] = {0.0f, 0.05f, 0.2f};
-    const float targets[][2] = {{0.0f, 0.0f}, {1.2f, -0.8f}, {16.0f, 12.0f}, {-12.0f, -16.0f}};
-    int bus;
-    int margin;
-    int target;
-    int angle;
-
-    for (bus = 0; bus < 3; ++bus)
-    {
-        for (margin = 0; margin < 3; ++margin)
-        {
-            for (target = 0; target < 4; ++target)
+            for (currentIndex = 0; currentIndex < 3; ++currentIndex)
             {
-                for (angle = 0; angle < 360; ++angle)
+                for (degree = 0; degree < 360; ++degree)
                 {
                     IfConfig config = test_config();
                     IfController controller = {0};
                     IfInput input = test_input();
                     IfOutput output;
-                    double voltage[2];
-                    const double norm = hypot(targets[target][0], targets[target][1]);
-                    double cap;
-                    double ratio;
+                    double phase[3], duty[3], p[2], integral[2], untracked[2], voltage[2];
+                    double mean, beta, id, iq;
+                    double cap, length, common;
                     int axis;
-
-                    config.dutyMargin = margins[margin];
-                    input.busVoltageV = buses[bus];
-                    input.startAngleRad = (float)(angle * TEST_PI / 180.0);
-                    input.currentTargetDqA[0] = targets[target][0];
-                    input.currentTargetDqA[1] = targets[target][1];
+                    config.periodS = 0.0001f;
+                    config.alignRampS = 0.0f;
+                    config.alignHoldS = config.periodS;
+                    config.frequencyRampS = 0.0f;
+                    config.alignAngleRad = (float)(degree * TEST_PI / 180.0);
+                    config.dutyMargin = 0.05f * marginIndex;
+                    config.piD = (IfPiConfig){2.0f, 30.0f};
+                    config.piQ = (IfPiConfig){3.0f, 20.0f};
+                    input.busVoltageV = (float[]){6.0f, 24.0f, 48.0f}[busIndex];
+                    input.frequencyHz = 0.0f;
+                    input.currentA = (float[]){0.0f, 1.0f, 10.0f}[currentIndex];
+                    input.phaseCurrentA[0] = 0.4f;
+                    input.phaseCurrentA[1] = -0.3f;
+                    input.phaseCurrentA[2] = -0.1f;
+                    CHECK(if_init(&controller, &config) == IF_OK);
+                    CHECK(enter_run(&controller, &input, &output));
+                    mean = ((double)input.phaseCurrentA[0] + input.phaseCurrentA[1] +
+                            input.phaseCurrentA[2]) /
+                           3.0;
+                    beta = (input.phaseCurrentA[1] - (double)input.phaseCurrentA[2]) / sqrt(3.0);
+                    id = (input.phaseCurrentA[0] - mean) * cos(output.thetaRad) +
+                         beta * sin(output.thetaRad);
+                    iq = beta * cos(output.thetaRad) -
+                         (input.phaseCurrentA[0] - mean) * sin(output.thetaRad);
                     cap = fmin(config.voltageLimitV,
                                (1.0 - 2.0 * config.dutyMargin) * input.busVoltageV / sqrt(3.0));
-                    ratio = norm > cap ? cap / norm : 1.0;
-                    CHECK(if_init(&controller, &config) == IF_OK);
-                    CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-                    reconstruct(&output, input.busVoltageV, voltage);
+                    p[0] = -id * config.piD.kp;
+                    p[1] = (fmin(input.currentA, config.currentLimitA) - iq) * config.piQ.kp;
+                    integral[0] = fmax(-cap, fmin(cap, -id * config.piD.ki * config.periodS));
+                    integral[1] =
+                        fmax(-cap, fmin(cap, (fmin(input.currentA, config.currentLimitA) - iq) *
+                                                 config.piQ.ki * config.periodS));
                     for (axis = 0; axis < 2; ++axis)
                     {
-                        CHECK(fabs(voltage[axis] - targets[target][axis] * ratio) < 1.0e-4);
-                        CHECK(fabs(voltage[axis] - output.voltageAppliedDqV[axis]) < 1.0e-4);
+                        untracked[axis] = integral[axis];
+                        voltage[axis] = fmax(-cap, fmin(cap, p[axis] + integral[axis]));
                     }
+                    length = hypot(voltage[0], voltage[1]);
+                    if (length > cap)
+                    {
+                        for (axis = 0; axis < 2; ++axis)
+                        {
+                            voltage[axis] *= cap / length;
+                            integral[axis] = fmax(-cap, fmin(cap, voltage[axis] - p[axis]));
+                        }
+                    }
+                    phase[0] =
+                        voltage[0] * cos(output.thetaRad) - voltage[1] * sin(output.thetaRad);
+                    beta = voltage[0] * sin(output.thetaRad) + voltage[1] * cos(output.thetaRad);
+                    phase[1] = -phase[0] / 2.0 + sqrt(3.0) * beta / 2.0;
+                    phase[2] = -phase[0] / 2.0 - sqrt(3.0) * beta / 2.0;
+                    common = -(fmax(phase[0], fmax(phase[1], phase[2])) +
+                               fmin(phase[0], fmin(phase[1], phase[2]))) /
+                             2.0;
                     for (axis = 0; axis < 3; ++axis)
                     {
-                        CHECK(output.duty[axis] >= config.dutyMargin);
-                        CHECK(output.duty[axis] <= 1.0f - config.dutyMargin);
+                        duty[axis] = 0.5 + (phase[axis] + common) / input.busVoltageV;
+                        CHECK(fabs(output.duty[axis] - duty[axis]) < 2e-6);
+                        CHECK(output.duty[axis] >= config.dutyMargin &&
+                              output.duty[axis] <= 1.0f - config.dutyMargin);
                     }
-                    CHECK((output.flags & ~((uint32_t)63u)) == 0u);
+                    for (axis = 0; axis < 2; ++axis)
+                    {
+                        double integralError = fabs(controller.pi[axis].integral - integral[axis]);
+                        CHECK(fabs(output.voltageDqV[axis] - voltage[axis]) < 2e-5);
+                        /* 圆周边界允许 float 舍入改变比较分支；仍逐项核对两种合法积分。 */
+                        if (fabs(length - cap) <= 16.0 * FLT_EPSILON * cap)
+                        {
+                            const double tracked = fmax(-cap, fmin(cap, voltage[axis] - p[axis]));
+                            integralError =
+                                fmin(fabs(controller.pi[axis].integral - untracked[axis]),
+                                     fabs(controller.pi[axis].integral - tracked));
+                        }
+                        CHECK(integralError < 2e-5);
+                    }
+                    CHECK(output.currentLimited == (input.currentA > config.currentLimitA));
+                    ++cases;
                 }
             }
         }
     }
+    printf("IF independent numeric: %u cases\n", cases);
     return true;
 }
 
-/** @brief 基础长期检查：正反旋转、环绕及低频累计，独立参考只读公开输出。 */
+/** @brief 百万拍相位和双实例交错推进，零频不漂移，正负微小频率不丢失。 */
 static bool check_phase(void)
 {
     const float frequencies[] = {0.0f, 0.0001f, -0.0001f, 10.0f, -10.0f};
-    int scenario;
-    double worst = 0.0;
-
-    for (scenario = 0; scenario < 5; ++scenario)
+    size_t item;
+    for (item = 0; item < sizeof(frequencies) / sizeof(frequencies[0]); ++item)
     {
         IfConfig config = test_config();
-        IfController controller = {0};
-        IfInput input = test_input();
-        IfOutput output;
-        double reference;
-        int tick;
-
+        IfController controller = {0}, other = {0};
+        IfInput input = test_input(), idle = test_input();
+        IfOutput output, otherOutput;
+        double expected, largest = 0.0;
+        unsigned tick;
         config.periodS = 0.0001f;
-        config.frequencySlewHzps = 1000000.0f;
-        input.frequencyTargetHz = frequencies[scenario];
-        input.startAngleRad = scenario == 2 ? 0.0f : 5.9f;
-        reference = input.startAngleRad;
-        CHECK(if_init(&controller, &config) == IF_OK);
-        for (tick = 0; tick < 100000; ++tick)
+        config.alignAngleRad = 5.9f;
+        config.alignRampS = 0.0f;
+        config.alignHoldS = config.periodS;
+        config.frequencyRampS = 0.0f;
+        input.currentA = 0.0f;
+        input.frequencyHz = frequencies[item];
+        idle = input;
+        idle.frequencyHz = 0.0f;
+        CHECK(if_init(&controller, &config) == IF_OK && if_init(&other, &config) == IF_OK);
+        CHECK(enter_run(&controller, &input, &output) && enter_run(&other, &idle, &otherOutput));
+        expected = output.thetaRad;
+        for (tick = 0; tick < 1000000u; ++tick)
         {
             double error;
-
-            CHECK(if_update(&controller, &input, &output) == IF_OK && output.outputValid);
-            CHECK(output.thetaUsedRad >= 0.0f && output.thetaUsedRad < (float)(2.0 * TEST_PI));
-            error = fabs(remainder(output.thetaUsedRad - reference, 2.0 * TEST_PI));
-            worst = fmax(worst, error);
+            expected =
+                fmod(expected + 2.0 * TEST_PI * frequencies[item] * config.periodS + 2.0 * TEST_PI,
+                     2.0 * TEST_PI);
+            CHECK(if_update(&controller, &input, &output) == IF_OK);
+            error = fabs(expected - output.thetaRad);
+            error = fmin(error, 2.0 * TEST_PI - error);
+            largest = fmax(largest, error);
             CHECK(error <= 0.005);
-            reference = fmod(reference + 2.0 * TEST_PI * output.frequencyRefHz * config.periodS +
-                                 2.0 * TEST_PI,
-                             2.0 * TEST_PI);
-            input.action = IF_ACTION_KEEP;
+            if (tick % 1000u == 0u)
+            {
+                const float held = otherOutput.thetaRad;
+                CHECK(if_update(&other, &idle, &otherOutput) == IF_OK);
+                CHECK(otherOutput.thetaRad == held);
+            }
         }
-        if (frequencies[scenario] == 0.0f)
-        {
-            CHECK(output.thetaUsedRad == input.startAngleRad);
-        }
-        else
-        {
-            CHECK(output.thetaUsedRad != input.startAngleRad);
-        }
+        printf("IF phase %.7g Hz: max error %.9g rad\n", frequencies[item], largest);
     }
-    printf("phase: 5 x 100000 ticks, max circular error %.9g rad\n", worst);
     return true;
 }
 
-/** @brief 运行真实入口的确定向量与完整链路验证。 */
+/** @brief 所有优化级别都执行真实控制入口。 */
 int main(void)
 {
-    if (!check_projection() || !check_reference() || !check_voltage() || !check_tracking() ||
-        !check_lifecycle() || !check_errors() || !check_config() || !check_sweep() ||
-        !check_phase())
-    {
-        return EXIT_FAILURE;
-    }
-    puts("IF control: deterministic vectors and 12960 full-chain modulation cases passed");
-    return EXIT_SUCCESS;
+    return check_start() && check_errors() && check_numeric() && check_phase() ? EXIT_SUCCESS
+                                                                               : EXIT_FAILURE;
 }

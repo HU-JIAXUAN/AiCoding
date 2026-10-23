@@ -1,16 +1,15 @@
 /**
  * @file test_if_rl.c
- * @brief 从最终 duty 独立推进 R-L 模型，检验真实 IF 的两轴电流闭环。
+ * @brief 最终 duty 驱动独立 R-L 模型，验证强拉、D/Q 交接及饱和恢复。
  * @author HU JIAXUAN
  */
-
 #include "if_controller.h"
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TEST_PI (3.14159265358979323846) /**< 模型独立双精度圆周率。 */
+#define TEST_PI (3.14159265358979323846)
 #define CHECK(condition)                                                                           \
     do                                                                                             \
     {                                                                                              \
@@ -21,161 +20,153 @@
         }                                                                                          \
     } while (0)
 
-/** @brief 无反电动势、静止 alpha/beta 电气对象，R=1 ohm、L=1 mH。 */
+/** @brief 无机械运动及反电动势，R=1 ohm、L=1 mH 的独立对象。 */
 typedef struct
 {
-    double alphaA; /**< alpha 电流，A。 */
-    double betaA;  /**< beta 电流，A。 */
-    float periodS; /**< 测试方持有的固定周期，s。 */
+    double alphaA;
+    double betaA;
 } RlPlant;
 
-static IfConfig model_config(bool saturated);
+static IfConfig model_config(float cap, float angle);
 static bool model_tick(IfController *controller, IfInput *input, IfOutput *output, RlPlant *plant,
-                       double currentDq[2]);
-static bool check_normal(int axis, float angle);
-static bool check_saturation(int axis, float angle);
+                       double current[2]);
+static bool check_normal(float angle, int sign);
+static bool check_saturation(float angle, int sign);
 
-/** @brief 使用 README 的固定验证参数，不使用被测实现计算模型系数。 */
-static IfConfig model_config(bool saturated)
+/** @brief 50 拍对齐缓升、150 拍保持，随后验证同一物理电流方向交接。 */
+static IfConfig model_config(float cap, float angle)
 {
-    const float cap = saturated ? 0.5f : 10.0f;
-    const IfPiConfig pi = {1.0f, 1000.0f, 1.0f, cap};
-    const IfConfig config = {0.0001f, 2.0f, 10.0f, 10000.0f, 1000.0f, cap, 1.0f, 0.05f, pi, pi};
-
+    const IfConfig config = {.periodS = 0.0001f,
+                             .currentLimitA = 2.0f,
+                             .voltageLimitV = cap,
+                             .busMinV = 1.0f,
+                             .dutyMargin = 0.05f,
+                             .piD = {1.0f, 1000.0f},
+                             .piQ = {1.0f, 1000.0f},
+                             .alignAngleRad = angle,
+                             .alignCurrentA = 1.0f,
+                             .alignRampS = 0.005f,
+                             .alignHoldS = 0.015f,
+                             .frequencyRampS = 0.005f};
     return config;
 }
 
-/** @brief 采样上拍模型电流、运行真实控制器，再仅从 duty 和母线驱动独立模型。 */
+/** @brief 只由最终 duty 与母线重建施加电压，不使用生产变换或电压观测。 */
 static bool model_tick(IfController *controller, IfInput *input, IfOutput *output, RlPlant *plant,
-                       double currentDq[2])
+                       double current[2])
 {
-    double appliedAlpha;
-    double appliedBeta;
-    double decay;
-    int leg;
-
+    const double decay = exp(-(double)controller->config.periodS / 0.001);
+    double alphaV, betaV;
+    int phase;
     input->phaseCurrentA[0] = (float)plant->alphaA;
     input->phaseCurrentA[1] = (float)(-plant->alphaA / 2.0 + sqrt(3.0) * plant->betaA / 2.0);
     input->phaseCurrentA[2] = (float)(-plant->alphaA / 2.0 - sqrt(3.0) * plant->betaA / 2.0);
     CHECK(if_update(controller, input, output) == IF_OK && output->outputValid);
-    CHECK(output->state == IF_STATE_RUNNING && output->frequencyRefHz == 0.0f);
-    for (leg = 0; leg < 3; ++leg)
+    for (phase = 0; phase < 3; ++phase)
     {
-        CHECK(isfinite(output->duty[leg]));
-        CHECK(output->duty[leg] >= 0.05f && output->duty[leg] <= 0.95f);
+        CHECK(output->duty[phase] >= 0.05f && output->duty[phase] <= 0.95f);
     }
-    /* 只读最终 duty 与实际输入母线，不使用 IF 的电压观测量或生产变换。 */
-    appliedAlpha =
-        input->busVoltageV * (2.0 * output->duty[0] - output->duty[1] - output->duty[2]) / 3.0;
-    appliedBeta = input->busVoltageV * (output->duty[1] - output->duty[2]) / sqrt(3.0);
-    decay = exp(-(double)plant->periodS / 0.001);
-    plant->alphaA = decay * plant->alphaA + (1.0 - decay) * appliedAlpha;
-    plant->betaA = decay * plant->betaA + (1.0 - decay) * appliedBeta;
-    currentDq[0] =
-        plant->alphaA * cos(input->startAngleRad) + plant->betaA * sin(input->startAngleRad);
-    currentDq[1] =
-        -plant->alphaA * sin(input->startAngleRad) + plant->betaA * cos(input->startAngleRad);
-    input->action = IF_ACTION_KEEP;
+    alphaV = input->busVoltageV * (2.0 * output->duty[0] - output->duty[1] - output->duty[2]) / 3.0;
+    betaV = input->busVoltageV * (output->duty[1] - output->duty[2]) / sqrt(3.0);
+    plant->alphaA = decay * plant->alphaA + (1.0 - decay) * alphaV;
+    plant->betaA = decay * plant->betaA + (1.0 - decay) * betaV;
+    current[0] = plant->alphaA * cos(output->thetaRad) + plant->betaA * sin(output->thetaRad);
+    current[1] = plant->betaA * cos(output->thetaRad) - plant->alphaA * sin(output->thetaRad);
     return true;
 }
 
-/** @brief 两个固定角度分别激励两轴，验证启动、交叉轴误差和母线 24→6 V。 */
-static bool check_normal(int axis, float angle)
+/** @brief 真实启动后保持正/负 Q 轴目标，并验证降母线后的跟踪。 */
+static bool check_normal(float angle, int sign)
 {
-    const IfConfig config = model_config(false);
+    const IfConfig config = model_config(10.0f, angle);
     IfController controller = {0};
     IfInput input = {0};
     IfOutput output;
-    RlPlant plant = {0.0, 0.0, config.periodS};
-    double current[2];
-    double peak = 0.0;
-    double error = 0.0;
-    int tick;
-
-    input.action = IF_ACTION_START;
+    RlPlant plant = {0.0, 0.0};
+    double current[2], peak = 0.0, error = 0.0;
+    int tick, neutralCount = 0;
+    input.enable = true;
     input.sampleValid = true;
     input.busVoltageV = 24.0f;
-    input.startAngleRad = angle;
-    input.currentTargetDqA[axis] = 1.0f;
+    input.currentA = (float)sign;
+    input.frequencyHz = 5.0f * sign;
     CHECK(if_init(&controller, &config) == IF_OK);
-    for (tick = 0; tick < 700; ++tick)
+    for (tick = 0; tick < 1000; ++tick)
     {
-        if (tick == 500)
+        if (tick == 700)
         {
             input.busVoltageV = 6.0f;
         }
         CHECK(model_tick(&controller, &input, &output, &plant, current));
-        peak = fmax(peak, current[axis]);
+        peak = fmax(peak, hypot(plant.alphaA, plant.betaA));
         CHECK(peak <= 1.05);
-        if ((tick >= 100 && tick < 500) || tick >= 600)
+        if (output.state == IF_STATE_HANDOFF)
         {
-            error = fmax(error, fabs(current[axis] - 1.0));
-            CHECK(fabs(current[axis] - 1.0) <= 0.02);
-            CHECK(fabs(current[1 - axis]) <= 0.01);
+            ++neutralCount;
+            CHECK(output.duty[0] == 0.5f && output.duty[1] == 0.5f && output.duty[2] == 0.5f);
+        }
+        if (tick >= 100 && output.state == IF_STATE_ALIGN)
+        {
+            CHECK(fabs(current[0] - 1.0) <= 0.02 && fabs(current[1]) <= 0.01);
+        }
+        if ((tick >= 350 && tick < 700) || tick >= 800)
+        {
+            CHECK(output.state == IF_STATE_RUNNING);
+            error = fmax(error, fabs(current[1] - sign));
+            CHECK(fabs(current[1] - sign) <= 0.02 && fabs(current[0]) <= 0.01);
         }
     }
-    printf("R-L normal: axis %d angle %.7g, peak %.9g A, max settled error %.9g A\n", axis, angle,
-           peak, error);
+    CHECK(neutralCount == 1);
+    printf("IF R-L normal angle %.7g sign %d: peak %.9g A, error %.9g A\n", angle, sign, peak,
+           error);
     return true;
 }
 
-/** @brief 限压 0.5 V 持续 100 ms 后撤销目标，验证饱和电流、积分界和恢复。 */
-static bool check_saturation(int axis, float angle)
+/** @brief 持续限压后撤销运行电流，验证积分界与恢复，不跳过强拉。 */
+static bool check_saturation(float angle, int sign)
 {
-    const IfConfig config = model_config(true);
+    const IfConfig config = model_config(0.5f, angle);
     IfController controller = {0};
     IfInput input = {0};
     IfOutput output;
-    RlPlant plant = {0.0, 0.0, config.periodS};
+    RlPlant plant = {0.0, 0.0};
     double current[2];
     int tick;
-    int component;
-
-    input.action = IF_ACTION_START;
+    input.enable = true;
     input.sampleValid = true;
     input.busVoltageV = 24.0f;
-    input.startAngleRad = angle;
-    input.currentTargetDqA[axis] = 1.0f;
+    input.currentA = (float)sign;
     CHECK(if_init(&controller, &config) == IF_OK);
     for (tick = 0; tick < 1500; ++tick)
     {
         if (tick == 1000)
         {
-            input.currentTargetDqA[axis] = 0.0f;
+            input.currentA = 0.0f;
         }
         CHECK(model_tick(&controller, &input, &output, &plant, current));
-        for (component = 0; component < 2; ++component)
-        {
-            CHECK(fabsf(output.integralDqV[component]) <= 0.5f);
-        }
-        if (tick < 1000)
-        {
-            CHECK((output.flags & IF_FLAG_VOLTAGE_LIMITED) != 0u);
-        }
+        CHECK(fabsf(controller.pi[0].integral) <= 0.5f && fabsf(controller.pi[1].integral) <= 0.5f);
         if (tick >= 900 && tick < 1000)
         {
-            CHECK(fabs(current[axis] - 0.5) <= 0.02 && fabs(current[1 - axis]) <= 0.01);
+            CHECK(output.voltageLimited && output.state == IF_STATE_RUNNING);
+            CHECK(fabs(current[1] - sign * 0.5) <= 0.02 && fabs(current[0]) <= 0.01);
         }
     }
     CHECK(fabs(current[0]) <= 0.02 && fabs(current[1]) <= 0.02);
-    printf("R-L saturation: axis %d angle %.7g, residual [%.9g, %.9g] A\n", axis, angle, current[0],
-           current[1]);
+    printf("IF R-L saturation angle %.7g sign %d: residual [%.9g, %.9g] A\n", angle, sign,
+           current[0], current[1]);
     return true;
 }
 
-/** @brief 每种初角分别执行 d/q 正常与饱和模型，不共享生产变换或控制公式。 */
+/** @brief 在两个角度、两个电流符号下执行正常及限压电气闭环。 */
 int main(void)
 {
-    int axis;
-    int angle;
-
-    for (axis = 0; axis < 2; ++axis)
+    int angle, sign;
+    for (angle = 0; angle < 2; ++angle)
     {
-        for (angle = 0; angle < 2; ++angle)
+        for (sign = -1; sign <= 1; sign += 2)
         {
             const float radians = angle == 0 ? 0.0f : (float)(TEST_PI / 3.0);
-
-            if (!check_normal(axis, radians) || !check_saturation(axis, radians))
+            if (!check_normal(radians, sign) || !check_saturation(radians, sign))
             {
                 return EXIT_FAILURE;
             }
