@@ -182,6 +182,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/specialty/audit-runtim
 
 For plugin package drift, first run `lifecycle plan`. The apply path uses Codex `plugin remove/add`, verifies the installed build metadata, and only then updates AiCoding install state. If the Codex CLI cannot execute, the result is `manual-required` and includes the supported command and local-plugin deep link; cache files are never edited directly.
 
+The install/update flow may create the local `plugins/AiCoding` convenience link. The root `plugins/` directory is transient generated state, excluded from Git and forbidden as staged source by `config/repository-layout.json`. Windows may deny link creation and leave only the empty parent directory; this does not invalidate a verified Marketplace installation from `CodingKit/agents/skills/plugins/AiCoding`.
+
 Do not move or delete user-level skill roots without a dry-run report, runtime audit, plugin verification, rollback plan, and user approval.
 
 ## Completion Rule

@@ -90,28 +90,33 @@ func TestSnippetCatalogAndRendering(t *testing.T) {
 	}
 	macroSnippet := catalog["C Simple Object Macro"]
 	if len(macroSnippet.Body) == 0 || !strings.HasPrefix(macroSnippet.Body[0], "#define ") ||
-		!strings.Contains(macroSnippet.Body[0], "/**< ") {
-		t.Fatalf("simple object macro snippet must use a trailing Doxygen comment: %+v", macroSnippet)
+		!strings.Contains(macroSnippet.Body[0], "  /* ") ||
+		strings.Contains(macroSnippet.Body[0], "/**") {
+		t.Fatalf("simple object macro snippet must use a plain trailing comment: %+v", macroSnippet)
 	}
 	structSnippet := catalog["C Struct Brief"]
-	if !strings.Contains(strings.Join(structSnippet.Body, "\n"), ";}  /**< ") {
-		t.Fatalf("struct member snippet must use a trailing Doxygen comment: %+v", structSnippet)
+	if !strings.Contains(strings.Join(structSnippet.Body, "\n"), ";}  /* ") ||
+		strings.Contains(strings.Join(structSnippet.Body, "\n"), "/**") {
+		t.Fatalf("struct member snippet must use a plain trailing comment: %+v", structSnippet)
 	}
 	enumSnippet := catalog["C Enum Brief"]
-	if len(enumSnippet.Body) == 0 || !strings.HasPrefix(enumSnippet.Body[0], "/** @brief ") ||
+	if len(enumSnippet.Body) == 0 || !strings.HasPrefix(enumSnippet.Body[0], "/* ") ||
 		!strings.HasSuffix(enumSnippet.Body[0], " */") ||
-		!strings.Contains(strings.Join(enumSnippet.Body, "\n"), "/**< ") {
+		!strings.Contains(strings.Join(enumSnippet.Body, "\n"), "  /* ") ||
+		strings.Contains(strings.Join(enumSnippet.Body, "\n"), "/**") {
 		t.Fatalf("enum snippet must use compact type documentation and trailing item comments: %+v", enumSnippet)
 	}
 	snippet := catalog["C File Header (CN)"]
 	rendered := renderSnippet(
 		snippet,
 		"sensor.c",
-		snippetValues{"3": "HU JIAXUAN", "6": "ExampleCompany"},
+		snippetValues{"2": "HU JIAXUAN"},
 		time.Date(2026, time.July, 15, 0, 0, 0, 0, time.UTC),
 	)
-	if !strings.Contains(rendered, "@file      sensor.c") ||
-		!strings.Contains(rendered, "@date      2026-07-15") ||
+	if !strings.Contains(rendered, "    sensor.c") ||
+		!strings.Contains(rendered, "2026-07-15") ||
+		!strings.Contains(rendered, "HU JIAXUAN") ||
+		strings.Contains(rendered, "/**") || strings.Contains(rendered, "@file") ||
 		strings.Contains(rendered, "$0") {
 		t.Fatalf("unexpected rendered snippet:\n%s", rendered)
 	}
@@ -182,6 +187,7 @@ func TestNegativeFixtureReportsExpectedRules(t *testing.T) {
 
 func TestMissingBriefFails(t *testing.T) {
 	cfg, _ := LoadConfig(configPath())
+	cfg.Docs.RequireBrief = true
 	src := `/**
  * @file bad.c
  * @brief test
@@ -204,6 +210,7 @@ int32_t DEMO_Bad(int32_t value)
 
 func TestMissingParameterDocumentationFails(t *testing.T) {
 	cfg, _ := LoadConfig(configPath())
+	cfg.Docs.RequireParamTags = true
 	src := `/**
  * @file bad.c
  * @brief test

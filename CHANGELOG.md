@@ -2,6 +2,46 @@
 
 ## [Unreleased]
 
+- **fix(plugin-layout)**: 将安装流程生成的`plugins/`兼容目录登记为临时生成状态并禁止暂存，
+  避免Windows无法创建便利链接后留下的空目录误阻塞发布检查。 /
+  Classifies the installer's convenience directory as transient generated state without admitting source copies.
+
+- **build(motor-skillkit)**: 依赖锁定到Codex-Skills `5336622`，通过正式生命周期刷新已安装插件；
+  Codex实际发现全部21个电机技能，C99简易注释规范与完整资源同步，保留既有插件启用状态。 /
+  Locks the verified skill package and refreshes all 21 motor-control entries through the supported lifecycle.
+
+- **feat(signal-generator)**: 一个`SIGNAL_GEN_REAL_TYPE`宏切换幅值、频率及输出的float/double类型，
+  默认float；C99泛型数学自动匹配函数，相位和计时保留double，保持11个波形函数与原调用方式。
+  模块检查覆盖两种精度与O0/O2；目标编译与宿主数值结果分别记录，未运行Hook或发布流程。 /
+  Adds a single compile-time numeric type setting while preserving double phase/time accumulation.
+
+- **fix(c-kit-comments)**: 默认模板使用简易中文块注释，允许星号分区和重点标记；检查器识别普通说明，
+  默认不要求Doxygen标签，显式旧标签配置保持兼容，继续拒绝缺失和空说明。 /
+  Uses plain comments by default while preserving meaningful documentation checks and opt-in tag rules.
+
+
+- **refactor(signal-generator)**: 11类波形各用一个计算函数，统一入口只选择调用；
+  各函数用直白中文说明参数单位、当前输出和相位/随机数更新，共用已有启停、计时和幅值处理。 /
+  Separates eleven waveform calculations behind a selection-only entry point.
+
+
+
+- **refactor(signal-generator)**: 参照直接选择波形并返回输出的调用方式，周期函数直接返回
+  波形值，删除Sample出参、每拍整对象备份、魔数检查和额外相位误差数组；字段说明改为
+  用途、单位和填写例子，并同步模块示例及激励技能接入说明。 /
+  Simplifies the generator interface and state, with field-level usage explanations.
+
+
+- **feat(signal-generator)**: 新增独立C99、多实例激励发生器，统一11类波形、有限时长、
+  渐入渐出、PRBS/噪声重放和最多16音copy-in多正弦；附最小CSV示例、独立CMake与定向
+  数值检查。配置/暂停/复位语义显式化；本轮不运行Hook、全仓或发布流程。 /
+  Adds a portable eleven-waveform excitation source with deterministic state and focused host checks.
+
+- **feat(servo-example)**: 新增三条可编译 C99 宿主纵向案例，覆盖参数辨识到 PI/解耦、
+  jerk 受限参考到三环前馈、死区补偿到最终 SVPWM 约束与积分回算；复用共享原语，
+  输出量化 JSON/CSV，保持硬件、公共 CLI 与已有控制器行为不变。 / Adds compiled synthetic
+  servo validation cases with measured thresholds and independent plant models; preserves shared APIs.
+
 - **feat(if)**: 以已验证的 ZK I-f 控制方法简化独立控制器，内置 D 轴电流缓升与保持、
   单周期零电压交接、按电流符号补偿 90° 软件角度及启动频率爬升；保留 float、物理单位
   和硬件解耦。共享 PID 增加独立的先积分 PI 与矢量限幅跟踪，原 PID/FOC 接口及示例

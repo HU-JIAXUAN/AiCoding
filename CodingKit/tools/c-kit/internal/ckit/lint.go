@@ -12,30 +12,29 @@ import (
 )
 
 var (
-	typeEndRE                = regexp.MustCompile(`}\s*([A-Za-z_][A-Za-z0-9_]*)\s*;`)
-	localVarRE               = regexp.MustCompile(`^\s+(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+\*?\s*([A-Za-z_][A-Za-z0-9_]*)`)
-	badBaseTypeRE            = regexp.MustCompile(`\b(?:short|long|unsigned int|signed int)\b`)
-	vlaRE                    = regexp.MustCompile(`^\s*(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+[A-Za-z_][A-Za-z0-9_]*\s*\[[a-z][a-z0-9_]*\]`)
-	reservedIDRE             = regexp.MustCompile(`(^|[^A-Za-z0-9_])(__[A-Za-z0-9_]*|_[A-Z][A-Za-z0-9_]*)`)
-	boolCompareRE            = regexp.MustCompile(`(?:==|!=)\s*(?:true|false)\b`)
-	postIncRE                = regexp.MustCompile(`\b[A-Za-z_][A-Za-z0-9_]*\+\+`)
-	sizeNameRE               = regexp.MustCompile(`\b(?:int|uint32_t|int32_t)\s+([A-Za-z_][A-Za-z0-9_]*(?:len|length|size|bytes|capacity))\b`)
-	lineCommentRE            = regexp.MustCompile(`(^|[^:])//`)
-	macroRE                  = regexp.MustCompile(`^\s*#define\s+([A-Za-z_][A-Za-z0-9_]*)(?:\(([^)]*)\))?\s+(.+)$`)
-	enumItemRE               = regexp.MustCompile(`^\s*([A-Za-z_][A-Za-z0-9_]*)\s*(?:=|,|$)`)
-	globalVarRE              = regexp.MustCompile(`^(static\s+)?(?:const\s+)?(?:bool|char|int|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+\*?\s*([A-Za-z_][A-Za-z0-9_]*)(?:\s*\[[^]]+\])?\s*(?:=|;)`)
-	fileTagRE                = regexp.MustCompile(`(?m)^\s*\*\s*@file\s+\S`)
-	fileBriefRE              = regexp.MustCompile(`(?m)^\s*\*\s*@brief\s+\S`)
-	employeeIDRE             = regexp.MustCompile(`(?m)^\s*\*\s*@employee_id(?:\s+(.*\S))?\s*$`)
-	employeePlaceholderRE    = regexp.MustCompile(`(?i)not applicable|\bn/?a\b|不适用|未提供|无工号`)
-	modificationHistoryRE    = regexp.MustCompile(`(?mi)^\s*\*\s*(?:@(?:history|modification)\b|history\s*:|modification(?:\s+history)?\s*:|change\s+history\s*:|修改(?:记录|历史)\s*[：:])`)
-	oneLineBlockCommentRE    = regexp.MustCompile(`^\s*/\*\s+\S(?:.*\S)?\s+\*/\s*$`)
-	trailingDoxygenCommentRE = regexp.MustCompile(`/\*\*<\s+\S(?:.*\S)?\s+\*/\s*$`)
-	gotoRE                   = regexp.MustCompile(`\bgoto\b`)
-	moduleSuffixRE           = regexp.MustCompile(`^[A-Z][A-Za-z0-9]*$`)
-	snakeRE                  = regexp.MustCompile(`^[a-z][a-z0-9_]*$`)
-	typeNameRE               = regexp.MustCompile(`^[a-z][a-z0-9_]*_t$`)
-	upperSnakeRE             = regexp.MustCompile(`^[A-Z][A-Z0-9_]*$`)
+	typeEndRE             = regexp.MustCompile(`}\s*([A-Za-z_][A-Za-z0-9_]*)\s*;`)
+	localVarRE            = regexp.MustCompile(`^\s+(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+\*?\s*([A-Za-z_][A-Za-z0-9_]*)`)
+	badBaseTypeRE         = regexp.MustCompile(`\b(?:short|long|unsigned int|signed int)\b`)
+	vlaRE                 = regexp.MustCompile(`^\s*(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+[A-Za-z_][A-Za-z0-9_]*\s*\[[a-z][a-z0-9_]*\]`)
+	reservedIDRE          = regexp.MustCompile(`(^|[^A-Za-z0-9_])(__[A-Za-z0-9_]*|_[A-Z][A-Za-z0-9_]*)`)
+	boolCompareRE         = regexp.MustCompile(`(?:==|!=)\s*(?:true|false)\b`)
+	postIncRE             = regexp.MustCompile(`\b[A-Za-z_][A-Za-z0-9_]*\+\+`)
+	sizeNameRE            = regexp.MustCompile(`\b(?:int|uint32_t|int32_t)\s+([A-Za-z_][A-Za-z0-9_]*(?:len|length|size|bytes|capacity))\b`)
+	lineCommentRE         = regexp.MustCompile(`(^|[^:])//`)
+	macroRE               = regexp.MustCompile(`^\s*#define\s+([A-Za-z_][A-Za-z0-9_]*)(?:\(([^)]*)\))?\s+(.+)$`)
+	enumItemRE            = regexp.MustCompile(`^\s*([A-Za-z_][A-Za-z0-9_]*)\s*(?:=|,|$)`)
+	globalVarRE           = regexp.MustCompile(`^(static\s+)?(?:const\s+)?(?:bool|char|int|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+\*?\s*([A-Za-z_][A-Za-z0-9_]*)(?:\s*\[[^]]+\])?\s*(?:=|;)`)
+	fileTagRE             = regexp.MustCompile(`(?m)^\s*\*\s*@file\s+\S`)
+	fileBriefRE           = regexp.MustCompile(`(?m)^\s*\*\s*@brief\s+\S`)
+	employeeIDRE          = regexp.MustCompile(`(?m)^\s*\*\s*@employee_id(?:\s+(.*\S))?\s*$`)
+	employeePlaceholderRE = regexp.MustCompile(`(?i)not applicable|\bn/?a\b|不适用|未提供|无工号`)
+	modificationHistoryRE = regexp.MustCompile(`(?mi)^\s*\*\s*(?:@(?:history|modification)\b|history\s*:|modification(?:\s+history)?\s*:|change\s+history\s*:|修改(?:记录|历史)\s*[：:])`)
+	oneLineBlockCommentRE = regexp.MustCompile(`^\s*/\*\s+\S(?:.*\S)?\s+\*/\s*$`)
+	gotoRE                = regexp.MustCompile(`\bgoto\b`)
+	moduleSuffixRE        = regexp.MustCompile(`^[A-Z][A-Za-z0-9]*$`)
+	snakeRE               = regexp.MustCompile(`^[a-z][a-z0-9_]*$`)
+	typeNameRE            = regexp.MustCompile(`^[a-z][a-z0-9_]*_t$`)
+	upperSnakeRE          = regexp.MustCompile(`^[A-Z][A-Z0-9_]*$`)
 )
 
 func RunLint(args []string) error {
@@ -163,11 +162,16 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 
 	if cfg.Docs.FileHeader {
 		head := leadingFileHeader(lines)
-		if !fileTagRE.MatchString(head) {
-			ds = append(ds, diag(path, 1, "documentation.file", "文件头缺少非空 @file。"))
+		if !commentHasText(head) {
+			ds = append(ds, diag(path, 1, "documentation.file", "文件头缺少有效的模块说明。"))
 		}
-		if !fileBriefRE.MatchString(head) {
-			ds = append(ds, diag(path, 1, "documentation.file-brief", "文件头缺少非空 @brief。"))
+		if cfg.Docs.RequireBrief || cfg.Docs.RequireFileMetadata {
+			if !fileTagRE.MatchString(head) {
+				ds = append(ds, diag(path, 1, "documentation.file", "文件头缺少非空 @file。"))
+			}
+			if !fileBriefRE.MatchString(head) {
+				ds = append(ds, diag(path, 1, "documentation.file-brief", "文件头缺少非空 @brief。"))
+			}
 		}
 		if cfg.Docs.RequireFileMetadata {
 			metadata := []struct {
@@ -472,7 +476,7 @@ func leadingFileHeader(lines []string) string {
 	for start < len(lines) && strings.TrimSpace(strings.TrimPrefix(lines[start], "\ufeff")) == "" {
 		start++
 	}
-	if start >= len(lines) || !strings.HasPrefix(strings.TrimSpace(strings.TrimPrefix(lines[start], "\ufeff")), "/**") {
+	if start >= len(lines) || !strings.HasPrefix(strings.TrimSpace(strings.TrimPrefix(lines[start], "\ufeff")), "/*") {
 		return ""
 	}
 	for end := start; end < len(lines); end++ {
@@ -539,9 +543,9 @@ func validateMacro(path string, line int, name, params, body string, lines []str
 		ds = append(ds, diag(path, line, "macro.name", "宏名称必须使用 UPPER_SNAKE_CASE。"))
 	}
 	if cfg.Macro.RequireDocumentation {
-		doxygen := precedingDoxygen(lines, index) != ""
+		doxygen := commentHasText(precedingDoxygen(lines, index))
 		block := precedingOneLineBlockComment(lines, index)
-		trailing := trailingDoxygenCommentRE.MatchString(lines[index])
+		trailing := trailingCommentHasText(lines[index])
 		if isSimpleObjectMacro(lines[index], name) {
 			validComment := false
 			switch cfg.Macro.SimpleObjectCommentStyle {
@@ -556,10 +560,11 @@ func validateMacro(path string, line int, name, params, body string, lines []str
 			}
 			if !validComment {
 				ds = append(ds, diag(path, line, "documentation.simple-macro-comment",
-					"简单对象宏必须使用配置指定的单行说明；trailing 模式在定义同行右侧使用 /**< ... */。"))
+					"简单对象宏必须使用配置指定的单行说明；trailing 模式在定义同行右侧使用 /* 中文说明 */。"))
 			}
-		} else if !doxygen {
-			ds = append(ds, diag(path, line, "documentation.macro", "复杂或函数式宏定义前缺少 Doxygen 文档。"))
+		} else if !commentHasText(precedingComment(lines, index)) ||
+			(cfg.Macro.SimpleObjectCommentStyle == "doxygen" && !doxygen) {
+			ds = append(ds, diag(path, line, "documentation.macro", "复杂或函数式宏定义前缺少有效说明。"))
 		}
 	}
 	if params != "" && cfg.Macro.ProtectParameters {
@@ -597,7 +602,17 @@ func precedingOneLineBlockComment(lines []string, index int) bool {
 		return false
 	}
 	line := lines[index-1]
-	return oneLineBlockCommentRE.MatchString(line) && !strings.HasPrefix(strings.TrimSpace(line), "/**")
+	return oneLineBlockCommentRE.MatchString(line) && !strings.HasPrefix(strings.TrimSpace(line), "/**") &&
+		commentHasText(line)
+}
+
+func trailingCommentHasText(line string) bool {
+	start := strings.LastIndex(line, "/*")
+	if start < 0 {
+		return false
+	}
+	block := strings.TrimSpace(line[start:])
+	return strings.HasSuffix(block, "*/") && commentHasText(block)
 }
 
 func validateGlobalVariable(path string, lines []string, index int, static bool, name string) []Diagnostic {
@@ -613,9 +628,8 @@ func validateGlobalVariable(path string, lines []string, index int, static bool,
 			"文件作用域变量必须使用 "+wantedPrefix+" 前缀和 lower_snake_case。"))
 	}
 
-	block := precedingDoxygen(lines, index)
-	if block == "" || !strings.Contains(block, "@brief") || !strings.Contains(block, "@details") ||
-		!strings.Contains(block, "范围") ||
+	block := precedingComment(lines, index)
+	if !commentHasText(block) || !strings.Contains(block, "范围") ||
 		(!strings.Contains(block, "只读") && !strings.Contains(block, "读写") &&
 			!strings.Contains(block, "互斥") && !strings.Contains(block, "访问")) {
 		ds = append(ds, diag(path, index+1, "documentation.global-variable",

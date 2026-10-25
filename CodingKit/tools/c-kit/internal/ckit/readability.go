@@ -120,7 +120,7 @@ func analyzeSourceReadability(path string, data []byte, cfg Config) sourceReadab
 			FanOut:                 len(callees),
 			Callees:                callees,
 			Complex:                complex,
-			NumberedFlowDocumented: hasSequentialNumberedFlow(precedingDoxygen(originalLines, lineIndex)),
+			NumberedFlowDocumented: hasSequentialNumberedFlow(precedingComment(originalLines, lineIndex)),
 			KeyFlowCommentCount:    countKeyFlowIntentComments(originalBody),
 		}
 		analysis.functions = append(analysis.functions, analyzedFunction{

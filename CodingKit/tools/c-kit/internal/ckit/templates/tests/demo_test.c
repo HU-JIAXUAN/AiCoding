@@ -1,15 +1,13 @@
-/**
- * @file advanced_test.c
- * @brief 从公开接口验证黄金示例的行为、边界和故障注入路径。
- * @copyright Copyright (c) 2026 C Kit.
- * @date 2026-07-15
- * @author C Kit
- *
- * @details
- * 文件内容：包含简单采样评估、状态机、协议处理和固定资源池的主机单元测试。
- * 主要功能：验证正常流程、容量边界、错误返回码、陈旧句柄和临界区配对。
- * 文件关系：只包含四个公开头文件，不访问任何静态函数或实现私有数据。
- */
+/*
+    advanced_test.c
+    从公开接口验证黄金示例的行为、边界和故障注入路径
+    版权 Copyright (c) 2026 C Kit
+    日期 2026-07-15
+    作者 C Kit
+    文件内容：包含简单采样评估、状态机、协议处理和固定资源池的主机单元测试
+    主要功能：验证正常流程、容量边界、错误返回码、陈旧句柄和临界区配对
+    文件关系：只包含四个公开头文件，不访问任何静态函数或实现私有数据
+*/
 
 #include "demo.h"
 #include "fixed_pool.h"
@@ -35,15 +33,12 @@ static void DEMO_TestProtocolBoundaries(void);
 static void DEMO_TestPoolLifecycle(void);
 static void DEMO_TestFaultInjection(void);
 
-/**
- * @brief 执行全部公开行为测试。
- *
- * @details
- * 测试按模块职责顺序运行。assert 只用于测试失败判定，不承担生产代码的运行时参数检查。
- * 每个测试自行构造上下文，避免用例间共享可变全局状态。
- *
- * @return 0 表示全部断言通过；断言失败时由测试运行时终止进程。
- */
+/*
+    执行全部公开行为测试
+    测试按模块职责顺序运行 assert 只用于测试失败判定，不承担生产代码的运行时参数检查
+    每个测试自行构造上下文，避免用例间共享可变全局状态
+    返回 0 表示全部断言通过；断言失败时由测试运行时终止进程
+*/
 int main(void)
 {
     DEMO_TestSimpleEvaluation();
@@ -55,15 +50,12 @@ int main(void)
     return 0;
 }
 
-/**
- * @brief 验证入门 demo 的平均值、等级和参数错误行为。
- *
- * @details
- * 使用四个固定采样得到可人工核对的平均值；随后覆盖空输入、反向阈值和非法枚举分支。
- * 测试只调用 demo.h 的公开接口，证明入门示例无需理解高级模块即可独立使用。
- *
- * @return 无。
- */
+/*
+    验证入门 demo 的平均值、等级和参数错误行为
+    使用四个固定采样得到可人工核对的平均值；随后覆盖空输入、反向阈值和非法枚举分支
+    测试只调用 demo.h 的公开接口，证明入门示例无需理解高级模块即可独立使用
+    返回 无
+*/
 static void DEMO_TestSimpleEvaluation(void)
 {
     const uint16_t samples[4] = {10U, 20U, 30U, 40U};
@@ -83,15 +75,12 @@ static void DEMO_TestSimpleEvaluation(void)
     assert(strcmp(DEMO_GetLevelName((demo_sample_level_t)99), "unknown") == 0);
 }
 
-/**
- * @brief 记录一次测试临界区进入操作。
- *
- * @details 将注入上下文转换为测试计数器并递增，用于验证生产接口的进入与退出严格配对。
- *
- * @param[in,out] user_context 指向 demo_test_lock_t 的测试上下文。
- *
- * @return 无。
- */
+/*
+    记录一次测试临界区进入操作
+    将注入上下文转换为测试计数器并递增，用于验证生产接口的进入与退出严格配对
+    参数 user_context 指向 demo_test_lock_t 的测试上下文
+    返回 无
+*/
 static void DEMO_TestEnterCritical(void *user_context)
 {
     demo_test_lock_t *const lock = (demo_test_lock_t *)user_context;
@@ -100,15 +89,12 @@ static void DEMO_TestEnterCritical(void *user_context)
     ++lock->enter_count;
 }
 
-/**
- * @brief 记录一次测试临界区退出操作。
- *
- * @details 与进入回调使用同一个计数器，使测试能够检测遗漏退出或多余退出。
- *
- * @param[in,out] user_context 指向 demo_test_lock_t 的测试上下文。
- *
- * @return 无。
- */
+/*
+    记录一次测试临界区退出操作
+    与进入回调使用同一个计数器，使测试能够检测遗漏退出或多余退出
+    参数 user_context 指向 demo_test_lock_t 的测试上下文
+    返回 无
+*/
 static void DEMO_TestLeaveCritical(void *user_context)
 {
     demo_test_lock_t *const lock = (demo_test_lock_t *)user_context;
@@ -117,14 +103,11 @@ static void DEMO_TestLeaveCritical(void *user_context)
     ++lock->leave_count;
 }
 
-/**
- * @brief 验证核心状态机的正常生命周期和共享快照。
- *
- * @details
- * 用公开接口完成初始化、启动、提交、通知、计算、读取状态和停止；同时验证平均值及临界区配对。
- *
- * @return 无。
- */
+/*
+    验证核心状态机的正常生命周期和共享快照
+    用公开接口完成初始化、启动、提交、通知、计算、读取状态和停止；同时验证平均值及临界区配对
+    返回 无
+*/
 static void DEMO_TestCoreLifecycle(void)
 {
     demo_context_t context;
@@ -156,14 +139,11 @@ static void DEMO_TestCoreLifecycle(void)
     assert(lock.enter_count == lock.leave_count);
 }
 
-/**
- * @brief 验证协议的字节序、校验、字符串边界和固定格式输出。
- *
- * @details
- * 构造一个完整帧并验证字段；再注入校验失败、目标过小和缺少空字符等边界错误。
- *
- * @return 无。
- */
+/*
+    验证协议的字节序、校验、字符串边界和固定格式输出
+    构造一个完整帧并验证字段；再注入校验失败、目标过小和缺少空字符等边界错误
+    返回 无
+*/
 static void DEMO_TestProtocolBoundaries(void)
 {
     uint8_t frame[DEMO_PROTOCOL_FRAME_SIZE] = {1U, 0x12U, 0x34U, 0U, 0U, 0U, 5U, 0U};
@@ -176,7 +156,7 @@ static void DEMO_TestProtocolBoundaries(void)
 
     for (index = 0U; index < ((size_t)DEMO_PROTOCOL_FRAME_SIZE - 1U); ++index)
     {
-        /* 测试按生产协议定义计算异或校验，避免依赖私有实现函数。 */
+        /* 测试按生产协议定义计算异或校验，避免依赖私有实现函数 */
         frame[7] = (uint8_t)(frame[7] ^ frame[index]);
     }
 
@@ -197,14 +177,11 @@ static void DEMO_TestProtocolBoundaries(void)
            DEMO_PROTOCOL_RESULT_OUTPUT_TOO_SMALL);
 }
 
-/**
- * @brief 验证固定资源池的申请、容量检查、释放和陈旧句柄拒绝。
- *
- * @details
- * 完成一次资源生命周期后保留旧句柄并重新申请，确认代际号使旧句柄不能读取新资源。
- *
- * @return 无。
- */
+/*
+    验证固定资源池的申请、容量检查、释放和陈旧句柄拒绝
+    完成一次资源生命周期后保留旧句柄并重新申请，确认代际号使旧句柄不能读取新资源
+    返回 无
+*/
 static void DEMO_TestPoolLifecycle(void)
 {
     demo_pool_t pool;
@@ -231,14 +208,11 @@ static void DEMO_TestPoolLifecycle(void)
     assert(in_use_count == 1U);
 }
 
-/**
- * @brief 验证公开接口对运行时错误和错误注入的确定返回值。
- *
- * @details
- * 注入缺失临界区回调、空指针、错误状态、错误帧长度和超长资源数据，确认错误不会被断言替代。
- *
- * @return 无。
- */
+/*
+    验证公开接口对运行时错误和错误注入的确定返回值
+    注入缺失临界区回调、空指针、错误状态、错误帧长度和超长资源数据，确认错误不会被断言替代
+    返回 无
+*/
 static void DEMO_TestFaultInjection(void)
 {
     demo_context_t context;

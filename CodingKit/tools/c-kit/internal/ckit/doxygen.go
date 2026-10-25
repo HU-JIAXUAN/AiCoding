@@ -4,6 +4,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode"
 )
 
 type functionInfo struct {
@@ -21,8 +22,9 @@ var (
 	doxygenBriefRE       = regexp.MustCompile(`(?m)^\s*(?:/\*\*\s*|\*\s*)@brief\s+\S`)
 	doxygenReturnRE      = regexp.MustCompile(`(?m)^\s*\*\s*@return\s+\S`)
 	doxygenDetailsRE     = regexp.MustCompile(`(?m)^\s*\*\s*@details(?:\s|$)`)
-	numberedFlowItemRE   = regexp.MustCompile(`^\s*\*\s*([1-9][0-9]*)[.)、]\s+\S`)
-	doxygenTagRE         = regexp.MustCompile(`^\s*\*\s*@([A-Za-z_][A-Za-z0-9_]*)\b`)
+	numberedFlowItemRE   = regexp.MustCompile(`^\s*([1-9][0-9]*)[.)、]\s+\S`)
+	doxygenTagRE         = regexp.MustCompile(`^\s*@([A-Za-z_][A-Za-z0-9_]*)\b`)
+	commentTextTagRE     = regexp.MustCompile(`^@[A-Za-z_][A-Za-z0-9_]*(?:\[[^]]+\])?\s*`)
 	singleBriefContentRE = regexp.MustCompile(`^@brief\s+\S(?:.*\S)?$`)
 )
 
@@ -104,6 +106,14 @@ func parseParameterNames(raw string) []string {
 }
 
 func precedingDoxygen(lines []string, index int) string {
+	block := precedingComment(lines, index)
+	if strings.HasPrefix(strings.TrimSpace(block), "/**") {
+		return block
+	}
+	return ""
+}
+
+func precedingComment(lines []string, index int) string {
 	i := index - 1
 	for i >= 0 && strings.TrimSpace(lines[i]) == "" {
 		i--
@@ -112,23 +122,53 @@ func precedingDoxygen(lines []string, index int) string {
 		return ""
 	}
 	trimmed := strings.TrimSpace(lines[i])
-	if strings.HasPrefix(trimmed, "/**") && strings.HasSuffix(trimmed, "*/") {
-		return lines[i]
-	}
-	if trimmed != "*/" {
+	if !strings.HasSuffix(trimmed, "*/") {
 		return ""
 	}
 	end := i
 	for i >= 0 {
-		if strings.HasPrefix(strings.TrimSpace(lines[i]), "/**") {
+		if strings.HasPrefix(strings.TrimSpace(lines[i]), "/*") {
 			return strings.Join(lines[i:end+1], "\n")
 		}
-		if strings.HasPrefix(strings.TrimSpace(lines[i]), "/*") {
+		// 上一条代码的同行尾注释不能用作当前声明的说明
+		if strings.Contains(lines[i], "/*") {
 			return ""
 		}
 		i--
 	}
 	return ""
+}
+
+func commentLines(block string) []string {
+	content := strings.TrimSpace(block)
+	content = strings.TrimPrefix(content, "/*")
+	content = strings.TrimSuffix(content, "*/")
+	lines := strings.Split(content, "\n")
+	for index, line := range lines {
+		lines[index] = strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(line), "*"))
+	}
+	return lines
+}
+
+func commentHasText(block string) bool {
+	for _, line := range commentLines(block) {
+		line = commentTextTagRE.ReplaceAllString(line, "")
+		for _, character := range line {
+			if unicode.IsLetter(character) || unicode.IsNumber(character) {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+func hasDoxygenTags(block string) bool {
+	for _, line := range commentLines(block) {
+		if doxygenTagRE.MatchString(line) {
+			return true
+		}
+	}
+	return false
 }
 
 func validateSingleBriefStyle(
@@ -192,10 +232,10 @@ func isSingleBriefDoxygen(lines []string) bool {
 }
 
 func hasSequentialNumberedFlow(block string) bool {
-	inDetails := false
+	inDetails := !hasDoxygenTags(block)
 	expected := 1
 	matched := 0
-	for _, line := range strings.Split(block, "\n") {
+	for _, line := range commentLines(block) {
 		if tag := doxygenTagRE.FindStringSubmatch(line); tag != nil {
 			if tag[1] == "details" {
 				if inDetails {
@@ -233,16 +273,16 @@ func validateFunctionDocs(path string, lines []string, index int, fn functionInf
 	if !cfg.Docs.AllFunctions {
 		return nil
 	}
-	block := precedingDoxygen(lines, index)
+	block := precedingComment(lines, index)
 	if fn.Static && fn.Prototype && cfg.Docs.RequireBarePrivatePrototype {
-		if block != "" {
+		if hasDoxygenTags(block) {
 			return []Diagnostic{diag(path, fn.Line, "documentation.private-prototype",
 				"静态函数前置声明只注册原型，完整文档应放在函数定义前。")}
 		}
 		return nil
 	}
-	if block == "" {
-		return []Diagnostic{diag(path, fn.Line, "documentation.function", "函数声明或定义前缺少 Doxygen 文档。")}
+	if !commentHasText(block) {
+		return []Diagnostic{diag(path, fn.Line, "documentation.function", "函数声明或定义前缺少有效说明，使用 /* 中文说明 */。")}
 	}
 	var ds []Diagnostic
 	if cfg.Docs.RequireBrief && !doxygenBriefRE.MatchString(block) {

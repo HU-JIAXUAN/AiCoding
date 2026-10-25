@@ -29,6 +29,7 @@
       ".task",
       "bin",
       "dist",
+      "plugins",
       "test-results"
     ]
   },
@@ -43,6 +44,7 @@
     "generated-projection": [
       "bin",
       "dist",
+      "plugins",
       "test-results"
     ],
     "runtime-state": [
@@ -114,6 +116,7 @@
     "directories": [
       "bin/",
       "dist/",
+      "plugins/",
       "test-results/"
     ],
     "extensions": [
