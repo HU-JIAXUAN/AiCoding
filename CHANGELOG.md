@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+- **fix(validation-tags)**: pre-push 从实际推送对象递归解析 commit 后核验其 Release Receipt，
+  修复附注与嵌套 Tag 被错误拒绝；保留原始对象 ID 审计，拒绝非 commit 目标，不以 HEAD 或可变 ref 代替目标。 /
+  Peels the pushed tag object to its exact commit alias without weakening fail-closed validation.
+
 - **feat(motor-engineering)**: 复用Common Control Kit，增加27个C99电机Primitive与独立Golden/离散组合回归；
   增加只读Go工程检查、PWM/ADC/Shadow预算、编码器年龄和单/双/三电阻可观测性检查。
   唯一test engine登记MOTOR-001/002 Full/Release必需项；Skills依赖锁定到已推送验证的`2772637`（39项技能，其中22项电机控制）；安装刷新和板测另行验收。 /

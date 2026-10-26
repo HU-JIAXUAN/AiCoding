@@ -257,6 +257,9 @@ feature ref 明确旁路。hook 本身不运行测试或构建，缺证据时应
 `validation check --profile Release --target HEAD --bind-alias`：若同 Tree Receipt 命中即可重试；
 若命令返回 miss，执行 `test --profile Release --reuse off` 生成新证据后再重试 push。推送非
 当前分支时应先检出该 ref 的 tip，不能用另一个 worktree HEAD 替代实际 `local_oid`。
+附注及嵌套 Tag 从协议提供的 `local_oid` 递归解析到 commit，再检查该 commit 的 alias 与 Tree；
+报告保留原始 Tag 对象 ID。直接 Tree/Blob、指向非 commit 的 Tag 和缺失对象均拒绝，
+不会因当前 HEAD 已验证而放行另一个未验证目标。
 
 ## 领域与专项命令
 

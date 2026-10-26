@@ -186,6 +186,7 @@ func (r Repository) gatePushUpdate(policy Policy, update gitx.PushUpdate) PushGa
 		return result
 	}
 
+	var commitOID string
 	var treeOID string
 	var treeErr error
 	ancestor := true
@@ -195,7 +196,15 @@ func (r Repository) gatePushUpdate(policy Policy, update gitx.PushUpdate) PushGa
 	wait.Add(1)
 	go func() {
 		defer wait.Done()
-		treeOID, treeErr = gitx.TreeOID(r.repo, update.LocalOID)
+		// Resolve the pushed object, never HEAD or a possibly moved local ref.
+		// Requiring a commit also rejects tags whose target is a tree or blob.
+		var resolved string
+		resolved, treeErr = gitx.Run(r.repo, "rev-parse", "--verify", "--end-of-options", update.LocalOID+"^{commit}")
+		if treeErr != nil {
+			return
+		}
+		commitOID = strings.TrimSpace(resolved)
+		treeOID, treeErr = gitx.TreeOID(r.repo, commitOID)
 	}()
 	if checkAncestor {
 		wait.Add(1)
@@ -222,7 +231,7 @@ func (r Repository) gatePushUpdate(policy Policy, update gitx.PushUpdate) PushGa
 		return result
 	}
 
-	decision := r.checkCommitAlias(context.RequiredProfile, update.LocalOID, treeOID)
+	decision := r.checkCommitAlias(context.RequiredProfile, commitOID, treeOID)
 	result.Code = decision.Code
 	result.Reason = decision.Reason
 	result.RequiredAction = decision.RequiredAction

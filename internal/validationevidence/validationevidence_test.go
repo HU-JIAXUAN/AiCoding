@@ -182,6 +182,80 @@ func TestContextGateUsesPushedCommitTreeAndProfileAlias(t *testing.T) {
 	}
 }
 
+func TestContextGatePeelsTagsToPushedCommitAlias(t *testing.T) {
+	t.Parallel()
+	repo := newEvidenceRepo(t)
+	writeEvidenceFile(t, repo, "tracked.txt", "one\n")
+	mustEvidenceGit(t, repo, "add", "tracked.txt")
+	mustEvidenceGit(t, repo, "commit", "-m", "verified")
+	firstCommit := mustEvidenceGit(t, repo, "rev-parse", "HEAD")
+	treeOID := mustEvidenceGit(t, repo, "rev-parse", "HEAD^{tree}")
+	blobOID := mustEvidenceGit(t, repo, "rev-parse", "HEAD:tracked.txt")
+	store, _, fingerprint := evidenceFixture(t, repo, TargetHead)
+	receipt := putFixture(t, store, fingerprint)
+	if err := store.BindCommit(firstCommit, receipt); err != nil {
+		t.Fatal(err)
+	}
+	mustEvidenceGit(t, repo, "tag", "-a", "annotated", firstCommit, "-m", "verified tag")
+	tagOID := mustEvidenceGit(t, repo, "rev-parse", "refs/tags/annotated")
+	mustEvidenceGit(t, repo, "tag", "-a", "nested", tagOID, "-m", "nested tag")
+	nestedOID := mustEvidenceGit(t, repo, "rev-parse", "refs/tags/nested")
+	mustEvidenceGit(t, repo, "tag", "-a", "tree-tag", treeOID, "-m", "tree tag")
+	treeTagOID := mustEvidenceGit(t, repo, "rev-parse", "refs/tags/tree-tag")
+	mustEvidenceGit(t, repo, "tag", "-a", "blob-tag", blobOID, "-m", "blob tag")
+	blobTagOID := mustEvidenceGit(t, repo, "rev-parse", "refs/tags/blob-tag")
+
+	writeEvidenceFile(t, repo, "tracked.txt", "two\n")
+	mustEvidenceGit(t, repo, "commit", "-am", "unverified")
+	secondCommit := mustEvidenceGit(t, repo, "rev-parse", "HEAD")
+	mustEvidenceGit(t, repo, "tag", "-a", "unverified", secondCommit, "-m", "unverified tag")
+	unverifiedOID := mustEvidenceGit(t, repo, "rev-parse", "refs/tags/unverified")
+	// The named ref and HEAD both differ from the successful pushed objects.
+	mustEvidenceGit(t, repo, "tag", "moved", secondCommit)
+	writeEvidenceFile(t, repo, "tracked.txt", "one\n")
+	mustEvidenceGit(t, repo, "commit", "-am", "verified head")
+	if err := store.BindCommit("HEAD", receipt); err != nil {
+		t.Fatal(err)
+	}
+	zero := strings.Repeat("0", len(firstCommit))
+	policy := Policy{SchemaVersion: 1, UnmatchedAction: "deny", Contexts: []PushContext{{
+		ID: "release-tags", RemoteRefPrefix: "refs/tags/", RequiredProfile: "smoke",
+	}}}
+	for _, tc := range []struct {
+		name string
+		oid  string
+		code ErrorCode
+	}{
+		{"lightweight", firstCommit, CodeReceiptHit},
+		{"annotated", tagOID, CodeReceiptHit},
+		{"nested", nestedOID, CodeReceiptHit},
+		{"unverified-commit", secondCommit, CodeReceiptMiss},
+		{"unverified-tag", unverifiedOID, CodeReceiptMiss},
+		{"tree", treeOID, CodeTargetNotFound},
+		{"blob", blobOID, CodeTargetNotFound},
+		{"tree-tag", treeTagOID, CodeTargetNotFound},
+		{"blob-tag", blobTagOID, CodeTargetNotFound},
+		{"missing-object", strings.Repeat("f", len(firstCommit)), CodeTargetNotFound},
+		{"delete", zero, CodePushContextRejected},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			gate := store.GatePush(policy, []gitx.PushUpdate{{
+				LocalRef: "refs/tags/moved", LocalOID: tc.oid, RemoteRef: "refs/tags/release", RemoteOID: zero,
+			}})
+			if len(gate.Updates) != 1 || gate.Updates[0].Code != tc.code || gate.OK != (tc.code == CodeReceiptHit) {
+				t.Fatalf("unexpected tag gate decision: %#v", gate)
+			}
+			result := gate.Updates[0]
+			if result.LocalOID != tc.oid {
+				t.Fatalf("lost original pushed object: %#v", result)
+			}
+			if gate.OK && (result.SubjectTreeOID != treeOID || result.ReceiptID != receipt.ReceiptID) {
+				t.Fatalf("used another commit's evidence: %#v", result)
+			}
+		})
+	}
+}
+
 func TestExactCheckPathDoesNotWalkRepositoryFiles(t *testing.T) {
 	for _, path := range []string{"checker.go", "subject.go", "fingerprint.go"} {
 		content, err := os.ReadFile(path)
