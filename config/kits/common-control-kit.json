@@ -8,9 +8,10 @@
     "asset-kit"
   ],
   "mode": "go-builtin",
-  "description": "Reusable C99 control modules under CodingKit/modules/common/controller.",
+  "description": "Reusable C99 control modules and deterministic motor-engineering tools.",
   "paths": {
-    "moduleRoot": "CodingKit/modules/common/controller"
+    "moduleRoot": "CodingKit/modules/common/controller",
+    "engineeringToolRoot": "CodingKit/tools/motor-engineering"
   },
   "commands": {
     "status": {
@@ -19,7 +20,9 @@
         "CodingKit/modules/common/controller",
         "CodingKit/modules/common/controller/pid",
         "CodingKit/modules/common/controller/foc",
-        "CodingKit/modules/common/controller/filter"
+        "CodingKit/modules/common/controller/filter",
+        "CodingKit/modules/common/controller/motor/motor.h",
+        "CodingKit/tools/motor-engineering/go.mod"
       ]
     },
     "verify": {
@@ -29,14 +32,19 @@
         "CodingKit/modules/common/controller/foc/README.md",
         "CodingKit/modules/common/controller/pid",
         "CodingKit/modules/common/controller/foc",
-        "CodingKit/modules/common/controller/filter"
+        "CodingKit/modules/common/controller/filter",
+        "CodingKit/modules/common/controller/motor/motor.c",
+        "CodingKit/modules/common/controller/motor/run_tests.py",
+        "CodingKit/modules/common/controller/motor/README.md",
+        "CodingKit/tools/motor-engineering/main.go",
+        "CodingKit/tools/motor-engineering/README.md"
       ]
     },
     "test": {
-      "type": "go-composed",
-      "steps": [
-        "verify"
-      ]
+      "type": "external-command",
+      "executable": "python",
+      "args": ["CodingKit/modules/common/controller/motor/run_tests.py"],
+      "supportsJson": true
     },
     "install": {
       "type": "unsupported",
@@ -54,12 +62,14 @@
       "type": "builtin-package",
       "include": [
         "CodingKit/modules/common/controller/**",
+        "CodingKit/tools/motor-engineering/**",
         "config/kits/common-control-kit.json"
       ],
       "exclude": [
         "**/__pycache__/**",
         "**/.pytest_cache/**",
-        "CodingKit/modules/common/controller/**/reports/**"
+        "CodingKit/modules/common/controller/**/reports/**",
+        "CodingKit/tools/motor-engineering/*.exe"
       ],
       "outputName": "common-control-kit-${version}.zip"
     }
@@ -83,12 +93,14 @@
   "export": {
     "include": [
       "CodingKit/modules/common/controller/**",
+      "CodingKit/tools/motor-engineering/**",
       "config/kits/common-control-kit.json"
     ],
     "exclude": [
       "**/__pycache__/**",
       "**/.pytest_cache/**",
-      "CodingKit/modules/common/controller/**/reports/**"
+      "CodingKit/modules/common/controller/**/reports/**",
+      "CodingKit/tools/motor-engineering/*.exe"
     ],
     "outputName": "common-control-kit-${version}.zip"
   },

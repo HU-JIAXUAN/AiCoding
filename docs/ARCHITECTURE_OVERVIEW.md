@@ -74,6 +74,10 @@ clean-clone 构建回归一直推迟到发布；该 job 不改变交互式 Full 
 `release` 只执行发布结构验证或复用 Release test profile。CI 直接调用
 `test --profile` 或正式 fresh-clone leaf command，不再叠加第二个聚合器。
 
+电机C99算法与Go工程分析复用 `common-control-kit` 资产边界。`MOTOR-001/002` 是唯一test engine的
+Full/Release必需leaf，分别调用独立领域测试；不新增runner、生命周期、状态或报告权威。
+领域JSON描述公式/源码证据，产品测试结论仍由既有 `internal/report` 和验证Receipt拥有。
+
 Validation Evidence 由唯一 test engine 生产，不是第二套测试执行器。它以 Git common-dir
 隔离仓库，以 Tree OID 绑定 HEAD 或 INDEX 内容，再组合 profile、规范化 Test Registry、typed
 command catalog、实现语义版本、相关配置、toolchain 和选项摘要形成 validation identity。

@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "sources": ["SYNTHETIC EXAMPLE, not target configuration", "F2838x TRM SPRUII0F table 20-11: 12-bit, ADCCLK=SYSCLK/4, tLAT=44, tINT=41 SYSCLK cycles"],
+  "clock": {"sysclk_hz": 200000000, "epwm_div": 2, "clk_div": 1, "hspclk_div": 1},
+  "pwm": {"period_counts": 500, "mode": "up_down", "soc_event": "period", "soc_every": 1, "shadow_event": "zero", "sample_policy": "peak", "sample_window_ns": 500},
+  "adc": {"clock_div": 4, "acquisition_sysclk_cycles": 20, "result_latency_sysclk_cycles": 44, "trigger_sysclk_cycles": 2, "serial_conversions": 1, "sequence_model": "nonoverlap_bound", "arbitration_delay_ns": 0, "interrupt_lead_sysclk_cycles": 3, "minimum_acquisition_ns": 75},
+  "schedule": {"isr_source": "adc_eoc", "isr_entry_ns": 100, "fixed_delay_ns": 50, "guard_ns": 200, "jitter_bound_ns": 50, "foc_bound_ns": 3500, "foc_bound_kind": "static_estimate"},
+  "encoder": {"update_index": 0, "latch_ns": 0, "receive_ns": 1000, "park_ns": 5500, "apply_ns": 10000, "max_age_ns": 12000, "omega_e_rad_s": -1000, "acceleration_bound_rad_s2": 5000, "compensation_owners": ["feedback-align"]},
+  "current_sampling": {"topology":"three_low_side", "hardware_trigger":true, "deadtime_ns":100, "driver_delay_ns":0, "rise_time_ns":0, "blanking_ns":50, "amplifier_settling_ns":150, "guard_ns":50, "measured_phases":[0,1,2], "phase_windows_ns":[600,600,300], "phase_sample_offsets_ns":[300,300,300], "active_vector_windows_ns":[], "active_vector_sample_offsets_ns":[], "switch_states":[], "max_sample_skew_ns":0, "allowed_sample_skew_ns":20}
+}

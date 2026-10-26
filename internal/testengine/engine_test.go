@@ -35,7 +35,7 @@ func TestNormalizeConfigAndRegistry(t *testing.T) {
 		}
 		seen[testCase.ID] = true
 	}
-	for _, id := range []string{"ENV-001", "GO-001", "GO-005", "GO-006", "GO-007", "GIT-009", "EXP-002", "FRESH-001", "FRESH-003", "FRESH-004", "DOCS-006", "REL-002"} {
+	for _, id := range []string{"ENV-001", "GO-001", "GO-005", "GO-006", "GO-007", "MOTOR-001", "MOTOR-002", "GIT-009", "EXP-002", "FRESH-001", "FRESH-003", "FRESH-004", "DOCS-006", "REL-002"} {
 		if !seen[id] {
 			t.Fatalf("registry is missing %s", id)
 		}
@@ -47,6 +47,9 @@ func TestNormalizeConfigAndRegistry(t *testing.T) {
 	}
 
 	for _, testCase := range Registry(cfg) {
+		if strings.HasPrefix(testCase.ID, "MOTOR-") && (testCase.Severity != Required || !profileEnabled(testCase, ProfileFull) || !profileEnabled(testCase, ProfileRelease) || profileEnabled(testCase, ProfileSmoke)) {
+			t.Fatalf("motor host gates must be required Full/Release leaves: %+v", testCase)
+		}
 		if len(testCase.Command) < 2 || !strings.Contains(strings.ToLower(filepath.Base(testCase.Command[0])), "aicoding") {
 			continue
 		}

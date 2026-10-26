@@ -56,7 +56,7 @@ go run ./cmd/aicoding bootstrap --json && .\bin\aicoding.exe provision --json
 | `aicoding-platform` | AiCoding platform integration, Codex plugin marketplace registration, CodingKit asset discovery, and submodule validation. | [Kit / Plugin 视图](docs/reference/KIT_PLUGIN_VIEW.md) |
 | `docsync-plus` | Semantic documentation drift detection kit for AiCoding repositories. | [DocSync Plus](docs/architecture/DOC_SYNC_PLUS_SPEC.md) |
 | `reuse-governance` | Declarative governance for independently integrated reusable modules. | [复用治理](docs/operations/THIRD_PARTY_REUSE_GOVERNANCE.md) |
-| `common-control-kit` | Reusable C99 control modules under CodingKit/modules/common/controller. | [控制模块](CodingKit/modules/common/controller/foc/README.md) |
+| `common-control-kit` | Reusable C99 control modules and deterministic motor-engineering tools. | [控制模块](CodingKit/modules/common/controller/motor/README.md) |
 | `c-kit` | First-party C99 style, comment, lint, host-compile, and behavior verification assets backed by the Huawei DKBA 2826-2011&#46;5 reference. | [C Kit](docs/guides/C99_STANDARD_C_SKILL.md) |
 | `release-governance-overlay-kit` | Tag/release namespace governance, Taskfile entry, and performance-loop overlay for AiCoding. | [发布治理](docs/governance/RELEASE_GOVERNANCE_OVERLAY.md) |
 

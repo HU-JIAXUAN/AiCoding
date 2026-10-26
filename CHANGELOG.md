@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+- **feat(motor-engineering)**: 复用Common Control Kit，增加27个C99电机Primitive与独立Golden/离散组合回归；
+  增加只读Go工程检查、PWM/ADC/Shadow预算、编码器年龄和单/双/三电阻可观测性检查。
+  唯一test engine登记MOTOR-001/002 Full/Release必需项；Skills依赖锁定到已推送验证的`2772637`（39项技能，其中22项电机控制）；安装刷新和板测另行验收。 /
+  Adds reusable motor primitives, independent numeric references and read-only timing/sampling analysis.
+
+- **feat(motor-evidence-rules)**: 对照本地TI文章、离散频域资料和ODrive/ODRI/STM32工程，
+  增加SysConfig实例→硬件base解析与显式误差口径的一阶RC采样窗计算；
+  复用现有Butterworth LPF并记录其与notch递推的数值/状态边界。 /
+  Adds source-backed hardware identity and ADC-settling rules without another workflow engine.
+
 - **fix(plugin-layout)**: 将安装流程生成的`plugins/`兼容目录登记为临时生成状态并禁止暂存，
   避免Windows无法创建便利链接后留下的空目录误阻塞发布检查。 /
   Classifies the installer's convenience directory as transient generated state without admitting source copies.

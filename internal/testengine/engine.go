@@ -474,6 +474,8 @@ func Registry(cfg Config) []TestCase {
 		{ID: "C99-006", Category: "C99_SKILL", Title: "C99 排除目录策略", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "C99-007", Category: "C99_SKILL", Title: "C Kit 快速验证", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "verify", "--depth", "fast", "--json"}, TimeoutKind: "long", ExpectJSON: true},
 		{ID: "C99-008", Category: "C99_SKILL", Title: "C Kit 资产与参考完整性", Severity: Required, Profiles: allProfiles(), Kind: "static"},
+		{ID: "MOTOR-001", Category: "MOTOR_CONTROL", Title: "电机工程源码与离散时序工具", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{"go", "-C", "CodingKit/tools/motor-engineering", "test", "./..."}, TimeoutKind: "long"},
+		{ID: "MOTOR-002", Category: "MOTOR_CONTROL", Title: "C99电机Primitive独立真值与组合仿真", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{"python", "CodingKit/modules/common/controller/motor/run_tests.py"}, TimeoutKind: "long", ExpectJSON: true},
 		{ID: "SKILL-001", Category: "SKILL", Title: "全部启用 Skill Smoke 验证", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "verify", "--all", "--profile", "Smoke", "--json"}, TimeoutKind: "long", ExpectJSON: true},
 
 		{ID: "DOC-001", Category: "DOCSYNC", Title: "DocSync CI", Node: nodeDocSync, Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "docsync", "ci", "--json"}, TimeoutKind: "long", ExpectJSON: true},

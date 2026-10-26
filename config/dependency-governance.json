@@ -216,10 +216,12 @@
         "layer": "capability",
         "platformAgnostic": true,
         "roots": [
-          "CodingKit/modules/common/controller"
+          "CodingKit/modules/common/controller",
+          "CodingKit/tools/motor-engineering"
         ],
         "dependsOn": [
-          "runtime:c99"
+          "runtime:c99",
+          "runtime:go"
         ]
       },
       {
@@ -291,6 +293,10 @@
     ]
   },
   "externalDependencies": [
+    {
+      "id": "runtime:go",
+      "layer": "runtime"
+    },
     {
       "id": "runtime:c99",
       "layer": "runtime"

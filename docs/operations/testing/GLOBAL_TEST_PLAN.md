@@ -104,6 +104,11 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 
 ### 5.2 Full 通过标准
 
+- `MOTOR-001` 执行有界工程解析、PWM/ADC/Shadow、采样拓扑与反馈年龄的Go回归。
+- `MOTOR-002` 用主机GCC在O0/O2编译唯一C99模块，与独立Golden/离散对象交叉验证；
+  包含单/双/三电阻、无效样本、参数变化和组合限压恢复。两项均为Full/Release必需项，
+  不操作设备，不能产生目标构建或实机WCET通过声明。
+
 - Smoke 全部通过。
 - `go test ./...` 成功。
 - GO-002 对登记并发包执行 race，GO-007 证明全仓并发包没有漏登。

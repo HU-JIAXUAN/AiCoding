@@ -451,6 +451,11 @@ Task 的 `.task/` checksum 元数据属于已登记且被 Git 忽略的本地 ru
 
 ## CI
 
+电机工程资产沿用 `common-control-kit`，没有新的顶层平台CLI。`test --profile Full|Release`
+通过唯一test engine的 `MOTOR-001/002` 必需项执行Go解析/时序回归及C99独立数值/组合仿真。
+专项复现与Schema见[电机工程工具](../CodingKit/tools/motor-engineering/README.md)和
+[算法Primitive](../CodingKit/modules/common/controller/motor/README.md)；默认只读，不操作设备。
+
 当前默认 CI workflow 是 `.github/workflows/aicoding-ci.yml`：
 
 ```text

@@ -30,7 +30,8 @@ static bool foc_update_svpwm(Foc *controller);
  */
 static float foc_abs(float value)
 {
-    if (value < 0.0f) {
+    if (value < 0.0f)
+    {
         return -value;
     }
 
@@ -44,10 +45,12 @@ static float foc_abs(float value)
  */
 static float foc_sign(float value)
 {
-    if (value > 0.0f) {
+    if (value > 0.0f)
+    {
         return 1.0f;
     }
-    if (value < 0.0f) {
+    if (value < 0.0f)
+    {
         return -1.0f;
     }
 
@@ -61,10 +64,9 @@ static float foc_sign(float value)
  */
 static float foc_wrap_angle(float angle)
 {
-    while (angle >= FOC_TWO_PI) {
-        angle -= FOC_TWO_PI;
-    }
-    while (angle < 0.0f) {
+    angle = fmodf(angle, FOC_TWO_PI);
+    if (angle < 0.0f)
+    {
         angle += FOC_TWO_PI;
     }
 
@@ -91,7 +93,8 @@ static void foc_sync_pid_freq(Foc *controller)
  */
 static float foc_pid_error(Pid *controller, float error)
 {
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return 0.0f;
     }
 
@@ -115,16 +118,19 @@ static FocDq foc_limit_voltage(FocDq voltage, float maxVoltage, bool *saturated)
     float magnitude;
     float scale;
 
-    if (maxVoltage <= 0.0f) {
+    if (maxVoltage <= 0.0f)
+    {
         return result;
     }
 
     magnitude = sqrtf((voltage.d * voltage.d) + (voltage.q * voltage.q));
-    if (magnitude > maxVoltage) {
+    if (magnitude > maxVoltage)
+    {
         scale = maxVoltage / magnitude;
         result.d *= scale;
         result.q *= scale;
-        if (saturated != 0) {
+        if (saturated != 0)
+        {
             *saturated = true;
         }
     }
@@ -138,7 +144,8 @@ static FocDq foc_limit_voltage(FocDq voltage, float maxVoltage, bool *saturated)
  */
 static void foc_update_open_loop_angle(Foc *controller)
 {
-    const float angleStep = controller->dir * FOC_TWO_PI * controller->open_loop_freq_hz / controller->control_freq;
+    const float angleStep =
+        controller->dir * FOC_TWO_PI * controller->open_loop_freq_hz / controller->control_freq;
 
     controller->theta_e = foc_wrap_angle(controller->theta_e + angleStep);
     controller->omega_e = controller->dir * FOC_TWO_PI * controller->open_loop_freq_hz;
@@ -171,10 +178,12 @@ static void foc_update_vf(Foc *controller)
     controller->out_vd = controller->cmd_vd;
     controller->out_vq = controller->cmd_vq;
 
-    if ((controller->vf_gain_v_per_hz != 0.0f) || (controller->vf_boost_v != 0.0f)) {
+    if ((controller->vf_gain_v_per_hz != 0.0f) || (controller->vf_boost_v != 0.0f))
+    {
         vfVoltage = controller->vf_boost_v +
                     (controller->vf_gain_v_per_hz * foc_abs(controller->open_loop_freq_hz));
-        if (controller->vf_min_v <= controller->vf_max_v) {
+        if (controller->vf_min_v <= controller->vf_max_v)
+        {
             vfVoltage = foc_clamp(vfVoltage, controller->vf_min_v, controller->vf_max_v);
         }
         controller->out_vq += foc_sign(controller->dir) * vfVoltage;
@@ -189,27 +198,39 @@ static void foc_update_if(Foc *controller)
 {
     bool saturated = false;
 
-    if (controller->enable_pos_loop) {
-        controller->cmd_vel = foc_pid_error(&controller->pid_pos, controller->cmd_pos - controller->pos);
+    if (controller->enable_pos_loop)
+    {
+        controller->cmd_vel =
+            foc_pid_error(&controller->pid_pos, controller->cmd_pos - controller->pos);
         saturated = saturated || controller->pid_pos.state.saturated;
     }
 
-    if (controller->enable_vel_loop) {
-        controller->cmd_iq = foc_pid_error(&controller->pid_vel, controller->cmd_vel - controller->vel);
+    if (controller->enable_vel_loop)
+    {
+        controller->cmd_iq =
+            foc_pid_error(&controller->pid_vel, controller->cmd_vel - controller->vel);
         saturated = saturated || controller->pid_vel.state.saturated;
     }
 
-    if (controller->enable_id_loop) {
-        controller->out_vd = foc_pid_error(&controller->pid_id, controller->cmd_id - controller->real_id);
+    if (controller->enable_id_loop)
+    {
+        controller->out_vd =
+            foc_pid_error(&controller->pid_id, controller->cmd_id - controller->real_id);
         saturated = saturated || controller->pid_id.state.saturated;
-    } else {
+    }
+    else
+    {
         controller->out_vd = controller->cmd_vd;
     }
 
-    if (controller->enable_iq_loop) {
-        controller->out_vq = foc_pid_error(&controller->pid_iq, controller->cmd_iq - controller->real_iq);
+    if (controller->enable_iq_loop)
+    {
+        controller->out_vq =
+            foc_pid_error(&controller->pid_iq, controller->cmd_iq - controller->real_iq);
         saturated = saturated || controller->pid_iq.state.saturated;
-    } else {
+    }
+    else
+    {
         controller->out_vq = controller->cmd_vq;
     }
 
@@ -225,7 +246,8 @@ static bool foc_update_svpwm(Foc *controller)
 {
     FocSvpwm svpwm;
 
-    if (!foc_svpwm_init(&svpwm)) {
+    if (!foc_svpwm_init(&svpwm))
+    {
         return false;
     }
 
@@ -234,7 +256,8 @@ static bool foc_update_svpwm(Foc *controller)
     svpwm.input.modulation.alpha = controller->out_valpha / controller->vbus;
     svpwm.input.modulation.beta = controller->out_vbeta / controller->vbus;
 
-    if (!foc_svpwm(&svpwm)) {
+    if (!foc_svpwm(&svpwm))
+    {
         return false;
     }
 
@@ -253,7 +276,8 @@ static bool foc_update_svpwm(Foc *controller)
  */
 bool foc_init(Foc *controller)
 {
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return false;
     }
 
@@ -283,7 +307,8 @@ bool foc_init(Foc *controller)
  */
 bool foc_current_offset_clear(Foc *controller)
 {
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return false;
     }
 
@@ -306,11 +331,13 @@ bool foc_current_offset_accumulate(Foc *controller, FocPhase sample)
 {
     float sampleCount;
 
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return false;
     }
 
-    if (controller->offset_sample_count < UINT32_MAX) {
+    if (controller->offset_sample_count < UINT32_MAX)
+    {
         controller->offset_sample_count++;
     }
 
@@ -331,7 +358,8 @@ bool foc_current_offset_accumulate(Foc *controller, FocPhase sample)
  */
 bool foc_current_offset_set(Foc *controller, FocPhase offset)
 {
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return false;
     }
 
@@ -357,22 +385,42 @@ bool foc_loop(Foc *controller)
     FocSinCos sc;
     bool limited = false;
 
-    if (controller == 0) {
+    if (controller == 0)
+    {
         return false;
     }
 
     controller->valid = false;
     controller->saturated = false;
 
-    if ((controller->control_freq <= 0.0f) || (controller->vbus <= 0.0f)) {
+    if (!isfinite(controller->control_freq) || !isfinite(controller->vbus) ||
+        !isfinite(controller->theta_e) || !isfinite(controller->ia) || !isfinite(controller->ib) ||
+        !isfinite(controller->ic) || !isfinite(controller->ia_offset) ||
+        !isfinite(controller->ib_offset) || !isfinite(controller->ic_offset) ||
+        !isfinite(controller->cmd_id) || !isfinite(controller->cmd_iq) ||
+        !isfinite(controller->cmd_vd) || !isfinite(controller->cmd_vq) ||
+        !isfinite(controller->max_voltage) || !isfinite(controller->modulation_limit) ||
+        (controller->control_freq <= 0.0f) || (controller->vbus <= 0.0f))
+    {
         return false;
     }
 
     foc_sync_pid_freq(controller);
 
-    if (controller->angle_mode == FOC_ANGLE_OPEN_LOOP) {
+    if (controller->angle_mode == FOC_ANGLE_OPEN_LOOP)
+    {
+        if (!isfinite(controller->dir) || !isfinite(controller->open_loop_freq_hz))
+        {
+            return false;
+        }
         foc_update_open_loop_angle(controller);
-    } else if (controller->angle_mode != FOC_ANGLE_SENSOR) {
+        if (!isfinite(controller->theta_e) || !isfinite(controller->omega_e))
+        {
+            return false;
+        }
+    }
+    else if (controller->angle_mode != FOC_ANGLE_SENSOR)
+    {
         return false;
     }
 
@@ -387,11 +435,16 @@ bool foc_loop(Foc *controller)
     controller->real_id = voltageDq.d;
     controller->real_iq = voltageDq.q;
 
-    if (controller->mode == FOC_MODE_VF) {
+    if (controller->mode == FOC_MODE_VF)
+    {
         foc_update_vf(controller);
-    } else if (controller->mode == FOC_MODE_IF) {
+    }
+    else if (controller->mode == FOC_MODE_IF)
+    {
         foc_update_if(controller);
-    } else {
+    }
+    else
+    {
         return false;
     }
 
@@ -406,7 +459,8 @@ bool foc_loop(Foc *controller)
     controller->out_valpha = currentAb.alpha;
     controller->out_vbeta = currentAb.beta;
 
-    if (!foc_update_svpwm(controller)) {
+    if (!foc_update_svpwm(controller))
+    {
         return false;
     }
 
