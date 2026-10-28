@@ -346,6 +346,7 @@ untracked、submodule 或冲突漂移的 INDEX；`--since` 只接受 clean HEAD�
 | Repo text verification | `bin\aicoding.exe verify repo-text --json` |
 | Release notes verification | `bin\aicoding.exe verify release-notes --json` |
 | Git hook 接线检测 | `bin\aicoding.exe doctor --all --json`（含 `doctor.hooks-wired`：用 `git config core.hooksPath` 检测 `.githooks` 是否已激活，未接线只 warning） |
+| Codex Stop 治理检查 | 插件调用随 Git Skill 打包的 `scripts/check_stop.py`；优先采用仓库 lint，无 lint 时按治理 TOML 检查，只有 `unreleased` 模式要求 `[Unreleased]` |
 | Provision 状态检测 | `bin\aicoding.exe doctor --all --json`（含 `doctor.provisioned`：读 `.git/config` 的 `aicoding.*` 标记零扫描判断是否已初始化；`aicoding.docsSkeleton=1` 表示文档骨架已放置，未初始化只 warning） |
 | PowerShell inventory | `bin\aicoding.exe doctor pwsh --json` |
 | PowerShell budget | `bin\aicoding.exe doctor pwsh-budget --json` |

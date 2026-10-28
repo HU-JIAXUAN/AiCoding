@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- **fix(skills)**: 将 Codex-Skills 依赖锁定到 `b7e1616`，同步仓库策略感知的 Git Stop 检查器；
+  优先沿用仓库 lint，只在 `unreleased` 模式要求对应标题，保留带 scope 的类型标签。
+  已通过正式 Marketplace 流程刷新本地插件并保留启用状态。 /
+  Pins the repository-aware Git Stop checker and refreshes the enabled plugin through Marketplace.
+
 - **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `ee9d653`，同步 C99 单入口下的十个专题、
   规则题干导航及辅助 Hook，并纳入创建器的强制使用与精简写作规则；安装更新沿用正式 Marketplace
   流程及原启用状态，新增 Hook 定义通过 `/hooks` 审阅。 /
