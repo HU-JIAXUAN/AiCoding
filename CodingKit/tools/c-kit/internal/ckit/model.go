@@ -54,6 +54,8 @@ type Naming struct {
 }
 
 type Docs struct {
+	RequireFileSections         bool   `json:"requireFileSections,omitempty"`
+	RequireInterfaceSections    bool   `json:"requireInterfaceSections,omitempty"`
 	FileHeader                  bool   `json:"fileHeader"`
 	RequireFileMetadata         bool   `json:"requireFileMetadata"`
 	AllFunctions                bool   `json:"allFunctions"`
@@ -132,6 +134,7 @@ type Macro struct {
 }
 
 type Readability struct {
+	ComplexitySeverity                    string                `json:"complexitySeverity,omitempty"`
 	ComplexFunction                       ComplexFunctionPolicy `json:"complexFunction"`
 	KeyFlowComments                       KeyFlowCommentPolicy  `json:"keyFlowComments"`
 	RequireNumberedIntentCommentPlacement bool                  `json:"requireNumberedIntentCommentPlacement"`

@@ -14,7 +14,7 @@
 | 参考 | `references/*.pdf`、规范化 `*.md` | 61 页、0—16 章的本地权威依据 |
 | Agent 规则 | `AGENTS.md` | 将规范转为编码和评审时的可执行行为约束 |
 | 规则目录 | `docs/RULE_CATALOG.md`、`config/rules/*.json` | 139/139 条款及非编号内容的证据映射 |
-| 规则配置 | `examples/c-kit.json`、schema | 风格、注释、安全和门禁的机器合同 |
+| 规则配置 | `examples/c-kit.json`、`examples/portable-c99.overlay.json`、schema | DEMO 基线、通用 C99 覆盖与机器合同 |
 | 用户模板 | `examples/c-snippets.json`、schema | 可直接编辑或复制到 VS Code 的代码片段 |
 | 黄金代码 | `generated-demo/` | 简单入口与公开高级规则覆盖样例 |
 | 门禁 | `scripts/verify.ps1`、`scripts/verify.sh` | PDF、JSON、lint、GCC、Clang、头文件和测试 |
@@ -48,8 +48,8 @@ generated-demo/
 - 公开声明说明性能/执行上界以及可重入、并发、互斥或中断约束。
 - 非显然 `if/else` 说明领域意义和副作用；简单 guard 不为满足形式堆叠注释。
 - 每个有实际处理的 `case/default` 都有中文意图注释；连续空标签例外，贯穿必须说明原因。
-- 简单对象式宏、结构体成员和枚举项默认使用声明同行右侧的 `/**< ... */`。
-- 仅含一个非空 `@brief` 的 Doxygen 使用 `/** @brief ... */`；有其他标签或补充正文时保持多行。
+- 简单对象式宏、结构体成员和枚举项默认使用声明同行右侧的 `/* 中文说明 */`。
+- 普通说明不使用 Doxygen 标签；项目明确使用 Doxygen 时，单个 `@brief` 可用紧凑形式，多标签保留多行。
 - 未提供工号时省略 `@employee_id`；代码内修改历史默认禁用，由 Git/CHANGELOG 记录。
 
 完整方法、示例和人工评审边界见 [C99 注释方法](docs/COMMENTING_METHOD.md)。
@@ -76,6 +76,44 @@ go run ./cmd/ckit lint --config ./examples/c-kit.json --scope files `
 go run ./cmd/ckit contract --config ./examples/c-kit.json `
     --file ./generated-demo/demo.c
 ```
+
+## 通用 C99 命名与项目覆盖
+
+`examples/c-kit.json` 保留 `DEMO_PascalCase`、snake_case 变量、`_t` 类型和黄金样例的严格阈值。
+检查其他项目时，先叠加 `examples/portable-c99.overlay.json`，再叠加项目已有约束：
+
+```powershell
+go run ./cmd/ckit lint --config ./examples/c-kit.json `
+  --overlay ./examples/portable-c99.overlay.json `
+  --overlay ./project.overlay.json --scope files `
+  --file C:/project/source/module.c --file C:/project/include/module.h --json
+```
+
+项目 overlay 例如 `{"naming":{"modulePrefix":"sensor"}}`。通用覆盖选择公共函数
+`${MODULE}_${snake_case}`、私有函数 `${snake_case}`、参数/局部变量/字段 `lowerCamelCase`、
+类型和函数指针 typedef `PascalCase`、文件状态 `g_lowerCamelCase`。现有公共接口需要保留时，
+用项目策略选择适用范围；不要通过批量改名满足模板。
+
+`lint`、`contract` 和 `verify` 都接受可重复的 `--overlay`。配置中的命名模式使用有限 token：
+`${MODULE}`、`${snake_case}`、`${lower_snake_case}`、`${lowerCamelCase}`、`${PascalCase}`、
+`${UPPER_SNAKE_CASE}`；每个模式包含一个大小写样式 token，可加固定前后缀。不接受任意正则表达式。
+函数、命名参数及可识别的变量/字段/typedef 会按实际模式检查；宏展开、编译器扩展及复杂声明仍需
+项目编译器或 AST 工具。命名含义、缩写和职责是否合理仍属人工判断。
+
+通用覆盖把 50 行、4 层和 5 参数的超限诊断设为 `warning`，用于设计审查；仅 warning 时 JSON
+`ok=true` 且退出码为零，其他 error 仍阻塞。原 DEMO 配置保持 error。这个覆盖用于检查外部代码，
+不会把黄金 demo 自动生成器改成业务项目代码生成器。
+
+通用覆盖显式启用普通中文说明的 presence 检查：文件头必须有非空“用途”和“职责边界”；
+头文件里的有参公共声明必须有非空“输入”，参数名应出现在“输入/输出”中；非 void 声明必须有
+“返回”，有参或返回值的接口还需要“约束”。简单 static helper 和无参 void 接口不强塞空字段。
+这些检查只确认字段存在和参数名覆盖，无法证明单位、可空性、输出成功时有效、失败不修改、
+调用上下文或限制的描述真实。非 const 指针也可能是工作上下文，工具不会据此推断输出方向。
+复杂函数沿用最低关键意图注释检查，不强制编号或 Doxygen；原因是否准确仍需结合代码复核。
+
+`style.encoding=preserve` 声明保持原文件；lint 不写回文件，但不提供 GBK/CP936 识别和解码证明。
+现有 `style.braceStyle=function-allman` 表达函数独行、控制语句同行的风格契约，具体排版仍由项目
+formatter 检查。不要把 lint 通过当作实际编码、排版、ISR 时序、DMA/cache 或寄存器行为已验证。
 
 ## 用户自定义 snippets
 

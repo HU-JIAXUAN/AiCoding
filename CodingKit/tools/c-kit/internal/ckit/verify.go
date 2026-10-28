@@ -181,10 +181,8 @@ func executeVerification(
 				lintContent(path, fileData[path], nil, cfg, false)...,
 			)
 		}
-		if len(result.Diagnostics) > cfg.Hook.MaxDiagnostics {
-			result.Diagnostics = result.Diagnostics[:cfg.Hook.MaxDiagnostics]
-		}
-		if len(result.Diagnostics) != 0 {
+		result.Diagnostics = limitDiagnostics(result.Diagnostics, cfg.Hook.MaxDiagnostics)
+		if hasBlockingDiagnostics(result.Diagnostics) {
 			return fmt.Errorf("reported %d diagnostic(s)", len(result.Diagnostics))
 		}
 		return nil

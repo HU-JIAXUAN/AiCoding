@@ -57,7 +57,7 @@
         "indentWidth": {"const": 4},
         "continuationIndentWidth": {"type": "integer", "minimum": 1},
         "columnLimit": {"type": "integer", "minimum": 80, "maximum": 160},
-        "braceStyle": {"enum": ["allman"]},
+        "braceStyle": {"enum": ["allman", "function-allman"]},
         "pointerAlignment": {"enum": ["right"]},
         "newline": {"enum": ["lf", "crlf", "preserve"]},
         "encoding": {"enum": ["utf-8", "preserve"]},
@@ -71,7 +71,7 @@
       "additionalProperties": false,
       "required": ["modulePrefix", "publicFunction", "privateFunction", "type", "functionPointer", "macro", "enumConstant", "globalVariable", "staticVariable", "localVariable", "parameter", "structMember", "forbidReservedIdentifier"],
       "properties": {
-        "modulePrefix": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*$"},
+        "modulePrefix": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"},
         "publicFunction": {"type": "string", "minLength": 1},
         "privateFunction": {"type": "string", "minLength": 1},
         "type": {"type": "string", "minLength": 1},
@@ -92,6 +92,8 @@
       "required": ["fileHeader", "requireFileMetadata", "allFunctions", "types", "macros", "requireBrief", "singleBriefStyle", "requireParamTags", "requireParamDirection", "requireReturnTag", "requireDefinitionDetails", "requirePublicPerformance", "requirePublicReentrancy", "requireBarePrivatePrototype", "requireCaseIntentComment", "requireGlobalVariableDetail", "requireExternC", "employeeIdPolicy", "modificationHistoryPolicy"],
       "properties": {
         "fileHeader": {"type": "boolean"},
+        "requireFileSections": {"type": "boolean"},
+        "requireInterfaceSections": {"type": "boolean"},
         "requireFileMetadata": {"type": "boolean"},
         "allFunctions": {"type": "boolean"},
         "types": {"type": "boolean"},
@@ -160,6 +162,7 @@
       "additionalProperties": false,
       "required": ["complexFunction", "keyFlowComments", "requireNumberedIntentCommentPlacement", "reportNonObviousBranches", "reportSingleCallStaticHelpers"],
       "properties": {
+        "complexitySeverity": {"enum": ["error", "warning"]},
         "complexFunction": {
           "type": "object",
           "additionalProperties": false,
@@ -220,7 +223,7 @@
         "fileStem": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
         "brief": {"type": "string", "minLength": 1},
         "details": {"type": "string", "minLength": 1},
-        "contextType": {"type": "string", "pattern": "^[a-z][a-z0-9_]*_t$"},
+        "contextType": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$"},
         "headerGuard": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]*_H$"}
       }
     },

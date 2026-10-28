@@ -13,7 +13,6 @@ import (
 
 var (
 	typeEndRE             = regexp.MustCompile(`}\s*([A-Za-z_][A-Za-z0-9_]*)\s*;`)
-	localVarRE            = regexp.MustCompile(`^\s+(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+\*?\s*([A-Za-z_][A-Za-z0-9_]*)`)
 	badBaseTypeRE         = regexp.MustCompile(`\b(?:short|long|unsigned int|signed int)\b`)
 	vlaRE                 = regexp.MustCompile(`^\s*(?:const\s+)?(?:bool|u?int(?:8|16|32|64)_t|size_t|float|double|[A-Za-z_][A-Za-z0-9_]*_t)\s+[A-Za-z_][A-Za-z0-9_]*\s*\[[a-z][a-z0-9_]*\]`)
 	reservedIDRE          = regexp.MustCompile(`(^|[^A-Za-z0-9_])(__[A-Za-z0-9_]*|_[A-Z][A-Za-z0-9_]*)`)
@@ -31,10 +30,6 @@ var (
 	modificationHistoryRE = regexp.MustCompile(`(?mi)^\s*\*\s*(?:@(?:history|modification)\b|history\s*:|modification(?:\s+history)?\s*:|change\s+history\s*:|修改(?:记录|历史)\s*[：:])`)
 	oneLineBlockCommentRE = regexp.MustCompile(`^\s*/\*\s+\S(?:.*\S)?\s+\*/\s*$`)
 	gotoRE                = regexp.MustCompile(`\bgoto\b`)
-	moduleSuffixRE        = regexp.MustCompile(`^[A-Z][A-Za-z0-9]*$`)
-	snakeRE               = regexp.MustCompile(`^[a-z][a-z0-9_]*$`)
-	typeNameRE            = regexp.MustCompile(`^[a-z][a-z0-9_]*_t$`)
-	upperSnakeRE          = regexp.MustCompile(`^[A-Z][A-Z0-9_]*$`)
 )
 
 func RunLint(args []string) error {
@@ -44,14 +39,16 @@ func RunLint(args []string) error {
 	jsonOut := fs.Bool("json", false, "JSON output")
 	summaryOut := fs.Bool("summary", false, "include readability summary")
 	var files multiFlag
+	var overlays multiFlag
 	fs.Var(&files, "file", "file to check")
+	fs.Var(&overlays, "overlay", "partial configuration overlay; may be repeated")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
 	if *configPath == "" {
 		return fmt.Errorf("--config is required")
 	}
-	cfg, err := LoadConfig(*configPath)
+	cfg, _, err := loadLintConfigWithOverlays(*configPath, overlays)
 	if err != nil {
 		return err
 	}
@@ -99,14 +96,12 @@ func RunLint(args []string) error {
 	default:
 		return fmt.Errorf("unsupported scope %q", *scope)
 	}
-	if len(all) > cfg.Hook.MaxDiagnostics {
-		all = all[:cfg.Hook.MaxDiagnostics]
-	}
+	all = limitDiagnostics(all, cfg.Hook.MaxDiagnostics)
 	sort.SliceStable(summaries, func(i, j int) bool { return summaries[i].File < summaries[j].File })
 	if err := emitResult(*jsonOut, all, summaries, *summaryOut); err != nil {
 		return err
 	}
-	if len(all) > 0 {
+	if hasBlockingDiagnostics(all) {
 		return fmt.Errorf("C Kit gate failed with %d diagnostic(s)", len(all))
 	}
 	return nil
@@ -119,7 +114,7 @@ func (m *multiFlag) Set(s string) error { *m = append(*m, s); return nil }
 
 func emitResult(jsonOut bool, ds []Diagnostic, summaries []FileReadabilitySummary, includeSummary bool) error {
 	if jsonOut {
-		result := map[string]any{"ok": len(ds) == 0, "diagnostics": ds}
+		result := map[string]any{"ok": !hasBlockingDiagnostics(ds), "diagnostics": ds}
 		if includeSummary {
 			result["readability"] = map[string]any{"files": summaries}
 		}
@@ -165,6 +160,7 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 		if !commentHasText(head) {
 			ds = append(ds, diag(path, 1, "documentation.file", "文件头缺少有效的模块说明。"))
 		}
+		ds = append(ds, validatePlainFileContract(path, head, cfg)...)
 		if cfg.Docs.RequireBrief || cfg.Docs.RequireFileMetadata {
 			if !fileTagRE.MatchString(head) {
 				ds = append(ds, diag(path, 1, "documentation.file", "文件头缺少非空 @file。"))
@@ -218,28 +214,38 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 				functionSelected = spanSelected(analyzed.startLine+1, analyzed.endLine+1, ranges)
 			}
 			if functionSelected {
-				if fn.Name != "main" && !validModuleFunction(fn.Name, cfg.Naming.ModulePrefix) {
+				pattern := cfg.Naming.PublicFunction
+				if fn.Static {
+					pattern = cfg.Naming.PrivateFunction
+				}
+				if fn.Name != "main" && !matchesNaming(fn.Name, pattern, cfg.Naming) {
 					rule := "naming.public-function"
 					if fn.Static {
 						rule = "naming.private-function"
 					}
-					ds = append(ds, diag(path, lineNo, rule, "函数名必须符合模块前缀与 PascalCase 规则。"))
+					ds = append(ds, namingDiagnostic(path, lineNo, rule, fn.Name, pattern))
+				}
+				for _, parameter := range fn.Parameters {
+					if !matchesNaming(parameter, cfg.Naming.Parameter, cfg.Naming) {
+						ds = append(ds, namingDiagnostic(path, lineNo, "naming.parameter", parameter, cfg.Naming.Parameter))
+					}
 				}
 				ds = append(ds, validateFunctionDocs(path, lines, i, fn, cfg)...)
+				ds = append(ds, validatePlainInterfaceContract(path, lines, i, fn, cfg)...)
 				if cfg.Safety.RequireExplicitVoid && strings.Contains(line, "()") {
 					ds = append(ds, diag(path, lineNo, "c99.explicit-void", "无参数函数必须显式使用 (void)。"))
 				}
 				if len(fn.Parameters) > cfg.Safety.MaxParameters {
-					ds = append(ds, diag(path, lineNo, "complexity.parameters", "函数参数数量超过配置上限。"))
+					ds = append(ds, complexityDiagnostic(path, lineNo, "complexity.parameters", "函数参数数量超过配置上限。", cfg))
 				}
 				if !fn.Prototype {
 					if hasAnalysis && functionSummary.EffectiveLines > 50 {
-						ds = append(ds, diag(path, lineNo, "complexity.function-lines",
-							"新增函数有效代码超过 50 行。"))
+						ds = append(ds, complexityDiagnostic(path, lineNo, "complexity.function-lines",
+							"新增函数有效代码超过 50 行。", cfg))
 					}
 					if hasAnalysis && functionSummary.MaxNesting > 4 {
-						ds = append(ds, diag(path, lineNo, "complexity.nesting",
-							"函数代码块嵌套超过 4 层。"))
+						ds = append(ds, complexityDiagnostic(path, lineNo, "complexity.nesting",
+							"函数代码块嵌套超过 4 层。", cfg))
 					}
 				}
 			}
@@ -250,8 +256,8 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 		} else if inEnum && strings.Contains(trim, "}") {
 			inEnum = false
 		} else if inEnum && selected {
-			if m := enumItemRE.FindStringSubmatch(trim); m != nil && !validUpperSnake(m[1]) {
-				ds = append(ds, diag(path, lineNo, "naming.enum-constant", "枚举成员必须使用 UPPER_SNAKE_CASE。"))
+			if m := enumItemRE.FindStringSubmatch(trim); m != nil && !matchesNaming(m[1], cfg.Naming.EnumConstant, cfg.Naming) {
+				ds = append(ds, namingDiagnostic(path, lineNo, "naming.enum-constant", m[1], cfg.Naming.EnumConstant))
 			}
 		}
 
@@ -272,7 +278,7 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 		}
 		if selected && cfg.Docs.RequireGlobalVariableDetail {
 			if match := globalVarRE.FindStringSubmatch(line); match != nil {
-				ds = append(ds, validateGlobalVariable(path, lines, i, match[1] != "", match[2])...)
+				ds = append(ds, validateGlobalVariable(path, lines, i)...)
 			}
 		}
 
@@ -324,11 +330,9 @@ func lintContentWithSummary(path string, data []byte, ranges []LineRange, cfg Co
 				ds = append(ds, diag(path, lineNo, "embedded.forbidden-call", "禁止调用 "+call+"。"))
 			}
 		}
-		if m := localVarRE.FindStringSubmatch(line); m != nil && !validSnake(m[1]) {
-			ds = append(ds, diag(path, lineNo, "naming.local-variable", "局部变量必须使用 lower_snake_case。"))
-		}
-		if m := typeEndRE.FindStringSubmatch(line); m != nil && !validTypeName(m[1]) {
-			ds = append(ds, diag(path, lineNo, "naming.type", "typedef 类型必须使用 lower_snake_case_t。"))
+		ds = append(ds, declarationNamingDiagnostics(path, i, analysis, cfg)...)
+		if m := typeEndRE.FindStringSubmatch(line); m != nil && !matchesNaming(m[1], cfg.Naming.Type, cfg.Naming) {
+			ds = append(ds, namingDiagnostic(path, lineNo, "naming.type", m[1], cfg.Naming.Type))
 		}
 		if m := macroRE.FindStringSubmatch(line); m != nil {
 			ds = append(ds, validateMacro(path, lineNo, m[1], m[2], m[3], lines, i, cfg)...)
@@ -539,8 +543,8 @@ func validateFileMetadataPolicies(path, head string, cfg Config) []Diagnostic {
 
 func validateMacro(path string, line int, name, params, body string, lines []string, index int, cfg Config) []Diagnostic {
 	var ds []Diagnostic
-	if cfg.Macro.RequireUppercase && !validUpperSnake(name) {
-		ds = append(ds, diag(path, line, "macro.name", "宏名称必须使用 UPPER_SNAKE_CASE。"))
+	if cfg.Macro.RequireUppercase && !matchesNaming(name, cfg.Naming.Macro, cfg.Naming) {
+		ds = append(ds, namingDiagnostic(path, line, "macro.name", name, cfg.Naming.Macro))
 	}
 	if cfg.Macro.RequireDocumentation {
 		doxygen := commentHasText(precedingDoxygen(lines, index))
@@ -615,19 +619,8 @@ func trailingCommentHasText(line string) bool {
 	return strings.HasSuffix(block, "*/") && commentHasText(block)
 }
 
-func validateGlobalVariable(path string, lines []string, index int, static bool, name string) []Diagnostic {
+func validateGlobalVariable(path string, lines []string, index int) []Diagnostic {
 	var ds []Diagnostic
-	wantedPrefix := "g_"
-	rule := "naming.global-variable"
-	if static {
-		wantedPrefix = "s_"
-		rule = "naming.static-variable"
-	}
-	if !strings.HasPrefix(name, wantedPrefix) || !validSnake(name) {
-		ds = append(ds, diag(path, index+1, rule,
-			"文件作用域变量必须使用 "+wantedPrefix+" 前缀和 lower_snake_case。"))
-	}
-
 	block := precedingComment(lines, index)
 	if !commentHasText(block) || !strings.Contains(block, "范围") ||
 		(!strings.Contains(block, "只读") && !strings.Contains(block, "读写") &&
@@ -652,15 +645,6 @@ func diag(path string, line int, rule, msg string) Diagnostic {
 	return Diagnostic{File: filepath.ToSlash(path), Line: line, Rule: rule, Severity: "error", Message: msg}
 }
 
-func validModuleFunction(name, prefix string) bool {
-	if !strings.HasPrefix(name, prefix+"_") {
-		return false
-	}
-	return moduleSuffixRE.MatchString(strings.TrimPrefix(name, prefix+"_"))
-}
-func validSnake(s string) bool      { return snakeRE.MatchString(s) }
-func validTypeName(s string) bool   { return typeNameRE.MatchString(s) }
-func validUpperSnake(s string) bool { return upperSnakeRE.MatchString(s) }
 func minInt(a, b int) int {
 	if a < b {
 		return a

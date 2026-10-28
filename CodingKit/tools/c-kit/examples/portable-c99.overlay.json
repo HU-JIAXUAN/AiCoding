@@ -1,0 +1,51 @@
+{
+  "id": "portable-c99",
+  "style": {
+    "columnLimit": 120,
+    "braceStyle": "function-allman",
+    "encoding": "preserve"
+  },
+  "naming": {
+    "modulePrefix": "mod",
+    "publicFunction": "${MODULE}_${snake_case}",
+    "privateFunction": "${snake_case}",
+    "type": "${PascalCase}",
+    "functionPointer": "${PascalCase}",
+    "macro": "${UPPER_SNAKE_CASE}",
+    "enumConstant": "${UPPER_SNAKE_CASE}",
+    "globalVariable": "g_${lowerCamelCase}",
+    "staticVariable": "g_${lowerCamelCase}",
+    "localVariable": "${lowerCamelCase}",
+    "parameter": "${lowerCamelCase}",
+    "structMember": "${lowerCamelCase}"
+  },
+  "documentation": {
+    "requireFileMetadata": false,
+    "requireBrief": false,
+    "requireParamTags": false,
+    "requireParamDirection": false,
+    "requireReturnTag": false,
+    "requireDefinitionDetails": false,
+    "requirePublicPerformance": false,
+    "requirePublicReentrancy": false,
+    "requireCaseIntentComment": false,
+    "requireGlobalVariableDetail": false,
+    "requireExternC": false,
+    "requireFileSections": true,
+    "requireInterfaceSections": true
+  },
+  "readability": {
+    "complexitySeverity": "warning",
+    "complexFunction": {
+      "requireNumberedFlow": false
+    },
+    "keyFlowComments": {
+      "requiredForComplexFunctions": true
+    },
+    "requireNumberedIntentCommentPlacement": false
+  },
+  "template": {
+    "moduleName": "mod",
+    "contextType": "Module"
+  }
+}

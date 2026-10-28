@@ -1,36 +1,33 @@
 # C99 Standard C Embedded Rules
 
-本规则文件是 AiCoding 仓库内 `c99-standard-c` skill 的本地 overlay。C skill 不直接写死格式模板；可执行的格式、模板和检查入口由本目录配置提供。
+本目录提供平台格式、注释模板和检查入口的配置。规范语义来自已安装 C99 Skill、当前项目规则与华为条款；项目已确认的接口、归属、编码和工具链优先。
 
-## 配置来源
+## 生成前的有效约束
 
-- 机械格式来源：`config/skills/c99-standard-c/style/clang-format.yaml`。
-- 根目录 `.clang-format` 仅作为工具投影，不是 source of truth。
-- C/H 注释模板来源：`config/skills/c99-standard-c/templates/comment-templates.json`。
-- Go CLI 通过 `internal/cstyle` 读取 `config/skills/c99-standard-c/skill.json` 后执行格式化、检查和模板校验。
+- 先识别自研、生成和第三方代码；只改变当前请求涉及的自研内容，保留其他来源的既有约束。
+- 自研默认使用 4 空格、120 列；函数左大括号独占一行，控制语句左大括号同行。
+- 函数用 `snake_case`，参数和局部变量用 `lowerCamelCase`，类型用 `PascalCase`，文件状态用 `g_` 加 `lowerCamelCase`；稳定公共接口保留项目既有命名。
+- 读取和写回前核对实际编码、BOM 与换行。`fmt` 不提供编码转换保护；GBK/CP936 文件先验证字节 round-trip，再选择相容的项目格式工具或仅检查。
+- 模块化、平台适配或解耦先使用架构 Skill；C 检查器不能替代职责和生命周期判断。
 
-## Agent 执行规则
+## 注释
 
-- 修改 `.c` 或 `.h` 文件后运行 `task fmt:c`，除非当前任务明确禁止格式化或只允许检查。
-- 提交前优先运行 `task fmt-check-staged:c`，只检查 staged C/H 文件。
-- 不格式化 `vendor/`、`third_party/`、`generated/`、`Drivers/`、`device/`、`build/`、`out/`、`dist/` 路径。
-- 不因本次改动格式化无关 C/H 文件。
-- 保持 C99、嵌入式风格和 Doxygen 注释。
-- 函数体关键流程按 `CSTYLE-COMMENT-FLOW-001` 注释。先从
-  `CodingKit/tools/c-kit/examples/c-kit.json:readability.keyFlowComments` 取得稳定规则
-  ID、华为来源条款和人类文档入口；lint 的最低数量门禁通过后仍必须检查关键流程是否完整、准确。
-- 简单对象式宏、结构体/联合体成员和枚举项的简短说明默认放在声明同行右侧，使用
-  `/**< ... */`；只有复杂约束才在声明上方使用多行说明。
-- Doxygen 仅含一个非空 `@brief` 且没有正文续行或其他标签时，使用
-  `/** @brief 简要说明。 */`；包含其他标签或补充正文时使用多行。
+- 普通说明使用 `/* 中文说明 */`，放在目标右侧或紧邻上方，句末不加句号；上方说明与前一段代码留空行，并与目标同缩进。
+- 函数说明实际用途，按需要补输入、输出、单位、错误、调用上下文和寿命。简单函数一句即可，不能为数量指标制造重复内部说明。
+- 字段说明用途及必要的单位、范围、读写方；枚举逐值说明含义。有意贯穿说明目标和原因。
+- 项目明确生成 Doxygen 文档时才选用其标签。模板不默认添加公司、作者、日期、MISRA 合规声明或代码变更历史。
+- 模板变量必须用当前代码事实填写；不适用的说明整行删除，不能把模板槽位写进交付源码。
 
-## 实时路径约束
+## 现有执行能力
 
-ISR、current-loop、PWM 更新、采样同步等实时路径禁止引入：
+- `skill c99-standard-c check --scope changed|staged|paths` 目前是 `clang-format --dry-run --Werror`，仅证明选中文件满足格式配置。
+- `skill c99-standard-c verify --depth fast|full --target <manifest> --overlay <overlay>` 调用 C Kit 验证显式候选。省略 target 时验证的是 Kit 示例，不能当作用户代码通过。
+- C Kit 的 `examples/portable-c99.overlay.json` 提供通用命名及复杂度审查级别；叠加项目 overlay 设置实际短模块前缀。原 `examples/c-kit.json` 保持 DEMO 教材样例兼容。
+- 50 行、4 层和 5 参数在通用 overlay 中作为 warning 提示设计审查；不为消除指标而机械拆函数。旧 DEMO profile 继续将超限作为 error。
+- C Kit lint 是有限词法检查，不能证明未定义行为、所有返回值处理、ISR 阻塞、寄存器副作用、DMA/cache、临界区或最坏执行时间。真实工程仍需其编译、静态分析及行为证据。
 
-- 阻塞调用；
-- 动态内存分配；
-- 复杂函数指针链；
-- 无界循环或不可预测耗时路径。
+## 检查与修改边界
 
-实时路径中的新增抽象必须能证明调用开销、栈使用和最坏执行时间可控。
+默认先运行只读 `check`，确有授权且编码相容时才执行定向 `fmt`。不把整个 vendor、third_party、generated、Drivers、device、build、out、dist 或 Kit 黄金样例纳入无关格式整改。
+
+提交检查覆盖实际 staged 内容的范围必须明确；目前平台格式入口按 index 选文件名、读取 worktree。需要验证提交快照时使用 C Kit staged lint 或项目现有 index 检查，不能将两者混称。

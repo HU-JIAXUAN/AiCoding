@@ -4,6 +4,32 @@ Taskfile 是人机短路由；Go CLI 是默认控制面；业务逻辑位于 Go 
 
 C/H 风格命令见 [C99 Standard C Skill](guides/C99_STANDARD_C_SKILL.md)。
 
+## C99 实际候选与配置
+
+平台 `skill c99-standard-c check` 检查格式；`verify` 才运行 C Kit 的配置、Lint、主机编译和行为验证。
+未指定 `--target` 时，`verify` 检查黄金 DEMO，不能据此声称业务文件已通过。验证业务代码时显式选择包含候选文件与主机测试入口的 target：
+
+```powershell
+bin/aicoding.exe skill c99-standard-c verify --depth fast --target path/to/verify-target.json --overlay CodingKit/tools/c-kit/examples/portable-c99.overlay.json --overlay path/to/project-overlay.json --timings --json
+```
+
+`--target` 和 `--overlay` 的相对路径按 AiCoding 仓库根解析；`full` 增加 Clang、C++17 头文件探针和可用的基线行为比较。
+主机证据不包含目标固件构建、ISR 时序或硬件验收。仅需要检查实际 C/H 文件时，维护入口可以显式传入绝对候选路径：
+
+```powershell
+go -C CodingKit/tools/c-kit run ./cmd/ckit lint --config ./examples/c-kit.json --overlay ./examples/portable-c99.overlay.json --scope files --file <absolute-c-file> --file <absolute-h-file> --json
+```
+
+以上 `go -C` 命令只用于显式文件范围；检查业务暂存区须在业务仓库使用真实 index 内容或其快照，不能改用 Kit 的 index。
+[portable overlay](../CodingKit/tools/c-kit/examples/portable-c99.overlay.json) 由项目显式启用，并可追加项目 overlay 设置 `naming.modulePrefix` 等事实；旧 DEMO profile 保持兼容。
+该配置使用函数 `snake_case`、类型 `PascalCase`、局部变量/参数 `lowerCamelCase` 和状态 `g_lowerCamelCase`，50 行/4 层/5 参数作为审查 warning。
+
+[平台注释模板](../config/skills/c99-standard-c/templates/comment-templates.json) 使用普通中文块注释：文件写用途和职责边界，
+接口按实际合同写输入、输出、返回和约束，关键步骤说明原因，不默认生成作者或历史表。
+portable profile 只对文件字段及有实际参数/非 `void` 返回的公共头声明检查相应字段存在性；不要求简单 helper 填空标签。
+这些检查不能证明单位、可空性、输出失败不改或并发约束的语义正确，仍须核对实现和调用方。
+格式配置为 120 列、函数括号独行、控制语句括号同行，`ReflowComments: false` 保留已组织的注释布局。
+
 ## 默认入口
 
 | 场景 | 命令 | 控制面 |

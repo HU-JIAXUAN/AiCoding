@@ -4,6 +4,14 @@
 
 ### Added
 
+- 新增 `examples/portable-c99.overlay.json`，按有限命名 token 实际检查通用 C99 函数、参数、
+  局部变量、字段、typedef 与文件状态，保留 DEMO 默认命名与黄金样例兼容。
+- `lint` 与 `contract` 支持可重复 `--overlay`；复杂度诊断可配置为 warning，JSON/退出码和
+  外部 verify 仅阻塞 error，诊断数量截断不能隐藏阻塞项。
+- 通用覆盖把 50 行、4 层和 5 参数作为设计审查提示，不增加 ISR、寄存器或并发语义的正则判定。
+- 通用覆盖显式开启普通块注释的文件用途/职责边界与公共接口输入/返回/约束 presence 检查，
+  参数说明覆盖输入/输出中的实际参数名；不推断输出方向，不把标签存在当作契约语义正确。
+
 - `readability.keyFlowComments.reviewTriggerIds` 固定登记
   `CSTYLE-COMMENT-FLOW-001.F01`—`.F07`，使 Agent 可确定性检索阶段、复合条件、状态迁移、
   算法、硬件时序、错误恢复和资源生命周期七类语义复核入口。

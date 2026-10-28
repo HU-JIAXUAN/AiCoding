@@ -31,6 +31,16 @@ ckit verify `
 
 `--overlay` 可以重复。覆盖文件只写相对基础配置发生变化的字段；对象递归合并，数组整体
 替换。`schema`、`standard` 和 `reference` 由基础配置锁定，覆盖文件不能包含 `null` 或未知字段。
+
+通用 C99 命名可先选择 `examples/portable-c99.overlay.json`，再叠加项目模块前缀等实际约束。
+该覆盖保留必要说明，使用普通中文块注释；函数、参数、变量、字段、类型和函数指针 typedef 的
+命名模式会实际执行。50 行、4 层和 5 参数的超限只产生 warning，verify 继续编译及行为验证；
+其他 error 仍在 lint 阶段阻塞。Kit 默认 DEMO profile 的严格阈值保持不变。
+
+通用覆盖还开启普通块注释合同的 presence 检查：文件“用途/职责边界”、头文件公共有参接口
+“输入”及参数名覆盖、非 void 接口“返回”、有参或有返回接口“约束”。输出方向不能由指针
+类型可靠推断；单位、可空性、成功/失败输出行为和上下文是否真实仍需人工复核和目标测试。
+
 verify 还会强制保留严格 C99/C++17 核心告警参数，并拒绝空 flag 集、`warningsAsErrors=false`
 以及任何白名单外参数；因此不能通过 overlay 注入 `-fplugin`、`-specs`、`-wrapper` 或响应文件。
 

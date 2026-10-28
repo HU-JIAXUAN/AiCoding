@@ -2,6 +2,17 @@
 
 ## [Unreleased]
 
+- **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `ee9d653`，同步 C99 单入口下的十个专题、
+  规则题干导航及辅助 Hook，并纳入创建器的强制使用与精简写作规则；安装更新沿用正式 Marketplace
+  流程及原启用状态，新增 Hook 定义通过 `/hooks` 审阅。 /
+  Pins the verified C99 kit and mandatory Skill creator package with managed plugin refresh.
+
+- **feat(c99-contract)**: 增加显式启用的 `portable-c99` overlay，使函数、类型、参数、局部变量及状态命名配置实际参与 Lint；
+  文件和公共接口使用普通中文块注释合同，复杂度阈值作为 warning，保留旧 DEMO 配置与黄金样例。
+  平台格式统一为 120 列、函数括号独行、控制语句括号同行并保留注释布局；文档明确真实候选的 lint/verify 范围，
+  默认 DEMO 验证不作为业务代码或目标板证据。
+  / Adds portable naming, plain Chinese interface contracts and consistent formatting with scoped candidate validation.
+
 - **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `ae26adb`，同步 14 个运行时入口；
   对象模型与数据模型改由架构入口内部指南路由，模块化、平台适配和解耦必须加载架构 Skill；
   通过正式 Marketplace 流程刷新本地插件，保留启用状态并核对安装包与依赖包一致。 /

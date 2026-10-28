@@ -94,8 +94,13 @@ func parseParameterNames(raw string) []string {
 		if p == "..." {
 			continue
 		}
+		if match := functionPointerNameRE.FindStringSubmatch(p); match != nil {
+			out = append(out, match[1])
+			continue
+		}
+		p = regexp.MustCompile(`\[[^]]*\]`).ReplaceAllString(p, "")
 		fields := regexp.MustCompile(`[A-Za-z_][A-Za-z0-9_]*`).FindAllString(p, -1)
-		if len(fields) > 0 {
+		if len(fields) > 1 {
 			name := fields[len(fields)-1]
 			if name != "const" && name != "volatile" {
 				out = append(out, name)

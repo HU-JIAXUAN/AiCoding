@@ -115,6 +115,15 @@ func LoadConfig(path string) (Config, error) {
 	if cfg.Hook.MaxDiagnostics <= 0 {
 		cfg.Hook.MaxDiagnostics = 80
 	}
+	if cfg.Readability.ComplexitySeverity == "" {
+		cfg.Readability.ComplexitySeverity = "error"
+	}
+	if !oneOf(cfg.Readability.ComplexitySeverity, "error", "warning") {
+		return Config{}, fmt.Errorf("readability complexitySeverity must be error or warning")
+	}
+	if err := validateNaming(cfg.Naming); err != nil {
+		return Config{}, err
+	}
 	if cfg.Template.ModuleName == "" || cfg.Template.FileStem == "" || cfg.Template.ContextType == "" {
 		return Config{}, fmt.Errorf("template moduleName, fileStem and contextType are required")
 	}

@@ -11,13 +11,15 @@ func RunContract(args []string) error {
 	fs := flag.NewFlagSet("contract", flag.ContinueOnError)
 	configPath := fs.String("config", "", "configuration")
 	file := fs.String("file", "", "target file")
+	var overlays multiFlag
+	fs.Var(&overlays, "overlay", "partial configuration overlay; may be repeated")
 	if err := fs.Parse(args); err != nil {
 		return err
 	}
 	if *configPath == "" || *file == "" {
 		return fmt.Errorf("--config and --file are required")
 	}
-	cfg, err := LoadConfig(*configPath)
+	cfg, _, err := loadLintConfigWithOverlays(*configPath, overlays)
 	if err != nil {
 		return err
 	}

@@ -14,6 +14,14 @@ import (
 // partial JSON overlays from left to right. Objects merge recursively through
 // encoding/json, scalar values overwrite, and arrays replace the base value.
 func LoadConfigWithOverlays(configPath string, overlayPaths []string) (Config, string, error) {
+	return loadConfigWithOverlays(configPath, overlayPaths, true)
+}
+
+func loadLintConfigWithOverlays(configPath string, overlayPaths []string) (Config, string, error) {
+	return loadConfigWithOverlays(configPath, overlayPaths, false)
+}
+
+func loadConfigWithOverlays(configPath string, overlayPaths []string, verifyGates bool) (Config, string, error) {
 	cfg, err := LoadConfig(configPath)
 	if err != nil {
 		return Config{}, "", err
@@ -24,8 +32,13 @@ func LoadConfigWithOverlays(configPath string, overlayPaths []string) (Config, s
 			return Config{}, "", err
 		}
 	}
-	if err := validateEffectiveConfig(cfg); err != nil {
+	if err := validateEffectivePolicy(cfg); err != nil {
 		return Config{}, "", err
+	}
+	if verifyGates {
+		if err := validateVerificationGateProfiles(cfg); err != nil {
+			return Config{}, "", err
+		}
 	}
 
 	data, err := json.Marshal(cfg)
@@ -97,12 +110,18 @@ func containsJSONNull(value any) bool {
 	return false
 }
 
-func validateEffectiveConfig(cfg Config) error {
+func validateEffectivePolicy(cfg Config) error {
 	if strings.TrimSpace(cfg.ID) == "" {
 		return fmt.Errorf("effective config id is required")
 	}
 	if cfg.Schema != "c-kit" || cfg.Standard != "c99" {
 		return fmt.Errorf("effective config must retain c-kit and c99")
+	}
+	if err := validateNaming(cfg.Naming); err != nil {
+		return err
+	}
+	if !oneOf(cfg.Readability.ComplexitySeverity, "error", "warning") {
+		return fmt.Errorf("effective readability complexitySeverity must be error or warning")
 	}
 	if cfg.Style.IndentWidth <= 0 || cfg.Style.Continuation <= 0 || cfg.Style.ColumnLimit <= 0 {
 		return fmt.Errorf("effective style widths must be positive")
@@ -151,7 +170,7 @@ func validateEffectiveConfig(cfg Config) error {
 		cfg.Gates.HeaderCXX.LanguageStandard != "c++17" {
 		return fmt.Errorf("effective header gates must use c99 and c++17")
 	}
-	return validateVerificationGateProfiles(cfg)
+	return nil
 }
 
 func validateVerificationGateProfiles(cfg Config) error {

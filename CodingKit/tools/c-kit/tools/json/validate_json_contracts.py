@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import copy
 import json
 import re
 from pathlib import Path
@@ -155,6 +156,19 @@ def main() -> int:
     )
 
     config = validate_pair(config_path, config_schema)
+    portable_overlay = load_json(ROOT / "examples" / "portable-c99.overlay.json")
+    portable_config = copy.deepcopy(config)
+
+    def merge_for_schema(target: dict[str, Any], overlay: dict[str, Any]) -> None:
+        for key, value in overlay.items():
+            if isinstance(value, dict) and isinstance(target.get(key), dict):
+                merge_for_schema(target[key], value)
+            else:
+                target[key] = value
+
+    merge_for_schema(portable_config, portable_overlay)
+    schema = load_json(config_schema)
+    validate(portable_config, schema, schema, "$portable")
     embedded_config = validate_pair(embedded_config_path, config_schema)
     snippets = validate_pair(snippets_path, snippets_schema)
     embedded_snippets = validate_pair(embedded_snippets_path, snippets_schema)

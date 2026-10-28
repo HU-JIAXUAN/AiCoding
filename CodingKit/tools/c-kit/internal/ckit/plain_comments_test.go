@@ -147,11 +147,11 @@ func TestPlainGlobalVariableCommentsKeepRangeAndAccessChecks(t *testing.T) {
 		"/* 当前命令数量，范围0~8，由通信任务读写 */",
 		"static uint32_t s_command_count;",
 	}
-	if ds := validateGlobalVariable("state.c", lines, 1, true, "s_command_count"); len(ds) != 0 {
+	if ds := validateGlobalVariable("state.c", lines, 1); len(ds) != 0 {
 		t.Fatalf("plain variable comment with actual constraints must pass: %+v", ds)
 	}
 	lines[0] = "/* 当前命令数量 */"
-	if ds := validateGlobalVariable("state.c", lines, 1, true, "s_command_count"); !hasRule(ds, "documentation.global-variable") {
+	if ds := validateGlobalVariable("state.c", lines, 1); !hasRule(ds, "documentation.global-variable") {
 		t.Fatalf("removing range and access constraints must still fail: %+v", ds)
 	}
 }
