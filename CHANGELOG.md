@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- **fix(skills)**: 将 Codex-Skills 依赖锁定到 `e147c43`，Stop 改用显式启用的 `working-tree` 内容检查，
+  旧仓库仅检查治理配置和日志格式；日志更新与暂存要求留在 Git 提交门禁，不因部分暂存阻塞回复。
+  通过正式 Marketplace 流程刷新插件并保留启用状态。 /
+  Pins working-tree Stop checks and preserves Git commit gates through managed plugin refresh.
+
 - **fix(skills)**: 将 Codex-Skills 依赖锁定到 `b7e1616`，同步仓库策略感知的 Git Stop 检查器；
   优先沿用仓库 lint，只在 `unreleased` 模式要求对应标题，保留带 scope 的类型标签。
   已通过正式 Marketplace 流程刷新本地插件并保留启用状态。 /
