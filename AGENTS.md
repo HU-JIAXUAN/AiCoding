@@ -253,7 +253,7 @@ External updates resolve the highest stable semantic-version tag and advance the
 
 ## Development Skill Policy
 
-AiCoding bundles independently usable MVP, BDD and documentation synchronization skills through the AiCoding plugin. Embedded architecture, object-model and data-model design provide contextual design guidance rather than a mandatory development sequence. Project requirements determine the implementation and testing workflow; Superpowers remains optional.
+AiCoding bundles independently usable MVP, BDD and documentation synchronization skills through the AiCoding plugin. Embedded modularization, platform adaptation and decoupling must load `aicoding-architecture`; object-model and data-model design are internal guides routed by that single entry. Load the guidance needed for the task without requiring a full architecture review or both guides in sequence. Project requirements determine the implementation and testing workflow; Superpowers remains optional.
 
 Documentation synchronization is enforced by `bin/aicoding.exe docsync`, `.githooks/pre-commit`, and `.github/workflows/aicoding-ci.yml`. Code, script, config, hook, CI, or CodingKit changes must include a documentation update or an explicit no-doc-change review note with a meaningful reason; see `docs/architecture/DOC_SYNC_PLUS_SPEC.md` for the marker format.
 

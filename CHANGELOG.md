@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `ae26adb`，同步 14 个运行时入口；
+  对象模型与数据模型改由架构入口内部指南路由，模块化、平台适配和解耦必须加载架构 Skill；
+  通过正式 Marketplace 流程刷新本地插件，保留启用状态并核对安装包与依赖包一致。 /
+  Pins the single-entry architecture package and refreshes the enabled local plugin through Marketplace.
+
 - **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `c919ac3`，同步 16 个运行时入口、
   架构/对象/数据模型能力、通用 DSP 和电机单入口下的 21 个内部专题；
   更新当前文档中的开发辅助技能边界，保留按项目选择流程及 App 资产沉淀要求；
