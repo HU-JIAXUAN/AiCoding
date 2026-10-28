@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- **refactor(if)**: 将 IF 收敛为电频率积分和相位环绕两个独立函数，仅由调用方保存一个 double 相位；
+  float 频率和周期直接从 RAM 传入。定位、斜坡、电流 PI 与 SVPWM 仅以醒目注释标示接入位置，
+  移除完整 IF 对象及其配置、输入输出结构；共享 FOC/PID 保持不变。 /
+  Reduces IF to two phase-generation functions with one caller-owned double accumulator,
+  leaving startup, ramps and current control to their respective owners.
+
 - **fix(skills)**: 将 Codex-Skills 依赖锁定到 `e147c43`，Stop 改用显式启用的 `working-tree` 内容检查，
   旧仓库仅检查治理配置和日志格式；日志更新与暂存要求留在 Git 提交门禁，不因部分暂存阻塞回复。
   通过正式 Marketplace 流程刷新插件并保留启用状态。 /
