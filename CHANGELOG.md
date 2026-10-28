@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- **chore(skills)**: 将 Codex-Skills 依赖锁定到已推送的 `c919ac3`，同步 16 个运行时入口、
+  架构/对象/数据模型能力、通用 DSP 和电机单入口下的 21 个内部专题；
+  更新当前文档中的开发辅助技能边界，保留按项目选择流程及 App 资产沉淀要求；
+  通过正式 Marketplace 流程刷新已安装插件并保留启用状态。 /
+  Pins the verified focused skill package, aligns platform guidance and refreshes the enabled plugin through Marketplace.
+
 - **fix(validation-tags)**: pre-push 从实际推送对象递归解析 commit 后核验其 Release Receipt，
   修复附注与嵌套 Tag 被错误拒绝；保留原始对象 ID 审计，拒绝非 commit 目标，不以 HEAD 或可变 ref 代替目标。 /
   Peels the pushed tag object to its exact commit alias without weakening fail-closed validation.

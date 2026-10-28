@@ -26,7 +26,7 @@ Status: Accepted Direction（已确认方向，非冻结契约）
 | 能力层 | 生态参照 | AiCoding 现状 | 结论 |
 |---|---|---|---|
 | 控制面：CLI、生命周期、Hook、Release、治理 | —（AiCoding 本体） | 已冻结的 Go CLI 地基，见 [01](01-system-architecture.md) | **保留，不动** |
-| 工作流纪律：先计划后执行、TDD、评审、验证 | `Bollwerkio/werkstatt`（Superpowers 分支） | plugin 内 SDD/BDD/TDD/计划模式（Plan Mode）技能 + 门禁 hook 已覆盖；Superpowers 系定位为可选加速（`AGENTS.md` 既有立场） | **已有对应物**；个别缺失技能按外部 Skill 路径吸收，见 [07](07-roadmap.md) §4 |
+| 工作流纪律：先计划后执行、TDD、评审、验证 | `Bollwerkio/werkstatt`（Superpowers 分支） | plugin 内 MVP/BDD/文档同步与架构能力、Plan Mode 工具及门禁 hook 按项目需要组合；独立外部 Skill 可补充专项方法，Superpowers 系保持可选 | **已有对应物**；个别缺失技能按外部 Skill 路径吸收，见 [07](07-roadmap.md) §4 |
 | 仓库上下文：从代码自动生成、随提交自动更新的 Agent 上下文 | `aspenkit/aspens` | 只有雏形（`config/repository-navigation.json` 生成 REPOSITORY_MAP 区块）；无自动生成、无增量同步 | **当前缺失的一层**，立项为新领域能力 repo-context，见 [07](07-roadmap.md) §3 |
 
 一句话：**规则层已经收敛，上下文层是下一步。** 仓库从"只提供规则"升级为

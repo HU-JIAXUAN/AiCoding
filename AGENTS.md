@@ -251,9 +251,9 @@ AiCoding may expose an external standalone Skill by keeping its runtime name in 
 External updates resolve the highest stable semantic-version tag and advance the pinned gitlink only after review. Runtime uninstall removes only a junction whose target exactly matches the registered source path. Repository de-integration must pair removal of the AiCoding registry/source-path entry with removal of the Codex-Skills binding manifest entry, `.gitmodules` section, and gitlink; orphaned runtime or source links are not allowed.
 
 
-## SDD/BDD/TDD Workflow Policy
+## Development Skill Policy
 
-AiCoding workflow skills for SDD, MVP, BDD, architecture-first scaffolding, TDD fallback, and documentation synchronization are bundled through the AiCoding plugin only. Superpowers is optional acceleration, not a required dependency.
+AiCoding bundles independently usable MVP, BDD and documentation synchronization skills through the AiCoding plugin. Embedded architecture, object-model and data-model design provide contextual design guidance rather than a mandatory development sequence. Project requirements determine the implementation and testing workflow; Superpowers remains optional.
 
 Documentation synchronization is enforced by `bin/aicoding.exe docsync`, `.githooks/pre-commit`, and `.github/workflows/aicoding-ci.yml`. Code, script, config, hook, CI, or CodingKit changes must include a documentation update or an explicit no-doc-change review note with a meaningful reason; see `docs/architecture/DOC_SYNC_PLUS_SPEC.md` for the marker format.
 

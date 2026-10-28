@@ -62,7 +62,7 @@ descriptor、聚合器两处 `repo-context` check、Registry 两个 `RC-*` 用�
 
 | 来源 | 怎么进来 | 边界 |
 |---|---|---|
-| `Bollwerkio/werkstatt`（MIT，Superpowers 分支） | 先审计其技能与现有 SDD/BDD/TDD/计划模式技能的重叠；**只吸收缺失项**，走路径②（external 子模块 pin + 登记），同名审计防冲突 | 不整包并入；Superpowers 系保持"可选加速"定位（`AGENTS.md` 既有立场） |
+| `Bollwerkio/werkstatt`（MIT，Superpowers 分支） | 先审计其技能与现有开发辅助技能、外部 standalone Skill 和 Plan Mode 工具的重叠；**只吸收缺失项**，走路径②（external 子模块 pin + 登记），同名审计防冲突 | 不整包并入；Superpowers 系保持"可选加速"定位（`AGENTS.md` 既有立场） |
 | `aspenkit/aspens`（MIT） | **概念重实现**：扫描/scoped context/增量同步的做法进 §3 的 Go 领域实现 | 不并入 npm CLI（不引入第二控制面）；语言覆盖各取所长 |
 | 其他外部 Skill | 一律走获取/激活分离四步边界（[FREEZE_AND_ACQUISITION_BOUNDARY](FREEZE_AND_ACQUISITION_BOUNDARY.md) §3.2） | 不复制源码、不带 URL 的激活 manifest |
 | 用户 Skill | Draft → RepoLocal → Kit 收编阶梯持续运行（现有实例：升级列车、环境重建） | 准入门禁 + 同名审计 |

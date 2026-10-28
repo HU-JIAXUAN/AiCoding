@@ -50,7 +50,7 @@ Status: Derived View（派生视图）
 | Agent Runtime | 模型读上下文、调工具 | 不在本仓库；接口是 plugin marketplace（`.agents/plugins/marketplace.json`）与运行时 skill 根 | [CODEX_KIT_ARCHITECTURE](CODEX_KIT_ARCHITECTURE.md) |
 | Context Management | 告诉 Agent"这个项目是什么、规矩是什么" | `AGENTS.md`、`.aicoding/memory/DECISIONS.md`、REPOSITORY_MAP 生成区块（源头 `config/repository-navigation.json`）、用户配置 | [02](02-context-architecture.md) |
 | Skill | 多步工作流知识，按意图触发加载 | `CodingKit/agents/skills` 子模块（权威源码）、`.agents/skills/`（RepoLocal）、C99 kit | [03](03-skill-architecture.md) |
-| Workflow | 计划→执行→验证→发布的流程约定 | 计划模式（Plan Mode）specialty 工具、SDD/BDD/TDD 技能、正式命令流 | [04](04-workflow-architecture.md) |
+| Workflow | 计划→执行→验证→发布的流程约定 | 计划模式（Plan Mode）specialty 工具、按需组合的开发辅助技能、正式命令流 | [04](04-workflow-architecture.md) |
 | Governance | 强制拦截：不合规的改动进不来 | `.githooks/` + `aicoding hook`、governance 五门禁、docsync、`.clang-format`、`.github/` 模板 | [05](05-governance.md) |
 | Execution | 真正动系统的动作 | `internal/gitx`（git 进程唯一出口）、`go build`、`internal/testengine`、CI workflow、clang-format；Docker 当前**不存在**，列为未来执行器（未立项） | [GIT_REUSE_BOUNDARY](GIT_REUSE_BOUNDARY.md) |
 | Project Repository | 事实本体 | 本仓库 + 受管项目仓库 | — |
