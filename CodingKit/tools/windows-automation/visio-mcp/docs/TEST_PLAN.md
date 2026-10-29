@@ -2,6 +2,8 @@
 
 ## Smoke
 
+- 独立子进程中的 CLI doctor 不导入 MCP 协议栈，仍返回完整 mock renderer 和样式诊断；模拟缺少必需 MCP 包时继续失败。
+- server 分支继续通过官方 client 生命周期验证，延后导入不能隐藏服务端依赖或协议故障。
 - Diagram schema、style-profile schema、活动 JSON profile 和引用完整性。
 - 确定性布局。
 - mock render、snapshot、inspect 和 close。

@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **perf(visio-mcp)**: 将仅服务端使用的 MCP 协议栈导入延后到 server 子命令，消除每次 doctor 重复加载 HTTP/OAuth、传输及模型依赖的启动成本；保留必需包缺失时失败、全部 renderer/Visio COM 与样式诊断。增加独立子进程回归，原命令等级、性能预算、采样和 Release 推送规则保持不变。 / Defers server-only protocol imports while preserving diagnostics and dependency failures, without relaxing latency or publication gates.
+
 - **feat(telemetry-kit)**: 在 CodingKit/modules/common/vofa+/vofa_recoder_cmd_kit 收纳 VOFA、recorder、command 六文件源码资产，保留 send/parse/capture 与链接绑定执行接口；示例业务区和独立严格 C99 回放覆盖精确整数、状态、双块及异步借用，recorder 不携带 SDK/共享屏障头。包内 README 说明移植位置、所有权、来源与支持边界。 / Adds a portable telemetry/command source kit with explicit bindings, ownership documentation and standalone host tests.
 
 - **refactor(if)**: 将 IF 收敛为电频率积分和相位环绕两个独立函数，仅由调用方保存一个 double 相位；

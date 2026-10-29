@@ -36,6 +36,12 @@ pwsh -NoProfile -ExecutionPolicy Bypass -File scripts\install.ps1
 .venv\Scripts\python.exe -m pytest -q
 ```
 
+## CLI 启动与诊断
+
+只有 `server` 子命令加载 MCP 协议栈及 stdio 服务；`doctor` 等本地命令不提前加载服务器、HTTP/OAuth 和传输依赖。`doctor` 仍检查必需的 MCP 包可发现性，并完整执行原有 renderer、Visio COM 版本和样式配置诊断；缺少 MCP 包继续以非零状态失败。包存在检查不代替 server 的实际启动与协议验证，后者由原官方 client 生命周期回放覆盖。
+
+非服务端启动路径采用确定性的独立子进程回归，验证不加载协议栈而非依赖易波动的毫秒断言；服务端仍使用相同实现。运行时诊断不缓存为旧结果，实际故障仍按原路径返回。
+
 ## MCP 能力
 
 - Tools：校验、对齐规划、渲染、打开、快照、检查、编辑、质量检测、修复、导出和关闭。

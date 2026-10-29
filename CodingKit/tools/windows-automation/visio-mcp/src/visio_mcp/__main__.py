@@ -1,12 +1,12 @@
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 from pathlib import Path
 
 from .model import load_json
-from .protocol import run_stdio
 from .service import VisioService
 
 
@@ -38,8 +38,14 @@ def main() -> None:
     quality.add_argument("--json", action="store_true")
     args = parser.parse_args()
 
+    # 只检查必需包是否存在，避免 doctor 导入整个服务器协议栈。
+    if args.cmd == "doctor" and importlib.util.find_spec("mcp") is None:
+        raise ModuleNotFoundError("No module named 'mcp'")
+
     service = VisioService(renderer=args.renderer)
     if args.cmd == "server":
+        from .protocol import run_stdio
+
         run_stdio(service)
         return
     if args.cmd == "doctor":
