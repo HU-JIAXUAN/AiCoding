@@ -18,6 +18,10 @@ CodingKit/
 `tools/c-kit` 是首方 C99 生成与验证资产。它由 kit registry 管理，并通过现有
 `skill c99-standard-c` 用户入口调用；不会创建第二套顶层 formatting 命令。
 
+## VOFA 采集与命令源码资产
+
+[vofa_recoder_cmd_kit](modules/common/vofa+/vofa_recoder_cmd_kit/README.md) 收纳六个核心源/头、可运行业务绑定示例和独立 C99 回放：VOFA 仅发送与完整帧解析，recorder 维护双块，command 查表转换并链接提交业务执行；不携带 SDK 或共享屏障头。移植位置、源缓冲寿命及显式测试命令见包内 README。
+
 ## Codex Kit
 
 The installable Codex plugin is provided by the submodule at:

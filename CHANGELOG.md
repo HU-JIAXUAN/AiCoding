@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **feat(telemetry-kit)**: 在 CodingKit/modules/common/vofa+/vofa_recoder_cmd_kit 收纳 VOFA、recorder、command 六文件源码资产，保留 send/parse/capture 与链接绑定执行接口；示例业务区和独立严格 C99 回放覆盖精确整数、状态、双块及异步借用，recorder 不携带 SDK/共享屏障头。包内 README 说明移植位置、所有权、来源与支持边界。 / Adds a portable telemetry/command source kit with explicit bindings, ownership documentation and standalone host tests.
+
 - **refactor(if)**: 将 IF 收敛为电频率积分和相位环绕两个独立函数，仅由调用方保存一个 double 相位；
   float 频率和周期直接从 RAM 传入。定位、斜坡、电流 PI 与 SVPWM 仅以醒目注释标示接入位置，
   移除完整 IF 对象及其配置、输入输出结构；共享 FOC/PID 保持不变。 /
