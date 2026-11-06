@@ -60,6 +60,35 @@ func TestCheckDependenciesRejectsStandalonePlatformPrefix(t *testing.T) {
 	}
 }
 
+func TestPluginSkillNamesRequirePrefixOrExactDeclaration(t *testing.T) {
+	for _, tc := range []struct {
+		name    string
+		allowed []string
+		wantErr bool
+	}{
+		{name: "aicoding-example"},
+		{name: "C语言编程规范", allowed: []string{"C语言编程规范"}},
+		{name: "C语言编程规范", wantErr: true},
+		{name: "C语言编程规范-extra", allowed: []string{"C语言编程规范"}, wantErr: true},
+		{name: "undeclared-skill", allowed: []string{"C语言编程规范"}, wantErr: true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			repo := dependencyFixture(t)
+			policy, err := loadDependencyPolicy(repo)
+			if err != nil {
+				t.Fatal(err)
+			}
+			policy.Skills.PluginAllowedNames = tc.allowed
+			mustWrite(t, filepath.Join(repo, "plugin", "skills", tc.name, "SKILL.md"), "# Skill\n")
+			layers, _ := dependencyLayers(policy)
+			errs := checkSkillDependencyPolicy(repo, policy, layers)
+			if got := hasErrorContaining(errs, "plugin Skill must use platform prefix"); got != tc.wantErr {
+				t.Fatalf("prefix rejection = %v, want %v; errors: %#v", got, tc.wantErr, errs)
+			}
+		})
+	}
+}
+
 func TestCheckDependenciesRejectsCapabilityMCPWorkflowPrompt(t *testing.T) {
 	repo := dependencyFixture(t)
 	mustWrite(t, filepath.Join(repo, "CodingKit", "tools", "visio-mcp", "prompts", "workflow.md"), "# workflow\n")

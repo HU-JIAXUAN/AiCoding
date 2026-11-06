@@ -105,6 +105,7 @@ type dependencySkillPolicy struct {
 	PluginRoot                  string   `json:"pluginRoot"`
 	PluginLayer                 string   `json:"pluginLayer"`
 	PluginRequiredPrefix        string   `json:"pluginRequiredPrefix"`
+	PluginAllowedNames          []string `json:"pluginAllowedNames,omitempty"`
 	StandaloneLayer             string   `json:"standaloneLayer"`
 	StandaloneForbiddenPrefixes []string `json:"standaloneForbiddenPrefixes"`
 }
@@ -1052,6 +1053,10 @@ func checkSkillDependencyPolicy(repo string, policy dependencyPolicy, layers map
 	}
 
 	pluginRoot := platform.RepoPath(repo, policy.Skills.PluginRoot)
+	allowedNames := make(map[string]bool, len(policy.Skills.PluginAllowedNames))
+	for _, name := range policy.Skills.PluginAllowedNames {
+		allowedNames[name] = true
+	}
 	if platform.IsDir(pluginRoot) {
 		entries, readErr := os.ReadDir(pluginRoot)
 		if readErr != nil {
@@ -1061,7 +1066,7 @@ func checkSkillDependencyPolicy(repo string, policy dependencyPolicy, layers map
 				if !entry.IsDir() || strings.HasPrefix(entry.Name(), ".") {
 					continue
 				}
-				if !strings.HasPrefix(strings.ToLower(entry.Name()), strings.ToLower(policy.Skills.PluginRequiredPrefix)) {
+				if !allowedNames[entry.Name()] && !strings.HasPrefix(strings.ToLower(entry.Name()), strings.ToLower(policy.Skills.PluginRequiredPrefix)) {
 					errs = append(errs, "plugin Skill must use platform prefix: "+entry.Name())
 				}
 			}

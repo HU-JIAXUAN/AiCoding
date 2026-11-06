@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **feat(skills)**: 将 Codex-Skills 锁定到已发布的 `v2026.11.06`（`4bbdfa0`），纳入 `C语言编程规范` 的 16 项内部指南、独立规则分发、可用模板和四列 Tab 对齐；依赖治理以精确名称声明接受该入口，继续拒绝其他未声明的非前缀名称，并同步移除 MVP planning 的现行说明。 / Pins the released C coding kit and explicitly declares its runtime name without weakening the default plugin namespace policy.
+
 - **feat(skills)**: 将 Codex-Skills 锁定到已推送的 `02b8c65`，纳入单入口、八项内部指南的嵌入式架构套件，统一主题定义及规则归属，并提供从功能框图和资源信息到工程接入验证的具体流程；依赖包由干净源码构建，插件更新沿用正式 Marketplace 流程。 / Pins the released architecture kit with eight routed guides, concrete module-design steps and clean package metadata; local refresh uses the managed Marketplace workflow.
 
 - **perf(visio-mcp)**: 将仅服务端使用的 MCP 协议栈导入延后到 server 子命令，消除每次 doctor 重复加载 HTTP/OAuth、传输及模型依赖的启动成本；保留必需包缺失时失败、全部 renderer/Visio COM 与样式诊断。增加独立子进程回归，原命令等级、性能预算、采样和 Release 推送规则保持不变。 / Defers server-only protocol imports while preserving diagnostics and dependency failures, without relaxing latency or publication gates.

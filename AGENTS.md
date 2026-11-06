@@ -232,7 +232,7 @@ Do not place or link the whole repository under:
 - `%USERPROFILE%\.agents\skills`
 - `%USERPROFILE%\.codex\skills`
 
-Normal runtime mode must expose bundled `aicoding-*` skills only through the installed AiCoding plugin.
+Normal runtime mode must expose bundled plugin skills only through the installed AiCoding plugin, including the explicitly declared `C语言编程规范` runtime name.
 
 Canonical `embedded/` and `platform/` skill sources may be exposed only in an explicit `skill-development` profile. The AiCoding plugin must be disabled while a same-name canonical skill is linked.
 
@@ -253,7 +253,7 @@ External updates resolve the highest stable semantic-version tag and advance the
 
 ## Development Skill Policy
 
-AiCoding bundles independently usable MVP, BDD and documentation synchronization skills through the AiCoding plugin. Embedded modularization, platform adaptation and decoupling must load `aicoding-architecture`; object-model and data-model design are internal guides routed by that single entry. Load the guidance needed for the task without requiring a full architecture review or both guides in sequence. Project requirements determine the implementation and testing workflow; Superpowers remains optional.
+AiCoding bundles independently usable BDD, project and documentation synchronization skills through the AiCoding plugin. Embedded modularization, platform adaptation and decoupling must load `aicoding-architecture`; object-model and data-model design are internal guides routed by that single entry. Load the guidance needed for the task without requiring a full architecture review or both guides in sequence. Project requirements determine the implementation and testing workflow; Superpowers remains optional.
 
 Documentation synchronization is enforced by `bin/aicoding.exe docsync`, `.githooks/pre-commit`, and `.github/workflows/aicoding-ci.yml`. Code, script, config, hook, CI, or CodingKit changes must include a documentation update or an explicit no-doc-change review note with a meaningful reason; see `docs/architecture/DOC_SYNC_PLUS_SPEC.md` for the marker format.
 

@@ -105,6 +105,14 @@
           "type": "string",
           "minLength": 1
         },
+        "pluginAllowedNames": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
         "standaloneLayer": {
           "type": "string",
           "minLength": 1

@@ -32,7 +32,7 @@ CodingKit/agents/skills/plugins/AiCoding
 
 AiCoding does not rebuild this plugin inside the submodule. Build and verification happen in `Codex-Skills`; AiCoding only locks a verified commit and installs it through its Marketplace.
 
-The bundled AiCoding plugin includes independently usable MVP, BDD and documentation synchronization skills, alongside embedded architecture and domain capabilities. Embedded modularization, platform adaptation and decoupling require `aicoding-architecture`, which routes eight internal guides covering layering, objects, data, management, lifecycle, dependencies, configuration and extension. Its module workflow starts with a functional block diagram and resource information, and defines concrete questions through integration and verification. Project requirements determine implementation and testing; Superpowers remains optional.
+The bundled AiCoding plugin includes independently usable BDD, project and documentation synchronization skills, alongside embedded architecture and domain capabilities. Embedded modularization, platform adaptation and decoupling require `aicoding-architecture`, which routes eight internal guides covering layering, objects, data, management, lifecycle, dependencies, configuration and extension. Its module workflow starts with a functional block diagram and resource information, and defines concrete questions through integration and verification. Project requirements determine implementation and testing; Superpowers remains optional.
 
 ## Asset Discovery
 

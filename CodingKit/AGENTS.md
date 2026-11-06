@@ -55,7 +55,7 @@ Do not place or link the whole repository under:
 - `%USERPROFILE%\.agents\skills`
 - `%USERPROFILE%\.codex\skills`
 
-Normal runtime mode must expose bundled `aicoding-*` skills only through the installed AiCoding plugin.
+Normal runtime mode must expose bundled plugin skills only through the installed AiCoding plugin, including the explicitly declared `C语言编程规范` runtime name.
 
 Canonical `embedded/` and `platform/` skill sources may be exposed only in an explicit `skill-development` profile. The AiCoding plugin must be disabled while a same-name canonical skill is linked.
 
