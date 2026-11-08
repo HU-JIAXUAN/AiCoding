@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **fix(skills)**: 将Codex-Skills依赖锁定到已推送的 `ecc77e7` 干净插件包，随包提供规则3.2/3.3/3.5命名检查器及固定解析依赖，修复Hook解释器展开、原生工具事件和锁重试；插件继续通过正式Marketplace流程刷新并保留启用状态。 / Pins the clean executable C99 checker and Hook fixes, retaining managed Marketplace refresh and enabled-state preservation.
+
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `0982c6b` 正式插件包，收录68条原编号强制规则，移除旧编号及兼容锚点，修正全局/静态对象命名、规则加载与缩进；纳入边界迁移和测试隔离验收，安装更新继续通过正式Marketplace流程。 / Pins the verified rules and architecture corrections with original identities, enforced naming/routing, and boundary acceptance; refreshes remain managed through Marketplace.
 
 - **feat(skills)**: 将 Codex-Skills 锁定到已发布的 `v2026.11.06`（`4bbdfa0`），纳入 `C语言编程规范` 的 16 项内部指南、独立规则分发、可用模板和四列 Tab 对齐；依赖治理以精确名称声明接受该入口，继续拒绝其他未声明的非前缀名称，并同步移除 MVP planning 的现行说明。 / Pins the released C coding kit and explicitly declares its runtime name without weakening the default plugin namespace policy.

@@ -27,6 +27,8 @@ The C coding runtime entry is `C语言编程规范`, provided by the released Co
 
 Standalone runtime exposure uses `%USERPROFILE%\.agents\skills` as the canonical root. `%USERPROFILE%\.codex\skills` is a compatibility root that must not retain a second registered copy after profile convergence. Profile migration may back up an unmanaged registered path only when explicitly requested, and records a rollback manifest under the user Codex backup area.
 
+The released C kit bundles the read-only identifier checker and pinned parser requirements for rules 3.2/3.3/3.5. Project policies may use `{python}` to select the Hook interpreter; native and namespace-qualified tool events share the same bounded checker. Package contents, installed-cache synchronization, Hook trust and checks of current project files are separate evidence. Missing checkers or dependencies remain unverified.
+
 ## Dependency Direction Boundary
 
 AiCoding is the composition root. It may register and operate lower-level Kits, Skills and MCP components; those capabilities must not depend on or observe AiCoding.
