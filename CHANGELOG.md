@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **fix(skills)**: 将Codex-Skills锁定到已推送的 `eb51a8d`，统一MathWorks独立Skill的默认发现目录，纳入旧注册迁移、回退清单及内容保护回归。 / Pins canonical MathWorks registration, verified legacy migration, rollback records and preservation regressions.
+
 - **fix(skills)**: 将Codex-Skills依赖锁定到已推送的 `ecc77e7` 干净插件包，随包提供规则3.2/3.3/3.5命名检查器及固定解析依赖，修复Hook解释器展开、原生工具事件和锁重试；插件继续通过正式Marketplace流程刷新并保留启用状态。 / Pins the clean executable C99 checker and Hook fixes, retaining managed Marketplace refresh and enabled-state preservation.
 
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `0982c6b` 正式插件包，收录68条原编号强制规则，移除旧编号及兼容锚点，修正全局/静态对象命名、规则加载与缩进；纳入边界迁移和测试隔离验收，安装更新继续通过正式Marketplace流程。 / Pins the verified rules and architecture corrections with original identities, enforced naming/routing, and boundary acceptance; refreshes remain managed through Marketplace.

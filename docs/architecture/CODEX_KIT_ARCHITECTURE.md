@@ -29,6 +29,8 @@ Standalone runtime exposure uses `%USERPROFILE%\.agents\skills` as the canonical
 
 The released C kit bundles the read-only identifier checker and pinned parser requirements for rules 3.2/3.3/3.5. Project policies may use `{python}` to select the Hook interpreter; native and namespace-qualified tool events share the same bounded checker. Package contents, installed-cache synchronization, Hook trust and checks of current project files are separate evidence. Missing checkers or dependencies remain unverified.
 
+MathWorks standalone registration uses the canonical user root and migrates verified legacy registrations with non-recursive junction removal and rollback records. The registration utility preserves edited copies and links owned by another source; its regression covers idempotence, safe detachment and content preservation.
+
 ## Dependency Direction Boundary
 
 AiCoding is the composition root. It may register and operate lower-level Kits, Skills and MCP components; those capabilities must not depend on or observe AiCoding.
