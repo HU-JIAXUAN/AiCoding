@@ -1,6 +1,6 @@
 # Commands
 
-Taskfile 是人机短路由；Go CLI 是默认控制面；业务逻辑位于 Go 的 `internal/*` 包中。PowerShell/Python 只作为专项工具保留，不承载默认 Smoke、CI、Full 或 Release profile。
+Taskfile 是可选的人机短路由；Go CLI 是默认控制面；业务逻辑位于 Go 的 `internal/*` 包中。Smoke、Full、Release 不检查或安装 Task，缺少 Task 不产生警告。PowerShell/Python 只作为专项工具保留，不承载默认 Smoke、CI、Full 或 Release profile。
 
 C/H 风格命令见 [C语言编程规范](guides/C_LANGUAGE_SKILL.md)。
 

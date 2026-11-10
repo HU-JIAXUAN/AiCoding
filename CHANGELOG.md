@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **fix(test)**: 移除自动测试中的可选 Task 可用性探针及 Release CI 的 Task 安装步骤；缺少 Task 不再产生警告，Taskfile 仍保留为可选命令短路由。 / Removes optional Task probing and CI installation so native CLI validation stays warning-free when Task is absent.
+
 - **fix(ci)**: 为私有 Codex-Skills 配置单仓库只读 Deploy Key 与 Actions Secret，按 gitlink 检出并初始化递归依赖；四个 CI job 复用同一检出步骤，保留 Full/Release 验证入口和 SSH 凭据自动清理。 / Restores private dependency checkout with repository-scoped read-only access and exact source pins.
 
 - **perf(test)**: 精简默认测试分工：test 默认 Smoke，开发树可直接验证；Full 保留单测、Staticcheck 和领域回归，race、vet 与漏洞扫描集中在 Release，性能探针改为按需；合并重复 DocSync，补齐 Agent Patch Kit 临时目录与禁止暂存规则。 / Streamlines development validation while retaining release evidence and focused diagnostics.

@@ -452,7 +452,6 @@ func Registry(cfg Config) []TestCase {
 		{ID: "ENV-001", Category: "ENV", Title: "仓库根目录识别", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "ENV-002", Category: "ENV", Title: "Go 版本", Severity: Required, Profiles: allProfiles(), Kind: "command", Command: []string{"go", "version"}},
 		{ID: "ENV-003", Category: "ENV", Title: "Git 版本", Severity: Required, Profiles: allProfiles(), Kind: "command", Command: []string{"git", "--version"}},
-		{ID: "ENV-004", Category: "ENV", Title: "Task 可用性", Severity: WarnOnly, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{"task", "--version"}},
 		{ID: "ENV-005", Category: "ENV", Title: "go.mod 模块路径", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 
 		{ID: "BOOT-002", Category: "BOOTSTRAP", Title: "CLI bootstrap 基础可用", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "bootstrap", "--no-build", "--json"}, ExpectJSON: true},

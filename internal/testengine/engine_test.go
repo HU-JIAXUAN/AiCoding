@@ -379,20 +379,6 @@ func TestScheduledCISeedsAndAuditsReleaseBeforeDefaultPromotion(t *testing.T) {
 			t.Fatalf("scheduled CI is missing Release reuse promotion contract %q", required)
 		}
 	}
-	releaseStart := strings.Index(workflow, "  release-gate:")
-	releaseEnd := strings.Index(workflow, "  clean-clone-full:")
-	if releaseStart < 0 || releaseEnd <= releaseStart {
-		t.Fatal("scheduled CI release-gate job boundary is missing")
-	}
-	releaseJob := workflow[releaseStart:releaseEnd]
-	for _, required := range []string{
-		"uses: go-task/setup-task@01a4adf9db2d14c1de7a560f09170b6e0df736aa # v2",
-		"version: '3.52.0'",
-	} {
-		if !strings.Contains(releaseJob, required) {
-			t.Fatalf("release-gate is missing pinned Task setup contract %q", required)
-		}
-	}
 }
 
 func TestScheduledCIIncludesDoctorPerfEvidenceOnlyForExplicitEvents(t *testing.T) {

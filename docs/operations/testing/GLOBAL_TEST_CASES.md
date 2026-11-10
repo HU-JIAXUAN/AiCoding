@@ -10,7 +10,6 @@
 | ENV-001 | 仓库根目录识别 | 静态检查 `.git`、`go.mod`、`README.md` | 仓库根目录有效 | REQUIRED |
 | ENV-002 | Go 版本 | `go version` | 可执行，Go >= 1.22 | REQUIRED |
 | ENV-003 | Git 版本 | `git --version` | 可执行 | REQUIRED |
-| ENV-004 | Task 可用性 | `task --version` | 可执行；未安装记 WARN | WARN |
 | ENV-005 | 模块路径 | 读取 `go.mod` | module 为 `github.com/JiaxI2/AiCoding` | REQUIRED |
 
 ## 2. BOOTSTRAP：Go CLI 前置条件

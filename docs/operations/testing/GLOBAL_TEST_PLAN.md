@@ -151,7 +151,7 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 
 | 风险 | 处理 |
 |---|---|
-| 本机未安装 Task | 标记 WARN，不影响 Go CLI 主路径 |
+| 本机未安装 Task | Task 为可选短路由；自动 profile 不检查或安装，不产生警告 |
 | `go test -race` 受 CGO/系统工具链影响 | 标记 WARN，但保留日志 |
 | Release 物化时本地 submodule 对象未初始化或 tar 流非法 | FRESH-001 REQUIRED 失败并保留登记后的 `aicoding-materialize-*` 现场；路径越界 fail-closed |
 | 显式/周期性 fresh-clone 需要网络 | 公共命令报告失败并保留登记后的 `aicoding-fresh-clone-*` 现场；不把网络成本绑回 Release Registry |
