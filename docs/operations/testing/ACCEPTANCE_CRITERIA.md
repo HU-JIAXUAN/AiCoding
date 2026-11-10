@@ -38,7 +38,7 @@ Doctor 的环境缺失可以是可解释 warning；Verify 的 REQUIRED 静态/�
 1. `go test ./...` 成功。
 2. CLI 并发只读调用全部返回 0。
 3. 无 timeout。
-4. `go test -race` 若环境支持，应通过；若环境不支持，降级为 WARN，并保留日志。
+4. Release 的 `go test -race` 若环境支持，应通过；若环境不支持，降级为 WARN，并保留日志。Full 保留普通全仓单测。
 
 ## 4. 文档同步验收
 

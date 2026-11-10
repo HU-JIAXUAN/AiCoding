@@ -27,7 +27,7 @@ From the root of a clean clone that includes submodules, copy these three PowerS
 ```powershell
 go run ./cmd/aicoding bootstrap --json && .\bin\aicoding.exe provision --json
 .\bin\aicoding.exe verify --profile Smoke --json
-.\bin\aicoding.exe test --profile Smoke --json
+.\bin\aicoding.exe test --json
 ```
 
 The first line builds the untracked local binary from source and provisions the repository. You should then see `ok: true`; the final test summary should contain `conclusion: PASS` and `fail: 0`. If any step fails, run `.\bin\aicoding.exe doctor --all --json` first, then use the [command matrix](docs/COMMANDS.md) to follow the reported category.
@@ -68,6 +68,8 @@ This table is the exact enabled set from `config/kit-registry.json`. Each capabi
 - **Knowledge compounds:** every uncertainty quadrant has a durable home whose output becomes input to the next task ([vision §3](docs/architecture/00-vision.md)).
 
 ## Current Architecture
+
+`test` defaults to quick Smoke checks. Full runs unit tests, Staticcheck and domain checks; Release adds race, vet, vulnerability scanning and packaging. Smoke/Full accept dirty development worktrees without reusable evidence; Release keeps explicit dirty opt-in. `doctor perf` is an on-demand diagnostic.
 
 The `Go CLI` is the only formal product entrypoint: `lifecycle` manages capabilities, `doctor --all` / `verify --profile` / `test --profile` produce tiered conclusions, and `release verify|gate` protects delivery. Taskfile remains a short router; PowerShell and Python remain specialty boundaries. Follow the [architecture reading path](docs/architecture/README.md) for the complete layering.
 

@@ -108,10 +108,12 @@ bin/aicoding.exe test --profile Release --json
 git diff --check
 ```
 
-For publication, run only Release: it is a strict superset of Full on the current 73-leaf
-registry. The leaf-by-leaf profile, Severity, and executed-Command evidence is recorded in
-[TODO 0041](../todolist/done/0041-release-only-publication.md). Full remains available as an
-independent development-iteration profile.
+Daily local checks use `bin/aicoding.exe test` (Smoke by default); code changes use Full.
+PR/push CI executes Full once. Publication runs Release, which includes Full coverage;
+do not run Full again as a Release prerequisite. Race, vet and vulnerability scanning
+belong to Release; machine performance diagnostics remain explicit. Current selection
+is defined by [ADR 0015](../decisions/0015-lean-test-profiles.md); the earlier publication
+evidence remains in [TODO 0041](../todolist/done/0041-release-only-publication.md).
 
 Run `bin/aicoding.exe docsync all --json` or `bin/aicoding.exe docsync release --json` when a change specifically touches DocSync policy or release documentation.
 

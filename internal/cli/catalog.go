@@ -330,7 +330,7 @@ var commands = mustCommandCatalog(
 		help(CommandHook, HelpUsage, "[--repo-root PATH] [--json]", SubHookPostCommit),
 		help(CommandBootstrap, HelpUsage, "[--repo-root PATH] [--json]"),
 
-		help(CommandTest, HelpFormal, productProfileOption()+" [--reuse auto|off] [--force] [--allow-dirty] [--verify-reuse] [--repo-root PATH] [--timeout-sec N] [--long-timeout-sec N] [--concurrency N] [--json]"),
+		help(CommandTest, HelpFormal, "["+productProfileOption()+"] [--reuse auto|off] [--force] [--allow-dirty] [--verify-reuse] [--repo-root PATH] [--timeout-sec N] [--long-timeout-sec N] [--concurrency N] [--json]"),
 		help(CommandLifecycle, HelpFormal, "--action install|update|uninstall --scope kit --all [--repo-root PATH] [--json]", SubLifecyclePlan),
 		helpAny(CommandLifecycle, HelpFormal, "--scope kit --all [--repo-root PATH] [--json]", SubLifecycleInstall, SubLifecycleUpdate, SubLifecycleUninstall),
 		help(CommandLifecycle, HelpFormal, "--action install|update --scope all --runtime-profile runtime|full|skill-development [--runtime-skill NAME] [--source-repository PATH] [--standalone-root agents|codex] [--migrate-unmanaged] [--codex-config PATH] [--repo-root PATH] [--json]", SubLifecyclePlan),

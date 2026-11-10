@@ -371,7 +371,7 @@ func TestNodeReceiptsReuseExpectedDomainsWithOneTreeListing(t *testing.T) {
 		t.Fatalf("docs run execution batches = %d, want 2 total", len(batches))
 	}
 	docsExecuted := stringSet(batches[1])
-	for _, id := range []string{"DOC-001", "GIT-002", "ENV-001"} {
+	for _, id := range []string{"DOC-003", "GIT-002", "ENV-001"} {
 		if !docsExecuted[id] {
 			t.Fatalf("docs change did not execute invalidated case %s: %v", id, batches[1])
 		}
@@ -402,10 +402,10 @@ func TestNodeReceiptsReuseExpectedDomainsWithOneTreeListing(t *testing.T) {
 	if !goExecuted["GO-001"] {
 		t.Fatalf("Go change reused the go node: %v", batches[2])
 	}
-	if goExecuted["DOC-001"] {
+	if goExecuted["DOC-003"] {
 		t.Fatalf("unrelated Go change invalidated docsync: %v", batches[2])
 	}
-	assertNodeReuseReason(t, goReport, "DOC-001", nodeDocSync)
+	assertNodeReuseReason(t, goReport, "DOC-003", nodeDocSync)
 	assertFractionalNodeHit(t, goReport)
 	if treeListings != 3 {
 		t.Fatalf("node input collection used %d tree listings, want one per executed clean tree", treeListings)
@@ -426,7 +426,7 @@ func TestNodeReceiptsReuseExpectedDomainsWithOneTreeListing(t *testing.T) {
 	if dirtyReport.Reusable || dirtyReport.SubjectMode != validationevidence.SubjectDirty || dirtyReport.Summary.CacheHitRatio == nil || *dirtyReport.Summary.CacheHitRatio != 0 {
 		t.Fatalf("dirty execution reused or published node evidence: %#v", dirtyReport)
 	}
-	if len(batches) != 4 || !stringSet(batches[3])["GO-001"] || !stringSet(batches[3])["DOC-001"] {
+	if len(batches) != 4 || !stringSet(batches[3])["GO-001"] || !stringSet(batches[3])["DOC-003"] {
 		t.Fatalf("dirty execution did not run the full registry: %v", batches)
 	}
 }
@@ -524,7 +524,7 @@ func TestRegistryNodeAssignmentsRemainConservative(t *testing.T) {
 		id   string
 		node string
 	}{
-		{"GO-001", nodeGo}, {"GO-006", nodeGo}, {"DOC-001", nodeDocSync}, {"DOC-004", nodeDocSync},
+		{"GO-001", nodeGo}, {"GO-006", nodeGo}, {"DOC-001", nodeDocSync}, {"DOC-003", nodeDocSync}, {"DOC-004", nodeDocSync},
 		{"GIT-002", nodeGovernance}, {"GIT-009", nodeGovernance}, {"LIFE-001", nodeLifecycleReadonly},
 		{"LIFE-007", nodeLifecycleReadonly}, {"RC-001", nodeLifecycleReadonly}, {"RC-002", nodeLifecycleReadonly},
 	} {
@@ -532,7 +532,7 @@ func TestRegistryNodeAssignmentsRemainConservative(t *testing.T) {
 			t.Fatalf("%s node = %q, want %q", item.id, found[item.id].Node, item.node)
 		}
 	}
-	for _, id := range []string{"ENV-001", "GO-007", "DOC-003", "GIT-001"} {
+	for _, id := range []string{"ENV-001", "GO-007", "GIT-001"} {
 		if node, err := validationNode(found[id].Node); err != nil || node != nodeRepo {
 			t.Fatalf("unmarked case %s does not fail closed to repo: %q, %v", id, node, err)
 		}

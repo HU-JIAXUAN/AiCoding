@@ -28,6 +28,34 @@ func TestCheckLayoutRejectsForbiddenRoot(t *testing.T) {
 	}
 }
 
+func TestPatchKitTransactionsAreLocalStateAndCannotBeCommitted(t *testing.T) {
+	repository, err := filepath.Abs(filepath.Join("..", ".."))
+	if err != nil {
+		t.Fatal(err)
+	}
+	config, err := loadLayoutConfig(repository)
+	if err != nil {
+		t.Fatal(err)
+	}
+	repo := t.TempDir()
+	if err := os.MkdirAll(filepath.Join(repo, ".agentpatch", "transactions"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if errs := checkRootDirectories(repo, config); len(errs) != 0 {
+		t.Fatalf("local patch transactions must be permitted: %v", errs)
+	}
+	staged := []string{".agentpatch/transactions/session/meta.json"}
+	if errs := checkGeneratedArtifacts(staged, config.Generated); !hasErrorContaining(errs, "generated artifact is staged") {
+		t.Fatalf("patch transactions must not enter a commit: %v", errs)
+	}
+	if err := os.Mkdir(filepath.Join(repo, ".unknown-state"), 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if errs := checkRootDirectories(repo, config); !hasErrorContaining(errs, ".unknown-state") {
+		t.Fatalf("unknown directories must still be reported: %v", errs)
+	}
+}
+
 func TestCheckLayoutRejectsDuplicateSkillSources(t *testing.T) {
 	repo := t.TempDir()
 	mustWrite(t, filepath.Join(repo, repositoryLayoutPath), `{

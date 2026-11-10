@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **perf(test)**: 精简默认测试分工：test 默认 Smoke，开发树可直接验证；Full 保留单测、Staticcheck 和领域回归，race、vet 与漏洞扫描集中在 Release，性能探针改为按需；合并重复 DocSync，补齐 Agent Patch Kit 临时目录与禁止暂存规则。 / Streamlines development validation while retaining release evidence and focused diagnostics.
+
 - **fix(skills)**: 将 C 语言 Skill 的平台 CLI、配置、schema、Taskfile、测试分类及文档统一到 `C语言编程规范`；锁定已推送并验证的 Codex-Skills `8f27fdf` 正式插件包，通过 Marketplace 刷新安装；C Kit schema 迁入通用目录，保留 C99 语言标准与历史验证记录。 / Aligns platform C Skill identities and references, pins the verified source and Release package, and refreshes the installed plugin through Marketplace.
 
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `eb51a8d`，统一MathWorks独立Skill的默认发现目录，纳入旧注册迁移、回退清单及内容保护回归。 / Pins canonical MathWorks registration, verified legacy migration, rollback records and preservation regressions.

@@ -26,6 +26,7 @@
       "tests"
     ],
     "transientDirectories": [
+      ".agentpatch",
       ".task",
       "bin",
       "dist",
@@ -48,6 +49,7 @@
       "test-results"
     ],
     "runtime-state": [
+      ".agentpatch",
       ".aicoding",
       ".agents",
       ".codex",
@@ -114,6 +116,7 @@
   },
   "generatedArtifacts": {
     "directories": [
+      ".agentpatch/",
       "bin/",
       "dist/",
       "plugins/",

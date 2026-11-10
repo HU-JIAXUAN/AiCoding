@@ -14,11 +14,7 @@ import (
 var runTestEngine = testengine.Run
 
 func runTest(args []string, start time.Time) (report.Result, error) {
-	if len(args) < 1 {
-		return report.Result{}, usageErrorf("test requires --profile Smoke|Full|Release or subcommand latest")
-	}
-
-	if strings.HasPrefix(args[0], "-") {
+	if len(args) == 0 || strings.HasPrefix(args[0], "-") {
 		return runTestProfile("", args, "", start)
 	}
 	sub, err := resolveCatalogSubcommandID(CommandTest, args[0])
@@ -43,7 +39,7 @@ func runTestProfile(profile string, args []string, command string, start time.Ti
 	outArg := fs.String("out", "", "output directory")
 	profileValue := profile
 	if profile == "" {
-		fs.StringVar(&profileValue, "profile", "", productProfileHelp())
+		fs.StringVar(&profileValue, "profile", "Smoke", productProfileHelp())
 	}
 	timeoutSec := fs.Int("timeout-sec", 180, "per-command timeout seconds")
 	longTimeoutSec := fs.Int("long-timeout-sec", 600, "long-command timeout seconds")
@@ -53,7 +49,7 @@ func runTestProfile(profile string, args []string, command string, start time.Ti
 	noJSONCheckArg := fs.Bool("no-json-check", false, "disable JSON output validation")
 	reuseArg := fs.String("reuse", string(testengine.ReuseAuto), "auto|off")
 	forceArg := fs.Bool("force", false, "ignore a matching Receipt and execute all selected cases")
-	allowDirtyArg := fs.Bool("allow-dirty", false, "allow execution for a dirty subject; never reusable")
+	allowDirtyArg := fs.Bool("allow-dirty", false, "allow dirty Release diagnostics; dirty results are never reusable")
 	verifyReuseArg := fs.Bool("verify-reuse", false, "execute and audit the conclusion against a matching Receipt")
 	_ = fs.Bool("json", false, "json output")
 	if err := parseNoPositionals(fs, args); err != nil {
@@ -98,7 +94,7 @@ func runTestProfile(profile string, args []string, command string, start time.Ti
 		NoJSONCheck:          *noJSONCheckArg,
 		Reuse:                testengine.ReuseMode(reuseMode),
 		Force:                *forceArg,
-		AllowDirty:           *allowDirtyArg,
+		AllowDirty:           *allowDirtyArg || profile != testengine.ProfileRelease,
 		VerifyReuse:          *verifyReuseArg,
 		CommandCatalogDigest: commandCatalogEvidenceDigest,
 	}

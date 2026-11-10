@@ -33,10 +33,10 @@ tasks:
       - bin/aicoding.exe test --profile Smoke --json
 
   ci:
-    desc: Compatibility task for the official Smoke test profile
+    desc: Run the same Full profile as PR/push CI
     deps: [ensure-bin]
     cmds:
-      - bin/aicoding.exe test --profile Smoke --json
+      - bin/aicoding.exe test --profile Full --json
 
   full:
     desc: Run official AiCoding Full test profile
@@ -63,7 +63,7 @@ tasks:
       - bin/aicoding.exe skill C语言编程规范 status --json
 
   style:c:templates:
-    desc: Validate C99 Standard C comment templates
+    desc: Validate C语言编程规范 comment templates
     deps: [ensure-bin]
     cmds:
       - bin/aicoding.exe skill C语言编程规范 templates --json

@@ -52,7 +52,7 @@
         {
           "integration": "ci",
           "path": ".github/workflows/aicoding-ci.yml",
-          "contains": "test --profile Smoke"
+          "contains": "test --profile Full"
         },
         {
           "integration": "docsync",

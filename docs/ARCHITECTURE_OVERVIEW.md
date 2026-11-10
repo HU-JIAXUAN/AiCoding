@@ -43,7 +43,7 @@ Go CLI 是唯一正式产品控制面，提供稳定 `report.Result` JSON 与共
 - `lifecycle ...`；
 - `doctor --all`；
 - `verify --profile Smoke|Full|Release`；
-- `test --profile Smoke|Full|Release` 和 `test latest`；
+- `test` 默认 Smoke；`test --profile Full|Release` 执行更完整验证，`test latest` 读取报告；
 - `release verify` 和 `release gate`。
 
 Hook、governance、Validation Evidence、DocSync、Skill、MCP、export、fresh-clone、C99 和专项 doctor/verify
@@ -145,6 +145,7 @@ PowerShell/Python 只保留在专项边界：tag planning / overlay compatibilit
 - `.agents`、`.codex`、`.github`、`.githooks` 是平台固定集成路径，不移动其根目录；
 - `.git` 是 Git 必需的元数据目录，不是业务目录，也不参与 human navigation；
 - `bin`、`dist`、`test-results` 是忽略的短生命周期生成目录，不能暂存或提交；
+- `.agentpatch` 是 Agent Patch Kit 的本地事务状态，允许存在，禁止暂存；
 - `tools/skill-template` 是 `skill-template` 的临时归属：待 Codex-Skills 在子模块上游提供对应模板域后，再按跨仓库升级流程迁入；
 - C 编码运行时入口为 `C语言编程规范`，由已发布的 Codex-Skills 插件提供；平台命令、配置和验证均使用同一名称，不建立顶层或 standalone 镜像。
 - `config/dependency-governance.json` 负责 layer、registry binding、namespace、MCP/Skill 职责、稳定身份版本不可观察和 README badge 权威链接门禁。

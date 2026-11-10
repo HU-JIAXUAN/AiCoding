@@ -38,15 +38,15 @@ jobs:
         shell: cmd
         run: go build -o bin/aicoding.exe ./cmd/aicoding
 
-      - name: AiCoding Smoke profile
+      - name: AiCoding Full profile
         shell: cmd
-        run: .\bin\aicoding.exe test --profile Smoke --json
+        run: .\bin\aicoding.exe test --profile Full --json
 
-      - name: Upload Smoke test evidence
+      - name: Upload development test evidence
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
-          name: smoke-test-evidence
+          name: development-test-evidence
           path: test-results/
           if-no-files-found: error
 

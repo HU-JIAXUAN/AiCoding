@@ -1,5 +1,8 @@
 # AiCoding 全局功能测试计划
 
+默认 `test` 运行 Smoke；Full 做开发完整回归，Release 增加 race、vet、漏洞和发布验证。
+Smoke/Full 接受脏开发树，但脏结果不签发 Receipt。每档只执行一次 DocSync；性能探针按需运行。
+
 ## 1. 测试目标
 
 本计划用于验证 AiCoding 仓库在“功能收敛、Go Fast Path、C 语言 Skill、文档同步、Git 治理、生命周期/外部 skill 工作流、Release gate”上的实际可用性。
@@ -23,12 +26,12 @@
 - **rollback 只读验证**：测试 profile 只运行 `lifecycle rollback --scope kit --help`，不读取或应用本地 rollback snapshot。
 - **结果可追溯**：每个用例保留原始 stdout/stderr、耗时、退出码、判定依据。
 - **证据保留有界且不毁证**：成功运行写入报告后自动保留最近 5 份，并额外保留全部 FAIL；失败或取消的运行不触发清理。validation report 只有在无 Receipt/alias 引用时才可清理。
-- **CI 失败可诊断**：GitHub Actions 的 Smoke 与 `release-gate` 无论结论如何均上传本次 `test-results/` artifact，保留逐用例原始输出。
+- **CI 失败可诊断**：GitHub Actions 的日常任务执行一次 Full，`release-gate` 执行 Release；无论结论如何均上传 `test-results/` artifact。既有 `smoke` job ID 保留，避免破坏分支检查名称。
 - **验证绑定内容**：成功运行可把 PASS 结论绑定到 Git Tree 与验证语义；commit message amend 不失效，tracked/untracked/submodule 脏状态 fail-closed。
 - **复用可审计**：默认使用 `--reuse auto`；ADR 0014 依据 main 远端三棵不同 Tree 的 3/3 off seed + `--verify-reuse` audit 完成独立晋级。只有完整 identity 与 Receipt/报告完整性全部通过才命中；损坏 store 非零退出，普通 miss 才真跑并发布新 Receipt。显式 off/force/audit 语义不变。
 - **节点复用是私有加速层**：整树 Receipt miss 后可按 Registry 节点复用；节点 Receipt 不进入 alias、push gate 或公共 CLI 列表，整树 Receipt 仍是唯一外部凭证。
-- **工具链安全**：Full/Release 固定运行 Staticcheck v0.7.0 与 govulncheck v1.6.0；Staticcheck finding 与真实漏洞均为 REQUIRED，只有 govulncheck 可识别的网络访问失败可降级为 WARN。
-- **race 登记闭环**：Full/Release 的 GO-002 都只跑 `impact-policy.json` 登记的并发包，GO-007
+- **工具链安全**：Full/Release 固定运行 Staticcheck v0.7.0，Release 另运行 govulncheck v1.6.0；Staticcheck finding 与真实漏洞均为 REQUIRED，只有 govulncheck 可识别的网络访问失败可降级为 WARN。
+- **race 登记闭环**：Release 的 GO-002 都只跑 `impact-policy.json` 登记的并发包，GO-007
   以 Required AST 门禁阻断漏登；全仓 race 保留为显式诊断，不另建 profile 或 schedule 门禁。
 - **测试夹具并行边界**：CLI、Kit、Validation Evidence 与 Test Engine 的包测试各由
   `TestMain` 一次建立只读 Git 模板，测试复制到自己的 `t.TempDir`；只有不调用
@@ -96,9 +99,9 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 
 - ENV required 全部通过。
 - Task `ensure-bin` 通过 checksum 在输入变化时生成 `bin/aicoding.exe`；BOOT-002/003 验证 CLI 与静态前置条件且不重复构建。
-- `doctor --all --json` 和 `verify --profile Smoke --json` 成功或仅产生可解释 warning。
+- 本地配置、CLI、文档和治理检查通过；`doctor --all`、`doctor perf` 的机器状态诊断按需执行。
 - `test --profile Smoke --json` 成功。
-- C 语言 status/templates 与 C Kit fast verify 成功。
+- C 语言 status/templates 成功；C Kit 编译和行为验证由 Full/Release 执行。
 - README/COMMANDS/C 语言 文档存在且包含必要入口。
 - Git hooks/repo-text 至少可执行或给出明确失败原因。
 
@@ -111,9 +114,9 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 
 - Smoke 全部通过。
 - `go test ./...` 成功。
-- GO-002 对登记并发包执行 race，GO-007 证明全仓并发包没有漏登。
-- GO-005 Staticcheck 零告警；GO-006 govulncheck 无可达漏洞，网络访问失败须保留可诊断 WARN。
-- DocSync `ci` 成功。
+- Full 不重复 race；Release 的 GO-002 对登记并发包执行 race，GO-007 证明没有漏登。
+- GO-005 Staticcheck 零告警；Release 的 GO-006 govulncheck 无可达漏洞，网络访问失败须保留可诊断 WARN。
+- DocSync 全仓校验成功，只执行一次。
 - lifecycle install/update/uninstall plan 成功。
 - EXP-002 export manifest 静态验证成功，且 Full 不创建 ZIP。
 - FRESH-003 fresh-clone/物化契约静态验证成功，且 Full 不复制仓库。
@@ -124,9 +127,9 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 ### 5.3 Release 通过标准
 
 - Full 全部通过。
-- `test --profile Full --json` 成功，且不经旧位置参数入口。
+- Release 覆盖 Full 的全部用例，无需先单独执行一次 Full。
 - `test --profile Release --json` 成功，且 Release gate 不递归回调 test CLI。
-- GO-002 与 Full 从同一 `raceScope.packages` 投影实际命令，GO-007 仍以 Required 扫描全仓
+- GO-002 从 `raceScope.packages` 投影实际命令，GO-007 仍以 Required 扫描全仓
   并发标记并阻断漏登。
 - FRESH-001 从当前验证主体 Tree 和本地递归 submodule 对象物化无 `.git` 源码树，重建 CLI 并
   执行 `release verify`；该 REQUIRED 路径不得出现 `git clone` 或网络获取。

@@ -24,13 +24,13 @@
 
 | ID | 用例 | 方法 | 期望结果 | 严重级别 |
 |---|---|---|---|---|
-| GO-001 | 全仓 Go 单元测试 | `go test ./...` | 退出码 0 | REQUIRED |
-| GO-002 | Go race 检查 | Full/Release：`go test -race <raceScope.packages>` | 退出码 0；环境不支持 race 或历史包不兼容记 WARN；实际包集合由同一 policy 投影 | WARN |
-| GO-003 | Go vet 基础检查 | `go vet ./...` | 退出码 0 | WARN |
+| GO-001 | 全仓 Go 单元测试 | Full/Release：`go test ./...` | 退出码 0 | REQUIRED |
+| GO-002 | Go race 检查 | Release：`go test -race <raceScope.packages>` | 退出码 0；环境不支持 race 或历史包不兼容记 WARN；实际包集合由同一 policy 投影 | WARN |
+| GO-003 | Go vet 基础检查 | Release：`go vet ./...` | 退出码 0 | WARN |
 | GO-004 | CLI 并发只读调用 | 并发运行 C 语言 status/templates/governance lint | 全部退出码 0，无 timeout | REQUIRED |
 | GO-005 | Staticcheck 静态分析 | `go run honnef.co/go/tools/cmd/staticcheck@v0.7.0 ./...` | 零 finding；失败阻断 Full/Release | REQUIRED |
-| GO-006 | Go 漏洞扫描 | `go run golang.org/x/vuln/cmd/govulncheck@v1.6.0 ./...` | 无可达漏洞；仅可识别的网络失败记 WARN | REQUIRED |
-| GO-007 | 并发包 raceScope 登记 | AST 扫描全仓 `.go` 文件，并与 `config/impact-policy.json` 对账 | goroutine、channel 或 `sync` 所在包全部登记；漏登即 Full/Release 失败 | REQUIRED |
+| GO-006 | Go 漏洞扫描 | Release：`go run golang.org/x/vuln/cmd/govulncheck@v1.6.0 ./...` | 无可达漏洞；仅可识别的网络失败记 WARN | REQUIRED |
+| GO-007 | 并发包 raceScope 登记 | AST 扫描全仓 `.go` 文件，并与 `config/impact-policy.json` 对账 | goroutine、channel 或 `sync` 所在包全部登记；漏登即 Release 失败 | REQUIRED |
 
 ## 4. C_LANGUAGE_SKILL：C 语言 skill 风格一致性
 
@@ -50,8 +50,7 @@
 
 | ID | 用例 | 方法 | 期望结果 | 严重级别 |
 |---|---|---|---|---|
-| DOC-001 | DocSync CI | `bin/aicoding.exe docsync ci --json` | 退出码 0，JSON 合法 | REQUIRED |
-| DOC-002 | DocSync all | `bin/aicoding.exe docsync all --json` | 退出码 0，JSON 合法 | WARN |
+| DOC-001 | Smoke DocSync CI | `bin/aicoding.exe docsync ci --json` | 退出码 0，JSON 合法 | REQUIRED |
 | DOC-003 | DocSync release | `bin/aicoding.exe docsync release --json` | 退出码 0，JSON 合法 | REQUIRED |
 | DOC-004 | 文档索引一致性 | 静态检查 README/COMMANDS/C 语言 文档 | README 只索引稳定 hub 文档；leaf skill 文档由 COMMANDS 与 leaf 文档自身覆盖 | REQUIRED |
 
@@ -122,7 +121,8 @@ baseline；它不进入日常 Release Registry，也不创建第二种 Receipt�
 | PWSH-001 | PowerShell inventory | `bin/aicoding.exe doctor pwsh --json` | 输出当前 PS 调用点与 `remainingScripts/thinShells/deprecated` 退役计数；计数只报告、不设门禁 | WARN |
 | PWSH-002 | PowerShell budget | `bin/aicoding.exe doctor pwsh-budget --json` | 调用点不超预算；顶层脚本集合等于实测基线且基线历史只追加严格子集，新增/替换/unspecified 指出路径并非零 | REQUIRED |
 | PWSH-003 | 默认入口不经 PS 编排 | 检查 Taskfile 是否存在 Go-native 默认路由 | doctor/verify/Smoke/Full/Release 均直达正式 Go CLI；允许变量和 Windows/Unix 路径分隔符 | REQUIRED |
-| HEALTH-001 | typed command 延迟门禁 | `bin/aicoding.exe doctor perf --json` | fast/standard 注册命令各进程内实测 3 次取中位数；1.5× Warn、3× Fail | REQUIRED |
+
+`doctor perf --json` 是按需诊断；其机器状态和延迟结论不作为测试 profile 的自动门禁。
 
 ## 12. REPO_CONTEXT：仓库上下文领域
 

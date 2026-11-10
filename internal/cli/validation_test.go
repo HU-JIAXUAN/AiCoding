@@ -227,12 +227,40 @@ func TestTestCommandWiresExplicitEvidenceFlagsAndDefaultsAuto(t *testing.T) {
 	if configs[1].Reuse != testengine.ReuseAuto || configs[1].Force || !configs[1].VerifyReuse {
 		t.Fatalf("audit config = %#v", configs[1])
 	}
-	if configs[2].Reuse != testengine.ReuseAuto || configs[2].Force || configs[2].AllowDirty || configs[2].VerifyReuse {
+	if configs[2].Reuse != testengine.ReuseAuto || configs[2].Force || !configs[2].AllowDirty || configs[2].VerifyReuse {
 		t.Fatalf("default config = %#v", configs[2])
 	}
 	for _, cfg := range configs {
 		if cfg.CommandCatalogDigest != CatalogSnapshot().Digest() {
 			t.Fatalf("command catalog digest was not wired: %#v", cfg)
+		}
+	}
+}
+
+func TestDevelopmentTestDefaultsAndReleaseDirtyBoundary(t *testing.T) {
+	previous := runTestEngine
+	t.Cleanup(func() { runTestEngine = previous })
+	var captured testengine.Config
+	runTestEngine = func(_ context.Context, cfg testengine.Config) (testengine.Report, error) {
+		captured = cfg
+		return testengine.Report{Summary: testengine.Summary{Profile: cfg.Profile, Conclusion: "PASS"}}, nil
+	}
+	for _, tc := range []struct {
+		args       []string
+		profile    string
+		allowDirty bool
+	}{
+		{nil, "smoke", true},
+		{[]string{"--profile", "Smoke"}, "smoke", true},
+		{[]string{"--profile", "Full"}, "full", true},
+		{[]string{"--profile", "Release"}, "release", false},
+		{[]string{"--profile", "Release", "--allow-dirty"}, "release", true},
+	} {
+		if result, err := runTest(tc.args, time.Now()); err != nil || !result.OK {
+			t.Fatalf("runTest(%v) = %#v, %v", tc.args, result, err)
+		}
+		if captured.Profile != tc.profile || captured.AllowDirty != tc.allowDirty || captured.Reuse != testengine.ReuseAuto {
+			t.Fatalf("runTest(%v) config = %#v", tc.args, captured)
 		}
 	}
 }

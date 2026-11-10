@@ -31,7 +31,7 @@ AiCoding 是让 AI 编码工作流可验证、可复用、可审计的本地工�
 ```powershell
 go run ./cmd/aicoding bootstrap --json && .\bin\aicoding.exe provision --json
 .\bin\aicoding.exe verify --profile Smoke --json
-.\bin\aicoding.exe test --profile Smoke --json
+.\bin\aicoding.exe test --json
 ```
 
 第一行会从源码构建未入仓的本地二进制并完成仓库初始化；随后你应看到 `ok: true`，最终测试摘要应为 `conclusion: PASS`、`fail: 0`。任一步失败，先运行 `.\bin\aicoding.exe doctor --all --json`，再到[命令矩阵](docs/COMMANDS.md)按错误类别定位。
@@ -105,6 +105,8 @@ go run ./cmd/aicoding bootstrap --json && .\bin\aicoding.exe provision --json
 - **知识复利**：四象限中的每类不确定性都有对应沉淀位置，经验会变成下一次工作的输入（[愿景 §3](docs/architecture/00-vision.md)）。
 
 ## 当前架构
+
+`test` 默认快速 Smoke；Full 运行单测、Staticcheck 与领域验证，Release 再执行 race、vet、漏洞扫描与发布验证。Smoke/Full 可直接验证未提交的开发工作区，脏结果不复用；Release 保留显式脏树诊断开关。`doctor perf` 按需运行。
 
 `Go CLI` 是唯一正式产品入口：`lifecycle` 管理能力，`doctor --all` / `verify --profile` / `test --profile` 产生分级结论，`release verify|gate` 守住发布。Taskfile 只做短路由，PowerShell/Python 只保留专项边界。完整分层见[架构阅读路径](docs/architecture/README.md)。
 

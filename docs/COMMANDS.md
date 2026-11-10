@@ -118,18 +118,27 @@ catalog。公共入口反向校验上面的 typed HelpForm；`capability list`/`
 `governance dependencies`，不另建预算表。`doctor perf --json` 对所有 fast/standard
 代表路径进程内执行 3 次取中位数；超过预算 1.5 倍报 Warn，超过 3 倍报 Fail。
 
-Full 保留 Go/race/vet、CLI/JSON、治理和领域结构验证，但不创建发布 ZIP、也不执行 hermetic
-fresh clone；对应覆盖由 EXP-002 export manifest 静态验证和 FRESH-003 clone 契约静态验证承担。
-Full 与 Release 的 GO-002 都只对 `config/impact-policy.json` 的
-`raceScope.packages` 跑 race；Required 静态门禁 GO-007 扫描全仓 Go AST，发现含
-goroutine、channel 或 `sync` 的未登记包即失败。每周 schedule 运行 Release 时复用同一
-登记面；全仓 `go test -race ./...` 保留为显式诊断命令，不是 profile 或 schedule 门禁。
+测试分工：
+
+| 入口 | 执行范围 |
+|---|---|
+| `bin/aicoding.exe test` | 默认 Smoke：本地配置、CLI、文档与治理检查，不运行全仓 Go 单测或 C Kit 编译。 |
+| `bin/aicoding.exe test --profile Full` | 全仓 Go 单测、Staticcheck、CLI/JSON 与领域集成；DocSync 全仓只执行一次。 |
+| `bin/aicoding.exe test --profile Release` | Full 覆盖，加登记并发包 race、独立 vet、漏洞扫描及发布产物验证。 |
+
+Smoke/Full 默认接受开发工作区，无需重复传 `--allow-dirty --reuse off`；dirty subject 不查询或
+发布可复用 Receipt。Release 仍要求干净 subject，显式 `--allow-dirty` 仅用于不可复用诊断。
+`doctor perf --json` 保留为按需性能诊断，不作为源码验收的自动 Required gate。
+
+Release 的 GO-002 从 `config/impact-policy.json` 的 `raceScope.packages` 投影命令，GO-007
+继续检查并发包登记；`go test -race ./...` 保留为显式诊断。Full 不重复执行普通与 race 测试。
+Full 不创建 ZIP 或物化发布源码；这些动作由 Release 执行。
 
 构建工具链固定为 `go.mod` 的 Go 1.26.10 安全补丁，CI 四处 `setup-go`、三份入口 README
 badge 与依赖治理锚点同步；Go 语言最低版本仍为 1.22。升级后重新构建 CLI，再生成该 Tree
 的验证凭据；工具链变化不会沿用旧的 Receipt。
 
-Full/Release 还会执行固定版本的 Staticcheck `v0.7.0`（GO-005，零 finding，失败为 REQUIRED）和
+Full/Release 执行固定版本的 Staticcheck `v0.7.0`（GO-005，零 finding，失败为 REQUIRED）；Release 另执行
 govulncheck `v1.6.0`（GO-006，真实漏洞为 REQUIRED；仅可识别的网络访问失败降级为 WARN）。
 Release 仍执行真实 `export --zip`；其 FRESH-001 从当前验证 Tree 与本地递归 gitlink 物化
 无 `.git` 源码树并重建 CLI、执行 `release verify`。显式 `fresh-clone --profile Release` 与
@@ -236,7 +245,7 @@ Validation Evidence 把一次完整 PASS 测试绑定到 Git Tree 和验证语�
 ADR 0014 和 Validation Evidence Budget §13/§15。
 `--force` 忽略命中并完整执行，
 `--verify-reuse` 同样完整执行并审计实际结论及逐用例状态，二者不能同时使用；
-`--allow-dirty` 只允许脏主体继续执行，所得报告永远不可复用。
+Release 的 `--allow-dirty` 只允许脏主体继续诊断，所得报告永远不可复用；Smoke/Full 默认接受开发树。
 
 精确 Receipt 路径存在但内容/报告损坏、fingerprint 非法或 store 读取失败时，默认 `auto`
 非零退出，不把损坏静默当成普通 miss，也不覆盖损坏 Receipt。显式 `--reuse off` 继续强制
@@ -457,7 +466,7 @@ App Server 报告使用 `tokenUsage.total` 作为会话累计值，并使用
 | `task doctor` | `bin/aicoding.exe doctor --all --json` |
 | `task verify` | `bin/aicoding.exe verify --profile Smoke --json` |
 | `task smoke` | `bin/aicoding.exe test --profile Smoke --json` |
-| `task ci` | `bin/aicoding.exe test --profile Smoke --json` |
+| `task ci` | `bin/aicoding.exe test --profile Full --json` |
 | `task full` | `bin/aicoding.exe test --profile Full --json` |
 | `task release` | `bin/aicoding.exe test --profile Release --json` |
 | `task test:latest` | `bin/aicoding.exe test latest` |

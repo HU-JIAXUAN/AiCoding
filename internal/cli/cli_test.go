@@ -228,7 +228,7 @@ func TestTypedCommandCatalogWiresGoFirstTopLevelCommands(t *testing.T) {
 		help.WriteByte('\n')
 	}
 	for _, usage := range []string{
-		"aicoding test --profile Smoke|Full|Release",
+		"aicoding test [--profile Smoke|Full|Release]",
 		"aicoding release gate",
 		"aicoding codex usage parse",
 		"aicoding codex usage run",

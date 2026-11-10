@@ -48,6 +48,7 @@
       "go.mod"
     ],
     "generatedDirectories": [
+      ".agentpatch",
       "bin",
       "dist",
       "test-results"

@@ -253,8 +253,50 @@ func TestRegistryPinsStaticcheckAndGovulncheckPolicy(t *testing.T) {
 		t.Fatalf("GO-006 policy mismatch: %#v", govulncheck)
 	}
 	for _, testCase := range []TestCase{staticcheck, govulncheck} {
-		if !profileEnabled(testCase, ProfileFull) || !profileEnabled(testCase, ProfileRelease) || profileEnabled(testCase, ProfileSmoke) {
+		if profileEnabled(testCase, ProfileFull) != (testCase.ID == "GO-005") || !profileEnabled(testCase, ProfileRelease) || profileEnabled(testCase, ProfileSmoke) {
 			t.Fatalf("%s profile selection mismatch: %#v", testCase.ID, testCase.Profiles)
+		}
+	}
+}
+
+func TestDevelopmentProfilesAvoidRepeatedAndEnvironmentalGates(t *testing.T) {
+	byProfile := map[Profile]map[string]bool{}
+	for _, profile := range []Profile{ProfileSmoke, ProfileFull, ProfileRelease} {
+		selected := map[string]bool{}
+		byProfile[profile] = selected
+		docSyncCommands := 0
+		for _, testCase := range Registry(Config{Repo: t.TempDir(), Profile: profile}) {
+			if testCase.ID == "HEALTH-001" || testCase.ID == "DOC-002" {
+				t.Fatalf("obsolete duplicate/environment gate remains: %s", testCase.ID)
+			}
+			if !profileEnabled(testCase, profile) {
+				continue
+			}
+			selected[testCase.ID] = true
+			if len(testCase.Command) > 1 && testCase.Command[1] == "docsync" {
+				docSyncCommands++
+			}
+		}
+		if docSyncCommands != 1 {
+			t.Fatalf("%s executes DocSync %d times", profile, docSyncCommands)
+		}
+		for _, id := range []string{"GO-001", "CSTYLE-007"} {
+			if selected[id] != (profile != ProfileSmoke) {
+				t.Fatalf("%s selects %s=%v", profile, id, selected[id])
+			}
+		}
+		for _, id := range []string{"GO-002", "GO-003", "GO-006", "GO-007"} {
+			if selected[id] != (profile == ProfileRelease) {
+				t.Fatalf("%s selects %s=%v", profile, id, selected[id])
+			}
+		}
+		if selected["GO-005"] != (profile != ProfileSmoke) || !selected["GIT-008"] {
+			t.Fatalf("%s lost Staticcheck/layout coverage: %v", profile, selected)
+		}
+	}
+	for id := range byProfile[ProfileFull] {
+		if !byProfile[ProfileRelease][id] {
+			t.Fatalf("Release lost Full coverage: %s", id)
 		}
 	}
 }
