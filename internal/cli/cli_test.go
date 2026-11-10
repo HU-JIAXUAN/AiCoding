@@ -232,8 +232,8 @@ func TestTypedCommandCatalogWiresGoFirstTopLevelCommands(t *testing.T) {
 		"aicoding release gate",
 		"aicoding codex usage parse",
 		"aicoding codex usage run",
-		"aicoding skill c99-standard-c status",
-		"aicoding skill c99-standard-c verify",
+		"aicoding skill C语言编程规范 status",
+		"aicoding skill C语言编程规范 verify",
 		"aicoding work validate --file SPEC.json",
 		"aicoding work record --file SPEC.json --attempt ATTEMPT.json",
 		"aicoding plan check (--staged | --paths PATH ...)",
@@ -458,31 +458,31 @@ func TestFreshCloneCommandReportsGoPathErrors(t *testing.T) {
 	}
 }
 
-func TestC99StandardCSkillCommandsRouteToCStyle(t *testing.T) {
+func TestCLanguageSkillCommandsRouteToCStyle(t *testing.T) {
 	t.Parallel()
 	repo := t.TempDir()
-	writeC99SkillFixture(t, repo)
+	writeCLanguageSkillFixture(t, repo)
 
-	res, err := runSkill([]string{"c99-standard-c", "templates", "--repo-root", repo, "--json"}, time.Now())
-	if err != nil || !res.OK || res.Command != "skill c99-standard-c templates" {
-		t.Fatalf("skill c99-standard-c templates failed: res=%#v err=%v", res, err)
+	res, err := runSkill([]string{"C语言编程规范", "templates", "--repo-root", repo, "--json"}, time.Now())
+	if err != nil || !res.OK || res.Command != "skill C语言编程规范 templates" {
+		t.Fatalf("skill C语言编程规范 templates failed: res=%#v err=%v", res, err)
 	}
-	if data, ok := res.Data.(report.StandardReport); !ok || data.Status != "PASS" || data.Profile != "c99-standard-c" {
-		t.Fatalf("expected standard C99 report data, got %#v", res.Data)
+	if data, ok := res.Data.(report.StandardReport); !ok || data.Status != "PASS" || data.Profile != "C语言编程规范" {
+		t.Fatalf("expected C language report data, got %#v", res.Data)
 	}
 
 }
 
-func TestC99StandardCSkillVerifyWrapsCKitJSON(t *testing.T) {
+func TestCLanguageSkillVerifyWrapsCKitJSON(t *testing.T) {
 	t.Parallel()
 	repo := t.TempDir()
-	writeC99SkillFixture(t, repo)
+	writeCLanguageSkillFixture(t, repo)
 	writeFakeCKit(t, repo)
 	mustWrite(t, filepath.Join(repo, "fixtures", "target.json"), "{}\n")
 	mustWrite(t, filepath.Join(repo, "overlays", "project.json"), "{}\n")
 
 	res, err := runSkill([]string{
-		"c99-standard-c", "verify",
+		"C语言编程规范", "verify",
 		"--depth", "fast",
 		"--target", "fixtures/target.json",
 		"--overlay", "overlays/project.json",
@@ -490,12 +490,12 @@ func TestC99StandardCSkillVerifyWrapsCKitJSON(t *testing.T) {
 		"--repo-root", repo,
 		"--json",
 	}, time.Now())
-	if err != nil || !res.OK || res.Command != "skill c99-standard-c verify" {
-		t.Fatalf("skill c99-standard-c verify failed: res=%#v err=%v", res, err)
+	if err != nil || !res.OK || res.Command != "skill C语言编程规范 verify" {
+		t.Fatalf("skill C语言编程规范 verify failed: res=%#v err=%v", res, err)
 	}
 	standard, ok := res.Data.(report.StandardReport)
 	if !ok || standard.Status != "PASS" || standard.Profile != "fast" {
-		t.Fatalf("expected standard C99 verify report, got %#v", res.Data)
+		t.Fatalf("expected C language verify report, got %#v", res.Data)
 	}
 	details, ok := standard.Details.(cstyle.VerifyResult)
 	if !ok || details.Payload["ok"] != true || details.Target != "fixtures/target.json" {
@@ -503,10 +503,10 @@ func TestC99StandardCSkillVerifyWrapsCKitJSON(t *testing.T) {
 	}
 
 	legacy, err := runSkill([]string{
-		"c99-standard-c", "verify", "--profile", "fast", "--target", "fixtures/target.json", "--repo-root", repo, "--json",
+		"C语言编程规范", "verify", "--profile", "fast", "--target", "fixtures/target.json", "--repo-root", repo, "--json",
 	}, time.Now())
 	if err != nil || !legacy.OK || len(legacy.Warnings) != 1 || !strings.Contains(legacy.Warnings[0], "use --depth fast|full") {
-		t.Fatalf("legacy C99 --profile compatibility failed: res=%#v err=%v", legacy, err)
+		t.Fatalf("legacy C Kit --profile compatibility failed: res=%#v err=%v", legacy, err)
 	}
 }
 
@@ -531,11 +531,11 @@ func TestKitLegacyProfileCompatibilityWarnings(t *testing.T) {
 	}
 }
 
-func TestC99StandardCSkillVerifyRejectsInvalidArguments(t *testing.T) {
+func TestCLanguageSkillVerifyRejectsInvalidArguments(t *testing.T) {
 	for _, args := range [][]string{
-		{"c99-standard-c", "verify", "--bogus", "--json"},
-		{"c99-standard-c", "verify", "--target"},
-		{"c99-standard-c", "verify", "unexpected.json"},
+		{"C语言编程规范", "verify", "--bogus", "--json"},
+		{"C语言编程规范", "verify", "--target"},
+		{"C语言编程规范", "verify", "unexpected.json"},
 	} {
 		res, err := runSkill(args, time.Now())
 		if err == nil || res.OK {
@@ -657,12 +657,12 @@ func TestRunTestLatestReadsLatestReport(t *testing.T) {
 	}
 }
 
-func writeC99SkillFixture(t *testing.T, repo string) {
+func writeCLanguageSkillFixture(t *testing.T, repo string) {
 	t.Helper()
-	mustWrite(t, filepath.Join(repo, "config", "skills", "c99-standard-c", "skill.json"), `{
+	mustWrite(t, filepath.Join(repo, "config", "skills", "C语言编程规范", "skill.json"), `{
   "schemaVersion": 1,
-  "id": "c99-standard-c",
-  "title": "C99 Standard C Skill",
+  "id": "C语言编程规范",
+  "title": "C语言编程规范",
   "language": "c",
   "standard": "c99",
   "formatter": { "id": "clang-format", "config": "style/clang-format.yaml" },
@@ -679,8 +679,8 @@ func writeC99SkillFixture(t *testing.T, repo string) {
   "excludedDirectories": ["vendor", "third_party", "generated", "Drivers", "device", "build", "out", "dist"]
 }
 `)
-	mustWrite(t, filepath.Join(repo, "config", "skills", "c99-standard-c", "style", "clang-format.yaml"), "BasedOnStyle: LLVM\n")
-	mustWrite(t, filepath.Join(repo, "config", "skills", "c99-standard-c", "templates", "comment-templates.json"), `{
+	mustWrite(t, filepath.Join(repo, "config", "skills", "C语言编程规范", "style", "clang-format.yaml"), "BasedOnStyle: LLVM\n")
+	mustWrite(t, filepath.Join(repo, "config", "skills", "C语言编程规范", "templates", "comment-templates.json"), `{
   "schemaVersion": 1,
   "templates": [
     {
@@ -695,7 +695,7 @@ func writeC99SkillFixture(t *testing.T, repo string) {
   ]
 }
 `)
-	mustWrite(t, filepath.Join(repo, "config", "skills", "c99-standard-c", "rules", "embedded-c-rules.md"), "# rules\n")
+	mustWrite(t, filepath.Join(repo, "config", "skills", "C语言编程规范", "rules", "embedded-c-rules.md"), "# rules\n")
 }
 
 func writeFakeCKit(t *testing.T, repo string) {

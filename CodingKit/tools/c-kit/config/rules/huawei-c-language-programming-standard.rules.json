@@ -1,5 +1,5 @@
 {
-  "$schema": "../skills/c99-standard-c/huawei-c-rule-catalog.schema.json",
+  "$schema": "../schemas/huawei-c-rule-catalog.schema.json",
   "schema": "huawei-c-rule-catalog",
   "version": "1.0.0",
   "source": {
@@ -2589,7 +2589,7 @@
       ],
       "evidence": [
         "examples/c-kit.json:gates",
-        "config/skills/c99-standard-c/c-kit.schema.json"
+        "config/schemas/c-kit.schema.json"
       ],
       "rationale": "GCC、Clang、头文件和测试使用统一的版本化门禁配置。",
       "status": "covered"

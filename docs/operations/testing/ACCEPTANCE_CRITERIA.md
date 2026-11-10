@@ -18,15 +18,15 @@ bin\aicoding.exe verify --profile Smoke --json
 
 Doctor 的环境缺失可以是可解释 warning；Verify 的 REQUIRED 静态/结构检查不得失败。
 
-## 2. C99 Skill 验收
+## 2. C 语言 Skill 验收
 
 必须满足：
 
-1. `skill c99-standard-c status --json` 成功。
-2. `skill c99-standard-c templates --json` 成功。
-3. `skill c99-standard-c verify --json` 成功，并明确执行 C Kit `fast` profile。
+1. `skill C语言编程规范 status --json` 成功。
+2. `skill C语言编程规范 templates --json` 成功。
+3. `skill C语言编程规范 verify --json` 成功，并明确执行 C Kit `fast` profile。
 4. `check --scope paths --path testdata/style-samples/foc_sample.c --json` 成功，或报告明确样例不存在。
-5. `config/skills/c99-standard-c/skill.json` 指向 style、templates、rules 和 `c-kit` 元数据。
+5. `config/skills/C语言编程规范/skill.json` 指向 style、templates、rules 和 `c-kit` 元数据。
 6. `.clang-format` 明确是投影，source-of-truth 为 skill 配置。
 7. 排除项包含 vendor/third_party/generated/Drivers/device/build/out/dist，并仅按仓库相对路径排除自包含的 `CodingKit/tools/c-kit`。
 8. C Kit 1.2.0 的黄金/高级样例、139 条规则目录、snippets、PDF 与 Markdown 参考副本存在。
@@ -45,7 +45,7 @@ Doctor 的环境缺失可以是可解释 warning；Verify 的 REQUIRED 静态/�
 必须满足：
 
 1. README 三件套存在。
-2. COMMANDS、C99 skill 文档存在。
+2. COMMANDS、C 语言 Skill 文档存在。
 3. README 中的默认入口与 COMMANDS 中的命令矩阵不冲突。
 5. DocSync CI/Release gate 成功。
 
@@ -76,8 +76,8 @@ Doctor 的环境缺失可以是可解释 warning；Verify 的 REQUIRED 静态/�
 |---|---|
 | BOOTSTRAP | 修复 Go build、路径识别、bin 输出 |
 | GO | 先修 `go test ./...`，再修 race/并发 |
-| C99_SKILL | 先修 skill.json/style/templates/rules，再修 formatter |
-| DOCSYNC | 修 README/COMMANDS/C99 文档索引 |
+| C_LANGUAGE_SKILL | 先修 skill.json/style/templates/rules，再修 formatter |
+| DOCSYNC | 修 README/COMMANDS/C 语言 文档索引 |
 | LIFECYCLE | 修 registry/manifest/schema/version/路径 |
 | GIT_GOVERNANCE | 修 hook、gitattributes、tag policy、release notes |
 | PWSH_BOUNDARY | 清理默认入口中残余 PowerShell 编排 |

@@ -466,14 +466,14 @@ func Registry(cfg Config) []TestCase {
 		{ID: "GO-006", Category: "GO", Title: "Go 漏洞扫描", Node: nodeGo, Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{"go", "run", govulncheckCommand, "./..."}, TimeoutKind: "long", NetworkFailureWarn: true},
 		{ID: "GO-007", Category: "GO", Title: "并发包 raceScope 登记", Severity: Required, Profiles: []string{"full", "release"}, Kind: "static"},
 
-		{ID: "C99-001", Category: "C99_SKILL", Title: "C99 skill status", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "status", "--json"}, ExpectJSON: true},
-		{ID: "C99-002", Category: "C99_SKILL", Title: "C99 注释模板校验", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "templates", "--json"}, ExpectJSON: true},
-		{ID: "C99-003", Category: "C99_SKILL", Title: "C99 样例路径格式检查", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "check", "--scope", "paths", "--path", "testdata/style-samples/foc_sample.c", "--json"}, OptionalPath: "testdata/style-samples/foc_sample.c", ExpectJSON: true},
-		{ID: "C99-004", Category: "C99_SKILL", Title: "C99 staged 检查入口", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "check", "--scope", "staged", "--json"}, ExpectJSON: true},
-		{ID: "C99-005", Category: "C99_SKILL", Title: "C99 source-of-truth 配置", Severity: Required, Profiles: allProfiles(), Kind: "static"},
-		{ID: "C99-006", Category: "C99_SKILL", Title: "C99 排除目录策略", Severity: Required, Profiles: allProfiles(), Kind: "static"},
-		{ID: "C99-007", Category: "C99_SKILL", Title: "C Kit 快速验证", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "c99-standard-c", "verify", "--depth", "fast", "--json"}, TimeoutKind: "long", ExpectJSON: true},
-		{ID: "C99-008", Category: "C99_SKILL", Title: "C Kit 资产与参考完整性", Severity: Required, Profiles: allProfiles(), Kind: "static"},
+		{ID: "CSTYLE-001", Category: "C_LANGUAGE_SKILL", Title: "C 语言 Skill status", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "C语言编程规范", "status", "--json"}, ExpectJSON: true},
+		{ID: "CSTYLE-002", Category: "C_LANGUAGE_SKILL", Title: "C 语言注释模板校验", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "C语言编程规范", "templates", "--json"}, ExpectJSON: true},
+		{ID: "CSTYLE-003", Category: "C_LANGUAGE_SKILL", Title: "C 语言样例路径格式检查", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "C语言编程规范", "check", "--scope", "paths", "--path", "testdata/style-samples/foc_sample.c", "--json"}, OptionalPath: "testdata/style-samples/foc_sample.c", ExpectJSON: true},
+		{ID: "CSTYLE-004", Category: "C_LANGUAGE_SKILL", Title: "C 语言 staged 检查入口", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{bin, "skill", "C语言编程规范", "check", "--scope", "staged", "--json"}, ExpectJSON: true},
+		{ID: "CSTYLE-005", Category: "C_LANGUAGE_SKILL", Title: "C 语言 source-of-truth 配置", Severity: Required, Profiles: allProfiles(), Kind: "static"},
+		{ID: "CSTYLE-006", Category: "C_LANGUAGE_SKILL", Title: "C 语言排除目录策略", Severity: Required, Profiles: allProfiles(), Kind: "static"},
+		{ID: "CSTYLE-007", Category: "C_LANGUAGE_SKILL", Title: "C Kit 快速验证", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "C语言编程规范", "verify", "--depth", "fast", "--json"}, TimeoutKind: "long", ExpectJSON: true},
+		{ID: "CSTYLE-008", Category: "C_LANGUAGE_SKILL", Title: "C Kit 资产与参考完整性", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "MOTOR-001", Category: "MOTOR_CONTROL", Title: "电机工程源码与离散时序工具", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{"go", "-C", "CodingKit/tools/motor-engineering", "test", "./..."}, TimeoutKind: "long"},
 		{ID: "MOTOR-002", Category: "MOTOR_CONTROL", Title: "C99电机Primitive独立真值与组合仿真", Severity: Required, Profiles: []string{"full", "release"}, Kind: "command", Command: []string{"python", "CodingKit/modules/common/controller/motor/run_tests.py"}, TimeoutKind: "long", ExpectJSON: true},
 		{ID: "SKILL-001", Category: "SKILL", Title: "全部启用 Skill Smoke 验证", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "skill", "verify", "--all", "--profile", "Smoke", "--json"}, TimeoutKind: "long", ExpectJSON: true},
@@ -503,7 +503,7 @@ func Registry(cfg Config) []TestCase {
 		{ID: "DOCS-002", Category: "README_DOCS", Title: "README 架构声明", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "DOCS-003", Category: "README_DOCS", Title: "COMMANDS 命令矩阵", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "DOCS-004", Category: "README_DOCS", Title: "Fast Path 文档", Severity: Required, Profiles: allProfiles(), Kind: "static"},
-		{ID: "DOCS-005", Category: "README_DOCS", Title: "C99 skill 文档", Severity: Required, Profiles: allProfiles(), Kind: "static"},
+		{ID: "DOCS-005", Category: "README_DOCS", Title: "C 语言 Skill 文档", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "DOCS-006", Category: "README_DOCS", Title: "架构图 SVG/Mermaid 命令与节点预算", Severity: Required, Profiles: allProfiles(), Kind: "static"},
 		{ID: "CAP-001", Category: "CAPABILITY", Title: "internal capability registry", Severity: Required, Profiles: []string{"smoke", "full", "release"}, Kind: "command", Command: []string{bin, "governance", "capabilities", "--json"}, ExpectJSON: true},
 		{ID: "FREEZE-001", Category: "FREEZE", Title: "冻结 schema 文件存在", Severity: Required, Profiles: allProfiles(), Kind: "static"},
@@ -755,8 +755,8 @@ func runConcurrent(parent context.Context, cfg Config, tc TestCase) Result {
 	setupStarted := time.Now()
 	bin := aicodingBin(cfg.Repo)
 	commands := [][]string{
-		{bin, "skill", "c99-standard-c", "status", "--json"},
-		{bin, "skill", "c99-standard-c", "templates", "--json"},
+		{bin, "skill", "C语言编程规范", "status", "--json"},
+		{bin, "skill", "C语言编程规范", "templates", "--json"},
 		{bin, "governance", "lint", "--json"},
 		{bin, "verify", "repo-text", "--json"},
 	}
@@ -860,12 +860,12 @@ func runStatic(cfg Config, tc TestCase) Result {
 		err = checkBootstrapPrerequisites(cfg.Repo)
 	case "GO-007":
 		err = checkRaceScope(cfg.Repo)
-	case "C99-005":
+	case "CSTYLE-005":
 		err = requirePaths(cfg.Repo,
-			"config/skills/c99-standard-c/skill.json",
-			"config/skills/c99-standard-c/style/clang-format.yaml",
-			"config/skills/c99-standard-c/templates/comment-templates.json",
-			"config/skills/c99-standard-c/rules/embedded-c-rules.md",
+			"config/skills/C语言编程规范/skill.json",
+			"config/skills/C语言编程规范/style/clang-format.yaml",
+			"config/skills/C语言编程规范/templates/comment-templates.json",
+			"config/skills/C语言编程规范/rules/embedded-c-rules.md",
 			".clang-format",
 			"CodingKit/tools/c-kit/go.mod",
 			"CodingKit/tools/c-kit/cmd/ckit/main.go",
@@ -878,9 +878,9 @@ func runStatic(cfg Config, tc TestCase) Result {
 		if err == nil {
 			err = checkC99Projection(cfg.Repo)
 		}
-	case "C99-006":
+	case "CSTYLE-006":
 		err = checkC99ExcludedDirs(cfg.Repo)
-	case "C99-008":
+	case "CSTYLE-008":
 		err = checkCKitAssets(cfg.Repo)
 	case "EXP-002":
 		err = checkExportDefinitions(cfg.Repo)
@@ -907,7 +907,7 @@ func runStatic(cfg Config, tc TestCase) Result {
 	case "DOCS-004":
 		err = fileContainsAll(filepath.Join(cfg.Repo, "docs/COMMANDS.md"), []string{"Go CLI", "Doctor", "Verify", "test engine", "DocSync", "PowerShell Boundary"})
 	case "DOCS-005":
-		err = fileContainsAll(filepath.Join(cfg.Repo, "docs/guides/C99_STANDARD_C_SKILL.md"), []string{"config/skills/c99-standard-c", "skill c99-standard-c", "fmt", "check", "templates"})
+		err = fileContainsAll(filepath.Join(cfg.Repo, "docs/guides/C_LANGUAGE_SKILL.md"), []string{"config/skills/C语言编程规范", "skill C语言编程规范", "fmt", "check", "templates"})
 	case "DOCS-006":
 		err = checkArchitectureDiagrams(cfg.Repo)
 	case "FREEZE-001":
@@ -1024,7 +1024,7 @@ func checkCKitAssets(repo string) error {
 			Root    string `json:"root"`
 		} `json:"kit"`
 	}
-	if err := decodeJSONFile(filepath.Join(repo, "config/skills/c99-standard-c/skill.json"), &skillConfig); err != nil {
+	if err := decodeJSONFile(filepath.Join(repo, "config/skills/C语言编程规范/skill.json"), &skillConfig); err != nil {
 		return err
 	}
 
@@ -1133,7 +1133,7 @@ func checkExportDefinitions(repo string) error {
 }
 
 func checkC99Projection(repo string) error {
-	source, err := os.ReadFile(filepath.Join(repo, "config/skills/c99-standard-c/style/clang-format.yaml"))
+	source, err := os.ReadFile(filepath.Join(repo, "config/skills/C语言编程规范/style/clang-format.yaml"))
 	if err != nil {
 		return err
 	}
@@ -1154,7 +1154,7 @@ func checkC99Projection(repo string) error {
 }
 
 func checkC99ExcludedDirs(repo string) error {
-	b, err := os.ReadFile(filepath.Join(repo, "config/skills/c99-standard-c/skill.json"))
+	b, err := os.ReadFile(filepath.Join(repo, "config/skills/C语言编程规范/skill.json"))
 	if err != nil {
 		return err
 	}
@@ -1249,9 +1249,9 @@ func checkDocIndex(repo string) error {
 	// skill command coverage. This avoids forcing README churn whenever a specific
 	// skill is added, renamed, or split.
 	checks := map[string][]string{
-		"README.md":                           {"docs/COMMANDS.md"},
-		"docs/COMMANDS.md":                    {"doctor --all", "verify --profile", "test --profile", "lifecycle", "fresh-clone", "c99-standard-c"},
-		"docs/guides/C99_STANDARD_C_SKILL.md": {"skill c99-standard-c", "config/skills/c99-standard-c"},
+		"README.md":                       {"docs/COMMANDS.md"},
+		"docs/COMMANDS.md":                {"doctor --all", "verify --profile", "test --profile", "lifecycle", "fresh-clone", "C语言编程规范"},
+		"docs/guides/C_LANGUAGE_SKILL.md": {"skill C语言编程规范", "config/skills/C语言编程规范"},
 	}
 	for rel, words := range checks {
 		if err := fileContainsAll(filepath.Join(repo, rel), words); err != nil {
@@ -1616,7 +1616,7 @@ func writeMarkdown(path string, report Report) error {
 	b.WriteString("\n## Review Guidance\n\n")
 	b.WriteString("1. 先处理 `FAIL` 的 REQUIRED 用例。\n")
 	b.WriteString("2. 对 `WARN` 用例，结合本机环境判断是否属于工具链、网络或可选能力问题。\n")
-	b.WriteString("3. C99 风格一致性重点查看 `C99_SKILL` 区域和对应 stdout。\n")
+	b.WriteString("3. C 语言风格一致性重点查看 `C_LANGUAGE_SKILL` 区域和对应 stdout。\n")
 	b.WriteString("4. DocSync 与 README 治理重点查看 `DOCSYNC`、`README_DOCS` 区域。\n")
 	b.WriteString("5. Go 并发重点查看 `GO-004`；race 检查重点查看 `GO-002`。\n")
 

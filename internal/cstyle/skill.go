@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	DefaultSkillID        = "c99-standard-c"
+	DefaultSkillID        = "C语言编程规范"
 	DefaultKitID          = "c-kit"
 	DefaultKitRoot        = "CodingKit/tools/c-kit"
 	DefaultKitConfig      = "examples/c-kit.json"

@@ -2,15 +2,15 @@
 
 ## 1. 测试目标
 
-本计划用于验证 AiCoding 仓库在“功能收敛、Go Fast Path、C99 skill、文档同步、Git 治理、生命周期/外部 skill 工作流、Release gate”上的实际可用性。
+本计划用于验证 AiCoding 仓库在“功能收敛、Go Fast Path、C 语言 Skill、文档同步、Git 治理、生命周期/外部 skill 工作流、Release gate”上的实际可用性。
 
 核心问题：
 
 1. **功能是否收敛到 Go CLI 正式控制面**：lifecycle/doctor/verify/test/release 是否职责清晰，Smoke/Full/Release 是否只由唯一 test engine 执行。
-2. **C 语言 skill 是否可验证风格一致性**：`c99-standard-c` 的 status、templates、fmt/check、C Kit fast verify、`.clang-format` 投影与 source-of-truth 是否一致。
+2. **C 语言 skill 是否可验证风格一致性**：`C语言编程规范` 的 status、templates、fmt/check、C Kit fast verify、`.clang-format` 投影与 source-of-truth 是否一致。
 3. **下载安装外部 skill / 创建用户 skill 相关流程是否规范**：kit registry、manifest、lifecycle plan、export、rollback/fresh-clone 路径是否可检查。
 4. **Go 并发和核心对象是否可靠**：ExecutionPlan 的不可变选择、snapshot/digest、runner 并发、race 检查和 CLI 并发只读调用是否稳定。
-5. **README 与文档是否同步**：README/README_CN/README_EN、COMMANDS、C99 skill 文档、DocSync gate 是否对齐。
+5. **README 与文档是否同步**：README/README_CN/README_EN、COMMANDS、C 语言 Skill 文档、DocSync gate 是否对齐。
 6. **Git 仓库治理是否可执行**：hook、repo-text、release-notes、tag audit、governance lint 是否可重复执行并输出 JSON。
 7. **测试结果是否可交付给用户检查**：输出标准 Markdown 报告、JSON 结果、原始 stdout/stderr。
 
@@ -36,16 +36,16 @@
   测试复用 `TestMain` 一次构建的二进制，构建失败在执行用例前 fail-fast。
 - **数据化输出**：统计总用例、通过、失败、告警、跳过、总耗时、各命令耗时。
 - **标准 Markdown 文档**：测试计划、测试用例、报告均使用 `.md`。
-- **全局分功能框架**：用例按照 ENV/BOOTSTRAP/GO/C99_SKILL/DOCSYNC/LIFECYCLE/EXPORT/FRESH_CLONE/README_DOCS/GIT_GOVERNANCE/PWSH_BOUNDARY/RELEASE_GATE 分类。
+- **全局分功能框架**：用例按照 ENV/BOOTSTRAP/GO/C_LANGUAGE_SKILL/DOCSYNC/LIFECYCLE/EXPORT/FRESH_CLONE/README_DOCS/GIT_GOVERNANCE/PWSH_BOUNDARY/RELEASE_GATE 分类。
 
 ## 3. 测试层级
 
 | 层级 | 说明 | 代表用例 |
 |---|---|---|
-| L0 静态治理 | 不执行仓库命令，只检查文件、配置、文档、registry | README、typed command catalog、registry digest、C99 skill config |
+| L0 静态治理 | 不执行仓库命令，只检查文件、配置、文档、registry | README、typed command catalog、registry digest、C 语言 Skill config |
 | L1 快速命令 | 执行基础 CLI 命令，验证 JSON 和退出码 | bootstrap no-build、doctor、verify、`test --profile Smoke` |
 | L2 功能门禁 | 执行唯一 Registry 中的功能域 gate | docsync、governance、export manifest、lifecycle plan |
-| L3 并发/一致性 | 验证 ExecutionPlan 稳定摘要、并发执行只读命令或 race 检查 | runner/catalog unit tests、`go test -race`、并发 C99 status/templates |
+| L3 并发/一致性 | 验证 ExecutionPlan 稳定摘要、并发执行只读命令或 race 检查 | runner/catalog unit tests、`go test -race`、并发 C 语言 status/templates |
 | L4 发布/定期 hermetic 门禁 | Release profile 的真实打包与 Git-object 物化 leaf；定期 CI 的真实 clean-clone Full | Release ZIP、materialized Release、每周 fresh-clone Full |
 
 ## 4. 测试数据
@@ -98,8 +98,8 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 - Task `ensure-bin` 通过 checksum 在输入变化时生成 `bin/aicoding.exe`；BOOT-002/003 验证 CLI 与静态前置条件且不重复构建。
 - `doctor --all --json` 和 `verify --profile Smoke --json` 成功或仅产生可解释 warning。
 - `test --profile Smoke --json` 成功。
-- C99 status/templates 与 C Kit fast verify 成功。
-- README/COMMANDS/C99 文档存在且包含必要入口。
+- C 语言 status/templates 与 C Kit fast verify 成功。
+- README/COMMANDS/C 语言 文档存在且包含必要入口。
 - Git hooks/repo-text 至少可执行或给出明确失败原因。
 
 ### 5.2 Full 通过标准
@@ -163,7 +163,7 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 测试后请优先查看：
 
 1. `report.md` 顶部摘要：失败/告警数量。
-2. `C99_SKILL` 区域：是否能证明 C/H 风格检查可重复执行。
+2. `C_LANGUAGE_SKILL` 区域：是否能证明 C/H 风格检查可重复执行。
 3. `DOCSYNC` 区域：README 与文档同步是否真正通过。
 4. `LIFECYCLE` 区域：外部 skill/kit plan 是否能稳定输出 JSON。
 5. `GO` 区域：并发只读命令是否稳定，race 是否可运行。
@@ -171,4 +171,4 @@ Receipt；`--reuse auto` 可部分复用；`--verify-reuse` 始终真实执行�
 
 ## 8. README / leaf skill 文档边界
 
-README.md 只作为顶层入口文档，测试只要求它索引稳定 hub 文档，例如 `docs/COMMANDS.md`。具体 leaf skill 文档，例如 `docs/guides/C99_STANDARD_C_SKILL.md`，由 `DOCS-005` 和 `docs/COMMANDS.md` 覆盖，不要求 README 逐个列出。
+README.md 只作为顶层入口文档，测试只要求它索引稳定 hub 文档，例如 `docs/COMMANDS.md`。具体 leaf skill 文档，例如 `docs/guides/C_LANGUAGE_SKILL.md`，由 `DOCS-005` 和 `docs/COMMANDS.md` 覆盖，不要求 README 逐个列出。

@@ -1,13 +1,13 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://aicoding.local/schemas/c99-standard-c-skill.schema.json",
-  "title": "AiCoding C99 Standard C Skill Configuration",
+  "$id": "https://aicoding.local/schemas/c-language-skill.schema.json",
+  "title": "AiCoding C语言编程规范 Configuration",
   "type": "object",
   "required": ["schemaVersion", "id", "title", "language", "standard", "formatter", "commentTemplates", "rules", "kit", "excludedDirectories"],
   "additionalProperties": false,
   "properties": {
     "schemaVersion": { "const": 1 },
-    "id": { "const": "c99-standard-c" },
+    "id": { "const": "C语言编程规范" },
     "title": { "type": "string", "minLength": 1 },
     "language": { "const": "c" },
     "standard": { "const": "c99" },

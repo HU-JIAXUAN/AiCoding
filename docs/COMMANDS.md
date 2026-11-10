@@ -2,15 +2,15 @@
 
 Taskfile 是人机短路由；Go CLI 是默认控制面；业务逻辑位于 Go 的 `internal/*` 包中。PowerShell/Python 只作为专项工具保留，不承载默认 Smoke、CI、Full 或 Release profile。
 
-C/H 风格命令见 [C99 Standard C Skill](guides/C99_STANDARD_C_SKILL.md)。
+C/H 风格命令见 [C语言编程规范](guides/C_LANGUAGE_SKILL.md)。
 
 ## C99 实际候选与配置
 
-平台 `skill c99-standard-c check` 检查格式；`verify` 才运行 C Kit 的配置、Lint、主机编译和行为验证。
+平台 `skill C语言编程规范 check` 检查格式；`verify` 才运行 C Kit 的配置、Lint、主机编译和行为验证。
 未指定 `--target` 时，`verify` 检查黄金 DEMO，不能据此声称业务文件已通过。验证业务代码时显式选择包含候选文件与主机测试入口的 target：
 
 ```powershell
-bin/aicoding.exe skill c99-standard-c verify --depth fast --target path/to/verify-target.json --overlay CodingKit/tools/c-kit/examples/portable-c99.overlay.json --overlay path/to/project-overlay.json --timings --json
+bin/aicoding.exe skill C语言编程规范 verify --depth fast --target path/to/verify-target.json --overlay CodingKit/tools/c-kit/examples/portable-c99.overlay.json --overlay path/to/project-overlay.json --timings --json
 ```
 
 `--target` 和 `--overlay` 的相对路径按 AiCoding 仓库根解析；`full` 增加 Clang、C++17 头文件探针和可用的基线行为比较。
@@ -24,7 +24,7 @@ go -C CodingKit/tools/c-kit run ./cmd/ckit lint --config ./examples/c-kit.json -
 [portable overlay](../CodingKit/tools/c-kit/examples/portable-c99.overlay.json) 由项目显式启用，并可追加项目 overlay 设置 `naming.modulePrefix` 等事实；旧 DEMO profile 保持兼容。
 该配置使用函数 `snake_case`、类型 `PascalCase`、局部变量/参数 `lowerCamelCase` 和状态 `g_lowerCamelCase`，50 行/4 层/5 参数作为审查 warning。
 
-[平台注释模板](../config/skills/c99-standard-c/templates/comment-templates.json) 使用普通中文块注释：文件写用途和职责边界，
+[平台注释模板](../config/skills/C语言编程规范/templates/comment-templates.json) 使用普通中文块注释：文件写用途和职责边界，
 接口按实际合同写输入、输出、返回和约束，关键步骤说明原因，不默认生成作者或历史表。
 portable profile 只对文件字段及有实际参数/非 `void` 返回的公共头声明检查相应字段存在性；不要求简单 helper 填空标签。
 这些检查不能证明单位、可空性、输出失败不改或并发约束的语义正确，仍须核对实现和调用方。
@@ -323,10 +323,10 @@ untracked、submodule 或冲突漂移的 INDEX；`--since` 只接受 clean HEAD�
 `executionMode=receipt-hit`、`executedCases=0`。
 | MCP status/doctor | `bin\aicoding.exe mcp status|doctor <COMPONENT> --json` |
 | MCP verify | `bin\aicoding.exe mcp verify <COMPONENT>\|--all --profile Smoke\|Full\|Release --configured --json` |
-| C99 skill status | `bin\aicoding.exe skill c99-standard-c status --json` |
-| C99 skill templates | `bin\aicoding.exe skill c99-standard-c templates --json` |
-| C99 skill 快速/完整验证 | `bin\aicoding.exe skill c99-standard-c verify --depth fast\|full --timings --json` |
-| C99 skill fmt/check | `bin\aicoding.exe skill c99-standard-c fmt|check --scope changed|staged|paths --json` |
+| C 语言 Skill status | `bin\aicoding.exe skill C语言编程规范 status --json` |
+| C 语言 Skill templates | `bin\aicoding.exe skill C语言编程规范 templates --json` |
+| C 语言 Skill 快速/完整验证 | `bin\aicoding.exe skill C语言编程规范 verify --depth fast\|full --timings --json` |
+| C 语言 Skill fmt/check | `bin\aicoding.exe skill C语言编程规范 fmt|check --scope changed|staged|paths --json` |
 | Rollback | `bin\aicoding.exe lifecycle rollback --scope kit --last --json` |
 | Repo-context 生成/保鲜 | `bin\aicoding.exe lifecycle install\|update\|uninstall\|status\|doctor\|verify --scope repo-context --json` |
 | Repo-context 提交后增量同步 | `bin\aicoding.exe hook post-commit --json`（由 `.githooks/post-commit` 自动触发） |
@@ -365,6 +365,7 @@ untracked、submodule 或冲突漂移的 INDEX；`--since` 只接受 clean HEAD�
 
 | 兼容入口 | 正式入口 |
 |---|---|
+| `skill c99-standard-c ...` | `skill C语言编程规范 ...` |
 | `smoke` | `test --profile Smoke` |
 | `ci --profile <PROFILE>` | `test --profile <PROFILE>` |
 | `full` | `test --profile Full` |
@@ -460,12 +461,12 @@ App Server 报告使用 `tokenUsage.total` 作为会话累计值，并使用
 | `task full` | `bin/aicoding.exe test --profile Full --json` |
 | `task release` | `bin/aicoding.exe test --profile Release --json` |
 | `task test:latest` | `bin/aicoding.exe test latest` |
-| `task style:c:status` | `bin/aicoding.exe skill c99-standard-c status --json` |
-| `task style:c:templates` | `bin/aicoding.exe skill c99-standard-c templates --json` |
-| `task style:c:verify` | `bin/aicoding.exe skill c99-standard-c verify --depth fast --timings --json` |
-| `task fmt:c` | `bin/aicoding.exe skill c99-standard-c fmt --scope changed --json` |
-| `task fmt-check:c` | `bin/aicoding.exe skill c99-standard-c check --scope changed --json` |
-| `task fmt-check-staged:c` | `bin/aicoding.exe skill c99-standard-c check --scope staged --json` |
+| `task style:c:status` | `bin/aicoding.exe skill C语言编程规范 status --json` |
+| `task style:c:templates` | `bin/aicoding.exe skill C语言编程规范 templates --json` |
+| `task style:c:verify` | `bin/aicoding.exe skill C语言编程规范 verify --depth fast --timings --json` |
+| `task fmt:c` | `bin/aicoding.exe skill C语言编程规范 fmt --scope changed --json` |
+| `task fmt-check:c` | `bin/aicoding.exe skill C语言编程规范 check --scope changed --json` |
+| `task fmt-check-staged:c` | `bin/aicoding.exe skill C语言编程规范 check --scope staged --json` |
 
 所有依赖 `ensure-bin` 的公开 Task 使用 Task checksum 比较 `cmd/**/*.go`、`internal/**/*.go`、
 `go.mod` 与 `go.sum`；仅输入变化或 `bin/aicoding.exe` 缺失时直接执行一次 `go build`。
@@ -477,7 +478,7 @@ Task 的 `.task/` checksum 元数据属于已登记且被 Git 忽略的本地 ru
 
 外部候选可追加 `--target path/to/verify-target.json`；项目差异配置可用可重复的
 `--overlay path/to/project-overlay.json`。完整 target/schema 说明见
-[C99 Standard C Skill](guides/C99_STANDARD_C_SKILL.md)。
+[C语言编程规范](guides/C_LANGUAGE_SKILL.md)。
 
 ## CI
 

@@ -142,17 +142,17 @@ def validate_pair(document_path: Path, schema_path: Path) -> Any:
 def main() -> int:
     config_path = ROOT / "examples" / "c-kit.json"
     embedded_config_path = ROOT / "internal" / "ckit" / "templates" / "c-kit.json"
-    config_schema = ROOT / "config" / "skills" / "c99-standard-c" / "c-kit.schema.json"
+    config_schema = ROOT / "config" / "schemas" / "c-kit.schema.json"
     snippets_path = ROOT / "examples" / "c-snippets.json"
     embedded_snippets_path = ROOT / "internal" / "ckit" / "templates" / "c-snippets.json"
-    snippets_schema = ROOT / "config" / "skills" / "c99-standard-c" / "c-snippets.schema.json"
+    snippets_schema = ROOT / "config" / "schemas" / "c-snippets.schema.json"
     catalog_path = ROOT / "config" / "rules" / "huawei-c-language-programming-standard.rules.json"
     catalog_schema = (
-        ROOT / "config" / "skills" / "c99-standard-c" / "huawei-c-rule-catalog.schema.json"
+        ROOT / "config" / "schemas" / "huawei-c-rule-catalog.schema.json"
     )
     verify_target_path = ROOT / "examples" / "verify-target.json"
     verify_target_schema = (
-        ROOT / "config" / "skills" / "c99-standard-c" / "verify-target.schema.json"
+        ROOT / "config" / "schemas" / "verify-target.schema.json"
     )
 
     config = validate_pair(config_path, config_schema)

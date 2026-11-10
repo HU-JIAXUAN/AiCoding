@@ -1,14 +1,14 @@
-# C99 Standard C Skill
+# C语言编程规范
 
-C/H 风格能力属于 `c99-standard-c` skill，不作为独立 formatting kit 暴露。C Kit
+C/H 风格能力属于 `C语言编程规范` skill，不作为独立 formatting kit 暴露。C Kit
 1.2.0 是该 skill 使用的首方外部工具资产，注册为 `c-kit`，但不新增用户命令命名空间。
 
 ## 配置边界
 
-- Skill 配置：`config/skills/c99-standard-c/skill.json`
-- 机械格式：`config/skills/c99-standard-c/style/clang-format.yaml`
-- 注释模板：`config/skills/c99-standard-c/templates/comment-templates.json`
-- 嵌入式 C 规则：`config/skills/c99-standard-c/rules/embedded-c-rules.md`
+- Skill 配置：`config/skills/C语言编程规范/skill.json`
+- 机械格式：`config/skills/C语言编程规范/style/clang-format.yaml`
+- 注释模板：`config/skills/C语言编程规范/templates/comment-templates.json`
+- 嵌入式 C 规则：`config/skills/C语言编程规范/rules/embedded-c-rules.md`
 - Go 实现：`internal/cstyle`
 - C Kit 根目录：`CodingKit/tools/c-kit`
 - C Kit 配置：`CodingKit/tools/c-kit/examples/c-kit.json`
@@ -57,17 +57,19 @@ task fmt-check-staged:c
 ## Go CLI 入口
 
 ```bash
-bin/aicoding.exe skill c99-standard-c status --json
-bin/aicoding.exe skill c99-standard-c templates --json
-bin/aicoding.exe skill c99-standard-c verify --json
-bin/aicoding.exe skill c99-standard-c verify --depth full --timings --json
-bin/aicoding.exe skill c99-standard-c fmt --scope changed --json
-bin/aicoding.exe skill c99-standard-c check --scope changed --json
-bin/aicoding.exe skill c99-standard-c check --scope staged --json
-bin/aicoding.exe skill c99-standard-c check --scope paths --path testdata/style-samples/foc_sample.c --json
+bin/aicoding.exe skill C语言编程规范 status --json
+bin/aicoding.exe skill C语言编程规范 templates --json
+bin/aicoding.exe skill C语言编程规范 verify --json
+bin/aicoding.exe skill C语言编程规范 verify --depth full --timings --json
+bin/aicoding.exe skill C语言编程规范 fmt --scope changed --json
+bin/aicoding.exe skill C语言编程规范 check --scope changed --json
+bin/aicoding.exe skill C语言编程规范 check --scope staged --json
+bin/aicoding.exe skill C语言编程规范 check --scope paths --path testdata/style-samples/foc_sample.c --json
 ```
 
-当前用户入口只保留 `skill c99-standard-c` 和 Taskfile 短路由。
+当前用户入口为 `skill C语言编程规范` 和 Taskfile 短路由，配置目录使用相同名称。
+C Kit schema 使用工具自有的 `config/schemas`；语言标准仍为 C99，编译参数 `-std=c99`、
+`standard: c99`、`portable-c99.overlay.json` 和既有规则 ID 不因 Skill 改名而变化。
 
 ## C Kit 验证
 
@@ -83,13 +85,13 @@ baseline/candidate 行为等价。registry manifest 登记同一资产及其维�
 
 ```bash
 # 默认黄金目标的秒级反馈
-bin/aicoding.exe skill c99-standard-c verify --depth fast --timings --json
+bin/aicoding.exe skill C语言编程规范 verify --depth fast --timings --json
 
 # 默认 Demo 的完整主机门禁
-bin/aicoding.exe skill c99-standard-c verify --depth full --timings --json
+bin/aicoding.exe skill C语言编程规范 verify --depth full --timings --json
 
 # 验证项目自有 target；overlay 可重复指定
-bin/aicoding.exe skill c99-standard-c verify --depth full \
+bin/aicoding.exe skill C语言编程规范 verify --depth full \
   --target path/to/verify-target.json \
   --overlay CodingKit/tools/c-kit/examples/portable-c99.overlay.json \
   --overlay path/to/project-overlay.json --timings --json
@@ -117,7 +119,7 @@ go -C CodingKit/tools/c-kit run ./cmd/ckit verify \
   --profile fast --timings --json
 ```
 
-底层命令用于 registry/维护验证；日常用户仍应使用 `skill c99-standard-c verify` 路由。
+底层命令用于 registry/维护验证；日常用户仍应使用 `skill C语言编程规范 verify` 路由。
 
 ## 范围
 
@@ -132,8 +134,8 @@ go -C CodingKit/tools/c-kit run ./cmd/ckit verify \
 
 ```bash
 go test ./internal/cstyle
-go run ./cmd/aicoding skill c99-standard-c status --json
-go run ./cmd/aicoding skill c99-standard-c templates --json
-go run ./cmd/aicoding skill c99-standard-c verify --json
-go run ./cmd/aicoding skill c99-standard-c verify --depth full --timings --json
+go run ./cmd/aicoding skill C语言编程规范 status --json
+go run ./cmd/aicoding skill C语言编程规范 templates --json
+go run ./cmd/aicoding skill C语言编程规范 verify --json
+go run ./cmd/aicoding skill C语言编程规范 verify --depth full --timings --json
 ```

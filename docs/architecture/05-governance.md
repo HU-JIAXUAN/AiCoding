@@ -23,7 +23,7 @@ Status: Derived View（派生视图）
 | `governance reuse` | 同上 | 复用治理证据（新实现必须先证明不能复用既有实现）。 |
 | `governance capabilities` | 同上 | `internal/` 一级包孤儿、公共命令、架构文档、stable 验证与生成索引一致性。 |
 | `docsync staged\|all\|ci\|release` | hook / CI / 发布 | 风险文件变更必须携带文档更新；并拒绝手改 README/`docs/CAPABILITIES.md` 能力生成索引。 |
-| Style | pre-commit / 手动 | `.clang-format` + C99 kit 的 `fmt`/`check`（[01](01-system-architecture.md) §6.7）。 |
+| Style | pre-commit / 手动 | `.clang-format` + C Kit 的 `fmt`/`check`（[01](01-system-architecture.md) §6.7）。 |
 | Template | GitHub 侧 | `.github/` Issue 表单、PR 模板、`RELEASE_TEMPLATE.md` + `verify release-notes` 机器校验。 |
 | CI | push / PR / 每周 / 手动 | `.github/workflows/aicoding-ci.yml`：push/PR 跑 Smoke；每周/手动跑 Release，并以独立 clean-clone Full leaf command 执行临时 clone 中的 `go test ./...`。 |
 
@@ -34,7 +34,7 @@ Status: Derived View（派生视图）
 2. **快且并行**：pre-commit 的五项强制检查并行执行（有界并发），Plan Mode 路径判定
    单独保持在 200 ms 内；
    慢检查不进 hook，进 `verify`/`test`。
-3. **只读**：hook 只判定不修复；修复权留给显式的写命令（如 `skill c99-standard-c fmt`）。
+3. **只读**：hook 只判定不修复；修复权留给显式的写命令（如 `skill C语言编程规范 fmt`）。
 4. **失败信息可纠错**：门禁文案必须指明违反的规则与正确路径，而非仅报告失败——
    这是 Agent 的第④个知识进入点（[02](02-context-architecture.md) §1）。
 

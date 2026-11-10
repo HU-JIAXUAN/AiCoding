@@ -85,6 +85,6 @@ git show :path                -> 实际待提交文本
 
 ## 上层集成边界
 
-本 Kit 是平台无关的确定性工具。上层 composition root 可以通过 Kit registry 和 C99 Skill binding
+本 Kit 是平台无关的确定性工具。上层 composition root 可以通过 Kit registry 和 C language Skill binding
 调用它，但本 Kit 不依赖具体产品命名、插件缓存、Marketplace、用户级 Skill 根或安装状态。
 Smoke、Full、Release 与文档同步属于上层集成验收，不进入本 Kit 的运行时合同。

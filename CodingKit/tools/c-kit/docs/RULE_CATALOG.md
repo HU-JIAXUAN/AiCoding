@@ -198,7 +198,7 @@
 | ID | 条款 | 主证据 | 证据定位 | 状态 |
 | --- | --- | --- | --- | --- |
 | HW-C99-11-R-01 | 规则 11.1 使用编译器的最高告警级别，理解所有的告警，通过修改代码而不是降低告警级别来消除所有告警。 | `compile` | `examples/c-kit.json:gates.gcc/clang.flags`<br>`scripts/verify.ps1` | `covered` |
-| HW-C99-11-R-02 | 规则 11.2 在产品软件（项目组）中，要统一编译开关、静态检查选项以及相应告警清除策略。 | `compile` | `examples/c-kit.json:gates`<br>`config/skills/c99-standard-c/c-kit.schema.json` | `covered` |
+| HW-C99-11-R-02 | 规则 11.2 在产品软件（项目组）中，要统一编译开关、静态检查选项以及相应告警清除策略。 | `compile` | `examples/c-kit.json:gates`<br>`config/schemas/c-kit.schema.json` | `covered` |
 | HW-C99-11-R-03 | 规则 11.3 本地构建工具（如PC-Lint）的配置应该和持续集成的一致。 | `compile` | `scripts/verify.ps1`<br>`scripts/verify.sh`<br>`examples/c-kit.json:gates` | `covered` |
 | HW-C99-11-R-04 | 规则 11.4 使用版本控制（配置管理）系统，及时签入通过本地构建的代码，确保签入的代码不会影响构建成功。 | `compile` | `scripts/verify.ps1`<br>`scripts/verify.sh`<br>`examples/c-kit.json:gates` | `covered` |
 | HW-C99-11-S-01 | 建议 11.1 要小心地使用编辑器提供的块拷贝功能编程。 | `compile` | `scripts/verify.ps1`<br>`scripts/verify.sh`<br>`examples/c-kit.json:gates` | `covered` |

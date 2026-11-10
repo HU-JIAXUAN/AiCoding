@@ -142,9 +142,9 @@ Receipt 提供状态的用例数。新鲜执行、`--reuse off`、`--force` 和 
   "summary": {},
   "results": [
     {
-      "id": "C99-001",
-      "category": "C99_SKILL",
-      "title": "C99 skill status",
+      "id": "CSTYLE-001",
+      "category": "C_LANGUAGE_SKILL",
+      "title": "C 语言 Skill status",
       "status": "PASS",
       "severity": "REQUIRED",
       "duration_ms": 123,
@@ -155,9 +155,9 @@ Receipt 提供状态的用例数。新鲜执行、`--reuse off`、`--force` 和 
       "exit_code": 0,
       "timed_out": false,
       "json_valid": true,
-      "command": "bin/aicoding.exe skill c99-standard-c status --json",
-      "stdout_file": "logs/C99-001.stdout.txt",
-      "stderr_file": "logs/C99-001.stderr.txt",
+      "command": "bin/aicoding.exe skill C语言编程规范 status --json",
+      "stdout_file": "logs/CSTYLE-001.stdout.txt",
+      "stderr_file": "logs/CSTYLE-001.stderr.txt",
       "reason": "command passed"
     }
   ]

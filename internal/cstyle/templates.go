@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-const CommentTemplatesPath = "config/skills/c99-standard-c/templates/comment-templates.json"
+const CommentTemplatesPath = "config/skills/C语言编程规范/templates/comment-templates.json"
 
 type TemplateConfig struct {
 	SchemaVersion int               `json:"schemaVersion"`

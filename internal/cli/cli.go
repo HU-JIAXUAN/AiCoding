@@ -208,13 +208,13 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 	sub := args[0]
 	flagArgs := args[1:]
 	deprecationWarnings := []string{}
-	if subID == SubSkillC99Verify {
+	if subID == SubSkillCLanguageVerify {
 		var rewriteErr error
 		flagArgs, deprecationWarnings, rewriteErr = rewriteDeprecatedChoiceFlag(flagArgs, deprecatedChoiceFlag{
 			Old:         "profile",
 			Replacement: "depth",
 			Values:      []string{"fast", "full"},
-			Warning:     "deprecated: skill c99-standard-c verify --profile is retired by ADR 0012; use --depth fast|full",
+			Warning:     "deprecated: skill C语言编程规范 verify --profile is retired by ADR 0012; use --depth fast|full",
 		})
 		if rewriteErr != nil {
 			return report.Result{}, rewriteErr
@@ -225,7 +225,7 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 	scopeArg := fs.String("scope", "changed", "changed, staged, all, or paths")
 	previewArg := fs.Bool("preview", false, "preview formatting changes without writing files")
 	depth := "fast"
-	if subID == SubSkillC99Verify {
+	if subID == SubSkillCLanguageVerify {
 		fs.StringVar(&depth, "depth", "fast", "C Kit verification depth: fast or full")
 	}
 	targetArg := fs.String("target", "", "C Kit verification target manifest")
@@ -240,7 +240,7 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 		return report.Result{}, err
 	}
 	depth = strings.ToLower(strings.TrimSpace(depth))
-	if subID == SubSkillC99Verify && !validChoice(depth, "fast", "full") {
+	if subID == SubSkillCLanguageVerify && !validChoice(depth, "fast", "full") {
 		return report.Result{}, usageErrorf("unsupported C Kit verification depth: %s", depth)
 	}
 
@@ -250,7 +250,7 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 	}
 
 	switch subID {
-	case SubSkillC99Status:
+	case SubSkillCLanguageStatus:
 		status, statusErr := cstyle.SkillStatus(repo, skillID)
 		errs := []string{}
 		if statusErr != nil {
@@ -283,14 +283,14 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 			SchemaVersion: 1,
 			Command:       commandPrefix + " status",
 			OK:            len(errs) == 0,
-			Message:       "C99 Standard C skill formatter status",
+			Message:       "C语言编程规范 formatter status",
 			RepoRoot:      repo,
 			Data:          data,
 			Errors:        errs,
 			ElapsedMS:     elapsed,
 		}, report.BoolErr(errs)
 
-	case SubSkillC99Templates:
+	case SubSkillCLanguageTemplates:
 		data, validationErr := cstyle.ValidateCommentTemplates(repo, skillID)
 		elapsed := report.Elapsed(start)
 		errs := append([]string{}, data.Errors...)
@@ -304,14 +304,14 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 			SchemaVersion: 1,
 			Command:       commandPrefix + " templates",
 			OK:            validationErr == nil,
-			Message:       "C99 Standard C skill comment templates validation",
+			Message:       "C语言编程规范 comment templates validation",
 			RepoRoot:      repo,
 			Data:          standard,
 			Errors:        data.Errors,
 			ElapsedMS:     elapsed,
 		}, validationErr
 
-	case SubSkillC99Fmt, SubSkillC99Check:
+	case SubSkillCLanguageFmt, SubSkillCLanguageCheck:
 		data, runErr := cstyle.RunBySkill(skillID, cstyle.Options{
 			RepoRoot: repo,
 			Scope:    cstyle.Scope(*scopeArg),
@@ -319,9 +319,9 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 			Check:    sub == "check",
 			Preview:  *previewArg,
 		})
-		message := "C99 Standard C skill format completed"
+		message := "C语言编程规范 format completed"
 		if sub == "check" {
-			message = "C99 Standard C skill check completed"
+			message = "C语言编程规范 check completed"
 		}
 		elapsed := report.Elapsed(start)
 		standard := standardReport(commandPrefix+" "+sub, skillID, elapsed, map[string]interface{}{
@@ -343,7 +343,7 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 			ElapsedMS:     elapsed,
 		}, runErr
 
-	case SubSkillC99Verify:
+	case SubSkillCLanguageVerify:
 		data, verifyErr := cstyle.VerifyBySkill(skillID, cstyle.VerifyOptions{
 			RepoRoot: repo,
 			Profile:  depth,
@@ -368,7 +368,7 @@ func runCStyleCommand(commandPrefix string, skillID string, args []string, start
 			SchemaVersion: 1,
 			Command:       commandPrefix + " verify",
 			OK:            verifyErr == nil,
-			Message:       "C99 Standard C skill C Kit verification",
+			Message:       "C语言编程规范 C Kit verification",
 			RepoRoot:      repo,
 			Data:          standard,
 			Warnings:      deprecationWarnings,
@@ -425,7 +425,7 @@ func runHook(args []string, start time.Time) (report.Result, error) {
 				errs = append(errs, pwshregex.BlockingMessages(issues)...)
 				return runner.TaskResult{OK: len(errs) == 0, Errors: errs, Data: issues}
 			}},
-			runner.Task{ID: "c99-standard-c staged check", Action: "c99-standard-c.check-staged", Group: "hook", Run: func(context.Context) runner.TaskResult {
+			runner.Task{ID: "C语言编程规范 staged check", Action: "C语言编程规范.check-staged", Group: "hook", Run: func(context.Context) runner.TaskResult {
 				data, runErr := cstyle.CheckBySkill(cstyle.DefaultSkillID, cstyle.Options{RepoRoot: repo, Scope: cstyle.ScopeStaged})
 				errs := append([]string{}, data.Errors...)
 				if runErr != nil && len(errs) == 0 {

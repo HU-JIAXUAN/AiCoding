@@ -29,6 +29,9 @@ func TestExecuteHelpAndUsageExitCodes(t *testing.T) {
 	if !strings.Contains(stdout.String(), "Formal product workflow:") || stderr.Len() != 0 {
 		t.Fatalf("unexpected help streams: stdout=%q stderr=%q", stdout.String(), stderr.String())
 	}
+	if !strings.Contains(stdout.String(), "skill C语言编程规范 status") || strings.Contains(stdout.String(), "c99-standard-c") {
+		t.Fatalf("help must expose only the renamed C Skill: %s", stdout.String())
+	}
 	for _, flag := range []string{"--source-repository PATH", "--standalone-root agents|codex", "--migrate-unmanaged"} {
 		if !strings.Contains(stdout.String(), flag) {
 			t.Fatalf("help must document runtime Skill flag %q", flag)
@@ -89,7 +92,7 @@ func TestOrthogonalProfileFlagHelp(t *testing.T) {
 		{args: []string{"test", "--help"}, contains: []string{"-profile string", "Smoke, Full, Release"}},
 		{args: []string{"kit", "verify", "--help"}, contains: []string{"-level string", "smoke or lifecycle"}, forbidden: []string{"-profile"}},
 		{args: []string{"kit", "test", "--help"}, contains: []string{"Usage: aicoding kit test"}, forbidden: []string{"-profile", "-level"}},
-		{args: []string{"skill", "c99-standard-c", "verify", "--help"}, contains: []string{"-depth string", "fast or full"}, forbidden: []string{"-profile"}},
+		{args: []string{"skill", "C语言编程规范", "verify", "--help"}, contains: []string{"-depth string", "fast or full"}, forbidden: []string{"-profile"}},
 	} {
 		var stdout bytes.Buffer
 		var stderr bytes.Buffer
@@ -111,6 +114,7 @@ func TestOrthogonalProfileFlagHelp(t *testing.T) {
 
 func TestUnsupportedSubcommandsUseExitTwoWithoutExecuting(t *testing.T) {
 	for _, args := range [][]string{
+		{"skill", "c99-standard-c", "status", "--json"},
 		{"governance", "unknown", "--json"},
 		{"lifecycle", "unknown", "--json"},
 		{"mcp", "unknown", "--json"},

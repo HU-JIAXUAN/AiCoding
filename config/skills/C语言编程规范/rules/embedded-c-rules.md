@@ -1,6 +1,6 @@
 # C99 Standard C Embedded Rules
 
-本目录提供平台格式、注释模板和检查入口的配置。规范语义来自已安装 C99 Skill、当前项目规则与华为条款；项目已确认的接口、归属、编码和工具链优先。
+本目录提供平台格式、注释模板和检查入口的配置。规范语义来自已安装 C 语言 Skill、当前项目规则与华为条款；项目已确认的接口、归属、编码和工具链优先。
 
 ## 生成前的有效约束
 
@@ -20,8 +20,8 @@
 
 ## 现有执行能力
 
-- `skill c99-standard-c check --scope changed|staged|paths` 目前是 `clang-format --dry-run --Werror`，仅证明选中文件满足格式配置。
-- `skill c99-standard-c verify --depth fast|full --target <manifest> --overlay <overlay>` 调用 C Kit 验证显式候选。省略 target 时验证的是 Kit 示例，不能当作用户代码通过。
+- `skill C语言编程规范 check --scope changed|staged|paths` 目前是 `clang-format --dry-run --Werror`，仅证明选中文件满足格式配置。
+- `skill C语言编程规范 verify --depth fast|full --target <manifest> --overlay <overlay>` 调用 C Kit 验证显式候选。省略 target 时验证的是 Kit 示例，不能当作用户代码通过。
 - C Kit 的 `examples/portable-c99.overlay.json` 提供通用命名及复杂度审查级别；叠加项目 overlay 设置实际短模块前缀。原 `examples/c-kit.json` 保持 DEMO 教材样例兼容。
 - 50 行、4 层和 5 参数在通用 overlay 中作为 warning 提示设计审查；不为消除指标而机械拆函数。旧 DEMO profile 继续将超限作为 error。
 - C Kit lint 是有限词法检查，不能证明未定义行为、所有返回值处理、ISR 阻塞、寄存器副作用、DMA/cache、临界区或最坏执行时间。真实工程仍需其编译、静态分析及行为证据。

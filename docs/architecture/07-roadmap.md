@@ -46,7 +46,7 @@ PowerShell 专项六类停止增长；已移除的兼容入口不复活（迁移
 
 | 阶段 | 状态 | 做什么 | 产出 | 验收 | 动内核？ |
 |---|---|---|---|---|---|
-| 0 立项 | ✅ 已完成 | ADR 论证三条件：现实问题=上下文随代码演进漂移、单体指令文件腐化；稳定变化点=代码演进本身；两个真实消费者=本仓库自举 + 受管项目仓库（如 C99 kit 服务的 C 工程）。[ADR 0003](../decisions/0003-repo-context-domain.md)（含 descriptor 与六步准入应答） | ADR + 领域 descriptor | ADR 评审通过 | 否（走路径③，runtime-skill 先例：六模块零修改） |
+| 0 立项 | ✅ 已完成 | ADR 论证三条件：现实问题=上下文随代码演进漂移、单体指令文件腐化；稳定变化点=代码演进本身；两个真实消费者=本仓库自举 + 受管项目仓库（如 C Kit 服务的 C 工程）。[ADR 0003](../decisions/0003-repo-context-domain.md)（含 descriptor 与六步准入应答） | ADR + 领域 descriptor | ADR 评审通过 | 否（走路径③，runtime-skill 先例：六模块零修改） |
 | 1 扫描 scan | ✅ 已落地 | Go 确定性扫描器（无 LLM）：目录结构、语言/工具链、顶层域 → repo facts snapshot + digest（复用 `internal/registry` 快照原语）。实现于 `internal/repocontext/scan.go` | `repo-context-facts` 事实快照 | 同一仓库两次扫描 digest 稳定（`TestScanIsDeterministic`） | 否 |
 | 2 生成 generate | ✅ 已落地 | 从 snapshot 生成每域小粒度 scoped context 文件到受管 owned 根 `.aicoding/repo-context/`；`lifecycle --scope repo-context` 复用 install/update/uninstall/status/doctor/verify。实现于 `internal/repocontext/` + `internal/lifecycle/repo_context.go` | 可按域加载的上下文文件集 + manifest | install/uninstall 往返后**用户手写文件字节不变**（`TestUninstallRemovesOnlyOwnedArtifacts`） | 否 |
 | 3 同步 sync | ✅ 已落地 | commit 驱动增量更新：`hook post-commit`（`.githooks/post-commit` 触发）读 HEAD 变更文件 → 映射受影响域 → 只写内容真正变化的文件（aspens `doc sync` 同思路）。与 docsync 分工：docsync **拦**"人写文档没跟上"，repo-context **让**"生成上下文自动跟上"。实现于 `internal/repocontext/sync.go` + `internal/cli` hook + `gitx.CommitFiles`。是 `update` 的内部增量步骤，非新动词 | 提交后上下文自动保鲜 | 改一个文件，未受影响域字节不变（`TestSyncWritesOnlyChangedDomainAndReconvergesFresh`） | 否 |

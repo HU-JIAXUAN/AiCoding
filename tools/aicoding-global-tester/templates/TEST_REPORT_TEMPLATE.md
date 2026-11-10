@@ -37,7 +37,7 @@
 
 ## Results By Category
 
-### C99_SKILL
+### C_LANGUAGE_SKILL
 
 | ID | Status | Duration | Reason |
 |---|---|---:|---|

@@ -49,7 +49,7 @@ Status: Derived View（派生视图）
 | User / IDE/UI | 人发起意图、看结果 | 不在本仓库（Codex CLI、Claude Code、IDE 插件） | — |
 | Agent Runtime | 模型读上下文、调工具 | 不在本仓库；接口是 plugin marketplace（`.agents/plugins/marketplace.json`）与运行时 skill 根 | [CODEX_KIT_ARCHITECTURE](CODEX_KIT_ARCHITECTURE.md) |
 | Context Management | 告诉 Agent"这个项目是什么、规矩是什么" | `AGENTS.md`、`.aicoding/memory/DECISIONS.md`、REPOSITORY_MAP 生成区块（源头 `config/repository-navigation.json`）、用户配置 | [02](02-context-architecture.md) |
-| Skill | 多步工作流知识，按意图触发加载 | `CodingKit/agents/skills` 子模块（权威源码）、`.agents/skills/`（RepoLocal）、C99 kit | [03](03-skill-architecture.md) |
+| Skill | 多步工作流知识，按意图触发加载 | `CodingKit/agents/skills` 子模块（权威源码）、`.agents/skills/`（RepoLocal）、C Kit | [03](03-skill-architecture.md) |
 | Workflow | 计划→执行→验证→发布的流程约定 | 计划模式（Plan Mode）specialty 工具、按需组合的开发辅助技能、正式命令流 | [04](04-workflow-architecture.md) |
 | Governance | 强制拦截：不合规的改动进不来 | `.githooks/` + `aicoding hook`、governance 五门禁、docsync、`.clang-format`、`.github/` 模板 | [05](05-governance.md) |
 | Execution | 真正动系统的动作 | `internal/gitx`（git 进程唯一出口）、`go build`、`internal/testengine`、CI workflow、clang-format；Docker 当前**不存在**，列为未来执行器（未立项） | [GIT_REUSE_BOUNDARY](GIT_REUSE_BOUNDARY.md) |
@@ -165,7 +165,7 @@ bin\aicoding.exe release verify --json                              # 7. 发布�
 | `kit list\|doctor\|verify` | 列出/诊断/验证 kit 注册表本身。 |
 | `mcp list\|status\|doctor\|verify` | MCP 组件清单与只读检查；**写操作一律走 `lifecycle --scope mcp`**。 |
 | `skill verify` | 校验技能结构完整性。 |
-| `skill c99-standard-c status\|templates\|fmt\|check\|verify` | C 代码风格套件：查状态、验模板、格式化（写）、检查（只读）、宿主验证。 |
+| `skill C语言编程规范 status\|templates\|fmt\|check\|verify` | C 代码风格套件：查状态、验模板、格式化（写）、检查（只读）、宿主验证。 |
 | `change verify` | 把变更检测、影响面选择、Receipt 检查与测试执行组合为一条 meta-tool；不引入第二工作流运行时。 |
 | `capability list\|describe\|index --write` | 从 `config/internal-capabilities.json` 查询 28 个内部能力，或只刷新 README 与 `docs/CAPABILITIES.md` 的生成索引。 |
 | `governance lint\|dependencies\|layout\|reuse\|capabilities` | 五个治理门禁：提交规范、依赖方向、目录布局、复用证据、能力孤儿与文档义务。 |

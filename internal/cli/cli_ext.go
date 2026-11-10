@@ -47,20 +47,20 @@ func runDocSync(args []string, start time.Time) (report.Result, error) {
 
 func runSkill(args []string, start time.Time) (report.Result, error) {
 	if len(args) < 1 {
-		return report.Result{}, usageErrorf("skill requires subcommand: init, verify, or c99-standard-c")
+		return report.Result{}, usageErrorf("skill requires subcommand: init, verify, or C语言编程规范")
 	}
 	sub, err := resolveCatalogSubcommandID(CommandSkill, args[0])
 	if err != nil {
 		return report.Result{}, err
 	}
 	switch sub {
-	case SubSkillC99:
+	case SubSkillCLanguage:
 		return runCStyleCommand("skill "+cstyle.DefaultSkillID, cstyle.DefaultSkillID, args[1:], start)
 	case SubSkillInit:
 		return runSkillInit(args[1:], start)
 	case SubSkillVerify:
 	default:
-		return report.Result{}, usageErrorf("skill requires subcommand: init, verify, or c99-standard-c")
+		return report.Result{}, usageErrorf("skill requires subcommand: init, verify, or C语言编程规范")
 	}
 	fs := newFlagSet("skill verify")
 	repoArg := fs.String("repo-root", "", "repository root")

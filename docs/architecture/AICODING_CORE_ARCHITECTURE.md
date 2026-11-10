@@ -341,7 +341,7 @@ refresh、rollback 和 uninstall ownership 验证。
    `go test -v ./internal/lifecycle -run '^TestAdapterCatalogIsInspectableStableAndDetached$' -count=1`
    与 `bin/aicoding.exe help`。
 3. **测试仅 Smoke/Full/Release 三档。** `internal/cli/catalog.go` 的
-   `productProfileVocabulary` 只含三值；C99 host 的快慢改由 `--depth`、Kit 管理验证改由
+   `productProfileVocabulary` 只含三值；C Kit host 的快慢改由 `--depth`、Kit 管理验证改由
    `--level` 表达，不再建立独立 profile。裁决见
    [ADR 0012](../decisions/0012-profile-vocabulary-and-subcommand-catalog.md)；门禁为
    `FREEZE-009`。`TestProductProfileVocabularyRejectsIndependentHelp` 与

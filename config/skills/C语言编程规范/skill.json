@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "id": "c99-standard-c",
-  "title": "C99 Standard C Skill",
+  "id": "C语言编程规范",
+  "title": "C语言编程规范",
   "language": "c",
   "standard": "c99",
   "formatter": {

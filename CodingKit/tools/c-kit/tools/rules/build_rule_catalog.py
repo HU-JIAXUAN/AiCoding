@@ -139,7 +139,7 @@ def specific_evidence(key: str) -> list[str]:
                   "generated-demo/demo.c:等级名称 switch",
                   "generated-demo/advanced/state_machine.c:状态 switch"],
         "11-R-1": ["examples/c-kit.json:gates.gcc/clang.flags", "scripts/verify.ps1"],
-        "11-R-2": ["examples/c-kit.json:gates", "config/skills/c99-standard-c/c-kit.schema.json"],
+        "11-R-2": ["examples/c-kit.json:gates", "config/schemas/c-kit.schema.json"],
         "12-R-3": ["generated-demo/advanced/state_machine.c:内部私有函数 assert"],
         "12-R-4": ["generated-demo/:公开入口运行时错误返回", "advanced_test.c:错误注入"],
         "12-S-1": ["generated-demo/advanced/tests/advanced_test.c:DEMO_TestFaultInjection"],
@@ -194,7 +194,7 @@ def build_document(clauses: list[dict[str, object]]) -> dict[str, object]:
     kind_counts = Counter(str(clause["kind"]) for clause in clauses)
     verification_counts = Counter(str(clause["primaryVerification"]) for clause in clauses)
     return {
-        "$schema": "../skills/c99-standard-c/huawei-c-rule-catalog.schema.json",
+        "$schema": "../schemas/huawei-c-rule-catalog.schema.json",
         "schema": "huawei-c-rule-catalog",
         "version": "1.0.0",
         "source": {

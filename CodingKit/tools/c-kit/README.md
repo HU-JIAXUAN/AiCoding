@@ -4,7 +4,7 @@
 公开高级样例、139 条规则目录、VS Code 风格 snippets、lint、可读性摘要、双编译器门禁和行为测试
 连成闭环。
 
-当前版本保持为平台无关的确定性外部工具；上层 registry 与 C99 Skill binding 负责选择性集成，
+当前版本保持为平台无关的确定性外部工具；上层 registry 与 C language Skill binding 负责选择性集成，
 本 Kit 不感知具体平台命令、产品命名空间或运行时安装位置。
 
 ## 产物

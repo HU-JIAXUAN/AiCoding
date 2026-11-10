@@ -1,4 +1,4 @@
-# AiCoding C99 Standard C skill style baseline.
+# AiCoding C语言编程规范 style baseline.
 BasedOnStyle: LLVM
 Language: Cpp
 

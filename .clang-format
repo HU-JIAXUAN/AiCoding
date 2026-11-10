@@ -1,5 +1,5 @@
-# Compatibility projection of config/skills/c99-standard-c/style/clang-format.yaml.
-# Source of truth: c99-standard-c skill style config.
+# Compatibility projection of config/skills/C语言编程规范/style/clang-format.yaml.
+# Source of truth: C语言编程规范 skill style config.
 BasedOnStyle: LLVM
 Language: Cpp
 

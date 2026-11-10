@@ -23,10 +23,10 @@ func writeFile(t *testing.T, path, content string) {
 
 func writeSkillConfig(t *testing.T, root string, style string) {
 	t.Helper()
-	writeFile(t, filepath.Join(root, "config", "skills", "c99-standard-c", "skill.json"), `{
+	writeFile(t, filepath.Join(root, "config", "skills", "C语言编程规范", "skill.json"), `{
   "schemaVersion": 1,
-  "id": "c99-standard-c",
-  "title": "C99 Standard C Skill",
+  "id": "C语言编程规范",
+  "title": "C语言编程规范",
   "language": "c",
   "standard": "c99",
   "formatter": { "id": "clang-format", "config": "style/clang-format.yaml" },
@@ -35,8 +35,8 @@ func writeSkillConfig(t *testing.T, root string, style string) {
   "excludedDirectories": ["vendor", "third_party", "generated", "Drivers", "device", "build", "out", "dist"]
 }
 `)
-	writeFile(t, filepath.Join(root, "config", "skills", "c99-standard-c", "style", "clang-format.yaml"), style)
-	writeFile(t, filepath.Join(root, "config", "skills", "c99-standard-c", "templates", "comment-templates.json"), `{
+	writeFile(t, filepath.Join(root, "config", "skills", "C语言编程规范", "style", "clang-format.yaml"), style)
+	writeFile(t, filepath.Join(root, "config", "skills", "C语言编程规范", "templates", "comment-templates.json"), `{
   "schemaVersion": 1,
   "templates": [
     {
@@ -51,7 +51,7 @@ func writeSkillConfig(t *testing.T, root string, style string) {
   ]
 }
 `)
-	writeFile(t, filepath.Join(root, "config", "skills", "c99-standard-c", "rules", "embedded-c-rules.md"), "# rules\n")
+	writeFile(t, filepath.Join(root, "config", "skills", "C语言编程规范", "rules", "embedded-c-rules.md"), "# rules\n")
 }
 
 func writeSkillKitFixture(t *testing.T, root string) {
@@ -274,7 +274,7 @@ func TestValidateTemplatesConfig(t *testing.T) {
 func TestValidateTemplatesRejectsVersionedFileHeader(t *testing.T) {
 	root := t.TempDir()
 	writeSkillConfig(t, root, "BasedOnStyle: LLVM\n")
-	writeFile(t, filepath.Join(root, "config", "skills", "c99-standard-c", "templates", "comment-templates.json"), `{
+	writeFile(t, filepath.Join(root, "config", "skills", "C语言编程规范", "templates", "comment-templates.json"), `{
   "schemaVersion": 1,
   "templates": [
     {

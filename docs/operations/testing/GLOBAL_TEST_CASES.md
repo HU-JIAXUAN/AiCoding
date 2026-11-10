@@ -27,23 +27,23 @@
 | GO-001 | 全仓 Go 单元测试 | `go test ./...` | 退出码 0 | REQUIRED |
 | GO-002 | Go race 检查 | Full/Release：`go test -race <raceScope.packages>` | 退出码 0；环境不支持 race 或历史包不兼容记 WARN；实际包集合由同一 policy 投影 | WARN |
 | GO-003 | Go vet 基础检查 | `go vet ./...` | 退出码 0 | WARN |
-| GO-004 | CLI 并发只读调用 | 并发运行 C99 status/templates/governance lint | 全部退出码 0，无 timeout | REQUIRED |
+| GO-004 | CLI 并发只读调用 | 并发运行 C 语言 status/templates/governance lint | 全部退出码 0，无 timeout | REQUIRED |
 | GO-005 | Staticcheck 静态分析 | `go run honnef.co/go/tools/cmd/staticcheck@v0.7.0 ./...` | 零 finding；失败阻断 Full/Release | REQUIRED |
 | GO-006 | Go 漏洞扫描 | `go run golang.org/x/vuln/cmd/govulncheck@v1.6.0 ./...` | 无可达漏洞；仅可识别的网络失败记 WARN | REQUIRED |
 | GO-007 | 并发包 raceScope 登记 | AST 扫描全仓 `.go` 文件，并与 `config/impact-policy.json` 对账 | goroutine、channel 或 `sync` 所在包全部登记；漏登即 Full/Release 失败 | REQUIRED |
 
-## 4. C99_SKILL：C 语言 skill 风格一致性
+## 4. C_LANGUAGE_SKILL：C 语言 skill 风格一致性
 
 | ID | 用例 | 方法 | 期望结果 | 严重级别 |
 |---|---|---|---|---|
-| C99-001 | C99 skill status | `bin/aicoding.exe skill c99-standard-c status --json` | 输出 JSON，包含 skill 状态 | REQUIRED |
-| C99-002 | 注释模板校验 | `bin/aicoding.exe skill c99-standard-c templates --json` | 模板 JSON 合法，退出码 0 | REQUIRED |
-| C99-003 | 样例路径格式检查 | `bin/aicoding.exe skill c99-standard-c check --scope paths --path testdata/style-samples/foc_sample.c --json` | 样例存在时退出码 0 | REQUIRED |
-| C99-004 | staged C/H 检查入口 | `bin/aicoding.exe skill c99-standard-c check --scope staged --json` | 退出码 0 或明确无 staged 文件 | REQUIRED |
-| C99-005 | source-of-truth 配置 | 检查 `config/skills/c99-standard-c/*` 与 `.clang-format` | 配置文件存在，投影包含关键字段 | REQUIRED |
-| C99-006 | 排除目录与自包含 Kit 边界策略 | 解析 `skill.json` 并执行 Go 回归测试 | 包含常规目录名排除项与 `CodingKit/tools/c-kit` 仓库相对路径排除项，且不误排其他 `tools` 内容 | REQUIRED |
-| C99-007 | C Kit 快速验证 | `bin/aicoding.exe skill c99-standard-c verify --json` | fast profile 成功，输出统一 JSON，且不调用固件工具链 | REQUIRED |
-| C99-008 | C Kit 资产与参考完整性 | 检查 kit manifest、黄金/高级样例、规则目录、snippets、PDF 和 Markdown 参考 | 资产存在，manifest version 为 1.2.0 | REQUIRED |
+| CSTYLE-001 | C 语言 Skill status | `bin/aicoding.exe skill C语言编程规范 status --json` | 输出 JSON，包含 skill 状态 | REQUIRED |
+| CSTYLE-002 | 注释模板校验 | `bin/aicoding.exe skill C语言编程规范 templates --json` | 模板 JSON 合法，退出码 0 | REQUIRED |
+| CSTYLE-003 | 样例路径格式检查 | `bin/aicoding.exe skill C语言编程规范 check --scope paths --path testdata/style-samples/foc_sample.c --json` | 样例存在时退出码 0 | REQUIRED |
+| CSTYLE-004 | staged C/H 检查入口 | `bin/aicoding.exe skill C语言编程规范 check --scope staged --json` | 退出码 0 或明确无 staged 文件 | REQUIRED |
+| CSTYLE-005 | source-of-truth 配置 | 检查 `config/skills/C语言编程规范/*` 与 `.clang-format` | 配置文件存在，投影包含关键字段 | REQUIRED |
+| CSTYLE-006 | 排除目录与自包含 Kit 边界策略 | 解析 `skill.json` 并执行 Go 回归测试 | 包含常规目录名排除项与 `CodingKit/tools/c-kit` 仓库相对路径排除项，且不误排其他 `tools` 内容 | REQUIRED |
+| CSTYLE-007 | C Kit 快速验证 | `bin/aicoding.exe skill C语言编程规范 verify --json` | fast profile 成功，输出统一 JSON，且不调用固件工具链 | REQUIRED |
+| CSTYLE-008 | C Kit 资产与参考完整性 | 检查 kit manifest、黄金/高级样例、规则目录、snippets、PDF 和 Markdown 参考 | 资产存在，manifest version 为 1.2.0 | REQUIRED |
 | SKILL-001 | 全部启用 Skill Smoke 验证 | `bin/aicoding.exe skill verify --all --profile Smoke --json` | 统一 Skill registry 验证通过 | REQUIRED |
 
 ## 5. DOCSYNC：文档同步
@@ -53,7 +53,7 @@
 | DOC-001 | DocSync CI | `bin/aicoding.exe docsync ci --json` | 退出码 0，JSON 合法 | REQUIRED |
 | DOC-002 | DocSync all | `bin/aicoding.exe docsync all --json` | 退出码 0，JSON 合法 | WARN |
 | DOC-003 | DocSync release | `bin/aicoding.exe docsync release --json` | 退出码 0，JSON 合法 | REQUIRED |
-| DOC-004 | 文档索引一致性 | 静态检查 README/COMMANDS/C99 文档 | README 只索引稳定 hub 文档；leaf skill 文档由 COMMANDS 与 leaf 文档自身覆盖 | REQUIRED |
+| DOC-004 | 文档索引一致性 | 静态检查 README/COMMANDS/C 语言 文档 | README 只索引稳定 hub 文档；leaf skill 文档由 COMMANDS 与 leaf 文档自身覆盖 | REQUIRED |
 
 ## 6. LIFECYCLE：外部 skill / kit 生命周期规范
 
@@ -91,7 +91,7 @@ baseline；它不进入日常 Release Registry，也不创建第二种 Receipt�
 | DOCS-002 | README 架构声明 | 静态搜索 Go CLI/lifecycle/doctor/verify/test/release | README 只展示正式产品入口 | REQUIRED |
 | DOCS-003 | COMMANDS 命令矩阵 | 检查 `docs/COMMANDS.md` | 包含正式产品命令、领域命令和一个版本兼容表 | REQUIRED |
 | DOCS-004 | 命令控制面文档 | 检查 `docs/COMMANDS.md` | 包含唯一 test engine、共享 report 和 PowerShell boundary | REQUIRED |
-| DOCS-005 | C99 skill 文档 | 检查 `docs/guides/C99_STANDARD_C_SKILL.md` | 包含配置边界、C Kit 资产边界和统一 CLI 入口 | REQUIRED |
+| DOCS-005 | C 语言 Skill 文档 | 检查 `docs/guides/C_LANGUAGE_SKILL.md` | 包含配置边界、C Kit 资产边界和统一 CLI 入口 | REQUIRED |
 | DOCS-006 | 架构图格式、命令与节点预算 | 解析 README 的 Visio light/dark SVG、其余五个 Mermaid 载体与 `internal/cli/catalog.go` | README 双主题 SVG 节点集合一致；每图节点不超过 20；图内命令来自 typed catalog | REQUIRED |
 
 ## 9. CAPABILITY：平台能力目录

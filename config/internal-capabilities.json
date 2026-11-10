@@ -91,19 +91,19 @@
     {
       "id": "c-style",
       "package": "internal/cstyle",
-      "name": "C99 Style Control",
+      "name": "C Language Style Control",
       "type": "domain-capability",
       "status": "stable",
-      "summary": "统一 C99 风格、注释、格式化与宿主验证入口。",
-      "publicEntries": ["aicoding skill c99-standard-c check","aicoding skill c99-standard-c verify"],
+      "summary": "统一 C 语言风格、注释、格式化与宿主验证入口。",
+      "publicEntries": ["aicoding skill C语言编程规范 check","aicoding skill C语言编程规范 verify"],
       "architectureDoc": "docs/architecture/C_KIT_ARCHITECTURE.md",
       "quickstart": {
-        "steps": ["aicoding skill c99-standard-c status --json","aicoding skill c99-standard-c verify --depth fast --json"]
+        "steps": ["aicoding skill C语言编程规范 status --json","aicoding skill C语言编程规范 verify --depth fast --json"]
       },
       "activation": {
         "kind": "cli-entry",
         "note": "命令已在 typed catalog，Agent 直接调用即可，无需单独 install。",
-        "agentUsage": "aicoding skill c99-standard-c status --json"
+        "agentUsage": "aicoding skill C语言编程规范 status --json"
       },
       "verification": ["go test ./internal/cstyle/..."]
     },

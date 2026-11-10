@@ -16,7 +16,7 @@ CodingKit/
 ```
 
 `tools/c-kit` 是首方 C99 生成与验证资产。它由 kit registry 管理，并通过现有
-`skill c99-standard-c` 用户入口调用；不会创建第二套顶层 formatting 命令。
+`skill C语言编程规范` 用户入口调用；不会创建第二套顶层 formatting 命令。
 
 ## VOFA 采集与命令源码资产
 
@@ -52,7 +52,7 @@ DKBA 2826-2011.5 的 PDF 和 Markdown 参考副本随该首方资产发布。
 用户保持使用统一 Go CLI 入口执行秒级快速验证：
 
 ```powershell
-bin/aicoding.exe skill c99-standard-c verify --json
+bin/aicoding.exe skill C语言编程规范 verify --json
 ```
 
 该验证仅使用主机工具链和临时测试程序，不接入或修改固件工程构建。

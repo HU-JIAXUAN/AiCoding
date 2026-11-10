@@ -100,7 +100,7 @@ bin/aicoding.exe verify --profile Smoke --json
 bin/aicoding.exe governance dependencies --json
 bin/aicoding.exe doctor pwsh --json
 bin/aicoding.exe doctor pwsh-budget --json
-bin/aicoding.exe skill c99-standard-c status --json
+bin/aicoding.exe skill C语言编程规范 status --json
 bin/aicoding.exe docsync ci --json
 bin/aicoding.exe skill verify --all --profile Smoke --json
 bin/aicoding.exe lifecycle plan --action install --scope kit --all --json

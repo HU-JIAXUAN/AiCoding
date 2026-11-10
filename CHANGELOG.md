@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **fix(skills)**: 将 C 语言 Skill 的平台 CLI、配置、schema、Taskfile、测试分类及文档统一到 `C语言编程规范`；锁定已推送并验证的 Codex-Skills `8f27fdf` 正式插件包，通过 Marketplace 刷新安装；C Kit schema 迁入通用目录，保留 C99 语言标准与历史验证记录。 / Aligns platform C Skill identities and references, pins the verified source and Release package, and refreshes the installed plugin through Marketplace.
+
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `eb51a8d`，统一MathWorks独立Skill的默认发现目录，纳入旧注册迁移、回退清单及内容保护回归。 / Pins canonical MathWorks registration, verified legacy migration, rollback records and preservation regressions.
 
 - **fix(skills)**: 将Codex-Skills依赖锁定到已推送的 `ecc77e7` 干净插件包，随包提供规则3.2/3.3/3.5命名检查器及固定解析依赖，修复Hook解释器展开、原生工具事件和锁重试；插件继续通过正式Marketplace流程刷新并保留启用状态。 / Pins the clean executable C99 checker and Hook fixes, retaining managed Marketplace refresh and enabled-state preservation.
