@@ -87,6 +87,32 @@ verify and commit Codex-Skills
 
 AiCoding must not point to uncommitted Codex-Skills files.
 
+## Private Skills CI Access
+
+`HU-JIAXUAN/Codex-Skills` is a private, read-only source dependency. Local recursive
+clones require a GitHub identity authorized to read it. The AiCoding workflow token
+is scoped to AiCoding and cannot read that private repository.
+
+CI uses the `AiCoding Actions read-only Codex-Skills` deploy key on Codex-Skills and
+stores its private half in the AiCoding Actions secret `CODEX_SKILLS_DEPLOY_KEY`.
+The deploy key must have `read_only: true`. No personal token or private key belongs
+in repository files, reports, artifacts, or logs.
+
+The workflow checks out AiCoding over HTTPS, resolves the exact Skills gitlink,
+and checks out that commit through the pinned checkout Action using SSH. It then
+initializes all recursive submodules. The checkout Action owns temporary key files
+and post-job cleanup. Its SSH command is exported for later true-clone probes;
+the URL rewrite applies only to the private Codex-Skills repository. Job-scoped
+runner Git configuration enables long paths. YAML aliases reuse the same checkout
+steps across all four jobs; the existing Full and Release commands remain authoritative.
+Fork PRs do not receive the repository secret and cannot run private-dependency tests.
+
+To rotate access, generate a dedicated key pair, register the public key as a new
+read-only Codex-Skills deploy key, update `CODEX_SKILLS_DEPLOY_KEY`, and verify a CI
+run before deleting the previous deploy key. Remove local key material after upload.
+To revoke access, remove the deploy key and the Actions secret. Neither operation
+changes the pinned source commit or repository visibility.
+
 ## Required Checks
 
 For AiCoding changes, use the Go CLI as the default control plane:

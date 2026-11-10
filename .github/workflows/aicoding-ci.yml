@@ -1,5 +1,8 @@
 name: AiCoding CI
 
+permissions:
+  contents: read
+
 on:
   pull_request:
   push:
@@ -14,10 +17,43 @@ jobs:
   smoke:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - &checkout-platform
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           fetch-depth: 0
-          submodules: recursive
+          persist-credentials: false
+
+      - &resolve-skills-pin
+        name: Resolve pinned Skills commit
+        id: skills-pin
+        shell: pwsh
+        run: |
+          $commit = git rev-parse HEAD:CodingKit/agents/skills
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          Add-Content -LiteralPath $env:GITHUB_OUTPUT -Value "commit=$commit"
+
+      - &checkout-skills
+        name: Checkout private Skills with read-only key
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: HU-JIAXUAN/Codex-Skills
+          ref: ${{ steps.skills-pin.outputs.commit }}
+          path: CodingKit/agents/skills
+          fetch-depth: 0
+          ssh-key: ${{ secrets.CODEX_SKILLS_DEPLOY_KEY }}
+
+      - &initialize-submodules
+        name: Initialize pinned recursive submodules
+        shell: pwsh
+        run: |
+          $sshCommand = git -C CodingKit/agents/skills config --get core.sshCommand
+          if ($LASTEXITCODE -ne 0) { throw 'Skills checkout did not configure SSH access' }
+          Add-Content -LiteralPath $env:GITHUB_ENV -Value "GIT_SSH_COMMAND=$sshCommand"
+          $env:GIT_SSH_COMMAND = $sshCommand
+          git config --global core.longpaths true
+          git config --global url.git@github.com:HU-JIAXUAN/Codex-Skills.git.insteadOf https://github.com/HU-JIAXUAN/Codex-Skills.git
+          git submodule update --init --recursive
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
@@ -56,10 +92,10 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          fetch-depth: 0
-          submodules: recursive
+      - *checkout-platform
+      - *resolve-skills-pin
+      - *checkout-skills
+      - *initialize-submodules
 
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
@@ -105,10 +141,10 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          fetch-depth: 0
-          submodules: recursive
+      - *checkout-platform
+      - *resolve-skills-pin
+      - *checkout-skills
+      - *initialize-submodules
 
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
@@ -138,10 +174,10 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-        with:
-          fetch-depth: 0
-          submodules: recursive
+      - *checkout-platform
+      - *resolve-skills-pin
+      - *checkout-skills
+      - *initialize-submodules
 
       - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:

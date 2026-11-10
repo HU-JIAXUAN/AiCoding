@@ -118,6 +118,8 @@ catalog。公共入口反向校验上面的 typed HelpForm；`capability list`/`
 `governance dependencies`，不另建预算表。`doctor perf --json` 对所有 fast/standard
 代表路径进程内执行 3 次取中位数；超过预算 1.5 倍报 Warn，超过 3 倍报 Fail。
 
+CI 的私有 Skills 检出使用单仓库只读 Deploy Key，并跟随 gitlink 初始化递归依赖；凭据配置与轮换见[维护流程](operations/MAINTENANCE_METHOD.md#private-skills-ci-access)。
+
 测试分工：
 
 | 入口 | 执行范围 |

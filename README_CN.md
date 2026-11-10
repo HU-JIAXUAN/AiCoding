@@ -22,6 +22,8 @@ AiCoding 是让 AI 编码工作流可验证、可复用、可审计的本地工�
 
 ## 快速开始 / Quick Start
 
+Codex-Skills 是私有依赖；本地递归 clone 需要获授权的 GitHub 身份，CI 使用单仓库只读 Deploy Key。配置与轮换见[维护流程](docs/operations/MAINTENANCE_METHOD.md#private-skills-ci-access)。
+
 在递归包含子模块的 clean clone 根目录，用 PowerShell 逐行复制这三行：
 
 ```powershell

@@ -22,6 +22,8 @@ The product is Windows-first and automation-ready, and every formal entrypoint r
 
 ## Quick Start
 
+Codex-Skills is a private dependency. Local recursive clones require an authorized GitHub identity; CI uses a read-only deploy key for that repository. See [access and rotation](docs/operations/MAINTENANCE_METHOD.md#private-skills-ci-access).
+
 From the root of a clean clone that includes submodules, copy these three PowerShell lines in order:
 
 ```powershell
