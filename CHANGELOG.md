@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **docs(motor)**: 简化 `McMotor.version` 的字段说明并保留非零约束。 / Simplifies the motor parameter version comment and retains the nonzero requirement.
+
 - **feat(matlab)**: 为25份Simulink库发布42份受保护模型，记录端口契约、固定配置、原库链接对照和SHA-256；库目录按中文功能名归档，观测器集中维护，工程文档重新分组；验证离散并联PID回算与参考模型的等效关系。 / Adds protected Simulink library distribution, documents interface contracts and verifies equivalent PID back calculation.
 
 - **fix(mcp)**: 配置清单与探针支持 Codex MCP 配置中的小数秒超时。 / Accepts fractional timeout seconds in configured MCP inventory and probes.
