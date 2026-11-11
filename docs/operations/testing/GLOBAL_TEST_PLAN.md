@@ -26,7 +26,7 @@ Smoke/Full 接受脏开发树，但脏结果不签发 Receipt。每档只执行�
 - **rollback 只读验证**：测试 profile 只运行 `lifecycle rollback --scope kit --help`，不读取或应用本地 rollback snapshot。
 - **结果可追溯**：每个用例保留原始 stdout/stderr、耗时、退出码、判定依据。
 - **证据保留有界且不毁证**：成功运行写入报告后自动保留最近 5 份，并额外保留全部 FAIL；失败或取消的运行不触发清理。validation report 只有在无 Receipt/alias 引用时才可清理。
-- **CI 失败可诊断**：GitHub Actions 的日常任务执行一次 Full，`release-gate` 执行 Release；无论结论如何均上传 `test-results/` artifact。既有 `smoke` job ID 保留，避免破坏分支检查名称。
+- **CI 触发范围**：PR 和 push 通过 `smoke` job 执行一次 Full。每周和手动触发通过 `release-gate` 执行覆盖 Full 用例的 Release，同时执行独立的 clean-clone Full 和 Doctor 性能检查。常规 Full 和 Release 各自上传 `test-results/` artifact。
 - **验证绑定内容**：成功运行可把 PASS 结论绑定到 Git Tree 与验证语义；commit message amend 不失效，tracked/untracked/submodule 脏状态 fail-closed。
 - **复用可审计**：默认使用 `--reuse auto`；ADR 0014 依据 main 远端三棵不同 Tree 的 3/3 off seed + `--verify-reuse` audit 完成独立晋级。只有完整 identity 与 Receipt/报告完整性全部通过才命中；损坏 store 非零退出，普通 miss 才真跑并发布新 Receipt。显式 off/force/audit 语义不变。
 - **节点复用是私有加速层**：整树 Receipt miss 后可按 Registry 节点复用；节点 Receipt 不进入 alias、push gate 或公共 CLI 列表，整树 Receipt 仍是唯一外部凭证。

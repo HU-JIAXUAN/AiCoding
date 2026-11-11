@@ -374,6 +374,7 @@ func TestScheduledCISeedsAndAuditsReleaseBeforeDefaultPromotion(t *testing.T) {
 		"test --profile Release --reuse off --json",
 		"test --profile Release --verify-reuse --json",
 		"three consecutive successful release-gate runs on main",
+		"  smoke:\n    if: github.event_name == 'pull_request' || github.event_name == 'push'",
 	} {
 		if !strings.Contains(workflow, required) {
 			t.Fatalf("scheduled CI is missing Release reuse promotion contract %q", required)

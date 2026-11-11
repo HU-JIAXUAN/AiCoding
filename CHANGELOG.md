@@ -6,6 +6,8 @@
 
 - **fix(mcp)**: 配置清单与探针支持 Codex MCP 配置中的小数秒超时。 / Accepts fractional timeout seconds in configured MCP inventory and probes.
 
+- **perf(ci)**: 将常规 Full 限定在 PR 和 push。每周与手动触发继续执行 Release 冷验证与复用审计、独立克隆回归和 Doctor 性能检查。 / Runs the regular Full job on PRs and pushes and keeps scheduled and manual validation coverage.
+
 - **fix(test)**: 移除自动测试中的可选 Task 可用性探针及 Release CI 的 Task 安装步骤；缺少 Task 不再产生警告，Taskfile 仍保留为可选命令短路由。 / Removes optional Task probing and CI installation so native CLI validation stays warning-free when Task is absent.
 
 - **fix(ci)**: 为私有 Codex-Skills 配置单仓库只读 Deploy Key 与 Actions Secret，按 gitlink 检出并初始化递归依赖；四个 CI job 复用同一检出步骤，保留 Full/Release 验证入口和 SSH 凭据自动清理。 / Restores private dependency checkout with repository-scoped read-only access and exact source pins.

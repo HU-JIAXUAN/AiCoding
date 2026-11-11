@@ -15,6 +15,7 @@ on:
 
 jobs:
   smoke:
+    if: github.event_name == 'pull_request' || github.event_name == 'push'
     runs-on: windows-latest
     steps:
       - &checkout-platform
