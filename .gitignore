@@ -24,6 +24,9 @@ test-results/
 /dist/
 /.task/
 
+# Keep local third-party MIT Mode reference PDFs out of the repository.
+/CodingKit/modules/matlab/simulink/model/app_models/Mit Mode/ref/*.pdf
+
 # OS/editor
 .DS_Store
 Thumbs.db

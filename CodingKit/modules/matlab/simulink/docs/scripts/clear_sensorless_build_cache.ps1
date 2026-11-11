@@ -29,7 +29,7 @@ $modelBackups = @(
     @{ Path = 'model/lib/离散并联PID/src/DiscretePIDTest.slx.r2026a'; Hash = 'f99e8375041bca74a34092092dc67bb4fe0206ea186207cfe0ce9f0d76f46064' }
     @{ Path = 'model/lib/电压前馈/src/FeedforwardTest.slx.r2026a'; Hash = '0ea7b4f4bdd2d1464e26338c954f4a66a2e311b471dd543656c4c76f1d201d41' }
     @{ Path = 'model/lib/逆变器/src/InverterTest.slx.r2026a'; Hash = '8f443476ca24e4dfb86f2f7b7f13605ae57097b975db05c5ee21e4210575188b' }
-    @{ Path = 'model/lib/运动环/src/MotionLoopTest.slx.r2026a'; Hash = 'fb361b47416de8b89a1bfe9c67463a2fb309dc766414a6ee04cbaeebcf8a4e18' }
+    @{ Path = 'model/lib/速度环与位置环/src/MotionLoopTest.slx.r2026a'; Hash = 'fb361b47416de8b89a1bfe9c67463a2fb309dc766414a6ee04cbaeebcf8a4e18' }
     @{ Path = 'model/lib/永磁同步电机/src/PMSMPlantTest.slx.r2026a'; Hash = '2e47514470555f39c81c350b29f82503da3aa1aa8a56a1c3f9c2abe0b81711e7' }
     @{ Path = 'model/lib/采样执行时序/src/TimingTest.slx.r2026a'; Hash = '4393d726cae2a20c98abf44708d289e41f99fdc3973e1100d1872c67f945182f' }
     @{ Path = 'model/app_models/Sensor/experiment/src/MotorExperiment.slx.r2026a'; Hash = 'ffb17ce844a0e7ba7182687eaea0c61264e2639cc680c16548eafee26200577c' }

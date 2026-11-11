@@ -5,12 +5,12 @@
 | 模块 | 内容 |
 |---|---|
 | [离散并联PID](离散并联PID/README.md) | 离散PID/PI |
-| [math](math/README.md) | Clarke/Park正逆变换、同坐标电流参考混合BlendDQ |
+| [math](math/README.md) | Clarke/Park 正反变换、BlendDQ、七段式与五段式 SVPWM |
 | [永磁同步电机](永磁同步电机/README.md) | 线性PMSM及高频/饱和物理对象；新增14项MIL，支持凸极、极性脉冲和实际位移测试；另有桥耦合库/Test，15项模型与18组纯M检查区分关断、整流与短路 |
 | [电流环](电流环/README.md) | 普通/坐标跟踪电流PI与电压限制；新PI 10项独立MIL、旧电流环6项回归 |
 | [逆变器](逆变器/README.md) | SVPWM与平均逆变器 |
 | [采样执行时序](采样执行时序/README.md) | 采样保持与执行延迟 |
-| [运动环](运动环/README.md) | 速度PI、位置P、限幅及带复位的离散速度给定 |
+| [速度环与位置环](速度环与位置环/README.md) | 速度PI、位置P、限幅及带复位的离散速度给定 |
 | [电压前馈](电压前馈/README.md) | dq解耦与反电势前馈 |
 | [死区补偿](死区补偿/README.md) | 死区误差与补偿 |
 | [MTPA弱磁](MTPA弱磁/README.md) | MTPA、弱磁和统一分配 |

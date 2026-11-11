@@ -13,4 +13,8 @@ App先按是否使用转子位置反馈分类，再在分类目录下按功能�
 
 各功能App保留README、src、parameter、build_process、waveform_analysis和ref，模型放src。App模型本身用于运行，名称不带Test后缀；模块独立验证模型留在lib并以Test结尾。公共初始化与测试入口在[docs/scripts](../../docs/scripts/README.md)。
 
+## 关节驱动应用
+
+[单关节 MIT Mode](<Mit Mode/README.md>) 使用位置和速度反馈，提供 MIT 五参数与位置／速度控制支路。两条支路在同一个 FOC 电流环入口选择。
+
 [返回model](../README.md)

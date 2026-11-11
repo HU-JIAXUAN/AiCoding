@@ -2,7 +2,7 @@ function initialize_hfi_foc(model)
 %INITIALIZE_HFI_FOC Load this App's configurations without clearing user state.
 module=fileparts(fileparts(mfilename('fullpath')));lib=fullfile(module,'..','..','..','lib');
 addpath(fullfile(module,'src'),fullfile(module,'parameter'));
-for dependency={'观测器/高频注入','相位跟踪','永磁同步电机','math','电流环','逆变器','运动环','MTPA弱磁','电压前馈'}
+for dependency={'观测器/高频注入','相位跟踪','永磁同步电机','math','电流环','逆变器','速度环与位置环','MTPA弱磁','电压前馈'}
     addpath(fullfile(lib,dependency{1},'src'),fullfile(lib,dependency{1},'parameter'));
 end
 p=hfi_foc_app_parameters();workspace=get_param(model,'ModelWorkspace');

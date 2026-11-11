@@ -1,6 +1,8 @@
 # 受保护模型发布接口
 
-本工程的 25 份库 SLX 已覆盖，共 42 份可引用的 `.slxp`。每份文件固定本次发布的参数、采样和数据类型。`SLX` 源库及 Test 供工程内部维护，`SLXP` 可单独交给接收方。当前发布配置为 **R2026b Update 1、Windows x64、Simulation**，使用 MinGW64 仿真目标，未启用只读模型视图。目标代码发布按芯片和工具链另建配置。
+本工程的 29 份库 SLX 已覆盖，共 44 份可引用的 `.slxp`。每份文件固定本次发布的参数、采样和数据类型。`SLX` 源库及 Test 供工程内部维护，`SLXP` 可单独交给接收方。当前发布配置为 **R2026b Update 1、Windows x64、Simulation**，使用 MinGW64 仿真目标，未启用只读模型视图。目标代码发布按芯片和工具链另建配置。
+
+Clarke/Park 的四份变换包随对应源库分目录存放。发布契约记录原构建源哈希，并用 `implementation` 字段标明当前实现及其哈希。
 
 ## 接收和接入
 
@@ -14,10 +16,10 @@
 | --- | --- | ---: | ---: |
 | `AngleTracking/PLL` | [AngleTrackingProtected.slxp](../../model/lib/相位跟踪/src/AngleTrackingProtected.slxp) | 4 / 6 | 0 |
 | `ClarkePark/BlendDQ` | [ClarkePark_BlendDQProtected.slxp](../../model/lib/math/src/ClarkePark_BlendDQProtected.slxp) | 7 / 1 | 0 |
-| `ClarkePark/Clarke` | [ClarkePark_ClarkeProtected.slxp](../../model/lib/math/src/ClarkePark_ClarkeProtected.slxp) | 3 / 3 | 0 |
-| `ClarkePark/InverseClarke` | [ClarkePark_InverseClarkeProtected.slxp](../../model/lib/math/src/ClarkePark_InverseClarkeProtected.slxp) | 3 / 3 | 0 |
-| `ClarkePark/InversePark` | [ClarkePark_InverseParkProtected.slxp](../../model/lib/math/src/ClarkePark_InverseParkProtected.slxp) | 3 / 2 | 0 |
-| `ClarkePark/Park` | [ClarkePark_ParkProtected.slxp](../../model/lib/math/src/ClarkePark_ParkProtected.slxp) | 3 / 2 | 0 |
+| `ClarkePark/Clarke` | [ClarkePark_ClarkeProtected.slxp](../../model/lib/math/src/clarke/ClarkePark_ClarkeProtected.slxp) | 3 / 3 | 0 |
+| `ClarkePark/InverseClarke` | [ClarkePark_InverseClarkeProtected.slxp](../../model/lib/math/src/clarke/ClarkePark_InverseClarkeProtected.slxp) | 3 / 3 | 0 |
+| `ClarkePark/InversePark` | [ClarkePark_InverseParkProtected.slxp](../../model/lib/math/src/park/ClarkePark_InverseParkProtected.slxp) | 3 / 2 | 0 |
+| `ClarkePark/Park` | [ClarkePark_ParkProtected.slxp](../../model/lib/math/src/park/ClarkePark_ParkProtected.slxp) | 3 / 2 | 0 |
 | `ControlTiming/Actuation` | [ControlTiming_ActuationProtected.slxp](../../model/lib/采样执行时序/src/ControlTiming_ActuationProtected.slxp) | 1 / 2 | 0 |
 | `ControlTiming/Feedback` | [ControlTiming_FeedbackProtected.slxp](../../model/lib/采样执行时序/src/ControlTiming_FeedbackProtected.slxp) | 1 / 2 | 0 |
 | `CurrentControl/FrameTrackingPI` | [CurrentControl_FrameTrackingPIProtected.slxp](../../model/lib/电流环/src/CurrentControl_FrameTrackingPIProtected.slxp) | 7 / 3 | 0 |
@@ -38,9 +40,9 @@
 | `HighFrequencyObserver/SaliencyProbe` | [HighFrequencyObserver_SaliencyProbeProtected.slxp](../../model/lib/观测器/高频注入/src/HighFrequencyObserver_SaliencyProbeProtected.slxp) | 6 / 16 | 5.68e-13 |
 | `Inverter/Average` | [Inverter_AverageProtected.slxp](../../model/lib/逆变器/src/Inverter_AverageProtected.slxp) | 3 / 3 | 0 |
 | `Inverter/SVPWM` | [Inverter_SVPWMProtected.slxp](../../model/lib/逆变器/src/Inverter_SVPWMProtected.slxp) | 2 / 4 | 0 |
-| `MotionControl/Position` | [MotionControl_PositionProtected.slxp](../../model/lib/运动环/src/MotionControl_PositionProtected.slxp) | 3 / 1 | 0 |
-| `MotionControl/Speed` | [MotionControl_SpeedProtected.slxp](../../model/lib/运动环/src/MotionControl_SpeedProtected.slxp) | 4 / 3 | 0 |
-| `MotionControl/SpeedProfile` | [MotionControl_SpeedProfileProtected.slxp](../../model/lib/运动环/src/MotionControl_SpeedProfileProtected.slxp) | 3 / 2 | 0 |
+| `MotionControl/Position` | [MotionControl_PositionProtected.slxp](../../model/lib/速度环与位置环/src/MotionControl_PositionProtected.slxp) | 3 / 1 | 0 |
+| `MotionControl/Speed` | [MotionControl_SpeedProtected.slxp](../../model/lib/速度环与位置环/src/MotionControl_SpeedProtected.slxp) | 4 / 3 | 0 |
+| `MotionControl/SpeedProfile` | [MotionControl_SpeedProfileProtected.slxp](../../model/lib/速度环与位置环/src/MotionControl_SpeedProfileProtected.slxp) | 3 / 2 | 0 |
 | `MrasObserver/CurrentModelMRAS` | [MrasObserverProtected.slxp](../../model/lib/观测器/模型参考自适应/src/MrasObserverProtected.slxp) | 7 / 16 | 0 |
 | `OpenLoopDrive/Reference` | [OpenLoopDriveProtected.slxp](../../model/lib/无感启动/src/OpenLoopDriveProtected.slxp) | 6 / 8 | 0 |
 | `PMSMBridgeBusPlant/BridgeBusMotor` | [PMSMBridgeBusPlantProtected.slxp](../../model/lib/永磁同步电机/src/PMSMBridgeBusPlantProtected.slxp) | 4 / 16 | 0 |
@@ -53,6 +55,8 @@
 | `SensorlessStartup/Startup` | [SensorlessStartupProtected.slxp](../../model/lib/无感启动/src/SensorlessStartupProtected.slxp) | 4 / 8 | 0 |
 | `SigmoidSlidingModeObserver/SigmoidSMO` | [SigmoidSlidingModeObserverProtected.slxp](../../model/lib/观测器/滑模/src/SigmoidSlidingModeObserverProtected.slxp) | 7 / 14 | 0 |
 | `SlidingModeObserver/SMO` | [SlidingModeObserverProtected.slxp](../../model/lib/观测器/滑模/src/SlidingModeObserverProtected.slxp) | 7 / 12 | 0 |
+| `SvpwmFiveSegment/SVPWM` | [SvpwmFiveSegmentProtected.slxp](../../model/lib/math/src/svpwm/five_segment/SvpwmFiveSegmentProtected.slxp) | 3 / 4 | 0 |
+| `SvpwmSevenSegment/SVPWM` | [SvpwmSevenSegmentProtected.slxp](../../model/lib/math/src/svpwm/seven_segment/SvpwmSevenSegmentProtected.slxp) | 3 / 4 | 0 |
 | `UkfObserver/UKF` | [UkfObserverProtected.slxp](../../model/lib/观测器/无迹卡尔曼/src/UkfObserverProtected.slxp) | 7 / 25 | 0 |
 
 以下子系统暂随源库或上层组合维护，没有单独的受保护发布入口。

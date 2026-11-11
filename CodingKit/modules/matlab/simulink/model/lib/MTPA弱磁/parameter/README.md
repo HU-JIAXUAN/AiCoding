@@ -48,7 +48,7 @@
 | experimentCfg.Step | 0.000005 | s | [experiment_parameters.m](../../../app_models/Sensor/experiment/parameter/experiment_parameters.m)，整机ode4步长 |
 | experimentCfg.Mode / SpeedReference / SpeedInitial | 1 / 218 / 0 | 1 / rad/s / rad/s | 新整机默认覆盖在[reference_case_parameters.m](reference_case_parameters.m) |
 | experimentCfg.CommandTime / LoadTorque / LoadTime | 0.05 / 0.05 / 0 | s / N·m / s | 同上；默认整机时长2s |
-| motionCfg.SpeedLimit / AccelerationLimit | 260 / 200 | rad/s / rad/s² | 新整机速度限幅覆盖260；其余复用[motion_parameters.m](../../运动环/parameter/motion_parameters.m) |
+| motionCfg.SpeedLimit / AccelerationLimit | 260 / 200 | rad/s / rad/s² | 新整机速度限幅覆盖260；其余复用[motion_parameters.m](../../速度环与位置环/parameter/motion_parameters.m) |
 | feedforwardCfg.Enable | 1 | 1 | 新整机启用dq前馈；[feedforward_parameters.m](../../电压前馈/parameter/feedforward_parameters.m) |
 | deadtimeCfg | 沿用原默认 | SI | [deadtime_parameters.m](../../死区补偿/parameter/deadtime_parameters.m)；本批未另改死区开关 |
 | refTestCfg.Duration / TorqueReference / TorqueInitial | 0.25 / 0.2 / 0 | s / N·m / N·m | [reference_test_parameters.m](reference_test_parameters.m)；整机mode0时用TorqueReference/Initial |

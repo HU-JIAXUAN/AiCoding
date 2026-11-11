@@ -1,6 +1,6 @@
 function records=index_protected_library_interfaces(root,work)
 % Index library exports and model instances without changing source diagrams.
-libs=dir(fullfile(root,'model','lib','**','src','*.slx'));
+libs=list_motor_library_models(fullfile(root,'model'));
 records=struct('library',{},'source',{},'block',{},'inputs',{},'outputs',{},'candidates',{});
 for j=1:numel(libs)
     f=fullfile(libs(j).folder,libs(j).name);

@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
+- **feat(matlab)**: 新增五参数 MIT Mode 单关节仿真与五段式、七段式 SVPWM 库；拆分 Clarke/Park 源库并保留兼容入口，同步速度环与位置环路径及受保护模型索引。 / Adds joint MIT Mode and both SVPWM variants, and reorganizes the transform and motion libraries.
+
 - **docs(motor)**: 简化 `McMotor.version` 的字段说明并保留非零约束。 / Simplifies the motor parameter version comment and retains the nonzero requirement.
 
 - **feat(matlab)**: 为25份Simulink库发布42份受保护模型，记录端口契约、固定配置、原库链接对照和SHA-256；库目录按中文功能名归档，观测器集中维护，工程文档重新分组；验证离散并联PID回算与参考模型的等效关系。 / Adds protected Simulink library distribution, documents interface contracts and verifies equivalent PID back calculation.
+
+- **feat(matlab)**: 新增凸极无位置SensorlessFieldWeakeningFOC App，EEMF、MTPA/弱磁、SVPWM和物理桥共用真实母线，低EMF互锁处理旋转复位/禁能/方向事件；7项核心＋9项边界检查含2项明确反例。新增17份本地M、29组Scope、六组日志、运行/波形/LaTeX推导；M重建及正式路径默认六组逐点一致，原359份M/SLX保持未变。总计26个功能模块/72份工程模型；MRAS/EKF/UKF/sigmoid物理App共40项通过，代表性MRAS状态更新double/single MEX与double SIL通过，完整App SIL/C2000未执行。目录统一simulink与app_models，本地参数M、两份公式docs、符号/SI映射、路径及清理脚本同步。 / Adds reproducible salient sensorless field weakening with physical bus, restart interlock, 16 checks and exact formal replay.
 
 - **fix(mcp)**: 配置清单与探针支持 Codex MCP 配置中的小数秒超时。 / Accepts fractional timeout seconds in configured MCP inventory and probes.
 
@@ -18,9 +22,67 @@
 
 - **fix(skills)**: 将 C 语言 Skill 的平台 CLI、配置、schema、Taskfile、测试分类及文档统一到 `C语言编程规范`；锁定已推送并验证的 Codex-Skills `8f27fdf` 正式插件包，通过 Marketplace 刷新安装；C Kit schema 迁入通用目录，保留 C99 语言标准与历史验证记录。 / Aligns platform C Skill identities and references, pins the verified source and Release package, and refreshes the installed plugin through Marketplace.
 
+- **docs(matlab)**: 将主参考书符号表写入UserDocs，采用用户修订的最新稿并逐字节核对；rules第13节将其设为工程符号依据，README/索引同步，程序标识和工程单位在模块parameter中映射。 / Establishes the user-maintained symbol table as the project's notation reference.
+
+- **feat(matlab)**: 新增FlyingFluxFOC物理带速App，关断观察磁链、准备电流PI积分后同向接通PWM；13项物理MIL与8组纯M通过，含正反转、旋转中复位/禁能再捕获、失锁续流、明确拒绝及高速被动整流。保存13份本地M、8处共享链接、7组Scope和34/19/29列日志，当前M重建/正式路径默认逐值一致，331份原M/SLX保持不变；SIL与目标验证继续。 / Adds physical flying capture with explicit refusal and passive rectification evidence.
+
+- **feat(matlab)**: 在pmsm_plant增加桥耦合PMSM库/Test，区分平均PWM、全门极关断二极管与主动短路；15项模型检查及18组纯M通过，包含480点独立电路条件核对、能量恒等式和步长收敛。保存13个本地M入口、7组Scope/33列、三组波形与LaTeX推导，当前M源重建/正式路径默认逐值一致，311份原M/SLX保持不变。区间等效电压与当前电流分开记录，旧App关断及带速捕获尚未接入；补正App文档规定字段。 / Adds a reproducible PMSM/bridge plant with passive rectification, 15 model checks and 18 numerical checks as a foundation for physical flying capture.
+
+- **feat(matlab)**: sensorless_foc新增EEMF/Flux两份无位置闭环App，各8项SPMSM物理MIL；共用启动、控制和执行链，分别维护电流残差与磁链幅值等效残差。补齐本地M参数、5组Observer Scope、过程/运行/波形和LaTeX推导，当前M源重建及正式目录默认四组日志逐值一致，301份原M/SLX来源保持不变。失效场景明确仅验证控制退出，保留0V平均模型故障后约15.89A电流的限制；凸极组合、SIL和C2000验证继续。 / Adds reproducible EEMF and flux sensorless FOC applications with 16 physical MIL scenarios and explicit power-stage shutdown limits.
+
+- **feat(matlab)**: 在observer_smo并列新增sigmoid库/Test、本地M参数和6组Scope；22项MIL包含11正常、10拒绝/故障及1项原10mA噪声资格限制，门限不放宽，另有10项纯M、实例隔离和6次匹配对照。独立M源重建与正式目录默认24列一致，旧基础模型不变，保存3组波形和31份源/产物校验值；补齐当前25个lib/App功能模块的两份docs及LaTeX推导，覆盖60份模型。 / Adds a paired sigmoid SMO library and validation model with explicit noise limits, reproducible parameters and complete derivations for all current functional modules.
+
+- **feat(matlab)**: 新增可复用四状态UKF及Test模型，通过共享校正链接和9点/圆周统计完成29项独立MIL、21项数值、实例隔离及25同输入对照；M源重建与正式路径50列一致，保存参数M、10组Scope和4组波形。记录本机公开参考对象的中央权重差异，以公开公式和闭式矩核对；新增模块docs/README及LaTeX公式推导，并补齐当前25个lib/App功能模块的原理、公式、状态和参数对应，模块docs只保留README与公式推导两份Markdown。 / Adds a reproducible UKF, numerical and MIL evidence, shared correction, and module-level LaTeX derivation documentation.
+
+- **chore(matlab)**: 固定lib库模型无Test后缀、验证模型以Test结尾、App无Test的命名规则，允许按功能保留多组；MTPA/FW App更名MTPAFWMotor，端口/代码生成验证更名CurrentPIProbeTest。两处默认记录输出逐点一致，原28个lib Test文件保持字节一致，入口、通道说明、链接和统计同步；保存原始验证指纹及独立命名变更记录。 / Aligns library, validation and application model names with exact numerical replay and synchronized references.
+
+- **feat(matlab)**: 按主参考书12.4实现四状态SPMSM EKF及共用过程/测量M函数，25项独立MIL、完整P、合成相反速度分支及并行实例检查通过；M源重建和正式路径默认50列一致。补齐本地参数、10组Scope及搭建/运行/波形资料，窗口用后关闭。 / Adds a reusable four-state EKF with 25 MIL scenarios, shared process equations and reproducible configuration and covariance evidence.
+
+- **feat(matlab)**: 按主要参考书12.2.2新增SPMSM一步电流模型MRAS库和测试台，24项独立MIL及并行实例检查通过；动态复核将PI设计频率20→30 Hz并补入加速段持续资格断言，保留前后数据。补齐21状态、16输出/26列、8组Scope、本地M参数、搭建/运行及波形资料，重新搭建与正式路径默认输出逐点相同，窗口用后关闭。 / Adds a reusable current-model MRAS with 24 independent MIL scenarios, isolated concurrent instances and reproducible local configuration and waveform documentation.
+
+- **feat(matlab)**: 新增HFI↔EEMF物理混合FOC装配，18项MIL通过，覆盖双向资格、π分支重接、注入撤除/恢复、跨零反转、缺样及锁存退出；在保留窗口和门限的条件下修正重启速度超调。补齐本地M参数、12份日志/15组Scope、搭建与运行说明、五组波形，重新组装及正式目录默认工况核对通过，旧启动/低速FOC及融合库证据未变。 / Adds physical HFI/EEMF hybrid control with 18 MIL scenarios, reproducible assembly and complete local configuration and waveform documentation.
+
+- **feat(matlab)**: 在切换lib追加HFI↔基波双向位置融合积木及独立测试台，30项MIL通过，覆盖π分支重接、注入迟滞、缺样/突跳和故障复位；原单向接管19项在重新搭建及正式目录逐点回放一致。补齐模块M参数、20状态/27列与6组Scope、波形和操作说明，模型/图窗用后关闭；物理融合App继续实施。 / Adds qualified two-tracker fusion with 30 standalone MIL scenarios and exact replay of 19 legacy handover traces, including local parameters and complete model documentation.
+
+- **feat(matlab)**: 新增HFI低速FOC装配及24项物理MIL；共用可复位SpeedProfile新增8项测试，原运动环3项在B回归通过。修正半执行电压下的回算残差与禁能重启给定状态，保存M参数、9组Scope/9份50 μs日志、修正前后数据、搭建与运行说明；空白重建及正式路径默认结果一致，结束后关闭本工程模型/图窗。 / Adds HFI low-speed FOC with 24 physical MIL cases and a resettable shared speed profile with eight tests, verifying rebuilds and three legacy motion regressions.
+
+- **feat(matlab)**: 接入HFI实测平均逆电感，完成双脉冲极性lib与位置启动App；轴线30项及组合22项物理MIL通过，原24项前37列完全一致。保存M参数、实际伏秒/峰值与9组App Scope、6份日志及操作/波形说明，批量模型后台运行后关闭。 / Adds calibrated HFI and measured-dose polarity startup with 30 axis and 22 physical integration MIL cases.
+
+- **feat(matlab)**: 新增正交增量逆电感探针及27项物理MIL，独立拒绝圆转子/低激励/采样错配，记录快照和交叉电感边界；补齐参数M文件与7组Scope。同步限制Agent模型窗口，保存关闭已完成窗口并清理新增的哈希匹配版本备份。 / Adds measured-tensor saliency qualification with 27 physical MIL cases and keeps completed Simulink windows closed.
+
+- **feat(matlab)**: 按主参考书实现HFI轴线库、物理测试台和24项正式路径MIL，补双角向量低通、ADC开关对照、采样年龄/实际电压及π歧义和参数失配反例；物理PMSM测量改为状态输出并重跑14项回归，维护本模块M参数、9组Scope及操作/波形文档。 / Adds a book-guided HFI axis library with 24 physical-response MIL cases and verifies causal plant sensor outputs in 14 regressions.
+
+- **feat(matlab)**: 在pmsm_plant补充高频/饱和物理PMSM库与独立测试台，按磁链Jacobian统一电压、电流和转矩；R2026b正式路径14项MIL及51个工作点检查通过，保存参数M文件、6组Scope、13列日志和自由位移结果，供后续HFI/极性辨识使用。 / Adds a nonlinear physical PMSM foundation for HFI with 14 MIL scenarios and module-local parameter and waveform documentation.
+
+- **feat(matlab)**: 按本地《永磁同步电机无位置传感器控制》核对关键方程与组合流程，新增章节/页码到lib/App的设计对应表及模块引用；完成SPMSM磁链库、独立测试台和24项MIL，保存积分初值、漂移与滤波相位反例、参数M文件、7组Scope及操作记录。 / Maps the primary sensorless-control book to reusable observers and application composition, and verifies a flux observer with 24 MIL scenarios.
+
+- **feat(matlab)**: 新增线性反电势/EEMF复用库与两个独立测试台，正式路径32项MIL通过，保存四状态方程、参数M文件、6组Scope/22列及波形；参数整理后的95项原有回归全部通过，MotorExperiment本地参数组合与默认运行核对通过。 / Adds SPMSM/IPMSM EMF observers with 32 MIL scenarios and verifies the existing 95 scenarios after parameter-interface updates.
+
+- **feat(matlab)**: 新增SensorlessFOC装配，复用lib完成SPMSM无位置速度闭环及8项PMSM MIL，保存参数、搭建方法、16组Scope和四组日志；补齐已有模块的默认工况M文件及MTPA/FW App参数入口，13个测试台重新加载/默认运行核对通过。清理9个本次生成且哈希匹配的旧格式自动备份。 / Adds observer-controlled FOC with eight MIL scenarios and executable module-local parameter interfaces verified by thirteen default bench runs.
+
+- **feat(matlab)**: math共用库增加同坐标参考混合BlendDQ及src内测试模型，两个场景/513向量通过，原13项变换回归通过；补齐输入输出、参数、Scope和物理向量对照。 / Adds shared frame-aware reference blending with compiled vector validation and transform regression.
+
+- **feat(matlab)**: 新增Sensor/observer_compare装配，通过SMO/PLL库链接完成8项PMSM MIL，保存28列观测与52列控制数据、参数/Scope和波形。逐点核对反馈年龄；观测器Rs变化及禁能/复位不影响原控制输出。 / Adds a sensor-controlled observer comparison with aligned physical samples and independent observer verification.
+
+- **feat(matlab)**: 电流库新增坐标跟踪PI与独立测试台，显式保存I/E/P/FF并保留切换期间比例响应，10项MIL及原电流环6项回归通过；补齐模块内搭建、参数/Scope和波形资料。复查R2026a目录、exe与卸载登记均不存在。 / Adds coordinate-aware PI state transfer with standalone verification and confirms removal of the old installation.
+
+- **feat(matlab)**: 新增R2026b无位置启动与切换复用库及独立测试台，4个SLX均在模块src；完成10+19项MIL，记录软件场角、持续资格、平滑包角、失效预测和锁存退出，保存参数、Scope、原始波形和操作方法。电机闭环与PI状态衔接继续实施。 / Adds reusable startup and handover models with 29 standalone MIL scenarios and complete module records.
+
+- **chore(matlab)**: 在R2026b完成原清单47项产品安装、121项基线MIL及Skill/MCP检查；完成R2026a官方卸载并登记残留，B补齐Simulink Coder和MinGW14.2，CurrentPIProbe已生成GRT/C源码。PLL新增实例配置Mask与3项隔离验证，原PLL12/SMO14项重跑通过；尚未执行SIL或目标验证。 / Validates R2026b tooling, removes the old release, generates probe C source and verifies independent PLL instances.
+
+- **feat(matlab)**: 在simulink的model/lib增加R2026b相位PLL与基础SPMSM滑模观测器，4个源/测试SLX、26项独立MIL及模块级参数、过程、Scope和波形资料；同步建设计划和R2026b环境安装/MCP切换记录。 / Adds reusable R2026b PLL and SPMSM SMO libraries with standalone MIL evidence and module documentation.
+
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `eb51a8d`，统一MathWorks独立Skill的默认发现目录，纳入旧注册迁移、回退清单及内容保护回归。 / Pins canonical MathWorks registration, verified legacy migration, rollback records and preservation regressions.
 
+- **docs(matlab)**: 补充无位置传感器观测器lib与App建设计划，明确SMO、EMF/EEMF、磁链、HFI及MRAS/EKF/UKF的分批顺序和共用边界；仅维护计划与索引，未创建模型。 / Plans reusable sensorless observer libraries and staged application validation without creating model placeholders.
+
 - **fix(skills)**: 将Codex-Skills依赖锁定到已推送的 `ecc77e7` 干净插件包，随包提供规则3.2/3.3/3.5命名检查器及固定解析依赖，修复Hook解释器展开、原生工具事件和锁重试；插件继续通过正式Marketplace流程刷新并保留启用状态。 / Pins the clean executable C99 checker and Hook fixes, retaining managed Marketplace refresh and enabled-state preservation.
+
+- **refactor(matlab)**: 按转子位置反馈将现有整机App归入Sensor，Sensorless作为后续估算角度/速度App入口；保留共用lib并同步加载回调、验证脚本和文档链接。 / Organizes assembled models by rotor-position feedback while retaining shared libraries.
+
+- **refactor(matlab)**: 将复用积木及组件测试归model/lib，两个整机算法归model/app_models；迁移公共测试脚本并同步回调、README和运行示例，完成24个模型加载与14个仿真入口验证。 / Separates reusable Simulink modules from assembled applications and validates relocated entry points.
+
+- **feat(matlab)**: 在 simulink 的 model/lib/mtpa_fw及model/app_models/Sensor/mtpa_fw增加MTPA、有界积分弱磁与转矩PI整机入口，模型统一放src；补齐搭建、参数/Scope、运行和25项MIL波形资料，保留原06–14模型行为。 / Adds modular MTPA and field weakening models with reproducible MIL evidence and usage documentation.
 
 - **fix(skills)**: 将Codex-Skills锁定到已推送的 `0982c6b` 正式插件包，收录68条原编号强制规则，移除旧编号及兼容锚点，修正全局/静态对象命名、规则加载与缩进；纳入边界迁移和测试隔离验收，安装更新继续通过正式Marketplace流程。 / Pins the verified rules and architecture corrections with original identities, enforced naming/routing, and boundary acceptance; refreshes remain managed through Marketplace.
 

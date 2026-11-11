@@ -1,14 +1,14 @@
 {
   "status": "passed",
   "date": "2026-11-11",
-  "scope": "Current 28 functional lib/App modules; native reads include 72 prior and 4 current model artifacts",
+  "scope": "Current 28 functional lib/App modules with the Clarke/Park split and both SVPWM implementations",
   "functional_modules": 28,
   "formula_documents": 28,
-  "library_models": 25,
-  "verification_models": 34,
+  "library_models": 29,
+  "verification_models": 35,
   "App_models": 17,
   "LaTeX_delimiters_and_environments_checked": true,
-  "R2026b_native_models_read": 76,
+  "R2026b_native_models_read": 81,
   "native_model_editors_open": 0,
   "implementation_mapping_review": "Read M sources, builders, build records and R2026b library root exports; bridge/PMSM, runtime-bus bridge, flying-capture and salient sensorless field-weakening Apps have separate validation evidence",
   "external_reference_models": [
@@ -1006,18 +1006,53 @@
           "name": "FrameBlendTest.slx",
           "type": "model",
           "root_blocks": []
+        },
+        {
+          "name": "ClarkeTransforms.slx",
+          "type": "library",
+          "root_blocks": [
+            "Clarke",
+            "InverseClarke"
+          ]
+        },
+        {
+          "name": "ParkTransforms.slx",
+          "type": "library",
+          "root_blocks": [
+            "InversePark",
+            "Park"
+          ]
+        },
+        {
+          "name": "SvpwmFiveSegment.slx",
+          "type": "library",
+          "root_blocks": [
+            "SVPWM"
+          ]
+        },
+        {
+          "name": "SvpwmSevenSegment.slx",
+          "type": "library",
+          "root_blocks": [
+            "SVPWM"
+          ]
+        },
+        {
+          "name": "SvpwmComparisonTest.slx",
+          "type": "model",
+          "root_blocks": []
         }
       ],
-      "formula_lines": 61,
-      "display_delimiters": 10,
+      "formula_lines": 79,
+      "display_delimiters": 14,
       "documents": [
         {
           "path": "model/lib/math/docs/README.md",
-          "sha256": "BD9F6DB2480414225FEAE4FB7F2E5447368BC796A4CE2158064430956856D44E"
+          "sha256": "7BA6C182585FA6DF590EB13C8FDFC86E4A852DAFBCD9DE4C2C630CC8850B50AA"
         },
         {
           "path": "model/lib/math/docs/公式推导.md",
-          "sha256": "63C0314AE8014A1C16CA66F2024D2A97D5229BD18FC1C3780EDE5C7FAD7FAF32"
+          "sha256": "E0C8266FAE05467A83C30AD63A670475504ED250390866639502CE176926415C"
         }
       ],
       "implementation_sources": [
@@ -1027,7 +1062,7 @@
         },
         {
           "path": "model/lib/math/src/ClarkePark.slx",
-          "sha256": "169711DEDE75442375594E233D359985F8C9A86DB80B7F35E502BBC5E1225909"
+          "sha256": "26D2CDABDDF8038BFDC346EF919E69F5071B1328BF183A927CD9FCE0D9C3CFDF"
         },
         {
           "path": "model/lib/math/src/ClarkeParkTest.slx",
@@ -1056,11 +1091,43 @@
         {
           "path": "model/lib/math/build_process/initialize_frame_blend_test.m",
           "sha256": "DE5014430CBBE96F6FDDD83C37E459A584E276E0F050569371A3AD453A678D18"
+        },
+        {
+          "path": "model/lib/math/src/clarke/ClarkeTransforms.slx",
+          "sha256": "8D0829155A03BB6DAD1B56C93F1E76EB91FBEDE493644F4E5B64C2F3A74C0B20"
+        },
+        {
+          "path": "model/lib/math/src/park/ParkTransforms.slx",
+          "sha256": "5FAE25EF268D496330CC98E3CCE469AAECE3439AECF960CD0A118EA17E5EC7F3"
+        },
+        {
+          "path": "model/lib/math/src/svpwm/five_segment/SvpwmFiveSegment.slx",
+          "sha256": "4D4FC6683B8ABE83777A798084CDB80129C7CC8F6D8E4B71AD842CF8D7E8E27A"
+        },
+        {
+          "path": "model/lib/math/src/svpwm/seven_segment/SvpwmSevenSegment.slx",
+          "sha256": "DFBCF915367D28FAAA60401437FCA918BEB56703AE39E89BEFE080C3517BDE3C"
+        },
+        {
+          "path": "model/lib/math/src/svpwm/SvpwmComparisonTest.slx",
+          "sha256": "72BCD6BFF84C4FDC3F926F2386C44D3581076B4BC85F9B3FCFC61D3A2E2C769D"
+        },
+        {
+          "path": "model/lib/math/parameter/svpwm_test_parameters.m",
+          "sha256": "0ED9F28C341E54C72D49F32DCF26EE03A4E43501BFFD7C8136A42AB625484370"
+        },
+        {
+          "path": "model/lib/math/build_process/build_svpwm_models.m",
+          "sha256": "B5079AD418BBB5BEB1B9F5BB85AC1306E6742121C635474D2E4EC8A0C0031FCC"
+        },
+        {
+          "path": "model/lib/math/waveform_analysis/run_svpwm_validation.m",
+          "sha256": "DC0A45317D5B639BA3356D2925F1811F0B7D70D33C1D5182C0DC46371C2A4BE6"
         }
       ]
     },
     {
-      "module": "model/lib/运动环",
+      "module": "model/lib/速度环与位置环",
       "models": [
         {
           "name": "MotionControl.slx",
@@ -1086,57 +1153,57 @@
       "display_delimiters": 12,
       "documents": [
         {
-          "path": "model/lib/运动环/docs/README.md",
+          "path": "model/lib/速度环与位置环/docs/README.md",
           "sha256": "661248679794A49B9E57FEE495952EA35719833079ED2BCFD45E56B4776BFEA8"
         },
         {
-          "path": "model/lib/运动环/docs/公式推导.md",
+          "path": "model/lib/速度环与位置环/docs/公式推导.md",
           "sha256": "5B077A4C60B6F8F0C6D862DB5C1C5CF529926910BF6C991FB53878D49BBBC117"
         }
       ],
       "implementation_sources": [
         {
-          "path": "model/lib/运动环/src/MotionControl.slx",
+          "path": "model/lib/速度环与位置环/src/MotionControl.slx",
           "sha256": "3577C9C9CA33EBE07C867D59DCB86A5572ABCB03D394BB83109B13B7DC729B33"
         },
         {
-          "path": "model/lib/运动环/src/MotionLoopTest.slx",
+          "path": "model/lib/速度环与位置环/src/MotionLoopTest.slx",
           "sha256": "C210B76EDCDF6215DE138110B8D890A6C1A2D210CC69222535FEFB8FC6BB4947"
         },
         {
-          "path": "model/lib/运动环/src/SpeedProfileTest.slx",
+          "path": "model/lib/速度环与位置环/src/SpeedProfileTest.slx",
           "sha256": "98234FB2C0D809B140B198360D7C4D18CE6F32564EAC14F8DD36F50B479BD322"
         },
         {
-          "path": "model/lib/运动环/parameter/motion_loop_test_parameters.m",
+          "path": "model/lib/速度环与位置环/parameter/motion_loop_test_parameters.m",
           "sha256": "5235DFD32F84848E353EB9AD38B7974842387A1B75E5FBB0FDD2E11B49CCF103"
         },
         {
-          "path": "model/lib/运动环/parameter/motion_parameters.m",
+          "path": "model/lib/速度环与位置环/parameter/motion_parameters.m",
           "sha256": "C1C990CDD0B3074029BFD699CB413FBFB4F0D8C5AD17BC0EDE16F12A9F0CD76D"
         },
         {
-          "path": "model/lib/运动环/parameter/refresh_speed_profile_parameters.m",
+          "path": "model/lib/速度环与位置环/parameter/refresh_speed_profile_parameters.m",
           "sha256": "13A98555E1A5410F7ECDFFD13E5FB0E474034E58A6D75ED7B4F0D55C6D3C1CCD"
         },
         {
-          "path": "model/lib/运动环/parameter/speed_profile_parameters.m",
+          "path": "model/lib/速度环与位置环/parameter/speed_profile_parameters.m",
           "sha256": "6A81F99E9E806A0A7A96E319CA42BE5CE7DF3C32B0DD77E49DDE271B6B8460E4"
         },
         {
-          "path": "model/lib/运动环/parameter/speed_profile_test_parameters.m",
+          "path": "model/lib/速度环与位置环/parameter/speed_profile_test_parameters.m",
           "sha256": "FC505F6385D93F70D0C54DE0A49C2451AD331050A76BBC6FC9CB19581261094F"
         },
         {
-          "path": "model/lib/运动环/build_process/build_speed_profile.m",
+          "path": "model/lib/速度环与位置环/build_process/build_speed_profile.m",
           "sha256": "E0EE87A0776D57A2D8209D0B3612D87CDE7AADEA3B987EE42C36F907CA7AAC71"
         },
         {
-          "path": "model/lib/运动环/build_process/initialize_speed_profile_test.m",
+          "path": "model/lib/速度环与位置环/build_process/initialize_speed_profile_test.m",
           "sha256": "E7C1D69CA1BFAC5FFB4AE4B5F81AED06994D7929099E56E4B47E8221D3645E2F"
         },
         {
-          "path": "model/lib/运动环/build_process/speed_profile_stimulus.m",
+          "path": "model/lib/速度环与位置环/build_process/speed_profile_stimulus.m",
           "sha256": "694095780EBD1C882C7705161DCF289C5AB893868D9D59231C41F9E651761908"
         }
       ]

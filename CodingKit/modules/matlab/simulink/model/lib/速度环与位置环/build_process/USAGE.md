@@ -6,7 +6,7 @@
 projectDir = "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink";
 addpath(fullfile(projectDir,"docs","scripts"), ...
     fullfile(projectDir,"model","app_models","Sensor","experiment","waveform_analysis"));
-open_system(fullfile(projectDir,"model","lib","motion_loop","src","MotionLoopTest.slx"));
+open_system(fullfile(projectDir,"model","lib","速度环与位置环","src","MotionLoopTest.slx"));
 ```
 
 点击Run，双击Scope观察。[参数/Scope表](../parameter/README.md)列出了实际块名、每个通道顺序、单位和来源。库用于复用；运行使用独立测试或装配模型。
@@ -39,9 +39,9 @@ Plant参数变化时，运行入口默认保持控制器增益不变，便于参
 ## 4. 批量验证和观察指定case
 
 ```matlab
-addpath(fullfile(projectDir,"model","lib","motion_loop","waveform_analysis"));
+addpath(fullfile(projectDir,"model","lib","速度环与位置环","waveform_analysis"));
 summary = run_motion_loop_validation();
-data = load(fullfile(projectDir,"model","lib","motion_loop","waveform_analysis","results.mat"));
+data = load(fullfile(projectDir,"model","lib","速度环与位置环","waveform_analysis","results.mat"));
 names = fieldnames(data.records);
 c = data.records.(names{1});
 disp(c.parameters); disp(c.channels);

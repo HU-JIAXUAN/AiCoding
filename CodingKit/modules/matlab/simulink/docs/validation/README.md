@@ -25,7 +25,7 @@ R2026b环境检查已完成：原清单47项产品全部可见，原清单及依
 | 文件 | 内容 |
 |---|---|
 | [TEST_MATRIX.md](TEST_MATRIX.md) | 单模块、闭环与目标验证范围 |
-| [formula_documentation.json](formula_documentation.json) | 28个功能模块的两份docs、76份模型原生类型/导出块及LaTeX/来源核对；文档检查不新增MIL计数 |
+| [formula_documentation.json](formula_documentation.json) | 28个功能模块的两份docs、81份模型原生类型/导出块及LaTeX/来源核对；文档检查不新增MIL计数 |
 | [METRIC_DEFINITIONS.md](METRIC_DEFINITIONS.md) | 指标计算口径 |
 | [host_compiler.json](host_compiler.json) | MinGW14.2部署、MEX编译运行、新建MCP会话和后续Coder安装状态 |
 | [old_release_uninstall.json](old_release_uninstall.json) | R2026a官方卸载结果和残留文件清单摘要 |
@@ -60,4 +60,4 @@ CurrentPIProbeTest在A中的配置失败保留于[codegen_probe.json](../../mode
 
 [离散并联 PID 抗积分饱和对照](ANTI_WINDUP_COMPARISON.md)记录参考 demo 原始接线与连续仿真、同限幅离散对照及增益换算。
 
-[受保护模型验证](protected_model_contracts.json)记录 42 份发布文件的端口、重放和 SHA-256，覆盖 25 份库 SLX。
+[受保护模型验证](protected_model_contracts.json)记录 44 份发布文件的端口、重放和 SHA-256，覆盖 29 份库 SLX。两种 SVPWM 的受保护模型各重放 14 组输入，4 路输出均与可编辑库一致。 [SVPWM 对照测试](../../model/lib/math/src/svpwm/README.md)

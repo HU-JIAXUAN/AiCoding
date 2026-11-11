@@ -1,6 +1,6 @@
 # 控制设计约束
 
-当前已有[离散 PID](../../model/lib/离散并联PID/README.md)、[电流双轴PI与电压圆限制](../../model/lib/电流环/README.md)、[速度/位置环](../../model/lib/运动环/README.md)、[dq前馈](../../model/lib/电压前馈/README.md)和[死区补偿](../../model/lib/死区补偿/README.md)，由[整机实验](../../model/app_models/Sensor/experiment/README.md)连接。旧PID默认是无量纲夹具；新电流与外环使用明确SI单位和各自的模块参数。
+当前已有[离散 PID](../../model/lib/离散并联PID/README.md)、[电流双轴PI与电压圆限制](../../model/lib/电流环/README.md)、[速度/位置环](../../model/lib/速度环与位置环/README.md)、[dq前馈](../../model/lib/电压前馈/README.md)和[死区补偿](../../model/lib/死区补偿/README.md)，由[整机实验](../../model/app_models/Sensor/experiment/README.md)连接。旧PID默认是无量纲夹具；新电流与外环使用明确SI单位和各自的模块参数。
 
 ## 第一版控制结构
 原MotorExperiment使用位置P -> iq型速度PI -> 电流d/q PI，前馈和死区可关作基线。第15步[MTPAFWMotor](../../model/lib/MTPA弱磁/README.md)改为位置P -> 转矩型速度PI -> MTPA/弱磁/约束分配 -> 电流PI，并将分配转矩残差回算外环。弱磁用上一拍限幅前PI+FF电压与受电流圆限制的模型需求的较大值，滤波后驱动有界负id积分器。完整公式、复位和固定id下的含Rs电压区间见[DESIGN](../../model/lib/MTPA弱磁/build_process/DESIGN.md)。参数来自教学夹具；未实现非线性磁链图或MTPV。

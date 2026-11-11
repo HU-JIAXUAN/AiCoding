@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- 新增 [单关节 MIT Mode](<model/app_models/Mit Mode/README.md>)。五参数关节控制与位置／速度支路共用现有 dq 电流环和功率级，支持前馈滤波、减速比换算和电流限幅，并提供闭环验证入口。 / Add a single-joint MIT Mode app using the existing FOC current loop.
+
+- 将 `运动环` 目录更名为 `速度环与位置环`。Math 将 Clarke 与 Park 正反变换分别放入源库，并通过 `ClarkePark` 兼容现有链接。新增独立的居中七段式和低侧钳位五段式 SVPWM 库及对照测试台。 / Organize the transform libraries and add standalone seven- and five-segment SVPWM.
+
 - 清理脚本加入用户符号编辑缓冲的SHA256对比及未归档弱磁App检查；满足保留条件时停止整批清理，避免删除未归档修订和模型。 / Preserve unpublished symbol edits and staged FW output before cache cleanup.
 
 - pmsm_plant新增运行时母线库PMSMBridgeBusPlant及Test，4输入/16输出，物理内核共用；10项检查（6正常/数值、4拒绝）通过，恒48/36V共672,056个物理输出数值与原桥差0。补齐本地M配置、34列/九组Scope、搭建/运行/三组波形与LaTeX推导，后续无感弱磁App将复用；未计为弱磁闭环、SIL或C2000验证。

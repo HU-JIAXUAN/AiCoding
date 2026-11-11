@@ -4,10 +4,10 @@
   "platform": "win64",
   "compiler": "MinGW64 GCC 14.2.0",
   "mode": "Simulation",
-  "library_files_covered": 25,
-  "protected_models": 42,
+  "library_files_covered": 29,
+  "protected_models": 44,
   "original_library_exports": 47,
-  "outputs_compared": 332,
+  "outputs_compared": 340,
   "max_absolute_error": 5.684341886080801e-13,
   "tolerance": "1e-11 + 1e-9*abs(reference), identical sample timestamps and classes",
   "unpackaged_subsystems": [
@@ -743,9 +743,12 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/math/src/ClarkePark_ClarkeProtected.slxp",
+      "artifact": "model/lib/math/src/clarke/ClarkePark_ClarkeProtected.slxp",
       "source_sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
-      "artifact_sha256": "b2e63f5f75bb21550838154924f225c7745953b6af05a1102f9392e843c04b42"
+      "artifact_sha256": "b2e63f5f75bb21550838154924f225c7745953b6af05a1102f9392e843c04b42",
+      "implementation": "model/lib/math/src/clarke/ClarkeTransforms.slx",
+      "implementation_block": "ClarkeTransforms/Clarke",
+      "implementation_sha256": "8d0829155a03bb6dad1b56c93f1e76eb91fbede493644f4e5b64c2f3a74c0b20"
     },
     {
       "status": "passed",
@@ -849,9 +852,12 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/math/src/ClarkePark_InverseClarkeProtected.slxp",
+      "artifact": "model/lib/math/src/clarke/ClarkePark_InverseClarkeProtected.slxp",
       "source_sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
-      "artifact_sha256": "af0db35769eb9c9a96297eebf24860e8caae7f847da75b8c3cbf3c3ebd67a9db"
+      "artifact_sha256": "af0db35769eb9c9a96297eebf24860e8caae7f847da75b8c3cbf3c3ebd67a9db",
+      "implementation": "model/lib/math/src/clarke/ClarkeTransforms.slx",
+      "implementation_block": "ClarkeTransforms/InverseClarke",
+      "implementation_sha256": "8d0829155a03bb6dad1b56c93f1e76eb91fbede493644f4e5b64c2f3a74c0b20"
     },
     {
       "status": "passed",
@@ -946,9 +952,12 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/math/src/ClarkePark_InverseParkProtected.slxp",
+      "artifact": "model/lib/math/src/park/ClarkePark_InverseParkProtected.slxp",
       "source_sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
-      "artifact_sha256": "886ab797e2fdfe26cdb1b0c126f5fe428849888512619234457482c09444fb77"
+      "artifact_sha256": "886ab797e2fdfe26cdb1b0c126f5fe428849888512619234457482c09444fb77",
+      "implementation": "model/lib/math/src/park/ParkTransforms.slx",
+      "implementation_block": "ParkTransforms/InversePark",
+      "implementation_sha256": "5fae25ef268d496330cc98e3cce469aaece3439aecf960cd0a118ea17e5ec7f3"
     },
     {
       "status": "passed",
@@ -1043,9 +1052,12 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/math/src/ClarkePark_ParkProtected.slxp",
+      "artifact": "model/lib/math/src/park/ClarkePark_ParkProtected.slxp",
       "source_sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
-      "artifact_sha256": "885b840e3c78be82e801919165d1f1e5012879c99e8112307c05f5e3d5945430"
+      "artifact_sha256": "885b840e3c78be82e801919165d1f1e5012879c99e8112307c05f5e3d5945430",
+      "implementation": "model/lib/math/src/park/ParkTransforms.slx",
+      "implementation_block": "ParkTransforms/Park",
+      "implementation_sha256": "5fae25ef268d496330cc98e3cce469aaece3439aecf960cd0a118ea17e5ec7f3"
     },
     {
       "status": "passed",
@@ -6015,14 +6027,14 @@
     {
       "status": "passed",
       "name": "MotionControl_PositionProtected",
-      "source": "model/lib/运动环/src/MotionControl.slx",
+      "source": "model/lib/速度环与位置环/src/MotionControl.slx",
       "block": "MotionControl/Position",
       "mode": "Simulation",
       "matlab_release": "2026b",
       "platform": "win64",
       "fixture": {
         "model": "MotionLoopTest",
-        "file": "model/lib/运动环/src/MotionLoopTest.slx",
+        "file": "model/lib/速度环与位置环/src/MotionLoopTest.slx",
         "block": "MotionLoopTest/Position",
         "sid": "MotionLoopTest:3",
         "depth": 1,
@@ -6120,14 +6132,14 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/运动环/src/MotionControl_PositionProtected.slxp",
+      "artifact": "model/lib/速度环与位置环/src/MotionControl_PositionProtected.slxp",
       "source_sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33",
       "artifact_sha256": "27e9bffcbc5f5d96be895403b268e818f2840f4765f789e67610ba3cdda727ec"
     },
     {
       "status": "passed",
       "name": "MotionControl_SpeedProtected",
-      "source": "model/lib/运动环/src/MotionControl.slx",
+      "source": "model/lib/速度环与位置环/src/MotionControl.slx",
       "block": "MotionControl/Speed",
       "mode": "Simulation",
       "matlab_release": "2026b",
@@ -6257,21 +6269,21 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/运动环/src/MotionControl_SpeedProtected.slxp",
+      "artifact": "model/lib/速度环与位置环/src/MotionControl_SpeedProtected.slxp",
       "source_sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33",
       "artifact_sha256": "b6316fdb2f1493604db45430672fa8132a82ecc022e1841793ffdaa7290c20ff"
     },
     {
       "status": "passed",
       "name": "MotionControl_SpeedProfileProtected",
-      "source": "model/lib/运动环/src/MotionControl.slx",
+      "source": "model/lib/速度环与位置环/src/MotionControl.slx",
       "block": "MotionControl/SpeedProfile",
       "mode": "Simulation",
       "matlab_release": "2026b",
       "platform": "win64",
       "fixture": {
         "model": "SpeedProfileTest",
-        "file": "model/lib/运动环/src/SpeedProfileTest.slx",
+        "file": "model/lib/速度环与位置环/src/SpeedProfileTest.slx",
         "block": "SpeedProfileTest/Profile",
         "sid": "SpeedProfileTest:3",
         "depth": 1,
@@ -6352,7 +6364,7 @@
       ],
       "max_error": 0,
       "editable_wrapper_on_path": false,
-      "artifact": "model/lib/运动环/src/MotionControl_SpeedProfileProtected.slxp",
+      "artifact": "model/lib/速度环与位置环/src/MotionControl_SpeedProfileProtected.slxp",
       "source_sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33",
       "artifact_sha256": "25c0fafc83daf64dabff6a32846705f6566984e0f8b8335b189ce9cbf3a9f948"
     },
@@ -9989,6 +10001,394 @@
       "artifact": "model/lib/观测器/无迹卡尔曼/src/UkfObserverProtected.slxp",
       "source_sha256": "2d94adc50e41b0b912e368863328b4e0869eeb5964efd26208489172a77bdb9b",
       "artifact_sha256": "acf2b1cb3af44348945d5947139cabcc8f323ac4d59b9be7c82ba31708080f9a"
+    },
+    {
+      "status": "passed",
+      "name": "SvpwmFiveSegmentProtected",
+      "source": "model/lib/math/src/svpwm/five_segment/SvpwmFiveSegment.slx",
+      "block": "SvpwmFiveSegment/SVPWM",
+      "mode": "Simulation",
+      "matlab_release": "2026b",
+      "platform": "win64",
+      "fixture": {
+        "model": "SvpwmComparisonTest",
+        "file": "model/lib/math/src/svpwm/SvpwmComparisonTest.slx",
+        "block": "SvpwmComparisonTest/FiveSegment",
+        "sid": "SvpwmComparisonTest:4",
+        "depth": 1,
+        "input_profile": "existing"
+      },
+      "duration_s": 0.0013000000000000002,
+      "fixed_model_arguments": "",
+      "workspace_defaults": {
+        "svpwmTest": {
+          "Ts": 0.0001,
+          "Stimulus": [
+            [
+              0,
+              16.627687752661224,
+              9.6,
+              48
+            ],
+            [
+              0.0001,
+              1.1756609271814592e-15,
+              19.200000000000003,
+              48
+            ],
+            [
+              0.0002,
+              -16.62768775266122,
+              9.600000000000009,
+              48
+            ],
+            [
+              0.00030000000000000003,
+              -16.627687752661227,
+              -9.599999999999996,
+              48
+            ],
+            [
+              0.0004,
+              -3.5269827815443777e-15,
+              -19.200000000000003,
+              48
+            ],
+            [
+              0.0005,
+              16.627687752661227,
+              -9.599999999999994,
+              48
+            ],
+            [
+              0.0006000000000000001,
+              8.313843876330612,
+              4.8,
+              24
+            ],
+            [
+              0.0007,
+              5.878304635907296e-16,
+              9.600000000000001,
+              24
+            ],
+            [
+              0.0008,
+              -8.31384387633061,
+              4.800000000000004,
+              24
+            ],
+            [
+              0.0009000000000000001,
+              -8.313843876330614,
+              -4.799999999999998,
+              24
+            ],
+            [
+              0.001,
+              -1.7634913907721889e-15,
+              -9.600000000000001,
+              24
+            ],
+            [
+              0.0011,
+              8.313843876330614,
+              -4.799999999999997,
+              24
+            ],
+            [
+              0.0012000000000000001,
+              0,
+              0,
+              48
+            ],
+            [
+              0.0013000000000000002,
+              48,
+              0,
+              48
+            ]
+          ],
+          "StopTime": 0.0013000000000000002
+        }
+      },
+      "solver_configuration": {
+        "Solver": "FixedStepDiscrete",
+        "SolverType": "Fixed-step",
+        "UpdateModelReferenceTargets": "IfOutOfDate",
+        "StartTime": "0",
+        "StopTime": "0.0012999999999999999",
+        "FixedStep": "0.0001",
+        "InitialStep": "auto",
+        "MinStep": "auto",
+        "MaxStep": "auto",
+        "RelTol": "0.001",
+        "AbsTol": "auto"
+      },
+      "inputs": [
+        {
+          "port": 1,
+          "name": "alpha",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 2,
+          "name": "beta",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 3,
+          "name": "vdc",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        }
+      ],
+      "outputs": [
+        {
+          "port": 1,
+          "name": "duty_a",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 2,
+          "name": "duty_b",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 3,
+          "name": "duty_c",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 4,
+          "name": "common_mode",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        }
+      ],
+      "samples": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "max_error_by_output": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_error": 0,
+      "editable_wrapper_on_path": false,
+      "artifact": "model/lib/math/src/svpwm/five_segment/SvpwmFiveSegmentProtected.slxp",
+      "source_sha256": "4d4fc6683b8abe83777a798084cdb80129c7cc8f6d8e4b71ad842cf8d7e8e27a",
+      "artifact_sha256": "1b1f622bd7f652e02de7a016c169a8fcf86c755bf622f4268bbf69d7621de7e9"
+    },
+    {
+      "status": "passed",
+      "name": "SvpwmSevenSegmentProtected",
+      "source": "model/lib/math/src/svpwm/seven_segment/SvpwmSevenSegment.slx",
+      "block": "SvpwmSevenSegment/SVPWM",
+      "mode": "Simulation",
+      "matlab_release": "2026b",
+      "platform": "win64",
+      "fixture": {
+        "model": "SvpwmComparisonTest",
+        "file": "model/lib/math/src/svpwm/SvpwmComparisonTest.slx",
+        "block": "SvpwmComparisonTest/SevenSegment",
+        "sid": "SvpwmComparisonTest:3",
+        "depth": 1,
+        "input_profile": "existing"
+      },
+      "duration_s": 0.0013000000000000002,
+      "fixed_model_arguments": "",
+      "workspace_defaults": {
+        "svpwmTest": {
+          "Ts": 0.0001,
+          "Stimulus": [
+            [
+              0,
+              16.627687752661224,
+              9.6,
+              48
+            ],
+            [
+              0.0001,
+              1.1756609271814592e-15,
+              19.200000000000003,
+              48
+            ],
+            [
+              0.0002,
+              -16.62768775266122,
+              9.600000000000009,
+              48
+            ],
+            [
+              0.00030000000000000003,
+              -16.627687752661227,
+              -9.599999999999996,
+              48
+            ],
+            [
+              0.0004,
+              -3.5269827815443777e-15,
+              -19.200000000000003,
+              48
+            ],
+            [
+              0.0005,
+              16.627687752661227,
+              -9.599999999999994,
+              48
+            ],
+            [
+              0.0006000000000000001,
+              8.313843876330612,
+              4.8,
+              24
+            ],
+            [
+              0.0007,
+              5.878304635907296e-16,
+              9.600000000000001,
+              24
+            ],
+            [
+              0.0008,
+              -8.31384387633061,
+              4.800000000000004,
+              24
+            ],
+            [
+              0.0009000000000000001,
+              -8.313843876330614,
+              -4.799999999999998,
+              24
+            ],
+            [
+              0.001,
+              -1.7634913907721889e-15,
+              -9.600000000000001,
+              24
+            ],
+            [
+              0.0011,
+              8.313843876330614,
+              -4.799999999999997,
+              24
+            ],
+            [
+              0.0012000000000000001,
+              0,
+              0,
+              48
+            ],
+            [
+              0.0013000000000000002,
+              48,
+              0,
+              48
+            ]
+          ],
+          "StopTime": 0.0013000000000000002
+        }
+      },
+      "solver_configuration": {
+        "Solver": "FixedStepDiscrete",
+        "SolverType": "Fixed-step",
+        "UpdateModelReferenceTargets": "IfOutOfDate",
+        "StartTime": "0",
+        "StopTime": "0.0012999999999999999",
+        "FixedStep": "0.0001",
+        "InitialStep": "auto",
+        "MinStep": "auto",
+        "MaxStep": "auto",
+        "RelTol": "0.001",
+        "AbsTol": "auto"
+      },
+      "inputs": [
+        {
+          "port": 1,
+          "name": "alpha",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 2,
+          "name": "beta",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 3,
+          "name": "vdc",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        }
+      ],
+      "outputs": [
+        {
+          "port": 1,
+          "name": "duty_a",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 2,
+          "name": "duty_b",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 3,
+          "name": "duty_c",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        },
+        {
+          "port": 4,
+          "name": "common_mode",
+          "data_type": "double",
+          "dimensions": "1",
+          "sample_time": "[0.0001,0]"
+        }
+      ],
+      "samples": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "max_error_by_output": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_error": 0,
+      "editable_wrapper_on_path": false,
+      "artifact": "model/lib/math/src/svpwm/seven_segment/SvpwmSevenSegmentProtected.slxp",
+      "source_sha256": "dfbcf915367d28faaa60401437fca918beb56703ae39e89befe080c3517bde3c",
+      "artifact_sha256": "fdf243620a6a6ca8747b588a3f7115d9ee9fe651f3f0ffff5b4a27a622e01026"
     }
   ]
 }

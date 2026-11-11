@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "date": "2026-11-11",
-  "scope": "Current implementation after I-f/V/f addition; historical result hashes remain unchanged",
+  "scope": "Implementation inventory with split Clarke/Park and standalone SVPWM; historical verification hashes remain unchanged",
   "sources": [
     {
       "path": "docs/scripts/build_open_loop_app.m",
@@ -9,7 +9,7 @@
     },
     {
       "path": "docs/scripts/initialize_motor_paths.m",
-      "sha256": "a16ec9c581c0ef23985dca9cb5482684bda68ff4f024cbac702a1c6aa4b81001"
+      "sha256": "12de64ab2f045826931f213eef36a7acebc6f7dbbbe0ef0c15122041a7639d42"
     },
     {
       "path": "docs/scripts/open_loop_app_channels.m",
@@ -393,11 +393,11 @@
     },
     {
       "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_foc.m",
-      "sha256": "f59ea6b1355c020824da46efa2901d7fe537b29f0d2df78ca73022592d948005"
+      "sha256": "e38f66f220700bd7bbde1ed9d00c3d182f7707b9cd2a2d23aa526d91447c3f85"
     },
     {
       "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_hybrid.m",
-      "sha256": "642f728cf77528b6f26b22f0131e69da83303e5fc5f70b6d869add1888af6a82"
+      "sha256": "b19cbf58a08b0fbc04d01f131a3050193610ec7fd2e5ed6a349ed696db63e880"
     },
     {
       "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m",
@@ -737,7 +737,7 @@
     },
     {
       "path": "model/lib/math/src/ClarkePark.slx",
-      "sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909"
+      "sha256": "26d2cdabddf8038bfdc346ef919e69f5071b1328bf183a927cd9fce0d9c3cfdf"
     },
     {
       "path": "model/lib/math/src/ClarkeParkTest.slx",
@@ -760,59 +760,59 @@
       "sha256": "43d3aebeeacb6874ea6b1b29ebc3793d834452a3cc6f4918832bed8958be96a9"
     },
     {
-      "path": "model/lib/运动环/build_process/build_speed_profile.m",
+      "path": "model/lib/速度环与位置环/build_process/build_speed_profile.m",
       "sha256": "e0ee87a0776d57a2d8209d0b3612d87cde7aadea3b987ee42c36f907ca7aac71"
     },
     {
-      "path": "model/lib/运动环/build_process/initialize_speed_profile_test.m",
+      "path": "model/lib/速度环与位置环/build_process/initialize_speed_profile_test.m",
       "sha256": "e7c1d69ca1bfac5ffb4ae4b5f81aed06994d7929099e56e4b47e8221d3645e2f"
     },
     {
-      "path": "model/lib/运动环/build_process/speed_profile_stimulus.m",
+      "path": "model/lib/速度环与位置环/build_process/speed_profile_stimulus.m",
       "sha256": "694095780ebd1c882c7705161dcf289c5ab893868d9d59231c41f9e651761908"
     },
     {
-      "path": "model/lib/运动环/parameter/motion_loop_test_parameters.m",
+      "path": "model/lib/速度环与位置环/parameter/motion_loop_test_parameters.m",
       "sha256": "5235dfd32f84848e353eb9ad38b7974842387a1b75e5fbb0fdd2e11b49ccf103"
     },
     {
-      "path": "model/lib/运动环/parameter/motion_parameters.m",
+      "path": "model/lib/速度环与位置环/parameter/motion_parameters.m",
       "sha256": "c1c990cdd0b3074029bfd699cb413fbfb4f0d8c5ad17bc0ede16f12a9f0cd76d"
     },
     {
-      "path": "model/lib/运动环/parameter/refresh_speed_profile_parameters.m",
+      "path": "model/lib/速度环与位置环/parameter/refresh_speed_profile_parameters.m",
       "sha256": "13a98555e1a5410f7ecdffd13e5fb0e474034e58a6d75ed7b4f0d55c6d3c1ccd"
     },
     {
-      "path": "model/lib/运动环/parameter/speed_profile_parameters.m",
+      "path": "model/lib/速度环与位置环/parameter/speed_profile_parameters.m",
       "sha256": "6a81f99e9e806a0a7a96e319ca42be5ce7df3c32b0dd77e49dde271b6b8460e4"
     },
     {
-      "path": "model/lib/运动环/parameter/speed_profile_test_parameters.m",
+      "path": "model/lib/速度环与位置环/parameter/speed_profile_test_parameters.m",
       "sha256": "fc505f6385d93f70d0c54de0a49c2451ad331050a76bbc6fc9cb19581261094f"
     },
     {
-      "path": "model/lib/运动环/src/MotionControl.slx",
+      "path": "model/lib/速度环与位置环/src/MotionControl.slx",
       "sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33"
     },
     {
-      "path": "model/lib/运动环/src/MotionLoopTest.slx",
+      "path": "model/lib/速度环与位置环/src/MotionLoopTest.slx",
       "sha256": "c210b76edcdf6215de138110b8d890a6c1a2d210cc69222535fefb8fc6bb4947"
     },
     {
-      "path": "model/lib/运动环/src/SpeedProfileTest.slx",
+      "path": "model/lib/速度环与位置环/src/SpeedProfileTest.slx",
       "sha256": "98234fb2c0d809b140b198360d7c4d18ce6f32564eac14f8dd36f50b479bd322"
     },
     {
-      "path": "model/lib/运动环/waveform_analysis/plot_speed_profile_results.m",
+      "path": "model/lib/速度环与位置环/waveform_analysis/plot_speed_profile_results.m",
       "sha256": "42e6049cfaa6608a83381f199239f70d146a98adf1dcbd021c8357fd4d00af61"
     },
     {
-      "path": "model/lib/运动环/waveform_analysis/run_motion_loop_validation.m",
+      "path": "model/lib/速度环与位置环/waveform_analysis/run_motion_loop_validation.m",
       "sha256": "e2c952dd555a642a066538fd3809442e616436a8bcabda6678888b643befe7f0"
     },
     {
-      "path": "model/lib/运动环/waveform_analysis/run_speed_profile_validation.m",
+      "path": "model/lib/速度环与位置环/waveform_analysis/run_speed_profile_validation.m",
       "sha256": "d3f17cc8ad297970a5f461b93a1d3d026217807c8cfdaa3bbe4f8b9dcd4077bf"
     },
     {
@@ -1698,10 +1698,58 @@
     {
       "path": "model/lib/采样执行时序/waveform_analysis/run_timing_validation.m",
       "sha256": "209332600dc9229dc3d6feff542b537d5b11c2e5f3c498094fd9cc631b301ca6"
+    },
+    {
+      "path": "model/lib/math/src/clarke/ClarkeTransforms.slx",
+      "sha256": "8d0829155a03bb6dad1b56c93f1e76eb91fbede493644f4e5b64c2f3a74c0b20"
+    },
+    {
+      "path": "model/lib/math/src/park/ParkTransforms.slx",
+      "sha256": "5fae25ef268d496330cc98e3cce469aaece3439aecf960cd0a118ea17e5ec7f3"
+    },
+    {
+      "path": "model/lib/math/src/svpwm/five_segment/SvpwmFiveSegment.slx",
+      "sha256": "4d4fc6683b8abe83777a798084cdb80129c7cc8f6d8e4b71ad842cf8d7e8e27a"
+    },
+    {
+      "path": "model/lib/math/src/svpwm/seven_segment/SvpwmSevenSegment.slx",
+      "sha256": "dfbcf915367d28faaa60401437fca918beb56703ae39e89befe080c3517bde3c"
+    },
+    {
+      "path": "model/lib/math/src/svpwm/SvpwmComparisonTest.slx",
+      "sha256": "72bcd6bff84c4fdc3f926f2386c44d3581076b4bc85f9b3fcfc61d3a2e2c769d"
+    },
+    {
+      "path": "model/lib/math/parameter/svpwm_test_parameters.m",
+      "sha256": "0ed9f28c341e54c72d49f32dcf26ee03a4e43501bffd7c8136a42ab625484370"
+    },
+    {
+      "path": "model/lib/math/build_process/build_svpwm_models.m",
+      "sha256": "b5079ad418bbb5beb1b9f5bb85ac1306e6742121c635474d2e4ec8a0c0031fcc"
+    },
+    {
+      "path": "model/lib/math/waveform_analysis/run_svpwm_validation.m",
+      "sha256": "dc0a45317d5b639ba3356d2925f1811f0b7d70d33c1d5182c0dc46371c2a4be6"
+    },
+    {
+      "path": "docs/scripts/index_protected_library_interfaces.m",
+      "sha256": "8fb1133e0b307c180b9aebfd17eefae5269ed44fa12ff5bd0298b951b572bf3b"
+    },
+    {
+      "path": "docs/scripts/rebuild_protected_models.m",
+      "sha256": "3fb267760c8a393b545c12b0cf82bce2c417fec66ab87c04a03d0fb07bcd5b95"
+    },
+    {
+      "path": "docs/scripts/list_motor_library_models.m",
+      "sha256": "22bc9e08d11dd39e2c87269748c8ee36d0bd2dbca9567d3890a54de2f9873dea"
+    },
+    {
+      "path": "docs/scripts/run_motor_validation.m",
+      "sha256": "ac91875914baedb92155741cce083581663c4f30270d17ec0e606dcd5b9b3424"
     }
   ],
   "symbol_table_sha256": "dad60d796874641387c0f2fd527ded95487505afabe140374e5732766337bb25",
-  "engineering_models": 72,
-  "functional_modules": 26,
-  "protected_models": 42
+  "engineering_models": 81,
+  "functional_modules": 28,
+  "protected_models": 44
 }

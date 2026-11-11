@@ -21,7 +21,7 @@
 | smoCfg.Rs / L / SlidingGain / Boundary / FilterHz | 0.5 / 0.001 / 30 / 1 / 600 | Ω / H / V / A / Hz | [smo_parameters.m](../../../../lib/观测器/滑模/parameter/smo_parameters.m)与[完整SMO参数](../../../../lib/观测器/滑模/parameter/README.md) |
 | pllCfg | 共用默认，MinMagnitude=1V | 各字段SI | [PLL参数](../../../../lib/相位跟踪/parameter/README.md)，50µs；未用Plant角度初始化PLL |
 | feedforwardCfg / deadtimeCfg | 原默认关闭 | 各字段SI | [FF参数](../../../../lib/电压前馈/parameter/README.md)、[死区参数](../../../../lib/死区补偿/parameter/README.md) |
-| motionCfg | 原速度环设计 | 各字段SI | [速度/位置参数](../../../../lib/运动环/parameter/README.md)，本App不启用位置环 |
+| motionCfg | 原速度环设计 | 各字段SI | [速度/位置参数](../../../../lib/速度环与位置环/parameter/README.md)，本App不启用位置环 |
 
 其余原控制字段见对应定义文件及[Sensor基线参数](../../experiment/parameter/README.md)。MAT记录保存每例全部配置。Rs偏差实验仅覆盖smoCfg，Plant不变。基础SMO只适用于Ld=Lq；原Plant默认Ld≠Lq未被改写。
 

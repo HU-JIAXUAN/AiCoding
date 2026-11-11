@@ -4,7 +4,7 @@
 
 新增[HFI启动链](model/app_models/Sensorless/sensorless_hfi/README.md)：实测逆电感快照→轴线跟踪→双脉冲极性→恢复完整位置，共22项物理MIL；新增同模块HFI低速FOC24项物理MIL，复用可复位速度给定、电流PI和逆变器。HFI轴线30项、探针27项另计。同模块HFI↔EEMF物理双向融合新增18项MIL；12份日志、15组Scope、搭建过程与M参数随模型保存。新增[EEMF/Flux闭环App](model/app_models/Sensorless/sensorless_foc/README.md)各8项物理MIL，独立重建默认四组日志一致；其余观测器和App继续按[专项计划](docs/plans/SENSORLESS_PLAN.md)实现。
 
-新增[四状态SPMSM UKF](model/lib/观测器/无迹卡尔曼/README.md)，29项独立MIL、21项纯M及不同参数并行实例通过；25个共同工况与EKF核对输入/公共参数相同，保存4组波形和计算量说明。M源重建与正式路径默认50列一致，本地M参数及10组Scope齐全；[UKF原理与LaTeX推导](model/lib/观测器/无迹卡尔曼/docs/README.md)已补齐。当前28个lib/App功能模块均有自己的`docs/README.md`和`docs/公式推导.md`，涵盖76份模型的功能分组、原理、实际公式、状态及参数对应；[文档检查记录](docs/validation/formula_documentation.json)保存清单与校验值。新增sigmoid SMO的库、Test、M参数和验证已落入[滑模](model/lib/观测器/滑模/README.md)。
+新增[四状态SPMSM UKF](model/lib/观测器/无迹卡尔曼/README.md)，29项独立MIL、21项纯M及不同参数并行实例通过；25个共同工况与EKF核对输入/公共参数相同，保存4组波形和计算量说明。M源重建与正式路径默认50列一致，本地M参数及10组Scope齐全；[UKF原理与LaTeX推导](model/lib/观测器/无迹卡尔曼/docs/README.md)已补齐。当前29个lib/App功能模块均有自己的`docs/README.md`和`docs/公式推导.md`，涵盖82份模型的功能分组、原理、实际公式、状态及参数对应。新增sigmoid SMO的库、Test、M参数和验证已落入[滑模](model/lib/观测器/滑模/README.md)。
 
 新增[四状态SPMSM EKF](model/lib/观测器/扩展卡尔曼/README.md)，25项独立MIL、完整协方差、相反速度分支反例及不同参数并行实例检查通过；M源重建和正式路径默认50列一致，10组Scope、本地参数和运行资料齐全，批量运行后关闭模型/图窗。sigmoid分支已完成独立验证及10项物理App替换验证，代表性MRAS主机代码检查已完成，完整App SIL未执行。
 
@@ -58,8 +58,8 @@ simulink/
 
 新增[MRAS/EKF/UKF/sigmoid物理FOC](model/app_models/Sensorless/sensorless_foc/build_process/EXTENSION_USAGE.md)，共同SPMSM与实际桥电压/电流，每种10项共40项App MIL通过；各20个lib链接，Scope30/32/32/30，本地14M、六组日志与原理/波形齐全。M独立重建和布局前后默认六组数据一致，正式路径重放另存证；观测Rs+15%的Kalman速度偏差保留，不用valid代替真值误差。
 
-当前目录`simulink`，应用目录`model/app_models`。src共76份工程SLX（25库、34 Test、17 App），28个功能模块，1份用户ref另存。每模块有可执行参数M及两份公式docs；[路径检查](docs/validation/model_paths.json)、[公式检查](docs/validation/formula_documentation.json)及[主机验证范围](model/lib/观测器/模型参考自适应/waveform_analysis/HOST_CODE_ANALYSIS.md)分别记录。[清理脚本](docs/scripts/clear_sensorless_build_cache.ps1)的实际执行见[清理记录](docs/validation/cleanup.json)。
+当前目录`simulink`，应用目录`model/app_models`。src 共 82 份工程 SLX（29 库、35 Test、18 App），29 个功能模块，1 份用户 ref 另存。Math 的 [Clarke、Park 与 SVPWM](model/lib/math/src/README.md) 分子目录管理，外环模型位于 [速度环与位置环](model/lib/速度环与位置环/README.md)。[单关节 MIT Mode](<model/app_models/Mit Mode/README.md>) 与位置／速度控制支路共用 FOC 电流环。每模块有可执行参数 M 及两份公式文档。 [工程清单](MANIFEST.json) · [公式检查](docs/validation/formula_documentation.json) · [主机验证范围](model/lib/观测器/模型参考自适应/waveform_analysis/HOST_CODE_ANALYSIS.md) · [清理记录](docs/validation/cleanup.json)
 
 新增[独立 I-f](model/app_models/Sensorless/sensorless_if/README.md)与[独立 V/f](model/app_models/Sensorless/sensorless_vf/README.md)。两个 App 各完成 13 项整机 MIL，共用 OpenLoopDrive 命令库与独立 Test（13 项 MIL）；[验证记录](docs/validation/if_vf_verification.json)分别保存构建、正式路径重放与结果，不并入历史观测器计数。
 
-受保护模型共 42 份，覆盖 25 份库 SLX。按 [发布契约](docs/interfaces/PROTECTED_MODELS.md)核对接口、固定配置和验证环境。
+受保护模型共 44 份，覆盖 29 份库 SLX。按 [发布契约](docs/interfaces/PROTECTED_MODELS.md)核对接口、固定配置和验证环境。

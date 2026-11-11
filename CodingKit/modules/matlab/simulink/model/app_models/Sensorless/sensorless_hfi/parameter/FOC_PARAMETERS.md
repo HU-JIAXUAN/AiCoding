@@ -18,9 +18,9 @@
 | Test.CurrentDelay / VoltageAlignmentDelay / ExecutionDelay | 0 / 0 / 0 | 0或1拍 | 采样年龄、观测电压年龄、真实执行延迟 |
 | Test.ActuationGain / PulseNegativeGain / PulseFaultOffsetA | 1 / 1 / 0 | 1 / 1 / A | 执行比例、负脉冲比例、正脉冲a相ADC故障偏置 |
 | Current | 500 Hz，50 μs | SI | [电流PI参数](../../../../lib/电流环/parameter/current_parameters.m)，Ld/Lq名义值设计；Kaw=1000 1/s |
-| Reference.SpeedTs / SpeedKp / SpeedKi / SpeedKaw | .001 / .0179 / .2 / 20 | s / N·m·s/rad / N·m/rad / 1/s | 原[机械环参数](../../../../lib/运动环/parameter/motion_parameters.m)转成转矩PI配置 |
+| Reference.SpeedTs / SpeedKp / SpeedKi / SpeedKaw | .001 / .0179 / .2 / 20 | s / N·m·s/rad / N·m/rad / 1/s | 原[机械环参数](../../../../lib/速度环与位置环/parameter/motion_parameters.m)转成转矩PI配置 |
 | Motion.SpeedLimit / AccelerationLimit | 15 / 40 | 机械rad/s / rad/s² | 速度指令限幅、限斜率；HFI适用范围仍需看实际估算资格 |
-| Profile | Ts=50 μs，边界±15，双向40 | SI | [共用SpeedProfile](../../../../lib/运动环/parameter/PROFILE_PARAMETERS.md)；App从Motion限值组合profileCfg，禁能/复位清状态 |
+| Profile | Ts=50 μs，边界±15，双向40 | SI | [共用SpeedProfile](../../../../lib/速度环与位置环/parameter/PROFILE_PARAMETERS.md)；App从Motion限值组合profileCfg，禁能/复位清状态 |
 | FOC.CurrentMax / Kt | 2 / .21 | A / N·m/A | q轴参考限值，id参考0；Kt=1.5pψf |
 | FOC.FrameCorrectionTolerance | 1e−8 | 电角rad | 超出正常同步旋转的坐标修正触发FrameTrackingPI |
 | FOC.MaxMeasuredCurrent / PositionLossTime | 8 / .002 | A / s | 采样电流模过限，或已取得位置后连续失效，锁存App故障 |

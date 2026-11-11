@@ -13,7 +13,7 @@ open_system(fullfile(moduleDir,"src","ClarkeParkTest.slx"));
 
 双击 ForwardSignals 看 abc/αβ0/dq，双击 InverseSignals 看重建信号，RoundTripErrors 看重建减原输入，ElectricalAngle 看电角度。图例和自动缩放已开启；各向量元素的准确顺序在 [参数与 Scope 表](../parameter/README.md)。误差组可能自动缩放至 1e-15 量级，应结合纵轴和 1e-12 A 容差阅读。
 
-ClarkePark.slx 是库，双击四个子系统可看内部。使用测试模型运行；复用时可从库拖入任一块，保留库链接。
+从 [Clarke 源库](../src/clarke/README.md) 或 [Park 源库](../src/park/README.md) 拖入需要的变换块。ClarkePark.slx 提供既有库链接入口。使用 ClarkeParkTest 运行往返变换。
 
 ## 2. 修改默认输入或参数
 

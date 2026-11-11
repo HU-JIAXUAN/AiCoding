@@ -2,7 +2,7 @@
 
 新增BlendDQ与FrameBlendTest的7输入/1输出、9列刺激、11列记录、参数及3组Scope见[FRAME_BLEND.md](FRAME_BLEND.md)。以下继续说明原四个变换及ClarkeParkTest。
 
-核心固定系数在 [ClarkePark.slx](../src/ClarkePark.slx)；场景默认值在 [clarke_park_parameters.m](clarke_park_parameters.m)。本测试的被变换量为电流 A，所有端口与记录均为 double；将同一算法用于电压时，相关数值单位整体改为 V。
+核心固定系数在 [ClarkeTransforms.slx](../src/clarke/ClarkeTransforms.slx)；场景默认值在 [clarke_park_parameters.m](clarke_park_parameters.m)。本测试的被变换量为电流 A，所有端口与记录均为 double；将同一算法用于电压时，相关数值单位整体改为 V。
 
 ## 配置参数
 

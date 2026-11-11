@@ -13,7 +13,8 @@ assert(~isempty(mex.getCompilerConfigurations('C','Selected')),'Select the C com
 
 scripts=fileparts(mfilename('fullpath'));
 root=fileparts(fileparts(scripts));
-diagrams=dir(fullfile(root,'model','**','src','*.slx'));
+modelRoot=fullfile(root,'model');
+diagrams=[list_motor_library_models(modelRoot);dir(fullfile(modelRoot,'app_models','**','src','*.slx'))];
 for item=diagrams'
     [~,model]=fileparts(item.name);
     assert(~bdIsLoaded(model),'Close the project model %s before rebuilding.',model);
