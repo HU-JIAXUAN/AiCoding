@@ -41,6 +41,8 @@ func TestInventoryLoadsManagedAndConfiguredServers(t *testing.T) {
 [mcp_servers.local]
 command = "helper.exe"
 args = ["serve"]
+startup_timeout_sec = 10.25
+tool_timeout_sec = 120.0
 
 [mcp_servers.local.env]
 TOKEN = "secret"
@@ -48,6 +50,8 @@ TOKEN = "secret"
 [mcp_servers.remote]
 url = "https://example.com/mcp"
 bearer_token_env_var = "REMOTE_TOKEN"
+startup_timeout_sec = 30
+tool_timeout_sec = 60
 `)
 
 	inventory, err := ListInventory(repo, config)
@@ -62,6 +66,15 @@ bearer_token_env_var = "REMOTE_TOKEN"
 	}
 	if len(inventory.Configured[0].EnvKeys) != 1 || inventory.Configured[0].EnvKeys[0] != "TOKEN" {
 		t.Fatalf("environment keys were not redacted: %#v", inventory.Configured[0])
+	}
+	for i, want := range []struct {
+		id            string
+		startup, tool float64
+	}{{"local", 10.25, 120}, {"remote", 30, 60}} {
+		server := inventory.Configured[i]
+		if server.ID != want.id || server.StartupTimeoutSec != want.startup || server.ToolTimeoutSec != want.tool {
+			t.Fatalf("unexpected timeouts for %s: %#v", want.id, server)
+		}
 	}
 }
 

@@ -83,7 +83,7 @@ bin\aicoding.exe mcp verify visio-mcp --profile Smoke --configured --json
 bin\aicoding.exe mcp verify --all --profile Smoke --json
 ```
 
-`--configured` 或 `--all` 会对当前配置的 stdio/Streamable HTTP servers 执行只读 initialize/discovery。报告包含 tools、resources 和 prompts 的发现数量，但不调用业务 tool。
+`--configured` 会对所选 Codex 配置中的已启用 stdio/Streamable HTTP servers 执行只读 initialize/discovery。可用 `--codex-config PATH` 指定验证用配置。超时字段接受整数或小数秒，报告包含 tools、resources 和 prompts 的发现数量。
 
 ### Profile 选择
 

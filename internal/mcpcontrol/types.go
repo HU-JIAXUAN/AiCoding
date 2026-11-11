@@ -77,8 +77,8 @@ type ConfiguredView struct {
 	Cwd               string   `json:"cwd,omitempty"`
 	EnvKeys           []string `json:"envKeys,omitempty"`
 	BearerTokenEnvVar string   `json:"bearerTokenEnvVar,omitempty"`
-	StartupTimeoutSec int      `json:"startupTimeoutSec,omitempty"`
-	ToolTimeoutSec    int      `json:"toolTimeoutSec,omitempty"`
+	StartupTimeoutSec float64  `json:"startupTimeoutSec,omitempty"`
+	ToolTimeoutSec    float64  `json:"toolTimeoutSec,omitempty"`
 }
 
 type Inventory struct {
@@ -100,8 +100,8 @@ type Endpoint struct {
 	Cwd               string
 	Env               map[string]string
 	BearerTokenEnvVar string
-	StartupTimeoutSec int
-	ToolTimeoutSec    int
+	StartupTimeoutSec float64
+	ToolTimeoutSec    float64
 }
 
 type CapabilitySummary struct {

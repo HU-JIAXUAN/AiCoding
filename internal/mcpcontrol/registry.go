@@ -3,10 +3,13 @@ package mcpcontrol
 import (
 	"encoding/json"
 	"errors"
+	"fmt"
+	"math"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/BurntSushi/toml"
 	"github.com/JiaxI2/AiCoding/internal/platform"
@@ -25,8 +28,8 @@ type codexServer struct {
 	Env               map[string]string `toml:"env"`
 	BearerTokenEnvVar string            `toml:"bearer_token_env_var"`
 	Enabled           *bool             `toml:"enabled"`
-	StartupTimeoutSec int               `toml:"startup_timeout_sec"`
-	ToolTimeoutSec    int               `toml:"tool_timeout_sec"`
+	StartupTimeoutSec float64           `toml:"startup_timeout_sec"`
+	ToolTimeoutSec    float64           `toml:"tool_timeout_sec"`
 }
 
 type RegistrySnapshot struct {
@@ -262,6 +265,12 @@ func LoadConfigured(path string) ([]Endpoint, error) {
 			transport = "streamable-http"
 		}
 		timeout := server.StartupTimeoutSec
+		if math.IsNaN(timeout) || math.IsInf(timeout, 0) || timeout*float64(time.Second) >= float64(math.MaxInt64) {
+			return nil, fmt.Errorf("MCP server %q: startup_timeout_sec is out of range", id)
+		}
+		if math.IsNaN(server.ToolTimeoutSec) || math.IsInf(server.ToolTimeoutSec, 0) {
+			return nil, fmt.Errorf("MCP server %q: tool_timeout_sec must be finite", id)
+		}
 		if timeout <= 0 {
 			timeout = 30
 		}

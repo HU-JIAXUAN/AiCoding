@@ -98,7 +98,7 @@ func probeStdio(parent context.Context, endpoint Endpoint, result *ProbeResult) 
 	if timeout <= 0 {
 		timeout = 30
 	}
-	ctx, cancel := context.WithTimeout(parent, time.Duration(timeout)*time.Second)
+	ctx, cancel := context.WithTimeout(parent, time.Duration(timeout*float64(time.Second)))
 	defer cancel()
 
 	command := exec.CommandContext(ctx, endpoint.Command, endpoint.Args...)
@@ -159,9 +159,10 @@ func probeHTTP(parent context.Context, endpoint Endpoint, result *ProbeResult) e
 	if timeout <= 0 {
 		timeout = 30
 	}
-	ctx, cancel := context.WithTimeout(parent, time.Duration(timeout)*time.Second)
+	duration := time.Duration(timeout * float64(time.Second))
+	ctx, cancel := context.WithTimeout(parent, duration)
 	defer cancel()
-	client := &http.Client{Timeout: time.Duration(timeout) * time.Second}
+	client := &http.Client{Timeout: duration}
 	headers := map[string]string{}
 	if endpoint.BearerTokenEnvVar != "" {
 		token := os.Getenv(endpoint.BearerTokenEnvVar)
