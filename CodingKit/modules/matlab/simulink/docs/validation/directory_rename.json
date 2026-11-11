@@ -1,0 +1,822 @@
+{
+  "date": "2026-11-10",
+  "status": "passed",
+  "directory_mapping": [
+    {
+      "before": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\User Simulink",
+      "after": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink"
+    },
+    {
+      "before": "model/User App Mode",
+      "after": "model/app_models"
+    }
+  ],
+  "scope": "Directory and path references only; no library algorithm changes.",
+  "baseline_files": 1149,
+  "unchanged_existing_files": 1063,
+  "existing_binary_files_unchanged": 410,
+  "slx_files_unchanged": 66,
+  "engineering_models": 65,
+  "external_reference_models": 1,
+  "text_path_patches": 86,
+  "path_only_m_source_updates": [
+    {
+      "path": "docs/scripts/initialize_motor_paths.m",
+      "before": "fc70229f4516183da7e29dd7e6d33597fee36da53d04d9e19111e467336802a4",
+      "after": "8546e6bf071d45d3d6b1524ebd33e73c3407775d204bbb000290cf82ecabbb69",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "docs/scripts/run_motor_validation.m",
+      "before": "07769d5d7c68ba73d73cb0dee24bdd14511af8fdbce16efe4194eaaff19adf63",
+      "after": "e2a0cc106a2e6efeaed9653855de5aab88179f65f80d2d879b6cc58c88b6f66a",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/build_process/run_mtpa_fw_case.m",
+      "before": "4e86a492e5c1642ff9638ccb7073d5e49cceb5751fe3329afe7490c41d8bac90",
+      "after": "3931243826a732302fedc062bf36d0a3ff5e87a3ffd4336e7c276e6b2070cf2f",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/parameter/reference_case_parameters.m",
+      "before": "78f86f56d83837b89fb2d147dfb678f89686861ed9ac827c12857f289e4f6ff8",
+      "after": "769936ca5bffdcf2f4f1b4c99a396b8433948b59782a36fc49e9b656fe6eccd3",
+      "normalised_code_unchanged": true
+    }
+  ],
+  "source_hash_report_updates": [
+    "docs\\validation\\formula_documentation.json",
+    "docs\\validation\\model_naming.json",
+    "model\\app_models\\Sensorless\\sensorless_hfi\\waveform_analysis\\hybrid_verification.json"
+  ],
+  "user_symbol_table_unchanged": {
+    "path": "docs/UserDocs/符号定义表.md",
+    "sha256": "dad60d796874641387c0f2fd527ded95487505afabe140374e5732766337bb25"
+  },
+  "smoke": {
+    "status": "passed",
+    "matlab_release": "2026b",
+    "project_root": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink",
+    "model_count": 65,
+    "models": [
+      {
+        "model": "MotorExperiment",
+        "relative_path": "model/app_models/Sensor/experiment/src/MotorExperiment.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "MTPAFWMotor",
+        "relative_path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorObserverCompare",
+        "relative_path": "model/app_models/Sensor/observer_compare/src/SensorObserverCompare.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "EemfSensorlessFOC",
+        "relative_path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FluxSensorlessFOC",
+        "relative_path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FlyingFluxFOC",
+        "relative_path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessFOC",
+        "relative_path": "model/app_models/Sensorless/sensorless_foc/src/SensorlessFOC.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessHFIFOC",
+        "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessHFIHybrid",
+        "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIHybrid.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessHFIStartup",
+        "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "AngleTracking",
+        "relative_path": "model/lib/angle_tracking/src/AngleTracking.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "AngleTrackingInstancesTest",
+        "relative_path": "model/lib/angle_tracking/src/AngleTrackingInstancesTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "AngleTrackingTest",
+        "relative_path": "model/lib/angle_tracking/src/AngleTrackingTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "CurrentControl",
+        "relative_path": "model/lib/current_loop/src/CurrentControl.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "CurrentLoopTest",
+        "relative_path": "model/lib/current_loop/src/CurrentLoopTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "CurrentPIProbeTest",
+        "relative_path": "model/lib/current_loop/src/CurrentPIProbeTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FrameTrackingPITest",
+        "relative_path": "model/lib/current_loop/src/FrameTrackingPITest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "Deadtime",
+        "relative_path": "model/lib/deadtime/src/Deadtime.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "DeadtimeTest",
+        "relative_path": "model/lib/deadtime/src/DeadtimeTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SwitchingLegTest",
+        "relative_path": "model/lib/deadtime/src/SwitchingLegTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "DiscretePID",
+        "relative_path": "model/lib/discrete_pid/src/DiscretePID.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "DiscretePIDTest",
+        "relative_path": "model/lib/discrete_pid/src/DiscretePIDTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "DQFeedforward",
+        "relative_path": "model/lib/feedforward/src/DQFeedforward.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FeedforwardTest",
+        "relative_path": "model/lib/feedforward/src/FeedforwardTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "Inverter",
+        "relative_path": "model/lib/inverter/src/Inverter.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "InverterTest",
+        "relative_path": "model/lib/inverter/src/InverterTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "ClarkePark",
+        "relative_path": "model/lib/math/src/ClarkePark.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "ClarkeParkTest",
+        "relative_path": "model/lib/math/src/ClarkeParkTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FrameBlendTest",
+        "relative_path": "model/lib/math/src/FrameBlendTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "MotionControl",
+        "relative_path": "model/lib/motion_loop/src/MotionControl.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "MotionLoopTest",
+        "relative_path": "model/lib/motion_loop/src/MotionLoopTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SpeedProfileTest",
+        "relative_path": "model/lib/motion_loop/src/SpeedProfileTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "CurrentReference",
+        "relative_path": "model/lib/mtpa_fw/src/CurrentReference.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "CurrentReferenceTest",
+        "relative_path": "model/lib/mtpa_fw/src/CurrentReferenceTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "EkfObserver",
+        "relative_path": "model/lib/observer_ekf/src/EkfObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "EkfObserverTest",
+        "relative_path": "model/lib/observer_ekf/src/EkfObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "EemfObserverTest",
+        "relative_path": "model/lib/observer_emf/src/EemfObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "EmfObserver",
+        "relative_path": "model/lib/observer_emf/src/EmfObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "LinearEmfTest",
+        "relative_path": "model/lib/observer_emf/src/LinearEmfTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FluxObserver",
+        "relative_path": "model/lib/observer_flux/src/FluxObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "FluxObserverTest",
+        "relative_path": "model/lib/observer_flux/src/FluxObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "HFIAxisTest",
+        "relative_path": "model/lib/observer_hfi/src/HFIAxisTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "HFISaliencyTest",
+        "relative_path": "model/lib/observer_hfi/src/HFISaliencyTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "HighFrequencyObserver",
+        "relative_path": "model/lib/observer_hfi/src/HighFrequencyObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "MrasObserver",
+        "relative_path": "model/lib/observer_mras/src/MrasObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "MrasObserverTest",
+        "relative_path": "model/lib/observer_mras/src/MrasObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SigmoidSlidingModeObserver",
+        "relative_path": "model/lib/observer_smo/src/SigmoidSlidingModeObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SigmoidSlidingModeObserverTest",
+        "relative_path": "model/lib/observer_smo/src/SigmoidSlidingModeObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SlidingModeObserver",
+        "relative_path": "model/lib/observer_smo/src/SlidingModeObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SlidingModeObserverTest",
+        "relative_path": "model/lib/observer_smo/src/SlidingModeObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "UkfObserver",
+        "relative_path": "model/lib/observer_ukf/src/UkfObserver.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "UkfObserverTest",
+        "relative_path": "model/lib/observer_ukf/src/UkfObserverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMBridgePlant",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMBridgePlant.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMBridgePlantTest",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMBridgePlantTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMHighFrequencyPlant",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMHighFrequencyPlant.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMHighFrequencyPlantTest",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMHighFrequencyPlantTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMPlant",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMPlant.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "PMSMPlantTest",
+        "relative_path": "model/lib/pmsm_plant/src/PMSMPlantTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "HybridFusionTest",
+        "relative_path": "model/lib/sensorless_handover/src/HybridFusionTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessHandover",
+        "relative_path": "model/lib/sensorless_handover/src/SensorlessHandover.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessHandoverTest",
+        "relative_path": "model/lib/sensorless_handover/src/SensorlessHandoverTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessStartup",
+        "relative_path": "model/lib/sensorless_startup/src/SensorlessStartup.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "SensorlessStartupTest",
+        "relative_path": "model/lib/sensorless_startup/src/SensorlessStartupTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "ControlTiming",
+        "relative_path": "model/lib/timing/src/ControlTiming.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      },
+      {
+        "model": "TimingTest",
+        "relative_path": "model/lib/timing/src/TimingTest.slx",
+        "unresolved_links": 0,
+        "editor_open": false
+      }
+    ],
+    "initialize_motor_paths": "passed",
+    "mtpa_app_parameter_entry": "passed",
+    "mtpa_app_short_simulation": {
+      "duration_s": 0.002,
+      "rows": 21,
+      "columns": 74,
+      "finite": true
+    },
+    "scope": "Directory/path smoke only; historical algorithm MIL counts are not rerun or increased."
+  },
+  "models": [
+    {
+      "path": "model/lib/angle_tracking/src/AngleTracking.slx",
+      "sha256": "0a2c1eb331f9b6906b5246fbe31c10895203cf0f208ae71aef2220cfc766c059",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/angle_tracking/src/AngleTrackingInstancesTest.slx",
+      "sha256": "4fcc911c13b13e7a75b9567f2e4dd25c6cfa5e8ff1514fa984281ca3bebb30b8",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/angle_tracking/src/AngleTrackingTest.slx",
+      "sha256": "9a5a4ce41956de32ac40e61218a4a3df146d09a0a3c16076c871cae12e53ccc3",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/current_loop/src/CurrentControl.slx",
+      "sha256": "c272c258b34acd85abdd243d5931183e6a9492fc157dbf18399b5ee99eee9327",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/current_loop/src/CurrentLoopTest.slx",
+      "sha256": "3e21fd9faf1f11576536cf2fbb7f27a5f35c1cb71584aa7474c51f4578147036",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/current_loop/src/CurrentPIProbeTest.slx",
+      "sha256": "3855872dec5d51910a264b9cde4631d4fefacad590eb4e3d0f7e277bcd63e953",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/current_loop/src/FrameTrackingPITest.slx",
+      "sha256": "0f94a166448e2247d7535b8b60eddc5779e6da90e9db075fb6869a085bc7dbd4",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/deadtime/src/Deadtime.slx",
+      "sha256": "6c3e75590b8a691d3013ee286b3aa50dd2e170e7b558b4204843b6e9c0688c50",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/deadtime/src/DeadtimeTest.slx",
+      "sha256": "742879db705e7d6752e7739a1d422ea7c3a98d637231ed05f5c7612a6d78e91f",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/deadtime/src/SwitchingLegTest.slx",
+      "sha256": "709ce45834fbcc6008e94235da45a584ac0262c6118b3ea35f26223c81d85e6b",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/discrete_pid/src/DiscretePID.slx",
+      "sha256": "1dc291274114796b1de54b5309e1866d5478ab77837f753bd07160f2a1a3f2b4",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/discrete_pid/src/DiscretePIDTest.slx",
+      "sha256": "f5de3de12d08c527f3d6ffe4095739128ac91f50b284083e1f8c6202082c30f4",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/feedforward/src/DQFeedforward.slx",
+      "sha256": "14881facef83211279cdb278ea70ca9331890188af6ce1bd2754bd12c4e9a1fb",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/feedforward/src/FeedforwardTest.slx",
+      "sha256": "2a255ca8b075ef03d612a110f13827eeaf4ff624b09df2d83f998b606827de80",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/inverter/src/Inverter.slx",
+      "sha256": "e84458ec89e2b80902a8438d0742404229ecac693a42e304ddf7adfabf7baeb0",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/inverter/src/InverterTest.slx",
+      "sha256": "be212ed0f8b994e1c632477b405da70e87b0ef5ece496265fcc2abc3a5c1f418",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/math/src/ClarkePark.slx",
+      "sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/math/src/ClarkeParkTest.slx",
+      "sha256": "7a1f2323e0edc4726696220cf31d4af8e5df6d2b209ef9ba5c06a828b49fe19f",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/math/src/FrameBlendTest.slx",
+      "sha256": "7b89c3d54ad507ba92fecc2a7b8de3da130e82115669322edcf2f82990bbfd3f",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/motion_loop/src/MotionControl.slx",
+      "sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/motion_loop/src/MotionLoopTest.slx",
+      "sha256": "c210b76edcdf6215de138110b8d890a6c1a2d210cc69222535fefb8fc6bb4947",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/motion_loop/src/SpeedProfileTest.slx",
+      "sha256": "98234fb2c0d809b140b198360d7c4d18ce6f32564eac14f8dd36f50b479bd322",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/src/CurrentReference.slx",
+      "sha256": "43f55b48d8e03d18cb32c33c84adea6d10e73c89d171dec3160645a9dc3e2a59",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/src/CurrentReferenceTest.slx",
+      "sha256": "c005c066430277afd2a49879031f7e9274670639d4c2730e546811725686f462",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_ekf/src/EkfObserver.slx",
+      "sha256": "f8be5ae02cce9d39f4c0990b29a9d73f9593862a300bf77a4a112bbbc00752c8",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_ekf/src/EkfObserverTest.slx",
+      "sha256": "df26b5b4483401f80730aff5704d7198c279302cc38120bcf51a59080f9fd2b9",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_emf/src/EemfObserverTest.slx",
+      "sha256": "4d41d3bf274e06380794ae88569e43349fa9bb0e8f1b2eba544a3dfbc4f3335b",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_emf/src/EmfObserver.slx",
+      "sha256": "e562a99fb876549055692b9afc3e7ff5124b6ede4823b6511772ef73247dc919",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_emf/src/LinearEmfTest.slx",
+      "sha256": "220c2d482f61dcf575a27a437611d22898f9b2f4b339870cace87ab81f1165dc",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_flux/src/FluxObserver.slx",
+      "sha256": "42c1a9bbbc419edc8906ffbbe1c87106d4e281157bb3214217e89237421a7d1f",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_flux/src/FluxObserverTest.slx",
+      "sha256": "5c147e95b6a1bc4c8eca2e08f81a0a5b310b12d9e063eae228207321d643cea2",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_hfi/src/HFIAxisTest.slx",
+      "sha256": "735ee37989c9f58934f6f0ee0e225592337abce42093edbb3c743f4bac6eea71",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_hfi/src/HFISaliencyTest.slx",
+      "sha256": "5c1f71e045d6678917b8093c6c782263efcfd05381af27aca25e8df57137ab5e",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_hfi/src/HighFrequencyObserver.slx",
+      "sha256": "156f8959cc140dc0efcca3bbc454ab97cbec51b3dada540b64e91d86f60daa23",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_mras/src/MrasObserver.slx",
+      "sha256": "8c12b31f065f6d5a2cf383dcfc9703e2e20ef74342fe590ad29ecf73f9a8e013",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_mras/src/MrasObserverTest.slx",
+      "sha256": "5fef23a94ea94706f866575798dc43da69ae17748a7f042e8497eeca56abc0a3",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_smo/src/SigmoidSlidingModeObserver.slx",
+      "sha256": "d00b0e4182e8f80fe19661fba0c26082937a42ca3efd81f4222832c58059eb1c",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_smo/src/SigmoidSlidingModeObserverTest.slx",
+      "sha256": "9247914a1fd847f90767d8ad96eb67ecab010b67f2f970d4f10f20cb50ed962c",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_smo/src/SlidingModeObserver.slx",
+      "sha256": "fe12d86fa1dc211304c05e56874a10909dc1da54b3ee07f9f1b8bfe024712d63",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_smo/src/SlidingModeObserverTest.slx",
+      "sha256": "19cd6d675fe19df9c946d20aae6a9cab44b7ccc99c6474e68cc269725710e9c8",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_ukf/src/UkfObserver.slx",
+      "sha256": "2d94adc50e41b0b912e368863328b4e0869eeb5964efd26208489172a77bdb9b",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/observer_ukf/src/UkfObserverTest.slx",
+      "sha256": "3edf866436039ff19e40a92ecb4946bc1b16c0d04149c3c06e104e2f351c3da4",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgePlant.slx",
+      "sha256": "d32beb34c3c35ad139da27704b6f173d2a475e94622ffa233145f89200999786",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgePlantTest.slx",
+      "sha256": "21ee5fd4aab091e435f83a7704363953e196bb14a9757885b2aa1755f5b268d2",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMHighFrequencyPlant.slx",
+      "sha256": "153becfe7e458d30fcd3ab2a9e38b3d2f85d313e3385e281b762c1bc05c16647",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMHighFrequencyPlantTest.slx",
+      "sha256": "a1f3036cc2b124cd5b27d15963ff781c91d5e44428243c2514c2152c64701ef4",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMPlant.slx",
+      "sha256": "9cd816f48cca9334859a91829581f52ed64b1317650d90d6d89b32be4b1c8b9e",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMPlantTest.slx",
+      "sha256": "ddc26bd3cbc5842496f3ca0196e775a4c32cea947e5ac04a749027efe6ccf837",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/sensorless_handover/src/HybridFusionTest.slx",
+      "sha256": "d7df9986122b387b26e1e45d1485a281bb04680b42e5cd4b8a5dcc3f5d61ce77",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/sensorless_handover/src/SensorlessHandover.slx",
+      "sha256": "29dc47a4398d7812803c91109b15d17f450692fa2d5248b3ab9697eabb3184c9",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/sensorless_handover/src/SensorlessHandoverTest.slx",
+      "sha256": "bbd8e5077aaee3a41f3e599f6187264fee6cfa475af6451a2921be6dd7d8cbdb",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/sensorless_startup/src/SensorlessStartup.slx",
+      "sha256": "c12f98db44de8f1fae8357c5cc433f63ac210dacef9cf4dca6274bc017d6b539",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/sensorless_startup/src/SensorlessStartupTest.slx",
+      "sha256": "4c7a0fbd013c0d7f1c8ba7da85b012408096418779c965715662a5d45b7c8df9",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/timing/src/ControlTiming.slx",
+      "sha256": "7bbc9411ae2a9a44a731671aef8fb079b26e74029d7c401df759953d8ff854d2",
+      "unchanged": true
+    },
+    {
+      "path": "model/lib/timing/src/TimingTest.slx",
+      "sha256": "d02f7883f3cc259c3fdff117f3c737fff9759615da99278e0ce309e141a48584",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensor/experiment/src/MotorExperiment.slx",
+      "sha256": "6754c14b33f1e60d62202bcb058d686e79c39bb775a00425bd3ff0ef661f315c",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx",
+      "sha256": "b50e3c1d066dbc44c800571c9736d7932ff0b120ef819660c737788786a1008a",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/src/SensorObserverCompare.slx",
+      "sha256": "7479ba5c1db1b8e9fa864c74c2e7ffd031f585d89e997f92d7b06fed9c354402",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+      "sha256": "578ad0f2034454f8eb4a44cd2f3bc6393b219fde4e315d9f5eeb1f17a452d863",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+      "sha256": "79b221e0257e15b3a6ed2341a45e4b3410355dbb8a416565e25283ac65631a16",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+      "sha256": "8c6632cbfa4dac55f7146d08b3c1202bf022e8e51fdef1c41886af26fae3b57e",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/SensorlessFOC.slx",
+      "sha256": "9ac45f5f580fdc6fb9db836be42473402d64921cf72690982b252a14f9485eac",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx",
+      "sha256": "e9a5e4530f78517208454210191d81cabe093196a88df379908a9324048f81c0",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIHybrid.slx",
+      "sha256": "0af01e6ee0a8045dd0d07b94a378686e8bdec7910bed5201a4a2844cd929e532",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx",
+      "sha256": "8ca6504f0dd1f5e59853635d43b13799df5475387fba68c76c1143acc0188395",
+      "unchanged": true
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/ref/VF_Control.slx",
+      "sha256": "1764d72efe12d70862d3ab4ffbf48309778c6463c067470f56a7891794d60f8d",
+      "unchanged": true
+    }
+  ],
+  "verification_scope": "65 engineering models loaded hidden and links checked in R2026b; MTPA App short simulation. Historical algorithm MIL data/counts retained, not rerun.",
+  "matlab_project_file": "not created; planned separately",
+  "checks": {
+    "old_directory_names_absent": true,
+    "json_parse": "passed",
+    "markdown_links": {
+      "status": "passed",
+      "project_total_links": 3644,
+      "project_unique_links": 1121,
+      "project_errors": 0,
+      "repository_changelog_errors": 0
+    },
+    "git_diff_check": "passed"
+  },
+  "final_verification": {
+    "date": "2026-11-10",
+    "project_directory": "simulink",
+    "App_directory": "model/app_models",
+    "old_project_directory_absent": true,
+    "old_App_directory_absent": true,
+    "engineering_src_models": 72,
+    "old_references_in_M_Markdown_PowerShell": [],
+    "old_references_in_SLX_XML": [],
+    "R2026b_path_proof": "docs/validation/model_paths.json",
+    "historical_original_rename_fields_preserved": true
+  }
+}

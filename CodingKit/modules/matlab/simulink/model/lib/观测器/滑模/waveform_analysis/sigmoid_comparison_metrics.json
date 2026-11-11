@@ -1,0 +1,68 @@
+{
+  "status": "passed",
+  "cases": 3,
+  "comparison_runs": 6,
+  "comparisons": [
+    {
+      "name": "positive",
+      "basic_LPF_compensation": 0,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.069821526366571365,
+      "sigmoid_angle_rms": 0.011696253764546208,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 1
+    },
+    {
+      "name": "positive",
+      "basic_LPF_compensation": 1,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.011662578723389834,
+      "sigmoid_angle_rms": 0.011696253764546208,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 1
+    },
+    {
+      "name": "high_positive",
+      "basic_LPF_compensation": 0,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.20684909870231596,
+      "sigmoid_angle_rms": 0.034529941180354164,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 1
+    },
+    {
+      "name": "high_positive",
+      "basic_LPF_compensation": 1,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.033546941287885247,
+      "sigmoid_angle_rms": 0.034529941180354164,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 1
+    },
+    {
+      "name": "noise_10mA_qualification_drop",
+      "basic_LPF_compensation": 0,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.069679368247855575,
+      "sigmoid_angle_rms": 0.011560982746915123,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 0.89910089910089908
+    },
+    {
+      "name": "noise_10mA_qualification_drop",
+      "basic_LPF_compensation": 1,
+      "same_K_and_origin_slope": true,
+      "same_PLL_and_input": true,
+      "basic_angle_rms": 0.011521121935916961,
+      "sigmoid_angle_rms": 0.011560982746915123,
+      "basic_valid_fraction": 1,
+      "sigmoid_valid_fraction": 0.89910089910089908
+    }
+  ],
+  "comparison_scope": "Matched K, zero-error injection slope, PLL, physical fixture and input; different nonlinear injection/LPF structures. No universal superiority claim."
+}

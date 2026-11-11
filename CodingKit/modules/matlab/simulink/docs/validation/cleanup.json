@@ -1,0 +1,105 @@
+{
+  "status": "completed",
+  "date": "2026-11-10",
+  "script": "docs/scripts/clear_sensorless_build_cache.ps1",
+  "generated_model_backups_removed": 10,
+  "removed_backup_suffix": ".slx.r2026a",
+  "backup_paths_and_sha256_match_original_models": true,
+  "source_slx_preserved": true,
+  "parameters_and_recorded_results_preserved": true,
+  "original_matlab_installer_preserved": true,
+  "temporary_build_workspace_cleanup_executed": true,
+  "reason": "Canonical source, models and verification data archived; owned headless client exited, allowlisted temporary workspace and compiled caches removed.",
+  "models_saved_before_window_close": [
+    "HFIAxisTest",
+    "HFISaliencyTest",
+    "MotorExperiment"
+  ],
+  "task_model_windows_remaining_after_close": 0,
+  "matlab_application_kept_running": true,
+  "hfi_startup_phase_models_closed": [
+    "HFIAxisTest",
+    "HFISaliencyTest",
+    "SensorlessHFIStartup",
+    "HighFrequencyObserver",
+    "PMSMHighFrequencyPlant",
+    "ClarkePark",
+    "AngleTracking"
+  ],
+  "hfi_foc_phase_models_closed": [
+    "SensorlessHFIFOC",
+    "SpeedProfileTest",
+    "MotionLoopTest",
+    "MotorExperiment",
+    "MotionControl"
+  ],
+  "hfi_foc_canonical_verification_passed": true,
+  "visible_figure_windows_after_hfi_foc": 0,
+  "hybrid_fusion_phase_models_closed": [
+    "HybridFusionTest",
+    "SensorlessHandoverTest",
+    "SensorlessHandover"
+  ],
+  "hybrid_fusion_canonical_verification_passed": true,
+  "visible_figure_windows_after_hybrid_fusion": 0,
+  "hfi_hybrid_canonical_verification_passed": true,
+  "hfi_hybrid_phase_models_closed": [
+    "SensorlessHFIHybrid",
+    "SensorlessHFIFOC",
+    "EmfObserver",
+    "SensorlessHandover"
+  ],
+  "visible_figure_windows_after_hfi_hybrid": 0,
+  "mras_canonical_verification_passed": true,
+  "mras_phase_models_closed": [
+    "MrasObserverTest",
+    "MrasInstanceProbe",
+    "MrasObserver"
+  ],
+  "visible_figure_windows_after_mras": 0,
+  "ekf_canonical_verification_passed": true,
+  "ekf_phase_models_closed": [
+    "EkfObserverTest",
+    "EkfInstanceProbe",
+    "EkfObserver"
+  ],
+  "visible_figure_windows_after_ekf": 0,
+  "model_naming_verification_passed": true,
+  "temporary_Simulation_name_copies_removed_from_project": 29,
+  "original_Test_models_preserved": 28,
+  "model_naming_windows_remaining": 0,
+  "ukf_canonical_verification_passed": true,
+  "ukf_phase_models_closed": [
+    "UkfObserverTest",
+    "UkfInstanceProbe",
+    "UkfObserver",
+    "EkfObserver"
+  ],
+  "visible_figure_windows_after_ukf": 0,
+  "ukf_stage_paths_removed": true,
+  "formula_documentation_modules": 26,
+  "formula_model_metadata_checked": 72,
+  "formula_documentation_model_editors_open": 0,
+  "sigmoid_canonical_verification_passed": true,
+  "sigmoid_model_editors_open": 0,
+  "visible_figures_after_sigmoid": 0,
+  "sigmoid_model_paths_restored_to_canonical": true,
+  "visible_figures_after_final_check": 0,
+  "typed_mras_host_verification_passed": true,
+  "extension_observer_App_checks_passed": 40,
+  "final_cleanup_log": "docs/validation/final_cleanup.log",
+  "owned_temporary_workspaces_absent": {
+    "sensorless-build-v3614sn0": true,
+    "d720-49a9-6fd9-2ebf": true
+  },
+  "owned_work_files_removed": 11521,
+  "owned_work_bytes_removed": 9305099208,
+  "compiled_cache_files_removed": 4,
+  "empty_compiled_cache_tree_removed": true,
+  "owned_headless_matlab_session_closed": true,
+  "user_reference_model_preserved": true,
+  "source_parameter_hashes_checked_after_cleanup": 391,
+  "source_parameter_hashes_unchanged": true,
+  "user_symbol_table_unchanged": true,
+  "final_note": "Earlier per-phase window records describe their historical interactive sessions; only this run owned headless verification session was closed at final cleanup."
+}

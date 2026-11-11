@@ -1,0 +1,1249 @@
+{
+  "model": "SigmoidSensorlessFOC",
+  "release": "2026b",
+  "editor_open": false,
+  "root_read": "status: ok\nmodel: SigmoidSensorlessFOC\nscope: root\ntoken_estimate: 1418\nblocks: \n  algorithm: \n    - id: blk_10\n      Name: Controller\n      BlockType: SubSystem\n      derived_info: \n        expression: \"[voltage_request, theta_used, drive_enable] = Controller(current_ab, theta_hat, omega_hat, observer_valid, residual_norm, speed_reference, enable, reset, direction, voltage_residual, bus_voltage, voltage_demand) where current_ab=blk_4.current_ab, theta_hat=blk_424.theta_hat, omega_hat=blk_424.omega_hat, observer_valid=blk_424.valid, residual_norm=blk_424.residual_norm, speed_reference=blk_382.y1, enable=blk_383.permit, reset=blk_382.y4, direction=blk_382.y5, voltage_residual=blk_282.voltage_residual, bus_voltage=blk_382.y7, voltage_demand=blk_282.request_magnitude\"\n    - id: blk_370\n      Name: FeasibleVoltage\n      BlockType: Terminator\n      derived_info: \n        expression: Terminator(u1) where u1=blk_282.feasible_command\n    - id: blk_4\n      Name: Measurement\n      BlockType: SubSystem\n      derived_info: \n        expression: \"[current_ab, sampled_abc] = Measurement(phase_current) where phase_current=blk_279.phase_current\"\n    - id: blk_424\n      Name: Observer\n      BlockType: SubSystem\n      derived_info: \n        expression: \"[theta_hat, omega_hat, valid, residual_norm, start_voltage_magnitude] = Observer(phase_voltage, current_ab, enable, reset, direction) where phase_voltage=blk_279.phase_voltage, current_ab=blk_4.current_ab, enable=blk_221.y1, reset=blk_382.y4, direction=blk_382.y5\"\n    - id: blk_220\n      Name: ObserverEnabled\n      BlockType: Logic\n      derived_info: \n        expression: \"y1 = Logic(u1, u2) where u1=blk_382.y3, u2=blk_382.y6\"\n    - id: blk_221\n      Name: ObserverEnabledDouble\n      BlockType: DataTypeConversion\n      derived_info: \n        expression: y1 = DataTypeConversion(u1) where u1=blk_220.y1\n    - id: blk_279\n      Name: Plant\n      BlockType: SubSystem\n      derived_info: \n        expression: \"[phase_current, theta_e, phase_voltage] = Plant(duty, mode, load_torque, bus_voltage) where duty=blk_282.duty_applied, mode=blk_10.drive_enable, load_torque=blk_382.y2, bus_voltage=blk_382.y7\"\n    - id: blk_372\n      Name: SaveTrace\n      BlockType: ToWorkspace\n      derived_info: \n        expression: ToWorkspace(u1) where u1=blk_371.y1\n    - id: blk_383\n      Name: StartInterlock\n      BlockType: SubSystem\n      derived_info: \n        expression: \"permit = StartInterlock(request_enable, reset, observer_enable, voltage_magnitude, direction) where request_enable=blk_382.y3, reset=blk_382.y4, observer_enable=blk_221.y1, voltage_magnitude=blk_424.start_voltage_magnitude, direction=blk_382.y5\"\n    - id: blk_371\n      Name: TraceChannels\n      BlockType: Mux\n      derived_info: \n        expression: \"y1 = [u1, u2, u3, u4, u5, u6, u7, u8, u9, u10] where u1=blk_216.y1, u2=blk_10.voltage_request, u3=blk_10.theta_used, u4=blk_282.phase_voltage, u5=blk_282.duty_command, u6=blk_282.duty_applied, u7=blk_282.limit_scale, u8=blk_282.voltage_residual, u9=blk_4.sampled_abc, u10=blk_4.current_ab\"\n    - id: blk_369\n      Name: UnneededTruthAngle\n      BlockType: Terminator\n      derived_info: \n        expression: Terminator(u1) where u1=blk_279.theta_e\n    - id: blk_282\n      Name: VoltageStage\n      BlockType: SubSystem\n      derived_info: \n        expression: \"[duty_command, duty_applied, limit_scale, voltage_residual, feasible_command, phase_voltage, request_magnitude] = VoltageStage(voltage_request, theta_feedback, bus_voltage, actual_phase_voltage, drive_enable) where voltage_request=blk_10.voltage_request, theta_feedback=blk_10.theta_used, bus_voltage=blk_382.y7, actual_phase_voltage=blk_279.phase_voltage, drive_enable=blk_10.drive_enable\"\n    - id: blk_382\n      Name: inputs\n      BlockType: Demux\n      derived_info: \n        expression: \"[y1, y2, y3, y4, y5, y6, y7] = u1 where u1=blk_216.y1\"\n    - id: blk_216\n      Name: stimulus\n      BlockType: FromWorkspace\n      derived_info: \n        expression: y1 = FromWorkspace()\nconnections: \n  - id: \"blk_216.y1 -> blk_382.u1,blk_371.u1\"\n  - id: \"blk_282.y5 -> blk_370.u1\"\n  - id: \"blk_282.y6 -> blk_371.u4\"\n  - id: \"blk_282.y1 -> blk_371.u5\"\n  - id: \"blk_282.y3 -> blk_371.u7\"\n  - id: \"blk_382.y6 -> blk_220.u2\"\n  - id: \"blk_371.y1 -> blk_372.u1\"\n  - id: \"blk_424.residual_norm -> blk_10.residual_norm\"\n  - id: \"blk_424.valid -> blk_10.observer_valid\"\n  - id: \"blk_424.omega_hat -> blk_10.omega_hat\"\n  - id: \"blk_424.theta_hat -> blk_10.theta_hat\"\n  - id: \"blk_424.start_voltage_magnitude -> blk_383.voltage_magnitude\"\n  - id: \"blk_4.sampled_abc -> blk_371.u9\"\n  - id: \"blk_382.y2 -> blk_279.load_torque\"\n  - id: \"blk_279.theta_e -> blk_369.u1\"\n  - id: \"blk_279.phase_current -> blk_4.phase_current\"\n  - id: \"blk_282.y2 -> blk_371.u6,blk_279.duty\"\n  - id: \"blk_383.permit -> blk_10.enable\"\n  - id: \"blk_221.y1 -> blk_424.enable,blk_383.observer_enable\"\n  - id: \"blk_4.current_ab -> blk_424.current_ab,blk_10.current_ab,blk_371.u10\"\n  - id: \"blk_10.voltage_request -> blk_282.u1,blk_371.u2\"\n  - id: \"blk_10.theta_used -> blk_282.u2,blk_371.u3\"\n  - id: \"blk_279.phase_voltage -> blk_424.phase_voltage,blk_282.u4\"\n  - id: \"blk_10.drive_enable -> blk_282.u5,blk_279.mode\"\n  - id: \"blk_282.y4 -> blk_10.voltage_residual,blk_371.u8\"\n  - id: \"blk_282.y7 -> blk_10.voltage_demand\"\n  - id: \"blk_220.y1 -> blk_221.u1\"\n  - id: \"blk_382.y1 -> blk_10.speed_reference\"\n  - id: \"blk_382.y3 -> blk_383.request_enable,blk_220.u1\"\n  - id: \"blk_382.y4 -> blk_424.reset,blk_383.reset,blk_10.reset\"\n  - id: \"blk_382.y5 -> blk_424.direction,blk_383.direction,blk_10.direction\"\n  - id: \"blk_382.y7 -> blk_282.u3,blk_279.bus_voltage,blk_10.bus_voltage\"\n\nblock_type_descriptions: \n  SubSystem: Group blocks into subsystem for model hierarchy\n  Terminator: Terminate unconnected output port\n  Logic: \"Perform logical operation (AND, OR, NAND, NOR, XOR, NXOR, NOT)\"\n  DataTypeConversion: Convert input signal to specified data type\n  ToWorkspace: Write data to workspace variable\n  FromWorkspace: Output data from MATLAB workspace variable",
+  "root_check": "status: healthy\nvalidation_scope: root\nchecks_run: \n  - unconnected_ports\n  - unconnected_lines\n  - stateflow_lint",
+  "root_blocks": [
+    "Controller",
+    "FeasibleVoltage",
+    "Measurement",
+    "Observer",
+    "ObserverEnabled",
+    "ObserverEnabledDouble",
+    "Plant",
+    "SaveTrace",
+    "StartInterlock",
+    "TraceChannels",
+    "UnneededTruthAngle",
+    "VoltageStage",
+    "inputs",
+    "stimulus"
+  ],
+  "connections": [
+    {
+      "source": "Measurement",
+      "source_port": 1,
+      "destination": "Controller",
+      "destination_port": 1
+    },
+    {
+      "source": "Observer",
+      "source_port": 1,
+      "destination": "Controller",
+      "destination_port": 2
+    },
+    {
+      "source": "Observer",
+      "source_port": 2,
+      "destination": "Controller",
+      "destination_port": 3
+    },
+    {
+      "source": "Observer",
+      "source_port": 3,
+      "destination": "Controller",
+      "destination_port": 4
+    },
+    {
+      "source": "Observer",
+      "source_port": 4,
+      "destination": "Controller",
+      "destination_port": 5
+    },
+    {
+      "source": "inputs",
+      "source_port": 1,
+      "destination": "Controller",
+      "destination_port": 6
+    },
+    {
+      "source": "StartInterlock",
+      "source_port": 1,
+      "destination": "Controller",
+      "destination_port": 7
+    },
+    {
+      "source": "inputs",
+      "source_port": 4,
+      "destination": "Controller",
+      "destination_port": 8
+    },
+    {
+      "source": "inputs",
+      "source_port": 5,
+      "destination": "Controller",
+      "destination_port": 9
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 4,
+      "destination": "Controller",
+      "destination_port": 10
+    },
+    {
+      "source": "inputs",
+      "source_port": 7,
+      "destination": "Controller",
+      "destination_port": 11
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 7,
+      "destination": "Controller",
+      "destination_port": 12
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 5,
+      "destination": "FeasibleVoltage",
+      "destination_port": 1
+    },
+    {
+      "source": "Plant",
+      "source_port": 1,
+      "destination": "Measurement",
+      "destination_port": 1
+    },
+    {
+      "source": "Plant",
+      "source_port": 3,
+      "destination": "Observer",
+      "destination_port": 1
+    },
+    {
+      "source": "Measurement",
+      "source_port": 1,
+      "destination": "Observer",
+      "destination_port": 2
+    },
+    {
+      "source": "ObserverEnabledDouble",
+      "source_port": 1,
+      "destination": "Observer",
+      "destination_port": 3
+    },
+    {
+      "source": "inputs",
+      "source_port": 4,
+      "destination": "Observer",
+      "destination_port": 4
+    },
+    {
+      "source": "inputs",
+      "source_port": 5,
+      "destination": "Observer",
+      "destination_port": 5
+    },
+    {
+      "source": "inputs",
+      "source_port": 3,
+      "destination": "ObserverEnabled",
+      "destination_port": 1
+    },
+    {
+      "source": "inputs",
+      "source_port": 6,
+      "destination": "ObserverEnabled",
+      "destination_port": 2
+    },
+    {
+      "source": "ObserverEnabled",
+      "source_port": 1,
+      "destination": "ObserverEnabledDouble",
+      "destination_port": 1
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 2,
+      "destination": "Plant",
+      "destination_port": 1
+    },
+    {
+      "source": "Controller",
+      "source_port": 3,
+      "destination": "Plant",
+      "destination_port": 2
+    },
+    {
+      "source": "inputs",
+      "source_port": 2,
+      "destination": "Plant",
+      "destination_port": 3
+    },
+    {
+      "source": "inputs",
+      "source_port": 7,
+      "destination": "Plant",
+      "destination_port": 4
+    },
+    {
+      "source": "TraceChannels",
+      "source_port": 1,
+      "destination": "SaveTrace",
+      "destination_port": 1
+    },
+    {
+      "source": "inputs",
+      "source_port": 3,
+      "destination": "StartInterlock",
+      "destination_port": 1
+    },
+    {
+      "source": "inputs",
+      "source_port": 4,
+      "destination": "StartInterlock",
+      "destination_port": 2
+    },
+    {
+      "source": "ObserverEnabledDouble",
+      "source_port": 1,
+      "destination": "StartInterlock",
+      "destination_port": 3
+    },
+    {
+      "source": "Observer",
+      "source_port": 5,
+      "destination": "StartInterlock",
+      "destination_port": 4
+    },
+    {
+      "source": "inputs",
+      "source_port": 5,
+      "destination": "StartInterlock",
+      "destination_port": 5
+    },
+    {
+      "source": "stimulus",
+      "source_port": 1,
+      "destination": "TraceChannels",
+      "destination_port": 1
+    },
+    {
+      "source": "Controller",
+      "source_port": 1,
+      "destination": "TraceChannels",
+      "destination_port": 2
+    },
+    {
+      "source": "Controller",
+      "source_port": 2,
+      "destination": "TraceChannels",
+      "destination_port": 3
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 6,
+      "destination": "TraceChannels",
+      "destination_port": 4
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 1,
+      "destination": "TraceChannels",
+      "destination_port": 5
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 2,
+      "destination": "TraceChannels",
+      "destination_port": 6
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 3,
+      "destination": "TraceChannels",
+      "destination_port": 7
+    },
+    {
+      "source": "VoltageStage",
+      "source_port": 4,
+      "destination": "TraceChannels",
+      "destination_port": 8
+    },
+    {
+      "source": "Measurement",
+      "source_port": 2,
+      "destination": "TraceChannels",
+      "destination_port": 9
+    },
+    {
+      "source": "Measurement",
+      "source_port": 1,
+      "destination": "TraceChannels",
+      "destination_port": 10
+    },
+    {
+      "source": "Plant",
+      "source_port": 2,
+      "destination": "UnneededTruthAngle",
+      "destination_port": 1
+    },
+    {
+      "source": "Controller",
+      "source_port": 1,
+      "destination": "VoltageStage",
+      "destination_port": 1
+    },
+    {
+      "source": "Controller",
+      "source_port": 2,
+      "destination": "VoltageStage",
+      "destination_port": 2
+    },
+    {
+      "source": "inputs",
+      "source_port": 7,
+      "destination": "VoltageStage",
+      "destination_port": 3
+    },
+    {
+      "source": "Plant",
+      "source_port": 3,
+      "destination": "VoltageStage",
+      "destination_port": 4
+    },
+    {
+      "source": "Controller",
+      "source_port": 3,
+      "destination": "VoltageStage",
+      "destination_port": 5
+    },
+    {
+      "source": "stimulus",
+      "source_port": 1,
+      "destination": "inputs",
+      "destination_port": 1
+    }
+  ],
+  "links": [
+    {
+      "block": "Controller/ControlPark",
+      "reference": "ClarkePark/Park"
+    },
+    {
+      "block": "Controller/CurrentAllocator",
+      "reference": "CurrentReference/Allocator"
+    },
+    {
+      "block": "Controller/CurrentPI",
+      "reference": "CurrentControl/FrameTrackingPI"
+    },
+    {
+      "block": "Controller/EstimatedRotorPark",
+      "reference": "ClarkePark/Park"
+    },
+    {
+      "block": "Controller/Handover",
+      "reference": "SensorlessHandover/Handover"
+    },
+    {
+      "block": "Controller/ReferenceBlend",
+      "reference": "ClarkePark/BlendDQ"
+    },
+    {
+      "block": "Controller/SpeedPI",
+      "reference": "CurrentReference/TorquePI"
+    },
+    {
+      "block": "Controller/Startup",
+      "reference": "SensorlessStartup/Startup"
+    },
+    {
+      "block": "Measurement/CurrentClarke",
+      "reference": "ClarkePark/Clarke"
+    },
+    {
+      "block": "Observer/Estimator",
+      "reference": "SigmoidSlidingModeObserver/SigmoidSMO"
+    },
+    {
+      "block": "Observer/VoltageClarke",
+      "reference": "ClarkePark/Clarke"
+    },
+    {
+      "block": "Plant/Motor",
+      "reference": "PMSMBridgeBusPlant/BridgeBusMotor"
+    },
+    {
+      "block": "Plant/RotorPark",
+      "reference": "ClarkePark/Park"
+    },
+    {
+      "block": "VoltageStage/CommandAverage",
+      "reference": "Inverter/Average"
+    },
+    {
+      "block": "VoltageStage/CommandClarke",
+      "reference": "ClarkePark/Clarke"
+    },
+    {
+      "block": "VoltageStage/CommandPark",
+      "reference": "ClarkePark/Park"
+    },
+    {
+      "block": "VoltageStage/InversePark",
+      "reference": "ClarkePark/InversePark"
+    },
+    {
+      "block": "VoltageStage/PWMUpdate",
+      "reference": "ControlTiming/Actuation"
+    },
+    {
+      "block": "VoltageStage/SVPWM",
+      "reference": "Inverter/SVPWM"
+    },
+    {
+      "block": "VoltageStage/VoltageLimit",
+      "reference": "CurrentControl/VoltageLimit"
+    }
+  ],
+  "unresolved_links": 0,
+  "scopes": [
+    {
+      "path": "Controller/AllocationFlagsScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/CurrentLimitFlagDouble",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/VoltageLimitFlagDouble",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/FeasibleFlagDouble",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Controller/WeakeningFlagDouble",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 4
+    },
+    {
+      "path": "Controller/AllocationVoltageScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 7,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 8,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 9,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 11,
+          "width": 1
+        },
+        {
+          "first": 5,
+          "last": 5,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 18,
+          "width": 1
+        },
+        {
+          "first": 6,
+          "last": 6,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 19,
+          "width": 1
+        }
+      ],
+      "width": 6
+    },
+    {
+      "path": "Controller/AngleScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/Startup",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/theta_hat",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/Handover",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Controller/CurrentAllocationScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 4,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 5,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 2,
+          "width": 1
+        },
+        {
+          "first": 5,
+          "last": 5,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 6,
+          "width": 1
+        }
+      ],
+      "width": 5
+    },
+    {
+      "path": "Controller/CurrentScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 2,
+          "source": "Controller/ReferenceBlend",
+          "source_port": 1,
+          "width": 2
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/ControlPark",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Controller/ControlPark",
+          "source_port": 2,
+          "width": 1
+        }
+      ],
+      "width": 4
+    },
+    {
+      "path": "Controller/ExtraAngleScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Controller/ExtraAngle",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Controller/FrameSpeedScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/Startup",
+          "source_port": 2,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/Handover",
+          "source_port": 2,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/Handover",
+          "source_port": 3,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Controller/SpeedLoopScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/SpeedReferenceSlew",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/MechanicalEstimate",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 2
+    },
+    {
+      "path": "Controller/StateScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/Startup",
+          "source_port": 6,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/Startup",
+          "source_port": 7,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/Handover",
+          "source_port": 5,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Controller/Handover",
+          "source_port": 6,
+          "width": 1
+        },
+        {
+          "first": 5,
+          "last": 5,
+          "source": "Controller/Handover",
+          "source_port": 8,
+          "width": 1
+        }
+      ],
+      "width": 5
+    },
+    {
+      "path": "Controller/TorqueLoopScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/SpeedPI",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/CurrentAllocator",
+          "source_port": 3,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Controller/EstimatedTorqueSample",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Controller/TransitionScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Controller/Handover",
+          "source_port": 4,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Controller/TrackDouble",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 2
+    },
+    {
+      "path": "Controller/VoltageScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 2,
+          "source": "Controller/CurrentPI",
+          "source_port": 1,
+          "width": 2
+        },
+        {
+          "first": 3,
+          "last": 4,
+          "source": "Controller/voltage_residual",
+          "source_port": 1,
+          "width": 2
+        }
+      ],
+      "width": 4
+    },
+    {
+      "path": "Observer/EmfScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Observer/Estimator",
+          "source_port": 4,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Observer/Estimator",
+          "source_port": 5,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Observer/Estimator",
+          "source_port": 11,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Observer/EstimateAngleScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Observer/Estimator",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Observer/EstimateSpeedScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Observer/Estimator",
+        "source_port": 2,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Observer/ResidualScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Observer/Estimator",
+          "source_port": 8,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Observer/Estimator",
+          "source_port": 9,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Observer/ResidualNorm",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Observer/TerminalVoltageScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Observer/TerminalVoltageMagnitude",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Observer/ValidityScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Observer/Estimator",
+          "source_port": 3,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Observer/enable",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Observer/reset",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 3
+    },
+    {
+      "path": "Plant/BridgeModeScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Plant/mode",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 4,
+          "source": "Plant/Motor",
+          "source_port": 9,
+          "width": 3
+        }
+      ],
+      "width": 4
+    },
+    {
+      "path": "Plant/BusCurrentScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Plant/Motor",
+        "source_port": 8,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Plant/BusVoltageScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Plant/bus_voltage",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Plant/MechanicalSpeedScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "Plant/Motor",
+        "source_port": 5,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "Plant/TorqueScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Plant/Motor",
+          "source_port": 7,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Plant/load_torque",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 2
+    },
+    {
+      "path": "Plant/TrueCurrentScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Plant/RotorPark",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Plant/RotorPark",
+          "source_port": 2,
+          "width": 1
+        }
+      ],
+      "width": 2
+    },
+    {
+      "path": "StartInterlock/ObservationCountScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "StartInterlock/WarmCount",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "StartInterlock/ObservedVoltageScope",
+      "channels": {
+        "first": 1,
+        "last": 1,
+        "source": "StartInterlock/voltage_magnitude",
+        "source_port": 1,
+        "width": 1
+      },
+      "width": 1
+    },
+    {
+      "path": "StartInterlock/PermitScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "StartInterlock/request_enable",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "StartInterlock/PermitSelected",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "StartInterlock/QualifiedDouble",
+          "source_port": 1,
+          "width": 1
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "StartInterlock/DirectionChangedDouble",
+          "source_port": 1,
+          "width": 1
+        }
+      ],
+      "width": 4
+    },
+    {
+      "path": "VoltageStage/ActualPhaseVoltageScope",
+      "channels": {
+        "first": 1,
+        "last": 3,
+        "source": "VoltageStage/actual_phase_voltage",
+        "source_port": 1,
+        "width": 3
+      },
+      "width": 3
+    },
+    {
+      "path": "VoltageStage/DutyScope",
+      "channels": [
+        {
+          "first": 1,
+          "last": 3,
+          "source": "VoltageStage/EnabledDuty",
+          "source_port": 1,
+          "width": 3
+        },
+        {
+          "first": 4,
+          "last": 6,
+          "source": "VoltageStage/TimingSelect",
+          "source_port": 1,
+          "width": 3
+        }
+      ],
+      "width": 6
+    },
+    {
+      "path": "VoltageStage/VoltageResidualScope",
+      "channels": {
+        "first": 1,
+        "last": 2,
+        "source": "VoltageStage/ConsistentResidual",
+        "source_port": 1,
+        "width": 2
+      },
+      "width": 2
+    }
+  ],
+  "truth_angle_to_controller": false,
+  "parameter_fields": {
+    "pmsmCfg": [
+      "Rs",
+      "Ld",
+      "Lq",
+      "Flux",
+      "PolePairs",
+      "J",
+      "B",
+      "Id0",
+      "Iq0",
+      "Speed0",
+      "Position0"
+    ],
+    "currentCfg": [
+      "Ts",
+      "BandwidthHz",
+      "Kpd",
+      "Kpq",
+      "Kid",
+      "Kiq",
+      "Kaw"
+    ],
+    "inverterCfg": [
+      "Vdc",
+      "MinDuty",
+      "PwmTs",
+      "LinearLimit"
+    ],
+    "timingCfg": [
+      "Ts",
+      "FeedbackTicks",
+      "ActuationTicks"
+    ],
+    "motionCfg": [
+      "SpeedLimit",
+      "AccelerationLimit"
+    ],
+    "experimentCfg": [
+      "UseTiming",
+      "Step",
+      "Duration"
+    ],
+    "focCfg": [
+      "Direction",
+      "SpeedReference",
+      "SpeedInitial",
+      "CommandTime",
+      "LoadTorque",
+      "LoadTime",
+      "Enable",
+      "Reset",
+      "ObserverEnable",
+      "VoltageAlignmentEnable",
+      "AlignmentVoltageGain",
+      "FrameCorrectionTolerance"
+    ],
+    "refCfg": [
+      "MtpaEnable",
+      "FwEnable",
+      "CurrentMax",
+      "IdMin",
+      "VoltageReserve",
+      "FwVoltageMargin",
+      "MinDuty",
+      "FwTs",
+      "FilterTau",
+      "FwKi",
+      "IdSlew",
+      "TablePoints",
+      "SpeedTs",
+      "SpeedKp",
+      "SpeedKi",
+      "SpeedKaw",
+      "IdTable",
+      "TorqueGrid",
+      "MaxTorque",
+      "Kt",
+      "VoltageFactor",
+      "FilterAlpha"
+    ],
+    "startupCfg": [
+      "Ts",
+      "Theta0",
+      "AlignCurrent",
+      "StartupCurrent",
+      "FinalOmega",
+      "FlyingCaptureTime",
+      "PrealignTime",
+      "PrealignRampTime",
+      "AlignTime",
+      "AlignRampTime",
+      "OmegaRampTime",
+      "CurrentRampTime",
+      "MinCaptureOmega",
+      "MaxIFTime",
+      "Samples",
+      "Vector",
+      "State0"
+    ],
+    "handoverCfg": [
+      "Ts",
+      "MinOmega",
+      "MaxSpeedGap",
+      "MaxPhaseGap",
+      "MaxResidual",
+      "CaptureTime",
+      "BlendTime",
+      "LossTime",
+      "MaxPhaseInnovation",
+      "AllowFlying",
+      "Samples",
+      "Vector",
+      "State0"
+    ],
+    "pllCfg": [
+      "Ts",
+      "NaturalFrequency",
+      "Damping",
+      "Kp",
+      "Ki",
+      "Kaw",
+      "OmegaMax",
+      "MinMagnitude",
+      "LockError",
+      "LockSamples",
+      "Theta0",
+      "Omega0"
+    ],
+    "fwCfg": [
+      "BusTimes",
+      "BusValues"
+    ],
+    "startGuardCfg": [
+      "Enable",
+      "ObserveTime",
+      "ObserveTicks",
+      "MaxStartVoltage"
+    ],
+    "bridgeCfg": [
+      "Rs",
+      "Ld",
+      "Lq",
+      "Flux",
+      "PolePairs",
+      "J",
+      "B",
+      "Id0",
+      "Iq0",
+      "Speed0",
+      "Position0",
+      "Ts",
+      "Vdc",
+      "DiodeVf",
+      "DiodeRon",
+      "MechanicalEnabled",
+      "CurrentTolerance",
+      "VoltageTolerance",
+      "MaxCurrent",
+      "MaxSpeed",
+      "MaxAngleStep",
+      "State0",
+      "Vector"
+    ],
+    "normalizedInverterCfg": [
+      "Vdc",
+      "MinDuty",
+      "PwmTs",
+      "LinearLimit"
+    ],
+    "extensionCfg": [
+      "Kind"
+    ],
+    "observerCfg": [
+      "Ts",
+      "Rs",
+      "L",
+      "Flux",
+      "PolePairs",
+      "SlidingGain",
+      "Slope",
+      "MinEmf",
+      "MinOmega",
+      "MaxOmega",
+      "MaxResidual",
+      "MaxVoltage",
+      "MaxCurrent",
+      "MaxEstimate",
+      "A",
+      "B",
+      "MaximumInjectionSlope",
+      "LocalErrorPole",
+      "Settings"
+    ]
+  },
+  "status": "passed"
+}

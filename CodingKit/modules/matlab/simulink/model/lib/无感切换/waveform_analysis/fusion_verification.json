@@ -1,0 +1,189 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "kind": "independent analytic position trackers; physical HFI/EMF integration still pending",
+  "fusion_MIL_tests": 30,
+  "fusion_MIL_passed": 30,
+  "rebuild": {
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "rebuild_from_original_library": true,
+    "default_trace_identical": true,
+    "legacy_scope_identical": true,
+    "legacy_MIL_replays": 19,
+    "legacy_traces_identical": true
+  },
+  "MIL_location": "isolated copy; SHA-256 identical artifacts promoted",
+  "original_library_sha256": "9B73DAAF51BB18D37B68C085C04568A4AAA55BD44B6DF8F959144CEEAEEA887B",
+  "legacy_scope_identical": true,
+  "canonical_smoke_passed": true,
+  "physical_hardware_tested": false,
+  "physical_fusion_App_tested": false,
+  "artifact_base": "simulink project root",
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/sensorless_handover/src/SensorlessHandover.slx",
+      "validated_sha256": "29DC47A4398D7812803C91109B15D17F450692FA2D5248B3AB9697EABB3184C9",
+      "current_sha256": "29DC47A4398D7812803C91109B15D17F450692FA2D5248B3AB9697EABB3184C9"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/src/HybridFusionTest.slx",
+      "validated_sha256": "D7DF9986122B387B26E1E45D1485A281BB04680B42E5CD4B8A5DCC3F5D61CE77",
+      "current_sha256": "D7DF9986122B387B26E1E45D1485A281BB04680B42E5CD4B8A5DCC3F5D61CE77"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_results.mat",
+      "validated_sha256": "0A45EAAC4A4C971DC4A55EF224B94DED80F47E97E86B3A5FE0B2C35C072AE94D",
+      "current_sha256": "0A45EAAC4A4C971DC4A55EF224B94DED80F47E97E86B3A5FE0B2C35C072AE94D"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_metrics.json",
+      "validated_sha256": "E27FADF30AEC3E82408AED9A952FC37506C596550454D04530D4D3A328155F86",
+      "current_sha256": "E27FADF30AEC3E82408AED9A952FC37506C596550454D04530D4D3A328155F86"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_round_trip.png",
+      "validated_sha256": "8515B78B0D8C1C5FA94E62EF5E5B85D96AEE258D25CE686B1EA2FF2F57FC9763",
+      "current_sha256": "8515B78B0D8C1C5FA94E62EF5E5B85D96AEE258D25CE686B1EA2FF2F57FC9763"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_round_trip.svg",
+      "validated_sha256": "7B36D5B543C83DC96846B563F6EA007649F34080D0DE751108C350BFD8CE9F96",
+      "current_sha256": "7B36D5B543C83DC96846B563F6EA007649F34080D0DE751108C350BFD8CE9F96"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_faults.png",
+      "validated_sha256": "B1DA350CA0F0012DF9C690686BABAED5DE970BC0F2B841459B651EE6D64B73ED",
+      "current_sha256": "B1DA350CA0F0012DF9C690686BABAED5DE970BC0F2B841459B651EE6D64B73ED"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/fusion_faults.svg",
+      "validated_sha256": "5EF7988104E2A1E7631CAB10264109A63AC0AD58C9AB66C5E1AEF44301367510",
+      "current_sha256": "5EF7988104E2A1E7631CAB10264109A63AC0AD58C9AB66C5E1AEF44301367510"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/build_process/build_hybrid_fusion.m",
+      "validated_sha256": "3EEB0BA5B98C2892CD77378D2ABB1DD0A324144840118A91BC1DF0E5A63124C1",
+      "current_sha256": "3EEB0BA5B98C2892CD77378D2ABB1DD0A324144840118A91BC1DF0E5A63124C1"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/build_process/hybrid_fusion_stimulus.m",
+      "validated_sha256": "23810BFD178887EE84E896528CE9713EC2E68E31C3091332ACD1A3C793FDBFAA",
+      "current_sha256": "23810BFD178887EE84E896528CE9713EC2E68E31C3091332ACD1A3C793FDBFAA"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/build_process/initialize_hybrid_fusion_test.m",
+      "validated_sha256": "682BF314C0AE33B8BBBDB26749CC03049328AECA7D0FDA7C666B1ED8D8932601",
+      "current_sha256": "682BF314C0AE33B8BBBDB26749CC03049328AECA7D0FDA7C666B1ED8D8932601"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/parameter/hybrid_fusion_parameters.m",
+      "validated_sha256": "233AF70C97BEFA48582D3BFFF61A871051518D005BEDFFE392FDF86255F5B51F",
+      "current_sha256": "233AF70C97BEFA48582D3BFFF61A871051518D005BEDFFE392FDF86255F5B51F"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/parameter/hybrid_fusion_test_parameters.m",
+      "validated_sha256": "AB9131E26C41EC3C00506B6A679FA527F3BFD8F621F1EA305C05AC595DBEFC1B",
+      "current_sha256": "AB9131E26C41EC3C00506B6A679FA527F3BFD8F621F1EA305C05AC595DBEFC1B"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/parameter/refresh_hybrid_fusion_parameters.m",
+      "validated_sha256": "82ECB075F09136CCAC4DD7183196B8A58566346044EF2EE96590BFEA3955F9B1",
+      "current_sha256": "82ECB075F09136CCAC4DD7183196B8A58566346044EF2EE96590BFEA3955F9B1"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/src/hybrid_fusion_step.m",
+      "validated_sha256": "F1AE06EB67902335D616511D38C558BD2BB5A68AC88CD68A7A28AD3A00B03050",
+      "current_sha256": "F1AE06EB67902335D616511D38C558BD2BB5A68AC88CD68A7A28AD3A00B03050"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/src/hybrid_injection_output.m",
+      "validated_sha256": "4FEA98C99161ECD35670FF9323516E6F422ABA6FD52E95D7374CDC9883B110A6",
+      "current_sha256": "4FEA98C99161ECD35670FF9323516E6F422ABA6FD52E95D7374CDC9883B110A6"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/plot_hybrid_fusion_results.m",
+      "validated_sha256": "0E558A39DF7F394DA914161F4D23693FC38144B470D061CEE28A0259ADDC5F30",
+      "current_sha256": "0E558A39DF7F394DA914161F4D23693FC38144B470D061CEE28A0259ADDC5F30"
+    },
+    {
+      "relative_path": "model/lib/sensorless_handover/waveform_analysis/run_hybrid_fusion_validation.m",
+      "validated_sha256": "10CE325FE42CFC52BF566C938D3C6FF5A3253B544374B55CBB8D0A7B5FE17CBC",
+      "current_sha256": "10CE325FE42CFC52BF566C938D3C6FF5A3253B544374B55CBB8D0A7B5FE17CBC"
+    }
+  ],
+  "static_diagnostics": [
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 31,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 36,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 38,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 67,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 68,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 70,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 79,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_hybrid_fusion.m",
+      "id": "AGROW",
+      "line": 81,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "hybrid_fusion_step.m",
+      "id": "ALIGN",
+      "line": 120,
+      "message": "此关键字可能未与其在第 122 行上的匹配 END 对齐。"
+    },
+    {
+      "file": "plot_hybrid_fusion_results.m",
+      "id": "MSNU",
+      "line": 16,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    },
+    {
+      "file": "run_hybrid_fusion_validation.m",
+      "id": "MSNU",
+      "line": 7,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    }
+  ],
+  "canonical_default_trace_identical": true,
+  "canonical_embedded_sources_match": true,
+  "canonical_legacy_MIL_replays": 19,
+  "canonical_legacy_traces_identical": true,
+  "project_model_windows": 0,
+  "visible_figure_windows": 0
+}

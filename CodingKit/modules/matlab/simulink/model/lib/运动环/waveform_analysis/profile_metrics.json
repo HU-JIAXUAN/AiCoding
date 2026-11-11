@@ -1,0 +1,64 @@
+{
+  "release": "2026b",
+  "root": "C:\\Program Files\\MATLAB\\R2026b",
+  "tests": 8,
+  "passed": 8,
+  "metrics": [
+    {
+      "name": "rise",
+      "maximum_slope": 40.000000000004476,
+      "minimum_slope": 0,
+      "final_reference": 5,
+      "status": "passed"
+    },
+    {
+      "name": "fall",
+      "maximum_slope": 0,
+      "minimum_slope": -40.000000000004476,
+      "final_reference": -5,
+      "status": "passed"
+    },
+    {
+      "name": "upper_bound",
+      "maximum_slope": 40.000000000013358,
+      "minimum_slope": 0,
+      "final_reference": 15,
+      "status": "passed"
+    },
+    {
+      "name": "lower_bound",
+      "maximum_slope": 0,
+      "minimum_slope": -40.000000000013358,
+      "final_reference": -15,
+      "status": "passed"
+    },
+    {
+      "name": "asymmetric_rates",
+      "maximum_slope": 60.000000000002274,
+      "minimum_slope": -20.000000000006679,
+      "final_reference": -4.0010000000000092,
+      "status": "passed"
+    },
+    {
+      "name": "disable_reacquire",
+      "maximum_slope": 40.000000000004476,
+      "minimum_slope": 0,
+      "final_reference": 7.2019999999994289,
+      "status": "passed"
+    },
+    {
+      "name": "reset_priority",
+      "maximum_slope": 40.000000000004476,
+      "minimum_slope": 0,
+      "final_reference": 8,
+      "status": "passed"
+    },
+    {
+      "name": "period_1ms",
+      "maximum_slope": 40.000000000000036,
+      "minimum_slope": 0,
+      "final_reference": 5,
+      "status": "passed"
+    }
+  ]
+}

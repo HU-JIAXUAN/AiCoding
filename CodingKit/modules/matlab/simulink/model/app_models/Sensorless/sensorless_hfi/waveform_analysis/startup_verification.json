@@ -1,0 +1,273 @@
+{
+  "release": "2026b",
+  "root": "C:\\Program Files\\MATLAB\\R2026b",
+  "axis_MIL": 30,
+  "startup_MIL": 22,
+  "MIL_location": "isolated copy; SHA-256 identical artifacts promoted",
+  "canonical_smoke_passed": true,
+  "default_streams_identical": true,
+  "embedded_sources_match": true,
+  "physical_hardware_tested": false,
+  "FOC_integrated": false,
+  "HFI_EMF_fusion_integrated": false,
+  "static_analysis_ids": [
+    "AGROW",
+    "MSNU",
+    "NBRAK2"
+  ],
+  "static_analysis_files": 35,
+  "project_model_windows": 0,
+  "artifact_base": "project root simulink",
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/observer_hfi/src/HighFrequencyObserver.slx",
+      "validated_sha256": "156F8959CC140DC0EFCCA3BBC454AB97CBEC51B3DADA540B64E91D86F60DAA23",
+      "current_sha256": "156F8959CC140DC0EFCCA3BBC454AB97CBEC51B3DADA540B64E91D86F60DAA23"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/HFIAxisTest.slx",
+      "validated_sha256": "735EE37989C9F58934F6F0EE0E225592337ABCE42093EDBB3C743F4BAC6EEA71",
+      "current_sha256": "735EE37989C9F58934F6F0EE0E225592337ABCE42093EDBB3C743F4BAC6EEA71"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/axis_results.mat",
+      "validated_sha256": "AFA3346AA6BBDC846F28A579CE81160F75FE0CF0166D93D240F00BF56DF442F1",
+      "current_sha256": "AFA3346AA6BBDC846F28A579CE81160F75FE0CF0166D93D240F00BF56DF442F1"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/axis_metrics.json",
+      "validated_sha256": "89E6944E0A9B8074436C95FB6646CE1984A1B238425630AA62F0E24761C33A70",
+      "current_sha256": "89E6944E0A9B8074436C95FB6646CE1984A1B238425630AA62F0E24761C33A70"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx",
+      "validated_sha256": "8CA6504F0DD1F5E59853635D43B13799DF5475387FBA68C76C1143ACC0188395",
+      "current_sha256": "8CA6504F0DD1F5E59853635D43B13799DF5475387FBA68C76C1143ACC0188395"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_results.mat",
+      "validated_sha256": "2CE3EAA6E97442A5F33AFFFFDD4686E2B96F4154667405ED527472B4BA753F6A",
+      "current_sha256": "2CE3EAA6E97442A5F33AFFFFDD4686E2B96F4154667405ED527472B4BA753F6A"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_metrics.json",
+      "validated_sha256": "E885D83FC3285028C2E438D5F87D6B9FF1984F9AC518BFF0BF748F3A9D4BABD2",
+      "current_sha256": "E885D83FC3285028C2E438D5F87D6B9FF1984F9AC518BFF0BF748F3A9D4BABD2"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_sequence.png",
+      "validated_sha256": "071FE6EABFB24DE18C773BBF9E51D8CB50153DAE1CBE395A6A966B56B4836674",
+      "current_sha256": "071FE6EABFB24DE18C773BBF9E51D8CB50153DAE1CBE395A6A966B56B4836674"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_sequence.svg",
+      "validated_sha256": "3DF04117BDE1834E5FD39B6572299929ED0AA91E80A80C2BA10B3D42E5A592EF",
+      "current_sha256": "3DF04117BDE1834E5FD39B6572299929ED0AA91E80A80C2BA10B3D42E5A592EF"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_polarity.png",
+      "validated_sha256": "B00279E81117105F925AB500DF8007450FC1B0FE75B78868F425F1D37667782B",
+      "current_sha256": "B00279E81117105F925AB500DF8007450FC1B0FE75B78868F425F1D37667782B"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_polarity.svg",
+      "validated_sha256": "1533F7C224C68B94E583CE877F906417A1BA0A7ADC32B705EF87DBCFCF0174B2",
+      "current_sha256": "1533F7C224C68B94E583CE877F906417A1BA0A7ADC32B705EF87DBCFCF0174B2"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_rejection.png",
+      "validated_sha256": "17665A3F2722A13BDCBB66336CA998C535512D78BE94306991621F693354934C",
+      "current_sha256": "17665A3F2722A13BDCBB66336CA998C535512D78BE94306991621F693354934C"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/startup_rejection.svg",
+      "validated_sha256": "32B09FB8A2A848C1468876398B9D0E60D29C1224803897E3772A3763F09FBF29",
+      "current_sha256": "32B09FB8A2A848C1468876398B9D0E60D29C1224803897E3772A3763F09FBF29"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/build_hfi_calibration.m",
+      "validated_sha256": "2FC3FF503D8DA6B4D582FFFB527AB6BBE789AA4686C54210D9BC2FBD09533E6C",
+      "current_sha256": "2FC3FF503D8DA6B4D582FFFB527AB6BBE789AA4686C54210D9BC2FBD09533E6C"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/build_hfi_observer.m",
+      "validated_sha256": "0BD15EC3B151D12BC42C509AD167C85D36CF0C8526E4F01DAD130E8FE82BCD88",
+      "current_sha256": "0BD15EC3B151D12BC42C509AD167C85D36CF0C8526E4F01DAD130E8FE82BCD88"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/build_hfi_polarity.m",
+      "validated_sha256": "4CE4865BEAFB7481BF8532C109AB560BC166427CE87ACFA1CA32927C23466F8A",
+      "current_sha256": "4CE4865BEAFB7481BF8532C109AB560BC166427CE87ACFA1CA32927C23466F8A"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/build_hfi_probe.m",
+      "validated_sha256": "5F03DF335F624C8CCB300ADF857BEFEC33FE3CBA2D3FBF7AE9E31DA3B52252E9",
+      "current_sha256": "5F03DF335F624C8CCB300ADF857BEFEC33FE3CBA2D3FBF7AE9E31DA3B52252E9"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/hfi_stimulus.m",
+      "validated_sha256": "68760E4B96E66848474143E741C961C69517C3CFD1A6FF287ADC4A7135AC7A4C",
+      "current_sha256": "68760E4B96E66848474143E741C961C69517C3CFD1A6FF287ADC4A7135AC7A4C"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/initialize_hfi_probe_test.m",
+      "validated_sha256": "153DC15FD72B5C46878EF16D6232CCFC392110D7A46B11BCBAFFAD9CD6304814",
+      "current_sha256": "153DC15FD72B5C46878EF16D6232CCFC392110D7A46B11BCBAFFAD9CD6304814"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/build_process/initialize_hfi_test.m",
+      "validated_sha256": "A47C3C8DB2E06CAF9FA6D964088B3E81B63F63890E384FF39AEA973D47DCC970",
+      "current_sha256": "A47C3C8DB2E06CAF9FA6D964088B3E81B63F63890E384FF39AEA973D47DCC970"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_parameters.m",
+      "validated_sha256": "332D25F55E27D98B597ACEE95F2AE77D2E448E863C89BB193FC9287107EDF1B0",
+      "current_sha256": "332D25F55E27D98B597ACEE95F2AE77D2E448E863C89BB193FC9287107EDF1B0"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_plant_parameters.m",
+      "validated_sha256": "DC21ACEBA08CF0D7241CD7E16FD81CDE0CD650F4BC2AF28D05D67A0C88B6948D",
+      "current_sha256": "DC21ACEBA08CF0D7241CD7E16FD81CDE0CD650F4BC2AF28D05D67A0C88B6948D"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_pll_parameters.m",
+      "validated_sha256": "37E9FAEBFDBE51E37884AA9814E46193F8113058B21EAA7B12450220A2AD5C33",
+      "current_sha256": "37E9FAEBFDBE51E37884AA9814E46193F8113058B21EAA7B12450220A2AD5C33"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_polarity_parameters.m",
+      "validated_sha256": "85545C0F50C180E17154BD85FB3521E41E264D7222270969B031F930EDDEB689",
+      "current_sha256": "85545C0F50C180E17154BD85FB3521E41E264D7222270969B031F930EDDEB689"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_probe_parameters.m",
+      "validated_sha256": "785F8787B080A1C01FE5FED67F453263D00B1C35D368233C97E0FEB9C4CA8A07",
+      "current_sha256": "785F8787B080A1C01FE5FED67F453263D00B1C35D368233C97E0FEB9C4CA8A07"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_probe_test_parameters.m",
+      "validated_sha256": "949F1D2D90B1CD0F5A49596FF9926927B2B8810C4A83D4F75374923A8DB25FD3",
+      "current_sha256": "949F1D2D90B1CD0F5A49596FF9926927B2B8810C4A83D4F75374923A8DB25FD3"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/hfi_test_parameters.m",
+      "validated_sha256": "2F4E8AACE26C67B5AACC6ACC04BCF4C298144DA0BE564FE8084CBBC9F14591AE",
+      "current_sha256": "2F4E8AACE26C67B5AACC6ACC04BCF4C298144DA0BE564FE8084CBBC9F14591AE"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/refresh_hfi_parameters.m",
+      "validated_sha256": "DB20A90365AFA4C539C1343676F3B1942D62FC314A78BA4C3249FC306F9C29C4",
+      "current_sha256": "DB20A90365AFA4C539C1343676F3B1942D62FC314A78BA4C3249FC306F9C29C4"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/refresh_hfi_polarity_parameters.m",
+      "validated_sha256": "A1A818A04734B92F2795BB9F193F2F3F711406239B86CC0CAC67FCFE476F9F8F",
+      "current_sha256": "A1A818A04734B92F2795BB9F193F2F3F711406239B86CC0CAC67FCFE476F9F8F"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/parameter/refresh_hfi_probe_parameters.m",
+      "validated_sha256": "7EA73F261B15C9ADDD43C86E4E9E51EB0930F316CB2336055FC3A2281EC5B8F9",
+      "current_sha256": "7EA73F261B15C9ADDD43C86E4E9E51EB0930F316CB2336055FC3A2281EC5B8F9"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_demodulate.m",
+      "validated_sha256": "65F725D233BF922595A49EC96109495F52CCB1C714141713216B4E5278A6A4AA",
+      "current_sha256": "65F725D233BF922595A49EC96109495F52CCB1C714141713216B4E5278A6A4AA"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_measure_current.m",
+      "validated_sha256": "A9408C6CBD2DA0E969B2BBAF04F31F487649119651915955F670735D44A9596F",
+      "current_sha256": "A9408C6CBD2DA0E969B2BBAF04F31F487649119651915955F670735D44A9596F"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_polarity_output.m",
+      "validated_sha256": "204B53A920147CB6376619CEF0F9F2932719F0861391614802BE4796D7D05964",
+      "current_sha256": "204B53A920147CB6376619CEF0F9F2932719F0861391614802BE4796D7D05964"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_polarity_update.m",
+      "validated_sha256": "AD210C6F4C46ECAE54BB372DEA45AC4F5D822B9D8BFB7911F1D28CA8E48027BF",
+      "current_sha256": "AD210C6F4C46ECAE54BB372DEA45AC4F5D822B9D8BFB7911F1D28CA8E48027BF"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_probe_output.m",
+      "validated_sha256": "F0875C9B04E947F67F4A3BF7FB2362B64EA8A9D15D651056E7DAC6B50B28C165",
+      "current_sha256": "F0875C9B04E947F67F4A3BF7FB2362B64EA8A9D15D651056E7DAC6B50B28C165"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_probe_update.m",
+      "validated_sha256": "9BC176E44DF126D25716E690BD8CDF79BBBF87440AB06D0961AAF7FAAB53B3A9",
+      "current_sha256": "9BC176E44DF126D25716E690BD8CDF79BBBF87440AB06D0961AAF7FAAB53B3A9"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/src/hfi_track_axis.m",
+      "validated_sha256": "52D229AD548BACD367BC846782B66B329C6177A5A23E00D2E144C4AAB2E10D61",
+      "current_sha256": "52D229AD548BACD367BC846782B66B329C6177A5A23E00D2E144C4AAB2E10D61"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/plot_hfi_axis_results.m",
+      "validated_sha256": "35908E3F62226882ACC74BDC1F0A700BCAA8EDB29E3FB23D5E50FC6C360B84B7",
+      "current_sha256": "35908E3F62226882ACC74BDC1F0A700BCAA8EDB29E3FB23D5E50FC6C360B84B7"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/plot_hfi_probe_results.m",
+      "validated_sha256": "7826368CB5B33C918B8AD23E951EFF517DAE11AD1F8EC8F8917C81F58EF0F0F5",
+      "current_sha256": "7826368CB5B33C918B8AD23E951EFF517DAE11AD1F8EC8F8917C81F58EF0F0F5"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/run_hfi_axis_validation.m",
+      "validated_sha256": "780F2361F7A290CFDAF20B1A94D57FDBCD5098475968F8DFF3E92ADB4AC2E60C",
+      "current_sha256": "780F2361F7A290CFDAF20B1A94D57FDBCD5098475968F8DFF3E92ADB4AC2E60C"
+    },
+    {
+      "relative_path": "model/lib/observer_hfi/waveform_analysis/run_hfi_probe_validation.m",
+      "validated_sha256": "9FD34B8547804E4009617A824562FF837067D80D570FF94A3046BA37AA0397D4",
+      "current_sha256": "9FD34B8547804E4009617A824562FF837067D80D570FF94A3046BA37AA0397D4"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_startup.m",
+      "validated_sha256": "66D82520441465A7016FF03D35C52CD4F16BC747604E7091589793E011E07B2B",
+      "current_sha256": "66D82520441465A7016FF03D35C52CD4F16BC747604E7091589793E011E07B2B"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_startup_stimulus.m",
+      "validated_sha256": "F2F25E404F279B0A68A55AC5D70E7641BE22630DF065FF2066FF380B11B4BBCC",
+      "current_sha256": "F2F25E404F279B0A68A55AC5D70E7641BE22630DF065FF2066FF380B11B4BBCC"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m",
+      "validated_sha256": "CC9F4BACEAE8F3BDD71277C5855B4EA21F453BCB1D5B00150BDA015E4363BA0D",
+      "current_sha256": "CC9F4BACEAE8F3BDD71277C5855B4EA21F453BCB1D5B00150BDA015E4363BA0D"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_app_parameters.m",
+      "validated_sha256": "400ABB64811F6A2AD3AA5627CF823F079654B564511ED6A0A3330A116928F82D",
+      "current_sha256": "400ABB64811F6A2AD3AA5627CF823F079654B564511ED6A0A3330A116928F82D"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_test_parameters.m",
+      "validated_sha256": "C43D3F08C60DE57D9CD22ED607ED3694032057F2782E98EEAAE7676222550270",
+      "current_sha256": "C43D3F08C60DE57D9CD22ED607ED3694032057F2782E98EEAAE7676222550270"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_startup_results.m",
+      "validated_sha256": "B0869BB4CC7580AFAA8D68B2C3C282571F362FD12C981F5A1EFA461B67FFD25F",
+      "current_sha256": "B0869BB4CC7580AFAA8D68B2C3C282571F362FD12C981F5A1EFA461B67FFD25F"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_startup_validation.m",
+      "validated_sha256": "6F54EBEC0DD9D2F33C306D5D6DD98C58FEB466F4DE44C23D71B071339C8E1831",
+      "current_sha256": "6F54EBEC0DD9D2F33C306D5D6DD98C58FEB466F4DE44C23D71B071339C8E1831"
+    }
+  ],
+  "original_24_axis_traces_first_37_columns_identical": true,
+  "probe_system_xml_unchanged": true,
+  "canonical_smoke_models": [
+    "HFIAxisTest",
+    "SensorlessHFIStartup",
+    "HFISaliencyTest"
+  ],
+  "canonical_smoke_execution": "All three sims/trace comparisons passed; source/checkcode audit resumed separately after correcting audit names and accepting informational diagnostics.",
+  "app_builder_from_empty_passed": true,
+  "rebuilt_six_default_streams_identical": true
+}

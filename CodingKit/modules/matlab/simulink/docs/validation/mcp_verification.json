@@ -1,0 +1,12 @@
+{
+  "matlab_release": "2026b",
+  "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+  "matlab_function_public_script": true,
+  "independent_linked_instance_configs": true,
+  "a": 6,
+  "b": 15,
+  "status": "passed",
+  "current_chat_connection": "Historical shared-session check passed on R2026b. After the 2026-11-10 MCP reinstall the old chat transport is closed; restart Codex, then recheck this chat. See mcp_reinstallation.json for the independent fresh-session verification.",
+  "persisted_startup_configuration": "R2026b root, matlab-session-mode=new, existing Simulink tools extension.",
+  "matlab_function_script_interface": "MATLABFunctionConfiguration.FunctionScript; model_edit Script routing failed in a scratch model."
+}

@@ -1,0 +1,56 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "model_cases": 10,
+  "results": {
+    "pwm_bus_steps": {
+      "passed": true,
+      "voltage_error_V": 1.7763568394002505E-15,
+      "phase_peak_A": 11.157722835753226
+    },
+    "constant_48V": {
+      "passed": true,
+      "max_absolute_numeric_difference": 0,
+      "max_scaled_difference": 0,
+      "compared_values": 336028
+    },
+    "constant_36V": {
+      "passed": true,
+      "max_absolute_numeric_difference": 0,
+      "max_scaled_difference": 0,
+      "compared_values": 336028
+    },
+    "off_bus_steps": {
+      "passed": true,
+      "phase_peak_A": 7.1455364536242314,
+      "returned_bus_energy_J": 1.4786105408052759,
+      "externally_held_speed_rad_per_s": 150
+    },
+    "short_bus_steps": {
+      "passed": true,
+      "physical_trace_difference": 0
+    },
+    "energy_refinement": {
+      "passed": true,
+      "coarse_defect_J": 1.2924720147938773E-5,
+      "fine_defect_J": 6.574956244925767E-6,
+      "ratio": 0.50871169121401338
+    },
+    "refuse_zero": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_negative": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_nan": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_inf": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    }
+  }
+}

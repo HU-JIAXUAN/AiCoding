@@ -1,0 +1,1174 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "scope": "Four physical SPMSM observer FOC Apps; double MIL, source-only reconstruction and canonical replay; no single/SIL/C2000 claim",
+  "App_cases": 40,
+  "tracking_cases": 20,
+  "exit_cases": 8,
+  "refusal_cases": 12,
+  "algorithms": {
+    "mras": {
+      "model": "MrasSensorlessFOC",
+      "cases": 10,
+      "tracking": 5,
+      "exit": 2,
+      "refusal": 3,
+      "results": "waveform_analysis/mras/results.json",
+      "peak_current_A": 3.089150677603588,
+      "scopes": 30,
+      "links": 20,
+      "truth_feedback": false,
+      "canonical_replay": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            25
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 30,
+        "links": 20,
+        "truth_feedback": false
+      }
+    },
+    "ekf": {
+      "model": "EkfSensorlessFOC",
+      "cases": 10,
+      "tracking": 5,
+      "exit": 2,
+      "refusal": 3,
+      "results": "waveform_analysis/ekf/results.json",
+      "peak_current_A": 3.089150677603588,
+      "scopes": 32,
+      "links": 20,
+      "truth_feedback": false,
+      "canonical_replay": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            49
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 32,
+        "links": 20,
+        "truth_feedback": false
+      }
+    },
+    "ukf": {
+      "model": "UkfSensorlessFOC",
+      "cases": 10,
+      "tracking": 5,
+      "exit": 2,
+      "refusal": 3,
+      "results": "waveform_analysis/ukf/results.json",
+      "peak_current_A": 3.089150677603588,
+      "scopes": 32,
+      "links": 20,
+      "truth_feedback": false,
+      "canonical_replay": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            49
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 32,
+        "links": 20,
+        "truth_feedback": false
+      }
+    },
+    "sigmoid": {
+      "model": "SigmoidSensorlessFOC",
+      "cases": 10,
+      "tracking": 5,
+      "exit": 2,
+      "refusal": 3,
+      "results": "waveform_analysis/sigmoid/results.json",
+      "peak_current_A": 3.089150677603588,
+      "scopes": 30,
+      "links": 20,
+      "truth_feedback": false,
+      "canonical_replay": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            23
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 30,
+        "links": 20,
+        "truth_feedback": false
+      }
+    }
+  },
+  "original_implementation_files_unchanged": 377,
+  "original_implementation_hashes": {
+    "model/lib/timing/parameter/timing_parameters.m": "f51af44369de72d758dd4e54f0a8ffe8796a1c45506c40a36cadf71eb9764a1c",
+    "model/lib/timing/parameter/timing_test_parameters.m": "afb30e108b430f474e4e8eb1733dd48d677aea41349a63768cf72916cc8652f5",
+    "model/lib/timing/src/ControlTiming.slx": "7bbc9411ae2a9a44a731671aef8fb079b26e74029d7c401df759953d8ff854d2",
+    "model/lib/timing/src/TimingTest.slx": "d02f7883f3cc259c3fdff117f3c737fff9759615da99278e0ce309e141a48584",
+    "model/lib/timing/waveform_analysis/run_timing_validation.m": "209332600dc9229dc3d6feff542b537d5b11c2e5f3c498094fd9cc631b301ca6",
+    "model/lib/sensorless_startup/build_process/build_sensorless_startup.m": "c984247f8332e2744d984761975d09d79f087404a16370aee14248beaf53921d",
+    "model/lib/sensorless_startup/build_process/initialize_startup_test.m": "930bba1bc7544d87badab5d4cb15cb37da8efa449c05923ff2c3e62a582a36f5",
+    "model/lib/sensorless_startup/parameter/refresh_startup_parameters.m": "c0d859e2968c22ffd361892ba1775466f51868290ef03cc880059ca0ee5e9bf8",
+    "model/lib/sensorless_startup/parameter/startup_parameters.m": "d31d843510d8583360abcd0cf787988b693e0155aa3bb8ebe1980edcbb506f0b",
+    "model/lib/sensorless_startup/parameter/startup_test_parameters.m": "64501db08d62442ec0dec338a0c2ab2544a9a4e1cb6f40b0551fb06b99a13ac5",
+    "model/lib/sensorless_startup/src/SensorlessStartup.slx": "c12f98db44de8f1fae8357c5cc433f63ac210dacef9cf4dca6274bc017d6b539",
+    "model/lib/sensorless_startup/src/SensorlessStartupTest.slx": "4c7a0fbd013c0d7f1c8ba7da85b012408096418779c965715662a5d45b7c8df9",
+    "model/lib/sensorless_startup/src/startup_step.m": "e7d7aba943d35effa9aa2d4bfa097648af6c3fef5246d6b64c041c290f61955b",
+    "model/lib/sensorless_startup/waveform_analysis/run_startup_validation.m": "7619a2b6c7330fbff47ba4ea41e5d57f45a1f05e28620f3594060143b609cb3c",
+    "model/lib/sensorless_handover/build_process/build_hybrid_fusion.m": "3eeb0ba5b98c2892cd77378d2abb1dd0a324144840118a91bc1df0e5a63124c1",
+    "model/lib/sensorless_handover/build_process/build_sensorless_handover.m": "79e7e7c7ca2ba5a86b478266c26150f343e38e2abf2ddcd4f0d43674bd320ffa",
+    "model/lib/sensorless_handover/build_process/hybrid_fusion_stimulus.m": "23810bfd178887ee84e896528ce9713ec2e68e31c3091332acd1a3c793fdbfaa",
+    "model/lib/sensorless_handover/build_process/initialize_handover_test.m": "81ed69410f14df7dd105281c72cb9406091d478a3756e9db7484907ae969c437",
+    "model/lib/sensorless_handover/build_process/initialize_hybrid_fusion_test.m": "682bf314c0ae33b8bbbdb26749cc03049328aeca7d0fda7c666b1ed8d8932601",
+    "model/lib/sensorless_handover/parameter/handover_parameters.m": "2d018210f652ec1dd0360c4c88a61f7864bc5e3e9068ad9eee3dc7cb459a1029",
+    "model/lib/sensorless_handover/parameter/handover_test_parameters.m": "1c71edfb8a78ed85b2634b5e4292d16310f00c7d393751bf0a72cab07ba88b39",
+    "model/lib/sensorless_handover/parameter/hybrid_fusion_parameters.m": "233af70c97befa48582d3bfff61a871051518d005bedffe392fdf86255f5b51f",
+    "model/lib/sensorless_handover/parameter/hybrid_fusion_test_parameters.m": "ab9131e26c41ec3c00506b6a679fa527f3bfd8f621f1ea305c05ac595dbefc1b",
+    "model/lib/sensorless_handover/parameter/refresh_handover_parameters.m": "1e9da1af63fdcf75c60759c5ce5c15fabe2dccc69b76930b780c32bb86102392",
+    "model/lib/sensorless_handover/parameter/refresh_hybrid_fusion_parameters.m": "82ecb075f09136ccac4dd7183196b8a58566346044ef2ee96590bfea3955f9b1",
+    "model/lib/sensorless_handover/src/handover_step.m": "a83c0ad924c28cbd123e581c02de7e301d2e0b31ab82875cb37d4230a216a791",
+    "model/lib/sensorless_handover/src/HybridFusionTest.slx": "d7df9986122b387b26e1e45d1485a281bb04680b42e5cd4b8a5dcc3f5d61ce77",
+    "model/lib/sensorless_handover/src/hybrid_fusion_step.m": "f1ae06eb67902335d616511d38c558bd2bb5a68ac88cd68a7a28ad3a00b03050",
+    "model/lib/sensorless_handover/src/hybrid_injection_output.m": "4fea98c99161ecd35670ff9323516e6f422aba6fd52e95d7374cdc9883b110a6",
+    "model/lib/sensorless_handover/src/SensorlessHandover.slx": "29dc47a4398d7812803c91109b15d17f450692fa2d5248b3ab9697eabb3184c9",
+    "model/lib/sensorless_handover/src/SensorlessHandoverTest.slx": "bbd8e5077aaee3a41f3e599f6187264fee6cfa475af6451a2921be6dd7d8cbdb",
+    "model/lib/sensorless_handover/waveform_analysis/plot_hybrid_fusion_results.m": "0e558a39df7f394da914161f4d23693fc38144b470d061cee28a0259addc5f30",
+    "model/lib/sensorless_handover/waveform_analysis/run_handover_validation.m": "2a1b941ed440442e464fe2996d228681d50324c54d4c7541e2213d5629c37b7a",
+    "model/lib/sensorless_handover/waveform_analysis/run_hybrid_fusion_validation.m": "10ce325fe42cfc52bf566c938d3c6ff5a3253b544374b55cbb8d0a7b5fe17cbc",
+    "model/lib/pmsm_plant/build_process/bridge_bus_stimulus.m": "d50fe697a92c005449521e4859a85614d3b21e406e09c8c7079114c9212f28ee",
+    "model/lib/pmsm_plant/build_process/bridge_plant_stimulus.m": "e5c6902d5f47b6552e90077497373ca7766d07cdc3d22418b10061886142c47f",
+    "model/lib/pmsm_plant/build_process/build_hf_pmsm_plant.m": "e6e26ad84d81353b5b529ac41beb0104e34ffecfb4ec3f8985843f0c61555f3d",
+    "model/lib/pmsm_plant/build_process/build_pmsm_bridge_bus.m": "f11c8b84a1aab5f9a42d68b0720b9c6f5f74c747e1c9f8b048d3174d48d964a1",
+    "model/lib/pmsm_plant/build_process/build_pmsm_bridge_plant.m": "57317376a59fc66e0db7212d30dac2a9d50cc3a05446f5a7bb5e6efd491d5767",
+    "model/lib/pmsm_plant/build_process/hf_plant_stimulus.m": "2d9df8c348f2250f0cdf7cf2990a0fd34cf99c9fc4c0eb5e499481750639676d",
+    "model/lib/pmsm_plant/build_process/initialize_bridge_bus_test.m": "337f146f3dea91e5995c43611c972ff94c51cd292499d1df6704d158121657ab",
+    "model/lib/pmsm_plant/build_process/initialize_bridge_test.m": "553cdad2d55b02e31d455210319170bb111795ee98421ef1ab2d1c05a9444111",
+    "model/lib/pmsm_plant/build_process/initialize_hf_plant_test.m": "3af5163bf5ed834e75ab28c74f723621af5187693dd2f94ec67030b4fad814b8",
+    "model/lib/pmsm_plant/build_process/inspect_bridge_bus_models.m": "b01a3e5a572b3f9dc0da9d404ed8a6cde756268ab3743784a77c24c29962ebe0",
+    "model/lib/pmsm_plant/build_process/run_bridge_bus_case.m": "0a3d6000c83a52e301ea4b3fffba4cb14a10c886ebdb5b9e158be6d9b53de8d7",
+    "model/lib/pmsm_plant/build_process/run_bridge_case.m": "1c8b271b3a05b647a6eb05c6ac8e5a190f1c35b9c34fdb4389d24ea382e5a2ee",
+    "model/lib/pmsm_plant/build_process/spmsm_estimation_fixture.m": "f26ae5e3794388fee26b4eaabff9015f6ddec5f22c0db9cf9894cf7fd28b5030",
+    "model/lib/pmsm_plant/build_process/tidy_bridge_bus_models.m": "b0bca6b65ff346a5c14b11750a3c5ebe92eaddec3c387af12d7d22db374da5ec",
+    "model/lib/pmsm_plant/parameter/bridge_bus_test_parameters.m": "c091889b2c14ecceff9442781961fa1be03b2ab5f911ef7ed0485d05a7a112d4",
+    "model/lib/pmsm_plant/parameter/bridge_bus_trace_channels.m": "d1c0f74e98952bcf0af5b48f03f617cfb27eca080c377f33395e3084f6bf9620",
+    "model/lib/pmsm_plant/parameter/bridge_test_parameters.m": "a206176618af9f1aafa4a96cb68b9a3dbf7c7ae86d14b5ad262f5ec30d888e79",
+    "model/lib/pmsm_plant/parameter/bridge_trace_channels.m": "27f69871854c394f747b28bf36fef4fdb1290c1476d7eb92c495e4ba1ac1738e",
+    "model/lib/pmsm_plant/parameter/hf_plant_test_parameters.m": "7a1d680daf12be8d71b928b4da0eae8138571e9add3d730d3458a1fa6495418c",
+    "model/lib/pmsm_plant/parameter/pmsm_bridge_parameters.m": "7a638c6854ad75a3a229e4a26187b74a5a79fda25c6987714425025b3f492b96",
+    "model/lib/pmsm_plant/parameter/pmsm_hf_parameters.m": "50c44ed8fcffdf99bdca647276c425911d510575d038a6307b394f1e91068546",
+    "model/lib/pmsm_plant/parameter/pmsm_parameters.m": "c0956a684326c919816182ec6d01c65f05b22eaa29a59710ff6aa7f2c498cd1d",
+    "model/lib/pmsm_plant/parameter/pmsm_sensorless_parameters.m": "a0cdf11b541c97ea7bab40de8ac75a3392117f8f9dd50ffc5760215335349b91",
+    "model/lib/pmsm_plant/parameter/pmsm_test_parameters.m": "b6c0088b6ef82a79e75133ff4fbc30823a9663b67637f094235eb9d7cbc15dcd",
+    "model/lib/pmsm_plant/parameter/refresh_pmsm_bridge_parameters.m": "d9ebca351784ee4ad2d11c914a9e485c283e3a665ce038ff0501f10733365a5b",
+    "model/lib/pmsm_plant/parameter/refresh_pmsm_hf_parameters.m": "73b6c77bc68f01d962fd2f9860839d904183c0d516bfd307ac2bf623286c3722",
+    "model/lib/pmsm_plant/src/bridge_bus_settings.m": "f714f7d516e77e62edc8e340208d35ff11db22b96c0251b43839fd7e1451a839",
+    "model/lib/pmsm_plant/src/PMSMBridgeBusPlant.slx": "cb31ea5cadc5aa9ba62831a704f59d974daf64ac272fd47f81fe71444aacdc78",
+    "model/lib/pmsm_plant/src/PMSMBridgeBusPlantTest.slx": "7136aefcbf5849a9a340eceecc18abe747d65ca2ea5d01f9132758028ab91fa0",
+    "model/lib/pmsm_plant/src/PMSMBridgePlant.slx": "d32beb34c3c35ad139da27704b6f173d2a475e94622ffa233145f89200999786",
+    "model/lib/pmsm_plant/src/PMSMBridgePlantTest.slx": "21ee5fd4aab091e435f83a7704363953e196bb14a9757885b2aa1755f5b268d2",
+    "model/lib/pmsm_plant/src/PMSMHighFrequencyPlant.slx": "153becfe7e458d30fcd3ab2a9e38b3d2f85d313e3385e281b762c1bc05c16647",
+    "model/lib/pmsm_plant/src/PMSMHighFrequencyPlantTest.slx": "a1f3036cc2b124cd5b27d15963ff781c91d5e44428243c2514c2152c64701ef4",
+    "model/lib/pmsm_plant/src/PMSMPlant.slx": "9cd816f48cca9334859a91829581f52ed64b1317650d90d6d89b32be4b1c8b9e",
+    "model/lib/pmsm_plant/src/PMSMPlantTest.slx": "ddc26bd3cbc5842496f3ca0196e775a4c32cea947e5ac04a749027efe6ccf837",
+    "model/lib/pmsm_plant/src/pmsm_bridge_output.m": "3f9b98c71e65f0d08b264a2bafc2b412dc7407670af9080893fe951ae73e3cb2",
+    "model/lib/pmsm_plant/src/pmsm_bridge_step.m": "6b82b6a29e076976b0a315cf3837894569e32b8bf3d6d3fae8b9a2ff766a6e73",
+    "model/lib/pmsm_plant/src/pmsm_hf_dynamics.m": "d24f3a747ef3ce27bae2813d852350248afd6c59bf2df5f0e2b7a1b54e030f0d",
+    "model/lib/pmsm_plant/src/pmsm_hf_output.m": "68819a8ba4185df526720420e95911483a48f913fbb62de4e2c478b3507f1555",
+    "model/lib/pmsm_plant/src/pmsm_sensorless_measurement.m": "fa9ecd5c912622fa8e0305dc8205fb155659de2b32a08dc05cb2fe2e7e2c66f5",
+    "model/lib/pmsm_plant/src/pmsm_sensorless_step.m": "99d9a91f89b333f1461c8e0f43a08d41b58218793bc97666ab187bf46e1b62fc",
+    "model/lib/pmsm_plant/waveform_analysis/export_bridge_bus_plots.m": "a4423aa2ccbaf46f8a8fa6eacbb57aa4c792a8fe7c3406be31dbb9489620d117",
+    "model/lib/pmsm_plant/waveform_analysis/plot_bridge_results.m": "24e47af9c207767b3646f255b72bc125da761bd9f5842142ac7733d1c6ad5872",
+    "model/lib/pmsm_plant/waveform_analysis/run_bridge_bus_validation.m": "9e396af0b473b2d41ae6ca6e05dba83515671b24889ec54ae9c63b4edddebde6",
+    "model/lib/pmsm_plant/waveform_analysis/run_bridge_kernel_checks.m": "745a40b522e17f01c41049add1a44a670156a0e1ccfcfe6e25477012b0d29c2c",
+    "model/lib/pmsm_plant/waveform_analysis/run_bridge_validation.m": "fe16541a0266ee5aded71b2ad584aaad2ef24d080369132fd09bfc20ff20161b",
+    "model/lib/pmsm_plant/waveform_analysis/run_hf_plant_validation.m": "c9fc1ff2e4ec6dad00cf759113bb6744b54a9c1bad076dceb51f32b77b566d2e",
+    "model/lib/pmsm_plant/waveform_analysis/run_pmsm_plant_validation.m": "7b82d47b9ec4bb3a13d6545783a0cb9ef8f9be06caa2b3a4ba1bdf28947d8517",
+    "model/lib/pmsm_plant/waveform_analysis/run_sensorless_process_validation.m": "b502de4002bd4ab23313f104e1eccb162e9010b34b3d89e5b2d231fbe882d8e3",
+    "model/lib/observer_ukf/build_process/build_ukf_observer.m": "2803c9667014d5a7398d48ccde18b39ed4ec360d17363615042249a9d7308ca0",
+    "model/lib/observer_ukf/build_process/initialize_ukf_paths.m": "1db51c0304a6b3c8f06aa5eef4cb326139b41fcb7d9bb635118c5ea22d5b6279",
+    "model/lib/observer_ukf/build_process/initialize_ukf_test.m": "124f72347b3856cca9984050cee5108002e97f89f9da9fa44b3dbfdb93d2a7b5",
+    "model/lib/observer_ukf/parameter/refresh_ukf_parameters.m": "3f37f9f1a46a75da1efce29f3ad8cbdaea886943869f6f533587ef2cc9752912",
+    "model/lib/observer_ukf/parameter/ukf_parameters.m": "b5519ccc17cd87fb03699c260bc0e3abbaee556ee9d0009c73d6cad93cf88c04",
+    "model/lib/observer_ukf/parameter/ukf_test_parameters.m": "7b512fe0ccde7db7b61ce1b1c743a1495b09118a9a7f8ad739e611fa7b0de019",
+    "model/lib/observer_ukf/src/UkfObserver.slx": "2d94adc50e41b0b912e368863328b4e0869eeb5964efd26208489172a77bdb9b",
+    "model/lib/observer_ukf/src/UkfObserverTest.slx": "3edf866436039ff19e40a92ecb4946bc1b16c0d04149c3c06e104e2f351c3da4",
+    "model/lib/observer_ukf/src/ukf_predict.m": "d76a0c1fd1946660c9a8651f6139c71b357e397c170047cbee7274c4bd43f939",
+    "model/lib/observer_ukf/waveform_analysis/compare_ekf_ukf.m": "e5a022a2214444a58c0bf45b533c8edb762f47550ed73f53ae4b681a781a2c76",
+    "model/lib/observer_ukf/waveform_analysis/plot_ukf_results.m": "9fa9aff30e841165160f4d19d2a0c6310a75ec4221d170949dcdd4f7ed11c74a",
+    "model/lib/observer_ukf/waveform_analysis/run_ukf_numerical_validation.m": "c4aa3e94d11a2fb9912a6afb2f7d1113dfd33c6650c726a7beabf9bebf5bca28",
+    "model/lib/observer_ukf/waveform_analysis/run_ukf_validation.m": "70c8773b45674ff8a30e5a624afc8b6ee197f23b2e45f2ea67378c7ac65ad477",
+    "model/lib/observer_smo/build_process/build_sigmoid_smo.m": "fcb883a667ed20016e225f5290d6a061ac71cb6ef5c63c8cb7f7e8b3fd6a9f09",
+    "model/lib/observer_smo/build_process/build_sliding_mode_observer.m": "be0581384d67cc9f20b5a8cf8cc3dbbc1cd02961e9e6a8b5616e70834125bf6b",
+    "model/lib/observer_smo/build_process/initialize_sigmoid_smo_paths.m": "c967010e55593d849f69f454422af1fe8471e6713ea906d68391fd12ca187b00",
+    "model/lib/observer_smo/build_process/initialize_sigmoid_smo_test.m": "c2b276fa89e2db79843c5c5a106e60f4f50949918dca1536ddadfdb7c11f087d",
+    "model/lib/observer_smo/build_process/initialize_smo_test.m": "a149acc8ee9ffd3a306327f7fb6f98ffda88b8e072793212ad48a26f9b64ea80",
+    "model/lib/observer_smo/build_process/smo_fixture.m": "5d15c0ef7210127dcad1847a59efabe0c21fa3acaaacd743ab390194953bb2d8",
+    "model/lib/observer_smo/parameter/refresh_sigmoid_smo_parameters.m": "f0fa2d11f6a3c9193086886b83506a33db2ae5ce97f26df0616cd9940cdd3667",
+    "model/lib/observer_smo/parameter/refresh_smo_parameters.m": "ff8c2bd4ad53f20406da2b70062bc6a6350b04048b2a58431c19518ed143cc04",
+    "model/lib/observer_smo/parameter/sigmoid_smo_parameters.m": "cd67395129e8f9441c6cb08abd0544ea9452b207cd320d25e58f1258d75df20d",
+    "model/lib/observer_smo/parameter/sigmoid_smo_pll_parameters.m": "fd652613ec5d6fec645c9c5ef17207a120e7a17f4ef660baf633af09047faaa9",
+    "model/lib/observer_smo/parameter/sigmoid_smo_test_parameters.m": "74248f570f47fe30217432d0b1a505d432186e9576d97e64cf7784b2df574a38",
+    "model/lib/observer_smo/parameter/smo_parameters.m": "093c7a19cc6ad34fd416bb4ca93fcfe0858b65a0ad4a14b1ee954c42f060ddbb",
+    "model/lib/observer_smo/parameter/smo_test_parameters.m": "1f744f5259efa60244b77e0c83e09481b0b8beeadc0faee1db4a5a87ecb28cf0",
+    "model/lib/observer_smo/src/SigmoidSlidingModeObserver.slx": "d00b0e4182e8f80fe19661fba0c26082937a42ca3efd81f4222832c58059eb1c",
+    "model/lib/observer_smo/src/SigmoidSlidingModeObserverTest.slx": "9247914a1fd847f90767d8ad96eb67ecab010b67f2f970d4f10f20cb50ed962c",
+    "model/lib/observer_smo/src/sigmoid_smo_measure.m": "1fa1f504f81ae139543b77af21949ec5ff7dd71b209fcce744d4bcd8b66f3584",
+    "model/lib/observer_smo/src/sigmoid_smo_predict.m": "fe01dadc6d88cf91819b07edf8f071815302e79323dd60629e692e3d0f6a8904",
+    "model/lib/observer_smo/src/SlidingModeObserver.slx": "fe12d86fa1dc211304c05e56874a10909dc1da54b3ee07f9f1b8bfe024712d63",
+    "model/lib/observer_smo/src/SlidingModeObserverTest.slx": "19cd6d675fe19df9c946d20aae6a9cab44b7ccc99c6474e68cc269725710e9c8",
+    "model/lib/observer_smo/waveform_analysis/compare_sigmoid_basic.m": "fd95f7db4864e34d669ffb391e34712ad95b4922a12054e17a0a03bac6292623",
+    "model/lib/observer_smo/waveform_analysis/export_smo_plots.m": "8240cedee59ccfd956acf5fd5e5f7a0174d04acadf5ee0e716e3cf311ba95e83",
+    "model/lib/observer_smo/waveform_analysis/plot_sigmoid_smo_results.m": "6aa7ae0aa82e1bf64cdbc987d89e3401456443abca2e6eb400a7db9b053296c2",
+    "model/lib/observer_smo/waveform_analysis/run_sigmoid_instance_check.m": "a53db6d904dbb227cd9ada85df077436b2b0c0cb012ca2e5627b671c89263644",
+    "model/lib/observer_smo/waveform_analysis/run_sigmoid_kernel_checks.m": "f9823083956f93188f8fe668bdccb10069553d4bca722e3abfa6dd6a7a056ce7",
+    "model/lib/observer_smo/waveform_analysis/run_sigmoid_smo_validation.m": "ec94ec84063e6114c0872706fb8bb9f0f0f2ab9016a5841e76bc92587cec24d0",
+    "model/lib/observer_smo/waveform_analysis/run_smo_validation.m": "7549ec8bc773809ef82c0ec93026eff3553fa223ed385a4c7a6d6e2b9eb16f91",
+    "model/lib/observer_mras/build_process/build_mras_observer.m": "84975739f45f7c7e15dd77b6364953b2c5981ecc2cf0072c7f003ce43791f8c5",
+    "model/lib/observer_mras/build_process/initialize_mras_test.m": "1fe12782cbe6dd5f3904a2bb2fa6dc9d51c639730cd991aaa282bfb766b7b38b",
+    "model/lib/observer_mras/build_process/mras_fixture.m": "1dc665d4a8337fcc33071a83169af79a8f39c206576619f13e415dfbe6ab3fd2",
+    "model/lib/observer_mras/parameter/mras_parameters.m": "b5cef89c662a0b819f71cc566532390fbc02a49ab644547b7e96cc2e78508aa8",
+    "model/lib/observer_mras/parameter/mras_test_parameters.m": "ebb006a73047a4387f00deb3ac2fe35d1a9d27cdb696656bf0f2d13a81b24606",
+    "model/lib/observer_mras/parameter/refresh_mras_parameters.m": "cba00d819437cf5547e1afedadb2e7e4e76922df7d57e79c574a4947f0b718f6",
+    "model/lib/observer_mras/src/MrasObserver.slx": "8c12b31f065f6d5a2cf383dcfc9703e2e20ef74342fe590ad29ecf73f9a8e013",
+    "model/lib/observer_mras/src/MrasObserverTest.slx": "5fef23a94ea94706f866575798dc43da69ae17748a7f042e8497eeca56abc0a3",
+    "model/lib/observer_mras/src/mras_output.m": "33887248746f3e3a773bda4b60be15587167d8a58b5c0b48cca4384a326f78d4",
+    "model/lib/observer_mras/src/mras_step.m": "448175947c8c2f8f80ec706e71a55f8109aff8cd5050e79cd9857b6453757e5a",
+    "model/lib/observer_mras/waveform_analysis/plot_mras_results.m": "0186ffc46e39e43b0742edfc6d9855747578b0fff2eb485996127bff450e086e",
+    "model/lib/observer_mras/waveform_analysis/run_mras_validation.m": "4af701aff16daca2b424148f64646cdec02316e1ce399208e28aa944a0772772",
+    "model/lib/observer_hfi/build_process/build_hfi_calibration.m": "2fc3ff503d8da6b4d582fffb527ab6bbe789aa4686c54210d9bc2fbd09533e6c",
+    "model/lib/observer_hfi/build_process/build_hfi_observer.m": "0bd15ec3b151d12bc42c509ad167c85d36cf0c8526e4f01dad130e8fe82bcd88",
+    "model/lib/observer_hfi/build_process/build_hfi_polarity.m": "4ce4865beafb7481bf8532c109ab560bc166427ce87acfa1ca32927c23466f8a",
+    "model/lib/observer_hfi/build_process/build_hfi_probe.m": "5f03df335f624c8ccb300adf857befec33fe3cba2d3fbf7ae9e31da3b52252e9",
+    "model/lib/observer_hfi/build_process/hfi_stimulus.m": "68760e4b96e66848474143e741c961c69517c3cfd1a6ff287adc4a7135ac7a4c",
+    "model/lib/observer_hfi/build_process/initialize_hfi_probe_test.m": "153dc15fd72b5c46878ef16d6232ccfc392110d7a46b11bcbaffad9cd6304814",
+    "model/lib/observer_hfi/build_process/initialize_hfi_test.m": "a47c3c8db2e06caf9fa6d964088b3e81b63f63890e384ff39aea973d47dcc970",
+    "model/lib/observer_hfi/parameter/hfi_parameters.m": "332d25f55e27d98b597acee95f2ae77d2e448e863c89bb193fc9287107edf1b0",
+    "model/lib/observer_hfi/parameter/hfi_plant_parameters.m": "dc21aceba08cf0d7241cd7e16fd81cde0cd650f4bc2af28d05d67a0c88b6948d",
+    "model/lib/observer_hfi/parameter/hfi_pll_parameters.m": "37e9faebfdbe51e37884aa9814e46193f8113058b21eaa7b12450220a2ad5c33",
+    "model/lib/observer_hfi/parameter/hfi_polarity_parameters.m": "85545c0f50c180e17154bd85fb3521e41e264d7222270969b031f930eddeb689",
+    "model/lib/observer_hfi/parameter/hfi_probe_parameters.m": "785f8787b080a1c01fe5fed67f453263d00b1c35d368233c97e0feb9c4ca8a07",
+    "model/lib/observer_hfi/parameter/hfi_probe_test_parameters.m": "949f1d2d90b1cd0f5a49596ff9926927b2b8810c4a83d4f75374923a8db25fd3",
+    "model/lib/observer_hfi/parameter/hfi_test_parameters.m": "2f4e8aace26c67b5aacc6acc04bcf4c298144da0be564fe8084cbbc9f14591ae",
+    "model/lib/observer_hfi/parameter/refresh_hfi_parameters.m": "db20a90365afa4c539c1343676f3b1942d62fc314a78ba4c3249fc306f9c29c4",
+    "model/lib/observer_hfi/parameter/refresh_hfi_polarity_parameters.m": "a1a818a04734b92f2795bb9f193f2f3f711406239b86cc0cac67fcfe476f9f8f",
+    "model/lib/observer_hfi/parameter/refresh_hfi_probe_parameters.m": "7ea73f261b15c9addd43c86e4e9e51eb0930f316cb2336055fc3a2281ec5b8f9",
+    "model/lib/observer_hfi/src/HFIAxisTest.slx": "735ee37989c9f58934f6f0ee0e225592337abce42093edbb3c743f4bac6eea71",
+    "model/lib/observer_hfi/src/HFISaliencyTest.slx": "5c1f71e045d6678917b8093c6c782263efcfd05381af27aca25e8df57137ab5e",
+    "model/lib/observer_hfi/src/hfi_demodulate.m": "65f725d233bf922595a49ec96109495f52ccb1c714141713216b4e5278a6a4aa",
+    "model/lib/observer_hfi/src/hfi_measure_current.m": "a9408c6cbd2da0e969b2bbaf04f31f487649119651915955f670735d44a9596f",
+    "model/lib/observer_hfi/src/hfi_polarity_output.m": "204b53a920147cb6376619cef0f9f2932719f0861391614802be4796d7d05964",
+    "model/lib/observer_hfi/src/hfi_polarity_update.m": "ad210c6f4c46ecae54bb372dea45ac4f5d822b9d8bfb7911f1d28ca8e48027bf",
+    "model/lib/observer_hfi/src/hfi_probe_output.m": "f0875c9b04e947f67f4a3bf7fb2362b64ea8a9d15d651056e7dac6b50b28c165",
+    "model/lib/observer_hfi/src/hfi_probe_update.m": "9bc176e44df126d25716e690bd8cdf79bbbf87440ab06d0961aaf7faab53b3a9",
+    "model/lib/observer_hfi/src/hfi_track_axis.m": "52d229ad548bacd367bc846782b66b329c6177a5a23e00d2e144c4aab2e10d61",
+    "model/lib/observer_hfi/src/HighFrequencyObserver.slx": "156f8959cc140dc0efcca3bbc454ab97cbec51b3dada540b64e91d86f60daa23",
+    "model/lib/observer_hfi/waveform_analysis/plot_hfi_axis_results.m": "35908e3f62226882acc74bdc1f0a700bcaa8edb29e3fb23d5e50fc6c360b84b7",
+    "model/lib/observer_hfi/waveform_analysis/plot_hfi_probe_results.m": "7826368cb5b33c918b8ad23e951eff517dae11ad1f8ec8f8917c81f58ef0f0f5",
+    "model/lib/observer_hfi/waveform_analysis/run_hfi_axis_validation.m": "780f2361f7a290cfdaf20b1a94d57fdbcd5098475968f8dff3e92adb4ac2e60c",
+    "model/lib/observer_hfi/waveform_analysis/run_hfi_probe_validation.m": "9fd34b8547804e4009617a824562ff837067d80d570ff94a3046ba37aa0397d4",
+    "model/lib/observer_flux/build_process/build_flux_observer.m": "8f770c8ed267907b08c60a56f0cb729b788ed1445ba3dac9f7db7d1fac7a71e5",
+    "model/lib/observer_flux/build_process/initialize_flux_test.m": "736687e09abc3872a8ddcad2619ab2db45387983d036ac667bd74fcbcc306bcd",
+    "model/lib/observer_flux/parameter/flux_parameters.m": "6871fa4ee8e53366c4c903a9575d4d7320ce934a739be8ef3ac480f5cf0c7218",
+    "model/lib/observer_flux/parameter/flux_test_parameters.m": "3f035be860e4d28f4ed2dfbcf21c6da9b28eb8c602328b2d9531a3b1f88d1c13",
+    "model/lib/observer_flux/parameter/refresh_flux_parameters.m": "21fc15969ac8670fe2bb4f714a3f49b87786420ba1d80ed4a5048d3022f689c3",
+    "model/lib/observer_flux/src/FluxObserver.slx": "42c1a9bbbc419edc8906ffbbe1c87106d4e281157bb3214217e89237421a7d1f",
+    "model/lib/observer_flux/src/FluxObserverTest.slx": "5c147e95b6a1bc4c8eca2e08f81a0a5b310b12d9e063eae228207321d643cea2",
+    "model/lib/observer_flux/src/flux_compute.m": "e7dfccae2b686686069c3dc09a36b85a01f9805f140448e7777faef8e57d428a",
+    "model/lib/observer_flux/src/flux_predict.m": "aa51d41aa37af159a19360157d4e3298fb91c00c2492791ed6e00d3a1c746cbb",
+    "model/lib/observer_flux/waveform_analysis/run_flux_validation.m": "efca4e070f50b006bb11a9e5a41ea49801db3386dc36088fe66d21bf4a318518",
+    "model/lib/observer_emf/build_process/build_emf_observer.m": "212d85f5e1d002fb7eb9ed8ef72c89c9cbf6e78167187d48b6654eb4793d3147",
+    "model/lib/observer_emf/build_process/emf_fixture.m": "68d6625fa8a9fc618853fadeaf5112576456302587db85f1564bf8ea3bac43e5",
+    "model/lib/observer_emf/build_process/initialize_emf_test.m": "237a619ea43e97ef244d87a9f342107a2621afddd5d1eaedaa1914f65beb1ecb",
+    "model/lib/observer_emf/parameter/emf_parameters.m": "5ed1ad241959d93d8e788d09d2469dcdbf80ad64907d13f488f352bf0fc37906",
+    "model/lib/observer_emf/parameter/emf_test_parameters.m": "2ce456c6e4cb45c8eae554f872fe56f605450721e933fcdaf8fcdfce46d47d4f",
+    "model/lib/observer_emf/src/EemfObserverTest.slx": "4d41d3bf274e06380794ae88569e43349fa9bb0e8f1b2eba544a3dfbc4f3335b",
+    "model/lib/observer_emf/src/EmfObserver.slx": "e562a99fb876549055692b9afc3e7ff5124b6ede4823b6511772ef73247dc919",
+    "model/lib/observer_emf/src/emf_predict.m": "7d4964a70bbc0023e92ca5b537f74035d2028f2a607724d74bb9f716077b44e5",
+    "model/lib/observer_emf/src/LinearEmfTest.slx": "220c2d482f61dcf575a27a437611d22898f9b2f4b339870cace87ab81f1165dc",
+    "model/lib/observer_emf/waveform_analysis/run_emf_validation.m": "06e94fb75a3ea12fca57aad1c15786a8b0948208a46f1fc288f9b5c7abd1ce1b",
+    "model/lib/observer_ekf/build_process/build_ekf_observer.m": "08bd2a8d7a5099e7ccfe1d1d42c690ea58fda9edc959a493f70a69a44ec3f564",
+    "model/lib/observer_ekf/build_process/initialize_ekf_paths.m": "380dbafad90e5903e4f278b8f78f319acb837836c7fd7b128cd4d1e80ed3e107",
+    "model/lib/observer_ekf/build_process/initialize_ekf_test.m": "247e2f80b8bd80d7e0e28c6d2c69d90f176fc1691219d72614f183301e46d8eb",
+    "model/lib/observer_ekf/parameter/ekf_parameters.m": "db9094415f43f625193fcdabcbd6f641bb90ef2433551b3ceab1942b11607a74",
+    "model/lib/observer_ekf/parameter/ekf_test_parameters.m": "b0ea640187827a353eb13a362d6c3361cf2fa614ec971fd47793cdd508a99d05",
+    "model/lib/observer_ekf/parameter/refresh_kalman_parameters.m": "2b9e1285db383476e1580d517d5f8d6255b723a7fd687c5f01cc01affa629e2b",
+    "model/lib/observer_ekf/src/EkfObserver.slx": "f8be5ae02cce9d39f4c0990b29a9d73f9593862a300bf77a4a112bbbc00752c8",
+    "model/lib/observer_ekf/src/EkfObserverTest.slx": "df26b5b4483401f80730aff5704d7198c279302cc38120bcf51a59080f9fd2b9",
+    "model/lib/observer_ekf/src/ekf_predict.m": "f148514ef6fd2dc78c94754abf519bb4b2e43c1a71e03cc0bb9eed68153c30bd",
+    "model/lib/observer_ekf/src/kalman_current_update.m": "469aefc3a396ce01ac82ff3deaf710019d327b99cedb5730ed56fc0538d46176",
+    "model/lib/observer_ekf/waveform_analysis/plot_ekf_results.m": "d9c7f83a6fc4f8fafb4a86aa05942527eb611654725813d9e7a828986bae4aa7",
+    "model/lib/observer_ekf/waveform_analysis/plot_kalman_observer_results.m": "481ae63262a44d656e75923566a66be890a96885cb0a26f0c1dd4f6c513884d3",
+    "model/lib/observer_ekf/waveform_analysis/run_ekf_validation.m": "904b4bd7ed2bbf16298c766c5f46f95423f487864474486b8748957b089259e5",
+    "model/lib/observer_ekf/waveform_analysis/run_kalman_qualification_check.m": "b1602cc38b570d7c3de744fbd963a67a6260ac5b2d99a05164397fedb4fb86c5",
+    "model/lib/mtpa_fw/build_process/initialize_mtpa_fw_model.m": "19151fa3467fc550d139af9320c106ba408d4b82abb26f689187501b1b1b7a1d",
+    "model/lib/mtpa_fw/build_process/run_mtpa_fw_case.m": "3931243826a732302fedc062bf36d0a3ff5e87a3ffd4336e7c276e6b2070cf2f",
+    "model/lib/mtpa_fw/parameter/mtpa_fw_parameters.m": "062c96ac684c0632ca3284bc71c1a4dc3f85e074ba1bdc3953fa56ca1f745e47",
+    "model/lib/mtpa_fw/parameter/reference_case_parameters.m": "769936ca5bffdcf2f4f1b4c99a396b8433948b59782a36fc49e9b656fe6eccd3",
+    "model/lib/mtpa_fw/parameter/reference_test_parameters.m": "1b7b95881d9ae03a2c8ba33f413975049ba98c2fbe8aaebb882d3683d25ed1e2",
+    "model/lib/mtpa_fw/parameter/refresh_mtpa_tables.m": "61191c26d4f77af6f8eb12901cd5cdaad1b6cc636d4c3e7b450f9f604d1207e1",
+    "model/lib/mtpa_fw/src/CurrentReference.slx": "43f55b48d8e03d18cb32c33c84adea6d10e73c89d171dec3160645a9dc3e2a59",
+    "model/lib/mtpa_fw/src/CurrentReferenceTest.slx": "c005c066430277afd2a49879031f7e9274670639d4c2730e546811725686f462",
+    "model/lib/mtpa_fw/waveform_analysis/export_mtpa_fw_plots.m": "dfb4f1c4df80e47cb53320535720d3c82dc8e43c40e5fcf31801b4fcb1279d52",
+    "model/lib/mtpa_fw/waveform_analysis/run_mtpa_fw_validation.m": "dece459cd266890c5f7155b89e4ce63097ace31706ad3790412ef820c22c87ce",
+    "model/lib/motion_loop/build_process/build_speed_profile.m": "e0ee87a0776d57a2d8209d0b3612d87cde7aadea3b987ee42c36f907ca7aac71",
+    "model/lib/motion_loop/build_process/initialize_speed_profile_test.m": "e7c1d69ca1bfac5ffb4ae4b5f81aed06994d7929099e56e4b47e8221d3645e2f",
+    "model/lib/motion_loop/build_process/speed_profile_stimulus.m": "694095780ebd1c882c7705161dcf289c5ab893868d9d59231c41f9e651761908",
+    "model/lib/motion_loop/parameter/motion_loop_test_parameters.m": "5235dfd32f84848e353eb9ad38b7974842387a1b75e5fbb0fdd2e11b49ccf103",
+    "model/lib/motion_loop/parameter/motion_parameters.m": "c1c990cdd0b3074029bfd699cb413fbfb4f0d8c5ad17bc0ede16f12a9f0cd76d",
+    "model/lib/motion_loop/parameter/refresh_speed_profile_parameters.m": "13a98555e1a5410f7ecdffd13e5fb0e474034e58a6d75ed7b4f0d55c6d3c1ccd",
+    "model/lib/motion_loop/parameter/speed_profile_parameters.m": "6a81f99e9e806a0a7a96e319ca42be5ce7df3c32b0dd77e49dde271b6b8460e4",
+    "model/lib/motion_loop/parameter/speed_profile_test_parameters.m": "fc505f6385d93f70d0c54de0a49c2451ad331050a76bbc6fc9cb19581261094f",
+    "model/lib/motion_loop/src/MotionControl.slx": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33",
+    "model/lib/motion_loop/src/MotionLoopTest.slx": "c210b76edcdf6215de138110b8d890a6c1a2d210cc69222535fefb8fc6bb4947",
+    "model/lib/motion_loop/src/SpeedProfileTest.slx": "98234fb2c0d809b140b198360d7c4d18ce6f32564eac14f8dd36f50b479bd322",
+    "model/lib/motion_loop/waveform_analysis/plot_speed_profile_results.m": "42e6049cfaa6608a83381f199239f70d146a98adf1dcbd021c8357fd4d00af61",
+    "model/lib/motion_loop/waveform_analysis/run_motion_loop_validation.m": "e2c952dd555a642a066538fd3809442e616436a8bcabda6678888b643befe7f0",
+    "model/lib/motion_loop/waveform_analysis/run_speed_profile_validation.m": "d3f17cc8ad297970a5f461b93a1d3d026217807c8cfdaa3bbe4f8b9dcd4077bf",
+    "model/lib/math/build_process/build_frame_blend.m": "8951ecafd132a908d106cff7f38a6afa121f012b92985c6901cd1972b4ccaf89",
+    "model/lib/math/build_process/initialize_clarke_park_test.m": "eadef4f50496d9c67adeeb9a2dcc8583a1604cad59426f958cde1f2da36f2307",
+    "model/lib/math/build_process/initialize_frame_blend_test.m": "de5014430cbbe96f6fddd83c37e459a584e276e0f050569371a3ad453a678d18",
+    "model/lib/math/parameter/blend_test_parameters.m": "1fc69b56a9491d060e55906570d4a2e09a04a711939773001e2c57edc4b26749",
+    "model/lib/math/parameter/clarke_park_parameters.m": "d0fcf351277ad5a3e8a1a3059ab671129194723d29f87f94fd4f1aabc1bc4f39",
+    "model/lib/math/src/blend_dq.m": "83a6b9dc97204db76f6c650bd56dc6df7f4689e15a4518ee651ded2fc7990dda",
+    "model/lib/math/src/ClarkePark.slx": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909",
+    "model/lib/math/src/ClarkeParkTest.slx": "7a1f2323e0edc4726696220cf31d4af8e5df6d2b209ef9ba5c06a828b49fe19f",
+    "model/lib/math/src/FrameBlendTest.slx": "7b89c3d54ad507ba92fecc2a7b8de3da130e82115669322edcf2f82990bbfd3f",
+    "model/lib/math/waveform_analysis/run_clarke_park_validation.m": "aa5ec3172e3f98a7d79abb7e04eed020ca78019c4c90691b958728ba2f28d8aa",
+    "model/lib/math/waveform_analysis/run_frame_blend_validation.m": "43d3aebeeacb6874ea6b1b29ebc3793d834452a3cc6f4918832bed8958be96a9",
+    "model/lib/inverter/parameter/inverter_parameters.m": "df7aebb762f0a4468dd79f6242c2816f997d01d9f7ff8e2a23890a9dea8af82f",
+    "model/lib/inverter/parameter/inverter_test_parameters.m": "37a12b6c0e855abae284c010dbdf27378c576e37bcdb8634c87a0ddc22e6d3e6",
+    "model/lib/inverter/src/Inverter.slx": "e84458ec89e2b80902a8438d0742404229ecac693a42e304ddf7adfabf7baeb0",
+    "model/lib/inverter/src/InverterTest.slx": "be212ed0f8b994e1c632477b405da70e87b0ef5ece496265fcc2abc3a5c1f418",
+    "model/lib/inverter/waveform_analysis/run_inverter_validation.m": "05f0ea3621d481350f9ca9e03a7be7321488913e1d92d65135022db3bf0504b6",
+    "model/lib/feedforward/parameter/feedforward_parameters.m": "ec63c63e618288db43e92bb70c332a4c2ed92e9abf58867f8e877a040a0baa3f",
+    "model/lib/feedforward/parameter/feedforward_test_parameters.m": "dbc5b3c89fb2f678b5423d9005f4d2c6a8b4890fd58a1d388f0107ee206fed47",
+    "model/lib/feedforward/src/DQFeedforward.slx": "14881facef83211279cdb278ea70ca9331890188af6ce1bd2754bd12c4e9a1fb",
+    "model/lib/feedforward/src/FeedforwardTest.slx": "2a255ca8b075ef03d612a110f13827eeaf4ff624b09df2d83f998b606827de80",
+    "model/lib/feedforward/waveform_analysis/run_feedforward_validation.m": "06c28daa3f7a9bbdf84241af6753fba230baae2e369eb044b8e550c4026211cf",
+    "model/lib/discrete_pid/build_process/initialize_discrete_pid_test.m": "35b2e68be4b2a2db33b4715e3e044e098529d54f446ff4c70fa6d815dcc55784",
+    "model/lib/discrete_pid/parameter/discrete_pid_parameters.m": "adcefe90cf00e67ebd108da84d4d119c3065c3c4b91e87a0d74bf9633b8c6a1c",
+    "model/lib/discrete_pid/parameter/pid_test_parameters.m": "1616255ff308f59f03c04e2e82666597ad3843ba03ebe2f1f02f7fb6d1b253f4",
+    "model/lib/discrete_pid/src/DiscretePID.slx": "1dc291274114796b1de54b5309e1866d5478ab77837f753bd07160f2a1a3f2b4",
+    "model/lib/discrete_pid/src/DiscretePIDTest.slx": "f5de3de12d08c527f3d6ffe4095739128ac91f50b284083e1f8c6202082c30f4",
+    "model/lib/discrete_pid/waveform_analysis/run_discrete_pid_validation.m": "3a6a5c4766c12e2a9116c63b6e4a45f03235c6ccacef3344d3f531dea63944ff",
+    "model/lib/deadtime/parameter/deadtime_parameters.m": "e416c4244888ed8c8ba1f80fbc07fbe15bce150ef3ac33adc98d7af7da8d434c",
+    "model/lib/deadtime/parameter/deadtime_test_parameters.m": "7da098e474edeb316f202308a47d4c5cdf63cebde487d37414621d4dc6f7747c",
+    "model/lib/deadtime/parameter/switching_leg_test_parameters.m": "0be3434f102cdfcf9d0a1db8662db922f167ce9cfcaa9e1dcb3982a85b0dc298",
+    "model/lib/deadtime/src/Deadtime.slx": "6c3e75590b8a691d3013ee286b3aa50dd2e170e7b558b4204843b6e9c0688c50",
+    "model/lib/deadtime/src/DeadtimeTest.slx": "742879db705e7d6752e7739a1d422ea7c3a98d637231ed05f5c7612a6d78e91f",
+    "model/lib/deadtime/src/SwitchingLegTest.slx": "709ce45834fbcc6008e94235da45a584ac0262c6118b3ea35f26223c81d85e6b",
+    "model/lib/deadtime/waveform_analysis/run_deadtime_validation.m": "c59ae21c5f28838d833ab8d89b4b01a31f71c74ff6aa74de1cb5773739fc9130",
+    "model/lib/current_loop/build_process/build_frame_tracking_pi.m": "8fe469bb29c0c9f19fab3d4ddaa3c78df2f406fb0a75f1fd54773d9911723177",
+    "model/lib/current_loop/build_process/initialize_frame_pi_test.m": "62aec6f7991063568ecf271396e85a6447374e207ba1d899335e999958dc8823",
+    "model/lib/current_loop/parameter/current_loop_test_parameters.m": "636d9b831ec04966507b52acbc2a6f9e6a8c388592e56d57aad6df011c2c91da",
+    "model/lib/current_loop/parameter/current_parameters.m": "baf65bad0d11b3ffbf084a86ed8c7029581ef4cf31a57ef42f650ab038e5e770",
+    "model/lib/current_loop/parameter/frame_pi_test_parameters.m": "c536c670c931f2f5f83e373f258046074636ffabdd0908a52dfe4f999011b111",
+    "model/lib/current_loop/src/CurrentControl.slx": "c272c258b34acd85abdd243d5931183e6a9492fc157dbf18399b5ee99eee9327",
+    "model/lib/current_loop/src/CurrentLoopTest.slx": "3e21fd9faf1f11576536cf2fbb7f27a5f35c1cb71584aa7474c51f4578147036",
+    "model/lib/current_loop/src/CurrentPIProbeTest.slx": "3855872dec5d51910a264b9cde4631d4fefacad590eb4e3d0f7e277bcd63e953",
+    "model/lib/current_loop/src/FrameTrackingPITest.slx": "0f94a166448e2247d7535b8b60eddc5779e6da90e9db075fb6869a085bc7dbd4",
+    "model/lib/current_loop/src/frame_pi_compute.m": "c4021954798290f7574e15711c8b3cb74f54a1fc1fd833b22e10ae0ae0f2dc49",
+    "model/lib/current_loop/src/frame_pi_update.m": "73927c9dad33fe511c242d6c969cc4ebede579f047c97e32e293956bbe209f68",
+    "model/lib/current_loop/waveform_analysis/run_current_loop_validation.m": "416e5b1d12168de7852b448ded3a60e2a999fbd85a3aa46635f35acf7707805e",
+    "model/lib/current_loop/waveform_analysis/run_frame_pi_validation.m": "df9b524330dacd1cdbfbbf0c93da0812046b246e3e5d71ff13c107f8b1e0fda3",
+    "model/lib/angle_tracking/build_process/build_angle_tracking.m": "9f4dc02428caceaa63e7cec5fb6678c1a6305aad7c9b1f0a49c36987c18460cb",
+    "model/lib/angle_tracking/build_process/build_pll_instances.m": "d526b8e6c0517ff4cea91d4d32d2392b43dba9d0882804714d30dd2db3bc2efd",
+    "model/lib/angle_tracking/build_process/initialize_angle_tracking_test.m": "e0abe8709b641cddd961d3a6e46ad4b999688d17ff159db010ab9f57ca6cf55a",
+    "model/lib/angle_tracking/build_process/initialize_pll_instances.m": "493d6df01d20c348048c8ee0d3895ac1bc2f3532f1f8d790b89fe8f317107e0f",
+    "model/lib/angle_tracking/parameter/angle_tracking_parameters.m": "9c3a7dce84d6fd4192e0b8c5b10430a845b1ee3d8e8106317aaec82aff73bf06",
+    "model/lib/angle_tracking/parameter/pll_test_parameters.m": "f15661100cdcbfa7257271732419f16ede94e24085f1f30ab5520464f51168b7",
+    "model/lib/angle_tracking/src/AngleTracking.slx": "0a2c1eb331f9b6906b5246fbe31c10895203cf0f208ae71aef2220cfc766c059",
+    "model/lib/angle_tracking/src/AngleTrackingInstancesTest.slx": "4fcc911c13b13e7a75b9567f2e4dd25c6cfa5e8ff1514fa984281ca3bebb30b8",
+    "model/lib/angle_tracking/src/AngleTrackingTest.slx": "9a5a4ce41956de32ac40e61218a4a3df146d09a0a3c16076c871cae12e53ccc3",
+    "model/lib/angle_tracking/waveform_analysis/run_angle_tracking_validation.m": "11e5a2f40bca032ac707436f90186592633265bff94cd42b5b55e1344f07599b",
+    "model/lib/angle_tracking/waveform_analysis/run_pll_instance_validation.m": "8eda672d0a421613fe75727451393360644c1a0012db35d353cbfce1f4e57e05",
+    "model/app_models/Sensorless/sensorless_vf/ref/VF_Control.slx": "1764d72efe12d70862d3ab4ffbf48309778c6463c067470f56a7891794d60f8d",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_foc.m": "2c95a9a4f062436a8e4049c1375445a32e572cbaa9dac770b52c45bcd91589d6",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_hybrid.m": "8beee8691a96f750d3a820652006c2cd55d8e41545489b512c57c1c920debc35",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_startup.m": "66d82520441465a7016ff03d35c52cd4f16bc747604e7091589793e011e07b2b",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_foc_stimulus.m": "f53b0b808051a4704f88ce5e9ff7a280df30cdeb614fa6c39870772e617ea71f",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_stimulus.m": "2af961caa4b818194ab817eaba4ca3a2bbc712a06ac2b5b8a2d7321e11fc8209",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_workspace.m": "d568efd22856e3d4b072e726a1b07ecb8e495796b11a1ef41761786417a47ef2",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_startup_stimulus.m": "f2f25e404f279b0a68a55ac5d70e7641be22630df065ff2066ff380b11b4bbcc",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_foc.m": "212ff49dda0024c7becae42bf4066cbbdda4c3169fd017359fc3e917b9d6b417",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_hybrid.m": "d14e14790985f8434df57d11a6acc108e8ca6436717d0f62996a83f8d8468012",
+    "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m": "cc9f4baceae8f3bdd71277c5855b4ea21f453bcb1d5b00150bda015e4363ba0d",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_app_parameters.m": "ba21d13ff430161e8df4af5533d6ea6ecaffcef46b1bc84150210badbbad3de0",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_test_parameters.m": "5ef62a64d600b60ddfb3e378011e2253ce34db84f5b65c8f04ebfce406aa3e26",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_app_parameters.m": "3abc8d146ec8a4104923e92eacfd29cba9487c31e0972a24459223a02a42f620",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_test_parameters.m": "2887271c6b193ec572367aaaf140b2c7e14b813c58aae3f14429e1a575f94d93",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_app_parameters.m": "400abb64811f6a2ad3aa5627cf823f079654b564511ed6a0a3330a116928f82d",
+    "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_test_parameters.m": "c43d3f08c60de57d9cd22ed607ed3694032057f2782e98eeaae7676222550270",
+    "model/app_models/Sensorless/sensorless_hfi/src/hfi_foc_supervise.m": "eced953cb3bd91b3999536f265bc38eac7c7360b573649662de1ebc3a413e777",
+    "model/app_models/Sensorless/sensorless_hfi/src/hfi_hybrid_direction.m": "62d726a8e6c2a69deae18352b8ff9bb9885168e0c6777920500687e8b7914ba6",
+    "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx": "e9a5e4530f78517208454210191d81cabe093196a88df379908a9324048f81c0",
+    "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIHybrid.slx": "0af01e6ee0a8045dd0d07b94a378686e8bdec7910bed5201a4a2844cd929e532",
+    "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx": "8ca6504f0dd1f5e59853635d43b13799df5475387fba68c76c1143acc0188395",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_foc_results.m": "5828279542d8b45030936623ac171eb4f82818ce1203ff8d88c9a83db3675eeb",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_hybrid_results.m": "1d0cc33d8067f54eedbfa64883481df2c937bc7f00072e89ad09300dc6e2b4cb",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_startup_results.m": "b0869bb4cc7580afaa8d68b2c3c282571f362fd12c981f5a1efa461b67ffd25f",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_foc_validation.m": "70b736039be562e70ff4d3dab8bac6a1af8a29f0eb732b1e4703adf7d49ba8b7",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_hybrid_validation.m": "0913006d4718ff19c865a6eaa7b102c918f7f1b215665fb27dc60e1f5b57c51d",
+    "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_startup_validation.m": "6f54ebec0dd9d2f33c306d5d6dd98c58feb466f4de44c23d71b071339c8e1831",
+    "model/app_models/Sensorless/sensorless_fw/build_process/add_fw_start_interlock.m": "14f0adc86cb6f8eff2f72b366d3c86caf6a5bc6b34c2ba405034a5b7da5fcf9a",
+    "model/app_models/Sensorless/sensorless_fw/build_process/build_sensorless_fw.m": "f2d8910dece84bb49491b6b87a0eacb87c4b024a42eea2f0352bfc7d9e2747b7",
+    "model/app_models/Sensorless/sensorless_fw/build_process/initialize_sensorless_fw.m": "20f8455b7e2ba0221da27f6f6d1888a554fbad4f351e3badada1886f7ce871e8",
+    "model/app_models/Sensorless/sensorless_fw/build_process/inspect_sensorless_fw.m": "0f04967a4a414cfc6a6861cc62591dcd9eee8bbafb0ca417ff4b0056a7a1dc74",
+    "model/app_models/Sensorless/sensorless_fw/build_process/run_sensorless_fw_case.m": "4a4914d168848a405ebcf3e56b782c338491833189d20c852ba2fff21382416a",
+    "model/app_models/Sensorless/sensorless_fw/build_process/sensorless_fw_stimulus.m": "527d13ad207aec613b25a43c98ed64eb88b6eeeade4e84c1a2e0e54682bba085",
+    "model/app_models/Sensorless/sensorless_fw/build_process/tidy_sensorless_fw_model.m": "db9e8d6307871ccd838ee5f64d16a8dc95006cf2e4f8248f69d5c802d6a970b9",
+    "model/app_models/Sensorless/sensorless_fw/parameter/refresh_sensorless_fw_parameters.m": "a567957b38b4f86ff82cb7f4fb782b6372451d8ef44134f7bd95232298646f5e",
+    "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_case_definitions.m": "ddecc1ebf856400c69545becd09d31fc26bc286629d350b1a1ae5e26f4e121ec",
+    "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_channels.m": "0eb7c28c5d162e0eb1e36a37506599dad9d3ebc84960ecd135e7f0178ae830d0",
+    "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_edge_cases.m": "20fbb919c227ff5c16800c7c05f082cd8dfdcccbac0f186aa90b4a7c93c6417d",
+    "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_parameters.m": "5e6f324f0bf3733e935fc8b986f90b42d88cd4bb1f33e75503d537ebfae34cf2",
+    "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_validation_parameters.m": "f8c17989a79df52a110b190a49ab6c8a47ad35d0381d5041642e326e71687cde",
+    "model/app_models/Sensorless/sensorless_fw/src/SensorlessFieldWeakeningFOC.slx": "f211266877cc57d22f159540a7b84e950efb73b001e05731e00ce248758bef48",
+    "model/app_models/Sensorless/sensorless_fw/waveform_analysis/analyze_sensorless_fw_case.m": "dcbac8be4064afa68f24d300a87f586a2bf135ad4f04c11ec70062156bd2cdf5",
+    "model/app_models/Sensorless/sensorless_fw/waveform_analysis/export_sensorless_fw_plots.m": "6efeaa3c1c05bd2cc563f636dfde5b1a69d34b95b324c99c94b949d715119c44",
+    "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_edges.m": "d754b0ca5602943c124b63d10e63717091a0ad0c023163b67d72dc15f8d5e0a3",
+    "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_validation.m": "24a330ebfb1b68c38bbf33c46b42bc7b772c2daeea05b4d62415725b011bb958",
+    "model/app_models/Sensorless/sensorless_foc/build_process/build_flying_foc.m": "2812bda3a1f2c0ab06855249b1e6d8fa602b9e7f1309d2c30e9558f7a9bea994",
+    "model/app_models/Sensorless/sensorless_foc/build_process/build_observer_foc.m": "631190907af132c5c6b223c7f9f8438cf7b304c1a733767762a3acf17a8f9377",
+    "model/app_models/Sensorless/sensorless_foc/build_process/build_sensorless_foc.m": "0cdecee060ca1b1089c4e6ae77dd80fc7fa454bffd3937599400f5ccf80f558b",
+    "model/app_models/Sensorless/sensorless_foc/build_process/flying_foc_stimulus.m": "cf57f85fe67513f10a7643891ffb6bbcbd95ee05953203e21be26f29f6f4df42",
+    "model/app_models/Sensorless/sensorless_foc/build_process/initialize_flying_foc.m": "f834d2951c27b9e51e8a09165554af13d76e6c799281c6a5fa2c388be782b222",
+    "model/app_models/Sensorless/sensorless_foc/build_process/initialize_observer_foc.m": "f64844fbbdc2a89b48b74309b40c40c1ff4477562cc8bd81a83accd46d7205f2",
+    "model/app_models/Sensorless/sensorless_foc/build_process/initialize_sensorless_foc.m": "f8c5ad099bf4a855d4f21eb9d6b72a1b0154c7fdcd2f180ede78d27f386ea492",
+    "model/app_models/Sensorless/sensorless_foc/build_process/run_flying_foc_case.m": "7b61b25ab6e3e6a45913992546122be25dfbc5db6eac7872d72b9ed1fc909529",
+    "model/app_models/Sensorless/sensorless_foc/build_process/run_observer_foc_case.m": "a04b1a0bbd2b644518e56c52b5c7d09a2ee5da1b59845b2c8d4244cdbde44f2e",
+    "model/app_models/Sensorless/sensorless_foc/build_process/run_sensorless_foc_case.m": "57a17b1a404188ac090b12249ea0ecf8babd0cc3593541a07bc13b0ca46532ca",
+    "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_channels.m": "feba57a22057ffcf79c970e548e51f0c63803e31be2792260ed8f9240c8c953f",
+    "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_parameters.m": "2272486270b7358cc5d427662a09526588426e62834b523f8184a4bbc08951fe",
+    "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_channels.m": "acd4813db0ad2bbc20ccaf23a4f99b4c92ddbd2f68eb049e6ace706f8cee4fac",
+    "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_parameters.m": "73a2d78e9ab389dbd36dab533df184a2dc71b5d028b371b0f36ad4e7acd5a6e4",
+    "model/app_models/Sensorless/sensorless_foc/parameter/refresh_flying_foc_parameters.m": "5af066fe0ee526146afad32f31f0cebf6d1574be4d212da5614d89264122e9ab",
+    "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_channels.m": "7e6cc783b983fa5118e1d788257ada9a86afd857b7124b0fd4a98be21d7b2639",
+    "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_parameters.m": "f879f7d2c9f58ad9de8a9d7d1e0138f2bb1fa8ecd2d1c7360e808232441adc4d",
+    "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_stimulus.m": "837843e3a27550d63eb50fc1e6731c8f0e07502285d715ffd40a58434635417a",
+    "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_validation_parameters.m": "27df7e55b4f9610f98732aa1cdcf48fdb54954c5a271d4e5a4a046cb8c86a0db",
+    "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx": "578ad0f2034454f8eb4a44cd2f3bc6393b219fde4e315d9f5eeb1f17a452d863",
+    "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx": "79b221e0257e15b3a6ed2341a45e4b3410355dbb8a416565e25283ac65631a16",
+    "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx": "8c6632cbfa4dac55f7146d08b3c1202bf022e8e51fdef1c41886af26fae3b57e",
+    "model/app_models/Sensorless/sensorless_foc/src/flying_angle_align.m": "7604bd2ec9d847f67989996eabfb036b60a180d46747799548387f7213336c3a",
+    "model/app_models/Sensorless/sensorless_foc/src/flying_capture_step.m": "40ea6aa9c082779b9857505875bb811c3c02dc2ab74e8005d8add7ae4da9b16b",
+    "model/app_models/Sensorless/sensorless_foc/src/flying_pi_residual.m": "5bb7b6b8b15980b5a33eaf030c87789aab53c67fd4f53780859ce928e77d1013",
+    "model/app_models/Sensorless/sensorless_foc/src/SensorlessFOC.slx": "9ac45f5f580fdc6fb9db836be42473402d64921cf72690982b252a14f9485eac",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_flying_foc_results.m": "eabe0ee6e92509c347dd83151a4a1789c2bbfe0ce5b8355e6d89111fe4789734",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_observer_foc_results.m": "8c1c0468852445dd826a339aefa12a21ba4fc0a500031d15e2b162c06dddbe98",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/read_observer_foc_result.m": "e207e0fe6dc68370b235a0094afd23cbfdea8e6445bd1bcda2afe1df6e978677",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/read_sensorless_foc_result.m": "a305c8108961e86e2786343b4ccfe6934a9fdda040bbfe306402540abb4b7f87",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_foc_validation.m": "5e15f373b29d09803c08984affb402eda938defbc5d9507e54c673cbe4798707",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_logic_checks.m": "66d15bfa7fbfd82ba004730c86d7549f7efc54b71e7e9bc09938b5c3d77f4b8c",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_observer_foc_validation.m": "5dae874041c5a2fbc275f708343e00ef9b4601881f9637144b8e3e666dfc9fc5",
+    "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_sensorless_foc_validation.m": "ef4298027040fcf92a73991319757d26ea4acd276f15d0cdfc2c0ad97f40ae46",
+    "model/app_models/Sensor/observer_compare/build_process/build_observer_compare.m": "6ab4fc4c742745928e0ff2565dd4b6bccf78c8a078cffc04577b17db08663fca",
+    "model/app_models/Sensor/observer_compare/build_process/initialize_observer_compare.m": "9c856be9a83fcda47e3761415e072a433be04a3cbb85d1e1727762db460542ac",
+    "model/app_models/Sensor/observer_compare/parameter/observer_compare_parameters.m": "956e6f7919ad873589a8679fdf2c73695ae0fcfc97e9780aa860eb71fa001bbb",
+    "model/app_models/Sensor/observer_compare/src/SensorObserverCompare.slx": "7479ba5c1db1b8e9fa864c74c2e7ffd031f585d89e997f92d7b06fed9c354402",
+    "model/app_models/Sensor/observer_compare/waveform_analysis/run_observer_compare_validation.m": "66162a35ffecb5af81907a19c63a2f3fb0e18cae8fe42994a517f18f536432e1",
+    "model/app_models/Sensor/mtpa_fw/parameter/mtpa_fw_app_parameters.m": "3f330d0cf54f29e8e538d8a7a50b2263d7cee7d98d99dbc6bca519083134ff26",
+    "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx": "b50e3c1d066dbc44c800571c9736d7932ff0b120ef819660c737788786a1008a",
+    "model/app_models/Sensor/experiment/parameter/experiment_app_parameters.m": "821fee5c02ced989611f9703f2ba5a35d0eee0f4eb198ff7d04afd0b1c6f9ed9",
+    "model/app_models/Sensor/experiment/parameter/experiment_parameters.m": "3eef6875e023b28b336d1c5500d5cef34febc54ffa3166d88d76920301be7cb8",
+    "model/app_models/Sensor/experiment/src/MotorExperiment.slx": "6754c14b33f1e60d62202bcb058d686e79c39bb775a00425bd3ff0ef661f315c",
+    "model/app_models/Sensor/experiment/waveform_analysis/run_experiment_validation.m": "03c2934f7c4182dca9ce4f5ead578a17ab495d80592099aed54000d66342b8d2",
+    "docs/scripts/initialize_motor_model.m": "9dd1c38c6d3c25b0e2e54658a5f5ca7817cb5726f18a53d83afc8d045137cef2",
+    "docs/scripts/initialize_motor_paths.m": "8546e6bf071d45d3d6b1524ebd33e73c3407775d204bbb000290cf82ecabbb69",
+    "docs/scripts/motor_case_parameters.m": "cecd639bc258f8b5e2f21e6e7c1daada09c7f696e470453c5f13b751a8bf104f",
+    "docs/scripts/run_motor_case.m": "6381f70ea2d6505b873ead746ac9b272632f0f06a386ee34ff3a1d34d66b1856",
+    "docs/scripts/run_motor_validation.m": "e2a0cc106a2e6efeaed9653855de5aab88179f65f80d2d879b6cc58c88b6f66a"
+  },
+  "new_M_sources": [
+    {
+      "path": "parameter/extension_foc_cases.m",
+      "sha256": "6cd6f7cc0cb2fd0c2c4154876d442bfb65b8d0cea8adeb83640831d32b1fb637"
+    },
+    {
+      "path": "parameter/extension_foc_channels.m",
+      "sha256": "30fe171191a902ef543b3e01fc4ef3dc82e1f359ed360405fe5376a54739f0d6"
+    },
+    {
+      "path": "parameter/extension_foc_parameters.m",
+      "sha256": "71e776ceff1ac198499b4d23c07d50af1748433dd06056bf71fad9853797f160"
+    },
+    {
+      "path": "parameter/extension_foc_spec.m",
+      "sha256": "11d7f4fe08fea0ca2f8cd1c3882acc73dd7855da4e172c7632923b3523c65b1b"
+    },
+    {
+      "path": "parameter/extension_foc_validation_parameters.m",
+      "sha256": "c72f525b3375d700c656dfe145c18b9fd9ecccd2a229508a1c774c8124cf98b9"
+    },
+    {
+      "path": "parameter/refresh_extension_foc_parameters.m",
+      "sha256": "df124d2f4d8e56c1dab10bfafee77afdcb0cb37cc308975099717f767eb95670"
+    },
+    {
+      "path": "build_process/build_extension_foc.m",
+      "sha256": "5b3693b5cbbbdb68c717864440bbdc283f04bf2b4ed1f903492cf44e95de7e8b"
+    },
+    {
+      "path": "build_process/initialize_extension_foc.m",
+      "sha256": "f5f3934760f760cc64829b573730d52c6c0b83c92929263504103c1bb96962c3"
+    },
+    {
+      "path": "build_process/inspect_extension_foc.m",
+      "sha256": "4ddb55aec0f493d8e3c0a89fa1a7ac6a32f20aa1f2afad06ba1ccc9c056b40b3"
+    },
+    {
+      "path": "build_process/run_extension_foc_case.m",
+      "sha256": "147e6663e8d3a1421ff0b70567c8853e6d1fb6be679ee120e0f4a61833c2db9f"
+    },
+    {
+      "path": "build_process/tidy_extension_foc.m",
+      "sha256": "e13ce2cf69e2e7215648abfe798ddefb350fe88cfdd32ef7290b4e080f522f34"
+    },
+    {
+      "path": "waveform_analysis/analyze_extension_foc.m",
+      "sha256": "682350ad54b6c120d1a83ddb082b2f63334f0fe61874a126b3b7f3183bcc0db7"
+    },
+    {
+      "path": "waveform_analysis/export_extension_foc_plots.m",
+      "sha256": "1e7fed409d327abaafe483bcdca6a97c934e04bb9d8894f9b31009d5aa89fe92"
+    },
+    {
+      "path": "waveform_analysis/run_extension_foc_validation.m",
+      "sha256": "30b469d92222a8c06da6f11230ea46013a2d1d2ec0154a2da2ba347cc8507004"
+    }
+  ],
+  "rebuild": {
+    "status": "passed",
+    "created_from_m_only": true,
+    "release": "2026b",
+    "algorithms": {
+      "mras": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "record": "extension_rebuild/mras_fresh_default.mat"
+      },
+      "ekf": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "record": "extension_rebuild/ekf_fresh_default.mat"
+      },
+      "ukf": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "record": "extension_rebuild/ukf_fresh_default.mat"
+      },
+      "sigmoid": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "record": "extension_rebuild/sigmoid_fresh_default.mat"
+      }
+    },
+    "source_manifest": "extension_rebuild_m_sources.json",
+    "template_and_libraries_reused": true
+  },
+  "canonical_replay": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "canonical_module": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\app_models\\Sensorless\\sensorless_foc",
+    "algorithms": {
+      "mras": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            25
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 30,
+        "links": 20,
+        "truth_feedback": false
+      },
+      "ekf": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            49
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 32,
+        "links": 20,
+        "truth_feedback": false
+      },
+      "ukf": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            49
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 32,
+        "links": 20,
+        "truth_feedback": false
+      },
+      "sigmoid": {
+        "status": "passed",
+        "six_trace_max_differences": {
+          "plant": 0,
+          "observer": 0,
+          "controller": 0,
+          "allocation": 0,
+          "actuation": 0,
+          "guard": 0
+        },
+        "trace_shapes": {
+          "plant": [
+            440001,
+            36
+          ],
+          "observer": [
+            44001,
+            23
+          ],
+          "controller": [
+            44001,
+            46
+          ],
+          "allocation": [
+            44001,
+            25
+          ],
+          "actuation": [
+            44001,
+            27
+          ],
+          "guard": [
+            44001,
+            9
+          ]
+        },
+        "scopes": 30,
+        "links": 20,
+        "truth_feedback": false
+      }
+    }
+  },
+  "promoted_sources": [
+    {
+      "path": "src/EkfSensorlessFOC.slx",
+      "sha256": "3a7761751c0d3baefb5a1ef787b1cd7f7daab35a1f0bff8d1295e18a2a5d88ec"
+    },
+    {
+      "path": "src/MrasSensorlessFOC.slx",
+      "sha256": "e2af8fcdf3fcca794f9ccd698390aaf32139c0a2af9bc168c6b7551ed7e34c03"
+    },
+    {
+      "path": "src/SigmoidSensorlessFOC.slx",
+      "sha256": "02d6373cf98cfe48c3e8d3b618bf1b1e80137dbd8a0a5cd537fabebfc5516288"
+    },
+    {
+      "path": "src/UkfSensorlessFOC.slx",
+      "sha256": "fe8c76cc5dbf802eef2ac32f5312945245cecd09f09fcc40af22b4b90b9c2a3a"
+    },
+    {
+      "path": "parameter/extension_foc_cases.m",
+      "sha256": "6cd6f7cc0cb2fd0c2c4154876d442bfb65b8d0cea8adeb83640831d32b1fb637"
+    },
+    {
+      "path": "parameter/extension_foc_channels.m",
+      "sha256": "30fe171191a902ef543b3e01fc4ef3dc82e1f359ed360405fe5376a54739f0d6"
+    },
+    {
+      "path": "parameter/extension_foc_parameters.m",
+      "sha256": "71e776ceff1ac198499b4d23c07d50af1748433dd06056bf71fad9853797f160"
+    },
+    {
+      "path": "parameter/extension_foc_spec.m",
+      "sha256": "11d7f4fe08fea0ca2f8cd1c3882acc73dd7855da4e172c7632923b3523c65b1b"
+    },
+    {
+      "path": "parameter/extension_foc_validation_parameters.m",
+      "sha256": "c72f525b3375d700c656dfe145c18b9fd9ecccd2a229508a1c774c8124cf98b9"
+    },
+    {
+      "path": "parameter/refresh_extension_foc_parameters.m",
+      "sha256": "df124d2f4d8e56c1dab10bfafee77afdcb0cb37cc308975099717f767eb95670"
+    },
+    {
+      "path": "build_process/build_extension_foc.m",
+      "sha256": "5b3693b5cbbbdb68c717864440bbdc283f04bf2b4ed1f903492cf44e95de7e8b"
+    },
+    {
+      "path": "build_process/initialize_extension_foc.m",
+      "sha256": "f5f3934760f760cc64829b573730d52c6c0b83c92929263504103c1bb96962c3"
+    },
+    {
+      "path": "build_process/inspect_extension_foc.m",
+      "sha256": "4ddb55aec0f493d8e3c0a89fa1a7ac6a32f20aa1f2afad06ba1ccc9c056b40b3"
+    },
+    {
+      "path": "build_process/run_extension_foc_case.m",
+      "sha256": "147e6663e8d3a1421ff0b70567c8853e6d1fb6be679ee120e0f4a61833c2db9f"
+    },
+    {
+      "path": "build_process/tidy_extension_foc.m",
+      "sha256": "e13ce2cf69e2e7215648abfe798ddefb350fe88cfdd32ef7290b4e080f522f34"
+    },
+    {
+      "path": "waveform_analysis/analyze_extension_foc.m",
+      "sha256": "682350ad54b6c120d1a83ddb082b2f63334f0fe61874a126b3b7f3183bcc0db7"
+    },
+    {
+      "path": "waveform_analysis/export_extension_foc_plots.m",
+      "sha256": "1e7fed409d327abaafe483bcdca6a97c934e04bb9d8894f9b31009d5aa89fe92"
+    },
+    {
+      "path": "waveform_analysis/run_extension_foc_validation.m",
+      "sha256": "30b469d92222a8c06da6f11230ea46013a2d1d2ec0154a2da2ba347cc8507004"
+    }
+  ],
+  "records": [
+    {
+      "path": "waveform_analysis/ekf/forward.mat",
+      "sha256": "dff6b9dada569b5ee3f8bc2cefc1ab629021ea64423ac79f289715fd512a31ad"
+    },
+    {
+      "path": "waveform_analysis/ekf/initial_angle.mat",
+      "sha256": "0ac02ddd1421262bb2d8867601027c38f3147414c4122b26a2011a39da061055"
+    },
+    {
+      "path": "waveform_analysis/ekf/lower_bus.mat",
+      "sha256": "baaadc8222038a344a7f43cb40b69535486c96960c194c0228ba6840a76bee2b"
+    },
+    {
+      "path": "waveform_analysis/ekf/moving_forward_refused.mat",
+      "sha256": "bd9e8ffc75a1d458512a5fc98c6cb9fddb61de1bf4a963ea59fa7259a5b88428"
+    },
+    {
+      "path": "waveform_analysis/ekf/moving_reverse_refused.mat",
+      "sha256": "b07f5e1d519e9c2c45582e2f22b6f3937ff5889c224a851e0f3553ab955ed84d"
+    },
+    {
+      "path": "waveform_analysis/ekf/observer_disabled_start.mat",
+      "sha256": "66061582ab47dd7b800f13ce29027c301a0190aa251e329a568bc850f85e9fd9"
+    },
+    {
+      "path": "waveform_analysis/ekf/observer_loss.mat",
+      "sha256": "8992b24c383e3bb5c4def4806e83740e2df0d57359d53d1af78ed9de8d04a89f"
+    },
+    {
+      "path": "waveform_analysis/ekf/observer_resistance_mismatch.mat",
+      "sha256": "aa41e127df1a2f460f439a9555525936a1e68c0af2cd57a74e670b76420b42c9"
+    },
+    {
+      "path": "waveform_analysis/ekf/reverse.mat",
+      "sha256": "5681cccfec14c2fdfa10fa782c993d8a1b6a57820b536e1aaa872a3bbf010aff"
+    },
+    {
+      "path": "waveform_analysis/ekf/rotating_reset.mat",
+      "sha256": "6fb95b3638f4cd9c3dbe9343696984b3ae5178a935615cf51da88a235d5662a7"
+    },
+    {
+      "path": "waveform_analysis/extension_rebuild/ekf_fresh_default.mat",
+      "sha256": "bb9e577d88bbc46eac5c8790bdc4d5d33b260d296e26113f0cd43fd2cabd5ddf"
+    },
+    {
+      "path": "waveform_analysis/extension_rebuild/mras_fresh_default.mat",
+      "sha256": "88536494fa94ea83e4ab1f3fa5143adb45a96dbd7634916c7acdcedcd0c6ccc9"
+    },
+    {
+      "path": "waveform_analysis/extension_rebuild/sigmoid_fresh_default.mat",
+      "sha256": "4b9d23609c9192e197f1ed8cf930ecafcee733c3f458e56f95422573d6b08915"
+    },
+    {
+      "path": "waveform_analysis/extension_rebuild/ukf_fresh_default.mat",
+      "sha256": "4847c24c3e973aafc0b1ffdd32fe4294e1f6414e2ce6e06d82f7b02ece8e40fe"
+    },
+    {
+      "path": "waveform_analysis/mras/forward.mat",
+      "sha256": "9606eab273b420b607d45222077a474dcd89eca998c302a0aa8aaca9aca260a0"
+    },
+    {
+      "path": "waveform_analysis/mras/initial_angle.mat",
+      "sha256": "67b6881596c623808fe8273fa1161866737d472fbbda0d56a413987498819990"
+    },
+    {
+      "path": "waveform_analysis/mras/lower_bus.mat",
+      "sha256": "e7dedb7ce0639fb81e4c453106ec9dd72d716d332d282ec50d93f11996c5141b"
+    },
+    {
+      "path": "waveform_analysis/mras/moving_forward_refused.mat",
+      "sha256": "f11bd064cbb8d471cad47ba616df6dd9f5a994ff6b621f70291d9ad3af73210c"
+    },
+    {
+      "path": "waveform_analysis/mras/moving_reverse_refused.mat",
+      "sha256": "d4029acb4e20336f54f7b93a49c8636227608420d27c948dff9935b329703743"
+    },
+    {
+      "path": "waveform_analysis/mras/observer_disabled_start.mat",
+      "sha256": "928a13df1583614b9bb20da316cbea9b4a789edc45628107d6600090538292a1"
+    },
+    {
+      "path": "waveform_analysis/mras/observer_loss.mat",
+      "sha256": "d6b26cb4816816647317bdb317acf8da5d9a5c2c91f6a87a6e92facb51f84dd0"
+    },
+    {
+      "path": "waveform_analysis/mras/observer_resistance_mismatch.mat",
+      "sha256": "841c3df02d3f4438c4c91a68e602921ad5149888eeb915e31ea53ad6a4bebe68"
+    },
+    {
+      "path": "waveform_analysis/mras/reverse.mat",
+      "sha256": "16d6b12b2fdbb7d3b19b2d2eae008e725585248e3e9abc250c72ae7c2f8d26f6"
+    },
+    {
+      "path": "waveform_analysis/mras/rotating_reset.mat",
+      "sha256": "6808ca348b9be065a4c8e09822193a5694b280cb6aa0542fb96c10b1249b1e0f"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/forward.mat",
+      "sha256": "63fd012f957768689af7bad29721a352de770f193991bd73c767e728366a64ba"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/initial_angle.mat",
+      "sha256": "39e8aab16ae2b9f86bf1c52f451ff4974516e2ce3be75ec5f3efc567bca63edd"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/lower_bus.mat",
+      "sha256": "382567c088e2d8fa67b40250ba4b1ca48af32c1ef01869a86c8d1ddc59ff5bc9"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/moving_forward_refused.mat",
+      "sha256": "c4c54510f142fd25a0489c3dbd48ef914fe1e7d67f3dfead8cfd55b5a16a1d2e"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/moving_reverse_refused.mat",
+      "sha256": "d08228a129db3592164a829e9e0d0d57682d27d3e6a04e67d8cc97a3284c2835"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/observer_disabled_start.mat",
+      "sha256": "e136f58fe529c0ca81644d7d75dfe4f3088ee8e176ae7c114e43d0f2a7016463"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/observer_loss.mat",
+      "sha256": "371022b374814bb491cc333ed4ca059b4f5002d5c95a3b796d2a84b89dfb5832"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/observer_resistance_mismatch.mat",
+      "sha256": "da2fdf3d10522eb4abb737246ddbec32d57e15c027eae4a6b1803db0236bcbe5"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/reverse.mat",
+      "sha256": "78e55fc4b1ef61ae024f653beb5a4c75a6014854699836ce2f231a8dd2ce9dd1"
+    },
+    {
+      "path": "waveform_analysis/sigmoid/rotating_reset.mat",
+      "sha256": "3871f2fa91419dc6ba2428cd4e4424d708016228da045e1cfb6404e0af1e63dd"
+    },
+    {
+      "path": "waveform_analysis/ukf/forward.mat",
+      "sha256": "c5a690c2e8e44f34730dbd717736adaeb7f538723aa19f46f656984e3da41e2c"
+    },
+    {
+      "path": "waveform_analysis/ukf/initial_angle.mat",
+      "sha256": "7d7d7b29051e1cb67ff7542ffa96879e5d94a31ea514b4c4dec40249fd90ab73"
+    },
+    {
+      "path": "waveform_analysis/ukf/lower_bus.mat",
+      "sha256": "23c5dee8fd2b6df4092aa0e3a142f39f43c2a75cdcd83857d4ab49ad29a5af88"
+    },
+    {
+      "path": "waveform_analysis/ukf/moving_forward_refused.mat",
+      "sha256": "fcab11e9efdfcb07edc5fc03b75a0439d8fd72138979a1e7f69c59e02176ec20"
+    },
+    {
+      "path": "waveform_analysis/ukf/moving_reverse_refused.mat",
+      "sha256": "72fc754668b0d7b3884062983046a5e26d3860f03fe825650fdd4e3f6697a75d"
+    },
+    {
+      "path": "waveform_analysis/ukf/observer_disabled_start.mat",
+      "sha256": "74860fcc91dc2c533ef8c32c8426858e6ba35a3814d1a6ee22983a7cf5e89f90"
+    },
+    {
+      "path": "waveform_analysis/ukf/observer_loss.mat",
+      "sha256": "99294f787f183935823787bb06d8f945d861fce0c396844c8e4ee55aca147361"
+    },
+    {
+      "path": "waveform_analysis/ukf/observer_resistance_mismatch.mat",
+      "sha256": "005c6283991c81febe8580a753e89da21e906509d8decef72a1f1145cec3b625"
+    },
+    {
+      "path": "waveform_analysis/ukf/reverse.mat",
+      "sha256": "08712441aee80a5f19b4fe86b03dcbb886587bfea79578c6350f66a24d66af9a"
+    },
+    {
+      "path": "waveform_analysis/ukf/rotating_reset.mat",
+      "sha256": "cb8a73a72678bb072bd3b880d8ed9b4e4afc10bcce4a307f0d16b3fbdbf6952e"
+    }
+  ],
+  "symbol_table_sha256": "dad60d796874641387c0f2fd527ded95487505afabe140374e5732766337bb25",
+  "subsequent_typed_mras_change": {
+    "date": "2026-11-10",
+    "change": "MRAS local counter type and matching embedded library; original evidence hashes retained",
+    "proof": "model/lib/observer_mras/waveform_analysis/typed_verification.json",
+    "independent_MIL_replayed": 24,
+    "App_MIL_replayed": 10,
+    "all_replayed_trace_differences_zero": true,
+    "current_sources": [
+      {
+        "path": "model/lib/observer_mras/src/mras_step.m",
+        "sha256": "d8d8d870dae019e82e9641a01f475aae4f55d6da65e106f1f1752b93c2d504f6"
+      },
+      {
+        "path": "model/lib/observer_mras/src/mras_output.m",
+        "sha256": "33887248746f3e3a773bda4b60be15587167d8a58b5c0b48cca4384a326f78d4"
+      },
+      {
+        "path": "model/lib/observer_mras/src/MrasObserver.slx",
+        "sha256": "2bb2ed16537c790803d10697dd736e40d80566a4f56eab5a697c56e2051fb0f6"
+      },
+      {
+        "path": "model/lib/observer_mras/parameter/mras_host_test_parameters.m",
+        "sha256": "3890546a05afb5f394c5decf22b4a3f1681caee98f0676ce98a1c7b866efedc4"
+      },
+      {
+        "path": "model/lib/observer_mras/parameter/mras_parameters.m",
+        "sha256": "b5cef89c662a0b819f71cc566532390fbc02a49ab644547b7e96cc2e78508aa8"
+      },
+      {
+        "path": "model/lib/observer_mras/parameter/mras_test_parameters.m",
+        "sha256": "ebb006a73047a4387f00deb3ac2fe35d1a9d27cdb696656bf0f2d13a81b24606"
+      },
+      {
+        "path": "model/lib/observer_mras/waveform_analysis/run_mras_host_validation.m",
+        "sha256": "7433a36bca13e16ff3f992564974449272c187e1f503a15c6c69c6304ab12077"
+      }
+    ]
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "scope": "MRAS state-update M kernel; excludes output adapter, full Simulink App and C2000",
+  "change": "count=cast(0,'like',state), identical embedded source in MrasObserver:27",
+  "source_and_embedded_match": true,
+  "sources": [
+    {
+      "path": "model/lib/observer_mras/src/mras_step.m",
+      "sha256": "d8d8d870dae019e82e9641a01f475aae4f55d6da65e106f1f1752b93c2d504f6"
+    },
+    {
+      "path": "model/lib/observer_mras/src/mras_output.m",
+      "sha256": "33887248746f3e3a773bda4b60be15587167d8a58b5c0b48cca4384a326f78d4"
+    },
+    {
+      "path": "model/lib/observer_mras/src/MrasObserver.slx",
+      "sha256": "2bb2ed16537c790803d10697dd736e40d80566a4f56eab5a697c56e2051fb0f6"
+    },
+    {
+      "path": "model/lib/observer_mras/parameter/mras_host_test_parameters.m",
+      "sha256": "3890546a05afb5f394c5decf22b4a3f1681caee98f0676ce98a1c7b866efedc4"
+    },
+    {
+      "path": "model/lib/observer_mras/parameter/mras_parameters.m",
+      "sha256": "b5cef89c662a0b819f71cc566532390fbc02a49ab644547b7e96cc2e78508aa8"
+    },
+    {
+      "path": "model/lib/observer_mras/parameter/mras_test_parameters.m",
+      "sha256": "ebb006a73047a4387f00deb3ac2fe35d1a9d27cdb696656bf0f2d13a81b24606"
+    },
+    {
+      "path": "model/lib/observer_mras/waveform_analysis/run_mras_host_validation.m",
+      "sha256": "7433a36bca13e16ff3f992564974449272c187e1f503a15c6c69c6304ab12077"
+    }
+  ],
+  "native_library": {
+    "block": "MrasObserver:27",
+    "positions_unchanged": true,
+    "ports_unchanged": true,
+    "internal_inports_connected": true,
+    "internal_check": "status: healthy\nvalidation_scope: blk_1\nchecks_run: \n  - unconnected_ports\n  - unconnected_lines\n  - stateflow_lint",
+    "root_findings_unchanged": true,
+    "root_library_export_ports": "23 unattached root export terminals are expected library topology"
+  },
+  "independent_MIL_replayed": 24,
+  "independent_trace_max_differences": {
+    "positive": 0,
+    "negative": 0,
+    "angle_negative": 0,
+    "near_pi": 0,
+    "speed_prior_high": 0,
+    "low_speed": 0,
+    "speed_ramp": 0,
+    "dq_transient": 0,
+    "adc_noise": 0,
+    "rs_mismatch": 0,
+    "L_mismatch": 0,
+    "flux_mismatch": 0,
+    "zero_speed": 0,
+    "below_operating": 0,
+    "unknown_direction": 0,
+    "wrong_direction": 0,
+    "disable_restart": 0,
+    "reset": 0,
+    "reversal": 0,
+    "invalid_direction": 0,
+    "nonfinite_voltage": 0,
+    "nonfinite_current": 0,
+    "current_delay": 0,
+    "repeat_default": 0
+  },
+  "independent_original_data": "results.mat",
+  "App_MIL_replayed": 10,
+  "App_trace_max_differences": {
+    "forward": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "reverse": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "initial_angle": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "lower_bus": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_resistance_mismatch": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_loss": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "rotating_reset": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "moving_forward_refused": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "moving_reverse_refused": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_disabled_start": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    }
+  },
+  "App_original_data": "../../../app_models/Sensorless/sensorless_foc/waveform_analysis/mras",
+  "host": {
+    "samples": 2001,
+    "compiler": {
+      "name": "MinGW64 Compiler (C)",
+      "version": "14.2.0",
+      "location": "C:\\Users\\24322\\AppData\\Local\\Programs\\mingw64"
+    },
+    "screener": {
+      "unsupported_calls": 0,
+      "messages": 0
+    },
+    "stages": {
+      "mex_double": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 1e-08,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.622276271976604e-06,
+          "speed_rms_electrical_rad_s": 0.0031433110741379304,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_double.mexw64"
+      },
+      "mex_single": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 0.001,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 1.0357217935263448e-05,
+          "speed_rms_electrical_rad_s": 0.0035382344203009606,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_single.mexw64"
+      },
+      "sil_double": {
+        "status": "passed",
+        "relative_state_error": 4.085620730620576e-14,
+        "limit": 1e-08,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.622276272137113e-06,
+          "speed_rms_electrical_rad_s": 0.0031433110741370444,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_sil.mexw64"
+      }
+    }
+  },
+  "archived_artifacts": [
+    {
+      "path": "host_codegen/physical_fixture.mat",
+      "sha256": "d944b0b9ea22a5d6b73449d787f120886c675776bbb079e6ca87ecd3fda02293",
+      "bytes": 404740
+    },
+    {
+      "path": "host_codegen/mex_double_trace.mat",
+      "sha256": "342bfbb69f7adbb951fcb9b18aa1dd037244a40079a3ee56d900ea28d444c7cf",
+      "bytes": 460192
+    },
+    {
+      "path": "host_codegen/mex_single_trace.mat",
+      "sha256": "9a7613be0e952101f0f62d70e0fda3c9e19b2b45b67c65fbbb1590616f385a13",
+      "bytes": 194520
+    },
+    {
+      "path": "host_codegen/sil_double_trace.mat",
+      "sha256": "0e0bb9a504f957c14759f829b1e2a0ba701573d4f5fcd7f6caa1618f262c8266",
+      "bytes": 460194
+    },
+    {
+      "path": "host_codegen/host_verification.json",
+      "sha256": "1c9dc809dabac03b016774e5c9f38258ca75368f95e9b0311ef2b72b1cefd8af",
+      "bytes": 3371
+    },
+    {
+      "path": "host_codegen/formal_run.log",
+      "sha256": "26998e0872b283106dea03a54c2aace42f7570905d621373c067336b5269fefa",
+      "bytes": 909
+    },
+    {
+      "path": "host_codegen/initial_single_failure.json",
+      "sha256": "aa711cfe2e3262e09d4fa9fe013bfbbfe88e0805517e11f971f95dd8be37ce3c",
+      "bytes": 3155
+    },
+    {
+      "path": "host_codegen/library_update_verification.json",
+      "sha256": "b6584d65d93dabcc8f9554f21ea1e1449cd55fb027fc4f094a3bb02b44f409a2",
+      "bytes": 21139
+    },
+    {
+      "path": "host_codegen/formal_verification.json",
+      "sha256": "9bd54015e6c3c1e1d00c2e5615089b1c0bce6c6897102155b555ebb726ca9a74",
+      "bytes": 5594
+    }
+  ],
+  "original_single_failure": "host_codegen/initial_single_failure.json",
+  "full_Simulink_single_conversion": false,
+  "full_App_SIL": false,
+  "C2000_results": false,
+  "repeated_MIL_not_counted_as_new": true
+}

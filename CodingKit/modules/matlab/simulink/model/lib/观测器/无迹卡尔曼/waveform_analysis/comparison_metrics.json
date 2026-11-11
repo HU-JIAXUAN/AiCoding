@@ -1,0 +1,269 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "matching_cases": 25,
+  "metrics": [
+    {
+      "name": "positive",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701559114,
+      "UKF_angle_rms_rad": 0.00081899363173975367,
+      "EKF_speed_rms_rad_s": 0.338643502373493,
+      "UKF_speed_rms_rad_s": 0.33915652462295404,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "negative",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00082165865778396582,
+      "UKF_angle_rms_rad": 0.00082222167026335658,
+      "EKF_speed_rms_rad_s": 0.33903291769045785,
+      "UKF_speed_rms_rad_s": 0.3385195809431738,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "angle_negative",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701579844,
+      "UKF_angle_rms_rad": 0.00081899363174023593,
+      "EKF_speed_rms_rad_s": 0.33864350237350827,
+      "UKF_speed_rms_rad_s": 0.33915652462288637,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "near_pi",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701610245,
+      "UKF_angle_rms_rad": 0.00081899363174034088,
+      "EKF_speed_rms_rad_s": 0.3386435023734522,
+      "UKF_speed_rms_rad_s": 0.33915652462292656,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "speed_prior_high",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701559114,
+      "UKF_angle_rms_rad": 0.00081899363173975367,
+      "EKF_speed_rms_rad_s": 0.338643502373493,
+      "UKF_speed_rms_rad_s": 0.33915652462295404,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "low_speed",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00014251910260133763,
+      "UKF_angle_rms_rad": 0.00013563314509807724,
+      "EKF_speed_rms_rad_s": 0.013136804223382476,
+      "UKF_speed_rms_rad_s": 0.01388948069508629,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "speed_ramp",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.0011874773551778474,
+      "UKF_angle_rms_rad": 0.0011872120655989559,
+      "EKF_speed_rms_rad_s": 0.65252330321374552,
+      "UKF_speed_rms_rad_s": 0.6529455789632328,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "dq_transient",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.0014405454379942441,
+      "UKF_angle_rms_rad": 0.0014399831458335637,
+      "EKF_speed_rms_rad_s": 0.5069842477980151,
+      "UKF_speed_rms_rad_s": 0.50749719188626163,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "adc_noise",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081915242741509265,
+      "UKF_angle_rms_rad": 0.00081859042062691547,
+      "EKF_speed_rms_rad_s": 0.33963561984130969,
+      "UKF_speed_rms_rad_s": 0.3401466602891049,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "rs_mismatch",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.012677185338321495,
+      "UKF_angle_rms_rad": 0.012677751010509684,
+      "EKF_speed_rms_rad_s": 3.4444689575038927,
+      "UKF_speed_rms_rad_s": 3.4439541823521673,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "L_mismatch",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.010389890081275693,
+      "UKF_angle_rms_rad": 0.010390595154841859,
+      "EKF_speed_rms_rad_s": 0.40345060005144456,
+      "UKF_speed_rms_rad_s": 0.40412683559218787,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "flux_mismatch",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.090311393815792423,
+      "UKF_angle_rms_rad": 0.090310776807264431,
+      "EKF_speed_rms_rad_s": 39.941966643960377,
+      "UKF_speed_rms_rad_s": 39.942542201989241,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "zero_speed",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.70000775767736156,
+      "UKF_angle_rms_rad": 0.70015421203013684,
+      "EKF_speed_rms_rad_s": 6.0163312152867652E-14,
+      "UKF_speed_rms_rad_s": 1.0042011036117005E-13,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "below_operating",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 2.8369975474257402E-5,
+      "UKF_angle_rms_rad": 1.1127106813224627E-5,
+      "EKF_speed_rms_rad_s": 0.00056163157244383652,
+      "UKF_speed_rms_rad_s": 0.0013667325397395962,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "unknown_direction",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701559114,
+      "UKF_angle_rms_rad": 0.00081899363173975367,
+      "EKF_speed_rms_rad_s": 0.338643502373493,
+      "UKF_speed_rms_rad_s": 0.33915652462295404,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "wrong_direction",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701559114,
+      "UKF_angle_rms_rad": 0.00081899363173975367,
+      "EKF_speed_rms_rad_s": 0.338643502373493,
+      "UKF_speed_rms_rad_s": 0.33915652462295404,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "disable_restart",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606739593371,
+      "UKF_angle_rms_rad": 0.00081899363211921077,
+      "EKF_speed_rms_rad_s": 0.33864350229446222,
+      "UKF_speed_rms_rad_s": 0.33915652454410261,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "reset",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606739593371,
+      "UKF_angle_rms_rad": 0.00081899363211921077,
+      "EKF_speed_rms_rad_s": 0.33864350229446222,
+      "UKF_speed_rms_rad_s": 0.33915652454410261,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "reversal",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00082165865807964521,
+      "UKF_angle_rms_rad": 0.00082222167055885252,
+      "EKF_speed_rms_rad_s": 0.33903291762424081,
+      "UKF_speed_rms_rad_s": 0.338519580876959,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "invalid_direction",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 1.8183211307291975,
+      "UKF_angle_rms_rad": 1.8183211307291975,
+      "EKF_speed_rms_rad_s": 600,
+      "UKF_speed_rms_rad_s": 600,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "nonfinite_voltage",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 1.8160740636114234,
+      "UKF_angle_rms_rad": 1.8160740507255015,
+      "EKF_speed_rms_rad_s": 600,
+      "UKF_speed_rms_rad_s": 600,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "nonfinite_current",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 1.8160744516250014,
+      "UKF_angle_rms_rad": 1.8160744393217658,
+      "EKF_speed_rms_rad_s": 600,
+      "UKF_speed_rms_rad_s": 600,
+      "EKF_valid_fraction": 0,
+      "UKF_valid_fraction": 0
+    },
+    {
+      "name": "current_delay",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00064638261155323181,
+      "UKF_angle_rms_rad": 0.00064581960665546106,
+      "EKF_speed_rms_rad_s": 0.33014340638905637,
+      "UKF_speed_rms_rad_s": 0.32963007376564507,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "half_sample_time",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00040506495967489073,
+      "UKF_angle_rms_rad": 0.00040449742803055553,
+      "EKF_speed_rms_rad_s": 0.1682282090519053,
+      "UKF_speed_rms_rad_s": 0.16873420323098434,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    },
+    {
+      "name": "repeat_default",
+      "identical_inputs_and_common_parameters": true,
+      "EKF_angle_rms_rad": 0.00081955606701559114,
+      "UKF_angle_rms_rad": 0.00081899363173975367,
+      "EKF_speed_rms_rad_s": 0.338643502373493,
+      "UKF_speed_rms_rad_s": 0.33915652462295404,
+      "EKF_valid_fraction": 1,
+      "UKF_valid_fraction": 1
+    }
+  ],
+  "cost_evidence": {
+    "normal_active_EKF_process_evaluations": 1,
+    "normal_active_UKF_process_evaluations": 9,
+    "normal_active_EKF_covariance_cholesky_calls": 0,
+    "normal_active_UKF_covariance_cholesky_calls": 2,
+    "maximum_UKF_cholesky_attempts_including_jitter": 12,
+    "source": "EKF Jacobian propagation vs UKF point propagation and two bounded full covariance checks",
+    "target_execution_time": "NOT_MEASURED",
+    "target_memory": "NOT_MEASURED",
+    "host_runtime_note": "Separate MIL execution_wall_s values are not a controlled timing benchmark and are not ranked here."
+  },
+  "conclusion": "Comparable steady errors in these trajectories; no general superiority claim."
+}

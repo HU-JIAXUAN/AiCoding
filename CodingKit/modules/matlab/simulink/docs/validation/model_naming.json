@@ -1,0 +1,217 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "naming_rule": {
+    "library": "No Test suffix; reusable library",
+    "lib_verification": "Test suffix; multiple functional pairs allowed",
+    "App": "No Test suffix; runnable application"
+  },
+  "renames": [
+    {
+      "old_name": "MTPAFWMotorTest",
+      "new_name": "MTPAFWMotor",
+      "old_path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotorTest.slx",
+      "new_path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx",
+      "before_sha256": "E6774C318740EC3726C15D6717626E0EEA4A5E7C0BA1B7D8912FBBE120A7A857",
+      "after_sha256": "B50E3C1D066DBC44C800571C9736D7932FF0B120EF819660C737788786A1008A",
+      "root_topology_unchanged": true
+    },
+    {
+      "old_name": "CurrentPIProbe",
+      "new_name": "CurrentPIProbeTest",
+      "old_path": "model/lib/current_loop/src/CurrentPIProbe.slx",
+      "new_path": "model/lib/current_loop/src/CurrentPIProbeTest.slx",
+      "before_sha256": "C98424708EAF0AD07EE6BFD57F7426497A380B895DC950F27EFDFF77739EB43F",
+      "after_sha256": "3855872DEC5D51910A264B9CDE4631D4FEFACAD590EB4E3D0F7E277BCD63E953",
+      "root_topology_unchanged": true
+    }
+  ],
+  "unchanged_existing_lib_Test_models": [
+    {
+      "path": "model/lib/angle_tracking/src/AngleTrackingInstancesTest.slx",
+      "sha256": "4FCC911C13B13E7A75B9567F2E4DD25C6CFA5E8FF1514FA984281CA3BEBB30B8"
+    },
+    {
+      "path": "model/lib/angle_tracking/src/AngleTrackingTest.slx",
+      "sha256": "9A5A4CE41956DE32AC40E61218A4A3DF146D09A0A3C16076C871CAE12E53CCC3"
+    },
+    {
+      "path": "model/lib/current_loop/src/CurrentLoopTest.slx",
+      "sha256": "3E21FD9FAF1F11576536CF2FBB7F27A5F35C1CB71584AA7474C51F4578147036"
+    },
+    {
+      "path": "model/lib/current_loop/src/FrameTrackingPITest.slx",
+      "sha256": "0F94A166448E2247D7535B8B60EDDC5779E6DA90E9DB075FB6869A085BC7DBD4"
+    },
+    {
+      "path": "model/lib/deadtime/src/DeadtimeTest.slx",
+      "sha256": "742879DB705E7D6752E7739A1D422EA7C3A98D637231ED05F5C7612A6D78E91F"
+    },
+    {
+      "path": "model/lib/deadtime/src/SwitchingLegTest.slx",
+      "sha256": "709CE45834FBCC6008E94235DA45A584AC0262C6118B3EA35F26223C81D85E6B"
+    },
+    {
+      "path": "model/lib/discrete_pid/src/DiscretePIDTest.slx",
+      "sha256": "F5DE3DE12D08C527F3D6FFE4095739128AC91F50B284083E1F8C6202082C30F4"
+    },
+    {
+      "path": "model/lib/feedforward/src/FeedforwardTest.slx",
+      "sha256": "2A255CA8B075EF03D612A110F13827EEAF4FF624B09DF2D83F998B606827DE80"
+    },
+    {
+      "path": "model/lib/inverter/src/InverterTest.slx",
+      "sha256": "BE212ED0F8B994E1C632477B405DA70E87B0EF5ECE496265FCC2ABC3A5C1F418"
+    },
+    {
+      "path": "model/lib/math/src/ClarkeParkTest.slx",
+      "sha256": "7A1F2323E0EDC4726696220CF31D4AF8E5DF6D2B209EF9BA5C06A828B49FE19F"
+    },
+    {
+      "path": "model/lib/math/src/FrameBlendTest.slx",
+      "sha256": "7B89C3D54AD507BA92FECC2A7B8DE3DA130E82115669322EDCF2F82990BBFD3F"
+    },
+    {
+      "path": "model/lib/motion_loop/src/MotionLoopTest.slx",
+      "sha256": "C210B76EDCDF6215DE138110B8D890A6C1A2D210CC69222535FEFB8FC6BB4947"
+    },
+    {
+      "path": "model/lib/motion_loop/src/SpeedProfileTest.slx",
+      "sha256": "98234FB2C0D809B140B198360D7C4D18CE6F32564EAC14F8DD36F50B479BD322"
+    },
+    {
+      "path": "model/lib/mtpa_fw/src/CurrentReferenceTest.slx",
+      "sha256": "C005C066430277AFD2A49879031F7E9274670639D4C2730E546811725686F462"
+    },
+    {
+      "path": "model/lib/observer_ekf/src/EkfObserverTest.slx",
+      "sha256": "DF26B5B4483401F80730AFF5704D7198C279302CC38120BCF51A59080F9FD2B9"
+    },
+    {
+      "path": "model/lib/observer_emf/src/EemfObserverTest.slx",
+      "sha256": "4D41D3BF274E06380794AE88569E43349FA9BB0E8F1B2EBA544A3DFBC4F3335B"
+    },
+    {
+      "path": "model/lib/observer_emf/src/LinearEmfTest.slx",
+      "sha256": "220C2D482F61DCF575A27A437611D22898F9B2F4B339870CACE87AB81F1165DC"
+    },
+    {
+      "path": "model/lib/observer_flux/src/FluxObserverTest.slx",
+      "sha256": "5C147E95B6A1BC4C8ECA2E08F81A0A5B310B12D9E063EAE228207321D643CEA2"
+    },
+    {
+      "path": "model/lib/observer_hfi/src/HFIAxisTest.slx",
+      "sha256": "735EE37989C9F58934F6F0EE0E225592337ABCE42093EDBB3C743F4BAC6EEA71"
+    },
+    {
+      "path": "model/lib/observer_hfi/src/HFISaliencyTest.slx",
+      "sha256": "5C1F71E045D6678917B8093C6C782263EFCFD05381AF27ACA25E8DF57137AB5E"
+    },
+    {
+      "path": "model/lib/observer_mras/src/MrasObserverTest.slx",
+      "sha256": "5FEF23A94EA94706F866575798DC43DA69AE17748A7F042E8497EECA56ABC0A3"
+    },
+    {
+      "path": "model/lib/observer_smo/src/SlidingModeObserverTest.slx",
+      "sha256": "19CD6D675FE19DF9C946D20AAE6A9CAB44B7CCC99C6474E68CC269725710E9C8"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMHighFrequencyPlantTest.slx",
+      "sha256": "A1F3036CC2B124CD5B27D15963FF781C91D5E44428243C2514C2152C64701EF4"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMPlantTest.slx",
+      "sha256": "DDC26BD3CBC5842496F3CA0196E775A4C32CEA947E5AC04A749027EFE6CCF837"
+    },
+    {
+      "path": "model/lib/sensorless_handover/src/HybridFusionTest.slx",
+      "sha256": "D7DF9986122B387B26E1E45D1485A281BB04680B42E5CD4B8A5DCC3F5D61CE77"
+    },
+    {
+      "path": "model/lib/sensorless_handover/src/SensorlessHandoverTest.slx",
+      "sha256": "BBD8E5077AAEE3A41F3E599F6187264FEE6CFA475AF6451A2921BE6DD7D8CBDB"
+    },
+    {
+      "path": "model/lib/sensorless_startup/src/SensorlessStartupTest.slx",
+      "sha256": "4C7A0FBD013C0D7F1C8BA7DA85B012408096418779C965715662A5D45B7C8DF9"
+    },
+    {
+      "path": "model/lib/timing/src/TimingTest.slx",
+      "sha256": "D02F7883F3CC259C3FDFF117F3C737FFF9759615DA99278E0CE309E141A48584"
+    }
+  ],
+  "source_identifier_updates": [
+    {
+      "path": "model/lib/mtpa_fw/build_process/run_mtpa_fw_case.m",
+      "before_sha256": "ABFFACEC5D295DD84C5E42885D959BD1E6BA98B24FF94927A0575375A341DBAA",
+      "after_sha256": "3931243826A732302FEDC062BF36D0A3FF5E87A3FFD4336E7C276E6B2070CF2F",
+      "only_model_name_literals_changed": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/parameter/reference_case_parameters.m",
+      "before_sha256": "447B26229CAA6DC3B13D641FAF0110EDA64BC5F89D1FE3CFFD73F6E3A67F925C",
+      "after_sha256": "769936CA5BFFDCF2F4F1B4C99A396B8433948B59782A36FC49E9B656FE6ECCD3",
+      "only_model_name_literals_changed": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/waveform_analysis/run_mtpa_fw_validation.m",
+      "before_sha256": "807E59598B22BF0E02A4F2AA4CE3C33B4CC2A6907CC5FAB76954145F22A0730C",
+      "after_sha256": "DECE459CD266890C5F7155B89E4CE63097ACE31706AD3790412EF820C22C87CE",
+      "only_model_name_literals_changed": true
+    }
+  ],
+  "application_default_output": {
+    "old": "MTPAFWMotorTest",
+    "new": "MTPAFWMotor",
+    "output_variables": [
+      "tout",
+      "trace"
+    ],
+    "matched": true,
+    "numerical_values": 1900077.0
+  },
+  "probe_default_output": {
+    "old": "CurrentPIProbe",
+    "new": "CurrentPIProbeTest",
+    "output_variables": [
+      "tout",
+      "yout"
+    ],
+    "matched": true,
+    "numerical_values": 2107
+  },
+  "native_checks": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "classes": {
+      "libraries": 20,
+      "lib_verification_models": 29,
+      "apps": 7
+    },
+    "short_app_wrapper_passed": true,
+    "short_lib_wrapper_passed": true,
+    "app_model_check_healthy": true,
+    "static_diagnostics": [],
+    "visible_figure_windows": 0,
+    "owned_model_windows": 0,
+    "task_models_closed": true
+  },
+  "comparison": "Exact isequaln of all recorded numeric outputs, including time; string model-name metadata excluded",
+  "original_simulation_data_preserved": true,
+  "original_codegen_C_filename_preserved": "CurrentPIProbe.c",
+  "source_codegen_not_rerun_for_name_only_change": true,
+  "SIL_executed": false,
+  "physical_hardware_tested": false,
+  "directory_rename_note": {
+    "date": "2026-11-10",
+    "report": "docs/validation/directory_rename.json (relative to project root)",
+    "scope": "Path-only source updates; original MIL data and scenario counts retained. No algorithm rerun is implied.",
+    "source_paths": [
+      "model/lib/mtpa_fw/build_process/run_mtpa_fw_case.m",
+      "model/lib/mtpa_fw/parameter/reference_case_parameters.m"
+    ],
+    "report_sha256_before_path_migration": "24ebe0adf4c31a040877e0a3ed2c97bde2712a8daed41f618fe53de2daca23b7"
+  }
+}

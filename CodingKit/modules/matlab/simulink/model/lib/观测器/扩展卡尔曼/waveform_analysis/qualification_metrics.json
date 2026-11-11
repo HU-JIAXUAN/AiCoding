@@ -1,0 +1,14 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "status": "passed",
+  "checks": 2,
+  "kind": "synthetic public correction-state input; not a physical motor trajectory",
+  "source_book": "12.4.3 printed317/PDF346: opposite-speed convergence and angle derivative",
+  "state_speed_rad_s": -600,
+  "angle_rate_rad_s": 600,
+  "NIS": 0,
+  "theta_std_rad": 0.01,
+  "guarded_valid": 0,
+  "guard_relaxed_valid": 1
+}

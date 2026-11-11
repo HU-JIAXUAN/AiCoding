@@ -1,0 +1,2312 @@
+{
+  "status": "passed",
+  "date": "2026-11-11",
+  "scope": "Current 28 functional lib/App modules; native reads include 72 prior and 4 current model artifacts",
+  "functional_modules": 28,
+  "formula_documents": 28,
+  "library_models": 25,
+  "verification_models": 34,
+  "App_models": 17,
+  "LaTeX_delimiters_and_environments_checked": true,
+  "R2026b_native_models_read": 76,
+  "native_model_editors_open": 0,
+  "implementation_mapping_review": "Read M sources, builders, build records and R2026b library root exports; bridge/PMSM, runtime-bus bridge, flying-capture and salient sensorless field-weakening Apps have separate validation evidence",
+  "external_reference_models": [
+    "model/app_models/Sensorless/sensorless_vf/ref/VF_Control.slx"
+  ],
+  "modules": [
+    {
+      "module": "model/app_models/Sensor/experiment",
+      "models": [
+        {
+          "name": "MotorExperiment.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 55,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/app_models/Sensor/experiment/docs/README.md",
+          "sha256": "C0803A7097AEA37E12605AC5693B7235F840E090846466D6D0CD3D4C4057BDC2"
+        },
+        {
+          "path": "model/app_models/Sensor/experiment/docs/公式推导.md",
+          "sha256": "5143AEDEDA052FA7B49938145CC142ACDB0F600ACBDD47BD7A6484A7B72AA55E"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensor/experiment/src/MotorExperiment.slx",
+          "sha256": "6754C14B33F1E60D62202BCB058D686E79C39BB775A00425BD3FF0EF661F315C"
+        },
+        {
+          "path": "model/app_models/Sensor/experiment/parameter/experiment_app_parameters.m",
+          "sha256": "821FEE5C02CED989611F9703F2BA5A35D0EEE0F4EB198FF7D04AFD0B1C6F9ED9"
+        },
+        {
+          "path": "model/app_models/Sensor/experiment/parameter/experiment_parameters.m",
+          "sha256": "3EEF6875E023B28B336D1C5500D5CEF34FEBC54FFA3166D88D76920301BE7CB8"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensor/mtpa_fw",
+      "models": [
+        {
+          "name": "MTPAFWMotor.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 49,
+      "display_delimiters": 8,
+      "documents": [
+        {
+          "path": "model/app_models/Sensor/mtpa_fw/docs/README.md",
+          "sha256": "CAB8D03279EF343D96D5CA0C3A201B29F7B5644942F29222C24816043AC2CBC1"
+        },
+        {
+          "path": "model/app_models/Sensor/mtpa_fw/docs/公式推导.md",
+          "sha256": "B0E8D83217C96EAF5E8FEE76F27461AD10C55A403FEC6E2B9C7B580F75F0922C"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx",
+          "sha256": "B50E3C1D066DBC44C800571C9736D7932FF0B120EF819660C737788786A1008A"
+        },
+        {
+          "path": "model/app_models/Sensor/mtpa_fw/parameter/mtpa_fw_app_parameters.m",
+          "sha256": "3F330D0CF54F29E8E538D8A7A50B2263D7CEE7D98D99DBC6BCA519083134FF26"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensor/observer_compare",
+      "models": [
+        {
+          "name": "SensorObserverCompare.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 40,
+      "display_delimiters": 4,
+      "documents": [
+        {
+          "path": "model/app_models/Sensor/observer_compare/docs/README.md",
+          "sha256": "9EE9369AFCF07ED25BB04571BC081D9DCF99AE75FCD3DEF4CBCF6BCB920EF408"
+        },
+        {
+          "path": "model/app_models/Sensor/observer_compare/docs/公式推导.md",
+          "sha256": "A83670B4ADA1BFDB5CCBF0BC1456036A29886ED27AB1DB95D77071B6411B9A26"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensor/observer_compare/src/SensorObserverCompare.slx",
+          "sha256": "7479BA5C1DB1B8E9FA864C74C2E7FFD031F585D89E997F92D7B06FED9C354402"
+        },
+        {
+          "path": "model/app_models/Sensor/observer_compare/parameter/observer_compare_parameters.m",
+          "sha256": "956E6F7919AD873589A8679FDF2C73695AE0FCFC97E9780AA860EB71FA001BBB"
+        },
+        {
+          "path": "model/app_models/Sensor/observer_compare/build_process/build_observer_compare.m",
+          "sha256": "6AB4FC4C742745928E0FF2565DD4B6BCCF78C8A078CFFC04577B17DB08663FCA"
+        },
+        {
+          "path": "model/app_models/Sensor/observer_compare/build_process/initialize_observer_compare.m",
+          "sha256": "9C856BE9A83FCDA47E3761415E072A433BE04A3CBB85D1E1727762DB460542AC"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensorless/sensorless_foc",
+      "models": [
+        {
+          "name": "EemfSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "EkfSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "FluxSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "FlyingFluxFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "MrasSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SigmoidSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "UkfSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 282,
+      "display_delimiters": 50,
+      "documents": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/docs/README.md",
+          "sha256": "7697A4872676A9CFB381BF14FC18636F246BA93A5F95775A576D95A7CF0194DC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/docs/公式推导.md",
+          "sha256": "7CC7592265E399F43A8E98AE26BEA90F7D8193329F0781EC5F285343105A0C5B"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+          "sha256": "578AD0F2034454F8EB4A44CD2F3BC6393B219FDE4E315D9F5EEB1F17A452D863"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/EkfSensorlessFOC.slx",
+          "sha256": "3A7761751C0D3BAEFB5A1EF787B1CD7F7DAAB35A1F0BFF8D1295E18A2A5D88EC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+          "sha256": "79B221E0257E15B3A6ED2341A45E4B3410355DBB8A416565E25283AC65631A16"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+          "sha256": "8C6632CBFA4DAC55F7146D08B3C1202BF022E8E51FDEF1C41886AF26FAE3B57E"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/flying_angle_align.m",
+          "sha256": "7604BD2EC9D847F67989996EABFB036B60A180D46747799548387F7213336C3A"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/flying_capture_step.m",
+          "sha256": "40EA6AA9C082779B9857505875BB811C3C02DC2AB74E8005D8ADD7AE4DA9B16B"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/flying_pi_residual.m",
+          "sha256": "5BB7B6B8B15980B5A33EAF030C87789AAB53C67FD4F53780859CE928E77D1013"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/MrasSensorlessFOC.slx",
+          "sha256": "E2AF8FCDF3FCCA794F9CCD698390AAF32139C0A2AF9BC168C6B7551ED7E34C03"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/SensorlessFOC.slx",
+          "sha256": "9AC45F5F580FDC6FB9DB836BE42473402D64921CF72690982B252A14F9485EAC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/SigmoidSensorlessFOC.slx",
+          "sha256": "02D6373CF98CFE48C3E8D3B618BF1B1E80137DBD8A0A5CD537FABEBFC5516288"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/src/UkfSensorlessFOC.slx",
+          "sha256": "FE8C76CC5DBF802EEF2AC32F5312945245CECD09F09FCC40AF22B4B90B9C2A3A"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_cases.m",
+          "sha256": "6CD6F7CC0CB2FD0C2C4154876D442BFB65B8D0CEA8ADEB83640831D32B1FB637"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_channels.m",
+          "sha256": "30FE171191A902EF543B3E01FC4EF3DC82E1F359ED360405FE5376A54739F0D6"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_parameters.m",
+          "sha256": "D98BA805F1D9A539CCB5111A0AC96CB56BD5EE8B8FF98A2ED01A542F1C8AF022"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_spec.m",
+          "sha256": "8978F99D508C3864B4D3E8F0343AE544D6B28E8BD8805E25B37EBD4BB72067EC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_validation_parameters.m",
+          "sha256": "C72F525B3375D700C656DFE145C18B9FD9ECCCD2A229508A1C774C8124CF98B9"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_channels.m",
+          "sha256": "FEBA57A22057FFCF79C970E548E51F0C63803E31BE2792260ED8F9240C8C953F"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_parameters.m",
+          "sha256": "2272486270B7358CC5D427662A09526588426E62834B523F8184A4BBC08951FE"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_channels.m",
+          "sha256": "ACD4813DB0AD2BBC20CCAF23A4F99B4C92DDBD2F68EB049E6ACE706F8CEE4FAC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_parameters.m",
+          "sha256": "73A2D78E9AB389DBD36DAB533DF184A2DC71B5D028B371B0F36AD4E7ACD5A6E4"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/refresh_extension_foc_parameters.m",
+          "sha256": "DF124D2F4D8E56C1DAB10BFAFEE77AFDCB0CB37CC308975099717F767EB95670"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/refresh_flying_foc_parameters.m",
+          "sha256": "5AF066FE0EE526146AFAD32F31F0CEBF6D1574BE4D212DA5614D89264122E9AB"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_channels.m",
+          "sha256": "7E6CC783B983FA5118E1D788257ADA9A86AFD857B7124B0FD4A98BE21D7B2639"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_parameters.m",
+          "sha256": "F879F7D2C9F58AD9DE8A9D7D1E0138F2BB1FA8ECD2D1C7360E808232441ADC4D"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_stimulus.m",
+          "sha256": "837843E3A27550D63EB50FC1E6731C8F0E07502285D715FFD40A58434635417A"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_validation_parameters.m",
+          "sha256": "27DF7E55B4F9610F98732AA1CDCF48FDB54954C5A271D4E5A4A046CB8C86A0DB"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_extension_foc.m",
+          "sha256": "5B3693B5CBBBDB68C717864440BBDC283F04BF2B4ED1F903492CF44E95DE7E8B"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_flying_foc.m",
+          "sha256": "2812BDA3A1F2C0AB06855249B1E6D8FA602B9E7F1309D2C30E9558F7A9BEA994"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_observer_foc.m",
+          "sha256": "631190907AF132C5C6B223C7F9F8438CF7B304C1A733767762A3ACF17A8F9377"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_sensorless_foc.m",
+          "sha256": "0CDECEE060CA1B1089C4E6AE77DD80FC7FA454BFFD3937599400F5CCF80F558B"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/flying_foc_stimulus.m",
+          "sha256": "CF57F85FE67513F10A7643891FFB6BBCBD95EE05953203E21BE26F29F6F4DF42"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_extension_foc.m",
+          "sha256": "F5F3934760F760CC64829B573730D52C6C0B83C92929263504103C1BB96962C3"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_flying_foc.m",
+          "sha256": "F834D2951C27B9E51E8A09165554AF13D76E6C799281C6A5FA2C388BE782B222"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_observer_foc.m",
+          "sha256": "F64844FBBDC2A89B48B74309B40C40C1FF4477562CC8BD81A83ACCD46D7205F2"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_sensorless_foc.m",
+          "sha256": "F8C5AD099BF4A855D4F21EB9D6B72A1B0154C7FDCD2F180EDE78D27F386EA492"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/inspect_extension_foc.m",
+          "sha256": "4DDB55AEC0F493D8E3C0A89FA1A7AC6A32F20AA1F2AFAD06BA1CCC9C056B40B3"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_extension_foc_case.m",
+          "sha256": "147E6663E8D3A1421FF0B70567C8853E6D1FB6BE679EE120E0F4A61833C2DB9F"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_flying_foc_case.m",
+          "sha256": "7B61B25AB6E3E6A45913992546122BE25DFBC5DB6EAC7872D72B9ED1FC909529"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_observer_foc_case.m",
+          "sha256": "A04B1A0BBD2B644518E56C52B5C7D09A2EE5DA1B59845B2C8D4244CDBDE44F2E"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_sensorless_foc_case.m",
+          "sha256": "57A17B1A404188AC090B12249EA0ECF8BABD0CC3593541A07BC13B0CA46532CA"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_foc/build_process/tidy_extension_foc.m",
+          "sha256": "E13CE2CF69E2E7215648ABFE798DDEFB350FE88CFDD32EF7290B4E080F522F34"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensorless/sensorless_fw",
+      "models": [
+        {
+          "name": "SensorlessFieldWeakeningFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 151,
+      "display_delimiters": 32,
+      "documents": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/docs/README.md",
+          "sha256": "0DD4838F64A95DEBAC006FB914340AFCE9560355FFA1AC124BA75F2E1243BCC7"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/docs/公式推导.md",
+          "sha256": "1E32E2B1BEEFF8995AB9FBF6B5F61DFFB0AC817F0242606225F0335D9181BB03"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/src/SensorlessFieldWeakeningFOC.slx",
+          "sha256": "F211266877CC57D22F159540A7B84E950EFB73B001E05731E00CE248758BEF48"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/refresh_sensorless_fw_parameters.m",
+          "sha256": "A567957B38B4F86FF82CB7F4FB782B6372451D8EF44134F7BD95232298646F5E"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_case_definitions.m",
+          "sha256": "DDECC1EBF856400C69545BECD09D31FC26BC286629D350B1A1AE5E26F4E121EC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_channels.m",
+          "sha256": "0EB7C28C5D162E0EB1E36A37506599DAD9D3EBC84960ECD135E7F0178AE830D0"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_edge_cases.m",
+          "sha256": "20FBB919C227FF5C16800C7C05F082CD8DFDCCCBAC0F186AA90B4A7C93C6417D"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_parameters.m",
+          "sha256": "5E6F324F0BF3733E935FC8B986F90B42D88CD4BB1F33E75503D537EBFAE34CF2"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_validation_parameters.m",
+          "sha256": "F8C17989A79DF52A110B190A49AB6C8A47AD35D0381D5041642E326E71687CDE"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/add_fw_start_interlock.m",
+          "sha256": "14F0ADC86CB6F8EFF2F72B366D3C86CAF6A5BC6B34C2BA405034A5B7DA5FCF9A"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/build_sensorless_fw.m",
+          "sha256": "F2D8910DECE84BB49491B6B87A0EACB87C4B024A42EEA2F0352BFC7D9E2747B7"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/initialize_sensorless_fw.m",
+          "sha256": "20F8455B7E2BA0221DA27F6F6D1888A554FBAD4F351E3BADADA1886F7CE871E8"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/inspect_sensorless_fw.m",
+          "sha256": "0F04967A4A414CFC6A6861CC62591DCD9EEE8BBAFB0CA417FF4B0056A7A1DC74"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/run_sensorless_fw_case.m",
+          "sha256": "4A4914D168848A405EBCF3E56B782C338491833189D20C852BA2FFF21382416A"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/sensorless_fw_stimulus.m",
+          "sha256": "527D13AD207AEC613B25A43C98ED64EB88B6EEEADE4E84C1A2E0E54682BBA085"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_fw/build_process/tidy_sensorless_fw_model.m",
+          "sha256": "DB9E8D6307871CCD838EE5F64D16A8DC95006CF2E4F8248F69D5C802D6A970B9"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensorless/sensorless_hfi",
+      "models": [
+        {
+          "name": "SensorlessHFIFOC.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SensorlessHFIHybrid.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SensorlessHFIStartup.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 54,
+      "display_delimiters": 6,
+      "documents": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/docs/README.md",
+          "sha256": "A5A2ABE8A6608C205DBD9E003966A0E6438D37981D31188F5790ACDEB98F3F02"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/docs/公式推导.md",
+          "sha256": "D6BF2C02BFBBA094708BD2521B12AE9549A40A4D7490D2FEF84A6B38C3FB9FAC"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/src/hfi_foc_supervise.m",
+          "sha256": "ECED953CB3BD91B3999536F265BC38EAC7C7360B573649662DE1EBC3A413E777"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/src/hfi_hybrid_direction.m",
+          "sha256": "62D726A8E6C2A69DEAE18352B8FF9BB9885168E0C6777920500687E8B7914BA6"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx",
+          "sha256": "E9A5E4530F78517208454210191D81CABE093196A88DF379908A9324048F81C0"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIHybrid.slx",
+          "sha256": "0AF01E6EE0A8045DD0D07B94A378686E8BDEC7910BED5201A4A2844CD929E532"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx",
+          "sha256": "8CA6504F0DD1F5E59853635D43B13799DF5475387FBA68C76C1143ACC0188395"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_app_parameters.m",
+          "sha256": "BA21D13FF430161E8DF4AF5533D6EA6ECAFFCEF46B1BC84150210BADBBAD3DE0"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_test_parameters.m",
+          "sha256": "5EF62A64D600B60DDFB3E378011E2253CE34DB84F5B65C8F04EBFCE406AA3E26"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_app_parameters.m",
+          "sha256": "3ABC8D146EC8A4104923E92EACFD29CBA9487C31E0972A24459223A02A42F620"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_test_parameters.m",
+          "sha256": "2887271C6B193EC572367AAAF140B2C7E14B813C58AAE3F14429E1A575F94D93"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_app_parameters.m",
+          "sha256": "400ABB64811F6A2AD3AA5627CF823F079654B564511ED6A0A3330A116928F82D"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_test_parameters.m",
+          "sha256": "C43D3F08C60DE57D9CD22ED607ED3694032057F2782E98EEAAE7676222550270"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_foc.m",
+          "sha256": "2C95A9A4F062436A8E4049C1375445A32E572CBAA9DAC770B52C45BCD91589D6"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_hybrid.m",
+          "sha256": "8BEEE8691A96F750D3A820652006C2CD55D8E41545489B512C57C1C920DEBC35"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_startup.m",
+          "sha256": "321AE6231BA1D96E04E44232A95A05D4F85B14D5EC9F7A3C573522D9909DDF09"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_foc_stimulus.m",
+          "sha256": "F53B0B808051A4704F88CE5E9FF7A280DF30CDEB614FA6C39870772E617EA71F"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_stimulus.m",
+          "sha256": "2AF961CAA4B818194AB817EABA4CA3A2BBC712A06AC2B5B8A2D7321E11FC8209"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_workspace.m",
+          "sha256": "D568EFD22856E3D4B072E726A1B07ECB8E495796B11A1EF41761786417A47EF2"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_startup_stimulus.m",
+          "sha256": "F2F25E404F279B0A68A55AC5D70E7641BE22630DF065FF2066FF380B11B4BBCC"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_foc.m",
+          "sha256": "F59EA6B1355C020824DA46EFA2901D7FE537B29F0D2DF78CA73022592D948005"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_hybrid.m",
+          "sha256": "642F728CF77528B6F26B22F0131E69DA83303E5FC5F70B6D869ADD1888AF6A82"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m",
+          "sha256": "AE406EAE2195EAC30E1B1FFF03AC5E4129668752E7B09A5260D009D08239C372"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensorless/sensorless_if",
+      "models": [
+        {
+          "name": "SensorlessIF.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 35,
+      "display_delimiters": 6,
+      "documents": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_if/docs/README.md",
+          "sha256": "EAF6A919FBFB024172F8265140733AB15C758187864F69ED122DFF75371AD49B"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_if/docs/公式推导.md",
+          "sha256": "A965B2ABD941E3BB3FB854BD5A60157E9C7715AB9555FEE55BED000A295CF350"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_if/src/SensorlessIF.slx",
+          "sha256": "fb570b297d06c322a23d36e9c806a826ba24028aea65f09ecd777febcaca338a"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_parameters.m",
+          "sha256": "520e87fca8e32e8f32e6e78aeb494080cf388552c18b00b311017bbc8dc91841"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_validation_parameters.m",
+          "sha256": "a16d3ed05e575c1717ddf05f0c97fead247c4b0764f1b0dd4f45209aa14dc7b4"
+        }
+      ]
+    },
+    {
+      "module": "model/app_models/Sensorless/sensorless_vf",
+      "models": [
+        {
+          "name": "SensorlessVF.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 35,
+      "display_delimiters": 6,
+      "documents": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_vf/docs/README.md",
+          "sha256": "D0DACA593C2F6CA4F4915E2172807F65B6AD401CFD37005D468BD16AE4C5EA48"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_vf/docs/公式推导.md",
+          "sha256": "83A55D6FDA368E5087F9DAED0FC6CDDCC7FEA0257FE43B238F942FB9470B5D52"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/app_models/Sensorless/sensorless_vf/src/SensorlessVF.slx",
+          "sha256": "c97833942f62aa5b0fe100f5a8da372271ec1a3cfa1e55a707a14910afb7b265"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_parameters.m",
+          "sha256": "8772e6a66c604d0685907f4e610eabfebb45caa5708a548bed2c975526121475"
+        },
+        {
+          "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_validation_parameters.m",
+          "sha256": "e1b13d87edd8b3da1be54f760f5bef748cae1f9415f729c4e905e02869ed2ae1"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/相位跟踪",
+      "models": [
+        {
+          "name": "AngleTracking.slx",
+          "type": "library",
+          "root_blocks": [
+            "PLL"
+          ]
+        },
+        {
+          "name": "AngleTrackingInstancesTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "AngleTrackingTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 42,
+      "display_delimiters": 8,
+      "documents": [
+        {
+          "path": "model/lib/相位跟踪/docs/README.md",
+          "sha256": "E0602E3B35759E81FB1D6A31722A5BAC4238440A7507CB6533A7A0ABA8C90AB7"
+        },
+        {
+          "path": "model/lib/相位跟踪/docs/公式推导.md",
+          "sha256": "BC73D99779D82CE4A5F5299B63E0C060AD7339A50D2A2C4BA59D8ABBDA164D2D"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/相位跟踪/src/AngleTracking.slx",
+          "sha256": "0A2C1EB331F9B6906B5246FBE31C10895203CF0F208AE71AEF2220CFC766C059"
+        },
+        {
+          "path": "model/lib/相位跟踪/src/AngleTrackingInstancesTest.slx",
+          "sha256": "4FCC911C13B13E7A75B9567F2E4DD25C6CFA5E8FF1514FA984281CA3BEBB30B8"
+        },
+        {
+          "path": "model/lib/相位跟踪/src/AngleTrackingTest.slx",
+          "sha256": "9A5A4CE41956DE32AC40E61218A4A3DF146D09A0A3C16076C871CAE12E53CCC3"
+        },
+        {
+          "path": "model/lib/相位跟踪/parameter/angle_tracking_parameters.m",
+          "sha256": "9C3A7DCE84D6FD4192E0B8C5B10430A845B1EE3D8E8106317AAEC82AFF73BF06"
+        },
+        {
+          "path": "model/lib/相位跟踪/parameter/pll_test_parameters.m",
+          "sha256": "F15661100CDCBFA7257271732419F16EDE94E24085F1F30AB5520464F51168B7"
+        },
+        {
+          "path": "model/lib/相位跟踪/build_process/build_angle_tracking.m",
+          "sha256": "9F4DC02428CACEAA63E7CEC5FB6678C1A6305AAD7C9B1F0A49C36987C18460CB"
+        },
+        {
+          "path": "model/lib/相位跟踪/build_process/build_pll_instances.m",
+          "sha256": "D526B8E6C0517FF4CEA91D4D32D2392B43DBA9D0882804714D30DD2DB3BC2EFD"
+        },
+        {
+          "path": "model/lib/相位跟踪/build_process/initialize_angle_tracking_test.m",
+          "sha256": "E0ABE8709B641CDDD961D3A6E46AD4B999688D17FF159DB010AB9F57CA6CF55A"
+        },
+        {
+          "path": "model/lib/相位跟踪/build_process/initialize_pll_instances.m",
+          "sha256": "493D6DF01D20C348048C8EE0D3895AC1BC2F3532F1F8D790B89FE8F317107E0F"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/电流环",
+      "models": [
+        {
+          "name": "CurrentControl.slx",
+          "type": "library",
+          "root_blocks": [
+            "FrameTrackingPI",
+            "TrackingPI",
+            "VoltageLimit"
+          ]
+        },
+        {
+          "name": "CurrentLoopTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "CurrentPIProbeTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "FrameTrackingPITest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 65,
+      "display_delimiters": 12,
+      "documents": [
+        {
+          "path": "model/lib/电流环/docs/README.md",
+          "sha256": "39BFABEA2CA20B0B2918BF6B44CCAF03D9F1107BB5A52B9FC25DF3C55203C1BC"
+        },
+        {
+          "path": "model/lib/电流环/docs/公式推导.md",
+          "sha256": "3FDB54E6116E2B7A6271B6D99224C90132DC242662A24D9125D25EC22D433D80"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/电流环/src/CurrentControl.slx",
+          "sha256": "C272C258B34ACD85ABDD243D5931183E6A9492FC157DBF18399B5EE99EEE9327"
+        },
+        {
+          "path": "model/lib/电流环/src/CurrentLoopTest.slx",
+          "sha256": "3E21FD9FAF1F11576536CF2FBB7F27A5F35C1CB71584AA7474C51F4578147036"
+        },
+        {
+          "path": "model/lib/电流环/src/CurrentPIProbeTest.slx",
+          "sha256": "3855872DEC5D51910A264B9CDE4631D4FEFACAD590EB4E3D0F7E277BCD63E953"
+        },
+        {
+          "path": "model/lib/电流环/src/FrameTrackingPITest.slx",
+          "sha256": "0F94A166448E2247D7535B8B60EDDC5779E6DA90E9DB075FB6869A085BC7DBD4"
+        },
+        {
+          "path": "model/lib/电流环/src/frame_pi_compute.m",
+          "sha256": "C4021954798290F7574E15711C8B3CB74F54A1FC1FD833B22E10AE0AE0F2DC49"
+        },
+        {
+          "path": "model/lib/电流环/src/frame_pi_update.m",
+          "sha256": "73927C9DAD33FE511C242D6C969CC4EBEDE579F047C97E32E293956BBE209F68"
+        },
+        {
+          "path": "model/lib/电流环/parameter/current_loop_test_parameters.m",
+          "sha256": "636D9B831EC04966507B52ACBC2A6F9E6A8C388592E56D57AAD6DF011C2C91DA"
+        },
+        {
+          "path": "model/lib/电流环/parameter/current_parameters.m",
+          "sha256": "BAF65BAD0D11B3FFBF084A86ED8C7029581EF4CF31A57EF42F650AB038E5E770"
+        },
+        {
+          "path": "model/lib/电流环/parameter/frame_pi_test_parameters.m",
+          "sha256": "8114E0F1B3AF858D76FEDABD68352E7B4E48696D613EBDFFB823496EBCC6CE68"
+        },
+        {
+          "path": "model/lib/电流环/build_process/build_frame_tracking_pi.m",
+          "sha256": "8FE469BB29C0C9F19FAB3D4DDAA3C78DF2F406FB0A75F1FD54773D9911723177"
+        },
+        {
+          "path": "model/lib/电流环/build_process/initialize_frame_pi_test.m",
+          "sha256": "62AEC6F7991063568ECF271396E85A6447374E207BA1D899335E999958DC8823"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/死区补偿",
+      "models": [
+        {
+          "name": "Deadtime.slx",
+          "type": "library",
+          "root_blocks": [
+            "Compensation",
+            "SwitchingLeg",
+            "VoltageError"
+          ]
+        },
+        {
+          "name": "DeadtimeTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SwitchingLegTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 53,
+      "display_delimiters": 8,
+      "documents": [
+        {
+          "path": "model/lib/死区补偿/docs/README.md",
+          "sha256": "5BD2124C35F68BC06D60069C4D0B23344F0719DC914453DE465F9415E23B4AFD"
+        },
+        {
+          "path": "model/lib/死区补偿/docs/公式推导.md",
+          "sha256": "2EC5BF5AD46C83788C68010A3576F3AF9312210FDE8B82549A2CC8339981DAE1"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/死区补偿/src/Deadtime.slx",
+          "sha256": "6C3E75590B8A691D3013EE286B3AA50DD2E170E7B558B4204843B6E9C0688C50"
+        },
+        {
+          "path": "model/lib/死区补偿/src/DeadtimeTest.slx",
+          "sha256": "742879DB705E7D6752E7739A1D422EA7C3A98D637231ED05F5C7612A6D78E91F"
+        },
+        {
+          "path": "model/lib/死区补偿/src/SwitchingLegTest.slx",
+          "sha256": "709CE45834FBCC6008E94235DA45A584AC0262C6118B3EA35F26223C81D85E6B"
+        },
+        {
+          "path": "model/lib/死区补偿/parameter/deadtime_parameters.m",
+          "sha256": "E416C4244888ED8C8BA1F80FBC07FBE15BCE150EF3AC33ADC98D7AF7DA8D434C"
+        },
+        {
+          "path": "model/lib/死区补偿/parameter/deadtime_test_parameters.m",
+          "sha256": "7DA098E474EDEB316F202308A47D4C5CDF63CEBDE487D37414621D4DC6F7747C"
+        },
+        {
+          "path": "model/lib/死区补偿/parameter/switching_leg_test_parameters.m",
+          "sha256": "0BE3434F102CDFCF9D0A1DB8662DB922F167CE9CFCAA9E1DCB3982A85B0DC298"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/离散并联PID",
+      "models": [
+        {
+          "name": "DiscretePID.slx",
+          "type": "library",
+          "root_blocks": [
+            "Controller"
+          ]
+        },
+        {
+          "name": "DiscretePIDTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 59,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/lib/离散并联PID/docs/README.md",
+          "sha256": "22B69F43F2D05F870F32B9198E1EC7BAAD79F7DE13E7B3F37C0B6D0CA17DD280"
+        },
+        {
+          "path": "model/lib/离散并联PID/docs/公式推导.md",
+          "sha256": "D184129574351B7A22B767ABBEC79A501CE55D5C10E35D24458C09F8489D805E"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/离散并联PID/src/DiscretePID.slx",
+          "sha256": "1DC291274114796B1DE54B5309E1866D5478AB77837F753BD07160F2A1A3F2B4"
+        },
+        {
+          "path": "model/lib/离散并联PID/src/DiscretePIDTest.slx",
+          "sha256": "F5DE3DE12D08C527F3D6FFE4095739128AC91F50B284083E1F8C6202082C30F4"
+        },
+        {
+          "path": "model/lib/离散并联PID/parameter/discrete_pid_parameters.m",
+          "sha256": "ADCEFE90CF00E67EBD108DA84D4D119C3065C3C4B91E87A0D74BF9633B8C6A1C"
+        },
+        {
+          "path": "model/lib/离散并联PID/parameter/pid_test_parameters.m",
+          "sha256": "1616255FF308F59F03C04E2E82666597AD3843BA03EBE2F1F02F7FB6D1B253F4"
+        },
+        {
+          "path": "model/lib/离散并联PID/build_process/initialize_discrete_pid_test.m",
+          "sha256": "35B2E68BE4B2A2DB33B4715E3E044E098529D54F446FF4C70FA6D815DCC55784"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/电压前馈",
+      "models": [
+        {
+          "name": "DQFeedforward.slx",
+          "type": "library",
+          "root_blocks": [
+            "Feedforward"
+          ]
+        },
+        {
+          "name": "FeedforwardTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 42,
+      "display_delimiters": 6,
+      "documents": [
+        {
+          "path": "model/lib/电压前馈/docs/README.md",
+          "sha256": "A70C1547E741889267AE0B5B019A412F59F34FC62115AC1ABACA03E9FD03F280"
+        },
+        {
+          "path": "model/lib/电压前馈/docs/公式推导.md",
+          "sha256": "408BDA53EE5400CC2C8BF251C4F3CD9519A8763A6C06E6495B6CAA0774332CCE"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/电压前馈/src/DQFeedforward.slx",
+          "sha256": "14881FACEF83211279CDB278EA70CA9331890188AF6CE1BD2754BD12C4E9A1FB"
+        },
+        {
+          "path": "model/lib/电压前馈/src/FeedforwardTest.slx",
+          "sha256": "2A255CA8B075EF03D612A110F13827EEAF4FF624B09DF2D83F998B606827DE80"
+        },
+        {
+          "path": "model/lib/电压前馈/parameter/feedforward_parameters.m",
+          "sha256": "EC63C63E618288DB43E92BB70C332A4C2ED92E9ABF58867F8E877A040A0BAA3F"
+        },
+        {
+          "path": "model/lib/电压前馈/parameter/feedforward_test_parameters.m",
+          "sha256": "DBC5B3C89FB2F678B5423D9005F4D2C6A8B4890FD58A1D388F0107EE206FED47"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/逆变器",
+      "models": [
+        {
+          "name": "Inverter.slx",
+          "type": "library",
+          "root_blocks": [
+            "Average",
+            "SVPWM"
+          ]
+        },
+        {
+          "name": "InverterTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 48,
+      "display_delimiters": 8,
+      "documents": [
+        {
+          "path": "model/lib/逆变器/docs/README.md",
+          "sha256": "B877D2ECDAF2CBE589CEB831A4F5A0E6B5CBDE3A1FCC909F2A7DFC44FD753F1B"
+        },
+        {
+          "path": "model/lib/逆变器/docs/公式推导.md",
+          "sha256": "EBB33787CF2DEADFBC25834C6F95BABB64D174C97335972B4674457B2DEB139D"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/逆变器/src/Inverter.slx",
+          "sha256": "E84458EC89E2B80902A8438D0742404229ECAC693A42E304DDF7ADFABF7BAEB0"
+        },
+        {
+          "path": "model/lib/逆变器/src/InverterTest.slx",
+          "sha256": "BE212ED0F8B994E1C632477B405DA70E87B0EF5ECE496265FCC2ABC3A5C1F418"
+        },
+        {
+          "path": "model/lib/逆变器/parameter/inverter_parameters.m",
+          "sha256": "DF7AEBB762F0A4468DD79F6242C2816F997D01D9F7FF8E2A23890A9DEA8AF82F"
+        },
+        {
+          "path": "model/lib/逆变器/parameter/inverter_test_parameters.m",
+          "sha256": "37A12B6C0E855ABAE284C010DBDF27378C576E37BCDB8634C87A0DDC22E6D3E6"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/math",
+      "models": [
+        {
+          "name": "ClarkePark.slx",
+          "type": "library",
+          "root_blocks": [
+            "BlendDQ",
+            "Clarke",
+            "InverseClarke",
+            "InversePark",
+            "Park"
+          ]
+        },
+        {
+          "name": "ClarkeParkTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "FrameBlendTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 61,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/lib/math/docs/README.md",
+          "sha256": "BD9F6DB2480414225FEAE4FB7F2E5447368BC796A4CE2158064430956856D44E"
+        },
+        {
+          "path": "model/lib/math/docs/公式推导.md",
+          "sha256": "63C0314AE8014A1C16CA66F2024D2A97D5229BD18FC1C3780EDE5C7FAD7FAF32"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/math/src/blend_dq.m",
+          "sha256": "83A6B9DC97204DB76F6C650BD56DC6DF7F4689E15A4518EE651DED2FC7990DDA"
+        },
+        {
+          "path": "model/lib/math/src/ClarkePark.slx",
+          "sha256": "169711DEDE75442375594E233D359985F8C9A86DB80B7F35E502BBC5E1225909"
+        },
+        {
+          "path": "model/lib/math/src/ClarkeParkTest.slx",
+          "sha256": "7A1F2323E0EDC4726696220CF31D4AF8E5DF6D2B209EF9BA5C06A828B49FE19F"
+        },
+        {
+          "path": "model/lib/math/src/FrameBlendTest.slx",
+          "sha256": "7B89C3D54AD507BA92FECC2A7B8DE3DA130E82115669322EDCF2F82990BBFD3F"
+        },
+        {
+          "path": "model/lib/math/parameter/blend_test_parameters.m",
+          "sha256": "1FC69B56A9491D060E55906570D4A2E09A04A711939773001E2C57EDC4B26749"
+        },
+        {
+          "path": "model/lib/math/parameter/clarke_park_parameters.m",
+          "sha256": "D0FCF351277AD5A3E8A1A3059AB671129194723D29F87F94FD4F1AABC1BC4F39"
+        },
+        {
+          "path": "model/lib/math/build_process/build_frame_blend.m",
+          "sha256": "8951ECAFD132A908D106CFF7F38A6AFA121F012B92985C6901CD1972B4CCAF89"
+        },
+        {
+          "path": "model/lib/math/build_process/initialize_clarke_park_test.m",
+          "sha256": "EADEF4F50496D9C67ADEEB9A2DCC8583A1604CAD59426F958CDE1F2DA36F2307"
+        },
+        {
+          "path": "model/lib/math/build_process/initialize_frame_blend_test.m",
+          "sha256": "DE5014430CBBE96F6FDDD83C37E459A584E276E0F050569371A3AD453A678D18"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/运动环",
+      "models": [
+        {
+          "name": "MotionControl.slx",
+          "type": "library",
+          "root_blocks": [
+            "Position",
+            "Speed",
+            "SpeedProfile"
+          ]
+        },
+        {
+          "name": "MotionLoopTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SpeedProfileTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 60,
+      "display_delimiters": 12,
+      "documents": [
+        {
+          "path": "model/lib/运动环/docs/README.md",
+          "sha256": "661248679794A49B9E57FEE495952EA35719833079ED2BCFD45E56B4776BFEA8"
+        },
+        {
+          "path": "model/lib/运动环/docs/公式推导.md",
+          "sha256": "5B077A4C60B6F8F0C6D862DB5C1C5CF529926910BF6C991FB53878D49BBBC117"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/运动环/src/MotionControl.slx",
+          "sha256": "3577C9C9CA33EBE07C867D59DCB86A5572ABCB03D394BB83109B13B7DC729B33"
+        },
+        {
+          "path": "model/lib/运动环/src/MotionLoopTest.slx",
+          "sha256": "C210B76EDCDF6215DE138110B8D890A6C1A2D210CC69222535FEFB8FC6BB4947"
+        },
+        {
+          "path": "model/lib/运动环/src/SpeedProfileTest.slx",
+          "sha256": "98234FB2C0D809B140B198360D7C4D18CE6F32564EAC14F8DD36F50B479BD322"
+        },
+        {
+          "path": "model/lib/运动环/parameter/motion_loop_test_parameters.m",
+          "sha256": "5235DFD32F84848E353EB9AD38B7974842387A1B75E5FBB0FDD2E11B49CCF103"
+        },
+        {
+          "path": "model/lib/运动环/parameter/motion_parameters.m",
+          "sha256": "C1C990CDD0B3074029BFD699CB413FBFB4F0D8C5AD17BC0EDE16F12A9F0CD76D"
+        },
+        {
+          "path": "model/lib/运动环/parameter/refresh_speed_profile_parameters.m",
+          "sha256": "13A98555E1A5410F7ECDFFD13E5FB0E474034E58A6D75ED7B4F0D55C6D3C1CCD"
+        },
+        {
+          "path": "model/lib/运动环/parameter/speed_profile_parameters.m",
+          "sha256": "6A81F99E9E806A0A7A96E319CA42BE5CE7DF3C32B0DD77E49DDE271B6B8460E4"
+        },
+        {
+          "path": "model/lib/运动环/parameter/speed_profile_test_parameters.m",
+          "sha256": "FC505F6385D93F70D0C54DE0A49C2451AD331050A76BBC6FC9CB19581261094F"
+        },
+        {
+          "path": "model/lib/运动环/build_process/build_speed_profile.m",
+          "sha256": "E0EE87A0776D57A2D8209D0B3612D87CDE7AADEA3B987EE42C36F907CA7AAC71"
+        },
+        {
+          "path": "model/lib/运动环/build_process/initialize_speed_profile_test.m",
+          "sha256": "E7C1D69CA1BFAC5FFB4AE4B5F81AED06994D7929099E56E4B47E8221D3645E2F"
+        },
+        {
+          "path": "model/lib/运动环/build_process/speed_profile_stimulus.m",
+          "sha256": "694095780EBD1C882C7705161DCF289C5AB893868D9D59231C41F9E651761908"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/MTPA弱磁",
+      "models": [
+        {
+          "name": "CurrentReference.slx",
+          "type": "library",
+          "root_blocks": [
+            "Allocator",
+            "CurrentLimits",
+            "FieldWeakening",
+            "MTPA",
+            "TorquePI"
+          ]
+        },
+        {
+          "name": "CurrentReferenceTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 77,
+      "display_delimiters": 18,
+      "documents": [
+        {
+          "path": "model/lib/MTPA弱磁/docs/README.md",
+          "sha256": "8A7BC54C1F1498E792788AAFAD644349491787CA2E6CF6C38CF76D3357208113"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/docs/公式推导.md",
+          "sha256": "43EE11E1A3EB9AEAE1419F9FD0335D3536A1345E3B1F97B531314FC666869172"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/MTPA弱磁/src/CurrentReference.slx",
+          "sha256": "43F55B48D8E03D18CB32C33C84ADEA6D10E73C89D171DEC3160645A9DC3E2A59"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/src/CurrentReferenceTest.slx",
+          "sha256": "C005C066430277AFD2A49879031F7E9274670639D4C2730E546811725686F462"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/parameter/mtpa_fw_parameters.m",
+          "sha256": "062C96AC684C0632CA3284BC71C1A4DC3F85E074BA1BDC3953FA56CA1F745E47"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/parameter/reference_case_parameters.m",
+          "sha256": "769936CA5BFFDCF2F4F1B4C99A396B8433948B59782A36FC49E9B656FE6ECCD3"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/parameter/reference_test_parameters.m",
+          "sha256": "1B7B95881D9AE03A2C8BA33F413975049BA98C2FBE8AAEBB882D3683D25ED1E2"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/parameter/refresh_mtpa_tables.m",
+          "sha256": "61191C26D4F77AF6F8EB12901CD5CDAAD1B6CC636D4C3E7B450F9F604D1207E1"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/build_process/initialize_mtpa_fw_model.m",
+          "sha256": "19151FA3467FC550D139AF9320C106BA408D4B82ABB26F689187501B1B1B7A1D"
+        },
+        {
+          "path": "model/lib/MTPA弱磁/build_process/run_mtpa_fw_case.m",
+          "sha256": "3931243826A732302FEDC062BF36D0A3FF5E87A3FFD4336E7C276E6B2070CF2F"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/扩展卡尔曼",
+      "models": [
+        {
+          "name": "EkfObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "EKF",
+            "KalmanMeasurement"
+          ]
+        },
+        {
+          "name": "EkfObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 74,
+      "display_delimiters": 12,
+      "documents": [
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/docs/README.md",
+          "sha256": "E8C4742AAEED403C3889FCDAE2B7BB6475C7426ED0E748F1315558CED3386E87"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/docs/公式推导.md",
+          "sha256": "6E8A731C6BF16E5D7C0235D2D4D5E4FCC8AF82D152AD9B021CC2AFA3A7848FF5"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/src/EkfObserver.slx",
+          "sha256": "F8BE5AE02CCE9D39F4C0990B29A9D73F9593862A300BF77A4A112BBBC00752C8"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/src/EkfObserverTest.slx",
+          "sha256": "DF26B5B4483401F80730AFF5704D7198C279302CC38120BCF51A59080F9FD2B9"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/src/ekf_predict.m",
+          "sha256": "F148514EF6FD2DC78C94754ABF519BB4B2E43C1A71E03CC0BB9EED68153C30BD"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/src/kalman_current_update.m",
+          "sha256": "469AEFC3A396CE01AC82FF3DEAF710019D327B99CEDB5730ED56FC0538D46176"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/parameter/ekf_parameters.m",
+          "sha256": "DB9094415F43F625193FCDABCBD6F641BB90EF2433551B3CEAB1942B11607A74"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/parameter/ekf_test_parameters.m",
+          "sha256": "B0EA640187827A353EB13A362D6C3361CF2FA614EC971FD47793CDD508A99D05"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/parameter/refresh_kalman_parameters.m",
+          "sha256": "2B9E1285DB383476E1580D517D5F8D6255B723A7FD687C5F01CC01AFFA629E2B"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/build_process/build_ekf_observer.m",
+          "sha256": "08BD2A8D7A5099E7CCFE1D1D42C690EA58FDA9EDC959A493F70A69A44EC3F564"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/build_process/initialize_ekf_paths.m",
+          "sha256": "159023B5AE29F97F2EC4D1346E47E6B1AF7B15DABBB2A455FD99825412009458"
+        },
+        {
+          "path": "model/lib/观测器/扩展卡尔曼/build_process/initialize_ekf_test.m",
+          "sha256": "247E2F80B8BD80D7E0E28C6D2C69D90F176FC1691219D72614F183301E46D8EB"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/反电势",
+      "models": [
+        {
+          "name": "EemfObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "EmfObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "EEMF",
+            "LinearEMF"
+          ]
+        },
+        {
+          "name": "LinearEmfTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 52,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/lib/观测器/反电势/docs/README.md",
+          "sha256": "3E4A9C8239EA81E0C71AA9364FE302785BE92BE6B962DF02EC3360A551A05FF3"
+        },
+        {
+          "path": "model/lib/观测器/反电势/docs/公式推导.md",
+          "sha256": "362A9952FECE6FA92E6EDB35A74B9DFE15F8FC416CE70B8077BF0D7D03533AD6"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/反电势/src/EemfObserverTest.slx",
+          "sha256": "4D41D3BF274E06380794AE88569E43349FA9BB0E8F1B2EBA544A3DFBC4F3335B"
+        },
+        {
+          "path": "model/lib/观测器/反电势/src/EmfObserver.slx",
+          "sha256": "E562A99FB876549055692B9AFC3E7FF5124B6EDE4823B6511772EF73247DC919"
+        },
+        {
+          "path": "model/lib/观测器/反电势/src/emf_predict.m",
+          "sha256": "7D4964A70BBC0023E92CA5B537F74035D2028F2A607724D74BB9F716077B44E5"
+        },
+        {
+          "path": "model/lib/观测器/反电势/src/LinearEmfTest.slx",
+          "sha256": "220C2D482F61DCF575A27A437611D22898F9B2F4B339870CACE87AB81F1165DC"
+        },
+        {
+          "path": "model/lib/观测器/反电势/parameter/emf_parameters.m",
+          "sha256": "5ED1AD241959D93D8E788D09D2469DCDBF80AD64907D13F488F352BF0FC37906"
+        },
+        {
+          "path": "model/lib/观测器/反电势/parameter/emf_test_parameters.m",
+          "sha256": "2CE456C6E4CB45C8EAE554F872FE56F605450721E933FCDAF8FCDFCE46D47D4F"
+        },
+        {
+          "path": "model/lib/观测器/反电势/build_process/build_emf_observer.m",
+          "sha256": "C23E482A44512EB45612669568E1A638578329DB8D4323CA25021497F00FD742"
+        },
+        {
+          "path": "model/lib/观测器/反电势/build_process/emf_fixture.m",
+          "sha256": "68D6625FA8A9FC618853FADEAF5112576456302587DB85F1564BF8EA3BAC43E5"
+        },
+        {
+          "path": "model/lib/观测器/反电势/build_process/initialize_emf_test.m",
+          "sha256": "29A3CE27669A49C2B028A8C9474DE1C29A52AC72ADF62EE45FADE6F9A9103EAB"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/磁链",
+      "models": [
+        {
+          "name": "FluxObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "Flux"
+          ]
+        },
+        {
+          "name": "FluxObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 67,
+      "display_delimiters": 14,
+      "documents": [
+        {
+          "path": "model/lib/观测器/磁链/docs/README.md",
+          "sha256": "3BB24674242281C839A44A6816DC81656158178039EB043AABF7ACD5F66D3456"
+        },
+        {
+          "path": "model/lib/观测器/磁链/docs/公式推导.md",
+          "sha256": "1150BA17B15F7CF480A5E8E28BEE221982C2624DEDC990D8FBAC4791373530EF"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/磁链/src/FluxObserver.slx",
+          "sha256": "42C1A9BBBC419EDC8906FFBBE1C87106D4E281157BB3214217E89237421A7D1F"
+        },
+        {
+          "path": "model/lib/观测器/磁链/src/FluxObserverTest.slx",
+          "sha256": "5C147E95B6A1BC4C8ECA2E08F81A0A5B310B12D9E063EAE228207321D643CEA2"
+        },
+        {
+          "path": "model/lib/观测器/磁链/src/flux_compute.m",
+          "sha256": "E7DFCCAE2B686686069C3DC09A36B85A01F9805F140448E7777FAEF8E57D428A"
+        },
+        {
+          "path": "model/lib/观测器/磁链/src/flux_predict.m",
+          "sha256": "AA51D41AA37AF159A19360157D4E3298FB91C00C2492791ED6E00D3A1C746CBB"
+        },
+        {
+          "path": "model/lib/观测器/磁链/parameter/flux_parameters.m",
+          "sha256": "6871FA4EE8E53366C4C903A9575D4D7320CE934A739BE8EF3AC480F5CF0C7218"
+        },
+        {
+          "path": "model/lib/观测器/磁链/parameter/flux_test_parameters.m",
+          "sha256": "3F035BE860E4D28F4ED2DFBCF21C6DA9B28EB8C602328B2D9531A3B1F88D1C13"
+        },
+        {
+          "path": "model/lib/观测器/磁链/parameter/refresh_flux_parameters.m",
+          "sha256": "21FC15969AC8670FE2BB4F714A3F49B87786420BA1D80ED4A5048D3022F689C3"
+        },
+        {
+          "path": "model/lib/观测器/磁链/build_process/build_flux_observer.m",
+          "sha256": "E61B48C3EA8DBB230DD4B8BBA4139171023B774191F1B5634B6FCACA87BA4904"
+        },
+        {
+          "path": "model/lib/观测器/磁链/build_process/initialize_flux_test.m",
+          "sha256": "D745ADB771E249B1180E5EA9410C8C18E3202D150492BCE94F14FF1E81AF9666"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/高频注入",
+      "models": [
+        {
+          "name": "HFIAxisTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "HFISaliencyTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "HighFrequencyObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "HFIAxis",
+            "PolarityPulse",
+            "SaliencyProbe"
+          ]
+        }
+      ],
+      "formula_lines": 78,
+      "display_delimiters": 14,
+      "documents": [
+        {
+          "path": "model/lib/观测器/高频注入/docs/README.md",
+          "sha256": "85E8ECBD2063534F8E3CCE18DB0D62E43C3338C131E1A8F95378271BE4000892"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/docs/公式推导.md",
+          "sha256": "B05EE174324430AA73D6DB4E6BC1EBDF41FAEFD887006CC4F51D803D552FCFD1"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/高频注入/src/HFIAxisTest.slx",
+          "sha256": "735EE37989C9F58934F6F0EE0E225592337ABCE42093EDBB3C743F4BAC6EEA71"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/HFISaliencyTest.slx",
+          "sha256": "5C1F71E045D6678917B8093C6C782263EFCFD05381AF27ACA25E8DF57137AB5E"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_demodulate.m",
+          "sha256": "65F725D233BF922595A49EC96109495F52CCB1C714141713216B4E5278A6A4AA"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_measure_current.m",
+          "sha256": "A9408C6CBD2DA0E969B2BBAF04F31F487649119651915955F670735D44A9596F"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_polarity_output.m",
+          "sha256": "204B53A920147CB6376619CEF0F9F2932719F0861391614802BE4796D7D05964"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_polarity_update.m",
+          "sha256": "AD210C6F4C46ECAE54BB372DEA45AC4F5D822B9D8BFB7911F1D28CA8E48027BF"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_probe_output.m",
+          "sha256": "F0875C9B04E947F67F4A3BF7FB2362B64EA8A9D15D651056E7DAC6B50B28C165"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_probe_update.m",
+          "sha256": "9BC176E44DF126D25716E690BD8CDF79BBBF87440AB06D0961AAF7FAAB53B3A9"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/hfi_track_axis.m",
+          "sha256": "52D229AD548BACD367BC846782B66B329C6177A5A23E00D2E144C4AAB2E10D61"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/src/HighFrequencyObserver.slx",
+          "sha256": "156F8959CC140DC0EFCCA3BBC454AB97CBEC51B3DADA540B64E91D86F60DAA23"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_parameters.m",
+          "sha256": "332D25F55E27D98B597ACEE95F2AE77D2E448E863C89BB193FC9287107EDF1B0"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_plant_parameters.m",
+          "sha256": "DC21ACEBA08CF0D7241CD7E16FD81CDE0CD650F4BC2AF28D05D67A0C88B6948D"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_pll_parameters.m",
+          "sha256": "37E9FAEBFDBE51E37884AA9814E46193F8113058B21EAA7B12450220A2AD5C33"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_polarity_parameters.m",
+          "sha256": "85545C0F50C180E17154BD85FB3521E41E264D7222270969B031F930EDDEB689"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_probe_parameters.m",
+          "sha256": "785F8787B080A1C01FE5FED67F453263D00B1C35D368233C97E0FEB9C4CA8A07"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_probe_test_parameters.m",
+          "sha256": "949F1D2D90B1CD0F5A49596FF9926927B2B8810C4A83D4F75374923A8DB25FD3"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/hfi_test_parameters.m",
+          "sha256": "2F4E8AACE26C67B5AACC6ACC04BCF4C298144DA0BE564FE8084CBBC9F14591AE"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_parameters.m",
+          "sha256": "DB20A90365AFA4C539C1343676F3B1942D62FC314A78BA4C3249FC306F9C29C4"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_polarity_parameters.m",
+          "sha256": "A1A818A04734B92F2795BB9F193F2F3F711406239B86CC0CAC67FCFE476F9F8F"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_probe_parameters.m",
+          "sha256": "7EA73F261B15C9ADDD43C86E4E9E51EB0930F316CB2336055FC3A2281EC5B8F9"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/build_hfi_calibration.m",
+          "sha256": "BC790D7AF54698F4A8EE96D01C4D928998D250B55B1D87EBB52E822813F7868D"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/build_hfi_observer.m",
+          "sha256": "45C75B2053543E51C90D3901F1C71B3B931A808FA4EAC798D30943AE7F4D92FD"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/build_hfi_polarity.m",
+          "sha256": "4CE4865BEAFB7481BF8532C109AB560BC166427CE87ACFA1CA32927C23466F8A"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/build_hfi_probe.m",
+          "sha256": "F577D4D8241C918D6BB99DC26D893E76A04E05E914AA2578089AA61BF6FF9475"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/hfi_stimulus.m",
+          "sha256": "68760E4B96E66848474143E741C961C69517C3CFD1A6FF287ADC4A7135AC7A4C"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/initialize_hfi_probe_test.m",
+          "sha256": "91CC43CB1700890707873431E75C33381FE6946C214D6888E2126E7C6BEAD2D0"
+        },
+        {
+          "path": "model/lib/观测器/高频注入/build_process/initialize_hfi_test.m",
+          "sha256": "C7FB397CC10A00F1FB9D90C7203F3CA3E4855B12DDBA6CA5EA54BFE888C5140E"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/模型参考自适应",
+      "models": [
+        {
+          "name": "MrasObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "CurrentModelMRAS"
+          ]
+        },
+        {
+          "name": "MrasObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 57,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/lib/观测器/模型参考自适应/docs/README.md",
+          "sha256": "1BBFD3751333FE818EDE272F36806ED84F4FB04C4560E5D249BB531748A5EC09"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/docs/公式推导.md",
+          "sha256": "34349258867AA4B2E3D4BB980709CC68F263AA3FAA576BE932EDC8DAB0A9A99D"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/模型参考自适应/src/MrasObserver.slx",
+          "sha256": "2BB2ED16537C790803D10697DD736E40D80566A4F56EAB5A697C56E2051FB0F6"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/src/MrasObserverTest.slx",
+          "sha256": "5FEF23A94EA94706F866575798DC43DA69AE17748A7F042E8497EECA56ABC0A3"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/src/mras_output.m",
+          "sha256": "33887248746F3E3A773BDA4B60BE15587167D8A58B5C0B48CCA4384A326F78D4"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/src/mras_step.m",
+          "sha256": "D8D8D870DAE019E82E9641A01F475AAE4F55D6DA65E106F1F1752B93C2D504F6"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/parameter/mras_host_test_parameters.m",
+          "sha256": "3890546A05AFB5F394C5DECF22B4A3F1681CAEE98F0676CE98A1C7B866EFEDC4"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/parameter/mras_parameters.m",
+          "sha256": "B5CEF89C662A0B819F71CC566532390FBC02A49AB644547B7E96CC2E78508AA8"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/parameter/mras_test_parameters.m",
+          "sha256": "EBB006A73047A4387F00DEB3AC2FE35D1A9D27CDB696656BF0F2D13A81B24606"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/parameter/refresh_mras_parameters.m",
+          "sha256": "CBA00D819437CF5547E1AFEDADB2E7E4E76922DF7D57E79C574A4947F0B718F6"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/build_process/build_mras_observer.m",
+          "sha256": "84975739F45F7C7E15DD77B6364953B2C5981ECC2CF0072C7F003CE43791F8C5"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/build_process/initialize_mras_test.m",
+          "sha256": "1FE12782CBE6DD5F3904A2BB2FA6DC9D51C639730CD991AAA282BFB766B7B38B"
+        },
+        {
+          "path": "model/lib/观测器/模型参考自适应/build_process/mras_fixture.m",
+          "sha256": "1DC665D4A8337FCC33071A83169AF79A8F39C206576619F13E415DFBE6AB3FD2"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/滑模",
+      "models": [
+        {
+          "name": "SigmoidSlidingModeObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "SigmoidSMO"
+          ]
+        },
+        {
+          "name": "SigmoidSlidingModeObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SlidingModeObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "SMO"
+          ]
+        },
+        {
+          "name": "SlidingModeObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 107,
+      "display_delimiters": 18,
+      "documents": [
+        {
+          "path": "model/lib/观测器/滑模/docs/README.md",
+          "sha256": "453D9AC9580AC918B06904E515607A8DBDB8DA7A9C3244CA1AB558EF7A95CF7F"
+        },
+        {
+          "path": "model/lib/观测器/滑模/docs/公式推导.md",
+          "sha256": "47B63806558419E41F8C11CE6C3F966238C7F672F55E994DE7D7D245109D5DCC"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/滑模/src/SigmoidSlidingModeObserver.slx",
+          "sha256": "D00B0E4182E8F80FE19661FBA0C26082937A42CA3EFD81F4222832C58059EB1C"
+        },
+        {
+          "path": "model/lib/观测器/滑模/src/SigmoidSlidingModeObserverTest.slx",
+          "sha256": "9247914A1FD847F90767D8AD96EB67ECAB010B67F2F970D4F10F20CB50ED962C"
+        },
+        {
+          "path": "model/lib/观测器/滑模/src/sigmoid_smo_measure.m",
+          "sha256": "1FA1F504F81AE139543B77AF21949EC5FF7DD71B209FCCE744D4BCD8B66F3584"
+        },
+        {
+          "path": "model/lib/观测器/滑模/src/sigmoid_smo_predict.m",
+          "sha256": "FE01DADC6D88CF91819B07EDF8F071815302E79323DD60629E692E3D0F6A8904"
+        },
+        {
+          "path": "model/lib/观测器/滑模/src/SlidingModeObserver.slx",
+          "sha256": "FE12D86FA1DC211304C05E56874A10909DC1DA54B3EE07F9F1B8BFE024712D63"
+        },
+        {
+          "path": "model/lib/观测器/滑模/src/SlidingModeObserverTest.slx",
+          "sha256": "19CD6D675FE19DF9C946D20AAE6A9CAB44B7CCC99C6474E68CC269725710E9C8"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/refresh_sigmoid_smo_parameters.m",
+          "sha256": "F0FA2D11F6A3C9193086886B83506A33DB2AE5CE97F26DF0616CD9940CDD3667"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/refresh_smo_parameters.m",
+          "sha256": "FF8C2BD4AD53F20406DA2B70062BC6A6350B04048B2A58431C19518ED143CC04"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_parameters.m",
+          "sha256": "CD67395129E8F9441C6CB08ABD0544EA9452B207CD320D25E58F1258D75DF20D"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_pll_parameters.m",
+          "sha256": "FD652613EC5D6FEC645C9C5EF17207A120E7A17F4EF660BAF633AF09047FAAA9"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_test_parameters.m",
+          "sha256": "74248F570F47FE30217432D0B1A505D432186E9576D97E64CF7784B2DF574A38"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/smo_parameters.m",
+          "sha256": "093C7A19CC6AD34FD416BB4CA93FCFE0858B65A0AD4A14B1EE954C42F060DDBB"
+        },
+        {
+          "path": "model/lib/观测器/滑模/parameter/smo_test_parameters.m",
+          "sha256": "1F744F5259EFA60244B77E0C83E09481B0B8BEEADC0FAEE1DB4A5A87ECB28CF0"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/build_sigmoid_smo.m",
+          "sha256": "FCB883A667ED20016E225F5290D6A061AC71CB6EF5C63C8CB7F7E8B3FD6A9F09"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/build_sliding_mode_observer.m",
+          "sha256": "D8694636D29C473DF25FB7D1E5E373909183CA94031821B87D96D72783FD31DB"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/initialize_sigmoid_smo_paths.m",
+          "sha256": "BB72F769BDF3524EFF98BE2B4F8B4049FFDDAA565275B818EFF67A4B068EF831"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/initialize_sigmoid_smo_test.m",
+          "sha256": "C2B276FA89E2DB79843C5C5A106E60F4F50949918DCA1536DDADFDB7C11F087D"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/initialize_smo_test.m",
+          "sha256": "16F86EA1E4014DC7AB2D691853F6317D0270781BEFB36DFE71BE7370554C7F92"
+        },
+        {
+          "path": "model/lib/观测器/滑模/build_process/smo_fixture.m",
+          "sha256": "5D15C0EF7210127DCAD1847A59EFABE0C21FA3ACAAACD743AB390194953BB2D8"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/观测器/无迹卡尔曼",
+      "models": [
+        {
+          "name": "UkfObserver.slx",
+          "type": "library",
+          "root_blocks": [
+            "UKF"
+          ]
+        },
+        {
+          "name": "UkfObserverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 321,
+      "display_delimiters": 58,
+      "documents": [
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/docs/README.md",
+          "sha256": "410A0823ECE226035ADBA91F0FADBF5ABAD7D70A4252785FAEB923FDB485E3C9"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/docs/公式推导.md",
+          "sha256": "036B2B10A4EC50AEB48103373308990F86567CE45E03A473E8C39E04A2FAE280"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/src/UkfObserver.slx",
+          "sha256": "2D94ADC50E41B0B912E368863328B4E0869EEB5964EFD26208489172A77BDB9B"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/src/UkfObserverTest.slx",
+          "sha256": "3EDF866436039FF19E40A92ECB4946BC1B16C0D04149C3C06E104E2F351C3DA4"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/src/ukf_predict.m",
+          "sha256": "D76A0C1FD1946660C9A8651F6139C71B357E397C170047CBEE7274C4BD43F939"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/parameter/refresh_ukf_parameters.m",
+          "sha256": "3F37F9F1A46A75DA1EFCE29F3AD8CBDAEA886943869F6F533587EF2CC9752912"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/parameter/ukf_parameters.m",
+          "sha256": "B5519CCC17CD87FB03699C260BC0E3ABBAEE556EE9D0009C73D6CAD93CF88C04"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/parameter/ukf_test_parameters.m",
+          "sha256": "7B512FE0CCDE7DB7B61CE1B1C743A1495B09118A9A7F8AD739E611FA7B0DE019"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/build_process/build_ukf_observer.m",
+          "sha256": "5DEF2251F4A35696D6F62D14096CBD1CCCB0272A12BB3C390A9E76E7D25C3A5C"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/build_process/initialize_ukf_paths.m",
+          "sha256": "E05E5D2F3451521E2FC0A8F15B2FAA59247A4D5FBCAE88E6688ACCCC1AD3D5EE"
+        },
+        {
+          "path": "model/lib/观测器/无迹卡尔曼/build_process/initialize_ukf_test.m",
+          "sha256": "124F72347B3856CCA9984050CEE5108002E97F89F9DA9FA44B3DBFDB93D2A7B5"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/永磁同步电机",
+      "models": [
+        {
+          "name": "PMSMBridgeBusPlant.slx",
+          "type": "library",
+          "root_blocks": [
+            "BridgeBusMotor"
+          ]
+        },
+        {
+          "name": "PMSMBridgeBusPlantTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "PMSMBridgePlant.slx",
+          "type": "library",
+          "root_blocks": [
+            "BridgeMotor"
+          ]
+        },
+        {
+          "name": "PMSMBridgePlantTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "PMSMHighFrequencyPlant.slx",
+          "type": "library",
+          "root_blocks": [
+            "HFPMSM"
+          ]
+        },
+        {
+          "name": "PMSMHighFrequencyPlantTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "PMSMPlant.slx",
+          "type": "library",
+          "root_blocks": [
+            "Electrical",
+            "Mechanical"
+          ]
+        },
+        {
+          "name": "PMSMPlantTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 173,
+      "display_delimiters": 34,
+      "documents": [
+        {
+          "path": "model/lib/永磁同步电机/docs/README.md",
+          "sha256": "0461D0763F8411208CAD252384898BECFFCF32E6C78C800823116305CF6E2BD0"
+        },
+        {
+          "path": "model/lib/永磁同步电机/docs/公式推导.md",
+          "sha256": "0D9FDE6513D552ABF2FC0AEF4191D1C19ABFEAE70ACF241BE7892C7675AF293D"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/永磁同步电机/src/bridge_bus_settings.m",
+          "sha256": "F714F7D516E77E62EDC8E340208D35FF11DB22B96C0251B43839FD7E1451A839"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMBridgeBusPlant.slx",
+          "sha256": "CB31EA5CADC5AA9BA62831A704F59D974DAF64AC272FD47F81FE71444AACDC78"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMBridgeBusPlantTest.slx",
+          "sha256": "7136AEFCBF5849A9A340ECEECC18ABE747D65CA2EA5D01F9132758028AB91FA0"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMBridgePlant.slx",
+          "sha256": "D32BEB34C3C35AD139DA27704B6F173D2A475E94622FFA233145F89200999786"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMBridgePlantTest.slx",
+          "sha256": "21EE5FD4AAB091E435F83A7704363953E196BB14A9757885B2AA1755F5B268D2"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMHighFrequencyPlant.slx",
+          "sha256": "153BECFE7E458D30FCD3AB2A9E38B3D2F85D313E3385E281B762C1BC05C16647"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMHighFrequencyPlantTest.slx",
+          "sha256": "A1F3036CC2B124CD5B27D15963FF781C91D5E44428243C2514C2152C64701EF4"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMPlant.slx",
+          "sha256": "9CD816F48CCA9334859A91829581F52ED64B1317650D90D6D89B32BE4B1C8B9E"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/PMSMPlantTest.slx",
+          "sha256": "DDC26BD3CBC5842496F3CA0196E775A4C32CEA947E5AC04A749027EFE6CCF837"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_bridge_output.m",
+          "sha256": "3F9B98C71E65F0D08B264A2BAFC2B412DC7407670AF9080893FE951AE73E3CB2"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_bridge_step.m",
+          "sha256": "6B82B6A29E076976B0A315CF3837894569E32B8BF3D6D3FAE8B9A2FF766A6E73"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_hf_dynamics.m",
+          "sha256": "D24F3A747EF3CE27BAE2813D852350248AFD6C59BF2DF5F0E2B7A1B54E030F0D"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_hf_output.m",
+          "sha256": "68819A8BA4185DF526720420E95911483A48F913FBB62DE4E2C478B3507F1555"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_sensorless_measurement.m",
+          "sha256": "FA9ECD5C912622FA8E0305DC8205FB155659DE2B32A08DC05CB2FE2E7E2C66F5"
+        },
+        {
+          "path": "model/lib/永磁同步电机/src/pmsm_sensorless_step.m",
+          "sha256": "99D9A91F89B333F1461C8E0F43A08D41B58218793BC97666AB187BF46E1B62FC"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/bridge_bus_test_parameters.m",
+          "sha256": "C091889B2C14ECCEFF9442781961FA1BE03B2AB5F911EF7ED0485D05A7A112D4"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/bridge_bus_trace_channels.m",
+          "sha256": "D1C0F74E98952BCF0AF5B48F03F617CFB27ECA080C377F33395E3084F6BF9620"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/bridge_test_parameters.m",
+          "sha256": "A206176618AF9F1AAFA4A96CB68B9A3DBF7C7AE86D14B5AD262F5EC30D888E79"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/bridge_trace_channels.m",
+          "sha256": "27F69871854C394F747B28BF36FEF4FDB1290C1476D7EB92C495E4BA1AC1738E"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/hf_plant_test_parameters.m",
+          "sha256": "7A1D680DAF12BE8D71B928B4DA0EAE8138571E9ADD3D730D3458A1FA6495418C"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/pmsm_bridge_parameters.m",
+          "sha256": "7A638C6854AD75A3A229E4A26187B74A5A79FDA25C6987714425025B3F492B96"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/pmsm_hf_parameters.m",
+          "sha256": "50C44ED8FCFFDF99BDCA647276C425911D510575D038A6307B394F1E91068546"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/pmsm_parameters.m",
+          "sha256": "C0956A684326C919816182EC6D01C65F05B22EAA29A59710FF6AA7F2C498CD1D"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/pmsm_sensorless_parameters.m",
+          "sha256": "A0CDF11B541C97EA7BAB40DE8AC75A3392117F8F9DD50FFC5760215335349B91"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/pmsm_test_parameters.m",
+          "sha256": "B6C0088B6EF82A79E75133FF4FBC30823A9663B67637F094235EB9D7CBC15DCD"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/refresh_pmsm_bridge_parameters.m",
+          "sha256": "D9EBCA351784EE4AD2D11C914A9E485C283E3A665CE038FF0501F10733365A5B"
+        },
+        {
+          "path": "model/lib/永磁同步电机/parameter/refresh_pmsm_hf_parameters.m",
+          "sha256": "73B6C77BC68F01D962FD2F9860839D904183C0D516BFD307AC2BF623286C3722"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/bridge_bus_stimulus.m",
+          "sha256": "D50FE697A92C005449521E4859A85614D3B21E406E09C8C7079114C9212F28EE"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/bridge_plant_stimulus.m",
+          "sha256": "E5C6902D5F47B6552E90077497373CA7766D07CDC3D22418B10061886142C47F"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/build_hf_pmsm_plant.m",
+          "sha256": "E6E26AD84D81353B5B529AC41BEB0104E34FFECFB4EC3F8985843F0C61555F3D"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/build_pmsm_bridge_bus.m",
+          "sha256": "F11C8B84A1AAB5F9A42D68B0720B9C6F5F74C747E1C9F8B048D3174D48D964A1"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/build_pmsm_bridge_plant.m",
+          "sha256": "57317376A59FC66E0DB7212D30DAC2A9D50CC3A05446F5A7BB5E6EFD491D5767"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/hf_plant_stimulus.m",
+          "sha256": "2D9DF8C348F2250F0CDF7CF2990A0FD34CF99C9FC4C0EB5E499481750639676D"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/initialize_bridge_bus_test.m",
+          "sha256": "337F146F3DEA91E5995C43611C972FF94C51CD292499D1DF6704D158121657AB"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/initialize_bridge_test.m",
+          "sha256": "553CDAD2D55B02E31D455210319170BB111795EE98421EF1AB2D1C05A9444111"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/initialize_hf_plant_test.m",
+          "sha256": "3AF5163BF5ED834E75AB28C74F723621AF5187693DD2F94EC67030B4FAD814B8"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/inspect_bridge_bus_models.m",
+          "sha256": "B01A3E5A572B3F9DC0DA9D404ED8A6CDE756268AB3743784A77C24C29962EBE0"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/run_bridge_bus_case.m",
+          "sha256": "0A3D6000C83A52E301EA4B3FFFBA4CB14A10C886EBDB5B9E158BE6D9B53DE8D7"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/run_bridge_case.m",
+          "sha256": "1C8B271B3A05B647A6EB05C6AC8E5A190F1C35B9C34FDB4389D24EA382E5A2EE"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/spmsm_estimation_fixture.m",
+          "sha256": "F26AE5E3794388FEE26B4EAABFF9015F6DDEC5F22C0DB9CF9894CF7FD28B5030"
+        },
+        {
+          "path": "model/lib/永磁同步电机/build_process/tidy_bridge_bus_models.m",
+          "sha256": "B0BCA6B65FF346A5C14B11750A3C5EBE92EADDEC3C387AF12D7D22DB374DA5EC"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/无感切换",
+      "models": [
+        {
+          "name": "HybridFusionTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "SensorlessHandover.slx",
+          "type": "library",
+          "root_blocks": [
+            "Handover",
+            "HybridFusion"
+          ]
+        },
+        {
+          "name": "SensorlessHandoverTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 69,
+      "display_delimiters": 12,
+      "documents": [
+        {
+          "path": "model/lib/无感切换/docs/README.md",
+          "sha256": "501127539AC22F725F1CBBFDC8C921B3678310510D2C487F796CA37F84221386"
+        },
+        {
+          "path": "model/lib/无感切换/docs/公式推导.md",
+          "sha256": "DB919F439CDFFD944E03AE02B57DE18675D49227083098D922E13F26F0C41EFD"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/无感切换/src/handover_step.m",
+          "sha256": "A83C0AD924C28CBD123E581C02DE7E301D2E0B31AB82875CB37D4230A216A791"
+        },
+        {
+          "path": "model/lib/无感切换/src/HybridFusionTest.slx",
+          "sha256": "D7DF9986122B387B26E1E45D1485A281BB04680B42E5CD4B8A5DCC3F5D61CE77"
+        },
+        {
+          "path": "model/lib/无感切换/src/hybrid_fusion_step.m",
+          "sha256": "F1AE06EB67902335D616511D38C558BD2BB5A68AC88CD68A7A28AD3A00B03050"
+        },
+        {
+          "path": "model/lib/无感切换/src/hybrid_injection_output.m",
+          "sha256": "4FEA98C99161ECD35670FF9323516E6F422ABA6FD52E95D7374CDC9883B110A6"
+        },
+        {
+          "path": "model/lib/无感切换/src/SensorlessHandover.slx",
+          "sha256": "29DC47A4398D7812803C91109B15D17F450692FA2D5248B3AB9697EABB3184C9"
+        },
+        {
+          "path": "model/lib/无感切换/src/SensorlessHandoverTest.slx",
+          "sha256": "BBD8E5077AAEE3A41F3E599F6187264FEE6CFA475AF6451A2921BE6DD7D8CBDB"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/handover_parameters.m",
+          "sha256": "2D018210F652EC1DD0360C4C88A61F7864BC5E3E9068AD9EEE3DC7CB459A1029"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/handover_test_parameters.m",
+          "sha256": "1C71EDFB8A78ED85B2634B5E4292D16310F00C7D393751BF0A72CAB07BA88B39"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/hybrid_fusion_parameters.m",
+          "sha256": "233AF70C97BEFA48582D3BFFF61A871051518D005BEDFFE392FDF86255F5B51F"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/hybrid_fusion_test_parameters.m",
+          "sha256": "AB9131E26C41EC3C00506B6A679FA527F3BFD8F621F1EA305C05AC595DBEFC1B"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/refresh_handover_parameters.m",
+          "sha256": "1E9DA1AF63FDCF75C60759C5CE5C15FABE2DCCC69B76930B780C32BB86102392"
+        },
+        {
+          "path": "model/lib/无感切换/parameter/refresh_hybrid_fusion_parameters.m",
+          "sha256": "82ECB075F09136CCAC4DD7183196B8A58566346044EF2EE96590BFEA3955F9B1"
+        },
+        {
+          "path": "model/lib/无感切换/build_process/build_hybrid_fusion.m",
+          "sha256": "3EEB0BA5B98C2892CD77378D2ABB1DD0A324144840118A91BC1DF0E5A63124C1"
+        },
+        {
+          "path": "model/lib/无感切换/build_process/build_sensorless_handover.m",
+          "sha256": "79E7E7C7CA2BA5A86B478266C26150F343E38E2ABF2DDCD4F0D43674BD320FFA"
+        },
+        {
+          "path": "model/lib/无感切换/build_process/hybrid_fusion_stimulus.m",
+          "sha256": "23810BFD178887EE84E896528CE9713EC2E68E31C3091332ACD1A3C793FDBFAA"
+        },
+        {
+          "path": "model/lib/无感切换/build_process/initialize_handover_test.m",
+          "sha256": "81ED69410F14DF7DD105281C72CB9406091D478A3756E9DB7484907AE969C437"
+        },
+        {
+          "path": "model/lib/无感切换/build_process/initialize_hybrid_fusion_test.m",
+          "sha256": "682BF314C0AE33B8BBBDB26749CC03049328AECA7D0FDA7C666B1ED8D8932601"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/无感启动",
+      "models": [
+        {
+          "name": "SensorlessStartup.slx",
+          "type": "library",
+          "root_blocks": [
+            "Startup"
+          ]
+        },
+        {
+          "name": "SensorlessStartupTest.slx",
+          "type": "model",
+          "root_blocks": []
+        },
+        {
+          "name": "OpenLoopDrive.slx",
+          "type": "library",
+          "root_blocks": [
+            "Reference"
+          ]
+        },
+        {
+          "name": "OpenLoopDriveTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 57,
+      "display_delimiters": 10,
+      "documents": [
+        {
+          "path": "model/lib/无感启动/docs/README.md",
+          "sha256": "46B3BB25D4EFB996EEBDCA65ED62DDAE36280921E8C90E04FA57C60CE79C23B4"
+        },
+        {
+          "path": "model/lib/无感启动/docs/公式推导.md",
+          "sha256": "1FAD4FD51CEA78687464F37CB4C3CAE7B9B0435AFC4509316E691A54B64C70FE"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/无感启动/src/SensorlessStartup.slx",
+          "sha256": "C12F98DB44DE8F1FAE8357C5CC433F63AC210DACEF9CF4DCA6274BC017D6B539"
+        },
+        {
+          "path": "model/lib/无感启动/src/SensorlessStartupTest.slx",
+          "sha256": "4C7A0FBD013C0D7F1C8BA7DA85B012408096418779C965715662A5D45B7C8DF9"
+        },
+        {
+          "path": "model/lib/无感启动/src/startup_step.m",
+          "sha256": "E7D7ABA943D35EFFA9AA2D4BFA097648AF6C3FEF5246D6B64C041C290F61955B"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/refresh_startup_parameters.m",
+          "sha256": "c0d859e2968c22ffd361892ba1775466f51868290ef03cc880059ca0ee5e9bf8"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/startup_parameters.m",
+          "sha256": "d31d843510d8583360abcd0cf787988b693e0155aa3bb8ebe1980edcbb506f0b"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/startup_test_parameters.m",
+          "sha256": "64501db08d62442ec0dec338a0c2ab2544a9a4e1cb6f40b0551fb06b99a13ac5"
+        },
+        {
+          "path": "model/lib/无感启动/build_process/build_sensorless_startup.m",
+          "sha256": "C984247F8332E2744D984761975D09D79F087404A16370AEE14248BEAF53921D"
+        },
+        {
+          "path": "model/lib/无感启动/build_process/initialize_startup_test.m",
+          "sha256": "930BBA1BC7544D87BADAB5D4CB15CB37DA8EFA449C05923FF2C3E62A582A36F5"
+        },
+        {
+          "path": "model/lib/无感启动/src/OpenLoopDrive.slx",
+          "sha256": "e6931e24133b68f7013e958d5d0f8b9c62dd5f3ccb0b140ec1d8d8ef88559e1e"
+        },
+        {
+          "path": "model/lib/无感启动/src/OpenLoopDriveTest.slx",
+          "sha256": "4e2c08a47b84504a07fe7cbc1b820c49705ca472b3203960d7ee34f812cedec7"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/open_loop_drive_parameters.m",
+          "sha256": "2d50d621dc9618239378038464b89d4d3e7cade6e0568dd6407de3c487bbc523"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/open_loop_drive_test_parameters.m",
+          "sha256": "926666c7499db78c4f5304df42867262c9bd0ec1f1bdce48e680949d6e759a10"
+        },
+        {
+          "path": "model/lib/无感启动/parameter/refresh_open_loop_drive_parameters.m",
+          "sha256": "2aa96b944d52ceae2fa51845ba960f028548aba9341c3dc2eeda0c1651f70572"
+        }
+      ]
+    },
+    {
+      "module": "model/lib/采样执行时序",
+      "models": [
+        {
+          "name": "ControlTiming.slx",
+          "type": "library",
+          "root_blocks": [
+            "Actuation",
+            "Feedback"
+          ]
+        },
+        {
+          "name": "TimingTest.slx",
+          "type": "model",
+          "root_blocks": []
+        }
+      ],
+      "formula_lines": 42,
+      "display_delimiters": 6,
+      "documents": [
+        {
+          "path": "model/lib/采样执行时序/docs/README.md",
+          "sha256": "8A47A7732C22A01B490C81466E1733C09C5478A9D2EDC40C6F7B03F1D9822953"
+        },
+        {
+          "path": "model/lib/采样执行时序/docs/公式推导.md",
+          "sha256": "EA23F0E7962341EDE798855785F0E003CDC3B9BF8D7A64E57E9A9233FF7A3A5D"
+        }
+      ],
+      "implementation_sources": [
+        {
+          "path": "model/lib/采样执行时序/src/ControlTiming.slx",
+          "sha256": "7BBC9411AE2A9A44A731671AEF8FB079B26E74029D7C401DF759953D8FF854D2"
+        },
+        {
+          "path": "model/lib/采样执行时序/src/TimingTest.slx",
+          "sha256": "D02F7883F3CC259C3FDFF117F3C737FFF9759615DA99278E0CE309E141A48584"
+        },
+        {
+          "path": "model/lib/采样执行时序/parameter/timing_parameters.m",
+          "sha256": "F51AF44369DE72D758DD4E54F0A8FFE8796A1C45506C40A36CADF71EB9764A1C"
+        },
+        {
+          "path": "model/lib/采样执行时序/parameter/timing_test_parameters.m",
+          "sha256": "AFB30E108B430F474E4E8EB1733DD48D677AEA41349A63768CF72916CC8652F5"
+        }
+      ]
+    }
+  ],
+  "protected_models": 42
+}

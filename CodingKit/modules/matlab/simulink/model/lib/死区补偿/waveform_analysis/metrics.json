@@ -1,0 +1,86 @@
+{
+  "status": "passed",
+  "scenario_count": 10,
+  "scenario_names": [
+    "average_compensation",
+    "disabled",
+    "loop_comp_off",
+    "loop_comp_on",
+    "loop_comp_narrow_blend",
+    "switching_positive",
+    "switching_negative",
+    "switching_zero_deadtime",
+    "switching_short_pulse",
+    "switching_zero_crossing"
+  ],
+  "metrics": {
+    "average_compensation": {
+      "away_zero_residual_V": 0,
+      "zero_sum_error_V": 2.2204460492503131E-16
+    },
+    "disabled": {
+      "disabled_voltage_V": 0
+    },
+    "loop_comp_off": {
+      "final_current_error_A": 0.044112762078989218,
+      "peak_current_A": 0.52038144736659586,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.018664822561391962,
+      "rms_window_start_s": 0.2,
+      "rms_window_end_s": 0.3,
+      "tail_current_rms_A": 0.057638223826217326,
+      "minimum_duty": 0.4222258390950881,
+      "maximum_duty": 0.57777416090491185
+    },
+    "loop_comp_on": {
+      "final_current_error_A": 0.041774336755635577,
+      "peak_current_A": 0.516900833114301,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.013332376351785913,
+      "rms_window_start_s": 0.2,
+      "rms_window_end_s": 0.3,
+      "tail_current_rms_A": 0.049805573953388693,
+      "minimum_duty": 0.4094245047486067,
+      "maximum_duty": 0.5905754952513933
+    },
+    "loop_comp_narrow_blend": {
+      "final_current_error_A": 0.00074872583236349724,
+      "peak_current_A": 0.50825629909979275,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.0071845658511063828,
+      "rms_window_start_s": 0.2,
+      "rms_window_end_s": 0.3,
+      "tail_current_rms_A": 0.031801193361199485,
+      "minimum_duty": 0.40550036022374963,
+      "maximum_duty": 0.59449963977625042
+    },
+    "switching_positive": {
+      "mean_pole_voltage_V": 23.04,
+      "mean_voltage_error_V": 0,
+      "shoot_through_count": 0
+    },
+    "switching_negative": {
+      "mean_pole_voltage_V": 24.96,
+      "mean_voltage_error_V": 0,
+      "shoot_through_count": 0
+    },
+    "switching_zero_deadtime": {
+      "pole_error_V": 0
+    },
+    "switching_short_pulse": {
+      "high_gate_count": 0
+    },
+    "switching_zero_crossing": {
+      "diode_selection_error_V": 0,
+      "shoot_through_count": 0
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 12:07:51 +0000"
+}

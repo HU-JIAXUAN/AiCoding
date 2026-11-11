@@ -1,0 +1,55 @@
+{
+  "antiwindup": {
+    "solver": "VariableStepAuto",
+    "time_s": "1",
+    "Sum4": {
+      "samples": 2060,
+      "minimum": -1,
+      "maximum": 1
+    },
+    "TransferFcn": {
+      "samples": 2060,
+      "minimum": -2.0910025470375073,
+      "maximum": 2.0910001071118818
+    },
+    "Gain1": {
+      "samples": 2060,
+      "minimum": -6.1047957220636988,
+      "maximum": 6.1033358920233507
+    },
+    "Integrator": {
+      "samples": 2060,
+      "minimum": -5.9023488244912894,
+      "maximum": 5.89865212380748
+    }
+  },
+  "antiwindup_complete": {
+    "solver": "VariableStepAuto",
+    "time_s": "1",
+    "Sum4": {
+      "samples": 2665,
+      "minimum": -1,
+      "maximum": 1
+    },
+    "TransferFcn": {
+      "samples": 2665,
+      "minimum": -1.2918962354524062,
+      "maximum": 1.2919546070582062
+    },
+    "Gain1": {
+      "samples": 2665,
+      "minimum": -2.0866724514720087,
+      "maximum": 2.0866695804648652
+    },
+    "Integrator": {
+      "samples": 2665,
+      "minimum": -1.945523494526346,
+      "maximum": 1.9455272770737142
+    },
+    "Saturation": {
+      "samples": 2665,
+      "minimum": -2,
+      "maximum": 2
+    }
+  }
+}

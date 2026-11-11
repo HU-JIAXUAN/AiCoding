@@ -1,0 +1,830 @@
+{
+  "CurrentReferenceTest": {
+    "trace": "blk_8",
+    "entries": [
+      {
+        "name": "torque_request",
+        "unit": "N*m",
+        "source": "blk_2.y1",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "omega_e",
+        "unit": "rad/s",
+        "source": "blk_2.y2",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "bus_voltage",
+        "unit": "V",
+        "source": "blk_2.y3",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "voltage_demand_prev",
+        "unit": "V",
+        "source": "blk_2.y4",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "enable",
+        "unit": "1",
+        "source": "blk_2.y5",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "reset",
+        "unit": "1",
+        "source": "blk_2.y6",
+        "source_path": "CurrentReferenceTest/Inputs",
+        "width": 1
+      },
+      {
+        "name": "id_reference",
+        "unit": "A",
+        "source": "blk_3.y1",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "iq_reference",
+        "unit": "A",
+        "source": "blk_3.y2",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "allocated_torque",
+        "unit": "N*m",
+        "source": "blk_3.y3",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "id_mtpa",
+        "unit": "A",
+        "source": "blk_3.y4",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "iq_mtpa",
+        "unit": "A",
+        "source": "blk_3.y5",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "id_fw",
+        "unit": "A",
+        "source": "blk_3.y6",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "filtered_voltage",
+        "unit": "V",
+        "source": "blk_3.y7",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "voltage_available",
+        "unit": "V",
+        "source": "blk_3.y8",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "predicted_voltage",
+        "unit": "V",
+        "source": "blk_3.y9",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "current_margin",
+        "unit": "A",
+        "source": "blk_3.y10",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "voltage_margin",
+        "unit": "V",
+        "source": "blk_3.y11",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "torque_residual",
+        "unit": "N*m",
+        "source": "blk_3.y12",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "current_limited",
+        "unit": "1",
+        "source": "blk_4.y1",
+        "source_path": "CurrentReferenceTest/Recordcurrent_limited",
+        "width": 1
+      },
+      {
+        "name": "voltage_limited",
+        "unit": "1",
+        "source": "blk_5.y1",
+        "source_path": "CurrentReferenceTest/Recordvoltage_limited",
+        "width": 1
+      },
+      {
+        "name": "feasible",
+        "unit": "1",
+        "source": "blk_6.y1",
+        "source_path": "CurrentReferenceTest/Recordfeasible",
+        "width": 1
+      },
+      {
+        "name": "fw_active",
+        "unit": "1",
+        "source": "blk_7.y1",
+        "source_path": "CurrentReferenceTest/Recordfw_active",
+        "width": 1
+      },
+      {
+        "name": "voltage_error",
+        "unit": "V",
+        "source": "blk_3.y17",
+        "source_path": "CurrentReferenceTest/CurrentAllocator",
+        "width": 1
+      },
+      {
+        "name": "model_voltage_demand",
+        "unit": "V",
+        "source": "blk_3.y18",
+        "width": 1,
+        "source_path": "CurrentReferenceTest/CurrentAllocator"
+      },
+      {
+        "name": "effective_voltage_demand",
+        "unit": "V",
+        "source": "blk_3.y19",
+        "width": 1,
+        "source_path": "CurrentReferenceTest/CurrentAllocator"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          7,
+          8,
+          10,
+          11,
+          12,
+          16
+        ],
+        "id": "blk_11"
+      },
+      {
+        "name": "Torques",
+        "unit": "N*m",
+        "columns": [
+          1,
+          9,
+          18
+        ],
+        "id": "blk_13"
+      },
+      {
+        "name": "Voltages",
+        "unit": "V",
+        "columns": [
+          3,
+          4,
+          13,
+          14,
+          15,
+          17,
+          23,
+          24,
+          25
+        ],
+        "id": "blk_15"
+      },
+      {
+        "name": "ElectricalSpeed",
+        "unit": "rad/s",
+        "columns": [
+          2
+        ],
+        "id": "blk_17"
+      },
+      {
+        "name": "State",
+        "unit": "1",
+        "columns": [
+          5,
+          6,
+          19,
+          20,
+          21,
+          22
+        ],
+        "id": "blk_19"
+      }
+    ]
+  },
+  "MTPAFWMotor": {
+    "entries": [
+      {
+        "name": "id_reference",
+        "unit": "A",
+        "source": "blk_224.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "iq_reference",
+        "unit": "A",
+        "source": "blk_224.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "id_truth",
+        "unit": "A",
+        "source": "blk_153.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Electrical"
+      },
+      {
+        "name": "iq_truth",
+        "unit": "A",
+        "source": "blk_153.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Electrical"
+      },
+      {
+        "name": "id_feedback",
+        "unit": "A",
+        "source": "blk_64.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "iq_feedback",
+        "unit": "A",
+        "source": "blk_64.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "voltage_request_dq",
+        "unit": "V",
+        "source": "blk_13.y1",
+        "width": 2,
+        "source_path": "MTPAFWMotor/CurrentStage"
+      },
+      {
+        "name": "voltage_pi_dq",
+        "unit": "V",
+        "source": "blk_13.y2",
+        "width": 2,
+        "source_path": "MTPAFWMotor/CurrentStage"
+      },
+      {
+        "name": "voltage_ff_dq",
+        "unit": "V",
+        "source": "blk_13.y3",
+        "width": 2,
+        "source_path": "MTPAFWMotor/CurrentStage"
+      },
+      {
+        "name": "integral_dq",
+        "unit": "V",
+        "source": "blk_13.y4",
+        "width": 2,
+        "source_path": "MTPAFWMotor/CurrentStage"
+      },
+      {
+        "name": "voltage_residual_dq",
+        "unit": "V",
+        "source": "blk_29.y6",
+        "width": 2,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "vd_plant",
+        "unit": "V",
+        "source": "blk_29.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "vq_plant",
+        "unit": "V",
+        "source": "blk_29.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "feasible_command_dq",
+        "unit": "V",
+        "source": "blk_29.y7",
+        "width": 2,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "duty_command_abc",
+        "unit": "1",
+        "source": "blk_29.y3",
+        "width": 3,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "duty_applied_abc",
+        "unit": "1",
+        "source": "blk_29.y4",
+        "width": 3,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "voltage_limit_scale",
+        "unit": "1",
+        "source": "blk_29.y5",
+        "width": 1,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "electromagnetic_torque",
+        "unit": "N*m",
+        "source": "blk_153.y3",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Electrical"
+      },
+      {
+        "name": "load_torque",
+        "unit": "N*m",
+        "source": "blk_176.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/LoadTorque"
+      },
+      {
+        "name": "speed_request",
+        "unit": "rad/s",
+        "source": "blk_209.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/TorqueStage"
+      },
+      {
+        "name": "speed_truth",
+        "unit": "rad/s",
+        "source": "blk_168.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/MechanicalSpeed"
+      },
+      {
+        "name": "speed_feedback",
+        "unit": "rad/s",
+        "source": "blk_64.y4",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "position_reference",
+        "unit": "rad",
+        "source": "blk_172.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/PositionCommand"
+      },
+      {
+        "name": "position_truth",
+        "unit": "rad",
+        "source": "blk_169.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/MechanicalPosition"
+      },
+      {
+        "name": "position_feedback",
+        "unit": "rad",
+        "source": "blk_64.y5",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "electrical_angle_truth",
+        "unit": "rad",
+        "source": "blk_171.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/ElectricalAngle"
+      },
+      {
+        "name": "electrical_angle_feedback",
+        "unit": "rad",
+        "source": "blk_64.y3",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "electrical_speed_truth",
+        "unit": "rad/s",
+        "source": "blk_170.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/ElectricalSpeed"
+      },
+      {
+        "name": "electrical_speed_feedback",
+        "unit": "rad/s",
+        "source": "blk_64.y6",
+        "width": 1,
+        "source_path": "MTPAFWMotor/FeedbackStage"
+      },
+      {
+        "name": "ia_truth",
+        "unit": "A",
+        "source": "blk_156.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentInverseClarke"
+      },
+      {
+        "name": "ib_truth",
+        "unit": "A",
+        "source": "blk_156.y2",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentInverseClarke"
+      },
+      {
+        "name": "ic_truth",
+        "unit": "A",
+        "source": "blk_156.y3",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentInverseClarke"
+      },
+      {
+        "name": "inverter_phase_voltage_abc",
+        "unit": "V",
+        "source": "blk_29.y8",
+        "width": 3,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "deadtime_error_abc",
+        "unit": "V",
+        "source": "blk_29.y9",
+        "width": 3,
+        "source_path": "MTPAFWMotor/VoltageStage"
+      },
+      {
+        "name": "current_error_dq",
+        "unit": "A",
+        "source": "blk_13.y5",
+        "width": 2,
+        "source_path": "MTPAFWMotor/CurrentStage"
+      },
+      {
+        "name": "enable",
+        "unit": "1",
+        "source": "blk_179.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/EnableRecord"
+      },
+      {
+        "name": "reset",
+        "unit": "1",
+        "source": "blk_180.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/ResetRecord"
+      },
+      {
+        "name": "torque_request",
+        "unit": "N*m",
+        "source": "blk_209.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/TorqueStage"
+      },
+      {
+        "name": "allocated_torque",
+        "unit": "N*m",
+        "source": "blk_224.y3",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "torque_residual",
+        "unit": "N*m",
+        "source": "blk_224.y12",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "id_mtpa",
+        "unit": "A",
+        "source": "blk_224.y4",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "iq_mtpa",
+        "unit": "A",
+        "source": "blk_224.y5",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "id_fw",
+        "unit": "A",
+        "source": "blk_224.y6",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "filtered_voltage",
+        "unit": "V",
+        "source": "blk_224.y7",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "voltage_available",
+        "unit": "V",
+        "source": "blk_224.y8",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "predicted_voltage",
+        "unit": "V",
+        "source": "blk_224.y9",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "current_margin",
+        "unit": "A",
+        "source": "blk_224.y10",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "voltage_margin",
+        "unit": "V",
+        "source": "blk_224.y11",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "current_limited",
+        "unit": "1",
+        "source": "blk_243.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Recordcurrent_limited"
+      },
+      {
+        "name": "voltage_limited",
+        "unit": "1",
+        "source": "blk_244.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Recordvoltage_limited"
+      },
+      {
+        "name": "feasible",
+        "unit": "1",
+        "source": "blk_245.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Recordfeasible"
+      },
+      {
+        "name": "fw_active",
+        "unit": "1",
+        "source": "blk_246.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/Recordfw_active"
+      },
+      {
+        "name": "voltage_error",
+        "unit": "V",
+        "source": "blk_224.y17",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "voltage_demand_prev",
+        "unit": "V",
+        "source": "blk_228.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/PreviousVoltageDemand"
+      },
+      {
+        "name": "speed_pi_torque",
+        "unit": "N*m",
+        "source": "blk_209.y3",
+        "width": 1,
+        "source_path": "MTPAFWMotor/TorqueStage"
+      },
+      {
+        "name": "speed_pi_integral",
+        "unit": "N*m",
+        "source": "blk_209.y4",
+        "width": 1,
+        "source_path": "MTPAFWMotor/TorqueStage"
+      },
+      {
+        "name": "bus_voltage",
+        "unit": "V",
+        "source": "blk_225.y1",
+        "width": 1,
+        "source_path": "MTPAFWMotor/AllocatorBus"
+      },
+      {
+        "name": "model_voltage_demand",
+        "unit": "V",
+        "source": "blk_224.y18",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      },
+      {
+        "name": "effective_voltage_demand",
+        "unit": "V",
+        "source": "blk_224.y19",
+        "width": 1,
+        "source_path": "MTPAFWMotor/CurrentAllocator"
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "id": "blk_184"
+      },
+      {
+        "name": "Voltages",
+        "unit": "V",
+        "columns": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "id": "blk_186"
+      },
+      {
+        "name": "Duty",
+        "unit": "1",
+        "columns": [
+          15,
+          16,
+          17
+        ],
+        "id": "blk_188"
+      },
+      {
+        "name": "Torques",
+        "unit": "N*m",
+        "columns": [
+          18,
+          19
+        ],
+        "id": "blk_190"
+      },
+      {
+        "name": "Speed",
+        "unit": "rad/s",
+        "columns": [
+          20,
+          21,
+          22,
+          28,
+          29
+        ],
+        "id": "blk_192"
+      },
+      {
+        "name": "Position",
+        "unit": "rad",
+        "columns": [
+          23,
+          24,
+          25
+        ],
+        "id": "blk_194"
+      },
+      {
+        "name": "ElectricalAngle",
+        "unit": "rad",
+        "columns": [
+          26,
+          27
+        ],
+        "id": "blk_196"
+      },
+      {
+        "name": "PhaseCurrents",
+        "unit": "A",
+        "columns": [
+          30,
+          31,
+          32
+        ],
+        "id": "blk_198"
+      },
+      {
+        "name": "InverterVoltages",
+        "unit": "V",
+        "columns": [
+          33,
+          34
+        ],
+        "id": "blk_200"
+      },
+      {
+        "name": "CurrentError",
+        "unit": "A",
+        "columns": [
+          35
+        ],
+        "id": "blk_202"
+      },
+      {
+        "name": "ControlState",
+        "unit": "1",
+        "columns": [
+          36,
+          37
+        ],
+        "id": "blk_204"
+      },
+      {
+        "name": "AllocationTorque",
+        "unit": "N*m",
+        "columns": [
+          38,
+          39,
+          40,
+          55,
+          56
+        ],
+        "id": "blk_248"
+      },
+      {
+        "name": "WeakeningCurrents",
+        "unit": "A",
+        "columns": [
+          1,
+          2,
+          41,
+          42,
+          43,
+          47
+        ],
+        "id": "blk_250"
+      },
+      {
+        "name": "WeakeningVoltages",
+        "unit": "V",
+        "columns": [
+          44,
+          45,
+          46,
+          48,
+          53,
+          54,
+          57,
+          58,
+          59
+        ],
+        "id": "blk_252"
+      },
+      {
+        "name": "AllocationState",
+        "unit": "1",
+        "columns": [
+          49,
+          50,
+          51,
+          52
+        ],
+        "id": "blk_254"
+      }
+    ],
+    "trace": "blk_181"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "jsonrpc": "2.0",
+  "id": 118,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "代码生成成功。\nMRAS_HOST_MEX_DOUBLE_PASSED relative=0\n错误使用 codegen\n代码生成失败: <a href=\"matlab: open('C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_host_verification\\mex_single\\html\\report.mldatx');\">查看错误报告</a>\n\n出错 run_mras_host_validation (第 33 行)\n    codegen('mras_step','-config',config,'-args',args,'-d',buildDir,'-o',name);\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n出错 LiveEditorEvaluationHelperEmatlab_mcp_server (第 1 行)\naddpath('C:/Users/24322/AppData/Local/Temp/sensorless-build-v3614sn0'); failure=[]; transcript=evalc('try,run_mras_host_validation(''C:/Users/24322/AppData/Local/Temp/sensorless-build-v3614sn0/mras_host_verification'');catch exception,failure=exception;disp(getReport(exception,''extended'',''hyperlinks'',''off''));end');fid=fopen('C:/Users/24322/AppData/Local/Temp/sensorless-build-v3614sn0/mras_host_validation.log','w','n','UTF-8');fwrite(fid,transcript,'char');fclose(fid);disp(transcript(max(1,end-8000):end));if ~isempty(failure),rethrow(failure);end\n                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n出错 matlab_mcp.mcpEval (第 48 行)\n    resp = jsondecode(matlab.internal.editor.evaluateSynchronousRequest(request));\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n出错 connector.internal.fevalMatlab\n\n出错 connector.internal.fevalJSON\n\n原因:\n    无法将类型为 single 的值写入类型为 double 的变量。代码生成不支持通过赋值来更改类型。要调查类型不匹配的原因，请检查前面的赋值或输入类型设定。\n\n    错误位于 ==> <a href=\"matlab: emlcprivate('emcopentoline','F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_mras\\src\\mras_step.m',50,18);\">mras_step 行: 50 列: 18</a>\n\nmatlab error: (emlc:compilationError) 错误使用 codegen\n代码生成失败: <a href=\"matlab: open('C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_host_verification\\mex_single\\html\\report.mldatx');\">查看错误报告</a>\n\n出错 run_mras_host_validation (第 33 行)\n    codegen('mras_step','-config',config,'-args',args,'-d',buildDir,'-o',name);\n\n原因:\n    无法将类型为 single 的值写入类型为 double 的变量。代码生成不支持通过赋值来更改类型。要调查类型不匹配的原因，请检查前面的赋值或输入类型设定。\n    \n    错误位于 ==> <a href=\"matlab: emlcprivate('emcopentoline','F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_mras\\src\\mras_step.m',50,18);\">mras_step 行: 50 列: 18</a>"
+      }
+    ],
+    "isError": true
+  }
+}

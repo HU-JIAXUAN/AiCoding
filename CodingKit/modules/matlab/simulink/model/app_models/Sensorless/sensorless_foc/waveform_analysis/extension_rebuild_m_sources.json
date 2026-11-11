@@ -1,0 +1,58 @@
+[
+  {
+    "path": "parameter/extension_foc_cases.m",
+    "sha256": "6cd6f7cc0cb2fd0c2c4154876d442bfb65b8d0cea8adeb83640831d32b1fb637"
+  },
+  {
+    "path": "parameter/extension_foc_channels.m",
+    "sha256": "30fe171191a902ef543b3e01fc4ef3dc82e1f359ed360405fe5376a54739f0d6"
+  },
+  {
+    "path": "parameter/extension_foc_parameters.m",
+    "sha256": "71e776ceff1ac198499b4d23c07d50af1748433dd06056bf71fad9853797f160"
+  },
+  {
+    "path": "parameter/extension_foc_spec.m",
+    "sha256": "11d7f4fe08fea0ca2f8cd1c3882acc73dd7855da4e172c7632923b3523c65b1b"
+  },
+  {
+    "path": "parameter/extension_foc_validation_parameters.m",
+    "sha256": "c72f525b3375d700c656dfe145c18b9fd9ecccd2a229508a1c774c8124cf98b9"
+  },
+  {
+    "path": "parameter/refresh_extension_foc_parameters.m",
+    "sha256": "df124d2f4d8e56c1dab10bfafee77afdcb0cb37cc308975099717f767eb95670"
+  },
+  {
+    "path": "build_process/build_extension_foc.m",
+    "sha256": "5b3693b5cbbbdb68c717864440bbdc283f04bf2b4ed1f903492cf44e95de7e8b"
+  },
+  {
+    "path": "build_process/initialize_extension_foc.m",
+    "sha256": "f5f3934760f760cc64829b573730d52c6c0b83c92929263504103c1bb96962c3"
+  },
+  {
+    "path": "build_process/inspect_extension_foc.m",
+    "sha256": "4ddb55aec0f493d8e3c0a89fa1a7ac6a32f20aa1f2afad06ba1ccc9c056b40b3"
+  },
+  {
+    "path": "build_process/run_extension_foc_case.m",
+    "sha256": "147e6663e8d3a1421ff0b70567c8853e6d1fb6be679ee120e0f4a61833c2db9f"
+  },
+  {
+    "path": "build_process/tidy_extension_foc.m",
+    "sha256": "e13ce2cf69e2e7215648abfe798ddefb350fe88cfdd32ef7290b4e080f522f34"
+  },
+  {
+    "path": "waveform_analysis/analyze_extension_foc.m",
+    "sha256": "682350ad54b6c120d1a83ddb082b2f63334f0fe61874a126b3b7f3183bcc0db7"
+  },
+  {
+    "path": "waveform_analysis/export_extension_foc_plots.m",
+    "sha256": "1e7fed409d327abaafe483bcdca6a97c934e04bb9d8894f9b31009d5aa89fe92"
+  },
+  {
+    "path": "waveform_analysis/run_extension_foc_validation.m",
+    "sha256": "30b469d92222a8c06da6f11230ea46013a2d1d2ec0154a2da2ba347cc8507004"
+  }
+]

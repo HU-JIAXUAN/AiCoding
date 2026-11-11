@@ -1,0 +1,107 @@
+{
+  "release": "2026b",
+  "observer_kind": "eemf",
+  "passed": true,
+  "case_count": 8,
+  "cases": [
+    {
+      "name": "positive",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000081375759,
+      "angle_RMS_rad": 0.0084634655578531368,
+      "speed_RMS_mechanical_rad_s": 8.98299748020329E-7,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0121317917879638,
+      "max_voltage_step_during_blend_V": 0.0936553249989249
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": -80.0000000813806,
+      "angle_RMS_rad": 0.00846346555788402,
+      "speed_RMS_mechanical_rad_s": 8.9826515592350982E-7,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0226913243041196,
+      "max_voltage_step_during_blend_V": 0.099569194900022223
+    },
+    {
+      "name": "initial_opposite",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000081273228,
+      "angle_RMS_rad": 0.00846346555777358,
+      "speed_RMS_mechanical_rad_s": 8.98608456699334E-7,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.1001004027097738,
+      "max_voltage_step_during_blend_V": 0.14377699136746966
+    },
+    {
+      "name": "high_inertia",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000306090277149,
+      "angle_RMS_rad": 0.0084638592170279726,
+      "speed_RMS_mechanical_rad_s": 0.0013008671224844595,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0173461389008782,
+      "max_voltage_step_during_blend_V": 0.093577805356293758
+    },
+    {
+      "name": "resistance_mismatch",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000079359552,
+      "angle_RMS_rad": 0.0085083326588392856,
+      "speed_RMS_mechanical_rad_s": 8.8055678577565732E-7,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0160101337267342,
+      "max_voltage_step_during_blend_V": 0.10064496261233395
+    },
+    {
+      "name": "lower_bus",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000081376584,
+      "angle_RMS_rad": 0.00846346555785302,
+      "speed_RMS_mechanical_rad_s": 8.9829994146990491E-7,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0121317917879642,
+      "max_voltage_step_during_blend_V": 0.093655324998931991
+    },
+    {
+      "name": "observer_loss",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": 1.8010000000000002,
+      "final_speed_rad_s": -1.6981056615272188,
+      "angle_RMS_rad": 0.0084634590579613159,
+      "speed_RMS_mechanical_rad_s": 1.9757529469933772E-5,
+      "valid_fraction": 1,
+      "max_healthy_current_A": 3.0121317917879638,
+      "max_voltage_step_during_blend_V": 0.0936553249989249
+    },
+    {
+      "name": "current_alignment_baseline",
+      "passed": true,
+      "auto_time_s": null,
+      "fault_time_s": 0.97005000000000008,
+      "final_speed_rad_s": -1.6981056615273584,
+      "angle_RMS_rad": null,
+      "speed_RMS_mechanical_rad_s": null,
+      "valid_fraction": null,
+      "max_healthy_current_A": 3.3428249637418603,
+      "max_voltage_step_during_blend_V": null
+    }
+  ],
+  "acceptance_source": "sensorless_foc_validation_parameters.m",
+  "position_sensor_used_in_control": false,
+  "hardware_tested": false
+}

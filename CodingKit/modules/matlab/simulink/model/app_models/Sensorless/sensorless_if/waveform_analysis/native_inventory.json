@@ -1,0 +1,311 @@
+{
+  "kind": "if",
+  "model": "SensorlessIF",
+  "file": "model/app_models/Sensorless/sensorless_if/src/SensorlessIF.slx",
+  "health": "status: healthy\nvalidation_scope: root\nchecks_run: \n  - unconnected_ports\n  - unconnected_lines\n  - stateflow_lint",
+  "editor_open": false,
+  "truth_destinations": {
+    "speed": [
+      "PhysicalTrace",
+      "Trace",
+      "SpeedScopeChannels"
+    ],
+    "theta": [
+      "AngleDifference",
+      "Trace",
+      "AngleScopeChannels"
+    ]
+  },
+  "library_links": [
+    {
+      "block": "Command",
+      "reference": "OpenLoopDrive/Reference",
+      "status": "resolved"
+    },
+    {
+      "block": "CurrentLoop/CurrentPI",
+      "reference": "CurrentControl/TrackingPI",
+      "status": "resolved"
+    },
+    {
+      "block": "CurrentLoop/MeasuredPark",
+      "reference": "ClarkePark/Park",
+      "status": "resolved"
+    },
+    {
+      "block": "Plant",
+      "reference": "PMSMBridgeBusPlant/BridgeBusMotor",
+      "status": "resolved"
+    },
+    {
+      "block": "VoltageStage/InversePark",
+      "reference": "ClarkePark/InversePark",
+      "status": "resolved"
+    },
+    {
+      "block": "VoltageStage/Modulator",
+      "reference": "Inverter/SVPWM",
+      "status": "resolved"
+    },
+    {
+      "block": "VoltageStage/VoltageCircle",
+      "reference": "CurrentControl/VoltageLimit",
+      "status": "resolved"
+    }
+  ],
+  "compiled_periods": {
+    "CurrentSample": [
+      [
+        1.25e-05,
+        0
+      ],
+      [
+        6.25e-05,
+        0
+      ]
+    ],
+    "ProtectionSample": [
+      [
+        1.25e-05,
+        0
+      ],
+      [
+        6.25e-05,
+        0
+      ]
+    ],
+    "TerminalSample": [
+      [
+        1.25e-05,
+        0
+      ],
+      [
+        6.25e-05,
+        0
+      ]
+    ],
+    "PIProportional": [
+      6.25e-05,
+      0
+    ],
+    "PIIntegral": [
+      6.25e-05,
+      0
+    ]
+  },
+  "scopes": [
+    {
+      "name": "AmplitudeScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Command.y3"
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Command.y2"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "AngleScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Command.y1"
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Plant.y6"
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "PhaseDifference.y1"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "CurrentScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 2,
+          "source": "Plant.y1"
+        },
+        {
+          "first": 3,
+          "last": 4,
+          "source": "CurrentDQ.y1"
+        },
+        {
+          "first": 5,
+          "last": 5,
+          "source": "CurrentMagnitude.y1"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "CurrentTrackingScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 2,
+          "source": "CurrentLoop.y3"
+        },
+        {
+          "first": 3,
+          "last": 4,
+          "source": "CurrentLoop.y2"
+        },
+        {
+          "first": 5,
+          "last": 6,
+          "source": "CurrentLoop.y4"
+        },
+        {
+          "first": 7,
+          "last": 8,
+          "source": "CurrentLoop.y5"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "DutyScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 3,
+          "source": "VoltageStage.y1"
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "BridgeMode.y1"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "ObservationScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "CurrentMagnitude.y1"
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "TerminalMagnitude.y1"
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Command.y7"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "SpeedScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Command.y2"
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "SynchronousSpeed.y1"
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Plant.y5"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "StatusScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 1,
+          "source": "Inputs.y2"
+        },
+        {
+          "first": 2,
+          "last": 2,
+          "source": "Inputs.y3"
+        },
+        {
+          "first": 3,
+          "last": 3,
+          "source": "Command.y4"
+        },
+        {
+          "first": 4,
+          "last": 4,
+          "source": "Command.y5"
+        },
+        {
+          "first": 5,
+          "last": 5,
+          "source": "Command.y6"
+        },
+        {
+          "first": 6,
+          "last": 6,
+          "source": "Command.y8"
+        }
+      ],
+      "open_at_start": "off"
+    },
+    {
+      "name": "VoltageScope",
+      "input_ports": 1,
+      "channels": [
+        {
+          "first": 1,
+          "last": 2,
+          "source": "VoltageRequest.y1"
+        },
+        {
+          "first": 3,
+          "last": 4,
+          "source": "VoltageStage.y2"
+        },
+        {
+          "first": 5,
+          "last": 6,
+          "source": "Plant.y4"
+        },
+        {
+          "first": 7,
+          "last": 7,
+          "source": "VoltageStage.y4"
+        }
+      ],
+      "open_at_start": "off"
+    }
+  ]
+}

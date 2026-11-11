@@ -1,0 +1,778 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "models": [
+    "PMSMBridgePlant",
+    "PMSMBridgePlantTest"
+  ],
+  "physical_model_checks": 15,
+  "physical_dynamic_cases": 14,
+  "expected_rejections": 1,
+  "pure_M_checks": 18,
+  "independent_SPMSM_points": 240,
+  "IPMSM_complementarity_points": 240,
+  "mil_report": {
+    "release": "2026b",
+    "passed": true,
+    "tests": 15,
+    "physical_cases": 14,
+    "expected_rejections": 1,
+    "cases": [
+      {
+        "name": "coast_forward",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 0,
+        "final_speed_rad_s": 79.84015981354617,
+        "returned_energy_J": 0,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 0,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "coast_reverse",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 0,
+        "final_speed_rad_s": -79.84015981354617,
+        "returned_energy_J": 0,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 0,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "release_forward",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 3,
+        "final_speed_rad_s": 79.89413513572302,
+        "returned_energy_J": 0.005031525806987934,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 7.389644451905042e-13,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "release_reverse",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 3,
+        "final_speed_rad_s": -79.89426021188821,
+        "returned_energy_J": 0.005026818630427482,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 3.7969627442180354e-13,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "active_short",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 15.696196697379083,
+        "final_speed_rad_s": 30.716290553050527,
+        "returned_energy_J": 0,
+        "max_equation_residual_V": 6.938893903907227e-13,
+        "max_bridge_power_residual_W": 0,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "pwm_locked",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 14.525020338632393,
+        "final_speed_rad_s": 0,
+        "returned_energy_J": 0,
+        "max_equation_residual_V": 4.32542890393961e-13,
+        "max_bridge_power_residual_W": 1.1368683772161603e-13,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "rectify_forward",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 1201,
+        "max_current_A": 22.248605668867086,
+        "final_speed_rad_s": 400,
+        "returned_energy_J": 5.201664282150322,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 6.758682502550073e-11,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "rectify_reverse",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 1201,
+        "max_current_A": 22.309152591672355,
+        "final_speed_rad_s": -400,
+        "returned_energy_J": 5.20348398990639,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 7.241851562866941e-11,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "coast_short_release",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 12001,
+        "max_current_A": 15.651940600856715,
+        "final_speed_rad_s": 29.48122387733441,
+        "returned_energy_J": 0.09538067977793631,
+        "max_equation_residual_V": 6.938893903907227e-13,
+        "max_bridge_power_residual_W": 4.765965400110872e-12,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "low_bus_rectify",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 4001,
+        "max_current_A": 1.9382667079780163,
+        "final_speed_rad_s": 111.6832801875969,
+        "returned_energy_J": 0.41240755373921856,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 4.694022948115162e-13,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "zero_friction_coast",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 0,
+        "final_speed_rad_s": 80,
+        "returned_energy_J": 0,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 0,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "half_step",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 24001,
+        "max_current_A": 15.651218130469212,
+        "final_speed_rad_s": 29.480961863364563,
+        "returned_energy_J": 0.095885719554591,
+        "max_equation_residual_V": 1.3877787807814455e-12,
+        "max_bridge_power_residual_W": 1.6923351608966186e-11,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "spmsm_release",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 3,
+        "final_speed_rad_s": 79.88563421980975,
+        "returned_energy_J": 0.004081789682474423,
+        "max_equation_residual_V": 0,
+        "max_bridge_power_residual_W": 2.7711166694643907e-13,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "zero_voltage_PWM_is_short",
+        "passed": true,
+        "expected_rejection": false,
+        "samples": 2001,
+        "max_current_A": 15.696196697379083,
+        "final_speed_rad_s": 30.716290553050527,
+        "returned_energy_J": 3.172628826320084e-17,
+        "max_equation_residual_V": 6.938893903907227e-13,
+        "max_bridge_power_residual_W": 4.263256414560601e-14,
+        "max_next_current_age_difference_A": 0,
+        "max_M_replay_difference": 0
+      },
+      {
+        "name": "invalid_mode",
+        "passed": true,
+        "expected_rejection": true,
+        "samples": 0,
+        "max_current_A": null,
+        "final_speed_rad_s": null,
+        "returned_energy_J": null,
+        "max_equation_residual_V": null,
+        "max_bridge_power_residual_W": null,
+        "max_next_current_age_difference_A": null,
+        "max_M_replay_difference": null
+      }
+    ],
+    "bus_is_ideal_stiff_voltage": true,
+    "zero_off_state_leakage": true,
+    "switching_ripple_modeled": false,
+    "Simscape_reference_executed": false,
+    "hardware_tested": false
+  },
+  "kernel_report": {
+    "release": "2026b",
+    "passed": true,
+    "checks": 18,
+    "cases": [
+      {
+        "name": "locked_rotor_PWM_backward_Euler",
+        "passed": true,
+        "details": {
+          "max_current_difference_A": 1.0824674490095276e-14
+        }
+      },
+      {
+        "name": "locked_rotor_active_short_RL",
+        "passed": true,
+        "details": {
+          "max_current_difference_A": 4.440892098500626e-15
+        }
+      },
+      {
+        "name": "high_impedance_open_EMF",
+        "passed": true,
+        "details": {
+          "max_interval_voltage_difference_V": 1.3318235403403378e-12,
+          "floating_subtraction_bound_V": 8.881784197001251e-11,
+          "disabled_duty_ignored": true
+        }
+      },
+      {
+        "name": "free_coast_viscous_speed",
+        "passed": true,
+        "details": {
+          "speed_difference_rad_s": 4.320099833421409e-12
+        }
+      },
+      {
+        "name": "turn_off_current_continuity_and_decay",
+        "passed": true,
+        "details": {
+          "first_next_current_norm_A": 2.972686807459035,
+          "initial_current_norm_A": 3.1622776601683795,
+          "peak_off_current_A": 3.1622776601683795,
+          "returned_energy_J": 0.006018626001904757,
+          "diode_loss_J": 0.00017939669575242926
+        }
+      },
+      {
+        "name": "active_short_is_not_coast",
+        "passed": true,
+        "details": {
+          "peak_current_A": 15.696196697379104,
+          "final_speed_rad_s": 30.716290553050495
+        }
+      },
+      {
+        "name": "uncontrolled_rectification_direction_+1",
+        "passed": true,
+        "details": {
+          "returned_energy_J": 5.191630738392236,
+          "peak_current_A": 22.298896813405076,
+          "max_bridge_power_balance_W": 7.87210296948615e-11
+        }
+      },
+      {
+        "name": "uncontrolled_rectification_direction_-1",
+        "passed": true,
+        "details": {
+          "returned_energy_J": 5.186902450148543,
+          "peak_current_A": 22.23636381816448,
+          "max_bridge_power_balance_W": 7.919709332782077e-11
+        }
+      },
+      {
+        "name": "SPMSM_independent_neutral_bisection",
+        "passed": true,
+        "details": {
+          "points": 240,
+          "max_current_difference_A": 1.4210854715202004e-14
+        }
+      },
+      {
+        "name": "IPMSM_complementarity_KCL_KVL_power",
+        "passed": true,
+        "details": {
+          "points": 240,
+          "max_flux_balance_V": 0,
+          "max_bridge_power_balance_W": 6.537703711728682e-11,
+          "max_KCL_A": 3.552713678800501e-15
+        }
+      },
+      {
+        "name": "locked_rotor_discrete_energy_identity",
+        "passed": true,
+        "details": {
+          "max_accepted_residual_J": 1e-12
+        }
+      },
+      {
+        "name": "free_rotor_energy_step_refinement",
+        "passed": true,
+        "details": {
+          "steps_s": [
+            5e-06,
+            2.5e-06,
+            1.25e-06
+          ],
+          "energy_defect_J": [
+            -0.00026628615773129083,
+            -0.00013605967161942067,
+            -6.829048231560275e-05
+          ],
+          "ratios": [
+            1.9571277408057635,
+            1.9923665349239197
+          ]
+        }
+      },
+      {
+        "name": "invalid_bridge_mode_rejected",
+        "passed": true,
+        "details": {}
+      },
+      {
+        "name": "invalid_active_duty_rejected",
+        "passed": true,
+        "details": {}
+      },
+      {
+        "name": "invalid_physics_configuration_rejected",
+        "passed": true,
+        "details": {}
+      },
+      {
+        "name": "out_of_range_state_rejected",
+        "passed": true,
+        "details": {}
+      },
+      {
+        "name": "numeric_parameter_types_normalized",
+        "passed": true,
+        "details": {
+          "initial_state_identical": true
+        }
+      },
+      {
+        "name": "non_scalar_initial_state_rejected",
+        "passed": true,
+        "details": {}
+      }
+    ],
+    "independent_SPMSM_points": 240,
+    "IPMSM_KKT_points": 240,
+    "Simscape_reference_executed": false,
+    "hardware_tested": false
+  },
+  "default_replays": {
+    "samples": 12001,
+    "columns": 33,
+    "trace_difference": 0,
+    "time_exact": true,
+    "archived_case_parameters_unchanged": 14,
+    "fresh_trace_difference": 0
+  },
+  "native_audit": {
+    "release": "2026b",
+    "inventory": [
+      {
+        "model": "PMSMBridgePlant",
+        "path": "model/lib/pmsm_plant/src/PMSMBridgePlant.slx",
+        "type": "library",
+        "root_blocks": [
+          "BridgeMotor"
+        ],
+        "editor_open": false
+      },
+      {
+        "model": "PMSMBridgePlantTest",
+        "path": "model/lib/pmsm_plant/src/PMSMBridgePlantTest.slx",
+        "type": "model",
+        "root_blocks": [
+          "BridgeModeScope",
+          "BridgeModeScopeChannels",
+          "BusPower",
+          "Duty",
+          "EnergyScope",
+          "EnergyScopeChannels",
+          "EquationResidualScope",
+          "EquationResidualScopeChannels",
+          "Inputs",
+          "MechanicalSpeedScope",
+          "MechanicalSpeedScopeChannels",
+          "PhaseCurrentScope",
+          "PhaseCurrentScopeChannels",
+          "PhaseVoltageScope",
+          "PhaseVoltageScopeChannels",
+          "Plant",
+          "PowerScope",
+          "PowerScopeChannels",
+          "SaveTrace",
+          "Stimulus",
+          "TerminalPower",
+          "TraceChannels"
+        ],
+        "editor_open": false
+      }
+    ],
+    "core_port_connections_checked": 46,
+    "core_embedded_sources_exact": true,
+    "library_settings": {
+      "Rs": 0.5,
+      "Ld": 0.001,
+      "Lq": 0.0012,
+      "Flux": 0.035,
+      "PolePairs": 4,
+      "J": 0.0005,
+      "B": 0.0001,
+      "Id0": 0,
+      "Iq0": 0,
+      "Speed0": 0,
+      "Position0": 0,
+      "Ts": 5e-06,
+      "Vdc": 48,
+      "DiodeVf": 0.7,
+      "DiodeRon": 0.01,
+      "MechanicalEnabled": 1,
+      "CurrentTolerance": 1e-09,
+      "VoltageTolerance": 1e-08,
+      "MaxCurrent": 200,
+      "MaxSpeed": 1000,
+      "MaxAngleStep": 0.1,
+      "State0": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "Vector": [
+        5e-06,
+        0.5,
+        0.001,
+        0.0012,
+        0.035,
+        4,
+        0.0005,
+        0.0001,
+        48,
+        0.7,
+        0.01,
+        1,
+        1e-09,
+        1e-08,
+        200,
+        1000,
+        0.1
+      ]
+    },
+    "test_settings": {
+      "Rs": 0.5,
+      "Ld": 0.001,
+      "Lq": 0.0012,
+      "Flux": 0.035,
+      "PolePairs": 4,
+      "J": 0.0005,
+      "B": 0.0001,
+      "Id0": 0,
+      "Iq0": 0,
+      "Speed0": 80,
+      "Position0": 0.1,
+      "Ts": 5e-06,
+      "Vdc": 48,
+      "DiodeVf": 0.7,
+      "DiodeRon": 0.01,
+      "MechanicalEnabled": 1,
+      "CurrentTolerance": 1e-09,
+      "VoltageTolerance": 1e-08,
+      "MaxCurrent": 200,
+      "MaxSpeed": 1000,
+      "MaxAngleStep": 0.1,
+      "State0": [
+        0,
+        0,
+        80,
+        0.1
+      ],
+      "Vector": [
+        5e-06,
+        0.5,
+        0.001,
+        0.0012,
+        0.035,
+        4,
+        0.0005,
+        0.0001,
+        48,
+        0.7,
+        0.01,
+        1,
+        1e-09,
+        1e-08,
+        200,
+        1000,
+        0.1
+      ]
+    },
+    "scopes": [
+      {
+        "name": "BridgeModeScope",
+        "sources": [
+          "Inputs.y4",
+          "Plant.y9"
+        ]
+      },
+      {
+        "name": "EnergyScope",
+        "sources": [
+          "Plant.y10",
+          "Plant.y11"
+        ]
+      },
+      {
+        "name": "EquationResidualScope",
+        "sources": [
+          "Plant.y13"
+        ]
+      },
+      {
+        "name": "MechanicalSpeedScope",
+        "sources": [
+          "Plant.y5"
+        ]
+      },
+      {
+        "name": "PhaseCurrentScope",
+        "sources": [
+          "Plant.y2"
+        ]
+      },
+      {
+        "name": "PhaseVoltageScope",
+        "sources": [
+          "Plant.y3"
+        ]
+      },
+      {
+        "name": "PowerScope",
+        "sources": [
+          "BusPower.y1",
+          "TerminalPower.y1",
+          "Plant.y12"
+        ]
+      }
+    ],
+    "post_load_callback": "addpath(fullfile(fileparts(get_param(bdroot,'FileName')),'..','build_process'));initialize_bridge_test(bdroot);",
+    "static_analysis": [
+      {
+        "file": "model/lib/pmsm_plant/build_process/bridge_plant_stimulus.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/build_process/build_pmsm_bridge_plant.m",
+        "diagnostic_ids": [
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "NBRAK2",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW"
+        ]
+      },
+      {
+        "file": "model/lib/pmsm_plant/build_process/initialize_bridge_test.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/build_process/run_bridge_case.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/parameter/bridge_test_parameters.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/parameter/bridge_trace_channels.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/parameter/pmsm_bridge_parameters.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/parameter/refresh_pmsm_bridge_parameters.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/src/pmsm_bridge_output.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/src/pmsm_bridge_step.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/waveform_analysis/plot_bridge_results.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "model/lib/pmsm_plant/waveform_analysis/run_bridge_kernel_checks.m",
+        "diagnostic_ids": [
+          "AGROW",
+          "NOCOMMA",
+          "NOCOMMA",
+          "NOCOMMA",
+          "NOCOMMA",
+          "NOCOMMA"
+        ]
+      },
+      {
+        "file": "model/lib/pmsm_plant/waveform_analysis/run_bridge_validation.m",
+        "diagnostic_ids": [
+          "NOCOMMA",
+          "NOCOMMA"
+        ]
+      }
+    ],
+    "task_model_editors_open": 0,
+    "figures_open": 0
+  },
+  "plots_visually_reviewed": 3,
+  "source_change_after_full_suite": "Only diagram size, plot zoom and scalar numeric normalization; 14 archived configurations remain exactly identical and the final-source default replays exactly",
+  "preexisting_M_and_SLX_unchanged": 311,
+  "interval_equivalent_voltage": true,
+  "state_current_has_no_duty_feedthrough": true,
+  "integrated_in_existing_apps": false,
+  "Simscape_reference_executed": false,
+  "C2000_target_validated": false,
+  "hardware_tested": false,
+  "model_limits": [
+    "linear magnetic circuit",
+    "ideal stiff energy-absorbing DC source",
+    "PWL diode with zero off leakage",
+    "no switching ripple/reverse recovery/parasitic capacitance",
+    "no bus-capacitor overvoltage dynamics",
+    "no saturation/HFI plant coupling"
+  ],
+  "files": [
+    {
+      "path": "model/lib/pmsm_plant/build_process/bridge_plant_stimulus.m",
+      "sha256": "E5C6902D5F47B6552E90077497373CA7766D07CDC3D22418B10061886142C47F"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/build_pmsm_bridge_plant.m",
+      "sha256": "57317376A59FC66E0DB7212D30DAC2A9D50CC3A05446F5A7BB5E6EFD491D5767"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/initialize_bridge_test.m",
+      "sha256": "553CDAD2D55B02E31D455210319170BB111795EE98421EF1AB2D1C05A9444111"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/run_bridge_case.m",
+      "sha256": "1C8B271B3A05B647A6EB05C6AC8E5A190F1C35B9C34FDB4389D24EA382E5A2EE"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/bridge_test_parameters.m",
+      "sha256": "A206176618AF9F1AAFA4A96CB68B9A3DBF7C7AE86D14B5AD262F5EC30D888E79"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/bridge_trace_channels.m",
+      "sha256": "27F69871854C394F747B28BF36FEF4FDB1290C1476D7EB92C495E4BA1AC1738E"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/pmsm_bridge_parameters.m",
+      "sha256": "7A638C6854AD75A3A229E4A26187B74A5A79FDA25C6987714425025B3F492B96"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/refresh_pmsm_bridge_parameters.m",
+      "sha256": "D9EBCA351784EE4AD2D11C914A9E485C283E3A665CE038FF0501F10733365A5B"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/pmsm_bridge_output.m",
+      "sha256": "3F9B98C71E65F0D08B264A2BAFC2B412DC7407670AF9080893FE951AE73E3CB2"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/pmsm_bridge_step.m",
+      "sha256": "6B82B6A29E076976B0A315CF3837894569E32B8BF3D6D3FAE8B9A2FF766A6E73"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/plot_bridge_results.m",
+      "sha256": "24E47AF9C207767B3646F255B72BC125DA761BD9F5842142AC7733D1C6AD5872"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/run_bridge_kernel_checks.m",
+      "sha256": "745A40B522E17F01C41049ADD1A44A670156A0E1CCFCFE6E25477012B0D29C2C"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/run_bridge_validation.m",
+      "sha256": "FE16541A0266EE5ADED71B2AD584AAAD2EF24D080369132FD09BFC20FF20161B"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgePlant.slx",
+      "sha256": "D32BEB34C3C35AD139DA27704B6F173D2A475E94622FFA233145F89200999786"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgePlantTest.slx",
+      "sha256": "21EE5FD4AAB091E435F83A7704363953E196BB14A9757885B2AA1755F5B268D2"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_results.mat",
+      "sha256": "9AA709CDA46B440E27ECD3ADE082475C3B3B9559F27D6AFBE38388BBC7CF2A48"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_metrics.json",
+      "sha256": "1495C879906AED13F177A427DB531019E4117E9AE8D714D9160FEE56D0A9FCED"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_invalid_mode.json",
+      "sha256": "F82067414674D205BE86E003331E16735F96785C24819234EC18A614AEBC017B"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_kernel_checks.mat",
+      "sha256": "2E545D8421E5FC0C45CFD1DC1B88D7F2455C58B7C7E90530EA89E3BA6B9B2EB3"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_kernel_checks.json",
+      "sha256": "2FA4E6819A9EBBF18868D47089CCE1D4E712195A41B0867A511317096F3C62EB"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_modes.png",
+      "sha256": "F9E6B0E9E17E3D361205A3EB65A2315D5D4B289B37FAD5E696EA524B8F398419"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_modes.svg",
+      "sha256": "463330425E4D5119B784F75F294C1A40F04D41C66A938050809902AC2E0E6492"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_release.png",
+      "sha256": "CEBFD0D47B31351B90F687D84B13A0519A7330EF7A03343CF9C6CA9D4DEE1179"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_release.svg",
+      "sha256": "2EDE6D150AD87A925DE3A5F06634A75CAD70E8DFCAB1D1C4E7CCEE31520104B6"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_rectifier.png",
+      "sha256": "70EEA0B9D8D801B86F478B3C1980FA5E27D7ED28ABD20CA1D0EC0C93DAA6E9BF"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bridge_rectifier.svg",
+      "sha256": "E6B20DF2D92BA8B586A67AFA9826C010ED308314D561FF69DD70208F254B55D9"
+    }
+  ]
+}

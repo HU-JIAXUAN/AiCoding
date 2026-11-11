@@ -1,0 +1,193 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "canonical_source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_mras\\src\\mras_step.m",
+  "embedded_source_matches_M": true,
+  "host": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_mras\\src\\mras_step.m",
+    "scope": "MRAS state-update M kernel; excludes output adapter, full Simulink App and C2000",
+    "compiler": {
+      "name": "MinGW64 Compiler (C)",
+      "version": "14.2.0",
+      "location": "C:\\Users\\24322\\AppData\\Local\\Programs\\mingw64"
+    },
+    "stages": {
+      "mex_double": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 1E-8,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.622276271976604E-6,
+          "speed_rms_electrical_rad_s": 0.0031433110741379304,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_double.mexw64"
+      },
+      "mex_single": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 0.001,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 1.0357217935263448E-5,
+          "speed_rms_electrical_rad_s": 0.0035382344203009606,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_single.mexw64"
+      },
+      "sil_double": {
+        "status": "passed",
+        "relative_state_error": 4.0856207306205761E-14,
+        "limit": 1E-8,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.6222762721371134E-6,
+          "speed_rms_electrical_rad_s": 0.0031433110741370444,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_sil.mexw64"
+      }
+    },
+    "screener": {
+      "unsupported_calls": 0,
+      "messages": 0
+    },
+    "test_parameters": {
+      "Duration": 0.1,
+      "CheckStart": 0.08,
+      "InitialAngle": 0.7,
+      "ElectricalSpeed": 600,
+      "Id": 0,
+      "Iq": 2,
+      "Direction": 1,
+      "AngleRmsLimit": 0.08,
+      "SpeedRmsLimit": 8,
+      "ValidFractionMinimum": 0.95,
+      "MexDoubleRelativeLimit": 1E-8,
+      "MexSingleRelativeLimit": 0.001,
+      "SilDoubleRelativeLimit": 1E-8
+    },
+    "interpreted_double": {
+      "angle_rms_rad": 8.622276271976604E-6,
+      "speed_rms_electrical_rad_s": 0.0031433110741379304,
+      "valid_fraction": 1,
+      "angle_limit_rad": 0.08,
+      "speed_limit_electrical_rad_s": 8,
+      "valid_min": 0.95,
+      "passed": true
+    },
+    "interpreted_single": {
+      "angle_rms_rad": 1.0357217935263448E-5,
+      "speed_rms_electrical_rad_s": 0.0035382344203009606,
+      "valid_fraction": 1,
+      "angle_limit_rad": 0.08,
+      "speed_limit_electrical_rad_s": 8,
+      "valid_min": 0.95,
+      "passed": true
+    },
+    "production_device": "Generic->MATLAB Host Computer",
+    "test_device": "Generic->MATLAB Host Computer",
+    "samples": 2001
+  },
+  "App_MIL_replayed": 10,
+  "App_trace_max_differences": {
+    "forward": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "reverse": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "initial_angle": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "lower_bus": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_resistance_mismatch": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_loss": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "rotating_reset": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "moving_forward_refused": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "moving_reverse_refused": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "observer_disabled_start": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    }
+  },
+  "library_file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_mras\\src\\MrasObserver.slx",
+  "new_C2000_results": false
+}

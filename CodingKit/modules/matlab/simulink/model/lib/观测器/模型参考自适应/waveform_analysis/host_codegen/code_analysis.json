@@ -1,0 +1,28 @@
+{
+  "release": "2026b",
+  "checks": [
+    {
+      "path": "model/lib/observer_mras/src/mras_step.m",
+      "messages": []
+    },
+    {
+      "path": "model/lib/observer_mras/parameter/mras_host_test_parameters.m",
+      "messages": []
+    },
+    {
+      "path": "model/lib/observer_mras/waveform_analysis/run_mras_host_validation.m",
+      "messages": {
+        "id": "FILEATTRIB",
+        "message": "不推荐使用 'fileattrib'。请对代码进行相应更改后改用 'filePermissions'。",
+        "fix": 0,
+        "line": 8,
+        "column": [
+          34,
+          43
+        ]
+      }
+    }
+  ],
+  "models_loaded": 0,
+  "visible_figures": 0
+}

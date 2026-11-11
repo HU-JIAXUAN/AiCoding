@@ -1,0 +1,172 @@
+{
+  "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+  "release": "2026b",
+  "tests": 14,
+  "passed": 14,
+  "metrics": [
+    {
+      "name": "positive",
+      "angle_rms_rad": 0.0073557882406879941,
+      "angle_max_rad": 0.0073557882406993791,
+      "speed_rms_rad_s": 1.1573788022014718E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "negative",
+      "angle_rms_rad": 0.0059231932792780904,
+      "angle_max_rad": 0.0059231932792893627,
+      "speed_rms_rad_s": 1.1641934397291344E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "high_positive",
+      "angle_rms_rad": 0.020627355371709708,
+      "angle_max_rad": 0.02062735537181859,
+      "speed_rms_rad_s": 7.992707862954038E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "high_negative",
+      "angle_rms_rad": 0.019210188048639248,
+      "angle_max_rad": 0.019210188048748744,
+      "speed_rms_rad_s": 8.0042112829992645E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "acceleration",
+      "angle_rms_rad": 0.017309842712586534,
+      "angle_max_rad": 0.017310246604282153,
+      "speed_rms_rad_s": 0.00011850935580449021,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "measurement_noise",
+      "angle_rms_rad": 0.0072192419287450075,
+      "angle_max_rad": 0.00821468879333409,
+      "speed_rms_rad_s": 3.1918296109354856,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "rs_mismatch",
+      "angle_rms_rad": 0.0075199941570813179,
+      "angle_max_rad": 0.0075199941570920368,
+      "speed_rms_rad_s": 1.1603623468262839E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "without_compensation",
+      "angle_rms_rad": 0.0655147358838697,
+      "angle_max_rad": 0.065514735883881681,
+      "speed_rms_rad_s": 1.1625320478166105E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "reset",
+      "angle_rms_rad": 0.0073557887117963435,
+      "angle_max_rad": 0.0073557921419862282,
+      "speed_rms_rad_s": 8.4021652526295464E-7,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "disable",
+      "angle_rms_rad": 0.00735578873745999,
+      "angle_max_rad": 0.0073557921905409449,
+      "speed_rms_rad_s": 8.1789035152213491E-7,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "direction_invalid",
+      "angle_rms_rad": 1.9115468067232728,
+      "angle_max_rad": 3.1413322353808844,
+      "speed_rms_rad_s": 200,
+      "valid_fraction": 0,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "reversal",
+      "angle_rms_rad": 0.009243323167114105,
+      "angle_max_rad": 0.0092445293698899533,
+      "speed_rms_rad_s": 0.00035545714734248543,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "zero_speed",
+      "angle_rms_rad": 0.96389411031564709,
+      "angle_max_rad": 0.96389411031564853,
+      "speed_rms_rad_s": 0,
+      "valid_fraction": 0,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "low_emf",
+      "angle_rms_rad": 2.2907526244199508,
+      "angle_max_rad": 2.41461325037367,
+      "speed_rms_rad_s": 5,
+      "valid_fraction": 0,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    }
+  ],
+  "channels": [
+    "u_alpha",
+    "u_beta",
+    "i_alpha",
+    "i_beta",
+    "direction",
+    "enable",
+    "reset",
+    "theta_true",
+    "omega_true",
+    "theta_e_hat",
+    "omega_e_hat",
+    "valid",
+    "emf_alpha",
+    "emf_beta",
+    "i_hat_alpha",
+    "i_hat_beta",
+    "injection_alpha",
+    "injection_beta",
+    "phase_measured",
+    "emf_magnitude",
+    "phase_error",
+    "angle_error"
+  ]
+}

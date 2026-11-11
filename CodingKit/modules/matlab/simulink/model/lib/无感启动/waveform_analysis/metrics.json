@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "tests": 10,
+  "passed": 10,
+  "channels": [
+    "enable",
+    "reset",
+    "direction",
+    "acquired",
+    "theta_start",
+    "omega_start",
+    "id_start",
+    "iq_start",
+    "ready",
+    "mode",
+    "fault",
+    "elapsed"
+  ],
+  "metrics": [
+    {
+      "name": "positive_timeout",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": 0.97005000000000008,
+      "final_mode": 7,
+      "final_fault": 1,
+      "passed": true
+    },
+    {
+      "name": "negative_timeout",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": 0.97005000000000008,
+      "final_mode": 7,
+      "final_fault": 1,
+      "passed": true
+    },
+    {
+      "name": "acquired",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": null,
+      "final_mode": 6,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "flying_acquire",
+      "maximum_current_reference_A": 0,
+      "maximum_abs_omega_command_rad_s": 0,
+      "fault_time_s": null,
+      "final_mode": 6,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "reset",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": null,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "disable",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": null,
+      "final_mode": 5,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "invalid_direction",
+      "maximum_current_reference_A": 2.598,
+      "maximum_abs_omega_command_rad_s": 39.269908169872416,
+      "fault_time_s": 0.2,
+      "final_mode": 7,
+      "final_fault": 2,
+      "passed": true
+    },
+    {
+      "name": "disabled",
+      "maximum_current_reference_A": 0,
+      "maximum_abs_omega_command_rad_s": 0,
+      "fault_time_s": null,
+      "final_mode": 0,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "fault_latched",
+      "maximum_current_reference_A": 3,
+      "maximum_abs_omega_command_rad_s": 250,
+      "fault_time_s": 0.97005000000000008,
+      "final_mode": 7,
+      "final_fault": 1,
+      "passed": true
+    },
+    {
+      "name": "parameter_override",
+      "maximum_current_reference_A": 3.5,
+      "maximum_abs_omega_command_rad_s": 300,
+      "fault_time_s": 0.97010000000000007,
+      "final_mode": 7,
+      "final_fault": 1,
+      "passed": true
+    }
+  ]
+}

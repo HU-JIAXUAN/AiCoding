@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "scenario_count": 3,
+  "scenario_names": [
+    "delay_0_0",
+    "delay_1_1",
+    "delay_2_3"
+  ],
+  "metrics": {
+    "delay_0_0": {
+      "feedback_delay_s": 0,
+      "actuation_delay_s": 0
+    },
+    "delay_1_1": {
+      "feedback_delay_s": 0.0001,
+      "actuation_delay_s": 0.0001
+    },
+    "delay_2_3": {
+      "feedback_delay_s": 0.0002,
+      "actuation_delay_s": 0.00030000000000000003
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 11:58:24 +0000"
+}

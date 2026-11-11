@@ -1,0 +1,100 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "model": "OpenLoopDriveTest",
+  "cases": 13,
+  "results": [
+    {
+      "name": "if_positive",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 20
+    },
+    {
+      "name": "if_negative",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": -20
+    },
+    {
+      "name": "vf_positive",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 20
+    },
+    {
+      "name": "vf_negative",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": -20
+    },
+    {
+      "name": "frequency_limit",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 80
+    },
+    {
+      "name": "voltage_limit",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 20
+    },
+    {
+      "name": "moving_refused",
+      "passed": true,
+      "final_stage": 7,
+      "final_fault": 3,
+      "final_frequency": 0
+    },
+    {
+      "name": "overcurrent",
+      "passed": true,
+      "final_stage": 7,
+      "final_fault": 1,
+      "final_frequency": 0
+    },
+    {
+      "name": "reset_clear",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 11.995999999999123
+    },
+    {
+      "name": "disable_clear",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 11.995999999999123
+    },
+    {
+      "name": "nonfinite_frequency",
+      "passed": true,
+      "final_stage": 7,
+      "final_fault": 2,
+      "final_frequency": 0
+    },
+    {
+      "name": "invalid_bus",
+      "passed": true,
+      "final_stage": 7,
+      "final_fault": 2,
+      "final_frequency": 0
+    },
+    {
+      "name": "zero_frequency",
+      "passed": true,
+      "final_stage": 3,
+      "final_fault": 0,
+      "final_frequency": 0
+    }
+  ],
+  "raw_MAT_written": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "checks": 10,
+  "names": [
+    "published_logistic_identity",
+    "large_input_finite_bound",
+    "constant_voltage_RL_closed_form",
+    "small_resistance_expm1_limit",
+    "unsafe_local_pole_rejected",
+    "direction_change_clears_predictor",
+    "fault_latched_until_disable",
+    "invalid_packed_settings",
+    "nonfinite_prior_state",
+    "single_measure_kernel_smoke"
+  ],
+  "single_kernel_maximum_absolute_difference": 4.2339413326430986E-6,
+  "full_single_model_validated": false,
+  "target_timing_measured": false
+}

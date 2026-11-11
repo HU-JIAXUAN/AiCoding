@@ -1,0 +1,6 @@
+{
+  "expected_rejection": true,
+  "requested_mode": 3,
+  "requested_time_s": 0.002,
+  "diagnostic": "错误使用 run_bridge_case (第 17 行)\nBridge mode must be 0, 1 or 2.\n\t'<a href=\"matlab:hilite_system('PMSMBridgePlantTest/Plant/Step')\">PMSMBridgePlantTest/Plant/Step</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgePlantTest/Plant/Step'), 10, -2);\">line 11</a>) 中出现错误\n\t\tassert(mode==0 || mode==1 || mode==2,'Bridge mode must be 0, 1 or 2.');\n\n出错 run_bridge_validation (第 34 行)\n        try,run_bridge_case(p,stimulus);catch exception\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+}

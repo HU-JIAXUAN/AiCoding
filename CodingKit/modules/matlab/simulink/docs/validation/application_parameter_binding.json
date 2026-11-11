@@ -1,0 +1,91 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "model": "MotorExperiment",
+  "default_constructor_matches_previous_defaults": true,
+  "all_model_workspace_configurations_match_local_m_file": true,
+  "actual_last_sample_s": 1.5,
+  "parameters": {
+    "pmsmCfg": {
+      "Rs": 0.5,
+      "Ld": 0.001,
+      "Lq": 0.0012,
+      "Flux": 0.035,
+      "PolePairs": 4,
+      "J": 0.0005,
+      "B": 0.0001,
+      "Id0": 0,
+      "Iq0": 0,
+      "Speed0": 0,
+      "Position0": 0
+    },
+    "currentCfg": {
+      "Ts": 0.0001,
+      "BandwidthHz": 500,
+      "Kpd": 3.1415926535897931,
+      "Kpq": 3.7699111843077513,
+      "Kid": 1570.7963267948965,
+      "Kiq": 1570.7963267948965,
+      "Kaw": 1000
+    },
+    "inverterCfg": {
+      "Vdc": 48,
+      "MinDuty": 0.02,
+      "PwmTs": 0.0001,
+      "LinearLimit": 26.604300404257955
+    },
+    "timingCfg": {
+      "Ts": 0.0001,
+      "FeedbackTicks": 1,
+      "ActuationTicks": 1
+    },
+    "motionCfg": {
+      "Ts": 0.001,
+      "NaturalFrequency": 20,
+      "Damping": 0.9,
+      "Kt": 0.21000000000000002,
+      "Kp": 0.085238095238095238,
+      "Ki": 0.95238095238095233,
+      "Kaw": 20,
+      "PositionKp": 8,
+      "SpeedLimit": 80,
+      "AccelerationLimit": 200,
+      "CurrentLimit": 8
+    },
+    "feedforwardCfg": {
+      "Enable": 0,
+      "ParameterScale": 1
+    },
+    "deadtimeCfg": {
+      "DeadTime": 2E-6,
+      "DeviceDrop": 0,
+      "CurrentBlend": 0.1,
+      "ModelEnable": 0,
+      "CompensationEnable": 0,
+      "CompensationScale": 1,
+      "SwitchingStep": 1E-7
+    },
+    "experimentCfg": {
+      "Step": 5E-6,
+      "LogTs": 0.0001,
+      "Duration": 1.5,
+      "Mode": 2,
+      "UseInverter": 1,
+      "UseTiming": 1,
+      "UseMechanical": 1,
+      "ImposedElectricalSpeed": 0,
+      "IdReference": 0,
+      "IqReference": 2,
+      "IqInitial": 0,
+      "SpeedReference": 40,
+      "SpeedInitial": 0,
+      "PositionReference": 1,
+      "PositionInitial": 0,
+      "CommandTime": 0.05,
+      "LoadTorque": 0.1,
+      "LoadTime": 0.35,
+      "Enable": 1,
+      "Reset": 0
+    }
+  }
+}

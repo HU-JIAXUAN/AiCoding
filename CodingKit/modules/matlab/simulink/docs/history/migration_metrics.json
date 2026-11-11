@@ -1,0 +1,84 @@
+{
+  "MotorExperiment": {
+    "rows": 15001,
+    "columns": 52,
+    "end_time_s": 1.5,
+    "wall_time_s": 43.5287729
+  },
+  "MTPAFWMotor": {
+    "rows": 20001,
+    "columns": 74,
+    "end_time_s": 2,
+    "wall_time_s": 57.4709527,
+    "final_speed_rad_s": 218.00000129987862
+  },
+  "CurrentLoopTest": {
+    "rows": 301,
+    "columns": 17,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 1.5224393
+  },
+  "DeadtimeTest": {
+    "rows": 301,
+    "columns": 12,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 0.8450444
+  },
+  "SwitchingLegTest": {
+    "rows": 10001,
+    "columns": 5,
+    "end_time_s": 0.001,
+    "wall_time_s": 1.1627602
+  },
+  "FeedforwardTest": {
+    "rows": 301,
+    "columns": 5,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 0.8776455
+  },
+  "InverterTest": {
+    "rows": 301,
+    "columns": 12,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 1.0079482
+  },
+  "MotionLoopTest": {
+    "rows": 301,
+    "columns": 9,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 0.975809
+  },
+  "CurrentReferenceTest": {
+    "rows": 2501,
+    "columns": 25,
+    "end_time_s": 0.25,
+    "wall_time_s": 1.3505693
+  },
+  "PMSMPlantTest": {
+    "rows": 301,
+    "columns": 12,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 1.5255935
+  },
+  "TimingTest": {
+    "rows": 301,
+    "columns": 6,
+    "end_time_s": 0.030000000000000002,
+    "wall_time_s": 0.8112715
+  },
+  "DiscretePIDTest": {
+    "rows": 3001,
+    "columns": 9,
+    "end_time_s": 3
+  },
+  "ClarkeParkTest": {
+    "rows": 1001,
+    "columns": 20,
+    "end_time_s": 0.1
+  },
+  "CurrentPIProbeTest": {
+    "rows": 301,
+    "columns": 2,
+    "end_time_s": 0.030000000000000002
+  }
+}

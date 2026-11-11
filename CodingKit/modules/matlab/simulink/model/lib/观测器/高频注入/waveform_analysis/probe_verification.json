@@ -1,0 +1,152 @@
+{
+  "release": "2026b",
+  "MIL_tests": 27,
+  "MIL_passed": 27,
+  "MIL_location": "isolated copy; identical artifacts promoted by SHA-256",
+  "old_hfi_axis_structure_parameters_unchanged": false,
+  "ignored_visual_property": "Line.Points",
+  "embedded_sources_match": true,
+  "artifact_sha256": [
+    {
+      "relative_path": "src/HighFrequencyObserver.slx",
+      "validated_sha256": "69F14F1FC157DB2C4FFEB003062B41AA7C0D93A509736EE5639F43583FFDAF1C",
+      "current_sha256": "156F8959CC140DC0EFCCA3BBC454AB97CBEC51B3DADA540B64E91D86F60DAA23",
+      "current_revision_note": "Adds HFIAxis measured-average interface and PolarityPulse; SaliencyProbe system_59.xml and its numerical sources are unchanged."
+    },
+    {
+      "relative_path": "src/HFISaliencyTest.slx",
+      "validated_sha256": "9EB4FF42678071EB2B220E901EE76C1EF9A337C6F009ABDE7534EC7F956098D9",
+      "current_sha256": "5C1F71E045D6678917B8093C6C782263EFCFD05381AF27ACA25E8DF57137AB5E"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_results.mat",
+      "validated_sha256": "6579EDA177012FA570CC3759727980C98376A59537BDEBD16FF3A99611FDEE87",
+      "current_sha256": "6579EDA177012FA570CC3759727980C98376A59537BDEBD16FF3A99611FDEE87"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_metrics.json",
+      "validated_sha256": "747AB7FFCCF1DEAC151CCC42163CCDD7B1C449ACD49E69222EE6BF5B7D184F66",
+      "current_sha256": "747AB7FFCCF1DEAC151CCC42163CCDD7B1C449ACD49E69222EE6BF5B7D184F66"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_tensor.png",
+      "validated_sha256": "48E857CAFBB1855ED5744A9A71AC7A2FF01A71633FC2FE354F510C974EB85FA8",
+      "current_sha256": "48E857CAFBB1855ED5744A9A71AC7A2FF01A71633FC2FE354F510C974EB85FA8"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_tensor.svg",
+      "validated_sha256": "A8687ED753747ADD5E75C00D824341E89431EBC4E48FF105479061288B227849",
+      "current_sha256": "A8687ED753747ADD5E75C00D824341E89431EBC4E48FF105479061288B227849"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_isotropic.png",
+      "validated_sha256": "1909485EB680B854FDCA355565BDC2AFC64F5045A32A704E6FAF853BBA2DB37F",
+      "current_sha256": "1909485EB680B854FDCA355565BDC2AFC64F5045A32A704E6FAF853BBA2DB37F"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_isotropic.svg",
+      "validated_sha256": "7F14A04507598EFEF70B88517AFE45A28DB5140D04FEFFF6CB8661C546EADC85",
+      "current_sha256": "7F14A04507598EFEF70B88517AFE45A28DB5140D04FEFFF6CB8661C546EADC85"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_adc.png",
+      "validated_sha256": "EA9A7987AE6E744DFA660FDD2ED6E94EBE7B0EE319747547CA441BB6E47FB26A",
+      "current_sha256": "EA9A7987AE6E744DFA660FDD2ED6E94EBE7B0EE319747547CA441BB6E47FB26A"
+    },
+    {
+      "relative_path": "waveform_analysis/probe_adc.svg",
+      "validated_sha256": "E916B549D8AD9F6F562BA36F434E30A415E131015F6C48301233D7D7288F32D9",
+      "current_sha256": "E916B549D8AD9F6F562BA36F434E30A415E131015F6C48301233D7D7288F32D9"
+    },
+    {
+      "relative_path": "src/hfi_probe_update.m",
+      "validated_sha256": "9BC176E44DF126D25716E690BD8CDF79BBBF87440AB06D0961AAF7FAAB53B3A9",
+      "current_sha256": "9BC176E44DF126D25716E690BD8CDF79BBBF87440AB06D0961AAF7FAAB53B3A9"
+    },
+    {
+      "relative_path": "src/hfi_probe_output.m",
+      "validated_sha256": "F0875C9B04E947F67F4A3BF7FB2362B64EA8A9D15D651056E7DAC6B50B28C165",
+      "current_sha256": "F0875C9B04E947F67F4A3BF7FB2362B64EA8A9D15D651056E7DAC6B50B28C165"
+    },
+    {
+      "relative_path": "src/hfi_measure_current.m",
+      "validated_sha256": "A9408C6CBD2DA0E969B2BBAF04F31F487649119651915955F670735D44A9596F",
+      "current_sha256": "A9408C6CBD2DA0E969B2BBAF04F31F487649119651915955F670735D44A9596F"
+    },
+    {
+      "relative_path": "parameter/hfi_probe_parameters.m",
+      "validated_sha256": "785F8787B080A1C01FE5FED67F453263D00B1C35D368233C97E0FEB9C4CA8A07",
+      "current_sha256": "785F8787B080A1C01FE5FED67F453263D00B1C35D368233C97E0FEB9C4CA8A07"
+    },
+    {
+      "relative_path": "parameter/refresh_hfi_probe_parameters.m",
+      "validated_sha256": "7EA73F261B15C9ADDD43C86E4E9E51EB0930F316CB2336055FC3A2281EC5B8F9",
+      "current_sha256": "7EA73F261B15C9ADDD43C86E4E9E51EB0930F316CB2336055FC3A2281EC5B8F9"
+    },
+    {
+      "relative_path": "parameter/hfi_probe_test_parameters.m",
+      "validated_sha256": "949F1D2D90B1CD0F5A49596FF9926927B2B8810C4A83D4F75374923A8DB25FD3",
+      "current_sha256": "949F1D2D90B1CD0F5A49596FF9926927B2B8810C4A83D4F75374923A8DB25FD3"
+    },
+    {
+      "relative_path": "parameter/hfi_test_parameters.m",
+      "validated_sha256": "5F68CBF73FB025E77794A38127B8A5B930F8EC6D7ED1D2E59059DD5FD8650AA5",
+      "current_sha256": "2F4E8AACE26C67B5AACC6ACC04BCF4C298144DA0BE564FE8084CBBC9F14591AE",
+      "current_revision_note": "Adds ExternalInverseAverage used only by HFIAxisTest; Probe does not read that field."
+    },
+    {
+      "relative_path": "parameter/hfi_plant_parameters.m",
+      "validated_sha256": "DC21ACEBA08CF0D7241CD7E16FD81CDE0CD650F4BC2AF28D05D67A0C88B6948D",
+      "current_sha256": "DC21ACEBA08CF0D7241CD7E16FD81CDE0CD650F4BC2AF28D05D67A0C88B6948D"
+    },
+    {
+      "relative_path": "build_process/build_hfi_probe.m",
+      "validated_sha256": "154E64D515913883B83931F2CDEDBEAA15E1F98C4B02C45F22FA1AB51634BE52",
+      "current_sha256": "5F03DF335F624C8CCB300ADF857BEFEC33FE3CBA2D3FBF7AE9E31DA3B52252E9",
+      "current_revision_note": "Saves/closes library before opening the test model."
+    },
+    {
+      "relative_path": "build_process/initialize_hfi_probe_test.m",
+      "validated_sha256": "153DC15FD72B5C46878EF16D6232CCFC392110D7A46B11BCBAFFAD9CD6304814",
+      "current_sha256": "153DC15FD72B5C46878EF16D6232CCFC392110D7A46B11BCBAFFAD9CD6304814"
+    },
+    {
+      "relative_path": "build_process/hfi_stimulus.m",
+      "validated_sha256": "68760E4B96E66848474143E741C961C69517C3CFD1A6FF287ADC4A7135AC7A4C",
+      "current_sha256": "68760E4B96E66848474143E741C961C69517C3CFD1A6FF287ADC4A7135AC7A4C"
+    },
+    {
+      "relative_path": "waveform_analysis/run_hfi_probe_validation.m",
+      "validated_sha256": "0E24E6365851E98292F0001644EE5245625E00541F052E2EAF030761743B939B",
+      "current_sha256": "9FD34B8547804E4009617A824562FF837067D80D570FF94A3046BA37AA0397D4",
+      "current_revision_note": "Loads bench hidden and closes it with onCleanup; case definitions and assertions unchanged."
+    },
+    {
+      "relative_path": "waveform_analysis/plot_hfi_probe_results.m",
+      "validated_sha256": "7826368CB5B33C918B8AD23E951EFF517DAE11AD1F8EC8F8917C81F58EF0F0F5",
+      "current_sha256": "7826368CB5B33C918B8AD23E951EFF517DAE11AD1F8EC8F8917C81F58EF0F0F5"
+    }
+  ],
+  "canonical_default_passed": true,
+  "polarity_identified": false,
+  "hardware_tested": false,
+  "canonical_default_identical_to_staged": true,
+  "static_model_healthy": true,
+  "default_rows": 1001,
+  "default_columns": 38,
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "library_file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_hfi\\src\\HighFrequencyObserver.slx",
+  "model_file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_hfi\\src\\HFISaliencyTest.slx",
+  "existing_hfi_axis_default_trace_identical": true,
+  "saved_workspace_after_default_run": true,
+  "saved_probe_core_xml_identical": true,
+  "saved_axis_graph_parameters_identical": true,
+  "completed_project_windows_closed": true,
+  "historical_probe_addition_hfi_axis_unchanged": true,
+  "evidence_scope_note": "Original 27 MIL cases remain historical evidence for unchanged Probe numerical implementation. Later HFIAxis/polarity changes have 30 axis and 22 App MIL cases; all 24 original axis traces retain their first 37 columns.",
+  "current_probe_system_xml_identical": true,
+  "current_probe_sources_identical": true,
+  "old_probe_nominal_case_rerun_identical": true,
+  "current_default_smoke_identical": true,
+  "current_project_windows_closed": true
+}

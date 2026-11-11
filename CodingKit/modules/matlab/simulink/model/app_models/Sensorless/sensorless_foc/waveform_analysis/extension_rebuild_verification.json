@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "created_from_m_only": true,
+  "release": "2026b",
+  "algorithms": {
+    "mras": {
+      "status": "passed",
+      "six_trace_max_differences": {
+        "plant": 0,
+        "observer": 0,
+        "controller": 0,
+        "allocation": 0,
+        "actuation": 0,
+        "guard": 0
+      },
+      "record": "extension_rebuild/mras_fresh_default.mat"
+    },
+    "ekf": {
+      "status": "passed",
+      "six_trace_max_differences": {
+        "plant": 0,
+        "observer": 0,
+        "controller": 0,
+        "allocation": 0,
+        "actuation": 0,
+        "guard": 0
+      },
+      "record": "extension_rebuild/ekf_fresh_default.mat"
+    },
+    "ukf": {
+      "status": "passed",
+      "six_trace_max_differences": {
+        "plant": 0,
+        "observer": 0,
+        "controller": 0,
+        "allocation": 0,
+        "actuation": 0,
+        "guard": 0
+      },
+      "record": "extension_rebuild/ukf_fresh_default.mat"
+    },
+    "sigmoid": {
+      "status": "passed",
+      "six_trace_max_differences": {
+        "plant": 0,
+        "observer": 0,
+        "controller": 0,
+        "allocation": 0,
+        "actuation": 0,
+        "guard": 0
+      },
+      "record": "extension_rebuild/sigmoid_fresh_default.mat"
+    }
+  },
+  "source_manifest": "extension_rebuild_m_sources.json",
+  "template_and_libraries_reused": true
+}

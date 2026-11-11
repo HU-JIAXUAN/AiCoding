@@ -1,0 +1,95 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "status": "passed",
+  "kind": "pure M process and linear-measurement checks; not physical motor MIL",
+  "process_jacobian_points": 4,
+  "measurement_jacobian_points": 4,
+  "method": "central differences; circular angle difference",
+  "checks": [
+    {
+      "state": [
+        -1,
+        2,
+        600,
+        3.13
+      ],
+      "voltage": [
+        10,
+        -5
+      ],
+      "step": [
+        5E-5,
+        0.5,
+        0.001,
+        0.035
+      ],
+      "maximum_process_jacobian_error": 1.3977818902333183E-10,
+      "maximum_measurement_jacobian_error": 6.5512040237081237E-12,
+      "status": "passed"
+    },
+    {
+      "state": [
+        2,
+        -1,
+        -600,
+        -3.13
+      ],
+      "voltage": [
+        -5,
+        10
+      ],
+      "step": [
+        5E-5,
+        0.5,
+        0.001,
+        0.035
+      ],
+      "maximum_process_jacobian_error": 1.4284595728497607E-10,
+      "maximum_measurement_jacobian_error": 6.5512040237081237E-12,
+      "status": "passed"
+    },
+    {
+      "state": [
+        0,
+        0,
+        0,
+        0.5
+      ],
+      "voltage": [
+        0,
+        0
+      ],
+      "step": [
+        5E-5,
+        0.5,
+        0.001,
+        0.035
+      ],
+      "maximum_process_jacobian_error": 2.6755264670441647E-11,
+      "maximum_measurement_jacobian_error": 0,
+      "status": "passed"
+    },
+    {
+      "state": [
+        1,
+        1,
+        2000,
+        3.0415926525897929
+      ],
+      "voltage": [
+        20,
+        10
+      ],
+      "step": [
+        5E-5,
+        0.5,
+        0.001,
+        0.035
+      ],
+      "maximum_process_jacobian_error": 5.8839644268005031E-10,
+      "maximum_measurement_jacobian_error": 1.000088900582341E-12,
+      "status": "passed"
+    }
+  ]
+}

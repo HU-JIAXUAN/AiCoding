@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "kind": "two concurrent full UKFs with separately configured nested correction links",
+  "instance_A_matches_default": true,
+  "instance_B_matches_separate_run": true,
+  "maximum_difference_A": 0,
+  "maximum_difference_B": 0,
+  "nested_measurement_parameter_binding_verified": true,
+  "B_initial_angle": 1.1,
+  "B_initial_speed": 900,
+  "B_measurement_std_A": [
+    0.003,
+    0.003
+  ],
+  "B_process_density": [
+    4,
+    4,
+    4000,
+    2E-5
+  ],
+  "B_Alpha": 0.6,
+  "B_Kappa": 2,
+  "outer_predictor_configuration_binding_verified": true
+}

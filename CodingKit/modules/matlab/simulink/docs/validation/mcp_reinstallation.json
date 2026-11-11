@@ -1,0 +1,102 @@
+{
+  "status": "installed-and-independent-cold-start-verified",
+  "verified_utc": "2026-11-10T09:47:14Z",
+  "server_version": "v0.16.0",
+  "server_source": "https://github.com/matlab/matlab-mcp-server/releases/tag/v0.16.0",
+  "binary_sha256": "7c70fdc69e7e7d4762732fede64f348b18ecbc89c3de705f9dde89a86d1883ea",
+  "toolbox_sha256": "0db28ffa84cc16cfb9537c2603dca2bf2875225a5c8e11044751f1e62f8a35a8",
+  "removed_previous_registration": true,
+  "removed_previous_binary": true,
+  "stopped_previous_server_and_watchdog_processes": 14,
+  "mcp_toolbox_uninstalled_and_reinstalled": true,
+  "toolbox": {
+    "release": "2026b",
+    "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+    "before": [
+      {
+        "id": "fce99a56-1b63-4d49-9d70-c32c5605e4eb",
+        "name": "MATLABMCPServerToolbox",
+        "version": "0.5.0"
+      },
+      {
+        "id": "b1d94c2e-8f3a-4c67-9e5d-2a7b6c4f0d81",
+        "name": "Simulink_Agentic_Toolkit",
+        "version": "1.0.33"
+      }
+    ],
+    "mcp_id": "fce99a56-1b63-4d49-9d70-c32c5605e4eb",
+    "mcp_version": "0.5.0",
+    "mcp_root": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\MATLABMCPServerToolbox@0.5.0",
+    "share_function": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\MATLABMCPServerToolbox@0.5.0\\shareMATLABSession.m",
+    "simulink_function": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\Simulink_Agentic_Toolkit@1.0.33\\tools\\model_edit\\model_edit.p",
+    "yalmip": "C:\\Program Files\\MATLAB\\R2026b\\bin\\YALMIP\\extras\\yalmip.m",
+    "unrelated_packages_preserved": true,
+    "status": "passed"
+  },
+  "configuration": {
+    "status": "passed",
+    "command": "F:\\Study\\AI\\Codex-Skills\\.runtime\\mathworks-agentic-toolkits\\app-data\\v1\\bin\\matlab-mcp-server.exe",
+    "args": [
+      "--matlab-root",
+      "C:\\Program Files\\MATLAB\\R2026b",
+      "--matlab-session-mode",
+      "new",
+      "--matlab-display-mode",
+      "nodesktop",
+      "--extension-file",
+      "F:\\Study\\AI\\Codex-Skills\\.runtime\\mathworks-agentic-toolkits\\app-data\\v1\\toolkits\\simulink-agentic-toolkit\\tools\\tools.json"
+    ],
+    "env_vars": [
+      "WINDIR"
+    ],
+    "explicit_env_names": [
+      "MW_MINGW64_LOC"
+    ],
+    "startup_timeout_sec": 180,
+    "tool_timeout_sec": 600,
+    "unrelated_configuration_preserved": true
+  },
+  "cold_start": {
+    "status": "passed",
+    "release": "2026b",
+    "version": "26.2.0.3433840 (R2026b) Update 1",
+    "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+    "mcp_toolbox_version": "0.5.0",
+    "model_edit": true,
+    "model_read": true,
+    "model_check": true,
+    "scratch_simulation_output": 6,
+    "smo_simulation_duration": 0.03,
+    "smo_trace_columns": 22,
+    "smo_trace_rows": 601,
+    "smo_finite": true,
+    "yalmip_path": "C:\\Program Files\\MATLAB\\R2026b\\bin\\YALMIP\\extras\\yalmip.m",
+    "yalmip_version": "20250626",
+    "model_windows_remaining": 0,
+    "no_r2026a_path": true,
+    "cold_session": true,
+    "display_mode": "nodesktop"
+  },
+  "runtime_skills": {
+    "ok": true,
+    "active_skills": 136,
+    "duplicate_names": [],
+    "profile_match": true,
+    "plugin_package_drift": false
+  },
+  "current_chat_connection": {
+    "status": "restart-required",
+    "last_call": "Transport closed",
+    "reason": "The old server connection was stopped during the requested reinstall; restart Codex to load the saved R2026b registration."
+  },
+  "models_and_windows_closed": true,
+  "validation_scope": "Installation and MCP smoke only; does not add algorithm MIL cases or C2000/SIL evidence.",
+  "runtime_installer_state": "The old installer state.yaml retains a historical R2026a configuration. Current registration and fresh runtime are independently verified as R2026b; state.yaml was not manually rewritten.",
+  "task_evidence_sha256": {
+    "matlab-mcp-server.exe": "7c70fdc69e7e7d4762732fede64f348b18ecbc89c3de705f9dde89a86d1883ea",
+    "MATLABMCPServerToolbox.mltbx": "0db28ffa84cc16cfb9537c2603dca2bf2875225a5c8e11044751f1e62f8a35a8",
+    "reinstall_mcp_toolbox.m": "0ce2c21d9b842d19ff3b730d4e08a2633c7161ef5820089ba95ee7af7138bb70",
+    "verify_reinstalled_mcp.m": "175b5df0b03af8cab553e7874ee6bad852258c2f5bf2fa999c3deecc370a37ad",
+    "register_mcp.py": "405f89cd0269ebc8631bc99fbae305e9fd0f65154cb237e6bc09fa65203acea4"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "model": "../src/CurrentPIProbeTest.slx",
+  "status": "configuration_failed",
+  "matlab_release": "R2026a Update 3",
+  "requested_target": "grt",
+  "requested_language": "C",
+  "requested_hardware": "Intel->x86-64 (Windows64)",
+  "requested_objective": "Debug",
+  "requested_introspection": true,
+  "requested_build": false,
+  "interface_default": "Nonreusable function",
+  "compliance_default": "none",
+  "output_default": "next to model",
+  "source_generated": false,
+  "executable_built": false,
+  "embedded_coder_available": true,
+  "embedded_coder_license_feature": "RTW_Embedded_Coder",
+  "selected_C_compiler": null,
+  "errors": [
+    "无法解析名称 'simulinkcoder.internal.wizard.ConfigSetManager'。"
+  ],
+  "parameter_changes": [],
+  "original_model_name": "CurrentPIProbe",
+  "model_name_update": "2026-11-10: current SLX renamed only; original code-generation/failure evidence retained"
+}

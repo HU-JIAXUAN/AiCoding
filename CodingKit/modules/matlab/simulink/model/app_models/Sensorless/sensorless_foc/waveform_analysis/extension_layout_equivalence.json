@@ -1,0 +1,162 @@
+{
+  "mras": {
+    "status": "passed",
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "trace_shapes": {
+      "plant": [
+        440001,
+        36
+      ],
+      "observer": [
+        44001,
+        25
+      ],
+      "controller": [
+        44001,
+        46
+      ],
+      "allocation": [
+        44001,
+        25
+      ],
+      "actuation": [
+        44001,
+        27
+      ],
+      "guard": [
+        44001,
+        9
+      ]
+    },
+    "compiled_scopes": 30,
+    "resolved_links": 20,
+    "truth_angle_to_controller": false
+  },
+  "ekf": {
+    "status": "passed",
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "trace_shapes": {
+      "plant": [
+        440001,
+        36
+      ],
+      "observer": [
+        44001,
+        49
+      ],
+      "controller": [
+        44001,
+        46
+      ],
+      "allocation": [
+        44001,
+        25
+      ],
+      "actuation": [
+        44001,
+        27
+      ],
+      "guard": [
+        44001,
+        9
+      ]
+    },
+    "compiled_scopes": 32,
+    "resolved_links": 20,
+    "truth_angle_to_controller": false
+  },
+  "ukf": {
+    "status": "passed",
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "trace_shapes": {
+      "plant": [
+        440001,
+        36
+      ],
+      "observer": [
+        44001,
+        49
+      ],
+      "controller": [
+        44001,
+        46
+      ],
+      "allocation": [
+        44001,
+        25
+      ],
+      "actuation": [
+        44001,
+        27
+      ],
+      "guard": [
+        44001,
+        9
+      ]
+    },
+    "compiled_scopes": 32,
+    "resolved_links": 20,
+    "truth_angle_to_controller": false
+  },
+  "sigmoid": {
+    "status": "passed",
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "trace_shapes": {
+      "plant": [
+        440001,
+        36
+      ],
+      "observer": [
+        44001,
+        23
+      ],
+      "controller": [
+        44001,
+        46
+      ],
+      "allocation": [
+        44001,
+        25
+      ],
+      "actuation": [
+        44001,
+        27
+      ],
+      "guard": [
+        44001,
+        9
+      ]
+    },
+    "compiled_scopes": 30,
+    "resolved_links": 20,
+    "truth_angle_to_controller": false
+  }
+}

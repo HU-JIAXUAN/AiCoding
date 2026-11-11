@@ -1,0 +1,198 @@
+{
+  "kind": "postprocess recorded MRAS data; no additional simulation",
+  "qualification_and_error_scope": "whole record; peaks only while valid; steady RMS windows stored separately",
+  "metrics": [
+    {
+      "name": "positive",
+      "valid_fraction_entire_record": 0.926907309269073,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "negative",
+      "valid_fraction_entire_record": 0.91820817918208175,
+      "valid_angle_error_peak_rad": 0.010772329654950452,
+      "valid_speed_error_peak_rad_s": 3.4108259430918224,
+      "minimum_valid_denominator_A": 1.0439854592724473,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "angle_negative",
+      "valid_fraction_entire_record": 0.91410858914108584,
+      "valid_angle_error_peak_rad": 0.011297703159436567,
+      "valid_speed_error_peak_rad_s": 3.8654691357719457,
+      "minimum_valid_denominator_A": 1.0431804468755137,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "near_pi",
+      "valid_fraction_entire_record": 0.90560943905609437,
+      "valid_angle_error_peak_rad": 0.012432027381254734,
+      "valid_speed_error_peak_rad_s": 4.8087481718214349,
+      "minimum_valid_denominator_A": 1.0415103129232233,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "speed_prior_high",
+      "valid_fraction_entire_record": 0.92220777922207775,
+      "valid_angle_error_peak_rad": 0.0087039229959409159,
+      "valid_speed_error_peak_rad_s": 2.5586371451704508,
+      "minimum_valid_denominator_A": 1.0496680097561861,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "low_speed",
+      "valid_fraction_entire_record": 0.923007699230077,
+      "valid_angle_error_peak_rad": 0.00423748941621116,
+      "valid_speed_error_peak_rad_s": 0.43425403315455924,
+      "minimum_valid_denominator_A": 0.17496318951618772,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "speed_ramp",
+      "valid_fraction_entire_record": 0.93733855512040665,
+      "valid_angle_error_peak_rad": 0.0709356881718724,
+      "valid_speed_error_peak_rad_s": 6.1816734252863057,
+      "minimum_valid_denominator_A": 0.52494605519337578,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "dq_transient",
+      "valid_fraction_entire_record": 0.926907309269073,
+      "valid_angle_error_peak_rad": 0.011120017344484978,
+      "valid_speed_error_peak_rad_s": 3.6632565543154669,
+      "minimum_valid_denominator_A": 1.0435386948485748,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "adc_noise",
+      "valid_fraction_entire_record": 0.926907309269073,
+      "valid_angle_error_peak_rad": 0.011120176599599851,
+      "valid_speed_error_peak_rad_s": 3.675410341770089,
+      "minimum_valid_denominator_A": 1.0434857650020388,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "rs_mismatch",
+      "valid_fraction_entire_record": 0.92670732926707333,
+      "valid_angle_error_peak_rad": 0.0082030116757798588,
+      "valid_speed_error_peak_rad_s": 3.7952089443568866,
+      "minimum_valid_denominator_A": 1.0433066650208558,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "L_mismatch",
+      "valid_fraction_entire_record": 0.92680731926807314,
+      "valid_angle_error_peak_rad": 0.014605009417655969,
+      "valid_speed_error_peak_rad_s": 3.6291984504005086,
+      "minimum_valid_denominator_A": 0.86966571220925326,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "flux_mismatch",
+      "valid_fraction_entire_record": 0.9285071492850715,
+      "valid_angle_error_peak_rad": 0.0069208712488024737,
+      "valid_speed_error_peak_rad_s": 2.3073008409139675,
+      "minimum_valid_denominator_A": 0.94133349546458689,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "zero_speed",
+      "valid_fraction_entire_record": 0,
+      "valid_angle_error_peak_rad": null,
+      "valid_speed_error_peak_rad_s": null,
+      "minimum_valid_denominator_A": null,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "below_operating",
+      "valid_fraction_entire_record": 0,
+      "valid_angle_error_peak_rad": null,
+      "valid_speed_error_peak_rad_s": null,
+      "minimum_valid_denominator_A": null,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "unknown_direction",
+      "valid_fraction_entire_record": 0,
+      "valid_angle_error_peak_rad": null,
+      "valid_speed_error_peak_rad_s": null,
+      "minimum_valid_denominator_A": null,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "wrong_direction",
+      "valid_fraction_entire_record": 0,
+      "valid_angle_error_peak_rad": null,
+      "valid_speed_error_peak_rad_s": null,
+      "minimum_valid_denominator_A": null,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "disable_restart",
+      "valid_fraction_entire_record": 0.82001285622455544,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 1
+    },
+    {
+      "name": "reset",
+      "valid_fraction_entire_record": 0.88143704021141345,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 1
+    },
+    {
+      "name": "reversal",
+      "valid_fraction_entire_record": 0.85450727463626819,
+      "valid_angle_error_peak_rad": 0.070800699164664138,
+      "valid_speed_error_peak_rad_s": 6.3086101610902006,
+      "minimum_valid_denominator_A": 0.052747452750351767,
+      "qualified_to_unqualified_events": 1
+    },
+    {
+      "name": "invalid_direction",
+      "valid_fraction_entire_record": 0,
+      "valid_angle_error_peak_rad": null,
+      "valid_speed_error_peak_rad_s": null,
+      "minimum_valid_denominator_A": null,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "nonfinite_voltage",
+      "valid_fraction_entire_record": 0.42695730426957307,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 1
+    },
+    {
+      "name": "nonfinite_current",
+      "valid_fraction_entire_record": 0.42695730426957307,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 1
+    },
+    {
+      "name": "current_delay",
+      "valid_fraction_entire_record": 0.926907309269073,
+      "valid_angle_error_peak_rad": 0.012698056981788053,
+      "valid_speed_error_peak_rad_s": 3.6975517241338594,
+      "minimum_valid_denominator_A": 1.0434783579336275,
+      "qualified_to_unqualified_events": 0
+    },
+    {
+      "name": "repeat_default",
+      "valid_fraction_entire_record": 0.926907309269073,
+      "valid_angle_error_peak_rad": 0.011120017344486753,
+      "valid_speed_error_peak_rad_s": 3.6632565543150122,
+      "minimum_valid_denominator_A": 1.0435386948485756,
+      "qualified_to_unqualified_events": 0
+    }
+  ]
+}

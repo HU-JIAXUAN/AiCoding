@@ -1,0 +1,366 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "MATLAB_version": "26.2.0.3433840 (R2026b) Update 1",
+  "tests": 22,
+  "tracking_cases": 11,
+  "rejection_cases": 10,
+  "noise_limitation_cases": 1,
+  "kernel_checks": 10,
+  "parallel_instance_checks": 1,
+  "matched_basic_comparison_runs": 6,
+  "repeat_default_difference": 0,
+  "plots_visually_reviewed": 3,
+  "fresh_rebuilt_default": {
+    "status": "passed",
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_sources_match": true,
+    "library_link_resolved": true,
+    "instance_configuration_matches": true,
+    "shared_PLL_source_location_verified": true,
+    "core_and_test_connectivity_healthy": true,
+    "scope_count": 6,
+    "model_editors_open": 0,
+    "visible_figure_windows": 0
+  },
+  "canonical_default": {
+    "status": "passed",
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_sources_match": true,
+    "library_link_resolved": true,
+    "instance_configuration_matches": true,
+    "shared_PLL_source_location_verified": true,
+    "core_and_test_connectivity_healthy": true,
+    "scope_count": 6,
+    "model_editors_open": 0,
+    "visible_figure_windows": 0
+  },
+  "canonical_smoke_passed": true,
+  "original_basic_models_unchanged": [
+    {
+      "path": "model/lib/observer_smo/src/SlidingModeObserver.slx",
+      "sha256": "FE12D86FA1DC211304C05E56874A10909DC1DA54B3EE07F9F1B8BFE024712D63",
+      "reference": "HFI hybrid bound_source_files, original sha256"
+    },
+    {
+      "path": "model/lib/observer_smo/src/SlidingModeObserverTest.slx",
+      "sha256": "19CD6D675FE19DF9C946D20AAE6A9CAB44B7CCC99C6474E68CC269725710E9C8",
+      "reference": "HFI hybrid bound_source_files, original sha256"
+    }
+  ],
+  "shared_sources": [
+    {
+      "path": "model/lib/observer_smo/build_process/smo_fixture.m",
+      "sha256": "5D15C0EF7210127DCAD1847A59EFABE0C21FA3ACAAACD743AB390194953BB2D8"
+    },
+    {
+      "path": "model/lib/angle_tracking/src/AngleTracking.slx",
+      "sha256": "0A2C1EB331F9B6906B5246FBE31C10895203CF0F208AE71AEF2220CFC766C059"
+    },
+    {
+      "path": "model/lib/angle_tracking/parameter/angle_tracking_parameters.m",
+      "sha256": "9C3A7DCE84D6FD4192E0B8C5B10430A845B1EE3D8E8106317AAEC82AFF73BF06"
+    }
+  ],
+  "static_checked_M_files": 14,
+  "static_diagnostics": [
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 18,
+      "column": [
+        20,
+        22
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 19,
+      "column": [
+        21,
+        23
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 43,
+      "column": [
+        23,
+        25
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 54,
+      "column": [
+        22,
+        24
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 73,
+      "column": [
+        11,
+        13
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 74,
+      "column": [
+        11,
+        13
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 75,
+      "column": [
+        12,
+        14
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 83,
+      "column": [
+        5,
+        7
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 84,
+      "column": [
+        28,
+        30
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/waveform_analysis/run_sigmoid_instance_check.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 18,
+      "column": [
+        20,
+        22
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/waveform_analysis/run_sigmoid_instance_check.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 22,
+      "column": [
+        15,
+        17
+      ]
+    },
+    {
+      "file": "model/lib/observer_smo/waveform_analysis/run_sigmoid_instance_check.m",
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 23,
+      "column": [
+        16,
+        18
+      ]
+    }
+  ],
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/observer_smo/build_process/build_sigmoid_smo.m",
+      "validated_sha256": "FCB883A667ED20016E225F5290D6A061AC71CB6EF5C63C8CB7F7E8B3FD6A9F09",
+      "current_sha256": "FCB883A667ED20016E225F5290D6A061AC71CB6EF5C63C8CB7F7E8B3FD6A9F09"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/build_process/initialize_sigmoid_smo_paths.m",
+      "validated_sha256": "C967010E55593D849F69F454422AF1FE8471E6713EA906D68391FD12CA187B00",
+      "current_sha256": "C967010E55593D849F69F454422AF1FE8471E6713EA906D68391FD12CA187B00"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/build_process/initialize_sigmoid_smo_test.m",
+      "validated_sha256": "C2B276FA89E2DB79843C5C5A106E60F4F50949918DCA1536DDADFDB7C11F087D",
+      "current_sha256": "C2B276FA89E2DB79843C5C5A106E60F4F50949918DCA1536DDADFDB7C11F087D"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/parameter/refresh_sigmoid_smo_parameters.m",
+      "validated_sha256": "F0FA2D11F6A3C9193086886B83506A33DB2AE5CE97F26DF0616CD9940CDD3667",
+      "current_sha256": "F0FA2D11F6A3C9193086886B83506A33DB2AE5CE97F26DF0616CD9940CDD3667"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/parameter/sigmoid_smo_parameters.m",
+      "validated_sha256": "CD67395129E8F9441C6CB08ABD0544EA9452B207CD320D25E58F1258D75DF20D",
+      "current_sha256": "CD67395129E8F9441C6CB08ABD0544EA9452B207CD320D25E58F1258D75DF20D"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/parameter/sigmoid_smo_pll_parameters.m",
+      "validated_sha256": "FD652613EC5D6FEC645C9C5EF17207A120E7A17F4EF660BAF633AF09047FAAA9",
+      "current_sha256": "FD652613EC5D6FEC645C9C5EF17207A120E7A17F4EF660BAF633AF09047FAAA9"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/parameter/sigmoid_smo_test_parameters.m",
+      "validated_sha256": "74248F570F47FE30217432D0B1A505D432186E9576D97E64CF7784B2DF574A38",
+      "current_sha256": "74248F570F47FE30217432D0B1A505D432186E9576D97E64CF7784B2DF574A38"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/src/sigmoid_smo_measure.m",
+      "validated_sha256": "1FA1F504F81AE139543B77AF21949EC5FF7DD71B209FCCE744D4BCD8B66F3584",
+      "current_sha256": "1FA1F504F81AE139543B77AF21949EC5FF7DD71B209FCCE744D4BCD8B66F3584"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/src/sigmoid_smo_predict.m",
+      "validated_sha256": "FE01DADC6D88CF91819B07EDF8F071815302E79323DD60629E692E3D0F6A8904",
+      "current_sha256": "FE01DADC6D88CF91819B07EDF8F071815302E79323DD60629E692E3D0F6A8904"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/src/SigmoidSlidingModeObserver.slx",
+      "validated_sha256": "D00B0E4182E8F80FE19661FBA0C26082937A42CA3EFD81F4222832C58059EB1C",
+      "current_sha256": "D00B0E4182E8F80FE19661FBA0C26082937A42CA3EFD81F4222832C58059EB1C"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/src/SigmoidSlidingModeObserverTest.slx",
+      "validated_sha256": "9247914A1FD847F90767D8AD96EB67ECAB010B67F2F970D4F10F20CB50ED962C",
+      "current_sha256": "9247914A1FD847F90767D8AD96EB67ECAB010B67F2F970D4F10F20CB50ED962C"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/compare_sigmoid_basic.m",
+      "validated_sha256": "FD95F7DB4864E34D669FFB391E34712AD95B4922A12054E17A0A03BAC6292623",
+      "current_sha256": "FD95F7DB4864E34D669FFB391E34712AD95B4922A12054E17A0A03BAC6292623"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/plot_sigmoid_smo_results.m",
+      "validated_sha256": "6AA7AE0AA82E1BF64CDBC987D89E3401456443ABCA2E6EB400A7DB9B053296C2",
+      "current_sha256": "6AA7AE0AA82E1BF64CDBC987D89E3401456443ABCA2E6EB400A7DB9B053296C2"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/run_sigmoid_instance_check.m",
+      "validated_sha256": "A53DB6D904DBB227CD9ADA85DF077436B2B0C0CB012CA2E5627B671C89263644",
+      "current_sha256": "A53DB6D904DBB227CD9ADA85DF077436B2B0C0CB012CA2E5627B671C89263644"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/run_sigmoid_kernel_checks.m",
+      "validated_sha256": "F9823083956F93188F8FE668BDCCB10069553D4BCA722E3ABFA6DD6A7A056CE7",
+      "current_sha256": "F9823083956F93188F8FE668BDCCB10069553D4BCA722E3ABFA6DD6A7A056CE7"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/run_sigmoid_smo_validation.m",
+      "validated_sha256": "EC94EC84063E6114C0872706FB8BB9F0F0F2AB9016A5841E76BC92587CEC24D0",
+      "current_sha256": "EC94EC84063E6114C0872706FB8BB9F0F0F2AB9016A5841E76BC92587CEC24D0"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_capture.png",
+      "validated_sha256": "FD3B17E74CB60D5D592511586380CE1FAFBD52BDA4E8C60C436C3DACBA38084D",
+      "current_sha256": "FD3B17E74CB60D5D592511586380CE1FAFBD52BDA4E8C60C436C3DACBA38084D"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_capture.svg",
+      "validated_sha256": "13480D52C0988A8838A84EFEE458B75972B216EF62FACDBE89108E8F384AB4E3",
+      "current_sha256": "13480D52C0988A8838A84EFEE458B75972B216EF62FACDBE89108E8F384AB4E3"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_comparison.png",
+      "validated_sha256": "12A97071E1D91B8B052EEBD8B30EF5C12E9683AF26ACA0D1D624C4BA742F65E7",
+      "current_sha256": "12A97071E1D91B8B052EEBD8B30EF5C12E9683AF26ACA0D1D624C4BA742F65E7"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_comparison.svg",
+      "validated_sha256": "741B41E1B953B963616650AAA5BEFF71A65B4AE222E8CBECC17713ED39DE4290",
+      "current_sha256": "741B41E1B953B963616650AAA5BEFF71A65B4AE222E8CBECC17713ED39DE4290"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_comparison_metrics.json",
+      "validated_sha256": "8CDE4CFF6E43B3E66B47B40947387CA916394B5C4229D6DA0028CC18CE3C40D3",
+      "current_sha256": "8CDE4CFF6E43B3E66B47B40947387CA916394B5C4229D6DA0028CC18CE3C40D3"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_comparison_results.mat",
+      "validated_sha256": "B8EF39D0BA545613130BEBD0E9BC62A8F8C7C59297E1EF6D8BA50B29AFA7AFD8",
+      "current_sha256": "B8EF39D0BA545613130BEBD0E9BC62A8F8C7C59297E1EF6D8BA50B29AFA7AFD8"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_instance_metrics.json",
+      "validated_sha256": "A829234CC25CFF46C8095B954FF3D3C83021DB2F8583D76A513DEE0306207F1F",
+      "current_sha256": "A829234CC25CFF46C8095B954FF3D3C83021DB2F8583D76A513DEE0306207F1F"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_instance_results.mat",
+      "validated_sha256": "004253C0444D4697B61443982E916FA72B3EFCEE3BE1F1530AAEE54E189D49F5",
+      "current_sha256": "004253C0444D4697B61443982E916FA72B3EFCEE3BE1F1530AAEE54E189D49F5"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_kernel_metrics.json",
+      "validated_sha256": "1AB164E3375ACE8D535AC056F62E7F628627EFC9A8A3FF9BC4D465D72C06100E",
+      "current_sha256": "1AB164E3375ACE8D535AC056F62E7F628627EFC9A8A3FF9BC4D465D72C06100E"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_metrics.json",
+      "validated_sha256": "BF1B3228930B83B255FA7EAC1141E863E7DF0768B0C691F0D124DD66D8FFA0C7",
+      "current_sha256": "BF1B3228930B83B255FA7EAC1141E863E7DF0768B0C691F0D124DD66D8FFA0C7"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_noise.png",
+      "validated_sha256": "9AE4ED9C3BFA881053E5630214184ACE6F640B97D0B9B724C5AB3AC1A036168B",
+      "current_sha256": "9AE4ED9C3BFA881053E5630214184ACE6F640B97D0B9B724C5AB3AC1A036168B"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_noise.svg",
+      "validated_sha256": "4BA793591B1B3BEC20018910FA828EB4E4527481FDFFC58519C930BBD5A73EC8",
+      "current_sha256": "4BA793591B1B3BEC20018910FA828EB4E4527481FDFFC58519C930BBD5A73EC8"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_noise10mA_development.json",
+      "validated_sha256": "D75DC09D2622EED6DD2FB69755BB4638F299880DE00E2D8B724C42007D1A40B4",
+      "current_sha256": "D75DC09D2622EED6DD2FB69755BB4638F299880DE00E2D8B724C42007D1A40B4"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_noise10mA_development.mat",
+      "validated_sha256": "7AAFC50D6B5FC542735051FB2D00F5919D35F86B8632EE80A41213CEF90F1048",
+      "current_sha256": "7AAFC50D6B5FC542735051FB2D00F5919D35F86B8632EE80A41213CEF90F1048"
+    },
+    {
+      "relative_path": "model/lib/observer_smo/waveform_analysis/sigmoid_results.mat",
+      "validated_sha256": "26D17E648DEF488A632A6C5FE12EF94C8339F6B6A0BD4192831A9CCAD17DCD00",
+      "current_sha256": "26D17E648DEF488A632A6C5FE12EF94C8339F6B6A0BD4192831A9CCAD17DCD00"
+    }
+  ],
+  "standalone_library_default_PLL_minimum_magnitude_verified": true,
+  "full_single_model_validated": false,
+  "SIL_validated": false,
+  "C2000_target_validated": false,
+  "physical_motor_App_validated": false,
+  "high_noise_limitation": "At10mA current noise, original95percent qualification coverage failed at89.91percent; threshold unchanged and original raw data retained."
+}

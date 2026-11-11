@@ -1,0 +1,18 @@
+{
+  "name": "PMSM-Modular-Control-Platform",
+  "version": "1.0.0-dev",
+  "date": "2026-11-11",
+  "status": "partial-implementation",
+  "directory_count": 222,
+  "file_count": 1392,
+  "readmes": 214,
+  "matlab_target": "R2026b",
+  "implementation_status": "r2026b-models76-formula-docs28-local-parameters-if-vf",
+  "primary_target": "f28p65x_launchpad",
+  "secondary_target": "f28388d_custom",
+  "engineering_slx_count": 76,
+  "functional_modules": 28,
+  "inventory_scope": "project files excluding local generated outputs ignored by Git",
+  "protected_slxp_count": 42,
+  "protected_library_models": 25
+}

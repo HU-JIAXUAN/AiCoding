@@ -1,0 +1,1452 @@
+{
+  "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+  "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+  "old_installation_path_entries": [],
+  "source_copy": "C:/Users/24322/AppData/Local/Temp/sensorless-build-v3614sn0/regression_workspace",
+  "pid": {
+    "status": "passed",
+    "scenario_count": 12,
+    "scenario_names": [
+      "linear_positive",
+      "linear_negative",
+      "limit_positive_aw",
+      "limit_negative_aw",
+      "limit_positive_no_aw",
+      "enable_reset",
+      "closed_loop_linear",
+      "recovery_aw",
+      "recovery_no_aw",
+      "derivative_step",
+      "pid_ramp",
+      "pid_enable_reset"
+    ],
+    "official_comparison_count": 10,
+    "official_pi_case_count": 8,
+    "official_pid_case_count": 2,
+    "analytic_max_error": 1.9984014443252818e-15,
+    "official_max_error": 7.91033905045424e-16,
+    "derivative_analytic_max_error": 5.551115123125783e-17,
+    "zero_kd_derivative_max": 0,
+    "aw_integral_end": -0.5999999999999972,
+    "no_aw_integral_end": 31.99999999999825,
+    "recovery_band": 0.02,
+    "recovery_step_time_s": 1,
+    "aw_recovery_s": 0.514,
+    "no_aw_recovery_s": 1.8199999999999998,
+    "sample_time_s": 0.001,
+    "solver": "FixedStepDiscrete",
+    "matlab_release": "2026b",
+    "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+    "executed_at_utc": "2026-11-09 02:49:02 Z"
+  },
+  "math": {
+    "status": "passed",
+    "scenario_count": 13,
+    "scenario_names": [
+      "balanced_d",
+      "balanced_q",
+      "angle_offset",
+      "reverse_rotation",
+      "pure_zero",
+      "mixed_zero",
+      "dropped_zero",
+      "clarke_basis",
+      "park_quarter_turn",
+      "random_abc",
+      "unbalanced_harmonics",
+      "independent_inverse",
+      "inverse_axis_anchors"
+    ],
+    "round_trip_case_count": 10,
+    "reference_max_error_A": 2.3092638912203256e-14,
+    "round_trip_max_error_A": 3.552713678800501e-15,
+    "squared_norm_error_A2": 9.16697273645184e-14,
+    "zero_loss_identity_error_A": 2.4424906541753444e-15,
+    "zero_loss_peak_A": 1.199926581774013,
+    "tolerance_A": 1e-12,
+    "sample_time_s": 0.0001,
+    "solver": "FixedStepDiscrete",
+    "scaling": "amplitude_invariant",
+    "alignment": "d_axis",
+    "angle_unit": "rad",
+    "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+    "matlab_release": "2026b",
+    "executed_at_utc": "2026-11-09 02:50:12 Z"
+  },
+  "motor": {
+    "pmsm_plant": {
+      "status": "passed",
+      "scenario_count": 5,
+      "scenario_names": [
+        "rl_response",
+        "salient_equilibrium",
+        "mechanical_positive",
+        "mechanical_negative",
+        "energy_balance"
+      ],
+      "metrics": {
+        "rl_response": {
+          "analytic_error_A": 4.796163466380676e-13
+        },
+        "salient_equilibrium": {
+          "equilibrium_error_A": 0,
+          "torque_error_Nm": 0
+        },
+        "mechanical_positive": {
+          "speed_error_rad_s": 5.0182080713057076e-14,
+          "position_error_rad": 2.2106795560805637e-13
+        },
+        "mechanical_negative": {
+          "speed_error_rad_s": 5.0182080713057076e-14,
+          "position_error_rad": 2.2106795560805637e-13
+        },
+        "energy_balance": {
+          "energy_balance_error_J": 1.510416527093772e-08
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:51:14 +0000"
+    },
+    "current_loop": {
+      "status": "passed",
+      "scenario_count": 6,
+      "scenario_names": [
+        "dq_step",
+        "negative_step",
+        "saturation_aw_on",
+        "saturation_aw_off",
+        "enable_reset",
+        "solver_convergence"
+      ],
+      "metrics": {
+        "dq_step": {
+          "final_error_A": 1.0040857034709916e-12,
+          "peak_current_A": 2.0252795897436062,
+          "peak_voltage_V": 8.168140899333462,
+          "recovery_iae_A_s": 4.0075554064145e-06
+        },
+        "negative_step": {
+          "final_error_A": 1.0040857034709916e-12,
+          "peak_current_A": 2.0252795897436062,
+          "peak_voltage_V": 7.539822368615503,
+          "recovery_iae_A_s": 3.239026278793556e-06
+        },
+        "saturation_aw_on": {
+          "final_error_A": 3.1305242842449843e-09,
+          "peak_current_A": 51.95725445734664,
+          "peak_voltage_V": 26.60430040425796,
+          "recovery_iae_A_s": 0.03884334522120954
+        },
+        "saturation_aw_off": {
+          "final_error_A": 1.480139721010687e-06,
+          "peak_current_A": 53.16578209102273,
+          "peak_voltage_V": 26.60430040425796,
+          "recovery_iae_A_s": 0.5453014204676822
+        },
+        "enable_reset": {
+          "inactive_voltage_V": 0
+        },
+        "solver_convergence": {
+          "half_step_difference_A": 5.424976023959971e-10
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:51:39 +0000"
+    },
+    "inverter": {
+      "status": "passed",
+      "scenario_count": 4,
+      "scenario_names": [
+        "voltage_0",
+        "voltage_20",
+        "voltage_60",
+        "bus_24V"
+      ],
+      "metrics": {
+        "voltage_0": {
+          "voltage_error_V": 0,
+          "neutral_error_V": 0
+        },
+        "voltage_20": {
+          "voltage_error_V": 7.105427357601002e-15,
+          "neutral_error_V": 1.9539925233402755e-14
+        },
+        "voltage_60": {
+          "voltage_error_V": 33.395699595742045,
+          "neutral_error_V": 1.7763568394002505e-14
+        },
+        "bus_24V": {
+          "voltage_error_V": 3.552713678800501e-15
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:51:59 +0000"
+    },
+    "timing": {
+      "status": "passed",
+      "scenario_count": 3,
+      "scenario_names": [
+        "delay_0_0",
+        "delay_1_1",
+        "delay_2_3"
+      ],
+      "metrics": {
+        "delay_0_0": {
+          "feedback_delay_s": 0,
+          "actuation_delay_s": 0
+        },
+        "delay_1_1": {
+          "feedback_delay_s": 0.0001,
+          "actuation_delay_s": 0.0001
+        },
+        "delay_2_3": {
+          "feedback_delay_s": 0.0002,
+          "actuation_delay_s": 0.00030000000000000003
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:52:16 +0000"
+    },
+    "motion_loop": {
+      "status": "passed",
+      "scenario_count": 3,
+      "scenario_names": [
+        "controller_limits",
+        "speed_load_step",
+        "position_load_step"
+      ],
+      "metrics": {
+        "controller_limits": {
+          "peak_current_A": 3.5333333333333314,
+          "maximum_acceleration_rad_s2": 200.00000000003126
+        },
+        "speed_load_step": {
+          "final_current_error_A": 1.0661548810464438e-08,
+          "peak_current_A": 0.5687031711743147,
+          "control_mode": 1,
+          "final_speed_error_rad_s": 2.5243789828266472e-05,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.005298920909363905,
+          "rms_window_start_s": 1.1,
+          "rms_window_end_s": 1.2,
+          "tail_current_rms_A": 4.1163052236761556e-07,
+          "minimum_duty": 0,
+          "maximum_duty": 0.6111962810983455
+        },
+        "position_load_step": {
+          "final_current_error_A": 1.2846540694555486e-06,
+          "peak_current_A": 0.6036824968255413,
+          "control_mode": 2,
+          "final_speed_error_rad_s": 0.0006358743986855024,
+          "final_position_error_rad": 0.00040495861897382746,
+          "current_iae_A_s": 0.002171492266256016,
+          "rms_window_start_s": 1.4000000000000001,
+          "rms_window_end_s": 1.5,
+          "tail_current_rms_A": 2.098634326670485e-06,
+          "minimum_duty": 0,
+          "maximum_duty": 0.5180413430306299
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:53:01 +0000"
+    },
+    "experiment": {
+      "status": "passed",
+      "scenario_count": 9,
+      "scenario_names": [
+        "ideal_current",
+        "average_current",
+        "timed_current",
+        "extra_delay",
+        "speed_reversal",
+        "parameter_change",
+        "voltage_limit_recovery",
+        "disable_with_feedforward",
+        "reset_with_feedforward"
+      ],
+      "metrics": {
+        "ideal_current": {
+          "final_current_error_A": 2.0650148258027912e-13,
+          "peak_current_A": 2.0023789839779096,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0006514202773612694,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.11297533079657363,
+          "minimum_duty": 0.36396504768243365,
+          "maximum_duty": 0.6360349523175663
+        },
+        "average_current": {
+          "final_current_error_A": 2.0872192862952943e-13,
+          "peak_current_A": 2.0023789839779096,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0006514202773612781,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.11297533079657363,
+          "minimum_duty": 0.36396504768243365,
+          "maximum_duty": 0.6360349523175663
+        },
+        "timed_current": {
+          "final_current_error_A": 1.7541523789077473e-13,
+          "peak_current_A": 2.5624701531208824,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0009441535051173378,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.13901735214846891,
+          "minimum_duty": 0,
+          "maximum_duty": 0.6473711983440302
+        },
+        "extra_delay": {
+          "final_current_error_A": 1.5720758028692217e-13,
+          "peak_current_A": 3.18073433271577,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0019470941273396886,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.1751915969057825,
+          "minimum_duty": 0,
+          "maximum_duty": 0.6530393213572621
+        },
+        "speed_reversal": {
+          "final_current_error_A": 5.019403270696554e-07,
+          "peak_current_A": 0.5603750345086784,
+          "control_mode": 1,
+          "final_speed_error_rad_s": 0.0003724114772474252,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.006866971476584323,
+          "rms_window_start_s": 1.2,
+          "rms_window_end_s": 1.3,
+          "tail_current_rms_A": 2.8136088158148804e-06,
+          "minimum_duty": 0,
+          "maximum_duty": 0.5606219007167198
+        },
+        "parameter_change": {
+          "final_current_error_A": 2.015242146546914e-06,
+          "peak_current_A": 0.8086657018310706,
+          "control_mode": 1,
+          "final_speed_error_rad_s": 0.001986783569570605,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.00566480767627646,
+          "rms_window_start_s": 1.1,
+          "rms_window_end_s": 1.2,
+          "tail_current_rms_A": 2.0625463754526764e-06,
+          "minimum_duty": 0,
+          "maximum_duty": 0.6151589902696817
+        },
+        "voltage_limit_recovery": {
+          "final_current_error_A": 4.440892098500626e-16,
+          "peak_current_A": 53.207008302852266,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 1.3474655196946879,
+          "rms_window_start_s": 0.05,
+          "rms_window_end_s": 0.15,
+          "tail_current_rms_A": 8.08704599010157e-06,
+          "minimum_duty": 0,
+          "maximum_duty": 0.98
+        },
+        "disable_with_feedforward": {
+          "request_voltage_V": 0
+        },
+        "reset_with_feedforward": {
+          "request_voltage_V": 0
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:54:01 +0000"
+    },
+    "feedforward": {
+      "status": "passed",
+      "scenario_count": 5,
+      "scenario_names": [
+        "sign_and_units",
+        "disabled",
+        "loop_ff_off",
+        "loop_ff_on",
+        "parameter_mismatch"
+      ],
+      "metrics": {
+        "sign_and_units": {
+          "formula_error_V": 0
+        },
+        "disabled": {
+          "disabled_voltage_V": 0
+        },
+        "loop_ff_off": {
+          "final_current_error_A": 1.09747150603412e-11,
+          "peak_current_A": 3.555436869700482,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.013888139566939676,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.6549273129666239,
+          "minimum_duty": 0.08352971333357884,
+          "maximum_duty": 0.9164702866664212
+        },
+        "loop_ff_on": {
+          "final_current_error_A": 1.0298428776422952e-12,
+          "peak_current_A": 2.006507301561162,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0009641010738801136,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.11429275198454614,
+          "minimum_duty": 0.0880458853192258,
+          "maximum_duty": 0.9119541146807741
+        },
+        "parameter_mismatch": {
+          "final_current_error_A": 4.689360011411736e-12,
+          "peak_current_A": 1.9999999999953106,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.0032898887402351227,
+          "rms_window_start_s": 0,
+          "rms_window_end_s": 0.060000000000000005,
+          "tail_current_rms_A": 0.17742887988945144,
+          "minimum_duty": 0.0873916779351826,
+          "maximum_duty": 0.9126083220648173
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:54:28 +0000"
+    },
+    "deadtime": {
+      "status": "passed",
+      "scenario_count": 10,
+      "scenario_names": [
+        "average_compensation",
+        "disabled",
+        "loop_comp_off",
+        "loop_comp_on",
+        "loop_comp_narrow_blend",
+        "switching_positive",
+        "switching_negative",
+        "switching_zero_deadtime",
+        "switching_short_pulse",
+        "switching_zero_crossing"
+      ],
+      "metrics": {
+        "average_compensation": {
+          "away_zero_residual_V": 0,
+          "zero_sum_error_V": 2.220446049250313e-16
+        },
+        "disabled": {
+          "disabled_voltage_V": 0
+        },
+        "loop_comp_off": {
+          "final_current_error_A": 0.04411276207898922,
+          "peak_current_A": 0.5203814473665959,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.018664822561391962,
+          "rms_window_start_s": 0.2,
+          "rms_window_end_s": 0.3,
+          "tail_current_rms_A": 0.057638223826217326,
+          "minimum_duty": 0.4222258390950881,
+          "maximum_duty": 0.5777741609049118
+        },
+        "loop_comp_on": {
+          "final_current_error_A": 0.04177433675563558,
+          "peak_current_A": 0.516900833114301,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.013332376351785913,
+          "rms_window_start_s": 0.2,
+          "rms_window_end_s": 0.3,
+          "tail_current_rms_A": 0.04980557395338869,
+          "minimum_duty": 0.4094245047486067,
+          "maximum_duty": 0.5905754952513933
+        },
+        "loop_comp_narrow_blend": {
+          "final_current_error_A": 0.0007487258323634972,
+          "peak_current_A": 0.5082562990997928,
+          "control_mode": 0,
+          "final_speed_error_rad_s": null,
+          "final_position_error_rad": null,
+          "current_iae_A_s": 0.007184565851106383,
+          "rms_window_start_s": 0.2,
+          "rms_window_end_s": 0.3,
+          "tail_current_rms_A": 0.031801193361199485,
+          "minimum_duty": 0.40550036022374963,
+          "maximum_duty": 0.5944996397762504
+        },
+        "switching_positive": {
+          "mean_pole_voltage_V": 23.04,
+          "mean_voltage_error_V": 0,
+          "shoot_through_count": 0
+        },
+        "switching_negative": {
+          "mean_pole_voltage_V": 24.96,
+          "mean_voltage_error_V": 0,
+          "shoot_through_count": 0
+        },
+        "switching_zero_deadtime": {
+          "pole_error_V": 0
+        },
+        "switching_short_pulse": {
+          "high_gate_count": 0
+        },
+        "switching_zero_crossing": {
+          "diode_selection_error_V": 0,
+          "shoot_through_count": 0
+        }
+      },
+      "matlab_release": "2026b",
+      "executed_at_utc": "2026-11-09 02:55:16 +0000"
+    }
+  },
+  "mtpa_fw": {
+    "status": "passed",
+    "scenario_count": 25,
+    "group_counts": {
+      "mtpa": 7,
+      "fw": 11,
+      "motor": 7
+    },
+    "metrics": {
+      "mtpa": {
+        "original_bipolar": {
+          "final_id_A": -0.29010137187640256,
+          "final_iq_A": 7.131035866926313,
+          "peak_reference_current_A": 7.136934309726697,
+          "minimum_id_A": -0.29010137187640256,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 21.70561822918171,
+          "oracle_error_A": 5.871554640479268e-11
+        },
+        "salient_mtpa": {
+          "final_id_A": -2.721264741271498,
+          "final_iq_A": 5.143363680625389,
+          "peak_reference_current_A": 5.818889219023145,
+          "minimum_id_A": -2.721264741271498,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 22.364640774533484,
+          "oracle_error_A": 4.732252922856617e-10,
+          "mean_current_ratio_all": 0.9139304885857272,
+          "mean_current_ratio_above_1Nm": 0.8460754499791596
+        },
+        "salient_id_zero": {
+          "final_id_A": 0,
+          "final_iq_A": 7.142857142857142,
+          "peak_reference_current_A": 7.142857142857142,
+          "minimum_id_A": 0,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 21.70265681261649
+        },
+        "spm_limit": {
+          "final_id_A": 0,
+          "final_iq_A": 7.142857142857142,
+          "peak_reference_current_A": 7.142857142857142,
+          "minimum_id_A": 0,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 21.70265681261649
+        },
+        "tiny_saliency": {
+          "final_id_A": -1.457732774787432e-09,
+          "final_iq_A": 7.142857142857142,
+          "peak_reference_current_A": 7.142857142857142,
+          "minimum_id_A": -1.457732774787432e-09,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 21.70265681261649
+        },
+        "negative_id_bound": {
+          "final_id_A": -1,
+          "final_iq_A": 6.25,
+          "peak_reference_current_A": 6.329494450586082,
+          "minimum_id_A": -1,
+          "final_allocated_torque_Nm": 1.5,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 22.109338158752017,
+          "oracle_error_A": 9.213259488660697e-09
+        },
+        "high_torque_low_speed": {
+          "final_id_A": -0.36419839462120357,
+          "final_iq_A": 7.991705670841196,
+          "peak_reference_current_A": 8,
+          "minimum_id_A": -0.36419839462120357,
+          "final_allocated_torque_Nm": 1.681750870527378,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 21.27408538404506
+        }
+      },
+      "fw": {
+        "entry_exit": {
+          "final_id_A": -0.00518395632380233,
+          "final_iq_A": 0.9523527412094365,
+          "peak_reference_current_A": 4.577466864613604,
+          "minimum_id_A": -4.482288590178521,
+          "final_allocated_torque_Nm": 0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "bus_step": {
+          "final_id_A": -3.0681007546926606,
+          "final_iq_A": 0.9359714960753545,
+          "peak_reference_current_A": 7.059645865034495,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "quadrant_w1_t1": {
+          "final_id_A": -4.4832771823124125,
+          "final_iq_A": 0.9285916174651351,
+          "peak_reference_current_A": 4.57843386819878,
+          "minimum_id_A": -4.4832771823124125,
+          "final_allocated_torque_Nm": 0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "quadrant_w1_tm1": {
+          "final_id_A": -3.0827204971449826,
+          "final_iq_A": -0.9358946572771986,
+          "peak_reference_current_A": 7.58567198940413,
+          "minimum_id_A": -3.0827204971449826,
+          "final_allocated_torque_Nm": -0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "quadrant_wm1_t1": {
+          "final_id_A": -3.0827204971449826,
+          "final_iq_A": 0.9358946572771986,
+          "peak_reference_current_A": 7.58567198940413,
+          "minimum_id_A": -3.0827204971449826,
+          "final_allocated_torque_Nm": 0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "quadrant_wm1_tm1": {
+          "final_id_A": -4.4832771823124125,
+          "final_iq_A": -0.9285916174651351,
+          "peak_reference_current_A": 4.57843386819878,
+          "minimum_id_A": -4.4832771823124125,
+          "final_allocated_torque_Nm": -0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "zero_torque": {
+          "final_id_A": -3.7448311987824305,
+          "final_iq_A": 0,
+          "peak_reference_current_A": 3.7448311987824305,
+          "minimum_id_A": -3.7448311987824305,
+          "final_allocated_torque_Nm": 0,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 0.00011005595836977022
+        },
+        "infeasible_speed": {
+          "final_id_A": -7,
+          "final_iq_A": 0,
+          "peak_reference_current_A": 7,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0,
+          "final_feasible": false,
+          "minimum_feasible_voltage_margin_V": null
+        },
+        "disable_reset": {
+          "final_id_A": -3.2308882830817356,
+          "final_iq_A": 0,
+          "peak_reference_current_A": 4.484713484134186,
+          "minimum_id_A": -4.3874196126029945,
+          "final_allocated_torque_Nm": 0,
+          "final_feasible": false,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15
+        },
+        "voltage_feedback_branch": {
+          "final_id_A": -0.00518395632380233,
+          "final_iq_A": 0.9523527412094365,
+          "peak_reference_current_A": 7.059645865034495,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0.2,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": 7.291337649859603
+        },
+        "zero_bus_infeasible": {
+          "final_id_A": -7,
+          "final_iq_A": 0,
+          "peak_reference_current_A": 7,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0,
+          "final_feasible": false,
+          "minimum_feasible_voltage_margin_V": null
+        }
+      },
+      "motor": {
+        "fw_off": {
+          "final_id_A": -0.02657800520952977,
+          "final_iq_A": 0.3236405856560757,
+          "peak_reference_current_A": 0.8250546240160952,
+          "minimum_id_A": -0.03667333495595799,
+          "final_allocated_torque_Nm": 0.06797484505318178,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 179.49756749251875,
+          "final_speed_error_rad_s": 38.502432507481245,
+          "final_speed_integral_Nm": -0.23619436958650325,
+          "peak_actual_current_A": 0.8250863887754878,
+          "tail_current_error_rms_A": 1.5397122650312556e-11
+        },
+        "fw_on": {
+          "final_id_A": -6.754244299965048,
+          "final_iq_A": 0.331423524679442,
+          "peak_reference_current_A": 6.860509166836919,
+          "minimum_id_A": -6.852952374377092,
+          "final_allocated_torque_Nm": 0.07228515872561136,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 218.00000129987862,
+          "final_speed_error_rad_s": 1.299878618965522e-06,
+          "final_speed_integral_Nm": 0.07228518196220556,
+          "peak_actual_current_A": 6.860720747676392,
+          "tail_current_error_rms_A": 2.5840796676164684e-08
+        },
+        "reverse_rotation": {
+          "final_id_A": -6.754244299965048,
+          "final_iq_A": -0.3314235246794395,
+          "peak_reference_current_A": 6.860509166836914,
+          "minimum_id_A": -6.852952374377087,
+          "final_allocated_torque_Nm": -0.07228515872561081,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": -218.00000129987865,
+          "final_speed_error_rad_s": 1.2998786473872315e-06,
+          "final_speed_integral_Nm": -0.0722851819622055,
+          "peak_actual_current_A": 6.860720747676387,
+          "tail_current_error_rms_A": 2.584079642887837e-08
+        },
+        "exit_weakening": {
+          "final_id_A": -0.00046723967449623614,
+          "final_iq_A": 0.2857394216975608,
+          "peak_reference_current_A": 6.85072348834789,
+          "minimum_id_A": -6.8451449552352,
+          "final_allocated_torque_Nm": 0.06000543876704103,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 100.00005644879668,
+          "final_speed_error_rad_s": 5.6448796684094305e-05,
+          "final_speed_integral_Nm": 0.060006452964751385,
+          "peak_actual_current_A": 6.858676923149512,
+          "tail_current_error_rms_A": 2.404420682011595e-07
+        },
+        "bus_42V": {
+          "final_id_A": -6.695590912048499,
+          "final_iq_A": 0.22659518428636297,
+          "peak_reference_current_A": 6.766270783042653,
+          "minimum_id_A": -6.762727869041925,
+          "final_allocated_torque_Nm": 0.0494056150880823,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 190.0000003896572,
+          "final_speed_error_rad_s": 3.896572025041678e-07,
+          "final_speed_integral_Nm": 0.0494056220734819,
+          "peak_actual_current_A": 6.766394454934978,
+          "tail_current_error_rms_A": 8.795879864127737e-10
+        },
+        "unattainable_aw_on": {
+          "final_id_A": -7,
+          "final_iq_A": 0.33271436542831495,
+          "peak_reference_current_A": 7.044496187465031,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0.07266481740954399,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 221.53737244619728,
+          "final_speed_error_rad_s": 28.46262755380272,
+          "final_speed_integral_Nm": -0.1521898808136493,
+          "peak_actual_current_A": 7.051813635303887,
+          "tail_current_error_rms_A": 1.5714026098741187e-15
+        },
+        "unattainable_aw_off": {
+          "final_id_A": -7,
+          "final_iq_A": 0.33271436542831223,
+          "peak_reference_current_A": 7.064841912703778,
+          "minimum_id_A": -7,
+          "final_allocated_torque_Nm": 0.07266481740954339,
+          "final_feasible": true,
+          "minimum_feasible_voltage_margin_V": -3.552713678800501e-15,
+          "final_speed_rad_s": 221.5373724461973,
+          "final_speed_error_rad_s": 28.46262755380269,
+          "final_speed_integral_Nm": 4.759271510400185,
+          "peak_actual_current_A": 7.066689703884826,
+          "tail_current_error_rms_A": 1.4198779739659596e-15
+        }
+      }
+    },
+    "matlab_release": "2026b",
+    "executed_at_utc": "2026-11-09 02:58:55 +0000",
+    "rejected_configuration_count": 5
+  },
+  "pll": {
+    "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+    "release": "2026b",
+    "tests": 12,
+    "passed": 12,
+    "metrics": [
+      {
+        "name": "positive",
+        "angle_rms_rad": 4.50924002851584e-15,
+        "angle_max_rad": 1.1546319456101628e-14,
+        "speed_rms_rad_s": 1.141980683663117e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "negative",
+        "angle_rms_rad": 4.4727557028257334e-15,
+        "angle_max_rad": 1.0658141036401503e-14,
+        "speed_rms_rad_s": 1.1469306926738629e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "wrap",
+        "angle_rms_rad": 4.6793385785623865e-15,
+        "angle_max_rad": 1.199040866595169e-14,
+        "speed_rms_rad_s": 1.1127644820883214e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "acceleration",
+        "angle_rms_rad": 8.69112976141677e-07,
+        "angle_max_rad": 2.43858325577051e-06,
+        "speed_rms_rad_s": 0.0001256911040727582,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "speed_step",
+        "angle_rms_rad": 3.6397219825147937e-09,
+        "angle_max_rad": 2.127051448863604e-08,
+        "speed_rms_rad_s": 1.4438455587945242e-06,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "phase_noise",
+        "angle_rms_rad": 0.0015560778576029157,
+        "angle_max_rad": 0.004124949352184437,
+        "speed_rms_rad_s": 5.206895961509611,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "amplitude_dropout",
+        "angle_rms_rad": 5.296849336460179e-07,
+        "angle_max_rad": 2.0403133793311934e-06,
+        "speed_rms_rad_s": 8.86753421518994e-05,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "reset",
+        "angle_rms_rad": 8.756938516972114e-09,
+        "angle_max_rad": 4.513165116626361e-08,
+        "speed_rms_rad_s": 2.4957658694142305e-06,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "disable",
+        "angle_rms_rad": 8.580459739348458e-09,
+        "angle_max_rad": 4.450881282980213e-08,
+        "speed_rms_rad_s": 2.480065580729947e-06,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "speed_limit",
+        "angle_rms_rad": 1.8475634647781514,
+        "angle_max_rad": 3.1356555404306032,
+        "speed_rms_rad_s": 1670.6086825127954,
+        "valid_fraction": 0,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "initial_error",
+        "angle_rms_rad": 4.624689239795085e-15,
+        "angle_max_rad": 1.0658141036401503e-14,
+        "speed_rms_rad_s": 1.1007106027759542e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "no_amplitude",
+        "angle_rms_rad": 1.9115468067232728,
+        "angle_max_rad": 3.1413322353808844,
+        "speed_rms_rad_s": 200,
+        "valid_fraction": 0,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      }
+    ],
+    "channels": [
+      "phase",
+      "magnitude",
+      "enable",
+      "reset",
+      "theta_true",
+      "omega_true",
+      "theta_e_hat",
+      "omega_e_hat",
+      "phase_error",
+      "valid",
+      "integral",
+      "lock_count"
+    ]
+  },
+  "smo": {
+    "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+    "release": "2026b",
+    "tests": 14,
+    "passed": 14,
+    "metrics": [
+      {
+        "name": "positive",
+        "angle_rms_rad": 0.007355788240687994,
+        "angle_max_rad": 0.007355788240699379,
+        "speed_rms_rad_s": 1.1573788022014718e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "negative",
+        "angle_rms_rad": 0.0059231932792780904,
+        "angle_max_rad": 0.005923193279289363,
+        "speed_rms_rad_s": 1.1641934397291344e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "high_positive",
+        "angle_rms_rad": 0.020627355371709708,
+        "angle_max_rad": 0.02062735537181859,
+        "speed_rms_rad_s": 7.992707862954038e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "high_negative",
+        "angle_rms_rad": 0.01921018804863925,
+        "angle_max_rad": 0.019210188048748744,
+        "speed_rms_rad_s": 8.004211282999265e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "acceleration",
+        "angle_rms_rad": 0.017309842712586534,
+        "angle_max_rad": 0.017310246604282153,
+        "speed_rms_rad_s": 0.00011850935580449021,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "measurement_noise",
+        "angle_rms_rad": 0.0072192419287450075,
+        "angle_max_rad": 0.00821468879333409,
+        "speed_rms_rad_s": 3.1918296109354856,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "rs_mismatch",
+        "angle_rms_rad": 0.007519994157081318,
+        "angle_max_rad": 0.007519994157092037,
+        "speed_rms_rad_s": 1.160362346826284e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "without_compensation",
+        "angle_rms_rad": 0.0655147358838697,
+        "angle_max_rad": 0.06551473588388168,
+        "speed_rms_rad_s": 1.1625320478166105e-11,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "reset",
+        "angle_rms_rad": 0.0073557887117963435,
+        "angle_max_rad": 0.007355792141986228,
+        "speed_rms_rad_s": 8.402165252629546e-07,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "disable",
+        "angle_rms_rad": 0.00735578873745999,
+        "angle_max_rad": 0.007355792190540945,
+        "speed_rms_rad_s": 8.178903515221349e-07,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "direction_invalid",
+        "angle_rms_rad": 1.9115468067232728,
+        "angle_max_rad": 3.1413322353808844,
+        "speed_rms_rad_s": 200,
+        "valid_fraction": 0,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "reversal",
+        "angle_rms_rad": 0.009243323167114105,
+        "angle_max_rad": 0.009244529369889953,
+        "speed_rms_rad_s": 0.00035545714734248543,
+        "valid_fraction": 1,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "zero_speed",
+        "angle_rms_rad": 0.9638941103156471,
+        "angle_max_rad": 0.9638941103156485,
+        "speed_rms_rad_s": 0,
+        "valid_fraction": 0,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      },
+      {
+        "name": "low_emf",
+        "angle_rms_rad": 2.2907526244199508,
+        "angle_max_rad": 2.41461325037367,
+        "speed_rms_rad_s": 5,
+        "valid_fraction": 0,
+        "window_start_s": 0.25,
+        "window_end_s": 0.3,
+        "passed": true
+      }
+    ],
+    "channels": [
+      "u_alpha",
+      "u_beta",
+      "i_alpha",
+      "i_beta",
+      "direction",
+      "enable",
+      "reset",
+      "theta_true",
+      "omega_true",
+      "theta_e_hat",
+      "omega_e_hat",
+      "valid",
+      "emf_alpha",
+      "emf_beta",
+      "i_hat_alpha",
+      "i_hat_beta",
+      "injection_alpha",
+      "injection_beta",
+      "phase_measured",
+      "emf_magnitude",
+      "phase_error",
+      "angle_error"
+    ]
+  },
+  "historical_scenarios": 95,
+  "new_scenarios": 26,
+  "total_scenarios": 121,
+  "status": "passed",
+  "executed_at_utc": "2026-11-09 02:59:57",
+  "products": [
+    {
+      "Name": "5G Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "AUTOSAR Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Antenna Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Audio Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Automated Driving Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bioinformatics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bluetooth Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "C2000 Microcontroller Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Communications Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Curve Fitting Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DDS Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Data Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Database Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Datafeed Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Econometrics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Embedded Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Instruments Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fixed-Point Designer",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "GPU Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Global Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Verifier",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Industrial Communication Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Instrument Control Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "LTE Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler SDK",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Copilot",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB MCP Server Toolbox",
+      "Version": "0.5.0",
+      "Release": "(R2026b)",
+      "Date": "23-Oct-2026"
+    },
+    {
+      "Name": "Mapping Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Point Cloud Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Powertrain Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Sensor Fusion and Tracking Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink FMU Builder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Spreadsheet Link",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Statistics and Machine Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "11-Jun-2026"
+    },
+    {
+      "Name": "System Identification Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    }
+  ]
+}

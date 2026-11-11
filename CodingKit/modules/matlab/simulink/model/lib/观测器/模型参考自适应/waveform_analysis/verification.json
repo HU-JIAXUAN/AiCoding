@@ -1,0 +1,230 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "kind": "independent continuous dq-balance input; no physical motor-drive closed loop",
+  "tests": 24,
+  "passed": 24,
+  "parallel_instance_checks": 1,
+  "rebuilt_default": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "rebuild_from_M_sources": true,
+    "default_trace_columns": 26,
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_sources_match": true,
+    "scope_count": 8,
+    "owned_model_windows": 0,
+    "visible_figure_windows": 0
+  },
+  "canonical_smoke_passed": true,
+  "SIL_tested": false,
+  "physical_motor_drive_App_tested": false,
+  "physical_hardware_tested": false,
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/observer_mras/src/MrasObserver.slx",
+      "validated_sha256": "8C12B31F065F6D5A2CF383DCFC9703E2E20EF74342FE590AD29ECF73F9A8E013",
+      "current_sha256": "8C12B31F065F6D5A2CF383DCFC9703E2E20EF74342FE590AD29ECF73F9A8E013"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/src/MrasObserverTest.slx",
+      "validated_sha256": "5FEF23A94EA94706F866575798DC43DA69AE17748A7F042E8497EECA56ABC0A3",
+      "current_sha256": "5FEF23A94EA94706F866575798DC43DA69AE17748A7F042E8497EECA56ABC0A3"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/results.mat",
+      "validated_sha256": "594BABE5B9C8C98BEB392A6282A8F8C14C807BCB6F539D9488F582C5E2A974DA",
+      "current_sha256": "594BABE5B9C8C98BEB392A6282A8F8C14C807BCB6F539D9488F582C5E2A974DA"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/metrics.json",
+      "validated_sha256": "FFB8ABA96CCC2632FCAB1C00E9A9261DF9052347F3D16E72A64AE62315558B51",
+      "current_sha256": "FFB8ABA96CCC2632FCAB1C00E9A9261DF9052347F3D16E72A64AE62315558B51"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/transient_metrics.json",
+      "validated_sha256": "58974C7CDBE6AB75563A25D042206F56866C07C3CC710EE792A7456F030104C1",
+      "current_sha256": "58974C7CDBE6AB75563A25D042206F56866C07C3CC710EE792A7456F030104C1"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/instance_results.mat",
+      "validated_sha256": "25F4888E4F1617FB38AD6B6A5F081D538047F895A758995F50DE51E0E1366979",
+      "current_sha256": "25F4888E4F1617FB38AD6B6A5F081D538047F895A758995F50DE51E0E1366979"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/instance_metrics.json",
+      "validated_sha256": "2673676DEC88E51FD8E5EA31243C8C10AC417109FDACD53E98DEA7D95E1E9729",
+      "current_sha256": "2673676DEC88E51FD8E5EA31243C8C10AC417109FDACD53E98DEA7D95E1E9729"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/tuning_results.mat",
+      "validated_sha256": "0B5BCE79E4B708ACAE2DB831F915D1A022982B3742098A23CD5E3D09319EBA6D",
+      "current_sha256": "0B5BCE79E4B708ACAE2DB831F915D1A022982B3742098A23CD5E3D09319EBA6D"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/tuning_metrics.json",
+      "validated_sha256": "CB983F1724AA9B460080F9EBC60EF886B9C4AE9FD2A7682B83CDF72A4586014E",
+      "current_sha256": "CB983F1724AA9B460080F9EBC60EF886B9C4AE9FD2A7682B83CDF72A4586014E"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_capture.svg",
+      "validated_sha256": "FE4555B96F708639FB576A38426049DEB58E6B49AF9FE867DDC4283BC512053F",
+      "current_sha256": "FE4555B96F708639FB576A38426049DEB58E6B49AF9FE867DDC4283BC512053F"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_capture.png",
+      "validated_sha256": "F8A503CD5839357763028376D0A954FEB4975BC16204A8CB4FC440B23B0AA7BE",
+      "current_sha256": "F8A503CD5839357763028376D0A954FEB4975BC16204A8CB4FC440B23B0AA7BE"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_sensitivity.svg",
+      "validated_sha256": "CA2B9CE608B8EFE59CA0A86F2C6103CF7B28E8D10F09EDDED0FDE0BB47774D36",
+      "current_sha256": "CA2B9CE608B8EFE59CA0A86F2C6103CF7B28E8D10F09EDDED0FDE0BB47774D36"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_sensitivity.png",
+      "validated_sha256": "E022D51487CFF8709F2B99D5CF96B781DE0A80202A92250EFF7554770E51F6F1",
+      "current_sha256": "E022D51487CFF8709F2B99D5CF96B781DE0A80202A92250EFF7554770E51F6F1"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_refusal.svg",
+      "validated_sha256": "ACDBA454F959F87D1720F11421836FBB67A8618AF623F2E2DD7B896724EF1ED3",
+      "current_sha256": "ACDBA454F959F87D1720F11421836FBB67A8618AF623F2E2DD7B896724EF1ED3"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/mras_refusal.png",
+      "validated_sha256": "9FCA27C0E92ED14528E593B74859E01E8AB33FACC67ACB021649E245D098CA7A",
+      "current_sha256": "9FCA27C0E92ED14528E593B74859E01E8AB33FACC67ACB021649E245D098CA7A"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/build_process/build_mras_observer.m",
+      "validated_sha256": "84975739F45F7C7E15DD77B6364953B2C5981ECC2CF0072C7F003CE43791F8C5",
+      "current_sha256": "84975739F45F7C7E15DD77B6364953B2C5981ECC2CF0072C7F003CE43791F8C5"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/build_process/initialize_mras_test.m",
+      "validated_sha256": "1FE12782CBE6DD5F3904A2BB2FA6DC9D51C639730CD991AAA282BFB766B7B38B",
+      "current_sha256": "1FE12782CBE6DD5F3904A2BB2FA6DC9D51C639730CD991AAA282BFB766B7B38B"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/build_process/mras_fixture.m",
+      "validated_sha256": "1DC665D4A8337FCC33071A83169AF79A8F39C206576619F13E415DFBE6AB3FD2",
+      "current_sha256": "1DC665D4A8337FCC33071A83169AF79A8F39C206576619F13E415DFBE6AB3FD2"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/parameter/mras_parameters.m",
+      "validated_sha256": "B5CEF89C662A0B819F71CC566532390FBC02A49AB644547B7E96CC2E78508AA8",
+      "current_sha256": "B5CEF89C662A0B819F71CC566532390FBC02A49AB644547B7E96CC2E78508AA8"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/parameter/mras_test_parameters.m",
+      "validated_sha256": "EBB006A73047A4387F00DEB3AC2FE35D1A9D27CDB696656BF0F2D13A81B24606",
+      "current_sha256": "EBB006A73047A4387F00DEB3AC2FE35D1A9D27CDB696656BF0F2D13A81B24606"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/parameter/refresh_mras_parameters.m",
+      "validated_sha256": "CBA00D819437CF5547E1AFEDADB2E7E4E76922DF7D57E79C574A4947F0B718F6",
+      "current_sha256": "CBA00D819437CF5547E1AFEDADB2E7E4E76922DF7D57E79C574A4947F0B718F6"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/src/mras_output.m",
+      "validated_sha256": "33887248746F3E3A773BDA4B60BE15587167D8A58B5C0B48CCA4384A326F78D4",
+      "current_sha256": "33887248746F3E3A773BDA4B60BE15587167D8A58B5C0B48CCA4384A326F78D4"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/src/mras_step.m",
+      "validated_sha256": "448175947C8C2F8F80EC706E71A55F8109AFF8CD5050E79CD9857B6453757E5A",
+      "current_sha256": "448175947C8C2F8F80EC706E71A55F8109AFF8CD5050E79CD9857B6453757E5A"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/plot_mras_results.m",
+      "validated_sha256": "0186FFC46E39E43B0742EDFC6D9855747578B0FFF2EB485996127BFF450E086E",
+      "current_sha256": "0186FFC46E39E43B0742EDFC6D9855747578B0FFF2EB485996127BFF450E086E"
+    },
+    {
+      "relative_path": "model/lib/observer_mras/waveform_analysis/run_mras_validation.m",
+      "validated_sha256": "4AF701AFF16DACA2B424148F64646CDEC02316E1CE399208E28AA944A0772772",
+      "current_sha256": "4AF701AFF16DACA2B424148F64646CDEC02316E1CE399208E28AA944A0772772"
+    }
+  ],
+  "scope_count": 8,
+  "trace_columns": 26,
+  "canonical_default": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "rebuild_from_M_sources": false,
+    "default_trace_columns": 26,
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_sources_match": true,
+    "scope_count": 8,
+    "owned_model_windows": 0,
+    "visible_figure_windows": 0
+  },
+  "static_diagnostics": [
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 20,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 21,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 38,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 56,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 57,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 58,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 67,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "build_mras_observer.m",
+      "id": "AGROW",
+      "line": 69,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "plot_mras_results.m",
+      "id": "MSNU",
+      "line": 23,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    },
+    {
+      "file": "run_mras_validation.m",
+      "id": "MSNU",
+      "line": 7,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "tests": 32,
+  "cases": [
+    {
+      "kind": "spmsm",
+      "name": "positive",
+      "angle_RMS_rad": 0.00034647013974418956,
+      "speed_RMS_electrical_rad_s": 9.2838125243619485E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019727819879723362,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "negative",
+      "angle_RMS_rad": 0.00034472864849099862,
+      "speed_RMS_electrical_rad_s": 9.3379944630494057E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019716550133088793,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "high_speed",
+      "angle_RMS_rad": 0.0024951551756555185,
+      "speed_RMS_electrical_rad_s": 7.9596680917516191E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.053748555359418491,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "acceleration",
+      "angle_RMS_rad": 0.016195140825580993,
+      "speed_RMS_electrical_rad_s": 0.037317449254570569,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.029809968260100309,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "current_ramp",
+      "angle_RMS_rad": 0.00063288963727535193,
+      "speed_RMS_electrical_rad_s": 9.2774811158309016E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019733438394376949,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "resistance_error",
+      "angle_RMS_rad": 0.028101249240900635,
+      "speed_RMS_electrical_rad_s": 9.2958228806700583E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0020299290909107726,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "voltage_bias",
+      "angle_RMS_rad": 0.0042705454680932418,
+      "speed_RMS_electrical_rad_s": 0.85942488943939377,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0023585185078159408,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "measurement_noise",
+      "angle_RMS_rad": 0.00036658058596773324,
+      "speed_RMS_electrical_rad_s": 0.087350210424047628,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0077291618472286111,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "wrong_direction",
+      "angle_RMS_rad": 3.1412461834500367,
+      "speed_RMS_electrical_rad_s": 9.2891063743203261E-11,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.0019727819879723908,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "zero_speed",
+      "angle_RMS_rad": 0.39999999999999752,
+      "speed_RMS_electrical_rad_s": 0,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "zero_speed_enabled",
+      "angle_RMS_rad": 1.4004386854501698,
+      "speed_RMS_electrical_rad_s": 0,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "low_speed_enabled",
+      "angle_RMS_rad": 3.002390412970096,
+      "speed_RMS_electrical_rad_s": 5,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.00024626695459289706,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "disable",
+      "angle_RMS_rad": 0.00034638758658973569,
+      "speed_RMS_electrical_rad_s": 0.0003464818467739874,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019727803016395631,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "reset",
+      "angle_RMS_rad": 0.00034647014162347736,
+      "speed_RMS_electrical_rad_s": 3.3798673718846848E-8,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019727819875795115,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "invalid_direction",
+      "angle_RMS_rad": 1.8177429885088852,
+      "speed_RMS_electrical_rad_s": 200,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "spmsm",
+      "name": "reversal",
+      "angle_RMS_rad": 0.00034472865354529669,
+      "speed_RMS_electrical_rad_s": 4.0427370115759851E-8,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019716550127813069,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "positive",
+      "angle_RMS_rad": 0.00035450259410344887,
+      "speed_RMS_electrical_rad_s": 9.2688102536534737E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019953215711809931,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "negative",
+      "angle_RMS_rad": 0.0003527789568102764,
+      "speed_RMS_electrical_rad_s": 9.3472192766221873E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019941945965718222,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "high_speed",
+      "angle_RMS_rad": 0.0027922425592361074,
+      "speed_RMS_electrical_rad_s": 7.9611369515127352E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.054362106763005721,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "acceleration",
+      "angle_RMS_rad": 0.016040364785228751,
+      "speed_RMS_electrical_rad_s": 0.03872390168805253,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.030150797065169755,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "current_ramp",
+      "angle_RMS_rad": 0.00063136201281194845,
+      "speed_RMS_electrical_rad_s": 9.2756201926249691E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0020184230759948394,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "resistance_error",
+      "angle_RMS_rad": 0.027804615338248583,
+      "speed_RMS_electrical_rad_s": 9.3120463665618564E-11,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0020524599090479671,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "voltage_bias",
+      "angle_RMS_rad": 0.0041945330680525144,
+      "speed_RMS_electrical_rad_s": 0.84261348076468956,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0023677926922254728,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "measurement_noise",
+      "angle_RMS_rad": 0.00037459310506638316,
+      "speed_RMS_electrical_rad_s": 0.086330222858121544,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0077356504896010023,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "wrong_direction",
+      "angle_RMS_rad": 3.1412381509956844,
+      "speed_RMS_electrical_rad_s": 9.272819472611662E-11,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.0019953215711810144,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "zero_speed",
+      "angle_RMS_rad": 0.39999999999999752,
+      "speed_RMS_electrical_rad_s": 0,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "zero_speed_enabled",
+      "angle_RMS_rad": 1.9609807483789408,
+      "speed_RMS_electrical_rad_s": 0,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "low_speed_enabled",
+      "angle_RMS_rad": 2.9040789684670729,
+      "speed_RMS_electrical_rad_s": 5,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.000246283056681454,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "disable",
+      "angle_RMS_rad": 0.00035430372370866747,
+      "speed_RMS_electrical_rad_s": 0.00036153592860539718,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019953232858926757,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "reset",
+      "angle_RMS_rad": 0.00035450257355193433,
+      "speed_RMS_electrical_rad_s": 4.5457387183221507E-8,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019953215713159464,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "invalid_direction",
+      "angle_RMS_rad": 1.8177429885088852,
+      "speed_RMS_electrical_rad_s": 200,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0,
+      "passed": true
+    },
+    {
+      "kind": "ipmsm",
+      "name": "reversal",
+      "angle_RMS_rad": 0.00035277897482632707,
+      "speed_RMS_electrical_rad_s": 1.7365641255009979E-8,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.0019941945962649666,
+      "passed": true
+    }
+  ],
+  "hardware_tested": false,
+  "actual_plant_angle_input_to_observer": false
+}

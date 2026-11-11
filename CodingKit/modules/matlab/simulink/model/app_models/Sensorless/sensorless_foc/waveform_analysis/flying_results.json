@@ -1,0 +1,228 @@
+{
+  "release": "26.2.0.3433840 (R2026b) Update 1",
+  "model": "FlyingFluxFOC",
+  "cases": [
+    {
+      "name": "forward",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.94094442114416754,
+        "final_fault": 0,
+        "angle_rms": 0.0089737500500148854,
+        "speed_final": 99.9999674787028,
+        "peak_capture_current": 0.416656028828088,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.16530120654040648
+      }
+    },
+    {
+      "name": "reverse",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.06375,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.8967823874267753,
+        "final_fault": 0,
+        "angle_rms": 0.008973773798701427,
+        "speed_final": -99.999968470544061,
+        "peak_capture_current": 0.443394412119555,
+        "enable_voltage_mismatch": 0.014548271736979014,
+        "returned_bus_energy": 0.1438793781261079
+      }
+    },
+    {
+      "name": "initial_angle",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.06535,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.79248456868045736,
+        "final_fault": 0,
+        "angle_rms": 0.0089738547910406,
+        "speed_final": 99.999971576145938,
+        "peak_capture_current": 0.47988746428518636,
+        "enable_voltage_mismatch": 0.0060811850318945922,
+        "returned_bus_energy": 0.088481296635191886
+      }
+    },
+    {
+      "name": "load",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.94094442114416754,
+        "final_fault": 0,
+        "angle_rms": 0.0094526575147661027,
+        "speed_final": 100.00491101920363,
+        "peak_capture_current": 0.416656028828088,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.16530120654040648
+      }
+    },
+    {
+      "name": "bus_36V",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.97815520430764757,
+        "final_fault": 0,
+        "angle_rms": 0.0080763617867727344,
+        "speed_final": 89.99997886270198,
+        "peak_capture_current": 0.41912630471031209,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.20185669495491965
+      }
+    },
+    {
+      "name": "moving_reset",
+      "expected": "recapture",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 2,
+        "turn_off_count": 1,
+        "peak_phase_current": 0.94094442114416754,
+        "final_fault": 0,
+        "angle_rms": 0.0089707079281048,
+        "speed_final": 100.00169814504977,
+        "peak_capture_current": 0.416656028828088,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.47309504914452577
+      }
+    },
+    {
+      "name": "moving_disable",
+      "expected": "recapture",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 2,
+        "turn_off_count": 1,
+        "peak_phase_current": 0.94094442114416754,
+        "final_fault": 0,
+        "angle_rms": 0.0089764962529352149,
+        "speed_final": 100.00341378503308,
+        "peak_capture_current": 0.416656028828088,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.38607093532087566
+      }
+    },
+    {
+      "name": "observer_loss",
+      "expected": "loss",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.063,
+        "capture_count": 1,
+        "turn_off_count": 1,
+        "peak_phase_current": 1.3871253276196565,
+        "final_fault": 5,
+        "angle_rms": null,
+        "speed_final": -8.4238513555859988,
+        "peak_capture_current": 0.416656028828088,
+        "enable_voltage_mismatch": 0.01723685679431208,
+        "returned_bus_energy": 0.1671467790374479
+      }
+    },
+    {
+      "name": "opposite_target",
+      "expected": "opposite",
+      "passed": true,
+      "metrics": {
+        "capture_time": null,
+        "capture_count": 0,
+        "turn_off_count": 0,
+        "peak_phase_current": 0,
+        "final_fault": 2,
+        "angle_rms": null,
+        "speed_final": -66.157828151888566,
+        "peak_capture_current": null,
+        "enable_voltage_mismatch": null,
+        "returned_bus_energy": -0
+      }
+    },
+    {
+      "name": "stationary",
+      "expected": "timeout",
+      "passed": true,
+      "metrics": {
+        "capture_time": null,
+        "capture_count": 0,
+        "turn_off_count": 0,
+        "peak_phase_current": 0,
+        "final_fault": 1,
+        "angle_rms": null,
+        "speed_final": 0,
+        "peak_capture_current": null,
+        "enable_voltage_mismatch": null,
+        "returned_bus_energy": -0
+      }
+    },
+    {
+      "name": "voltage_headroom",
+      "expected": "voltage",
+      "passed": true,
+      "metrics": {
+        "capture_time": null,
+        "capture_count": 0,
+        "turn_off_count": 0,
+        "peak_phase_current": 0,
+        "final_fault": 3,
+        "angle_rms": null,
+        "speed_final": 148.85511334175521,
+        "peak_capture_current": null,
+        "enable_voltage_mismatch": null,
+        "returned_bus_energy": -0
+      }
+    },
+    {
+      "name": "diode_rectification",
+      "expected": "rectification",
+      "passed": true,
+      "metrics": {
+        "capture_time": null,
+        "capture_count": 0,
+        "turn_off_count": 0,
+        "peak_phase_current": 20.714712506299314,
+        "final_fault": 6,
+        "angle_rms": null,
+        "speed_final": 176.53761260870456,
+        "peak_capture_current": null,
+        "enable_voltage_mismatch": null,
+        "returned_bus_energy": 22.875639759808241
+      }
+    },
+    {
+      "name": "half_plant_step",
+      "expected": "run",
+      "passed": true,
+      "metrics": {
+        "capture_time": 0.06295,
+        "capture_count": 1,
+        "turn_off_count": 0,
+        "peak_phase_current": 0.943607196798203,
+        "final_fault": 0,
+        "angle_rms": 0.0094742673144367316,
+        "speed_final": 99.99996738986944,
+        "peak_capture_current": 0.41607063328911836,
+        "enable_voltage_mismatch": 0.017378986042200697,
+        "returned_bus_energy": 0.16636039405868014
+      }
+    }
+  ],
+  "count": 13
+}

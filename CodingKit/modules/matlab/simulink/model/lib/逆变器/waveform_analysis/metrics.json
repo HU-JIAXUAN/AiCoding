@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scenario_count": 4,
+  "scenario_names": [
+    "voltage_0",
+    "voltage_20",
+    "voltage_60",
+    "bus_24V"
+  ],
+  "metrics": {
+    "voltage_0": {
+      "voltage_error_V": 0,
+      "neutral_error_V": 0
+    },
+    "voltage_20": {
+      "voltage_error_V": 7.1054273576010019E-15,
+      "neutral_error_V": 1.9539925233402755E-14
+    },
+    "voltage_60": {
+      "voltage_error_V": 33.395699595742045,
+      "neutral_error_V": 1.7763568394002505E-14
+    },
+    "bus_24V": {
+      "voltage_error_V": 3.5527136788005009E-15
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 11:57:41 +0000"
+}

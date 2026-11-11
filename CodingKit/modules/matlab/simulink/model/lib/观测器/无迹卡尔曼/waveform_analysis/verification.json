@@ -1,0 +1,330 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "kind": "independent continuous SPMSM dq-balance input; no physical drive closed loop",
+  "tests": 29,
+  "passed": 29,
+  "numerical_checks": 21,
+  "parallel_instance_checks": 1,
+  "matched_EKF_cases": 25,
+  "rebuilt_default": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "rebuild_from_M_sources": true,
+    "trace_columns": 50,
+    "raw_log_shape": [
+      50,
+      1,
+      10001
+    ],
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_predictor_source_matches": true,
+    "shared_measurement_library_link_verified": true,
+    "shared_measurement_location_verified": true,
+    "shared_measurement_source_matches": true,
+    "shared_process_location_verified": true,
+    "scope_count": 10,
+    "owned_model_windows": 0,
+    "visible_figure_windows": 0
+  },
+  "canonical_smoke_passed": true,
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/observer_ukf/src/UkfObserver.slx",
+      "validated_sha256": "2D94ADC50E41B0B912E368863328B4E0869EEB5964EFD26208489172A77BDB9B",
+      "current_sha256": "2D94ADC50E41B0B912E368863328B4E0869EEB5964EFD26208489172A77BDB9B"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/src/UkfObserverTest.slx",
+      "validated_sha256": "3EDF866436039FF19E40A92ECB4946BC1B16C0D04149C3C06E104E2F351C3DA4",
+      "current_sha256": "3EDF866436039FF19E40A92ECB4946BC1B16C0D04149C3C06E104E2F351C3DA4"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/results.mat",
+      "validated_sha256": "82336AB68D2862B27F26D044E7C1E603AFDEEC8A924B2A24AA82C8308587B55A",
+      "current_sha256": "82336AB68D2862B27F26D044E7C1E603AFDEEC8A924B2A24AA82C8308587B55A"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/metrics.json",
+      "validated_sha256": "0BE1F1ADD12855D21EDD4EF33CB6FFF0BA89E70EFB02905D02056C041F359D46",
+      "current_sha256": "0BE1F1ADD12855D21EDD4EF33CB6FFF0BA89E70EFB02905D02056C041F359D46"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/numerical_results.mat",
+      "validated_sha256": "5FF24AA341E4B5961D4868EEBF1839064B695C7C829FA65343CC9224BE1C0A4C",
+      "current_sha256": "5FF24AA341E4B5961D4868EEBF1839064B695C7C829FA65343CC9224BE1C0A4C"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/numerical_metrics.json",
+      "validated_sha256": "0E969B1F3CB5F32024364F6BFB40C269590209F6C5C41EBDDBC81449CB9EFA23",
+      "current_sha256": "0E969B1F3CB5F32024364F6BFB40C269590209F6C5C41EBDDBC81449CB9EFA23"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/instance_results.mat",
+      "validated_sha256": "3C53ABA645707AC5DB60133700EC18E7FD96084133721A36259A1E77CC678F3D",
+      "current_sha256": "3C53ABA645707AC5DB60133700EC18E7FD96084133721A36259A1E77CC678F3D"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/instance_metrics.json",
+      "validated_sha256": "57FA0C9BBEC48F5CC8115FAF19C943AFA3405AC692DCFD2D768B465BD02CE7C5",
+      "current_sha256": "57FA0C9BBEC48F5CC8115FAF19C943AFA3405AC692DCFD2D768B465BD02CE7C5"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/comparison_results.mat",
+      "validated_sha256": "4FACBA062FA2D632ACF3E1BCCCC7E58A5A5E4386E91812111C5D0978F9DE8E93",
+      "current_sha256": "4FACBA062FA2D632ACF3E1BCCCC7E58A5A5E4386E91812111C5D0978F9DE8E93"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/comparison_metrics.json",
+      "validated_sha256": "C8D6D2E10B2E44E65DB86A12B5CF4FC02B854F861B7DBDDA84A37E88ADF392E3",
+      "current_sha256": "C8D6D2E10B2E44E65DB86A12B5CF4FC02B854F861B7DBDDA84A37E88ADF392E3"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_capture.svg",
+      "validated_sha256": "FE8B6F61B3E5D296DF69F201AE4B71FC9E7C1FF9BC0D0C68AE6FD10225E160D6",
+      "current_sha256": "FE8B6F61B3E5D296DF69F201AE4B71FC9E7C1FF9BC0D0C68AE6FD10225E160D6"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_capture.png",
+      "validated_sha256": "568A81FA1D269300523E5D074B6D9F99F4E32A07ABE5870A31BB06D9C15757D7",
+      "current_sha256": "568A81FA1D269300523E5D074B6D9F99F4E32A07ABE5870A31BB06D9C15757D7"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_dynamics.svg",
+      "validated_sha256": "1DBEF39BBDAEB2AB16667C11DECDFB8BDE475C1D40DCA9676408E8A3ACC2AA02",
+      "current_sha256": "1DBEF39BBDAEB2AB16667C11DECDFB8BDE475C1D40DCA9676408E8A3ACC2AA02"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_dynamics.png",
+      "validated_sha256": "B64678B7033CA76A5DD58FC1F10F714708EA5C33AF5CA7A5C8AEB8C3B7178082",
+      "current_sha256": "B64678B7033CA76A5DD58FC1F10F714708EA5C33AF5CA7A5C8AEB8C3B7178082"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_validity.svg",
+      "validated_sha256": "C6FFF5F151A22B1271EA086359A475A8DA98D2C1C899F018BFDBBF84EEBC82BA",
+      "current_sha256": "C6FFF5F151A22B1271EA086359A475A8DA98D2C1C899F018BFDBBF84EEBC82BA"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_validity.png",
+      "validated_sha256": "069E58CC225D3195020060DE900137671A2C6BFFAA2F44502A15341D1F6BCC5B",
+      "current_sha256": "069E58CC225D3195020060DE900137671A2C6BFFAA2F44502A15341D1F6BCC5B"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_ekf_comparison.svg",
+      "validated_sha256": "A779C7593D7563D2670408120B9511A7144B46BD8F7A0F04F8849ADE254AFBF9",
+      "current_sha256": "A779C7593D7563D2670408120B9511A7144B46BD8F7A0F04F8849ADE254AFBF9"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/ukf_ekf_comparison.png",
+      "validated_sha256": "FB9234A7AEDC7A9DCDAE3849BB0CEC34C461CAC6462B59F2B01743CAFC262FE4",
+      "current_sha256": "FB9234A7AEDC7A9DCDAE3849BB0CEC34C461CAC6462B59F2B01743CAFC262FE4"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/build_process/build_ukf_observer.m",
+      "validated_sha256": "2803C9667014D5A7398D48CCDE18B39ED4EC360D17363615042249A9D7308CA0",
+      "current_sha256": "2803C9667014D5A7398D48CCDE18B39ED4EC360D17363615042249A9D7308CA0"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/build_process/initialize_ukf_paths.m",
+      "validated_sha256": "1DB51C0304A6B3C8F06AA5EEF4CB326139B41FCB7D9BB635118C5EA22D5B6279",
+      "current_sha256": "1DB51C0304A6B3C8F06AA5EEF4CB326139B41FCB7D9BB635118C5EA22D5B6279"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/build_process/initialize_ukf_test.m",
+      "validated_sha256": "124F72347B3856CCA9984050CEE5108002E97F89F9DA9FA44B3DBFDB93D2A7B5",
+      "current_sha256": "124F72347B3856CCA9984050CEE5108002E97F89F9DA9FA44B3DBFDB93D2A7B5"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/parameter/refresh_ukf_parameters.m",
+      "validated_sha256": "3F37F9F1A46A75DA1EFCE29F3AD8CBDAEA886943869F6F533587EF2CC9752912",
+      "current_sha256": "3F37F9F1A46A75DA1EFCE29F3AD8CBDAEA886943869F6F533587EF2CC9752912"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/parameter/ukf_parameters.m",
+      "validated_sha256": "B5519CCC17CD87FB03699C260BC0E3ABBAEE556EE9D0009C73D6CAD93CF88C04",
+      "current_sha256": "B5519CCC17CD87FB03699C260BC0E3ABBAEE556EE9D0009C73D6CAD93CF88C04"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/parameter/ukf_test_parameters.m",
+      "validated_sha256": "7B512FE0CCDE7DB7B61CE1B1C743A1495B09118A9A7F8AD739E611FA7B0DE019",
+      "current_sha256": "7B512FE0CCDE7DB7B61CE1B1C743A1495B09118A9A7F8AD739E611FA7B0DE019"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/src/ukf_predict.m",
+      "validated_sha256": "D76A0C1FD1946660C9A8651F6139C71B357E397C170047CBEE7274C4BD43F939",
+      "current_sha256": "D76A0C1FD1946660C9A8651F6139C71B357E397C170047CBEE7274C4BD43F939"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/compare_ekf_ukf.m",
+      "validated_sha256": "E5A022A2214444A58C0BF45B533C8EDB762F47550ED73F53AE4B681A781A2C76",
+      "current_sha256": "E5A022A2214444A58C0BF45B533C8EDB762F47550ED73F53AE4B681A781A2C76"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/plot_ukf_results.m",
+      "validated_sha256": "9FA9AFF30E841165160F4D19D2A0C6310A75EC4221D170949DCDD4F7ED11C74A",
+      "current_sha256": "9FA9AFF30E841165160F4D19D2A0C6310A75EC4221D170949DCDD4F7ED11C74A"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/run_ukf_numerical_validation.m",
+      "validated_sha256": "C4AA3E94D11A2FB9912A6AFB2F7D1113DFD33C6650C726A7BEABF9BEBF5BCA28",
+      "current_sha256": "C4AA3E94D11A2FB9912A6AFB2F7D1113DFD33C6650C726A7BEABF9BEBF5BCA28"
+    },
+    {
+      "relative_path": "model/lib/observer_ukf/waveform_analysis/run_ukf_validation.m",
+      "validated_sha256": "70C8773B45674FF8A30E5A624AFC8B6EE197F23B2E45F2EA67378C7AC65AD477",
+      "current_sha256": "70C8773B45674FF8A30E5A624AFC8B6EE197F23B2E45F2EA67378C7AC65AD477"
+    }
+  ],
+  "bound_source_files": [
+    {
+      "path": "model/lib/observer_ekf/src/EkfObserver.slx",
+      "sha256": "F8BE5AE02CCE9D39F4C0990B29A9D73F9593862A300BF77A4A112BBBC00752C8"
+    },
+    {
+      "path": "model/lib/observer_ekf/src/kalman_current_update.m",
+      "sha256": "469AEFC3A396CE01AC82FF3DEAF710019D327B99CEDB5730ED56FC0538D46176"
+    },
+    {
+      "path": "model/lib/observer_ekf/parameter/ekf_parameters.m",
+      "sha256": "DB9094415F43F625193FCDABCBD6F641BB90EF2433551B3CEAB1942B11607A74"
+    },
+    {
+      "path": "model/lib/observer_ekf/parameter/refresh_kalman_parameters.m",
+      "sha256": "2B9E1285DB383476E1580D517D5F8D6255B723A7FD687C5F01CC01AFFA629E2B"
+    },
+    {
+      "path": "model/lib/observer_ekf/parameter/ekf_test_parameters.m",
+      "sha256": "B0EA640187827A353EB13A362D6C3361CF2FA614EC971FD47793CDD508A99D05"
+    },
+    {
+      "path": "model/lib/observer_ekf/waveform_analysis/plot_kalman_observer_results.m",
+      "sha256": "481AE63262A44D656E75923566A66BE890A96885CB0A26F0C1DD4F6C513884D3"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/pmsm_parameters.m",
+      "sha256": "C0956A684326C919816182EC6D01C65F05B22EAA29A59710FF6AA7F2C498CD1D"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/pmsm_sensorless_parameters.m",
+      "sha256": "A0CDF11B541C97EA7BAB40DE8AC75A3392117F8F9DD50FFC5760215335349B91"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/pmsm_sensorless_step.m",
+      "sha256": "99D9A91F89B333F1461C8E0F43A08D41B58218793BC97666AB187BF46E1B62FC"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/pmsm_sensorless_measurement.m",
+      "sha256": "FA9ECD5C912622FA8E0305DC8205FB155659DE2B32A08DC05CB2FE2E7E2C66F5"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/spmsm_estimation_fixture.m",
+      "sha256": "F26AE5E3794388FEE26B4EAABFF9015F6DDEC5F22C0DB9CF9894CF7FD28B5030"
+    }
+  ],
+  "reference_EKF_results": {
+    "path": "model/lib/observer_ekf/waveform_analysis/results.mat",
+    "sha256": "ECCC92E4356BC92657F5612BE0C02DF2201B0DDA2D6F653200196C8936FC6CDF"
+  },
+  "scope_count": 10,
+  "trace_columns": 50,
+  "plots_visually_reviewed": 4,
+  "earlier_numeric19_replaced_with_final21": true,
+  "physical_motor_drive_App_tested": false,
+  "full_single_model_tested": false,
+  "SIL_tested": false,
+  "physical_hardware_tested": false,
+  "canonical_default": {
+    "status": "passed",
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+    "rebuild_from_M_sources": false,
+    "trace_columns": 50,
+    "raw_log_shape": [
+      50,
+      1,
+      10001
+    ],
+    "default_trace_difference": 0,
+    "default_time_difference": 0,
+    "embedded_predictor_source_matches": true,
+    "shared_measurement_library_link_verified": true,
+    "shared_measurement_location_verified": true,
+    "shared_measurement_source_matches": true,
+    "shared_process_location_verified": true,
+    "scope_count": 10,
+    "owned_model_windows": 0,
+    "visible_figure_windows": 0
+  },
+  "static_checked_M_files": 11,
+  "static_diagnostics": [
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 19,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 20,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 38,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 57,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 58,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 59,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 69,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\build_process\\build_ukf_observer.m",
+      "id": "AGROW",
+      "line": 70,
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\waveform_analysis\\compare_ekf_ukf.m",
+      "id": "MSNU",
+      "line": 28,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\waveform_analysis\\run_ukf_validation.m",
+      "id": "MSNU",
+      "line": 6,
+      "message": "此处之前隐藏了一条代码分析器消息，但该消息不再产生。"
+    },
+    {
+      "file": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_ukf\\waveform_analysis\\run_ukf_validation.m",
+      "id": "ALIGN",
+      "line": 126,
+      "message": "此关键字可能未与其在第 128 行上的匹配 END 对齐。"
+    }
+  ]
+}

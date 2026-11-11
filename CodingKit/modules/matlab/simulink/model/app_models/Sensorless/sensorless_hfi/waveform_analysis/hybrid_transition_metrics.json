@@ -1,0 +1,135 @@
+{
+  "kind": "postprocess recorded controlled handover/injection changes; not a new simulation",
+  "averaging": "two adjacent 50 us samples; rejects the 10 kHz carrier",
+  "scope": "1 ms around weight/injection/pi changes with current control active; fault shutdown separate",
+  "speed_feedback_binding_verified": true,
+  "current_frame_and_sample_age_binding_verified": true,
+  "metrics": [
+    {
+      "name": "round_trip",
+      "controlled_transition_samples": 5941,
+      "two_sample_current_error_peak_A": 0.01092914035409291,
+      "two_sample_torque_error_peak_Nm": 0.0022120278756504637,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "negative_round_trip",
+      "controlled_transition_samples": 5941,
+      "two_sample_current_error_peak_A": 0.010929708220328465,
+      "two_sample_torque_error_peak_Nm": 0.0022121513360069157,
+      "two_sample_stationary_voltage_step_peak_V": 0.031631110598434715
+    },
+    {
+      "name": "opposite_polarity",
+      "controlled_transition_samples": 5917,
+      "two_sample_current_error_peak_A": 0.012506125700332191,
+      "two_sample_torque_error_peak_Nm": 0.00255093515041235,
+      "two_sample_stationary_voltage_step_peak_V": 0.029637544063280393
+    },
+    {
+      "name": "shifted_dwell",
+      "controlled_transition_samples": 5165,
+      "two_sample_current_error_peak_A": 0.01092914035409291,
+      "two_sample_torque_error_peak_Nm": 0.0022120278756504637,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "adc_noise_12bit",
+      "controlled_transition_samples": 6673,
+      "two_sample_current_error_peak_A": 0.18366365996844988,
+      "two_sample_torque_error_peak_Nm": 0.038561510611817826,
+      "two_sample_stationary_voltage_step_peak_V": 0.42983597758147041
+    },
+    {
+      "name": "execution_delay",
+      "controlled_transition_samples": 5851,
+      "two_sample_current_error_peak_A": 0.0075283638322011306,
+      "two_sample_torque_error_peak_Nm": 0.0015814419787612641,
+      "two_sample_stationary_voltage_step_peak_V": 0.013531025692600127
+    },
+    {
+      "name": "aligned_current_delay",
+      "controlled_transition_samples": 5851,
+      "two_sample_current_error_peak_A": 0.0069597661807886887,
+      "two_sample_torque_error_peak_Nm": 0.0014617179305366681,
+      "two_sample_stationary_voltage_step_peak_V": 0.013531025692600127
+    },
+    {
+      "name": "half_voltage",
+      "controlled_transition_samples": 5202,
+      "two_sample_current_error_peak_A": 0.00847021507211046,
+      "two_sample_torque_error_peak_Nm": 0.0016982379711102365,
+      "two_sample_stationary_voltage_step_peak_V": 0.022179293419359994
+    },
+    {
+      "name": "emf_rs_mismatch",
+      "controlled_transition_samples": 5941,
+      "two_sample_current_error_peak_A": 0.010937139633924611,
+      "two_sample_torque_error_peak_Nm": 0.0022138053379360603,
+      "two_sample_stationary_voltage_step_peak_V": 0.031650961555688584
+    },
+    {
+      "name": "high_gap_overlap",
+      "controlled_transition_samples": 5269,
+      "two_sample_current_error_peak_A": 0.015931220065460456,
+      "two_sample_torque_error_peak_Nm": 0.0032593093982625082,
+      "two_sample_stationary_voltage_step_peak_V": 0.040295781147457729
+    },
+    {
+      "name": "high_loss_high",
+      "controlled_transition_samples": 3047,
+      "two_sample_current_error_peak_A": 0.01092914035409291,
+      "two_sample_torque_error_peak_Nm": 0.0022120278756504637,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "low_loss_then_stop",
+      "controlled_transition_samples": 3429,
+      "two_sample_current_error_peak_A": 0.01092914035409291,
+      "two_sample_torque_error_peak_Nm": 0.0022120278756504637,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "adc_current_fault",
+      "controlled_transition_samples": 2989,
+      "two_sample_current_error_peak_A": 0.01092914035409291,
+      "two_sample_torque_error_peak_Nm": 0.0022120278756504637,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "reset_during_probe",
+      "controlled_transition_samples": 5903,
+      "two_sample_current_error_peak_A": 0.012674754274335022,
+      "two_sample_torque_error_peak_Nm": 0.0025895136589010187,
+      "two_sample_stationary_voltage_step_peak_V": 0.030100397336739051
+    },
+    {
+      "name": "disable_restart",
+      "controlled_transition_samples": 8020,
+      "two_sample_current_error_peak_A": 0.011312113726843613,
+      "two_sample_torque_error_peak_Nm": 0.0022977350607807472,
+      "two_sample_stationary_voltage_step_peak_V": 0.032882391669946776
+    },
+    {
+      "name": "command_reverse",
+      "controlled_transition_samples": 11643,
+      "two_sample_current_error_peak_A": 0.011080267738413746,
+      "two_sample_torque_error_peak_Nm": 0.0022932184774217129,
+      "two_sample_stationary_voltage_step_peak_V": 0.031629613338625295
+    },
+    {
+      "name": "unaligned_current_delay",
+      "controlled_transition_samples": 0,
+      "two_sample_current_error_peak_A": null,
+      "two_sample_torque_error_peak_Nm": null,
+      "two_sample_stationary_voltage_step_peak_V": null
+    },
+    {
+      "name": "no_saturation",
+      "controlled_transition_samples": 0,
+      "two_sample_current_error_peak_A": null,
+      "two_sample_torque_error_peak_Nm": null,
+      "two_sample_stationary_voltage_step_peak_V": null
+    }
+  ]
+}

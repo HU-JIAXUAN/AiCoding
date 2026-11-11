@@ -1,0 +1,261 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "model_cases": 9,
+  "normal_cases": 8,
+  "counterexamples": 1,
+  "results": [
+    {
+      "name": "moving_forward_refused",
+      "kind": "moving_refused",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 0,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 76.863153594920931,
+        "permit_count": 0,
+        "emf_end_V": 10.790155820463118,
+        "host_seconds": 10.203923,
+        "maximum_speed_step": 7.9999999996971383E-5,
+        "speed_step_bound": 8.0000010000000007E-5
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "no_alignment": true,
+        "motion_preserved": true,
+        "observed_motion": true,
+        "no_current": true
+      }
+    },
+    {
+      "name": "moving_reverse_refused",
+      "kind": "moving_refused",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 0,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": -76.863153594920931,
+        "permit_count": 0,
+        "emf_end_V": 10.790155820463093,
+        "host_seconds": 8.8817272,
+        "maximum_speed_step": 7.9999999996971383E-5,
+        "speed_step_bound": 8.0000010000000007E-5
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "no_alignment": true,
+        "motion_preserved": true,
+        "observed_motion": true,
+        "no_current": true
+      }
+    },
+    {
+      "name": "observer_disabled_start",
+      "kind": "observer_disabled",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 0,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 0,
+        "permit_count": 0,
+        "emf_end_V": 0,
+        "host_seconds": 8.9797427,
+        "maximum_speed_step": 0,
+        "speed_step_bound": 1E-11
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "no_alignment": true,
+        "no_observation_count": true,
+        "no_current": true
+      }
+    },
+    {
+      "name": "rotating_reset_release",
+      "kind": "moving_exit",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 5.7627482417292839,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 82.759374931070468,
+        "permit_count": 29999,
+        "emf_end_V": 11.652433542405793,
+        "host_seconds": 36.1873155,
+        "maximum_speed_step": 0.0037130770951705472,
+        "speed_step_bound": 0.013709442310781307,
+        "gate_off_latency_s": 0,
+        "speed_before_event": 209.15965568208406,
+        "speed_at_event": 209.159720372797
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "prompt_gate_off": true,
+        "no_moving_realign": true,
+        "motion_preserved": true,
+        "current_not_cleared": true,
+        "current_peak": true
+      }
+    },
+    {
+      "name": "rotating_disable_reenable",
+      "kind": "moving_exit",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 5.7627482417292839,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 82.759374931070468,
+        "permit_count": 29999,
+        "emf_end_V": 11.652433542405793,
+        "host_seconds": 34.8234626,
+        "maximum_speed_step": 0.0037130770951705472,
+        "speed_step_bound": 0.013709442310781307,
+        "gate_off_latency_s": 0,
+        "speed_before_event": 209.15965568208406,
+        "speed_at_event": 209.159720372797
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "prompt_gate_off": true,
+        "no_moving_realign": true,
+        "motion_preserved": true,
+        "current_not_cleared": true,
+        "current_peak": true
+      }
+    },
+    {
+      "name": "rotating_direction_change",
+      "kind": "moving_exit",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 5.7627482417292839,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 82.759374931070468,
+        "permit_count": 29999,
+        "emf_end_V": 11.652433542405793,
+        "host_seconds": 35.052049,
+        "maximum_speed_step": 0.0037130770951705472,
+        "speed_step_bound": 0.013709442310781307,
+        "gate_off_latency_s": 0,
+        "speed_before_event": 209.15965568208406,
+        "speed_at_event": 209.159720372797
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "prompt_gate_off": true,
+        "no_moving_realign": true,
+        "motion_preserved": true,
+        "current_not_cleared": true,
+        "current_peak": true
+      }
+    },
+    {
+      "name": "direction_stop_then_restart",
+      "kind": "restart",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 3.0216313653888793,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": -79.999999985699759,
+        "permit_count": 70303,
+        "emf_end_V": 11.23080625044239,
+        "host_seconds": 65.8211538,
+        "maximum_speed_step": 0.0023997718820538694,
+        "speed_step_bound": 0.008854988951883136,
+        "off_samples_after_direction": 12697,
+        "final": {
+          "angle_rms_rad": 0.0087748294523837,
+          "speed_error_rms_rad_per_s": 3.7777746740751754E-8,
+          "steady_speed_rad_per_s": -79.999999968755958,
+          "valid_fraction": 1,
+          "auto_fraction": 1,
+          "physical_dq_peak_A": 3.0216313653888793,
+          "allocated_dq_peak_A": 4.0221764221127936,
+          "steady_id_reference_A": -0.0074647971580276461,
+          "steady_id_actual_A": -0.017492887765916749,
+          "weakening_fraction": 0,
+          "feasible_fraction": 1,
+          "steady_dc_power_W": 20.179996788736538,
+          "steady_mechanical_power_W": 19.200000008231516,
+          "kcl_max_A": 4.4408920985006262E-16,
+          "duty_min": 0.28756793360121918,
+          "duty_max": 0.71243206639878087,
+          "handover_fault_count": 0,
+          "speed_integral_peak_Nm": 1.6355542271285843,
+          "host_seconds": 65.8211538
+        }
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "requalified": true,
+        "restart_tracking": true,
+        "final_direction": true
+      }
+    },
+    {
+      "name": "observer_loss_exit",
+      "kind": "observer_loss",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 5.7653398273817116,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 82.989189112727018,
+        "permit_count": 41000,
+        "emf_end_V": 0,
+        "host_seconds": 34.4286882,
+        "maximum_speed_step": 0.0042442406700899937,
+        "speed_step_bound": 0.013715255908794161,
+        "gate_off_latency_s": 0.0010000000000001119,
+        "speed_before_event": 209.15965568208406,
+        "speed_at_event": 209.159720372797
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "loss_timeout": true,
+        "remains_off": true,
+        "fault_latched": true,
+        "motion_preserved": true,
+        "current_peak": true
+      }
+    },
+    {
+      "name": "moving_alignment_bypass_counterexample",
+      "kind": "counterexample",
+      "passed": true,
+      "metrics": {
+        "current_peak_A": 13.225555407917128,
+        "continuity_error_A": 0,
+        "speed_end_rad_per_s": 6.6726398248801972,
+        "permit_count": 4001,
+        "emf_end_V": 0.92350863439095487,
+        "host_seconds": 9.0068849,
+        "maximum_speed_step": 0.026569779498650803,
+        "speed_step_bound": 0.0299526501568006
+      },
+      "checks": {
+        "kcl": true,
+        "physical_state_continuity": true,
+        "mechanical_step_bound": true,
+        "bypass_active": true,
+        "blind_alignment_exceeds_nominal_current": true
+      }
+    }
+  ],
+  "reused_saved_simulations": true,
+  "mechanical_check": "Single-step torque/J bound and state continuity; original end-speed >100 criterion was invalid for a loaded coasting rotor. Original records retained."
+}

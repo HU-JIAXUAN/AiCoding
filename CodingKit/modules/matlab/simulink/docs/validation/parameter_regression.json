@@ -1,0 +1,11 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "groups": {
+    "pid": 12,
+    "math": 13,
+    "motor": 45,
+    "mtpa_fw": 25
+  },
+  "tests": 95
+}

@@ -1,0 +1,646 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "2026b",
+  "models": [
+    "EemfSensorlessFOC",
+    "FluxSensorlessFOC"
+  ],
+  "scope": "Double SPMSM average-inverter MIL; control exit only, not power-stage high-impedance shutdown",
+  "physical_MIL_cases": 16,
+  "normal_closed_loop_cases": 12,
+  "observer_loss_exit_cases": 2,
+  "expected_startup_failure_cases": 2,
+  "reports": [
+    {
+      "release": "2026b",
+      "observer_kind": "eemf",
+      "passed": true,
+      "case_count": 8,
+      "cases": [
+        {
+          "name": "positive",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000008137576,
+          "angle_RMS_rad": 0.008463465557853137,
+          "speed_RMS_mechanical_rad_s": 8.98299748020329e-07,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0121317917879638,
+          "max_voltage_step_during_blend_V": 0.0936553249989249
+        },
+        {
+          "name": "negative",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": -80.0000000813806,
+          "angle_RMS_rad": 0.00846346555788402,
+          "speed_RMS_mechanical_rad_s": 8.982651559235098e-07,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0226913243041196,
+          "max_voltage_step_during_blend_V": 0.09956919490002222
+        },
+        {
+          "name": "initial_opposite",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000008127323,
+          "angle_RMS_rad": 0.00846346555777358,
+          "speed_RMS_mechanical_rad_s": 8.98608456699334e-07,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.100100402709774,
+          "max_voltage_step_during_blend_V": 0.14377699136746966
+        },
+        {
+          "name": "high_inertia",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00030609027715,
+          "angle_RMS_rad": 0.008463859217027973,
+          "speed_RMS_mechanical_rad_s": 0.0013008671224844595,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.017346138900878,
+          "max_voltage_step_during_blend_V": 0.09357780535629376
+        },
+        {
+          "name": "resistance_mismatch",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000007935955,
+          "angle_RMS_rad": 0.008508332658839286,
+          "speed_RMS_mechanical_rad_s": 8.805567857756573e-07,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.016010133726734,
+          "max_voltage_step_during_blend_V": 0.10064496261233395
+        },
+        {
+          "name": "lower_bus",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000008137658,
+          "angle_RMS_rad": 0.00846346555785302,
+          "speed_RMS_mechanical_rad_s": 8.982999414699049e-07,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.012131791787964,
+          "max_voltage_step_during_blend_V": 0.09365532499893199
+        },
+        {
+          "name": "observer_loss",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": 1.8010000000000002,
+          "final_speed_rad_s": -1.6981056615272188,
+          "angle_RMS_rad": 0.008463459057961316,
+          "speed_RMS_mechanical_rad_s": 1.9757529469933772e-05,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0121317917879638,
+          "max_voltage_step_during_blend_V": 0.0936553249989249
+        },
+        {
+          "name": "current_alignment_baseline",
+          "passed": true,
+          "auto_time_s": null,
+          "fault_time_s": 0.9700500000000001,
+          "final_speed_rad_s": -1.6981056615273584,
+          "angle_RMS_rad": null,
+          "speed_RMS_mechanical_rad_s": null,
+          "valid_fraction": null,
+          "max_healthy_current_A": 3.3428249637418603,
+          "max_voltage_step_during_blend_V": null
+        }
+      ],
+      "acceptance_source": "sensorless_foc_validation_parameters.m",
+      "position_sensor_used_in_control": false,
+      "hardware_tested": false
+    },
+    {
+      "release": "2026b",
+      "observer_kind": "flux",
+      "passed": true,
+      "case_count": 8,
+      "cases": [
+        {
+          "name": "positive",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000007268896,
+          "angle_RMS_rad": 0.008217144499379107,
+          "speed_RMS_mechanical_rad_s": 1.2146801590594656e-06,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0121317917879638,
+          "max_voltage_step_during_blend_V": 0.10150850451595404
+        },
+        {
+          "name": "negative",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": -80.00000007269209,
+          "angle_RMS_rad": 0.008217144499105062,
+          "speed_RMS_mechanical_rad_s": 1.2146703394569744e-06,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0226913243041196,
+          "max_voltage_step_during_blend_V": 0.10856578458958249
+        },
+        {
+          "name": "initial_opposite",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000007251249,
+          "angle_RMS_rad": 0.008217144503650523,
+          "speed_RMS_mechanical_rad_s": 1.214524255456972e-06,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.100100402709774,
+          "max_voltage_step_during_blend_V": 0.14771259895881206
+        },
+        {
+          "name": "high_inertia",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00030640794023,
+          "angle_RMS_rad": 0.008217032823223405,
+          "speed_RMS_mechanical_rad_s": 0.0012266215282208768,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.017346138900878,
+          "max_voltage_step_during_blend_V": 0.10103009930095477
+        },
+        {
+          "name": "resistance_mismatch",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000007073773,
+          "angle_RMS_rad": 0.008260883364103331,
+          "speed_RMS_mechanical_rad_s": 1.1969526613395163e-06,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.016010133726734,
+          "max_voltage_step_during_blend_V": 0.10958667155488588
+        },
+        {
+          "name": "lower_bus",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": null,
+          "final_speed_rad_s": 80.00000007268908,
+          "angle_RMS_rad": 0.008217144499379986,
+          "speed_RMS_mechanical_rad_s": 1.214680296845165e-06,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.012131791787964,
+          "max_voltage_step_during_blend_V": 0.10150850451596725
+        },
+        {
+          "name": "observer_loss",
+          "passed": true,
+          "auto_time_s": 0.49010000000000004,
+          "fault_time_s": 1.8010000000000002,
+          "final_speed_rad_s": -1.6981056615272188,
+          "angle_RMS_rad": 0.008217198392553296,
+          "speed_RMS_mechanical_rad_s": 1.7386391167623872e-05,
+          "valid_fraction": 1,
+          "max_healthy_current_A": 3.0121317917879638,
+          "max_voltage_step_during_blend_V": 0.10150850451595404
+        },
+        {
+          "name": "current_alignment_baseline",
+          "passed": true,
+          "auto_time_s": null,
+          "fault_time_s": 0.9700500000000001,
+          "final_speed_rad_s": -1.6981056615273584,
+          "angle_RMS_rad": null,
+          "speed_RMS_mechanical_rad_s": null,
+          "valid_fraction": null,
+          "max_healthy_current_A": 3.3428249637418603,
+          "max_voltage_step_during_blend_V": null
+        }
+      ],
+      "acceptance_source": "sensorless_foc_validation_parameters.m",
+      "position_sensor_used_in_control": false,
+      "hardware_tested": false
+    }
+  ],
+  "fresh_current_source_default": [
+    {
+      "kind": "eemf",
+      "samples": 40001,
+      "max_diffs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_four_logs_exact": true
+    },
+    {
+      "kind": "flux",
+      "samples": 40001,
+      "max_diffs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_four_logs_exact": true
+    }
+  ],
+  "canonical_default": [
+    {
+      "kind": "eemf",
+      "samples": 40001,
+      "max_diffs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_four_logs_exact": true
+    },
+    {
+      "kind": "flux",
+      "samples": 40001,
+      "max_diffs": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_four_logs_exact": true
+    }
+  ],
+  "source_change_after_full_suite": "Only model resource ownership and removal of unused copied smoCfg; both final-source defaults replay all four logs exactly",
+  "native_model_audit": {
+    "release": "2026b",
+    "models": [
+      {
+        "inventory": {
+          "model": "EemfSensorlessFOC",
+          "path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": [
+            "Controller",
+            "DeadtimeError",
+            "FeasibleCommand",
+            "MeasuredCurrents",
+            "Measurement",
+            "Observer",
+            "ObserverEnabled",
+            "ObserverEnabledDouble",
+            "Plant",
+            "SaveTrace",
+            "TraceChannels",
+            "TruthCurrents",
+            "VoltageStage",
+            "inputs",
+            "stimulus"
+          ],
+          "editor_open": false
+        },
+        "observer_scopes": [
+          {
+            "name": "EmfScope",
+            "sources": [
+              "Estimator.y4",
+              "Estimator.y5",
+              "Estimator.y11"
+            ]
+          },
+          {
+            "name": "EstimateAngleScope",
+            "sources": [
+              "Estimator.y1"
+            ]
+          },
+          {
+            "name": "EstimateSpeedScope",
+            "sources": [
+              "Estimator.y2"
+            ]
+          },
+          {
+            "name": "ResidualScope",
+            "sources": [
+              "Estimator.y8",
+              "Estimator.y9",
+              "ResidualNorm.y1"
+            ]
+          },
+          {
+            "name": "ValidityScope",
+            "sources": [
+              "Estimator.y3",
+              "enable.y1",
+              "reset.y1"
+            ]
+          }
+        ],
+        "reference": "EmfObserver/EEMF",
+        "mask_settings": {
+          "cfg": {
+            "Ts": 5e-05,
+            "Rs": 0.5,
+            "Ld": 0.001,
+            "Lq": 0.001,
+            "Flux": 0.035,
+            "PolePairs": 4,
+            "BandwidthHz": 300,
+            "MinEmf": 1,
+            "MinOmega": 30,
+            "MaxResidual": 1.5
+          },
+          "trackerCfg": {
+            "Ts": 5e-05,
+            "NaturalFrequency": 40,
+            "Damping": 0.707,
+            "Kp": 355.3769609740774,
+            "Ki": 63165.46816697189,
+            "Kaw": 502.6548245743669,
+            "OmegaMax": 1500,
+            "MinMagnitude": 1,
+            "LockError": 0.12,
+            "LockSamples": 100,
+            "Theta0": 0,
+            "Omega0": 0
+          }
+        },
+        "handover_max_residual": 1.5,
+        "post_load_callback": "addpath(fullfile(fileparts(get_param(bdroot,'FileName')),'..','build_process'));initialize_observer_foc(bdroot,'eemf');",
+        "root_and_observer_connectivity": "healthy",
+        "legacy_smo_cfg_removed": true
+      },
+      {
+        "inventory": {
+          "model": "FluxSensorlessFOC",
+          "path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+          "type": "model",
+          "root_blocks": [
+            "Controller",
+            "DeadtimeError",
+            "FeasibleCommand",
+            "MeasuredCurrents",
+            "Measurement",
+            "Observer",
+            "ObserverEnabled",
+            "ObserverEnabledDouble",
+            "Plant",
+            "SaveTrace",
+            "TraceChannels",
+            "TruthCurrents",
+            "VoltageStage",
+            "inputs",
+            "stimulus"
+          ],
+          "editor_open": false
+        },
+        "observer_scopes": [
+          {
+            "name": "EstimateAngleScope",
+            "sources": [
+              "Estimator.y1"
+            ]
+          },
+          {
+            "name": "EstimateSpeedScope",
+            "sources": [
+              "Estimator.y2"
+            ]
+          },
+          {
+            "name": "FluxScope",
+            "sources": [
+              "Estimator.y4",
+              "Estimator.y5",
+              "Estimator.y8"
+            ]
+          },
+          {
+            "name": "QualityScope",
+            "sources": [
+              "Estimator.y12",
+              "Estimator.y13",
+              "Estimator.y14"
+            ]
+          },
+          {
+            "name": "ValidityScope",
+            "sources": [
+              "Estimator.y3",
+              "enable.y1",
+              "reset.y1"
+            ]
+          }
+        ],
+        "reference": "FluxObserver/Flux",
+        "mask_settings": {
+          "cfg": {
+            "Ts": 5e-05,
+            "Rs": 0.5,
+            "L": 0.001,
+            "Flux": 0.035,
+            "PolePairs": 4,
+            "LeakEnable": 1,
+            "LeakHz": 10,
+            "DcEnable": 1,
+            "DcHz": 3,
+            "FrequencyHz": 5,
+            "MinCompOmega": 20,
+            "FullCompOmega": 100,
+            "MaxCompGain": 4,
+            "MinFlux": 0.015,
+            "MaxFlux": 0.052500000000000005,
+            "MinOmega": 120,
+            "MaxResidual": 5,
+            "LeakA": 0.9968633369849541,
+            "LeakB": 4.9921542365807754e-05,
+            "DcA": 0.9990579661966258,
+            "FrequencyA": 0.9984304367280448
+          },
+          "trackerCfg": {
+            "Ts": 5e-05,
+            "NaturalFrequency": 40,
+            "Damping": 0.707,
+            "Kp": 355.3769609740774,
+            "Ki": 63165.46816697189,
+            "Kaw": 502.6548245743669,
+            "OmegaMax": 1500,
+            "MinMagnitude": 0.015,
+            "LockError": 0.12,
+            "LockSamples": 100,
+            "Theta0": 0,
+            "Omega0": 0
+          }
+        },
+        "handover_max_residual": 5,
+        "post_load_callback": "addpath(fullfile(fileparts(get_param(bdroot,'FileName')),'..','build_process'));initialize_observer_foc(bdroot,'flux');",
+        "root_and_observer_connectivity": "healthy",
+        "legacy_smo_cfg_removed": true
+      }
+    ],
+    "task_model_editors_open": 0,
+    "figures_open": 0
+  },
+  "preexisting_M_and_SLX_files_unchanged": 301,
+  "post_fault_current_dq_peak_A": {
+    "eemf": 15.8882178362,
+    "flux": 15.8882250296
+  },
+  "power_stage_high_impedance_shutdown_validated": false,
+  "SIL_validated": false,
+  "C2000_target_validated": false,
+  "hardware_tested": false,
+  "files": [
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_observer_foc.m",
+      "sha256": "631190907AF132C5C6B223C7F9F8438CF7B304C1A733767762A3ACF17A8F9377"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_observer_foc.m",
+      "sha256": "F64844FBBDC2A89B48B74309B40C40C1FF4477562CC8BD81A83ACCD46D7205F2"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_observer_foc_case.m",
+      "sha256": "A04B1A0BBD2B644518E56C52B5C7D09A2EE5DA1B59845B2C8D4244CDBDE44F2E"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_channels.m",
+      "sha256": "ACD4813DB0AD2BBC20CCAF23A4F99B4C92DDBD2F68EB049E6ACE706F8CEE4FAC"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_parameters.m",
+      "sha256": "73A2D78E9AB389DBD36DAB533DF184A2DC71B5D028B371B0F36AD4E7ACD5A6E4"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_observer_foc_results.m",
+      "sha256": "8C1C0468852445DD826A339AEFA12A21BA4FC0A500031D15E2B162C06DDDBE98"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/read_observer_foc_result.m",
+      "sha256": "E207E0FE6DC68370B235A0094AFD23CBFDEA8E6445BD1BCDA2AFE1DF6E978677"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_observer_foc_validation.m",
+      "sha256": "5DAE874041C5A2FBC275F708343E00EF9B4601881F9637144B8E3E666DFC9FC5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+      "sha256": "578AD0F2034454F8EB4A44CD2F3BC6393B219FDE4E315D9F5EEB1F17A452D863"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+      "sha256": "79B221E0257E15B3A6ED2341A45E4B3410355DBB8A416565E25283AC65631A16"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_results.mat",
+      "sha256": "393898066FC0969E8773666B17F93256D903A027C7038A730A567D8CA6824E65"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_metrics.json",
+      "sha256": "3645840CC468E4E2FC38898F7382D164F5EE910A9233EA38574A7101FB23D128"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_positive.png",
+      "sha256": "54936135899EF9777EFB9EF50B5B688FE1FA56198B44B00C8345EFB70788B03B"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_positive.svg",
+      "sha256": "333949073B4314823F057FF3C6DEC4F1B907B3869D5D72D197CB059D44A99114"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_negative.png",
+      "sha256": "D3426B17980B104A79572B6E775791EC0D54A96E858205A23BF8CDE3D0CE0048"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_negative.svg",
+      "sha256": "914EE7F1C8A426B1CD463CBAB3AABF019F48C5296CBED1E53C5CAECAF8F8D264"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_observer_loss.png",
+      "sha256": "413C101D8BD6EFFD617CF2D8F48F85560B49B6AE61A75812BA427F55111A8251"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/eemf_observer_loss.svg",
+      "sha256": "F192E7E5C1D65EEBC9785504DB67BF23069BEEEDBB8164B5DFB529DF1B949150"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_results.mat",
+      "sha256": "DA1103E3522806848B7E5310CF0D9EE283717D9A1C08C5EF280F27FA5324B0B0"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_metrics.json",
+      "sha256": "5A8B793B38EDB259EA7D2D75BD712A5E591E38155F943109D8F6E3AF1FEB458C"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_positive.png",
+      "sha256": "B40E1EBEAE8DF883863AE560A0F36DE30EABED652D6D20C26DF98A2555C2687B"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_positive.svg",
+      "sha256": "AE19EF4898C3A5AFFC98DDC2A1C560DE28F961D3C005106FC7C712E1FF33A1A3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_negative.png",
+      "sha256": "E1D873172A856748B457E0EF616D19DCD555E2616488F552596F16C6A93E511C"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_negative.svg",
+      "sha256": "3514DE743BD7115833125B572246B0E668160149A2C5480FDCD233F3B3BD5152"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_observer_loss.png",
+      "sha256": "59137D322FD69032A021E7F06851712641F13B8266BAE631FF2F6219B86792FA"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flux_observer_loss.svg",
+      "sha256": "A8849701C6FF56F706BE35D028E811512E81FF58B22CFFCDEA94DFAC77A2DECB"
+    }
+  ],
+  "static_analysis": [
+    {
+      "file": "observer_foc_channels.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "observer_foc_parameters.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "build_observer_foc.m",
+      "diagnostic_ids": [
+        "AGROW",
+        "AGROW",
+        "AGROW",
+        "AGROW",
+        "AGROW",
+        "AGROW",
+        "AGROW"
+      ]
+    },
+    {
+      "file": "initialize_observer_foc.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "run_observer_foc_case.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "plot_observer_foc_results.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "read_observer_foc_result.m",
+      "diagnostic_ids": []
+    },
+    {
+      "file": "run_observer_foc_validation.m",
+      "diagnostic_ids": []
+    }
+  ]
+}

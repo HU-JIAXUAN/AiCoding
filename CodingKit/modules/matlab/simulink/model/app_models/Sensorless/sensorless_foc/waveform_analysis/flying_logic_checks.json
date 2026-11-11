@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "checks": 8,
+  "precharge_guards": 3,
+  "tracking_identity_max_error": 0
+}

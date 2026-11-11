@@ -1,0 +1,731 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "release": "26.2.0.3433840 (R2026b) Update 1",
+  "model": "FlyingFluxFOC",
+  "physical_model_checks": 13,
+  "normal_or_recapture_cases": 8,
+  "loss_exit_cases": 1,
+  "expected_capture_refusals": 3,
+  "passive_rectification_case": 1,
+  "pure_M_checks": 8,
+  "mil_report": {
+    "release": "26.2.0.3433840 (R2026b) Update 1",
+    "model": "FlyingFluxFOC",
+    "cases": [
+      {
+        "name": "forward",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.9409444211441675,
+          "final_fault": 0,
+          "angle_rms": 0.008973750050014885,
+          "speed_final": 99.9999674787028,
+          "peak_capture_current": 0.416656028828088,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.16530120654040648
+        }
+      },
+      {
+        "name": "reverse",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.06375,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.8967823874267753,
+          "final_fault": 0,
+          "angle_rms": 0.008973773798701427,
+          "speed_final": -99.99996847054406,
+          "peak_capture_current": 0.443394412119555,
+          "enable_voltage_mismatch": 0.014548271736979014,
+          "returned_bus_energy": 0.1438793781261079
+        }
+      },
+      {
+        "name": "initial_angle",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.06535,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.7924845686804574,
+          "final_fault": 0,
+          "angle_rms": 0.0089738547910406,
+          "speed_final": 99.99997157614594,
+          "peak_capture_current": 0.47988746428518636,
+          "enable_voltage_mismatch": 0.006081185031894592,
+          "returned_bus_energy": 0.08848129663519189
+        }
+      },
+      {
+        "name": "load",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.9409444211441675,
+          "final_fault": 0,
+          "angle_rms": 0.009452657514766103,
+          "speed_final": 100.00491101920363,
+          "peak_capture_current": 0.416656028828088,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.16530120654040648
+        }
+      },
+      {
+        "name": "bus_36V",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.9781552043076476,
+          "final_fault": 0,
+          "angle_rms": 0.008076361786772734,
+          "speed_final": 89.99997886270198,
+          "peak_capture_current": 0.4191263047103121,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.20185669495491965
+        }
+      },
+      {
+        "name": "moving_reset",
+        "expected": "recapture",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 2,
+          "turn_off_count": 1,
+          "peak_phase_current": 0.9409444211441675,
+          "final_fault": 0,
+          "angle_rms": 0.0089707079281048,
+          "speed_final": 100.00169814504977,
+          "peak_capture_current": 0.416656028828088,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.47309504914452577
+        }
+      },
+      {
+        "name": "moving_disable",
+        "expected": "recapture",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 2,
+          "turn_off_count": 1,
+          "peak_phase_current": 0.9409444211441675,
+          "final_fault": 0,
+          "angle_rms": 0.008976496252935215,
+          "speed_final": 100.00341378503308,
+          "peak_capture_current": 0.416656028828088,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.38607093532087566
+        }
+      },
+      {
+        "name": "observer_loss",
+        "expected": "loss",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.063,
+          "capture_count": 1,
+          "turn_off_count": 1,
+          "peak_phase_current": 1.3871253276196565,
+          "final_fault": 5,
+          "angle_rms": null,
+          "speed_final": -8.423851355585999,
+          "peak_capture_current": 0.416656028828088,
+          "enable_voltage_mismatch": 0.01723685679431208,
+          "returned_bus_energy": 0.1671467790374479
+        }
+      },
+      {
+        "name": "opposite_target",
+        "expected": "opposite",
+        "passed": true,
+        "metrics": {
+          "capture_time": null,
+          "capture_count": 0,
+          "turn_off_count": 0,
+          "peak_phase_current": 0,
+          "final_fault": 2,
+          "angle_rms": null,
+          "speed_final": -66.15782815188857,
+          "peak_capture_current": null,
+          "enable_voltage_mismatch": null,
+          "returned_bus_energy": 0
+        }
+      },
+      {
+        "name": "stationary",
+        "expected": "timeout",
+        "passed": true,
+        "metrics": {
+          "capture_time": null,
+          "capture_count": 0,
+          "turn_off_count": 0,
+          "peak_phase_current": 0,
+          "final_fault": 1,
+          "angle_rms": null,
+          "speed_final": 0,
+          "peak_capture_current": null,
+          "enable_voltage_mismatch": null,
+          "returned_bus_energy": 0
+        }
+      },
+      {
+        "name": "voltage_headroom",
+        "expected": "voltage",
+        "passed": true,
+        "metrics": {
+          "capture_time": null,
+          "capture_count": 0,
+          "turn_off_count": 0,
+          "peak_phase_current": 0,
+          "final_fault": 3,
+          "angle_rms": null,
+          "speed_final": 148.8551133417552,
+          "peak_capture_current": null,
+          "enable_voltage_mismatch": null,
+          "returned_bus_energy": 0
+        }
+      },
+      {
+        "name": "diode_rectification",
+        "expected": "rectification",
+        "passed": true,
+        "metrics": {
+          "capture_time": null,
+          "capture_count": 0,
+          "turn_off_count": 0,
+          "peak_phase_current": 20.714712506299314,
+          "final_fault": 6,
+          "angle_rms": null,
+          "speed_final": 176.53761260870456,
+          "peak_capture_current": null,
+          "enable_voltage_mismatch": null,
+          "returned_bus_energy": 22.87563975980824
+        }
+      },
+      {
+        "name": "half_plant_step",
+        "expected": "run",
+        "passed": true,
+        "metrics": {
+          "capture_time": 0.06295,
+          "capture_count": 1,
+          "turn_off_count": 0,
+          "peak_phase_current": 0.943607196798203,
+          "final_fault": 0,
+          "angle_rms": 0.009474267314436732,
+          "speed_final": 99.99996738986944,
+          "peak_capture_current": 0.41607063328911836,
+          "enable_voltage_mismatch": 0.017378986042200697,
+          "returned_bus_energy": 0.16636039405868014
+        }
+      }
+    ],
+    "count": 13
+  },
+  "logic_report": {
+    "passed": true,
+    "checks": 8,
+    "precharge_guards": 3,
+    "tracking_identity_max_error": 0
+  },
+  "native_audit": {
+    "release": "26.2.0.3433840 (R2026b) Update 1",
+    "root_check": "status: healthy\nvalidation_scope: root\nchecks_run: \n  - unconnected_ports\n  - unconnected_lines\n  - stateflow_lint",
+    "controller_check": "status: healthy\nvalidation_scope: blk_1\nchecks_run: \n  - unconnected_ports\n  - unconnected_lines\n  - stateflow_lint",
+    "shared_library_links": [
+      {
+        "name": "Estimator",
+        "reference": "FluxObserver/Flux"
+      },
+      {
+        "name": "Plant",
+        "reference": "PMSMBridgePlant/BridgeMotor"
+      },
+      {
+        "name": "CurrentPI",
+        "reference": "CurrentControl/FrameTrackingPI"
+      },
+      {
+        "name": "CurrentPark",
+        "reference": "ClarkePark/Park"
+      },
+      {
+        "name": "InversePark",
+        "reference": "ClarkePark/InversePark"
+      },
+      {
+        "name": "SVPWM",
+        "reference": "Inverter/SVPWM"
+      },
+      {
+        "name": "VoltageLimit",
+        "reference": "CurrentControl/VoltageLimit"
+      },
+      {
+        "name": "VoltagePark",
+        "reference": "ClarkePark/Park"
+      }
+    ],
+    "estimator_inputs": [
+      "VoltageChannels.y1",
+      "VoltageChannels.y2",
+      "CurrentChannels.y1",
+      "CurrentChannels.y2",
+      "ObserverEnableDouble.y1",
+      "Inputs.y4"
+    ],
+    "controller_inputs": [
+      "CurrentSample.y1",
+      "AgeAlign.y1",
+      "Estimator.y2",
+      "Estimator.y3",
+      "Estimator.y12",
+      "AgeAlign.y2",
+      "Inputs.y1",
+      "Inputs.y3",
+      "Inputs.y4"
+    ],
+    "completed_voltage_delay": "bridgeCfg.Ts",
+    "plant_output_sources": [
+      [
+        "SpeedScopeChannels",
+        "plantTrace"
+      ],
+      [
+        "AngleScopeChannels",
+        "plantTrace"
+      ]
+    ],
+    "true_angle_speed_excluded_from_feedback": true,
+    "embedded_sources_exact": true,
+    "scopes": [
+      {
+        "name": "AngleScope",
+        "scope": "FlyingFluxFOC",
+        "sources": [
+          "Plant.y6",
+          "Estimator.y1",
+          "AgeAlign.y1"
+        ]
+      },
+      {
+        "name": "ModeScope",
+        "scope": "FlyingFluxFOC",
+        "sources": [
+          "Controller.y2",
+          "Estimator.y3",
+          "Inputs.y3",
+          "Inputs.y4"
+        ]
+      },
+      {
+        "name": "OffCurrentScope",
+        "scope": "FlyingFluxFOC",
+        "sources": [
+          "Plant.y2",
+          "Plant.y8"
+        ]
+      },
+      {
+        "name": "SpeedScope",
+        "scope": "FlyingFluxFOC",
+        "sources": [
+          "Plant.y5",
+          "EstimateMechanical.y1",
+          "Inputs.y1"
+        ]
+      },
+      {
+        "name": "CurrentScope",
+        "scope": "Controller",
+        "sources": [
+          "ReferenceDQ.y1",
+          "CurrentDQ.y1"
+        ]
+      },
+      {
+        "name": "SequenceScope",
+        "scope": "Controller",
+        "sources": [
+          "Sequence.y2"
+        ]
+      },
+      {
+        "name": "VoltageScope",
+        "scope": "Controller",
+        "sources": [
+          "CurrentPI.y1",
+          "VoltageLimit.y1",
+          "VoltageDQ.y1"
+        ]
+      }
+    ],
+    "trace_widths": [
+      34,
+      19,
+      29
+    ],
+    "trace_orders": {
+      "plant": [
+        "Plant.y1",
+        "Plant.y2",
+        "Plant.y3",
+        "Plant.y4",
+        "Plant.y5",
+        "Plant.y6",
+        "Plant.y7",
+        "Plant.y8",
+        "Plant.y9",
+        "Plant.y10",
+        "Plant.y11",
+        "Plant.y12",
+        "Plant.y13",
+        "Plant.y14",
+        "Plant.y15",
+        "Plant.y16",
+        "Controller.y2",
+        "Stimulus.y1"
+      ],
+      "observer": [
+        "CurrentSample.y1",
+        "VoltageSample.y1",
+        "Estimator.y1",
+        "Estimator.y2",
+        "Estimator.y3",
+        "Estimator.y4",
+        "Estimator.y5",
+        "Estimator.y6",
+        "Estimator.y7",
+        "Estimator.y8",
+        "Estimator.y9",
+        "Estimator.y10",
+        "Estimator.y11",
+        "Estimator.y12",
+        "Estimator.y13",
+        "Estimator.y14",
+        "AgeAlign.y1"
+      ],
+      "controller": [
+        "Sequence.y2",
+        "CurrentDQ.y1",
+        "CurrentError.y1",
+        "CurrentPI.y1",
+        "VoltageLimit.y1",
+        "CurrentPI.y2",
+        "CurrentPI.y3",
+        "PIResidual.y1",
+        "Duty.y1"
+      ]
+    },
+    "static_analysis": [
+      {
+        "file": "flying_angle_align.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "flying_capture_step.m",
+        "diagnostic_ids": [
+          "ALIGN",
+          "ALIGN"
+        ]
+      },
+      {
+        "file": "flying_pi_residual.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "flying_foc_channels.m",
+        "diagnostic_ids": [
+          "AGROW",
+          "AGROW"
+        ]
+      },
+      {
+        "file": "flying_foc_parameters.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "refresh_flying_foc_parameters.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "build_flying_foc.m",
+        "diagnostic_ids": [
+          "ALIGN",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW",
+          "AGROW"
+        ]
+      },
+      {
+        "file": "flying_foc_stimulus.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "initialize_flying_foc.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "run_flying_foc_case.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "plot_flying_foc_results.m",
+        "diagnostic_ids": []
+      },
+      {
+        "file": "run_flying_foc_validation.m",
+        "diagnostic_ids": [
+          "MSNU"
+        ]
+      },
+      {
+        "file": "run_flying_logic_checks.m",
+        "diagnostic_ids": [
+          "ALIGN",
+          "NOCOMMA"
+        ]
+      }
+    ],
+    "inventory": {
+      "model": "FlyingFluxFOC",
+      "type": "model",
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+      "root_blocks": [
+        "AgeAlign",
+        "AngleScope",
+        "AngleScopeChannels",
+        "Controller",
+        "CurrentChannels",
+        "CurrentSample",
+        "EstimateMechanical",
+        "Estimator",
+        "Inputs",
+        "MeasurementAge",
+        "ModeScope",
+        "ModeScopeChannels",
+        "ObserverEnableDouble",
+        "ObserverEnabled",
+        "OffCurrentScope",
+        "OffCurrentScopeChannels",
+        "Plant",
+        "SpeedScope",
+        "SpeedScopeChannels",
+        "Stimulus",
+        "VoltageChannels",
+        "VoltageCompleted",
+        "VoltageSample",
+        "observerSave",
+        "observerTrace",
+        "plantSave",
+        "plantTrace"
+      ]
+    },
+    "figures_open": 0,
+    "model_editor_open": false
+  },
+  "default_replays": {
+    "samples": 20001,
+    "columns": [
+      34,
+      19,
+      29
+    ],
+    "current_source_rebuild": {
+      "time_exact": true,
+      "maximum_differences": [
+        0,
+        0,
+        0
+      ]
+    },
+    "canonical_path": {
+      "time_exact": true,
+      "maximum_differences": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "plots_visually_reviewed": 3,
+  "preexisting_M_and_SLX_unchanged": 331,
+  "observer_uses_true_angle_or_speed": false,
+  "controller_reset_resets_plant": false,
+  "completed_interval_voltage_delay": true,
+  "nominal_voltage_midpoint_age_seconds": 2.5e-06,
+  "previous_startup_apps_unchanged": true,
+  "C2000_target_validated": false,
+  "SIL_executed": false,
+  "hardware_tested": false,
+  "limitations": [
+    "SPMSM only",
+    "ideal averaged PWM",
+    "ideal terminal-voltage sampling",
+    "local uniform-speed sample-age approximation",
+    "stiff energy-absorbing DC bus without capacitor overvoltage",
+    "no automatic stationary/reverse-direction restart"
+  ],
+  "files": [
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_flying_foc.m",
+      "sha256": "2812BDA3A1F2C0AB06855249B1E6D8FA602B9E7F1309D2C30E9558F7A9BEA994"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/flying_foc_stimulus.m",
+      "sha256": "CF57F85FE67513F10A7643891FFB6BBCBD95EE05953203E21BE26F29F6F4DF42"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_flying_foc.m",
+      "sha256": "F834D2951C27B9E51E8A09165554AF13D76E6C799281C6A5FA2C388BE782B222"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_flying_foc_case.m",
+      "sha256": "7B61B25AB6E3E6A45913992546122BE25DFBC5DB6EAC7872D72B9ED1FC909529"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_channels.m",
+      "sha256": "FEBA57A22057FFCF79C970E548E51F0C63803E31BE2792260ED8F9240C8C953F"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_parameters.m",
+      "sha256": "2272486270B7358CC5D427662A09526588426E62834B523F8184A4BBC08951FE"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/refresh_flying_foc_parameters.m",
+      "sha256": "5AF066FE0EE526146AFAD32F31F0CEBF6D1574BE4D212DA5614D89264122E9AB"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_angle_align.m",
+      "sha256": "7604BD2EC9D847F67989996EABFB036B60A180D46747799548387F7213336C3A"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_capture_step.m",
+      "sha256": "40EA6AA9C082779B9857505875BB811C3C02DC2AB74E8005D8ADD7AE4DA9B16B"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_pi_residual.m",
+      "sha256": "5BB7B6B8B15980B5A33EAF030C87789AAB53C67FD4F53780859CE928E77D1013"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_flying_foc_results.m",
+      "sha256": "EABE0EE6E92509C347DD83151A4A1789C2BBFE0CE5B8355E6D89111FE4789734"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_foc_validation.m",
+      "sha256": "5E15F373B29D09803C08984AFFB402EDA938DEFBC5D9507E54C673CBE4798707"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_logic_checks.m",
+      "sha256": "66D15BFA7FBFD82BA004730C86D7549F7EFC54B71E7E9BC09938B5C3D77F4B8C"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+      "sha256": "8C6632CBFA4DAC55F7146D08B3C1202BF022E8E51FDEF1C41886AF26FAE3B57E"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_bus_36V.mat",
+      "sha256": "68D595FA3AADCD3F76576C49EBF680EB15F38AE0A1B6AA44786AC1E502C4A552"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_capture.png",
+      "sha256": "01C1F01D613E3B3C5B11D9331EC0D7FE151D5D12BF58FF1C3D9592EEF7787D50"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_capture.svg",
+      "sha256": "009B46205C89AFF2CFD40AA8DB341E56133F82B3FD978717F796DEDE82F32972"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_diode_rectification.mat",
+      "sha256": "19742FA1982A6E495CB900CE2B9057FD925DED12D536B00F973862C9B0306438"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_forward.mat",
+      "sha256": "D3F76C775DAEC66F5254E591C35041F8642A435870D90CA6DA9197016F58421C"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_half_plant_step.mat",
+      "sha256": "792608B35C04E96C91B316AFC97FA8EC77FC1A8714223D5714505D072F39C732"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_initial_angle.mat",
+      "sha256": "BACC7C407B826C9B86EAD1F98FB035EB82C67C371C4D9F709B4FF86426108832"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_load.mat",
+      "sha256": "FB7B869B783E2A07FE82ACE62930D13CAAC3B81B721A6FBFF4FD35F0C79B048B"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_logic_checks.json",
+      "sha256": "2ABCF94436294CE5D83C287542AA21EC9B899DE9E4CD50757D300A33D6F81806"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_moving_disable.mat",
+      "sha256": "34440D133C3E75CC13733077545563F1B5137174B1557992659FFF7B3F7C42E3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_moving_reset.mat",
+      "sha256": "75532E8DEBEE1E211B4F871DECE1C79079182AAFFF45177D3AF837383145C233"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_observer_loss.mat",
+      "sha256": "F14F646060CF4F2FCC88D0066E70FEC0D0AAAE3B51D502B028C81759E85B2075"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_opposite_target.mat",
+      "sha256": "635906D90049B4DBDD045889439822C2575FD605F73B2FB1442610199A199706"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_rectification.png",
+      "sha256": "A88BFFAC9DC25C3348B1C8FF13DDD2B9F4B830070D1E1855E9A35E8139D0C253"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_rectification.svg",
+      "sha256": "21D97F6169A44A6F48E5FC5D253146A08FEAF955B0AA0E132F7D1819ED13CE01"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_results.json",
+      "sha256": "65F4630AD06A44D05EE04C943A8C663055F26583184D14457F7D1BC33E7E30B5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_reverse.mat",
+      "sha256": "011CF5D410B56517FD752B0F2EC52B1CB02558870A885ADDBB5599A62A31A38B"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_shutdown.png",
+      "sha256": "4731651DC0D11FD9E633388DF959FC0A572A465C5854C9BC7BC374A32EB1F99C"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_shutdown.svg",
+      "sha256": "B65EE116D2B4AAB1F0B3948F0D1100EC7C4454B8A256960F5DE3425503BA1E71"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_stationary.mat",
+      "sha256": "337C26E43BB7F9538142C15722982F74C63CFCF0587BA2A7E7E528D99455D7D4"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/flying_voltage_headroom.mat",
+      "sha256": "836773DDD625D427ADE6F348BC18FF571C547E1E825CCCAA7569D5027F7AAD7B"
+    }
+  ]
+}

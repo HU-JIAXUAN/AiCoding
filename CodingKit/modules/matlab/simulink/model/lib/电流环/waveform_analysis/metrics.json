@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "scenario_count": 6,
+  "scenario_names": [
+    "dq_step",
+    "negative_step",
+    "saturation_aw_on",
+    "saturation_aw_off",
+    "enable_reset",
+    "solver_convergence"
+  ],
+  "metrics": {
+    "dq_step": {
+      "final_error_A": 1.0040857034709916E-12,
+      "peak_current_A": 2.0252795897436062,
+      "peak_voltage_V": 8.1681408993334621,
+      "recovery_iae_A_s": 4.0075554064145E-6
+    },
+    "negative_step": {
+      "final_error_A": 1.0040857034709916E-12,
+      "peak_current_A": 2.0252795897436062,
+      "peak_voltage_V": 7.5398223686155026,
+      "recovery_iae_A_s": 3.239026278793556E-6
+    },
+    "saturation_aw_on": {
+      "final_error_A": 3.1305242842449843E-9,
+      "peak_current_A": 51.957254457346643,
+      "peak_voltage_V": 26.604300404257959,
+      "recovery_iae_A_s": 0.038843345221209538
+    },
+    "saturation_aw_off": {
+      "final_error_A": 1.480139721010687E-6,
+      "peak_current_A": 53.165782091022727,
+      "peak_voltage_V": 26.604300404257959,
+      "recovery_iae_A_s": 0.54530142046768215
+    },
+    "enable_reset": {
+      "inactive_voltage_V": 0
+    },
+    "solver_convergence": {
+      "half_step_difference_A": 5.4249760239599709E-10
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 11:56:49 +0000"
+}

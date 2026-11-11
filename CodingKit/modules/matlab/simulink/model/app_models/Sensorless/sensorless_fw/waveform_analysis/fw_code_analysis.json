@@ -1,0 +1,325 @@
+{
+  "analyzed_m_files": 17,
+  "syntax_failure_ids": [],
+  "retained_advisories": [
+    "AGROW",
+    "ALIGN",
+    "FVAL",
+    "INUSD",
+    "ISCL"
+  ],
+  "files": [
+    {
+      "file": "build_process/add_fw_start_interlock.m",
+      "issues": [
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 30,
+          "column": [
+            36,
+            36
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 35,
+          "column": [
+            22,
+            22
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 86,
+          "column": [
+            29,
+            29
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 88,
+          "column": [
+            11,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "file": "build_process/build_sensorless_fw.m",
+      "issues": [
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 24,
+          "column": [
+            31,
+            33
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 26,
+          "column": [
+            5,
+            7
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 97,
+          "column": [
+            5,
+            5
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 114,
+          "column": [
+            33,
+            33
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 138,
+          "column": [
+            23,
+            23
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 139,
+          "column": [
+            27,
+            27
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 140,
+          "column": [
+            29,
+            29
+          ]
+        },
+        {
+          "id": "INUSD",
+          "message": "可能未使用输入参量。请考虑改用 ~ 替换该参量。",
+          "fix": 1,
+          "line": 172,
+          "column": [
+            23,
+            27
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 192,
+          "column": [
+            24,
+            33
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 195,
+          "column": [
+            37,
+            46
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 214,
+          "column": [
+            29,
+            38
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 220,
+          "column": [
+            5,
+            14
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 222,
+          "column": [
+            28,
+            37
+          ]
+        }
+      ]
+    },
+    {
+      "file": "build_process/initialize_sensorless_fw.m",
+      "issues": []
+    },
+    {
+      "file": "build_process/inspect_sensorless_fw.m",
+      "issues": [
+        {
+          "id": "FVAL",
+          "message": "通常不需要使用 'feval' 来调用函数。请直接调用函数。",
+          "fix": 0,
+          "line": 33,
+          "column": [
+            1,
+            5
+          ]
+        },
+        {
+          "id": "FVAL",
+          "message": "通常不需要使用 'feval' 来调用函数。请直接调用函数。",
+          "fix": 0,
+          "line": 33,
+          "column": [
+            55,
+            59
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 44,
+          "column": [
+            13,
+            20
+          ]
+        },
+        {
+          "id": "ISCL",
+          "message": "要提高性能，请使用 'isscalar' 而不是长度比较。",
+          "fix": 1,
+          "line": 52,
+          "column": [
+            8,
+            22
+          ]
+        },
+        {
+          "id": "ALIGN",
+          "message": "此关键字可能未与其在第 69 行上的匹配 END 对齐。",
+          "fix": 0,
+          "line": 63,
+          "column": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "file": "build_process/run_sensorless_fw_case.m",
+      "issues": []
+    },
+    {
+      "file": "build_process/sensorless_fw_stimulus.m",
+      "issues": []
+    },
+    {
+      "file": "build_process/tidy_sensorless_fw_model.m",
+      "issues": [
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 8,
+          "column": [
+            65,
+            70
+          ]
+        },
+        {
+          "id": "AGROW",
+          "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+          "fix": 0,
+          "line": 24,
+          "column": [
+            9,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "file": "parameter/refresh_sensorless_fw_parameters.m",
+      "issues": []
+    },
+    {
+      "file": "parameter/sensorless_fw_case_definitions.m",
+      "issues": []
+    },
+    {
+      "file": "parameter/sensorless_fw_channels.m",
+      "issues": []
+    },
+    {
+      "file": "parameter/sensorless_fw_edge_cases.m",
+      "issues": []
+    },
+    {
+      "file": "parameter/sensorless_fw_parameters.m",
+      "issues": []
+    },
+    {
+      "file": "parameter/sensorless_fw_validation_parameters.m",
+      "issues": []
+    },
+    {
+      "file": "waveform_analysis/analyze_sensorless_fw_case.m",
+      "issues": []
+    },
+    {
+      "file": "waveform_analysis/export_sensorless_fw_plots.m",
+      "issues": []
+    },
+    {
+      "file": "waveform_analysis/run_sensorless_fw_edges.m",
+      "issues": []
+    },
+    {
+      "file": "waveform_analysis/run_sensorless_fw_validation.m",
+      "issues": []
+    }
+  ]
+}

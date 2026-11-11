@@ -1,0 +1,60 @@
+{
+  "status": "passed",
+  "scenario_count": 5,
+  "scenario_names": [
+    "sign_and_units",
+    "disabled",
+    "loop_ff_off",
+    "loop_ff_on",
+    "parameter_mismatch"
+  ],
+  "metrics": {
+    "sign_and_units": {
+      "formula_error_V": 0
+    },
+    "disabled": {
+      "disabled_voltage_V": 0
+    },
+    "loop_ff_off": {
+      "final_current_error_A": 1.09747150603412E-11,
+      "peak_current_A": 3.5554368697004821,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.013888139566939676,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.65492731296662388,
+      "minimum_duty": 0.083529713333578837,
+      "maximum_duty": 0.91647028666642116
+    },
+    "loop_ff_on": {
+      "final_current_error_A": 1.0298428776422952E-12,
+      "peak_current_A": 2.0065073015611619,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.00096410107388011359,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.11429275198454614,
+      "minimum_duty": 0.0880458853192258,
+      "maximum_duty": 0.91195411468077414
+    },
+    "parameter_mismatch": {
+      "final_current_error_A": 4.6893600114117362E-12,
+      "peak_current_A": 1.9999999999953106,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.0032898887402351227,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.17742887988945144,
+      "minimum_duty": 0.0873916779351826,
+      "maximum_duty": 0.91260832206481735
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 12:05:15 +0000"
+}

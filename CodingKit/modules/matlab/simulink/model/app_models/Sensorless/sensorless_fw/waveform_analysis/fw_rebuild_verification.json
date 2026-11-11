@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "created_from_m_only": true,
+  "six_trace_max_differences": {
+    "plant": 0,
+    "observer": 0,
+    "controller": 0,
+    "allocation": 0,
+    "actuation": 0,
+    "guard": 0
+  },
+  "record_file": "rebuild/fresh_default.mat",
+  "source_manifest": "fw_rebuild_m_sources.json",
+  "artifact_binding": "Record and manifest paths rebound to retained canonical copies; numerical verdict unchanged."
+}

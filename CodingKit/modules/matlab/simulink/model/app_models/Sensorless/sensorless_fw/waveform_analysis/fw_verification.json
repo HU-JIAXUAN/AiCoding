@@ -1,0 +1,306 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "matlab_release": "2026b",
+  "scope": "Salient EEMF/MTPA/field-weakening physical MIL App with dynamic bus and low-EMF start/restart interlock.",
+  "model_cases": 16,
+  "normal_limited_or_refusal_cases": 14,
+  "explicit_counterexamples": 2,
+  "core_result": "guarded_core/fw_core_results.json",
+  "edge_result": "edges/edge_reanalysis_results.json",
+  "original_edge_report_retained": "edges/edge_results.json",
+  "edge_reanalysis_not_new_simulations": true,
+  "current_m_rebuild": {
+    "status": "passed",
+    "release": "2026b",
+    "created_from_m_only": true,
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "record_file": "rebuild/fresh_default.mat",
+    "source_manifest": "fw_rebuild_m_sources.json"
+  },
+  "formal_replay": {
+    "status": "passed",
+    "release": "2026b",
+    "formal_module": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\app_models\\Sensorless\\sensorless_fw",
+    "six_trace_max_differences": {
+      "plant": 0,
+      "observer": 0,
+      "controller": 0,
+      "allocation": 0,
+      "actuation": 0,
+      "guard": 0
+    },
+    "trace_shapes": {
+      "plant": [
+        440001,
+        36
+      ],
+      "observer": [
+        44001,
+        20
+      ],
+      "controller": [
+        44001,
+        46
+      ],
+      "allocation": [
+        44001,
+        25
+      ],
+      "actuation": [
+        44001,
+        27
+      ],
+      "guard": [
+        44001,
+        9
+      ]
+    },
+    "scope_count": 29,
+    "resolved_library_links": 20,
+    "truth_angle_to_controller": false,
+    "native_inventory": "waveform_analysis/fw_native_inventory.json",
+    "editor_open": false
+  },
+  "fresh_assembly_sources_exact_matches": [
+    "parameter/refresh_sensorless_fw_parameters.m",
+    "parameter/sensorless_fw_channels.m",
+    "parameter/sensorless_fw_parameters.m",
+    "build_process/add_fw_start_interlock.m",
+    "build_process/build_sensorless_fw.m",
+    "build_process/initialize_sensorless_fw.m",
+    "build_process/run_sensorless_fw_case.m",
+    "build_process/sensorless_fw_stimulus.m",
+    "build_process/tidy_sensorless_fw_model.m"
+  ],
+  "fresh_m_inventory_note": "15 M files were copied; all nine assembly/runtime dependency files remain exact. After that check, the unused suite report scope label was clarified, and plotting/inventory helpers were added. No algorithm or test threshold changed.",
+  "original_implementation_files_checked": 359,
+  "original_implementation_bytes_unchanged": true,
+  "compiled_scope_count": 29,
+  "resolved_library_links": 20,
+  "truth_angle_to_controller": false,
+  "no_new_single_sil_c2000_or_hardware_claim": true,
+  "sources": [
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/add_fw_start_interlock.m",
+      "sha256": "14f0adc86cb6f8eff2f72b366d3c86caf6a5bc6b34c2ba405034a5b7da5fcf9a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/build_sensorless_fw.m",
+      "sha256": "f2d8910dece84bb49491b6b87a0eacb87c4b024a42eea2f0352bfc7d9e2747b7"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/initialize_sensorless_fw.m",
+      "sha256": "20f8455b7e2ba0221da27f6f6d1888a554fbad4f351e3badada1886f7ce871e8"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/inspect_sensorless_fw.m",
+      "sha256": "0f04967a4a414cfc6a6861cc62591dcd9eee8bbafb0ca417ff4b0056a7a1dc74"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/run_sensorless_fw_case.m",
+      "sha256": "4a4914d168848a405ebcf3e56b782c338491833189d20c852ba2fff21382416a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/sensorless_fw_stimulus.m",
+      "sha256": "527d13ad207aec613b25a43c98ed64eb88b6eeeade4e84c1a2e0e54682bba085"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/tidy_sensorless_fw_model.m",
+      "sha256": "db9e8d6307871ccd838ee5f64d16a8dc95006cf2e4f8248f69d5c802d6a970b9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/refresh_sensorless_fw_parameters.m",
+      "sha256": "a567957b38b4f86ff82cb7f4fb782b6372451d8ef44134f7bd95232298646f5e"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_case_definitions.m",
+      "sha256": "ddecc1ebf856400c69545becd09d31fc26bc286629d350b1a1ae5e26f4e121ec"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_channels.m",
+      "sha256": "0eb7c28c5d162e0eb1e36a37506599dad9d3ebc84960ecd135e7f0178ae830d0"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_edge_cases.m",
+      "sha256": "20fbb919c227ff5c16800c7c05f082cd8dfdcccbac0f186aa90b4a7c93c6417d"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_parameters.m",
+      "sha256": "5e6f324f0bf3733e935fc8b986f90b42d88cd4bb1f33e75503d537ebfae34cf2"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_validation_parameters.m",
+      "sha256": "f8c17989a79df52a110b190a49ab6c8a47ad35d0381d5041642e326e71687cde"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/src/SensorlessFieldWeakeningFOC.slx",
+      "sha256": "f211266877cc57d22f159540a7b84e950efb73b001e05731e00ce248758bef48"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/analyze_sensorless_fw_case.m",
+      "sha256": "dcbac8be4064afa68f24d300a87f586a2bf135ad4f04c11ec70062156bd2cdf5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/export_sensorless_fw_plots.m",
+      "sha256": "6efeaa3c1c05bd2cc563f636dfde5b1a69d34b95b324c99c94b949d715119c44"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_edges.m",
+      "sha256": "d754b0ca5602943c124b63d10e63717091a0ad0c023163b67d72dc15f8d5e0a3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_validation.m",
+      "sha256": "24a330ebfb1b68c38bbf33c46b42bc7b772c2daeea05b4d62415725b011bb958"
+    }
+  ],
+  "saved_data": [
+    {
+      "path": "waveform_analysis/edges/direction_stop_then_restart.mat",
+      "sha256": "17a23dc108d7a773226000ed5ef2d51ffce8a4e4c7ea087b9674bb0a2d5e1b8c",
+      "bytes": 122746027
+    },
+    {
+      "path": "waveform_analysis/edges/direction_stop_then_restart_reanalysis.mat",
+      "sha256": "d0958dca7e89412af9a95e9d702bf2573fc53aaeaba40612f2c9921e07005da0",
+      "bytes": 1245
+    },
+    {
+      "path": "waveform_analysis/edges/moving_alignment_bypass_counterexample.mat",
+      "sha256": "635acdcfce76b8de3f3ca6e4228cd0c279836c6fa556ef1e1a6169e4e33f9e64",
+      "bytes": 6257578
+    },
+    {
+      "path": "waveform_analysis/edges/moving_alignment_bypass_counterexample_reanalysis.mat",
+      "sha256": "f0d4da0515c8f6f631f3fb24e3bb869f4ab24245e3abaea67aa1944e0813c33d",
+      "bytes": 880
+    },
+    {
+      "path": "waveform_analysis/edges/moving_forward_refused.mat",
+      "sha256": "ef2faac3a52af7afe3af13a121990d97cc99d8d7f71d8a27a179f105dd24b0d3",
+      "bytes": 4346077
+    },
+    {
+      "path": "waveform_analysis/edges/moving_forward_refused_reanalysis.mat",
+      "sha256": "624daea17afb90469062299f2820e36cae2193ddb7e42a2c03f8df186e63a9ad",
+      "bytes": 856
+    },
+    {
+      "path": "waveform_analysis/edges/moving_reverse_refused.mat",
+      "sha256": "324595212d0d14b81fa46243e76b304c6062038154d55586ebea6cc2111a2e62",
+      "bytes": 4347702
+    },
+    {
+      "path": "waveform_analysis/edges/moving_reverse_refused_reanalysis.mat",
+      "sha256": "6d756d49db4f53347d7d8da3829eb0478061592c330bd3427a09959e46333ae3",
+      "bytes": 856
+    },
+    {
+      "path": "waveform_analysis/edges/observer_disabled_start.mat",
+      "sha256": "15c0603de163cf86a824ad10a58df500eceeb17c66be9287d4afd312b2cd833b",
+      "bytes": 424264
+    },
+    {
+      "path": "waveform_analysis/edges/observer_disabled_start_reanalysis.mat",
+      "sha256": "29de2e37bdcd7c4cff86ce32f7a7dea79684465c4654fb01e139b11a3ff0f5ff",
+      "bytes": 811
+    },
+    {
+      "path": "waveform_analysis/edges/observer_loss_exit.mat",
+      "sha256": "d3530a63a648b6b9210ca6eefc5b4adb9c63a0117f40b98a2b3ca314a79cc64c",
+      "bytes": 61319531
+    },
+    {
+      "path": "waveform_analysis/edges/observer_loss_exit_reanalysis.mat",
+      "sha256": "40b0376f0c060b38861643d183755c21e430b1e655d659ad1c05c999ca9dff80",
+      "bytes": 948
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_direction_change.mat",
+      "sha256": "d01df0d064c6ada68175ea7d456a71c7fb40444aaffc148a7538ccee23a9f394",
+      "bytes": 62349476
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_direction_change_reanalysis.mat",
+      "sha256": "5680060329d94425e0acc6a4967d6141427c533d33156a89eed0ba5c4c64f3b0",
+      "bytes": 959
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_disable_reenable.mat",
+      "sha256": "8e41672e5565b59cea0c8f722547497df34f7d1d5f5d1c62b4e0b0a3da2138a6",
+      "bytes": 62250836
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_disable_reenable_reanalysis.mat",
+      "sha256": "caa90bdb1366af6e46f24424f26bbe38685c8480113f66b33612a3d35fbd1711",
+      "bytes": 959
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_reset_release.mat",
+      "sha256": "742994350b3def1cf1727182caa3b05f906e10169189e9a428655f42949b5c5e",
+      "bytes": 62325229
+    },
+    {
+      "path": "waveform_analysis/edges/rotating_reset_release_reanalysis.mat",
+      "sha256": "6fa000b02004ccfc15b546442d56ba3c3df91cd1517109bb26b20f8fb805f53c",
+      "bytes": 957
+    },
+    {
+      "path": "waveform_analysis/guarded_core/bus_drop_recovery.mat",
+      "sha256": "e3a57cb9ba34962d3164c45d410b45980be92106b12ee9f64b165ca3e0fcf3b0",
+      "bytes": 84872461
+    },
+    {
+      "path": "waveform_analysis/guarded_core/forward_high_speed.mat",
+      "sha256": "c5a8004573f32fc496bc95c7f08ce7f6fb0bca214f3dd74cc0fe1783dd428e77",
+      "bytes": 71272093
+    },
+    {
+      "path": "waveform_analysis/guarded_core/forward_regeneration.mat",
+      "sha256": "f3e01de9809633b8d4b8dbe798e6f8089b277c927a59c5340928599388ed86d1",
+      "bytes": 77623185
+    },
+    {
+      "path": "waveform_analysis/guarded_core/guard_bypass_nominal.mat",
+      "sha256": "b7f4caed347c530c5c87d4832cd8797a9c9d2c75cef777d16f1c5199fddb822a",
+      "bytes": 72838204
+    },
+    {
+      "path": "waveform_analysis/guarded_core/reverse_high_speed.mat",
+      "sha256": "3a53c902f120669be593406cc7f8e72870d0baf79af4b9834f8f403e77c65563",
+      "bytes": 71256418
+    },
+    {
+      "path": "waveform_analysis/guarded_core/reverse_regeneration.mat",
+      "sha256": "0410007a75fedbc9b8529d3b8bf621b95ca1dc44e0acb21dcd7322c07f73b6a4",
+      "bytes": 77606776
+    },
+    {
+      "path": "waveform_analysis/guarded_core/unreachable_high_reference.mat",
+      "sha256": "c5f2a35e33a21e4855697b42c57750c18424d9bc588b231ff515d0d7b65be783",
+      "bytes": 80882445
+    },
+    {
+      "path": "waveform_analysis/guarded_core/weakening_disabled_counterexample.mat",
+      "sha256": "0cac280f0fbcfae1c4fcd9e55575dbbfaf5cf7dfa928f76a97de32c22ca4175a",
+      "bytes": 65625181
+    },
+    {
+      "path": "waveform_analysis/history/pre_guard_default.mat",
+      "sha256": "b6336e2c3feb3d19e1cf41e188d94122bd8c48973dce182908ec6255d259b432",
+      "bytes": 72363536
+    },
+    {
+      "path": "waveform_analysis/rebuild/fresh_default.mat",
+      "sha256": "c3280dd5e6ae69601644e1061b95109e0921cac05b5be0e2d770e8f80f44a324",
+      "bytes": 71271038
+    }
+  ]
+}

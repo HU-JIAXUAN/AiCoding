@@ -1,0 +1,1097 @@
+{
+  "PMSMPlantTest": {
+    "entries": [
+      {
+        "name": "vd",
+        "unit": "V",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "vq",
+        "unit": "V",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "omega_e_imposed",
+        "unit": "rad/s",
+        "source": "blk_2.y3",
+        "width": 1
+      },
+      {
+        "name": "mechanical_torque_input",
+        "unit": "N*m",
+        "source": "blk_2.y4",
+        "width": 1
+      },
+      {
+        "name": "load_torque",
+        "unit": "N*m",
+        "source": "blk_2.y5",
+        "width": 1
+      },
+      {
+        "name": "id",
+        "unit": "A",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "iq",
+        "unit": "A",
+        "source": "blk_3.y2",
+        "width": 1
+      },
+      {
+        "name": "electromagnetic_torque",
+        "unit": "N*m",
+        "source": "blk_3.y3",
+        "width": 1
+      },
+      {
+        "name": "omega_m",
+        "unit": "rad/s",
+        "source": "blk_4.y1",
+        "width": 1
+      },
+      {
+        "name": "theta_m",
+        "unit": "rad",
+        "source": "blk_4.y2",
+        "width": 1
+      },
+      {
+        "name": "theta_e",
+        "unit": "rad",
+        "source": "blk_4.y3",
+        "width": 1
+      },
+      {
+        "name": "omega_e_mechanical",
+        "unit": "rad/s",
+        "source": "blk_4.y4",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          6,
+          7
+        ],
+        "id": "blk_8"
+      },
+      {
+        "name": "Torques",
+        "unit": "N*m",
+        "columns": [
+          4,
+          5,
+          8
+        ],
+        "id": "blk_10"
+      },
+      {
+        "name": "Speed",
+        "unit": "rad/s",
+        "columns": [
+          9,
+          12
+        ],
+        "id": "blk_12"
+      },
+      {
+        "name": "Position",
+        "unit": "rad",
+        "columns": [
+          10,
+          11
+        ],
+        "id": "blk_14"
+      },
+      {
+        "name": "Voltage",
+        "unit": "V",
+        "columns": [
+          1,
+          2
+        ],
+        "id": "blk_16"
+      }
+    ]
+  },
+  "CurrentLoopTest": {
+    "entries": [
+      {
+        "name": "id_reference",
+        "unit": "A",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "iq_reference",
+        "unit": "A",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "id",
+        "unit": "A",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "iq",
+        "unit": "A",
+        "source": "blk_3.y2",
+        "width": 1
+      },
+      {
+        "name": "vpi_dq",
+        "unit": "V",
+        "source": "blk_4.y1",
+        "width": 2
+      },
+      {
+        "name": "voltage_dq",
+        "unit": "V",
+        "source": "blk_5.y1",
+        "width": 2
+      },
+      {
+        "name": "integral_dq",
+        "unit": "V",
+        "source": "blk_4.y2",
+        "width": 2
+      },
+      {
+        "name": "residual_dq",
+        "unit": "V",
+        "source": "blk_9.y1",
+        "width": 2
+      },
+      {
+        "name": "limit_scale",
+        "unit": "1",
+        "source": "blk_5.y2",
+        "width": 1
+      },
+      {
+        "name": "torque",
+        "unit": "N*m",
+        "source": "blk_3.y3",
+        "width": 1
+      },
+      {
+        "name": "omega_e",
+        "unit": "rad/s",
+        "source": "blk_2.y3",
+        "width": 1
+      },
+      {
+        "name": "enable",
+        "unit": "1",
+        "source": "blk_2.y4",
+        "width": 1
+      },
+      {
+        "name": "reset",
+        "unit": "1",
+        "source": "blk_2.y5",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "id": "blk_14"
+      },
+      {
+        "name": "Voltages",
+        "unit": "V",
+        "columns": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "id": "blk_16"
+      },
+      {
+        "name": "Limit",
+        "unit": "1",
+        "columns": [
+          9,
+          12,
+          13
+        ],
+        "id": "blk_18"
+      },
+      {
+        "name": "Torque",
+        "unit": "N*m",
+        "columns": [
+          10
+        ],
+        "id": "blk_20"
+      }
+    ]
+  },
+  "InverterTest": {
+    "entries": [
+      {
+        "name": "alpha_command",
+        "unit": "V",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "beta_command",
+        "unit": "V",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "duty_a",
+        "unit": "1",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "duty_b",
+        "unit": "1",
+        "source": "blk_3.y2",
+        "width": 1
+      },
+      {
+        "name": "duty_c",
+        "unit": "1",
+        "source": "blk_3.y3",
+        "width": 1
+      },
+      {
+        "name": "common_mode",
+        "unit": "V",
+        "source": "blk_3.y4",
+        "width": 1
+      },
+      {
+        "name": "va",
+        "unit": "V",
+        "source": "blk_4.y1",
+        "width": 1
+      },
+      {
+        "name": "vb",
+        "unit": "V",
+        "source": "blk_4.y2",
+        "width": 1
+      },
+      {
+        "name": "vc",
+        "unit": "V",
+        "source": "blk_4.y3",
+        "width": 1
+      },
+      {
+        "name": "alpha_actual",
+        "unit": "V",
+        "source": "blk_5.y1",
+        "width": 1
+      },
+      {
+        "name": "beta_actual",
+        "unit": "V",
+        "source": "blk_5.y2",
+        "width": 1
+      },
+      {
+        "name": "zero",
+        "unit": "V",
+        "source": "blk_5.y3",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Voltages",
+        "unit": "V",
+        "columns": [
+          1,
+          2,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "id": "blk_9"
+      },
+      {
+        "name": "Duty",
+        "unit": "1",
+        "columns": [
+          3,
+          4,
+          5
+        ],
+        "id": "blk_11"
+      },
+      {
+        "name": "CommonMode",
+        "unit": "V",
+        "columns": [
+          6
+        ],
+        "id": "blk_13"
+      }
+    ]
+  },
+  "TimingTest": {
+    "entries": [
+      {
+        "name": "feedback_truth",
+        "unit": "1",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "feedback_sampled",
+        "unit": "1",
+        "source": "blk_3.y2",
+        "width": 1
+      },
+      {
+        "name": "feedback_delayed",
+        "unit": "1",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "voltage_command",
+        "unit": "V",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "voltage_held",
+        "unit": "V",
+        "source": "blk_4.y2",
+        "width": 1
+      },
+      {
+        "name": "voltage_applied",
+        "unit": "V",
+        "source": "blk_4.y1",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Feedback",
+        "unit": "1",
+        "columns": [
+          1,
+          2,
+          3
+        ],
+        "id": "blk_9"
+      },
+      {
+        "name": "Actuation",
+        "unit": "V",
+        "columns": [
+          4,
+          5,
+          6
+        ],
+        "id": "blk_10"
+      }
+    ]
+  },
+  "MotionLoopTest": {
+    "entries": [
+      {
+        "name": "position_reference",
+        "unit": "rad",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "position_feedback",
+        "unit": "rad",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "speed_reference",
+        "unit": "rad/s",
+        "source": "blk_2.y3",
+        "width": 1
+      },
+      {
+        "name": "speed_feedback",
+        "unit": "rad/s",
+        "source": "blk_2.y4",
+        "width": 1
+      },
+      {
+        "name": "speed_feedforward",
+        "unit": "rad/s",
+        "source": "blk_2.y5",
+        "width": 1
+      },
+      {
+        "name": "position_speed_request",
+        "unit": "rad/s",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "iq_request",
+        "unit": "A",
+        "source": "blk_4.y1",
+        "width": 1
+      },
+      {
+        "name": "iq_unsaturated",
+        "unit": "A",
+        "source": "blk_4.y2",
+        "width": 1
+      },
+      {
+        "name": "integral_current",
+        "unit": "A",
+        "source": "blk_4.y3",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Position",
+        "unit": "rad",
+        "columns": [
+          1,
+          2
+        ],
+        "id": "blk_10"
+      },
+      {
+        "name": "Speed",
+        "unit": "rad/s",
+        "columns": [
+          3,
+          4,
+          5,
+          6
+        ],
+        "id": "blk_12"
+      },
+      {
+        "name": "Current",
+        "unit": "A",
+        "columns": [
+          7,
+          8,
+          9
+        ],
+        "id": "blk_14"
+      }
+    ]
+  },
+  "FeedforwardTest": {
+    "entries": [
+      {
+        "name": "id",
+        "unit": "A",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "iq",
+        "unit": "A",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "omega_e",
+        "unit": "rad/s",
+        "source": "blk_2.y3",
+        "width": 1
+      },
+      {
+        "name": "vd_ff",
+        "unit": "V",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "vq_ff",
+        "unit": "V",
+        "source": "blk_3.y2",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          1,
+          2
+        ],
+        "id": "blk_7"
+      },
+      {
+        "name": "ElectricalSpeed",
+        "unit": "rad/s",
+        "columns": [
+          3
+        ],
+        "id": "blk_9"
+      },
+      {
+        "name": "FeedforwardVoltage",
+        "unit": "V",
+        "columns": [
+          4,
+          5
+        ],
+        "id": "blk_11"
+      }
+    ]
+  },
+  "DeadtimeTest": {
+    "entries": [
+      {
+        "name": "ia",
+        "unit": "A",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "ib",
+        "unit": "A",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "ic",
+        "unit": "A",
+        "source": "blk_2.y3",
+        "width": 1
+      },
+      {
+        "name": "error_a",
+        "unit": "V",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "error_b",
+        "unit": "V",
+        "source": "blk_3.y2",
+        "width": 1
+      },
+      {
+        "name": "error_c",
+        "unit": "V",
+        "source": "blk_3.y3",
+        "width": 1
+      },
+      {
+        "name": "comp_a",
+        "unit": "V",
+        "source": "blk_4.y1",
+        "width": 1
+      },
+      {
+        "name": "comp_b",
+        "unit": "V",
+        "source": "blk_4.y2",
+        "width": 1
+      },
+      {
+        "name": "comp_c",
+        "unit": "V",
+        "source": "blk_4.y3",
+        "width": 1
+      },
+      {
+        "name": "residual_a",
+        "unit": "V",
+        "source": "blk_5.y1",
+        "width": 1
+      },
+      {
+        "name": "residual_b",
+        "unit": "V",
+        "source": "blk_6.y1",
+        "width": 1
+      },
+      {
+        "name": "residual_c",
+        "unit": "V",
+        "source": "blk_7.y1",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          1,
+          2,
+          3
+        ],
+        "id": "blk_11"
+      },
+      {
+        "name": "Errors",
+        "unit": "V",
+        "columns": [
+          4,
+          5,
+          6
+        ],
+        "id": "blk_13"
+      },
+      {
+        "name": "Compensation",
+        "unit": "V",
+        "columns": [
+          7,
+          8,
+          9
+        ],
+        "id": "blk_15"
+      },
+      {
+        "name": "Residual",
+        "unit": "V",
+        "columns": [
+          10,
+          11,
+          12
+        ],
+        "id": "blk_17"
+      }
+    ]
+  },
+  "SwitchingLegTest": {
+    "entries": [
+      {
+        "name": "command",
+        "unit": "1",
+        "source": "blk_2.y1",
+        "width": 1
+      },
+      {
+        "name": "phase_current",
+        "unit": "A",
+        "source": "blk_2.y2",
+        "width": 1
+      },
+      {
+        "name": "pole_voltage",
+        "unit": "V",
+        "source": "blk_3.y1",
+        "width": 1
+      },
+      {
+        "name": "high_gate",
+        "unit": "1",
+        "source": "blk_12.y1",
+        "width": 1
+      },
+      {
+        "name": "low_gate",
+        "unit": "1",
+        "source": "blk_13.y1",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Gates",
+        "unit": "1",
+        "columns": [
+          1,
+          4,
+          5
+        ],
+        "id": "blk_7"
+      },
+      {
+        "name": "PoleVoltage",
+        "unit": "V",
+        "columns": [
+          3
+        ],
+        "id": "blk_9"
+      },
+      {
+        "name": "Current",
+        "unit": "A",
+        "columns": [
+          2
+        ],
+        "id": "blk_11"
+      }
+    ]
+  },
+  "MotorExperiment": {
+    "entries": [
+      {
+        "name": "id_reference",
+        "unit": "A",
+        "source": "blk_50.y2",
+        "width": 1
+      },
+      {
+        "name": "iq_reference",
+        "unit": "A",
+        "source": "blk_50.y1",
+        "width": 1
+      },
+      {
+        "name": "id_truth",
+        "unit": "A",
+        "source": "blk_153.y1",
+        "width": 1
+      },
+      {
+        "name": "iq_truth",
+        "unit": "A",
+        "source": "blk_153.y2",
+        "width": 1
+      },
+      {
+        "name": "id_feedback",
+        "unit": "A",
+        "source": "blk_64.y1",
+        "width": 1
+      },
+      {
+        "name": "iq_feedback",
+        "unit": "A",
+        "source": "blk_64.y2",
+        "width": 1
+      },
+      {
+        "name": "voltage_request_dq",
+        "unit": "V",
+        "source": "blk_13.y1",
+        "width": 2
+      },
+      {
+        "name": "voltage_pi_dq",
+        "unit": "V",
+        "source": "blk_13.y2",
+        "width": 2
+      },
+      {
+        "name": "voltage_ff_dq",
+        "unit": "V",
+        "source": "blk_13.y3",
+        "width": 2
+      },
+      {
+        "name": "integral_dq",
+        "unit": "V",
+        "source": "blk_13.y4",
+        "width": 2
+      },
+      {
+        "name": "voltage_residual_dq",
+        "unit": "V",
+        "source": "blk_29.y6",
+        "width": 2
+      },
+      {
+        "name": "vd_plant",
+        "unit": "V",
+        "source": "blk_29.y1",
+        "width": 1
+      },
+      {
+        "name": "vq_plant",
+        "unit": "V",
+        "source": "blk_29.y2",
+        "width": 1
+      },
+      {
+        "name": "feasible_command_dq",
+        "unit": "V",
+        "source": "blk_29.y7",
+        "width": 2
+      },
+      {
+        "name": "duty_command_abc",
+        "unit": "1",
+        "source": "blk_29.y3",
+        "width": 3
+      },
+      {
+        "name": "duty_applied_abc",
+        "unit": "1",
+        "source": "blk_29.y4",
+        "width": 3
+      },
+      {
+        "name": "voltage_limit_scale",
+        "unit": "1",
+        "source": "blk_29.y5",
+        "width": 1
+      },
+      {
+        "name": "electromagnetic_torque",
+        "unit": "N*m",
+        "source": "blk_153.y3",
+        "width": 1
+      },
+      {
+        "name": "load_torque",
+        "unit": "N*m",
+        "source": "blk_176.y1",
+        "width": 1
+      },
+      {
+        "name": "speed_request",
+        "unit": "rad/s",
+        "source": "blk_50.y3",
+        "width": 1
+      },
+      {
+        "name": "speed_truth",
+        "unit": "rad/s",
+        "source": "blk_168.y1",
+        "width": 1
+      },
+      {
+        "name": "speed_feedback",
+        "unit": "rad/s",
+        "source": "blk_64.y4",
+        "width": 1
+      },
+      {
+        "name": "position_reference",
+        "unit": "rad",
+        "source": "blk_172.y1",
+        "width": 1
+      },
+      {
+        "name": "position_truth",
+        "unit": "rad",
+        "source": "blk_169.y1",
+        "width": 1
+      },
+      {
+        "name": "position_feedback",
+        "unit": "rad",
+        "source": "blk_64.y5",
+        "width": 1
+      },
+      {
+        "name": "electrical_angle_truth",
+        "unit": "rad",
+        "source": "blk_171.y1",
+        "width": 1
+      },
+      {
+        "name": "electrical_angle_feedback",
+        "unit": "rad",
+        "source": "blk_64.y3",
+        "width": 1
+      },
+      {
+        "name": "electrical_speed_truth",
+        "unit": "rad/s",
+        "source": "blk_170.y1",
+        "width": 1
+      },
+      {
+        "name": "electrical_speed_feedback",
+        "unit": "rad/s",
+        "source": "blk_64.y6",
+        "width": 1
+      },
+      {
+        "name": "ia_truth",
+        "unit": "A",
+        "source": "blk_156.y1",
+        "width": 1
+      },
+      {
+        "name": "ib_truth",
+        "unit": "A",
+        "source": "blk_156.y2",
+        "width": 1
+      },
+      {
+        "name": "ic_truth",
+        "unit": "A",
+        "source": "blk_156.y3",
+        "width": 1
+      },
+      {
+        "name": "inverter_phase_voltage_abc",
+        "unit": "V",
+        "source": "blk_29.y8",
+        "width": 3
+      },
+      {
+        "name": "deadtime_error_abc",
+        "unit": "V",
+        "source": "blk_29.y9",
+        "width": 3
+      },
+      {
+        "name": "current_error_dq",
+        "unit": "A",
+        "source": "blk_13.y5",
+        "width": 2
+      },
+      {
+        "name": "enable",
+        "unit": "1",
+        "source": "blk_179.y1",
+        "width": 1
+      },
+      {
+        "name": "reset",
+        "unit": "1",
+        "source": "blk_180.y1",
+        "width": 1
+      }
+    ],
+    "groups": [
+      {
+        "name": "Currents",
+        "unit": "A",
+        "columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "id": "blk_184"
+      },
+      {
+        "name": "Voltages",
+        "unit": "V",
+        "columns": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "id": "blk_186"
+      },
+      {
+        "name": "Duty",
+        "unit": "1",
+        "columns": [
+          15,
+          16,
+          17
+        ],
+        "id": "blk_188"
+      },
+      {
+        "name": "Torques",
+        "unit": "N*m",
+        "columns": [
+          18,
+          19
+        ],
+        "id": "blk_190"
+      },
+      {
+        "name": "Speed",
+        "unit": "rad/s",
+        "columns": [
+          20,
+          21,
+          22,
+          28,
+          29
+        ],
+        "id": "blk_192"
+      },
+      {
+        "name": "Position",
+        "unit": "rad",
+        "columns": [
+          23,
+          24,
+          25
+        ],
+        "id": "blk_194"
+      },
+      {
+        "name": "ElectricalAngle",
+        "unit": "rad",
+        "columns": [
+          26,
+          27
+        ],
+        "id": "blk_196"
+      },
+      {
+        "name": "PhaseCurrents",
+        "unit": "A",
+        "columns": [
+          30,
+          31,
+          32
+        ],
+        "id": "blk_198"
+      },
+      {
+        "name": "InverterVoltages",
+        "unit": "V",
+        "columns": [
+          33,
+          34
+        ],
+        "id": "blk_200"
+      },
+      {
+        "name": "CurrentError",
+        "unit": "A",
+        "columns": [
+          35
+        ],
+        "id": "blk_202"
+      },
+      {
+        "name": "ControlState",
+        "unit": "1",
+        "columns": [
+          36,
+          37
+        ],
+        "id": "blk_204"
+      }
+    ]
+  }
+}

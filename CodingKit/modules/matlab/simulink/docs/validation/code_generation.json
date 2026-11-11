@@ -1,0 +1,107 @@
+{
+  "status": "source_generated",
+  "release": "2026b",
+  "version": "26.2.0.3433840 (R2026b) Update 1",
+  "source_model": "model/lib/current_loop/src/CurrentPIProbeTest.slx",
+  "tested_on_isolated_copy": true,
+  "configuration": {
+    "target": "GRT",
+    "language": "C",
+    "hardware": "Intel->x86-64 (Windows64)",
+    "objective": "Debug",
+    "interface": "Nonreusable function",
+    "compliance": "none",
+    "model_introspection": true
+  },
+  "simulink_coder": {
+    "installed": true,
+    "version": "26.2",
+    "installation_exit_code": 0,
+    "installation_finished_local": "2026-11-09T08:37:42+01:00",
+    "registered_products_after_installation": 55
+  },
+  "previous_configsetmanager_error_reproduced": false,
+  "previous_configsetmanager_error_resolved": true,
+  "support_flag_introspection_passed": true,
+  "source_generated": true,
+  "executable_built": false,
+  "SIL_executed": false,
+  "C2000_target_built": false,
+  "generated_source": {
+    "name": "CurrentPIProbe.c",
+    "sha256": "10750F7E3F34D39394B86BF2B532B30D85196BB511C3EFE1506D014E811E40C4",
+    "toolchain_selected": "MinGW64 | gmake (64-bit Windows)",
+    "location_at_test": "Temporary isolated regression workspace; generated build artifacts are scheduled for cleanup."
+  },
+  "console_warnings": [
+    "GRT cannot use RAM efficiency as an objective; this run is not evidence of memory optimization."
+  ],
+  "errors": [],
+  "historical_failure_report": "model/lib/current_loop/waveform_analysis/codegen_probe.json",
+  "original_model_name": "CurrentPIProbe",
+  "model_name_update": "2026-11-10: current SLX renamed only; original code-generation/failure evidence retained",
+  "representative_mras_kernel": {
+    "status": "passed",
+    "scope": "MRAS state-update M kernel; excludes output adapter, full Simulink App and C2000",
+    "report": "model/lib/observer_mras/waveform_analysis/typed_verification.json",
+    "samples": 2001,
+    "compiler": {
+      "name": "MinGW64 Compiler (C)",
+      "version": "14.2.0",
+      "location": "C:\\Users\\24322\\AppData\\Local\\Programs\\mingw64"
+    },
+    "stages": {
+      "mex_double": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 1e-08,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.622276271976604e-06,
+          "speed_rms_electrical_rad_s": 0.0031433110741379304,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_double.mexw64"
+      },
+      "mex_single": {
+        "status": "passed",
+        "relative_state_error": 0,
+        "limit": 0.001,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 1.0357217935263448e-05,
+          "speed_rms_electrical_rad_s": 0.0035382344203009606,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_host_single.mexw64"
+      },
+      "sil_double": {
+        "status": "passed",
+        "relative_state_error": 4.085620730620576e-14,
+        "limit": 1e-08,
+        "qualifier_direction_fault_exact": true,
+        "physical": {
+          "angle_rms_rad": 8.622276272137113e-06,
+          "speed_rms_electrical_rad_s": 0.0031433110741370444,
+          "valid_fraction": 1,
+          "angle_limit_rad": 0.08,
+          "speed_limit_electrical_rad_s": 8,
+          "valid_min": 0.95,
+          "passed": true
+        },
+        "binary": "C:\\Users\\24322\\AppData\\Local\\Temp\\sensorless-build-v3614sn0\\mras_typed_formal\\host_codegen\\mras_step_sil.mexw64"
+      }
+    },
+    "full_model_single_conversion": false,
+    "App_SIL": false,
+    "C2000_target_built": false
+  }
+}

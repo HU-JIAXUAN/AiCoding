@@ -1,0 +1,62 @@
+[
+  {
+    "path": "parameter/refresh_sensorless_fw_parameters.m",
+    "sha256": "a567957b38b4f86ff82cb7f4fb782b6372451d8ef44134f7bd95232298646f5e"
+  },
+  {
+    "path": "parameter/sensorless_fw_case_definitions.m",
+    "sha256": "ddecc1ebf856400c69545becd09d31fc26bc286629d350b1a1ae5e26f4e121ec"
+  },
+  {
+    "path": "parameter/sensorless_fw_channels.m",
+    "sha256": "0eb7c28c5d162e0eb1e36a37506599dad9d3ebc84960ecd135e7f0178ae830d0"
+  },
+  {
+    "path": "parameter/sensorless_fw_edge_cases.m",
+    "sha256": "20fbb919c227ff5c16800c7c05f082cd8dfdcccbac0f186aa90b4a7c93c6417d"
+  },
+  {
+    "path": "parameter/sensorless_fw_parameters.m",
+    "sha256": "5e6f324f0bf3733e935fc8b986f90b42d88cd4bb1f33e75503d537ebfae34cf2"
+  },
+  {
+    "path": "parameter/sensorless_fw_validation_parameters.m",
+    "sha256": "f8c17989a79df52a110b190a49ab6c8a47ad35d0381d5041642e326e71687cde"
+  },
+  {
+    "path": "build_process/add_fw_start_interlock.m",
+    "sha256": "14f0adc86cb6f8eff2f72b366d3c86caf6a5bc6b34c2ba405034a5b7da5fcf9a"
+  },
+  {
+    "path": "build_process/build_sensorless_fw.m",
+    "sha256": "f2d8910dece84bb49491b6b87a0eacb87c4b024a42eea2f0352bfc7d9e2747b7"
+  },
+  {
+    "path": "build_process/initialize_sensorless_fw.m",
+    "sha256": "20f8455b7e2ba0221da27f6f6d1888a554fbad4f351e3badada1886f7ce871e8"
+  },
+  {
+    "path": "build_process/run_sensorless_fw_case.m",
+    "sha256": "4a4914d168848a405ebcf3e56b782c338491833189d20c852ba2fff21382416a"
+  },
+  {
+    "path": "build_process/sensorless_fw_stimulus.m",
+    "sha256": "527d13ad207aec613b25a43c98ed64eb88b6eeeade4e84c1a2e0e54682bba085"
+  },
+  {
+    "path": "build_process/tidy_sensorless_fw_model.m",
+    "sha256": "db9e8d6307871ccd838ee5f64d16a8dc95006cf2e4f8248f69d5c802d6a970b9"
+  },
+  {
+    "path": "waveform_analysis/analyze_sensorless_fw_case.m",
+    "sha256": "dcbac8be4064afa68f24d300a87f586a2bf135ad4f04c11ec70062156bd2cdf5"
+  },
+  {
+    "path": "waveform_analysis/run_sensorless_fw_edges.m",
+    "sha256": "d754b0ca5602943c124b63d10e63717091a0ad0c023163b67d72dc15f8d5e0a3"
+  },
+  {
+    "path": "waveform_analysis/run_sensorless_fw_validation.m",
+    "sha256": "a4ff817b86cda8636bde4f9dd64c5a4ace499a745b318b374260996f90514f76"
+  }
+]

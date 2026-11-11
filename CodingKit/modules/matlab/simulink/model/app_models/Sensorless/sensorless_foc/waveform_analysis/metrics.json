@@ -1,0 +1,97 @@
+{
+  "release": "2026b",
+  "passed": true,
+  "case_count": 8,
+  "cases": [
+    {
+      "name": "positive",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000080218527,
+      "angle_RMS_rad": 0.0025902150944764222,
+      "speed_RMS_mechanical_rad_s": 8.8836569161406637E-7,
+      "max_healthy_current_A": 3.0121317917879638,
+      "max_voltage_step_during_blend_V": 0.094366052134309417
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": -80.00000008022559,
+      "angle_RMS_rad": 0.0025902150944618727,
+      "speed_RMS_mechanical_rad_s": 8.8833191284182535E-7,
+      "max_healthy_current_A": 3.0226913243041196,
+      "max_voltage_step_during_blend_V": 0.10029656685465926
+    },
+    {
+      "name": "initial_opposite",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000080123669,
+      "angle_RMS_rad": 0.002590215094480821,
+      "speed_RMS_mechanical_rad_s": 8.886646381119532E-7,
+      "max_healthy_current_A": 3.1001004027097738,
+      "max_voltage_step_during_blend_V": 0.14264292845304979
+    },
+    {
+      "name": "high_inertia",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.0003028930126,
+      "angle_RMS_rad": 0.0025899990553477055,
+      "speed_RMS_mechanical_rad_s": 0.001301936641060803,
+      "max_healthy_current_A": 3.0173461389008782,
+      "max_voltage_step_during_blend_V": 0.094310451992257668
+    },
+    {
+      "name": "resistance_mismatch",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000078328412,
+      "angle_RMS_rad": 0.0025952588289205798,
+      "speed_RMS_mechanical_rad_s": 8.7140301167560793E-7,
+      "max_healthy_current_A": 3.0160101337267342,
+      "max_voltage_step_during_blend_V": 0.101405639929447
+    },
+    {
+      "name": "lower_bus",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": null,
+      "final_speed_rad_s": 80.000000080219081,
+      "angle_RMS_rad": 0.0025902150944761963,
+      "speed_RMS_mechanical_rad_s": 8.8836559282409419E-7,
+      "max_healthy_current_A": 3.0121317917879642,
+      "max_voltage_step_during_blend_V": 0.094366052134301048
+    },
+    {
+      "name": "observer_loss",
+      "passed": true,
+      "auto_time_s": 0.49010000000000004,
+      "fault_time_s": 1.8010000000000002,
+      "final_speed_rad_s": -1.6981056615272188,
+      "angle_RMS_rad": 0.0025902188569345706,
+      "speed_RMS_mechanical_rad_s": 1.9560530063343416E-5,
+      "max_healthy_current_A": 3.0121317917879638,
+      "max_voltage_step_during_blend_V": 0.094366052134309417
+    },
+    {
+      "name": "current_alignment_baseline",
+      "passed": true,
+      "auto_time_s": null,
+      "fault_time_s": 0.97005000000000008,
+      "final_speed_rad_s": -1.6981056615273584,
+      "angle_RMS_rad": null,
+      "speed_RMS_mechanical_rad_s": null,
+      "max_healthy_current_A": 3.3428249637418603,
+      "max_voltage_step_during_blend_V": null
+    }
+  ],
+  "position_sensor_used_in_control": false,
+  "hardware_tested": false
+}

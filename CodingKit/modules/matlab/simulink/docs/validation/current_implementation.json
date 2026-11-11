@@ -1,0 +1,1707 @@
+{
+  "status": "passed",
+  "date": "2026-11-11",
+  "scope": "Current implementation after I-f/V/f addition; historical result hashes remain unchanged",
+  "sources": [
+    {
+      "path": "docs/scripts/build_open_loop_app.m",
+      "sha256": "a6d43a726a6a1f5b5786f4585a840b79398683c7b18b575ad792adf37a9839b3"
+    },
+    {
+      "path": "docs/scripts/initialize_motor_paths.m",
+      "sha256": "a16ec9c581c0ef23985dca9cb5482684bda68ff4f024cbac702a1c6aa4b81001"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_channels.m",
+      "sha256": "f40caa8663f9923e9e6afe3834111cef3eded60a571c913ff3c91d7357f0481b"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_spec.m",
+      "sha256": "e6a92b94efe1acd61f497ce9fe1104153d7fd30790db476a537bf0e01abf0434"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_stimulus.m",
+      "sha256": "08117a127312cdb0ede26fc02202c3271311230a36d7ffd4950e07d8a768015b"
+    },
+    {
+      "path": "docs/scripts/open_loop_model_edit.m",
+      "sha256": "a3d56ec538e6aa72f121a3dff0e375a80bfcf58db29ab0fe6907675d45baa79f"
+    },
+    {
+      "path": "docs/scripts/refresh_open_loop_app_parameters.m",
+      "sha256": "614b3110e7fdbadf74a326541854b5a9bb0a6142f4cf2a2f07ac33a67ec84788"
+    },
+    {
+      "path": "docs/scripts/run_open_loop_app_case.m",
+      "sha256": "4da4d85fd8a8018aa25d8e77d61ec39327ff3f0aae2a079b8ae842178be05453"
+    },
+    {
+      "path": "docs/scripts/validate_open_loop_app.m",
+      "sha256": "42aa3764fd40c43adbfe497af4123d853c4b2fd33c932141c4f38107da1e1fa5"
+    },
+    {
+      "path": "model/app_models/Sensor/experiment/parameter/experiment_app_parameters.m",
+      "sha256": "821fee5c02ced989611f9703f2ba5a35d0eee0f4eb198ff7d04afd0b1c6f9ed9"
+    },
+    {
+      "path": "model/app_models/Sensor/experiment/parameter/experiment_parameters.m",
+      "sha256": "3eef6875e023b28b336d1c5500d5cef34febc54ffa3166d88d76920301be7cb8"
+    },
+    {
+      "path": "model/app_models/Sensor/experiment/src/MotorExperiment.slx",
+      "sha256": "6754c14b33f1e60d62202bcb058d686e79c39bb775a00425bd3ff0ef661f315c"
+    },
+    {
+      "path": "model/app_models/Sensor/experiment/waveform_analysis/run_experiment_validation.m",
+      "sha256": "03c2934f7c4182dca9ce4f5ead578a17ab495d80592099aed54000d66342b8d2"
+    },
+    {
+      "path": "model/app_models/Sensor/mtpa_fw/parameter/mtpa_fw_app_parameters.m",
+      "sha256": "3f330d0cf54f29e8e538d8a7a50b2263d7cee7d98d99dbc6bca519083134ff26"
+    },
+    {
+      "path": "model/app_models/Sensor/mtpa_fw/src/MTPAFWMotor.slx",
+      "sha256": "b50e3c1d066dbc44c800571c9736d7932ff0b120ef819660c737788786a1008a"
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/build_process/build_observer_compare.m",
+      "sha256": "6ab4fc4c742745928e0ff2565dd4b6bccf78c8a078cffc04577b17db08663fca"
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/build_process/initialize_observer_compare.m",
+      "sha256": "9c856be9a83fcda47e3761415e072a433be04a3cbb85d1e1727762db460542ac"
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/parameter/observer_compare_parameters.m",
+      "sha256": "956e6f7919ad873589a8679fdf2c73695ae0fcfc97e9780aa860eb71fa001bbb"
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/src/SensorObserverCompare.slx",
+      "sha256": "7479ba5c1db1b8e9fa864c74c2e7ffd031f585d89e997f92d7b06fed9c354402"
+    },
+    {
+      "path": "model/app_models/Sensor/observer_compare/waveform_analysis/run_observer_compare_validation.m",
+      "sha256": "66162a35ffecb5af81907a19c63a2f3fb0e18cae8fe42994a517f18f536432e1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_extension_foc.m",
+      "sha256": "5b3693b5cbbbdb68c717864440bbdc283f04bf2b4ed1f903492cf44e95de7e8b"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_flying_foc.m",
+      "sha256": "2812bda3a1f2c0ab06855249b1e6d8fa602b9e7f1309d2c30e9558f7a9bea994"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_observer_foc.m",
+      "sha256": "631190907af132c5c6b223c7f9f8438cf7b304c1a733767762a3acf17a8f9377"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/build_sensorless_foc.m",
+      "sha256": "0cdecee060ca1b1089c4e6ae77dd80fc7fa454bffd3937599400f5ccf80f558b"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/flying_foc_stimulus.m",
+      "sha256": "cf57f85fe67513f10a7643891ffb6bbcbd95ee05953203e21be26f29f6f4df42"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_extension_foc.m",
+      "sha256": "f5f3934760f760cc64829b573730d52c6c0b83c92929263504103c1bb96962c3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_flying_foc.m",
+      "sha256": "f834d2951c27b9e51e8a09165554af13d76e6c799281c6a5fa2c388be782b222"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_observer_foc.m",
+      "sha256": "f64844fbbdc2a89b48b74309b40c40c1ff4477562cc8bd81a83accd46d7205f2"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/initialize_sensorless_foc.m",
+      "sha256": "f8c5ad099bf4a855d4f21eb9d6b72a1b0154c7fdcd2f180ede78d27f386ea492"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/inspect_extension_foc.m",
+      "sha256": "4ddb55aec0f493d8e3c0a89fa1a7ac6a32f20aa1f2afad06ba1ccc9c056b40b3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_extension_foc_case.m",
+      "sha256": "147e6663e8d3a1421ff0b70567c8853e6d1fb6be679ee120e0f4a61833c2db9f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_flying_foc_case.m",
+      "sha256": "7b61b25ab6e3e6a45913992546122be25dfbc5db6eac7872d72b9ed1fc909529"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_observer_foc_case.m",
+      "sha256": "a04b1a0bbd2b644518e56c52b5c7d09a2ee5da1b59845b2c8d4244cdbde44f2e"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/run_sensorless_foc_case.m",
+      "sha256": "57a17b1a404188ac090b12249ea0ecf8babd0cc3593541a07bc13b0ca46532ca"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/build_process/tidy_extension_foc.m",
+      "sha256": "e13ce2cf69e2e7215648abfe798ddefb350fe88cfdd32ef7290b4e080f522f34"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_cases.m",
+      "sha256": "6cd6f7cc0cb2fd0c2c4154876d442bfb65b8d0cea8adeb83640831d32b1fb637"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_channels.m",
+      "sha256": "30fe171191a902ef543b3e01fc4ef3dc82e1f359ed360405fe5376a54739f0d6"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_parameters.m",
+      "sha256": "d98ba805f1d9a539ccb5111a0ac96cb56bd5ee8b8ff98a2ed01a542f1c8af022"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_spec.m",
+      "sha256": "8978f99d508c3864b4d3e8f0343ae544d6b28e8bd8805e25b37ebd4bb72067ec"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/extension_foc_validation_parameters.m",
+      "sha256": "c72f525b3375d700c656dfe145c18b9fd9ecccd2a229508a1c774c8124cf98b9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_channels.m",
+      "sha256": "feba57a22057ffcf79c970e548e51f0c63803e31be2792260ed8f9240c8c953f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/flying_foc_parameters.m",
+      "sha256": "2272486270b7358cc5d427662a09526588426e62834b523f8184a4bbc08951fe"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_channels.m",
+      "sha256": "acd4813db0ad2bbc20ccaf23a4f99b4c92ddbd2f68eb049e6ace706f8cee4fac"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/observer_foc_parameters.m",
+      "sha256": "73a2d78e9ab389dbd36dab533df184a2dc71b5d028b371b0f36ad4e7acd5a6e4"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/refresh_extension_foc_parameters.m",
+      "sha256": "df124d2f4d8e56c1dab10bfafee77afdcb0cb37cc308975099717f767eb95670"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/refresh_flying_foc_parameters.m",
+      "sha256": "5af066fe0ee526146afad32f31f0cebf6d1574be4d212da5614d89264122e9ab"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_channels.m",
+      "sha256": "7e6cc783b983fa5118e1d788257ada9a86afd857b7124b0fd4a98be21d7b2639"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_parameters.m",
+      "sha256": "f879f7d2c9f58ad9de8a9d7d1e0138f2bb1fa8ecd2d1c7360e808232441adc4d"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_stimulus.m",
+      "sha256": "837843e3a27550d63eb50fc1e6731c8f0e07502285d715ffd40a58434635417a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/parameter/sensorless_foc_validation_parameters.m",
+      "sha256": "27df7e55b4f9610f98732aa1cdcf48fdb54954c5a271d4e5a4a046cb8c86a0db"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/EemfSensorlessFOC.slx",
+      "sha256": "578ad0f2034454f8eb4a44cd2f3bc6393b219fde4e315d9f5eeb1f17a452d863"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/EkfSensorlessFOC.slx",
+      "sha256": "3a7761751c0d3baefb5a1ef787b1cd7f7daab35a1f0bff8d1295e18a2a5d88ec"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FluxSensorlessFOC.slx",
+      "sha256": "79b221e0257e15b3a6ed2341a45e4b3410355dbb8a416565e25283ac65631a16"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/FlyingFluxFOC.slx",
+      "sha256": "8c6632cbfa4dac55f7146d08b3c1202bf022e8e51fdef1c41886af26fae3b57e"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/MrasSensorlessFOC.slx",
+      "sha256": "e2af8fcdf3fcca794f9ccd698390aaf32139c0a2af9bc168c6b7551ed7e34c03"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/SensorlessFOC.slx",
+      "sha256": "9ac45f5f580fdc6fb9db836be42473402d64921cf72690982b252a14f9485eac"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/SigmoidSensorlessFOC.slx",
+      "sha256": "02d6373cf98cfe48c3e8d3b618bf1b1e80137dbd8a0a5cd537fabebfc5516288"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/UkfSensorlessFOC.slx",
+      "sha256": "fe8c76cc5dbf802eef2ac32f5312945245cecd09f09fcc40af22b4b90b9c2a3a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_angle_align.m",
+      "sha256": "7604bd2ec9d847f67989996eabfb036b60a180d46747799548387f7213336c3a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_capture_step.m",
+      "sha256": "40ea6aa9c082779b9857505875bb811c3c02dc2ab74e8005d8add7ae4da9b16b"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/src/flying_pi_residual.m",
+      "sha256": "5bb7b6b8b15980b5a33eaf030c87789aab53c67fd4f53780859ce928e77d1013"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/analyze_extension_foc.m",
+      "sha256": "682350ad54b6c120d1a83ddb082b2f63334f0fe61874a126b3b7f3183bcc0db7"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/export_extension_foc_plots.m",
+      "sha256": "1e7fed409d327abaafe483bcdca6a97c934e04bb9d8894f9b31009d5aa89fe92"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_flying_foc_results.m",
+      "sha256": "eabe0ee6e92509c347dd83151a4a1789c2bbfe0ce5b8355e6d89111fe4789734"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/plot_observer_foc_results.m",
+      "sha256": "8c1c0468852445dd826a339aefa12a21ba4fc0a500031d15e2b162c06dddbe98"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/read_observer_foc_result.m",
+      "sha256": "e207e0fe6dc68370b235a0094afd23cbfdea8e6445bd1bcda2afe1df6e978677"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/read_sensorless_foc_result.m",
+      "sha256": "a305c8108961e86e2786343b4ccfe6934a9fdda040bbfe306402540abb4b7f87"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_extension_foc_validation.m",
+      "sha256": "30b469d92222a8c06da6f11230ea46013a2d1d2ec0154a2da2ba347cc8507004"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_foc_validation.m",
+      "sha256": "5e15f373b29d09803c08984affb402eda938defbc5d9507e54c673cbe4798707"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_flying_logic_checks.m",
+      "sha256": "66d15bfa7fbfd82ba004730c86d7549f7efc54b71e7e9bc09938b5c3d77f4b8c"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_observer_foc_validation.m",
+      "sha256": "5dae874041c5a2fbc275f708343e00ef9b4601881f9637144b8e3e666dfc9fc5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_foc/waveform_analysis/run_sensorless_foc_validation.m",
+      "sha256": "ef4298027040fcf92a73991319757d26ea4acd276f15d0cdfc2c0ad97f40ae46"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/add_fw_start_interlock.m",
+      "sha256": "14f0adc86cb6f8eff2f72b366d3c86caf6a5bc6b34c2ba405034a5b7da5fcf9a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/build_sensorless_fw.m",
+      "sha256": "f2d8910dece84bb49491b6b87a0eacb87c4b024a42eea2f0352bfc7d9e2747b7"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/initialize_sensorless_fw.m",
+      "sha256": "20f8455b7e2ba0221da27f6f6d1888a554fbad4f351e3badada1886f7ce871e8"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/inspect_sensorless_fw.m",
+      "sha256": "0f04967a4a414cfc6a6861cc62591dcd9eee8bbafb0ca417ff4b0056a7a1dc74"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/run_sensorless_fw_case.m",
+      "sha256": "4a4914d168848a405ebcf3e56b782c338491833189d20c852ba2fff21382416a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/sensorless_fw_stimulus.m",
+      "sha256": "527d13ad207aec613b25a43c98ed64eb88b6eeeade4e84c1a2e0e54682bba085"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/build_process/tidy_sensorless_fw_model.m",
+      "sha256": "db9e8d6307871ccd838ee5f64d16a8dc95006cf2e4f8248f69d5c802d6a970b9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/refresh_sensorless_fw_parameters.m",
+      "sha256": "a567957b38b4f86ff82cb7f4fb782b6372451d8ef44134f7bd95232298646f5e"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_case_definitions.m",
+      "sha256": "ddecc1ebf856400c69545becd09d31fc26bc286629d350b1a1ae5e26f4e121ec"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_channels.m",
+      "sha256": "0eb7c28c5d162e0eb1e36a37506599dad9d3ebc84960ecd135e7f0178ae830d0"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_edge_cases.m",
+      "sha256": "20fbb919c227ff5c16800c7c05f082cd8dfdcccbac0f186aa90b4a7c93c6417d"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_parameters.m",
+      "sha256": "5e6f324f0bf3733e935fc8b986f90b42d88cd4bb1f33e75503d537ebfae34cf2"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/parameter/sensorless_fw_validation_parameters.m",
+      "sha256": "f8c17989a79df52a110b190a49ab6c8a47ad35d0381d5041642e326e71687cde"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/src/SensorlessFieldWeakeningFOC.slx",
+      "sha256": "f211266877cc57d22f159540a7b84e950efb73b001e05731e00ce248758bef48"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/analyze_sensorless_fw_case.m",
+      "sha256": "dcbac8be4064afa68f24d300a87f586a2bf135ad4f04c11ec70062156bd2cdf5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/export_sensorless_fw_plots.m",
+      "sha256": "6efeaa3c1c05bd2cc563f636dfde5b1a69d34b95b324c99c94b949d715119c44"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_edges.m",
+      "sha256": "d754b0ca5602943c124b63d10e63717091a0ad0c023163b67d72dc15f8d5e0a3"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_fw/waveform_analysis/run_sensorless_fw_validation.m",
+      "sha256": "24a330ebfb1b68c38bbf33c46b42bc7b772c2daeea05b4d62415725b011bb958"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_foc.m",
+      "sha256": "2c95a9a4f062436a8e4049c1375445a32e572cbaa9dac770b52c45bcd91589d6"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_hybrid.m",
+      "sha256": "8beee8691a96f750d3a820652006c2cd55d8e41545489b512c57c1c920debc35"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_startup.m",
+      "sha256": "321ae6231ba1d96e04e44232a95a05d4f85b14d5ec9f7a3c573522d9909ddf09"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_foc_stimulus.m",
+      "sha256": "f53b0b808051a4704f88ce5e9ff7a280df30cdeb614fa6c39870772e617ea71f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_stimulus.m",
+      "sha256": "2af961caa4b818194ab817eaba4ca3a2bbc712a06ac2b5b8a2d7321e11fc8209"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_hybrid_workspace.m",
+      "sha256": "d568efd22856e3d4b072e726a1b07ecb8e495796b11a1ef41761786417a47ef2"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_startup_stimulus.m",
+      "sha256": "f2f25e404f279b0a68a55ac5d70e7641be22630df065ff2066ff380b11b4bbcc"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_foc.m",
+      "sha256": "f59ea6b1355c020824da46efa2901d7fe537b29f0d2df78ca73022592d948005"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_hybrid.m",
+      "sha256": "642f728cf77528b6f26b22f0131e69da83303e5fc5f70b6d869add1888af6a82"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m",
+      "sha256": "ae406eae2195eac30e1b1fff03ac5e4129668752e7b09a5260d009d08239c372"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_app_parameters.m",
+      "sha256": "ba21d13ff430161e8df4af5533d6ea6ecaffcef46b1bc84150210badbbad3de0"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_test_parameters.m",
+      "sha256": "5ef62a64d600b60ddfb3e378011e2253ce34db84f5b65c8f04ebfce406aa3e26"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_app_parameters.m",
+      "sha256": "3abc8d146ec8a4104923e92eacfd29cba9487c31e0972a24459223a02a42f620"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_hybrid_test_parameters.m",
+      "sha256": "2887271c6b193ec572367aaaf140b2c7e14b813c58aae3f14429e1a575f94d93"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_app_parameters.m",
+      "sha256": "400abb64811f6a2ad3aa5627cf823f079654b564511ed6a0a3330a116928f82d"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_test_parameters.m",
+      "sha256": "c43d3f08c60de57d9cd22ed607ed3694032057f2782e98eeaae7676222550270"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx",
+      "sha256": "e9a5e4530f78517208454210191d81cabe093196a88df379908a9324048f81c0"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIHybrid.slx",
+      "sha256": "0af01e6ee0a8045dd0d07b94a378686e8bdec7910bed5201a4a2844cd929e532"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIStartup.slx",
+      "sha256": "8ca6504f0dd1f5e59853635d43b13799df5475387fba68c76c1143acc0188395"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/hfi_foc_supervise.m",
+      "sha256": "eced953cb3bd91b3999536f265bc38eac7c7360b573649662de1ebc3a413e777"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/src/hfi_hybrid_direction.m",
+      "sha256": "62d726a8e6c2a69deae18352b8ff9bb9885168e0c6777920500687e8b7914ba6"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_foc_results.m",
+      "sha256": "5828279542d8b45030936623ac171eb4f82818ce1203ff8d88c9a83db3675eeb"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_hybrid_results.m",
+      "sha256": "1d0cc33d8067f54eedbfa64883481df2c937bc7f00072e89ad09300dc6e2b4cb"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_startup_results.m",
+      "sha256": "b0869bb4cc7580afaa8d68b2c3c282571f362fd12c981f5a1efa461b67ffd25f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_foc_validation.m",
+      "sha256": "70b736039be562e70ff4d3dab8bac6a1af8a29f0eb732b1e4703adf7d49ba8b7"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_hybrid_validation.m",
+      "sha256": "0913006d4718ff19c865a6eaa7b102c918f7f1b215665fb27dc60e1f5b57c51d"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_startup_validation.m",
+      "sha256": "6f54ebec0dd9d2f33c306d5d6dd98c58feb466f4de44c23d71b071339c8e1831"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/build_if_app.m",
+      "sha256": "32ecf2a9f704faa5e38aa2e585e4dcde7a4736d742c93c837c68d715b522c934"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/initialize_if_app.m",
+      "sha256": "d4c37b5e962dda7cbd8fefc95a823dc464720a9671e1345bd6243044e9507bef"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/run_if_app_case.m",
+      "sha256": "cbe4741dab97a9623d071fb2eedb3ceab4ea97a715918ddaa00e9bd197952ac9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_parameters.m",
+      "sha256": "520e87fca8e32e8f32e6e78aeb494080cf388552c18b00b311017bbc8dc91841"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_validation_parameters.m",
+      "sha256": "a16d3ed05e575c1717ddf05f0c97fead247c4b0764f1b0dd4f45209aa14dc7b4"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/src/SensorlessIF.slx",
+      "sha256": "fb570b297d06c322a23d36e9c806a826ba24028aea65f09ecd777febcaca338a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/run_if_app_validation.m",
+      "sha256": "7bea442d711bde3ba5744977a73a858b61440c748938c445d8a64c26671dd079"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/build_vf_app.m",
+      "sha256": "4fd33ff161903a2b8bca46b7d3efc569ef91273d5634724ae66d6e6bbdd0a36b"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/initialize_vf_app.m",
+      "sha256": "83ff25ec0273fbee69a32102d8c7b5a9de9185e0b57e01f22139714b420f13e9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/run_vf_app_case.m",
+      "sha256": "9358c7874924277ed5d781f258df785aa5556ef38e874b76bd74bfcb049beedb"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_parameters.m",
+      "sha256": "8772e6a66c604d0685907f4e610eabfebb45caa5708a548bed2c975526121475"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_validation_parameters.m",
+      "sha256": "e1b13d87edd8b3da1be54f760f5bef748cae1f9415f729c4e905e02869ed2ae1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/src/SensorlessVF.slx",
+      "sha256": "c97833942f62aa5b0fe100f5a8da372271ec1a3cfa1e55a707a14910afb7b265"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/run_vf_app_validation.m",
+      "sha256": "ee99df96f3afd49717ded214be8206ea79776f8ecb3d79b9c2215595509417f2"
+    },
+    {
+      "path": "model/lib/相位跟踪/build_process/build_angle_tracking.m",
+      "sha256": "9f4dc02428caceaa63e7cec5fb6678c1a6305aad7c9b1f0a49c36987c18460cb"
+    },
+    {
+      "path": "model/lib/相位跟踪/build_process/build_pll_instances.m",
+      "sha256": "d526b8e6c0517ff4cea91d4d32d2392b43dba9d0882804714d30dd2db3bc2efd"
+    },
+    {
+      "path": "model/lib/相位跟踪/build_process/initialize_angle_tracking_test.m",
+      "sha256": "e0abe8709b641cddd961d3a6e46ad4b999688d17ff159db010ab9f57ca6cf55a"
+    },
+    {
+      "path": "model/lib/相位跟踪/build_process/initialize_pll_instances.m",
+      "sha256": "493d6df01d20c348048c8ee0d3895ac1bc2f3532f1f8d790b89fe8f317107e0f"
+    },
+    {
+      "path": "model/lib/相位跟踪/parameter/angle_tracking_parameters.m",
+      "sha256": "9c3a7dce84d6fd4192e0b8c5b10430a845b1ee3d8e8106317aaec82aff73bf06"
+    },
+    {
+      "path": "model/lib/相位跟踪/parameter/pll_test_parameters.m",
+      "sha256": "f15661100cdcbfa7257271732419f16ede94e24085f1f30ab5520464f51168b7"
+    },
+    {
+      "path": "model/lib/相位跟踪/src/AngleTracking.slx",
+      "sha256": "0a2c1eb331f9b6906b5246fbe31c10895203cf0f208ae71aef2220cfc766c059"
+    },
+    {
+      "path": "model/lib/相位跟踪/src/AngleTrackingInstancesTest.slx",
+      "sha256": "4fcc911c13b13e7a75b9567f2e4dd25c6cfa5e8ff1514fa984281ca3bebb30b8"
+    },
+    {
+      "path": "model/lib/相位跟踪/src/AngleTrackingTest.slx",
+      "sha256": "9a5a4ce41956de32ac40e61218a4a3df146d09a0a3c16076c871cae12e53ccc3"
+    },
+    {
+      "path": "model/lib/相位跟踪/waveform_analysis/run_angle_tracking_validation.m",
+      "sha256": "11e5a2f40bca032ac707436f90186592633265bff94cd42b5b55e1344f07599b"
+    },
+    {
+      "path": "model/lib/相位跟踪/waveform_analysis/run_pll_instance_validation.m",
+      "sha256": "8eda672d0a421613fe75727451393360644c1a0012db35d353cbfce1f4e57e05"
+    },
+    {
+      "path": "model/lib/电流环/build_process/build_frame_tracking_pi.m",
+      "sha256": "8fe469bb29c0c9f19fab3d4ddaa3c78df2f406fb0a75f1fd54773d9911723177"
+    },
+    {
+      "path": "model/lib/电流环/build_process/initialize_frame_pi_test.m",
+      "sha256": "62aec6f7991063568ecf271396e85a6447374e207ba1d899335e999958dc8823"
+    },
+    {
+      "path": "model/lib/电流环/parameter/current_loop_test_parameters.m",
+      "sha256": "636d9b831ec04966507b52acbc2a6f9e6a8c388592e56d57aad6df011c2c91da"
+    },
+    {
+      "path": "model/lib/电流环/parameter/current_parameters.m",
+      "sha256": "baf65bad0d11b3ffbf084a86ed8c7029581ef4cf31a57ef42f650ab038e5e770"
+    },
+    {
+      "path": "model/lib/电流环/parameter/frame_pi_test_parameters.m",
+      "sha256": "8114e0f1b3af858d76fedabd68352e7b4e48696d613ebdffb823496ebcc6ce68"
+    },
+    {
+      "path": "model/lib/电流环/src/CurrentControl.slx",
+      "sha256": "c272c258b34acd85abdd243d5931183e6a9492fc157dbf18399b5ee99eee9327"
+    },
+    {
+      "path": "model/lib/电流环/src/CurrentLoopTest.slx",
+      "sha256": "3e21fd9faf1f11576536cf2fbb7f27a5f35c1cb71584aa7474c51f4578147036"
+    },
+    {
+      "path": "model/lib/电流环/src/CurrentPIProbeTest.slx",
+      "sha256": "3855872dec5d51910a264b9cde4631d4fefacad590eb4e3d0f7e277bcd63e953"
+    },
+    {
+      "path": "model/lib/电流环/src/FrameTrackingPITest.slx",
+      "sha256": "0f94a166448e2247d7535b8b60eddc5779e6da90e9db075fb6869a085bc7dbd4"
+    },
+    {
+      "path": "model/lib/电流环/src/frame_pi_compute.m",
+      "sha256": "c4021954798290f7574e15711c8b3cb74f54a1fc1fd833b22e10ae0ae0f2dc49"
+    },
+    {
+      "path": "model/lib/电流环/src/frame_pi_update.m",
+      "sha256": "73927c9dad33fe511c242d6c969cc4ebede579f047c97e32e293956bbe209f68"
+    },
+    {
+      "path": "model/lib/电流环/waveform_analysis/run_current_loop_validation.m",
+      "sha256": "416e5b1d12168de7852b448ded3a60e2a999fbd85a3aa46635f35acf7707805e"
+    },
+    {
+      "path": "model/lib/电流环/waveform_analysis/run_frame_pi_validation.m",
+      "sha256": "df9b524330dacd1cdbfbbf0c93da0812046b246e3e5d71ff13c107f8b1e0fda3"
+    },
+    {
+      "path": "model/lib/死区补偿/parameter/deadtime_parameters.m",
+      "sha256": "e416c4244888ed8c8ba1f80fbc07fbe15bce150ef3ac33adc98d7af7da8d434c"
+    },
+    {
+      "path": "model/lib/死区补偿/parameter/deadtime_test_parameters.m",
+      "sha256": "7da098e474edeb316f202308a47d4c5cdf63cebde487d37414621d4dc6f7747c"
+    },
+    {
+      "path": "model/lib/死区补偿/parameter/switching_leg_test_parameters.m",
+      "sha256": "0be3434f102cdfcf9d0a1db8662db922f167ce9cfcaa9e1dcb3982a85b0dc298"
+    },
+    {
+      "path": "model/lib/死区补偿/src/Deadtime.slx",
+      "sha256": "6c3e75590b8a691d3013ee286b3aa50dd2e170e7b558b4204843b6e9c0688c50"
+    },
+    {
+      "path": "model/lib/死区补偿/src/DeadtimeTest.slx",
+      "sha256": "742879db705e7d6752e7739a1d422ea7c3a98d637231ed05f5c7612a6d78e91f"
+    },
+    {
+      "path": "model/lib/死区补偿/src/SwitchingLegTest.slx",
+      "sha256": "709ce45834fbcc6008e94235da45a584ac0262c6118b3ea35f26223c81d85e6b"
+    },
+    {
+      "path": "model/lib/死区补偿/waveform_analysis/run_deadtime_validation.m",
+      "sha256": "c59ae21c5f28838d833ab8d89b4b01a31f71c74ff6aa74de1cb5773739fc9130"
+    },
+    {
+      "path": "model/lib/离散并联PID/build_process/initialize_discrete_pid_test.m",
+      "sha256": "35b2e68be4b2a2db33b4715e3e044e098529d54f446ff4c70fa6d815dcc55784"
+    },
+    {
+      "path": "model/lib/离散并联PID/parameter/discrete_pid_parameters.m",
+      "sha256": "adcefe90cf00e67ebd108da84d4d119c3065c3c4b91e87a0d74bf9633b8c6a1c"
+    },
+    {
+      "path": "model/lib/离散并联PID/parameter/pid_test_parameters.m",
+      "sha256": "1616255ff308f59f03c04e2e82666597ad3843ba03ebe2f1f02f7fb6d1b253f4"
+    },
+    {
+      "path": "model/lib/离散并联PID/src/DiscretePID.slx",
+      "sha256": "1dc291274114796b1de54b5309e1866d5478ab77837f753bd07160f2a1a3f2b4"
+    },
+    {
+      "path": "model/lib/离散并联PID/src/DiscretePIDTest.slx",
+      "sha256": "f5de3de12d08c527f3d6ffe4095739128ac91f50b284083e1f8c6202082c30f4"
+    },
+    {
+      "path": "model/lib/离散并联PID/waveform_analysis/run_discrete_pid_validation.m",
+      "sha256": "3a6a5c4766c12e2a9116c63b6e4a45f03235c6ccacef3344d3f531dea63944ff"
+    },
+    {
+      "path": "model/lib/电压前馈/parameter/feedforward_parameters.m",
+      "sha256": "ec63c63e618288db43e92bb70c332a4c2ed92e9abf58867f8e877a040a0baa3f"
+    },
+    {
+      "path": "model/lib/电压前馈/parameter/feedforward_test_parameters.m",
+      "sha256": "dbc5b3c89fb2f678b5423d9005f4d2c6a8b4890fd58a1d388f0107ee206fed47"
+    },
+    {
+      "path": "model/lib/电压前馈/src/DQFeedforward.slx",
+      "sha256": "14881facef83211279cdb278ea70ca9331890188af6ce1bd2754bd12c4e9a1fb"
+    },
+    {
+      "path": "model/lib/电压前馈/src/FeedforwardTest.slx",
+      "sha256": "2a255ca8b075ef03d612a110f13827eeaf4ff624b09df2d83f998b606827de80"
+    },
+    {
+      "path": "model/lib/电压前馈/waveform_analysis/run_feedforward_validation.m",
+      "sha256": "06c28daa3f7a9bbdf84241af6753fba230baae2e369eb044b8e550c4026211cf"
+    },
+    {
+      "path": "model/lib/逆变器/parameter/inverter_parameters.m",
+      "sha256": "df7aebb762f0a4468dd79f6242c2816f997d01d9f7ff8e2a23890a9dea8af82f"
+    },
+    {
+      "path": "model/lib/逆变器/parameter/inverter_test_parameters.m",
+      "sha256": "37a12b6c0e855abae284c010dbdf27378c576e37bcdb8634c87a0ddc22e6d3e6"
+    },
+    {
+      "path": "model/lib/逆变器/src/Inverter.slx",
+      "sha256": "e84458ec89e2b80902a8438d0742404229ecac693a42e304ddf7adfabf7baeb0"
+    },
+    {
+      "path": "model/lib/逆变器/src/InverterTest.slx",
+      "sha256": "be212ed0f8b994e1c632477b405da70e87b0ef5ece496265fcc2abc3a5c1f418"
+    },
+    {
+      "path": "model/lib/逆变器/waveform_analysis/run_inverter_validation.m",
+      "sha256": "05f0ea3621d481350f9ca9e03a7be7321488913e1d92d65135022db3bf0504b6"
+    },
+    {
+      "path": "model/lib/math/build_process/build_frame_blend.m",
+      "sha256": "8951ecafd132a908d106cff7f38a6afa121f012b92985c6901cd1972b4ccaf89"
+    },
+    {
+      "path": "model/lib/math/build_process/initialize_clarke_park_test.m",
+      "sha256": "eadef4f50496d9c67adeeb9a2dcc8583a1604cad59426f958cde1f2da36f2307"
+    },
+    {
+      "path": "model/lib/math/build_process/initialize_frame_blend_test.m",
+      "sha256": "de5014430cbbe96f6fddd83c37e459a584e276e0f050569371a3ad453a678d18"
+    },
+    {
+      "path": "model/lib/math/parameter/blend_test_parameters.m",
+      "sha256": "1fc69b56a9491d060e55906570d4a2e09a04a711939773001e2c57edc4b26749"
+    },
+    {
+      "path": "model/lib/math/parameter/clarke_park_parameters.m",
+      "sha256": "d0fcf351277ad5a3e8a1a3059ab671129194723d29f87f94fd4f1aabc1bc4f39"
+    },
+    {
+      "path": "model/lib/math/src/ClarkePark.slx",
+      "sha256": "169711dede75442375594e233d359985f8c9a86db80b7f35e502bbc5e1225909"
+    },
+    {
+      "path": "model/lib/math/src/ClarkeParkTest.slx",
+      "sha256": "7a1f2323e0edc4726696220cf31d4af8e5df6d2b209ef9ba5c06a828b49fe19f"
+    },
+    {
+      "path": "model/lib/math/src/FrameBlendTest.slx",
+      "sha256": "7b89c3d54ad507ba92fecc2a7b8de3da130e82115669322edcf2f82990bbfd3f"
+    },
+    {
+      "path": "model/lib/math/src/blend_dq.m",
+      "sha256": "83a6b9dc97204db76f6c650bd56dc6df7f4689e15a4518ee651ded2fc7990dda"
+    },
+    {
+      "path": "model/lib/math/waveform_analysis/run_clarke_park_validation.m",
+      "sha256": "aa5ec3172e3f98a7d79abb7e04eed020ca78019c4c90691b958728ba2f28d8aa"
+    },
+    {
+      "path": "model/lib/math/waveform_analysis/run_frame_blend_validation.m",
+      "sha256": "43d3aebeeacb6874ea6b1b29ebc3793d834452a3cc6f4918832bed8958be96a9"
+    },
+    {
+      "path": "model/lib/运动环/build_process/build_speed_profile.m",
+      "sha256": "e0ee87a0776d57a2d8209d0b3612d87cde7aadea3b987ee42c36f907ca7aac71"
+    },
+    {
+      "path": "model/lib/运动环/build_process/initialize_speed_profile_test.m",
+      "sha256": "e7c1d69ca1bfac5ffb4ae4b5f81aed06994d7929099e56e4b47e8221d3645e2f"
+    },
+    {
+      "path": "model/lib/运动环/build_process/speed_profile_stimulus.m",
+      "sha256": "694095780ebd1c882c7705161dcf289c5ab893868d9d59231c41f9e651761908"
+    },
+    {
+      "path": "model/lib/运动环/parameter/motion_loop_test_parameters.m",
+      "sha256": "5235dfd32f84848e353eb9ad38b7974842387a1b75e5fbb0fdd2e11b49ccf103"
+    },
+    {
+      "path": "model/lib/运动环/parameter/motion_parameters.m",
+      "sha256": "c1c990cdd0b3074029bfd699cb413fbfb4f0d8c5ad17bc0ede16f12a9f0cd76d"
+    },
+    {
+      "path": "model/lib/运动环/parameter/refresh_speed_profile_parameters.m",
+      "sha256": "13a98555e1a5410f7ecdffd13e5fb0e474034e58a6d75ed7b4f0d55c6d3c1ccd"
+    },
+    {
+      "path": "model/lib/运动环/parameter/speed_profile_parameters.m",
+      "sha256": "6a81f99e9e806a0a7a96e319ca42be5ce7df3c32b0dd77e49dde271b6b8460e4"
+    },
+    {
+      "path": "model/lib/运动环/parameter/speed_profile_test_parameters.m",
+      "sha256": "fc505f6385d93f70d0c54de0a49c2451ad331050a76bbc6fc9cb19581261094f"
+    },
+    {
+      "path": "model/lib/运动环/src/MotionControl.slx",
+      "sha256": "3577c9c9ca33ebe07c867d59dcb86a5572abcb03d394bb83109b13b7dc729b33"
+    },
+    {
+      "path": "model/lib/运动环/src/MotionLoopTest.slx",
+      "sha256": "c210b76edcdf6215de138110b8d890a6c1a2d210cc69222535fefb8fc6bb4947"
+    },
+    {
+      "path": "model/lib/运动环/src/SpeedProfileTest.slx",
+      "sha256": "98234fb2c0d809b140b198360d7c4d18ce6f32564eac14f8dd36f50b479bd322"
+    },
+    {
+      "path": "model/lib/运动环/waveform_analysis/plot_speed_profile_results.m",
+      "sha256": "42e6049cfaa6608a83381f199239f70d146a98adf1dcbd021c8357fd4d00af61"
+    },
+    {
+      "path": "model/lib/运动环/waveform_analysis/run_motion_loop_validation.m",
+      "sha256": "e2c952dd555a642a066538fd3809442e616436a8bcabda6678888b643befe7f0"
+    },
+    {
+      "path": "model/lib/运动环/waveform_analysis/run_speed_profile_validation.m",
+      "sha256": "d3f17cc8ad297970a5f461b93a1d3d026217807c8cfdaa3bbe4f8b9dcd4077bf"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/build_process/initialize_mtpa_fw_model.m",
+      "sha256": "19151fa3467fc550d139af9320c106ba408d4b82abb26f689187501b1b1b7a1d"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/build_process/run_mtpa_fw_case.m",
+      "sha256": "3931243826a732302fedc062bf36d0a3ff5e87a3ffd4336e7c276e6b2070cf2f"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/parameter/mtpa_fw_parameters.m",
+      "sha256": "062c96ac684c0632ca3284bc71c1a4dc3f85e074ba1bdc3953fa56ca1f745e47"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/parameter/reference_case_parameters.m",
+      "sha256": "769936ca5bffdcf2f4f1b4c99a396b8433948b59782a36fc49e9b656fe6eccd3"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/parameter/reference_test_parameters.m",
+      "sha256": "1b7b95881d9ae03a2c8ba33f413975049ba98c2fbe8aaebb882d3683d25ed1e2"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/parameter/refresh_mtpa_tables.m",
+      "sha256": "61191c26d4f77af6f8eb12901cd5cdaad1b6cc636d4c3e7b450f9f604d1207e1"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/src/CurrentReference.slx",
+      "sha256": "43f55b48d8e03d18cb32c33c84adea6d10e73c89d171dec3160645a9dc3e2a59"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/src/CurrentReferenceTest.slx",
+      "sha256": "c005c066430277afd2a49879031f7e9274670639d4c2730e546811725686f462"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/waveform_analysis/export_mtpa_fw_plots.m",
+      "sha256": "dfb4f1c4df80e47cb53320535720d3c82dc8e43c40e5fcf31801b4fcb1279d52"
+    },
+    {
+      "path": "model/lib/MTPA弱磁/waveform_analysis/run_mtpa_fw_validation.m",
+      "sha256": "dece459cd266890c5f7155b89e4ce63097ace31706ad3790412ef820c22c87ce"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/build_process/build_ekf_observer.m",
+      "sha256": "08bd2a8d7a5099e7ccfe1d1d42c690ea58fda9edc959a493f70a69a44ec3f564"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/build_process/initialize_ekf_paths.m",
+      "sha256": "159023b5ae29f97f2ec4d1346e47e6b1af7b15dabbb2a455fd99825412009458"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/build_process/initialize_ekf_test.m",
+      "sha256": "247e2f80b8bd80d7e0e28c6d2c69d90f176fc1691219d72614f183301e46d8eb"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/parameter/ekf_parameters.m",
+      "sha256": "db9094415f43f625193fcdabcbd6f641bb90ef2433551b3ceab1942b11607a74"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/parameter/ekf_test_parameters.m",
+      "sha256": "b0ea640187827a353eb13a362d6c3361cf2fa614ec971fd47793cdd508a99d05"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/parameter/refresh_kalman_parameters.m",
+      "sha256": "2b9e1285db383476e1580d517d5f8d6255b723a7fd687c5f01cc01affa629e2b"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/src/EkfObserver.slx",
+      "sha256": "f8be5ae02cce9d39f4c0990b29a9d73f9593862a300bf77a4a112bbbc00752c8"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/src/EkfObserverTest.slx",
+      "sha256": "df26b5b4483401f80730aff5704d7198c279302cc38120bcf51a59080f9fd2b9"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/src/ekf_predict.m",
+      "sha256": "f148514ef6fd2dc78c94754abf519bb4b2e43c1a71e03cc0bb9eed68153c30bd"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/src/kalman_current_update.m",
+      "sha256": "469aefc3a396ce01ac82ff3deaf710019d327b99cedb5730ed56fc0538d46176"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/waveform_analysis/plot_ekf_results.m",
+      "sha256": "d9c7f83a6fc4f8fafb4a86aa05942527eb611654725813d9e7a828986bae4aa7"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/waveform_analysis/plot_kalman_observer_results.m",
+      "sha256": "481ae63262a44d656e75923566a66be890a96885cb0a26f0c1dd4f6c513884d3"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/waveform_analysis/run_ekf_validation.m",
+      "sha256": "904b4bd7ed2bbf16298c766c5f46f95423f487864474486b8748957b089259e5"
+    },
+    {
+      "path": "model/lib/观测器/扩展卡尔曼/waveform_analysis/run_kalman_qualification_check.m",
+      "sha256": "b1602cc38b570d7c3de744fbd963a67a6260ac5b2d99a05164397fedb4fb86c5"
+    },
+    {
+      "path": "model/lib/观测器/反电势/build_process/build_emf_observer.m",
+      "sha256": "c23e482a44512eb45612669568e1a638578329db8d4323ca25021497f00fd742"
+    },
+    {
+      "path": "model/lib/观测器/反电势/build_process/emf_fixture.m",
+      "sha256": "68d6625fa8a9fc618853fadeaf5112576456302587db85f1564bf8ea3bac43e5"
+    },
+    {
+      "path": "model/lib/观测器/反电势/build_process/initialize_emf_test.m",
+      "sha256": "29a3ce27669a49c2b028a8c9474de1c29a52ac72adf62ee45fade6f9a9103eab"
+    },
+    {
+      "path": "model/lib/观测器/反电势/parameter/emf_parameters.m",
+      "sha256": "5ed1ad241959d93d8e788d09d2469dcdbf80ad64907d13f488f352bf0fc37906"
+    },
+    {
+      "path": "model/lib/观测器/反电势/parameter/emf_test_parameters.m",
+      "sha256": "2ce456c6e4cb45c8eae554f872fe56f605450721e933fcdaf8fcdfce46d47d4f"
+    },
+    {
+      "path": "model/lib/观测器/反电势/src/EemfObserverTest.slx",
+      "sha256": "4d41d3bf274e06380794ae88569e43349fa9bb0e8f1b2eba544a3dfbc4f3335b"
+    },
+    {
+      "path": "model/lib/观测器/反电势/src/EmfObserver.slx",
+      "sha256": "e562a99fb876549055692b9afc3e7ff5124b6ede4823b6511772ef73247dc919"
+    },
+    {
+      "path": "model/lib/观测器/反电势/src/LinearEmfTest.slx",
+      "sha256": "220c2d482f61dcf575a27a437611d22898f9b2f4b339870cace87ab81f1165dc"
+    },
+    {
+      "path": "model/lib/观测器/反电势/src/emf_predict.m",
+      "sha256": "7d4964a70bbc0023e92ca5b537f74035d2028f2a607724d74bb9f716077b44e5"
+    },
+    {
+      "path": "model/lib/观测器/反电势/waveform_analysis/run_emf_validation.m",
+      "sha256": "78732d9d8bbfc2309ed1682808579c978d35ee1c3679f0b2fee3d1fe41d39f49"
+    },
+    {
+      "path": "model/lib/观测器/磁链/build_process/build_flux_observer.m",
+      "sha256": "e61b48c3ea8dbb230dd4b8bba4139171023b774191f1b5634b6fcaca87ba4904"
+    },
+    {
+      "path": "model/lib/观测器/磁链/build_process/initialize_flux_test.m",
+      "sha256": "d745adb771e249b1180e5ea9410c8c18e3202d150492bce94f14ff1e81af9666"
+    },
+    {
+      "path": "model/lib/观测器/磁链/parameter/flux_parameters.m",
+      "sha256": "6871fa4ee8e53366c4c903a9575d4d7320ce934a739be8ef3ac480f5cf0c7218"
+    },
+    {
+      "path": "model/lib/观测器/磁链/parameter/flux_test_parameters.m",
+      "sha256": "3f035be860e4d28f4ed2dfbcf21c6da9b28eb8c602328b2d9531a3b1f88d1c13"
+    },
+    {
+      "path": "model/lib/观测器/磁链/parameter/refresh_flux_parameters.m",
+      "sha256": "21fc15969ac8670fe2bb4f714a3f49b87786420ba1d80ed4a5048d3022f689c3"
+    },
+    {
+      "path": "model/lib/观测器/磁链/src/FluxObserver.slx",
+      "sha256": "42c1a9bbbc419edc8906ffbbe1c87106d4e281157bb3214217e89237421a7d1f"
+    },
+    {
+      "path": "model/lib/观测器/磁链/src/FluxObserverTest.slx",
+      "sha256": "5c147e95b6a1bc4c8eca2e08f81a0a5b310b12d9e063eae228207321d643cea2"
+    },
+    {
+      "path": "model/lib/观测器/磁链/src/flux_compute.m",
+      "sha256": "e7dfccae2b686686069c3dc09a36b85a01f9805f140448e7777faef8e57d428a"
+    },
+    {
+      "path": "model/lib/观测器/磁链/src/flux_predict.m",
+      "sha256": "aa51d41aa37af159a19360157d4e3298fb91c00c2492791ed6e00d3a1c746cbb"
+    },
+    {
+      "path": "model/lib/观测器/磁链/waveform_analysis/run_flux_validation.m",
+      "sha256": "537e437ba88be042b2fcb593511b1b584b15121d382f255bc71f4ba3bfaceda6"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/build_hfi_calibration.m",
+      "sha256": "bc790d7af54698f4a8ee96d01c4d928998d250b55b1d87ebb52e822813f7868d"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/build_hfi_observer.m",
+      "sha256": "45c75b2053543e51c90d3901f1c71b3b931a808fa4eac798d30943ae7f4d92fd"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/build_hfi_polarity.m",
+      "sha256": "4ce4865beafb7481bf8532c109ab560bc166427ce87acfa1ca32927c23466f8a"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/build_hfi_probe.m",
+      "sha256": "f577d4d8241c918d6bb99dc26d893e76a04e05e914aa2578089aa61bf6ff9475"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/hfi_stimulus.m",
+      "sha256": "68760e4b96e66848474143e741c961c69517c3cfd1a6ff287adc4a7135ac7a4c"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/initialize_hfi_probe_test.m",
+      "sha256": "91cc43cb1700890707873431e75c33381fe6946c214d6888e2126e7c6bead2d0"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/build_process/initialize_hfi_test.m",
+      "sha256": "c7fb397cc10a00f1fb9d90c7203f3ca3e4855b12ddba6ca5ea54bfe888c5140e"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_parameters.m",
+      "sha256": "332d25f55e27d98b597acee95f2ae77d2e448e863c89bb193fc9287107edf1b0"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_plant_parameters.m",
+      "sha256": "dc21aceba08cf0d7241cd7e16fd81cde0cd650f4bc2af28d05d67a0c88b6948d"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_pll_parameters.m",
+      "sha256": "37e9faebfdbe51e37884aa9814e46193f8113058b21eaa7b12450220a2ad5c33"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_polarity_parameters.m",
+      "sha256": "85545c0f50c180e17154bd85fb3521e41e264d7222270969b031f930eddeb689"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_probe_parameters.m",
+      "sha256": "785f8787b080a1c01fe5fed67f453263d00b1c35d368233c97e0feb9c4ca8a07"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_probe_test_parameters.m",
+      "sha256": "949f1d2d90b1cd0f5a49596ff9926927b2b8810c4a83d4f75374923a8db25fd3"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/hfi_test_parameters.m",
+      "sha256": "2f4e8aace26c67b5aacc6acc04bcf4c298144da0be564fe8084cbbc9f14591ae"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_parameters.m",
+      "sha256": "db20a90365afa4c539c1343676f3b1942d62fc314a78ba4c3249fc306f9c29c4"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_polarity_parameters.m",
+      "sha256": "a1a818a04734b92f2795bb9f193f2f3f711406239b86cc0cac67fcfe476f9f8f"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/parameter/refresh_hfi_probe_parameters.m",
+      "sha256": "7ea73f261b15c9addd43c86e4e9e51eb0930f316cb2336055fc3a2281ec5b8f9"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/HFIAxisTest.slx",
+      "sha256": "735ee37989c9f58934f6f0ee0e225592337abce42093edbb3c743f4bac6eea71"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/HFISaliencyTest.slx",
+      "sha256": "5c1f71e045d6678917b8093c6c782263efcfd05381af27aca25e8df57137ab5e"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/HighFrequencyObserver.slx",
+      "sha256": "156f8959cc140dc0efcca3bbc454ab97cbec51b3dada540b64e91d86f60daa23"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_demodulate.m",
+      "sha256": "65f725d233bf922595a49ec96109495f52ccb1c714141713216b4e5278a6a4aa"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_measure_current.m",
+      "sha256": "a9408c6cbd2da0e969b2bbaf04f31f487649119651915955f670735d44a9596f"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_polarity_output.m",
+      "sha256": "204b53a920147cb6376619cef0f9f2932719f0861391614802be4796d7d05964"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_polarity_update.m",
+      "sha256": "ad210c6f4c46ecae54bb372dea45ac4f5d822b9d8bfb7911f1d28ca8e48027bf"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_probe_output.m",
+      "sha256": "f0875c9b04e947f67f4a3bf7fb2362b64ea8a9d15d651056e7dac6b50b28c165"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_probe_update.m",
+      "sha256": "9bc176e44df126d25716e690bd8cdf79bbbf87440ab06d0961aaf7faab53b3a9"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/src/hfi_track_axis.m",
+      "sha256": "52d229ad548bacd367bc846782b66b329c6177a5a23e00d2e144c4aab2e10d61"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/waveform_analysis/plot_hfi_axis_results.m",
+      "sha256": "35908e3f62226882acc74bdc1f0a700bcaa8edb29e3fb23d5e50fc6c360b84b7"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/waveform_analysis/plot_hfi_probe_results.m",
+      "sha256": "7826368cb5b33c918b8ad23e951eff517dae11ad1f8ec8f8917c81f58ef0f0f5"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/waveform_analysis/run_hfi_axis_validation.m",
+      "sha256": "2422c82e764337512907967eb509dd51678a84f7855f1c19a7de4aa706c5c1b6"
+    },
+    {
+      "path": "model/lib/观测器/高频注入/waveform_analysis/run_hfi_probe_validation.m",
+      "sha256": "115fd77310e0e34099416eefda4482ccce97801f07f8fa3c22149fe5408a83de"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/build_process/build_mras_observer.m",
+      "sha256": "84975739f45f7c7e15dd77b6364953b2c5981ecc2cf0072c7f003ce43791f8c5"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/build_process/initialize_mras_test.m",
+      "sha256": "1fe12782cbe6dd5f3904a2bb2fa6dc9d51c639730cd991aaa282bfb766b7b38b"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/build_process/mras_fixture.m",
+      "sha256": "1dc665d4a8337fcc33071a83169af79a8f39c206576619f13e415dfbe6ab3fd2"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/parameter/mras_host_test_parameters.m",
+      "sha256": "3890546a05afb5f394c5decf22b4a3f1681caee98f0676ce98a1c7b866efedc4"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/parameter/mras_parameters.m",
+      "sha256": "b5cef89c662a0b819f71cc566532390fbc02a49ab644547b7e96cc2e78508aa8"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/parameter/mras_test_parameters.m",
+      "sha256": "ebb006a73047a4387f00deb3ac2fe35d1a9d27cdb696656bf0f2d13a81b24606"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/parameter/refresh_mras_parameters.m",
+      "sha256": "cba00d819437cf5547e1afedadb2e7e4e76922df7d57e79c574a4947f0b718f6"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/src/MrasObserver.slx",
+      "sha256": "2bb2ed16537c790803d10697dd736e40d80566a4f56eab5a697c56e2051fb0f6"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/src/MrasObserverTest.slx",
+      "sha256": "5fef23a94ea94706f866575798dc43da69ae17748a7f042e8497eeca56abc0a3"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/src/mras_output.m",
+      "sha256": "33887248746f3e3a773bda4b60be15587167d8a58b5c0b48cca4384a326f78d4"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/src/mras_step.m",
+      "sha256": "d8d8d870dae019e82e9641a01f475aae4f55d6da65e106f1f1752b93c2d504f6"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/waveform_analysis/plot_mras_results.m",
+      "sha256": "0186ffc46e39e43b0742edfc6d9855747578b0fff2eb485996127bff450e086e"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/waveform_analysis/run_mras_host_validation.m",
+      "sha256": "7433a36bca13e16ff3f992564974449272c187e1f503a15c6c69c6304ab12077"
+    },
+    {
+      "path": "model/lib/观测器/模型参考自适应/waveform_analysis/run_mras_validation.m",
+      "sha256": "4af701aff16daca2b424148f64646cdec02316e1ce399208e28aa944a0772772"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/build_sigmoid_smo.m",
+      "sha256": "fcb883a667ed20016e225f5290d6a061ac71cb6ef5c63c8cb7f7e8b3fd6a9f09"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/build_sliding_mode_observer.m",
+      "sha256": "d8694636d29c473df25fb7d1e5e373909183ca94031821b87d96d72783fd31db"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/initialize_sigmoid_smo_paths.m",
+      "sha256": "bb72f769bdf3524eff98be2b4f8b4049ffddaa565275b818eff67a4b068ef831"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/initialize_sigmoid_smo_test.m",
+      "sha256": "c2b276fa89e2db79843c5c5a106e60f4f50949918dca1536ddadfdb7c11f087d"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/initialize_smo_test.m",
+      "sha256": "16f86ea1e4014dc7ab2d691853f6317d0270781befb36dfe71be7370554c7f92"
+    },
+    {
+      "path": "model/lib/观测器/滑模/build_process/smo_fixture.m",
+      "sha256": "5d15c0ef7210127dcad1847a59efabe0c21fa3acaaacd743ab390194953bb2d8"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/refresh_sigmoid_smo_parameters.m",
+      "sha256": "f0fa2d11f6a3c9193086886b83506a33db2ae5ce97f26df0616cd9940cdd3667"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/refresh_smo_parameters.m",
+      "sha256": "ff8c2bd4ad53f20406da2b70062bc6a6350b04048b2a58431c19518ed143cc04"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_parameters.m",
+      "sha256": "cd67395129e8f9441c6cb08abd0544ea9452b207cd320d25e58f1258d75df20d"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_pll_parameters.m",
+      "sha256": "fd652613ec5d6fec645c9c5ef17207a120e7a17f4ef660baf633af09047faaa9"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/sigmoid_smo_test_parameters.m",
+      "sha256": "74248f570f47fe30217432d0b1a505d432186e9576d97e64cf7784b2df574a38"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/smo_parameters.m",
+      "sha256": "093c7a19cc6ad34fd416bb4ca93fcfe0858b65a0ad4a14b1ee954c42f060ddbb"
+    },
+    {
+      "path": "model/lib/观测器/滑模/parameter/smo_test_parameters.m",
+      "sha256": "1f744f5259efa60244b77e0c83e09481b0b8beeadc0faee1db4a5a87ecb28cf0"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/SigmoidSlidingModeObserver.slx",
+      "sha256": "d00b0e4182e8f80fe19661fba0c26082937a42ca3efd81f4222832c58059eb1c"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/SigmoidSlidingModeObserverTest.slx",
+      "sha256": "9247914a1fd847f90767d8ad96eb67ecab010b67f2f970d4f10f20cb50ed962c"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/SlidingModeObserver.slx",
+      "sha256": "fe12d86fa1dc211304c05e56874a10909dc1da54b3ee07f9f1b8bfe024712d63"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/SlidingModeObserverTest.slx",
+      "sha256": "19cd6d675fe19df9c946d20aae6a9cab44b7ccc99c6474e68cc269725710e9c8"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/sigmoid_smo_measure.m",
+      "sha256": "1fa1f504f81ae139543b77af21949ec5ff7dd71b209fcce744d4bcd8b66f3584"
+    },
+    {
+      "path": "model/lib/观测器/滑模/src/sigmoid_smo_predict.m",
+      "sha256": "fe01dadc6d88cf91819b07edf8f071815302e79323dd60629e692e3d0f6a8904"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/compare_sigmoid_basic.m",
+      "sha256": "fd95f7db4864e34d669ffb391e34712ad95b4922a12054e17a0a03bac6292623"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/export_smo_plots.m",
+      "sha256": "8240cedee59ccfd956acf5fd5e5f7a0174d04acadf5ee0e716e3cf311ba95e83"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/plot_sigmoid_smo_results.m",
+      "sha256": "6aa7ae0aa82e1bf64cdbc987d89e3401456443abca2e6eb400a7db9b053296c2"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/run_sigmoid_instance_check.m",
+      "sha256": "a53db6d904dbb227cd9ada85df077436b2b0c0cb012ca2e5627b671c89263644"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/run_sigmoid_kernel_checks.m",
+      "sha256": "f9823083956f93188f8fe668bdccb10069553d4bca722e3abfa6dd6a7a056ce7"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/run_sigmoid_smo_validation.m",
+      "sha256": "ec94ec84063e6114c0872706fb8bb9f0f0f2ab9016a5841e76bc92587cec24d0"
+    },
+    {
+      "path": "model/lib/观测器/滑模/waveform_analysis/run_smo_validation.m",
+      "sha256": "5089536a29123d59e44f7075c986a5dc255c320a91d0d0d01fbccd4aa0ac9c6d"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/build_process/build_ukf_observer.m",
+      "sha256": "5def2251f4a35696d6f62d14096cbd1cccb0272a12bb3c390a9e76e7d25c3a5c"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/build_process/initialize_ukf_paths.m",
+      "sha256": "e05e5d2f3451521e2fc0a8f15b2faa59247a4d5fbcae88e6688acccc1ad3d5ee"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/build_process/initialize_ukf_test.m",
+      "sha256": "124f72347b3856cca9984050cee5108002e97f89f9da9fa44b3dbfdb93d2a7b5"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/parameter/refresh_ukf_parameters.m",
+      "sha256": "3f37f9f1a46a75da1efce29f3ad8cbdaea886943869f6f533587ef2cc9752912"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/parameter/ukf_parameters.m",
+      "sha256": "b5519ccc17cd87fb03699c260bc0e3abbaee556ee9d0009c73d6cad93cf88c04"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/parameter/ukf_test_parameters.m",
+      "sha256": "7b512fe0ccde7db7b61ce1b1c743a1495b09118a9a7f8ad739e611fa7b0de019"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/src/UkfObserver.slx",
+      "sha256": "2d94adc50e41b0b912e368863328b4e0869eeb5964efd26208489172a77bdb9b"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/src/UkfObserverTest.slx",
+      "sha256": "3edf866436039ff19e40a92ecb4946bc1b16c0d04149c3c06e104e2f351c3da4"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/src/ukf_predict.m",
+      "sha256": "d76a0c1fd1946660c9a8651f6139c71b357e397c170047cbee7274c4bd43f939"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/waveform_analysis/compare_ekf_ukf.m",
+      "sha256": "e1b59f1315ef74f16278f9c4fb55df3aedf12e4dc24db6e5bbd39b927fef6764"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/waveform_analysis/plot_ukf_results.m",
+      "sha256": "9fa9aff30e841165160f4d19d2a0c6310a75ec4221d170949dcdd4f7ed11c74a"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/waveform_analysis/run_ukf_numerical_validation.m",
+      "sha256": "c4aa3e94d11a2fb9912a6afb2f7d1113dfd33c6650c726a7beabf9bebf5bca28"
+    },
+    {
+      "path": "model/lib/观测器/无迹卡尔曼/waveform_analysis/run_ukf_validation.m",
+      "sha256": "70c8773b45674ff8a30e5a624afc8b6ee197f23b2e45f2ea67378c7ac65ad477"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/bridge_bus_stimulus.m",
+      "sha256": "d50fe697a92c005449521e4859a85614d3b21e406e09c8c7079114c9212f28ee"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/bridge_plant_stimulus.m",
+      "sha256": "e5c6902d5f47b6552e90077497373ca7766d07cdc3d22418b10061886142c47f"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/build_hf_pmsm_plant.m",
+      "sha256": "e6e26ad84d81353b5b529ac41beb0104e34ffecfb4ec3f8985843f0c61555f3d"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/build_pmsm_bridge_bus.m",
+      "sha256": "f11c8b84a1aab5f9a42d68b0720b9c6f5f74c747e1c9f8b048d3174d48d964a1"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/build_pmsm_bridge_plant.m",
+      "sha256": "57317376a59fc66e0db7212d30dac2a9d50cc3a05446f5a7bb5e6efd491d5767"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/hf_plant_stimulus.m",
+      "sha256": "2d9df8c348f2250f0cdf7cf2990a0fd34cf99c9fc4c0eb5e499481750639676d"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/initialize_bridge_bus_test.m",
+      "sha256": "337f146f3dea91e5995c43611c972ff94c51cd292499d1df6704d158121657ab"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/initialize_bridge_test.m",
+      "sha256": "553cdad2d55b02e31d455210319170bb111795ee98421ef1ab2d1c05a9444111"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/initialize_hf_plant_test.m",
+      "sha256": "3af5163bf5ed834e75ab28c74f723621af5187693dd2f94ec67030b4fad814b8"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/inspect_bridge_bus_models.m",
+      "sha256": "b01a3e5a572b3f9dc0da9d404ed8a6cde756268ab3743784a77c24c29962ebe0"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/run_bridge_bus_case.m",
+      "sha256": "0a3d6000c83a52e301ea4b3fffba4cb14a10c886ebdb5b9e158be6d9b53de8d7"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/run_bridge_case.m",
+      "sha256": "1c8b271b3a05b647a6eb05c6ac8e5a190f1c35b9c34fdb4389d24ea382e5a2ee"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/spmsm_estimation_fixture.m",
+      "sha256": "f26ae5e3794388fee26b4eaabff9015f6ddec5f22c0db9cf9894cf7fd28b5030"
+    },
+    {
+      "path": "model/lib/永磁同步电机/build_process/tidy_bridge_bus_models.m",
+      "sha256": "b0bca6b65ff346a5c14b11750a3c5ebe92eaddec3c387af12d7d22db374da5ec"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/bridge_bus_test_parameters.m",
+      "sha256": "c091889b2c14ecceff9442781961fa1be03b2ab5f911ef7ed0485d05a7a112d4"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/bridge_bus_trace_channels.m",
+      "sha256": "d1c0f74e98952bcf0af5b48f03f617cfb27eca080c377f33395e3084f6bf9620"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/bridge_test_parameters.m",
+      "sha256": "a206176618af9f1aafa4a96cb68b9a3dbf7c7ae86d14b5ad262f5ec30d888e79"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/bridge_trace_channels.m",
+      "sha256": "27f69871854c394f747b28bf36fef4fdb1290c1476d7eb92c495e4ba1ac1738e"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/hf_plant_test_parameters.m",
+      "sha256": "7a1d680daf12be8d71b928b4da0eae8138571e9add3d730d3458a1fa6495418c"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/pmsm_bridge_parameters.m",
+      "sha256": "7a638c6854ad75a3a229e4a26187b74a5a79fda25c6987714425025b3f492b96"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/pmsm_hf_parameters.m",
+      "sha256": "50c44ed8fcffdf99bdca647276c425911d510575d038a6307b394f1e91068546"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/pmsm_parameters.m",
+      "sha256": "c0956a684326c919816182ec6d01c65f05b22eaa29a59710ff6aa7f2c498cd1d"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/pmsm_sensorless_parameters.m",
+      "sha256": "a0cdf11b541c97ea7bab40de8ac75a3392117f8f9dd50ffc5760215335349b91"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/pmsm_test_parameters.m",
+      "sha256": "b6c0088b6ef82a79e75133ff4fbc30823a9663b67637f094235eb9d7cbc15dcd"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/refresh_pmsm_bridge_parameters.m",
+      "sha256": "d9ebca351784ee4ad2d11c914a9e485c283e3a665ce038ff0501f10733365a5b"
+    },
+    {
+      "path": "model/lib/永磁同步电机/parameter/refresh_pmsm_hf_parameters.m",
+      "sha256": "73b6c77bc68f01d962fd2f9860839d904183c0d516bfd307ac2bf623286c3722"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMBridgeBusPlant.slx",
+      "sha256": "cb31ea5cadc5aa9ba62831a704f59d974daf64ac272fd47f81fe71444aacdc78"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMBridgeBusPlantTest.slx",
+      "sha256": "7136aefcbf5849a9a340eceecc18abe747d65ca2ea5d01f9132758028ab91fa0"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMBridgePlant.slx",
+      "sha256": "d32beb34c3c35ad139da27704b6f173d2a475e94622ffa233145f89200999786"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMBridgePlantTest.slx",
+      "sha256": "21ee5fd4aab091e435f83a7704363953e196bb14a9757885b2aa1755f5b268d2"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMHighFrequencyPlant.slx",
+      "sha256": "153becfe7e458d30fcd3ab2a9e38b3d2f85d313e3385e281b762c1bc05c16647"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMHighFrequencyPlantTest.slx",
+      "sha256": "a1f3036cc2b124cd5b27d15963ff781c91d5e44428243c2514c2152c64701ef4"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMPlant.slx",
+      "sha256": "9cd816f48cca9334859a91829581f52ed64b1317650d90d6d89b32be4b1c8b9e"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/PMSMPlantTest.slx",
+      "sha256": "ddc26bd3cbc5842496f3ca0196e775a4c32cea947e5ac04a749027efe6ccf837"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/bridge_bus_settings.m",
+      "sha256": "f714f7d516e77e62edc8e340208d35ff11db22b96c0251b43839fd7e1451a839"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_bridge_output.m",
+      "sha256": "3f9b98c71e65f0d08b264a2bafc2b412dc7407670af9080893fe951ae73e3cb2"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_bridge_step.m",
+      "sha256": "6b82b6a29e076976b0a315cf3837894569e32b8bf3d6d3fae8b9a2ff766a6e73"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_hf_dynamics.m",
+      "sha256": "d24f3a747ef3ce27bae2813d852350248afd6c59bf2df5f0e2b7a1b54e030f0d"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_hf_output.m",
+      "sha256": "68819a8ba4185df526720420e95911483a48f913fbb62de4e2c478b3507f1555"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_sensorless_measurement.m",
+      "sha256": "fa9ecd5c912622fa8e0305dc8205fb155659de2b32a08dc05cb2fe2e7e2c66f5"
+    },
+    {
+      "path": "model/lib/永磁同步电机/src/pmsm_sensorless_step.m",
+      "sha256": "99d9a91f89b333f1461c8e0f43a08d41b58218793bc97666ab187bf46e1b62fc"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/export_bridge_bus_plots.m",
+      "sha256": "a4423aa2ccbaf46f8a8fa6eacbb57aa4c792a8fe7c3406be31dbb9489620d117"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/plot_bridge_results.m",
+      "sha256": "24e47af9c207767b3646f255b72bc125da761bd9f5842142ac7733d1c6ad5872"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_bridge_bus_validation.m",
+      "sha256": "9e396af0b473b2d41ae6ca6e05dba83515671b24889ec54ae9c63b4edddebde6"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_bridge_kernel_checks.m",
+      "sha256": "745a40b522e17f01c41049add1a44a670156a0e1ccfcfe6e25477012b0d29c2c"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_bridge_validation.m",
+      "sha256": "fe16541a0266ee5aded71b2ad584aaad2ef24d080369132fd09bfc20ff20161b"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_hf_plant_validation.m",
+      "sha256": "c9fc1ff2e4ec6dad00cf759113bb6744b54a9c1bad076dceb51f32b77b566d2e"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_pmsm_plant_validation.m",
+      "sha256": "7b82d47b9ec4bb3a13d6545783a0cb9ef8f9be06caa2b3a4ba1bdf28947d8517"
+    },
+    {
+      "path": "model/lib/永磁同步电机/waveform_analysis/run_sensorless_process_validation.m",
+      "sha256": "b502de4002bd4ab23313f104e1eccb162e9010b34b3d89e5b2d231fbe882d8e3"
+    },
+    {
+      "path": "model/lib/无感切换/build_process/build_hybrid_fusion.m",
+      "sha256": "3eeb0ba5b98c2892cd77378d2abb1dd0a324144840118a91bc1df0e5a63124c1"
+    },
+    {
+      "path": "model/lib/无感切换/build_process/build_sensorless_handover.m",
+      "sha256": "79e7e7c7ca2ba5a86b478266c26150f343e38e2abf2ddcd4f0d43674bd320ffa"
+    },
+    {
+      "path": "model/lib/无感切换/build_process/hybrid_fusion_stimulus.m",
+      "sha256": "23810bfd178887ee84e896528ce9713ec2e68e31c3091332acd1a3c793fdbfaa"
+    },
+    {
+      "path": "model/lib/无感切换/build_process/initialize_handover_test.m",
+      "sha256": "81ed69410f14df7dd105281c72cb9406091d478a3756e9db7484907ae969c437"
+    },
+    {
+      "path": "model/lib/无感切换/build_process/initialize_hybrid_fusion_test.m",
+      "sha256": "682bf314c0ae33b8bbbdb26749cc03049328aeca7d0fda7c666b1ed8d8932601"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/handover_parameters.m",
+      "sha256": "2d018210f652ec1dd0360c4c88a61f7864bc5e3e9068ad9eee3dc7cb459a1029"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/handover_test_parameters.m",
+      "sha256": "1c71edfb8a78ed85b2634b5e4292d16310f00c7d393751bf0a72cab07ba88b39"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/hybrid_fusion_parameters.m",
+      "sha256": "233af70c97befa48582d3bfff61a871051518d005bedffe392fdf86255f5b51f"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/hybrid_fusion_test_parameters.m",
+      "sha256": "ab9131e26c41ec3c00506b6a679fa527f3bfd8f621f1ea305c05ac595dbefc1b"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/refresh_handover_parameters.m",
+      "sha256": "1e9da1af63fdcf75c60759c5ce5c15fabe2dccc69b76930b780c32bb86102392"
+    },
+    {
+      "path": "model/lib/无感切换/parameter/refresh_hybrid_fusion_parameters.m",
+      "sha256": "82ecb075f09136ccac4dd7183196b8a58566346044ef2ee96590bfea3955f9b1"
+    },
+    {
+      "path": "model/lib/无感切换/src/HybridFusionTest.slx",
+      "sha256": "d7df9986122b387b26e1e45d1485a281bb04680b42e5cd4b8a5dcc3f5d61ce77"
+    },
+    {
+      "path": "model/lib/无感切换/src/SensorlessHandover.slx",
+      "sha256": "29dc47a4398d7812803c91109b15d17f450692fa2d5248b3ab9697eabb3184c9"
+    },
+    {
+      "path": "model/lib/无感切换/src/SensorlessHandoverTest.slx",
+      "sha256": "bbd8e5077aaee3a41f3e599f6187264fee6cfa475af6451a2921be6dd7d8cbdb"
+    },
+    {
+      "path": "model/lib/无感切换/src/handover_step.m",
+      "sha256": "a83c0ad924c28cbd123e581c02de7e301d2e0b31ab82875cb37d4230a216a791"
+    },
+    {
+      "path": "model/lib/无感切换/src/hybrid_fusion_step.m",
+      "sha256": "f1ae06eb67902335d616511d38c558bd2bb5a68ac88cd68a7a28ad3a00b03050"
+    },
+    {
+      "path": "model/lib/无感切换/src/hybrid_injection_output.m",
+      "sha256": "4fea98c99161ecd35670ff9323516e6f422aba6fd52e95d7374cdc9883b110a6"
+    },
+    {
+      "path": "model/lib/无感切换/waveform_analysis/plot_hybrid_fusion_results.m",
+      "sha256": "0e558a39df7f394da914161f4d23693fc38144b470d061cee28a0259addc5f30"
+    },
+    {
+      "path": "model/lib/无感切换/waveform_analysis/run_handover_validation.m",
+      "sha256": "2a1b941ed440442e464fe2996d228681d50324c54d4c7541e2213d5629c37b7a"
+    },
+    {
+      "path": "model/lib/无感切换/waveform_analysis/run_hybrid_fusion_validation.m",
+      "sha256": "10ce325fe42cfc52bf566c938d3c6ff5a3253b544374b55cbb8d0a7b5fe17cbc"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/build_open_loop_drive.m",
+      "sha256": "d639fa7dbf2447da5cc3dd8cd500ceba57f003527501f458bac449a8fa216008"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/build_sensorless_startup.m",
+      "sha256": "c984247f8332e2744d984761975d09d79f087404a16370aee14248beaf53921d"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/initialize_open_loop_drive_test.m",
+      "sha256": "d0259ea81c16ec0b9543252149bb3de4196fc41f56e83db9edb9ecd9faed28b4"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/initialize_startup_test.m",
+      "sha256": "930bba1bc7544d87badab5d4cb15cb37da8efa449c05923ff2c3e62a582a36f5"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/open_loop_drive_parameters.m",
+      "sha256": "2d50d621dc9618239378038464b89d4d3e7cade6e0568dd6407de3c487bbc523"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/open_loop_drive_test_parameters.m",
+      "sha256": "926666c7499db78c4f5304df42867262c9bd0ec1f1bdce48e680949d6e759a10"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/refresh_open_loop_drive_parameters.m",
+      "sha256": "2aa96b944d52ceae2fa51845ba960f028548aba9341c3dc2eeda0c1651f70572"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/refresh_startup_parameters.m",
+      "sha256": "c0d859e2968c22ffd361892ba1775466f51868290ef03cc880059ca0ee5e9bf8"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/startup_parameters.m",
+      "sha256": "d31d843510d8583360abcd0cf787988b693e0155aa3bb8ebe1980edcbb506f0b"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/startup_test_parameters.m",
+      "sha256": "64501db08d62442ec0dec338a0c2ab2544a9a4e1cb6f40b0551fb06b99a13ac5"
+    },
+    {
+      "path": "model/lib/无感启动/src/OpenLoopDrive.slx",
+      "sha256": "e6931e24133b68f7013e958d5d0f8b9c62dd5f3ccb0b140ec1d8d8ef88559e1e"
+    },
+    {
+      "path": "model/lib/无感启动/src/OpenLoopDriveTest.slx",
+      "sha256": "4e2c08a47b84504a07fe7cbc1b820c49705ca472b3203960d7ee34f812cedec7"
+    },
+    {
+      "path": "model/lib/无感启动/src/SensorlessStartup.slx",
+      "sha256": "c12f98db44de8f1fae8357c5cc433f63ac210dacef9cf4dca6274bc017d6b539"
+    },
+    {
+      "path": "model/lib/无感启动/src/SensorlessStartupTest.slx",
+      "sha256": "4c7a0fbd013c0d7f1c8ba7da85b012408096418779c965715662a5d45b7c8df9"
+    },
+    {
+      "path": "model/lib/无感启动/src/open_loop_drive_output.m",
+      "sha256": "a781b5b4468c920fc99eeaad92d638dd3d83969f7d254f7a84d3d3c8bd94f45d"
+    },
+    {
+      "path": "model/lib/无感启动/src/open_loop_drive_update.m",
+      "sha256": "06dfc62cc80129ff660d208902bd3935178f17cdd427ce67602839b07a045b7e"
+    },
+    {
+      "path": "model/lib/无感启动/src/startup_step.m",
+      "sha256": "e7d7aba943d35effa9aa2d4bfa097648af6c3fef5246d6b64c041c290f61955b"
+    },
+    {
+      "path": "model/lib/无感启动/waveform_analysis/run_open_loop_drive_validation.m",
+      "sha256": "7a1ac5a56c4ba684a690852e1ebe7139f356195d02e5e53a18b263100c52b267"
+    },
+    {
+      "path": "model/lib/无感启动/waveform_analysis/run_startup_validation.m",
+      "sha256": "7619a2b6c7330fbff47ba4ea41e5d57f45a1f05e28620f3594060143b609cb3c"
+    },
+    {
+      "path": "model/lib/采样执行时序/parameter/timing_parameters.m",
+      "sha256": "f51af44369de72d758dd4e54f0a8ffe8796a1c45506c40a36cadf71eb9764a1c"
+    },
+    {
+      "path": "model/lib/采样执行时序/parameter/timing_test_parameters.m",
+      "sha256": "afb30e108b430f474e4e8eb1733dd48d677aea41349a63768cf72916cc8652f5"
+    },
+    {
+      "path": "model/lib/采样执行时序/src/ControlTiming.slx",
+      "sha256": "7bbc9411ae2a9a44a731671aef8fb079b26e74029d7c401df759953d8ff854d2"
+    },
+    {
+      "path": "model/lib/采样执行时序/src/TimingTest.slx",
+      "sha256": "d02f7883f3cc259c3fdff117f3c737fff9759615da99278e0ce309e141a48584"
+    },
+    {
+      "path": "model/lib/采样执行时序/waveform_analysis/run_timing_validation.m",
+      "sha256": "209332600dc9229dc3d6feff542b537d5b11c2e5f3c498094fd9cc631b301ca6"
+    }
+  ],
+  "symbol_table_sha256": "dad60d796874641387c0f2fd527ded95487505afabe140374e5732766337bb25",
+  "engineering_models": 72,
+  "functional_modules": 26,
+  "protected_models": 42
+}

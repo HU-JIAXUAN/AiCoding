@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "six_trace_max_differences": {
+    "plant": 0,
+    "observer": 0,
+    "controller": 0,
+    "allocation": 0,
+    "actuation": 0,
+    "guard": 0
+  },
+  "scope_count": 29,
+  "libraries_edited": false
+}

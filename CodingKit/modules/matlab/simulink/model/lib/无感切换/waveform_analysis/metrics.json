@@ -1,0 +1,222 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "tests": 19,
+  "passed": 19,
+  "metrics": [
+    {
+      "name": "positive",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "negative",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010299999900001744,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "wrap",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010047388964590011,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "flying",
+      "blend_start_s": 0.015000000000000001,
+      "auto_start_s": 0.11505,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019549,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "flying_disabled",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0,
+      "final_mode": 1,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "phase_gap",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019771,
+      "final_mode": 1,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "speed_gap",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019771,
+      "final_mode": 1,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "residual_block",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019771,
+      "final_mode": 1,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "low_speed",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.0025000000000050537,
+      "final_mode": 1,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "qualification_reset",
+      "blend_start_s": 0.037000000000000005,
+      "auto_start_s": 0.13705,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "short_dropout",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "long_dropout",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": 0.201,
+      "maximum_active_angle_step_rad": 0.01000000000000556,
+      "final_mode": 5,
+      "final_fault": 2,
+      "passed": true
+    },
+    {
+      "name": "phase_jump",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": 0.201,
+      "maximum_active_angle_step_rad": 0.01000000000000556,
+      "final_mode": 5,
+      "final_fault": 2,
+      "passed": true
+    },
+    {
+      "name": "blend_dropout",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13055,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "reset",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "disable",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010000000000019382,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "startup_fault",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": 0.15,
+      "maximum_active_angle_step_rad": 0.010000000000005338,
+      "final_mode": 5,
+      "final_fault": 1,
+      "passed": true
+    },
+    {
+      "name": "disabled",
+      "blend_start_s": null,
+      "auto_start_s": null,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0,
+      "final_mode": 0,
+      "final_fault": 0,
+      "passed": true
+    },
+    {
+      "name": "phase_noise",
+      "blend_start_s": 0.030000000000000002,
+      "auto_start_s": 0.13005,
+      "fault_time_s": null,
+      "maximum_active_angle_step_rad": 0.010199996666102606,
+      "final_mode": 4,
+      "final_fault": 0,
+      "passed": true
+    }
+  ],
+  "channels": [
+    "theta_start",
+    "omega_start",
+    "ready",
+    "startup_mode",
+    "startup_fault",
+    "theta_hat",
+    "omega_hat",
+    "observer_valid",
+    "residual_norm",
+    "enable",
+    "reset",
+    "theta_used",
+    "omega_base",
+    "omega_frame",
+    "beta",
+    "mode",
+    "fault",
+    "acquired",
+    "run",
+    "qualification_count",
+    "loss_count",
+    "phase_offset"
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "release": "2026b",
+  "passed": true,
+  "case_count": 10,
+  "cases": [
+    {
+      "name": "normal_equivalence",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 9.7063069948675356,
+      "peak_limited_voltage_V": 9.7063069948675356,
+      "peak_integral_V": 9.5953134783915957
+    },
+    {
+      "name": "pure_frame_change",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 2.2204460492503131E-16,
+      "peak_requested_voltage_V": 3.4255845147407533,
+      "peak_limited_voltage_V": 3.4255845147407533,
+      "peak_integral_V": 0.16251233661094777
+    },
+    {
+      "name": "proportional_during_tracking",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 2.4139209677210141,
+      "peak_limited_voltage_V": 2.4139209677210141,
+      "peak_integral_V": 0
+    },
+    {
+      "name": "feedforward_transfer",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 0,
+      "peak_limited_voltage_V": 0,
+      "peak_integral_V": 3.6055512754639891
+    },
+    {
+      "name": "positive_aw",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 4.3195424459518961E-9,
+      "peak_requested_voltage_V": 3.5707963224753541,
+      "peak_limited_voltage_V": 2,
+      "peak_integral_V": 0.42920366910153812
+    },
+    {
+      "name": "negative_aw",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 4.3195424459518961E-9,
+      "peak_requested_voltage_V": 3.5707963224753541,
+      "peak_limited_voltage_V": 2,
+      "peak_integral_V": 0.42920366910153812
+    },
+    {
+      "name": "without_aw",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 31.337386719558321,
+      "peak_limited_voltage_V": 2,
+      "peak_integral_V": 28.274333882308273
+    },
+    {
+      "name": "reset",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 7.9649352671689861,
+      "peak_limited_voltage_V": 7.9649352671689861,
+      "peak_integral_V": 6.7853890687450384
+    },
+    {
+      "name": "disable",
+      "passed": true,
+      "Ts_s": 5E-5,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 7.9649352671689861,
+      "peak_limited_voltage_V": 7.9649352671689861,
+      "peak_integral_V": 6.7853890687450384
+    },
+    {
+      "name": "sample_time",
+      "passed": true,
+      "Ts_s": 0.0001,
+      "maximum_error": 0,
+      "peak_requested_voltage_V": 9.6997384927238368,
+      "peak_limited_voltage_V": 9.6997384927238368,
+      "peak_integral_V": 9.5910725281154185
+    }
+  ],
+  "physical_plant_included": false
+}

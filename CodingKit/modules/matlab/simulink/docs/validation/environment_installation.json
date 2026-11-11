@@ -1,0 +1,745 @@
+{
+  "release": "2026b",
+  "version": "26.2.0.3433840 (R2026b) Update 1",
+  "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+  "requested_products": [
+    "5G Toolbox",
+    "AUTOSAR Blockset",
+    "Aerospace Blockset",
+    "Aerospace Toolbox",
+    "Antenna Toolbox",
+    "Audio Toolbox",
+    "Automated Driving Toolbox",
+    "Bioinformatics Toolbox",
+    "Bluetooth Toolbox",
+    "C2000 Microcontroller Blockset",
+    "Communications Toolbox",
+    "Control System Toolbox",
+    "Curve Fitting Toolbox",
+    "DDS Blockset",
+    "DSP HDL Toolbox",
+    "DSP System Toolbox",
+    "Data Acquisition Toolbox",
+    "Database Toolbox",
+    "Datafeed Toolbox",
+    "Deep Learning HDL Toolbox",
+    "Econometrics Toolbox",
+    "Embedded Coder",
+    "Financial Instruments Toolbox",
+    "Financial Toolbox",
+    "Fixed-Point Designer",
+    "Fuzzy Logic Toolbox",
+    "GPU Coder",
+    "Global Optimization Toolbox",
+    "HDL Coder",
+    "HDL Verifier",
+    "Image Acquisition Toolbox",
+    "Image Processing Toolbox",
+    "Industrial Communication Toolbox",
+    "Instrument Control Toolbox",
+    "LTE Toolbox",
+    "Point Cloud Toolbox",
+    "MATLAB",
+    "MATLAB Coder",
+    "MATLAB Compiler",
+    "MATLAB Compiler SDK",
+    "Mapping Toolbox",
+    "Powertrain Blockset",
+    "Sensor Fusion and Tracking Toolbox",
+    "Simulink",
+    "Simulink FMU Builder",
+    "Spreadsheet Link",
+    "System Identification Toolbox"
+  ],
+  "missing_products": [],
+  "products": [
+    {
+      "Name": "5G Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "AUTOSAR Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Antenna Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Audio Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Automated Driving Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bioinformatics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bluetooth Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "C2000 Microcontroller Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Communications Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Curve Fitting Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DDS Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Data Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Database Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Datafeed Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Econometrics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Embedded Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Instruments Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fixed-Point Designer",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "GPU Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Global Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Verifier",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Industrial Communication Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Instrument Control Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "LTE Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler SDK",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Copilot",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB MCP Server Toolbox",
+      "Version": "0.5.0",
+      "Release": "(R2026b)",
+      "Date": "23-Oct-2026"
+    },
+    {
+      "Name": "Mapping Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Point Cloud Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Powertrain Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Sensor Fusion and Tracking Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink FMU Builder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Spreadsheet Link",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Statistics and Machine Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "11-Jun-2026"
+    },
+    {
+      "Name": "System Identification Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    }
+  ],
+  "addons": [
+    {
+      "Name": "MATLAB MCP Server Toolbox",
+      "Version": "0.5.0",
+      "Identifier": "fce99a56-1b63-4d49-9d70-c32c5605e4eb",
+      "Enabled": true
+    },
+    {
+      "Name": "Simulink Agentic Toolkit",
+      "Version": "1.0.33",
+      "Identifier": "b1d94c2e-8f3a-4c67-9e5d-2a7b6c4f0d81",
+      "Enabled": true
+    },
+    {
+      "Name": "Mapping Toolbox",
+      "Version": "26.2",
+      "Identifier": "MG",
+      "Enabled": true
+    },
+    {
+      "Name": "AUTOSAR Blockset",
+      "Version": "26.2",
+      "Identifier": "AS",
+      "Enabled": true
+    },
+    {
+      "Name": "5G Toolbox",
+      "Version": "26.2",
+      "Identifier": "5G",
+      "Enabled": true
+    },
+    {
+      "Name": "Antenna Toolbox",
+      "Version": "26.2",
+      "Identifier": "AA",
+      "Enabled": true
+    },
+    {
+      "Name": "Bluetooth Toolbox",
+      "Version": "26.2",
+      "Identifier": "BL",
+      "Enabled": true
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "26.2",
+      "Identifier": "VP",
+      "Enabled": true
+    },
+    {
+      "Name": "Audio Toolbox",
+      "Version": "26.2",
+      "Identifier": "AU",
+      "Enabled": true
+    },
+    {
+      "Name": "Aerospace Blockset",
+      "Version": "26.2",
+      "Identifier": "AE",
+      "Enabled": true
+    },
+    {
+      "Name": "LTE Toolbox",
+      "Version": "26.2",
+      "Identifier": "LS",
+      "Enabled": true
+    },
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "26.2",
+      "Identifier": "AT",
+      "Enabled": true
+    },
+    {
+      "Name": "Bioinformatics Toolbox",
+      "Version": "26.2",
+      "Identifier": "BI",
+      "Enabled": true
+    },
+    {
+      "Name": "C2000 Microcontroller Blockset",
+      "Version": "26.2",
+      "Identifier": "C2",
+      "Enabled": true
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "26.2",
+      "Identifier": "IP",
+      "Enabled": true
+    },
+    {
+      "Name": "Curve Fitting Toolbox",
+      "Version": "26.2",
+      "Identifier": "CF",
+      "Enabled": true
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "26.2",
+      "Identifier": "NN",
+      "Enabled": true
+    },
+    {
+      "Name": "Communications Toolbox",
+      "Version": "26.2",
+      "Identifier": "CM",
+      "Enabled": true
+    },
+    {
+      "Name": "MATLAB Compiler",
+      "Version": "26.2",
+      "Identifier": "CO",
+      "Enabled": true
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "26.2",
+      "Identifier": "CT",
+      "Enabled": true
+    },
+    {
+      "Name": "Data Acquisition Toolbox",
+      "Version": "26.2",
+      "Identifier": "DA",
+      "Enabled": true
+    },
+    {
+      "Name": "Database Toolbox",
+      "Version": "26.2",
+      "Identifier": "DB",
+      "Enabled": true
+    },
+    {
+      "Name": "DDS Blockset",
+      "Version": "26.2",
+      "Identifier": "DD",
+      "Enabled": true
+    },
+    {
+      "Name": "Datafeed Toolbox",
+      "Version": "26.2",
+      "Identifier": "DF",
+      "Enabled": true
+    },
+    {
+      "Name": "Deep Learning HDL Toolbox",
+      "Version": "26.2",
+      "Identifier": "DH",
+      "Enabled": true
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "26.2",
+      "Identifier": "DM",
+      "Enabled": true
+    },
+    {
+      "Name": "Automated Driving Toolbox",
+      "Version": "26.2",
+      "Identifier": "DR",
+      "Enabled": true
+    },
+    {
+      "Name": "MATLAB Copilot",
+      "Version": "26.2",
+      "Identifier": "ZM",
+      "Enabled": true
+    },
+    {
+      "Name": "Fixed-Point Designer",
+      "Version": "26.2",
+      "Identifier": "PO",
+      "Enabled": true
+    },
+    {
+      "Name": "System Identification Toolbox",
+      "Version": "26.2",
+      "Identifier": "ID",
+      "Enabled": true
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "26.2",
+      "Identifier": "DS",
+      "Enabled": true
+    },
+    {
+      "Name": "Embedded Coder",
+      "Version": "26.2",
+      "Identifier": "EC",
+      "Enabled": true
+    },
+    {
+      "Name": "Spreadsheet Link",
+      "Version": "26.2",
+      "Identifier": "EL",
+      "Enabled": true
+    },
+    {
+      "Name": "HDL Coder",
+      "Version": "26.2",
+      "Identifier": "HD",
+      "Enabled": true
+    },
+    {
+      "Name": "HDL Verifier",
+      "Version": "26.2",
+      "Identifier": "ES",
+      "Enabled": true
+    },
+    {
+      "Name": "Econometrics Toolbox",
+      "Version": "26.2",
+      "Identifier": "ET",
+      "Enabled": true
+    },
+    {
+      "Name": "Point Cloud Toolbox",
+      "Version": "26.2",
+      "Identifier": "LP",
+      "Enabled": true
+    },
+    {
+      "Name": "Simulink FMU Builder",
+      "Version": "26.2",
+      "Identifier": "FB",
+      "Enabled": true
+    },
+    {
+      "Name": "Financial Toolbox",
+      "Version": "26.2",
+      "Identifier": "FI",
+      "Enabled": true
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "26.2",
+      "Identifier": "FL",
+      "Enabled": true
+    },
+    {
+      "Name": "Sensor Fusion and Tracking Toolbox",
+      "Version": "26.2",
+      "Identifier": "TF",
+      "Enabled": true
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "26.2",
+      "Identifier": "SG",
+      "Enabled": true
+    },
+    {
+      "Name": "Image Acquisition Toolbox",
+      "Version": "26.2",
+      "Identifier": "IA",
+      "Enabled": true
+    },
+    {
+      "Name": "GPU Coder",
+      "Version": "26.2",
+      "Identifier": "GC",
+      "Enabled": true
+    },
+    {
+      "Name": "Global Optimization Toolbox",
+      "Version": "26.2",
+      "Identifier": "GD",
+      "Enabled": true
+    },
+    {
+      "Name": "DSP HDL Toolbox",
+      "Version": "26.2",
+      "Identifier": "HS",
+      "Enabled": true
+    },
+    {
+      "Name": "Instrument Control Toolbox",
+      "Version": "26.2",
+      "Identifier": "IC",
+      "Enabled": true
+    },
+    {
+      "Name": "Financial Instruments Toolbox",
+      "Version": "26.2",
+      "Identifier": "IT",
+      "Enabled": true
+    },
+    {
+      "Name": "MATLAB Coder",
+      "Version": "26.2",
+      "Identifier": "ME",
+      "Enabled": true
+    },
+    {
+      "Name": "MATLAB Compiler SDK",
+      "Version": "26.2",
+      "Identifier": "MJ",
+      "Enabled": true
+    },
+    {
+      "Name": "Simulink",
+      "Version": "26.2",
+      "Identifier": "SL",
+      "Enabled": true
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "26.2",
+      "Identifier": "OP",
+      "Enabled": true
+    },
+    {
+      "Name": "Industrial Communication Toolbox",
+      "Version": "26.2",
+      "Identifier": "OT",
+      "Enabled": true
+    },
+    {
+      "Name": "Powertrain Blockset",
+      "Version": "26.2",
+      "Identifier": "PW",
+      "Enabled": true
+    },
+    {
+      "Name": "Statistics and Machine Learning Toolbox",
+      "Version": "26.2",
+      "Identifier": "ST",
+      "Enabled": true
+    }
+  ],
+  "old_path_entries": [],
+  "simulink": "built-in (C:\\Program Files\\MATLAB\\R2026b\\toolbox\\simulink\\core\\api\\new_system)",
+  "model_edit": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\Simulink_Agentic_Toolkit@1.0.33\\tools\\model_edit\\model_edit.p",
+  "codegen": "C:\\Program Files\\MATLAB\\R2026b\\toolbox\\simulink\\core\\general\\slbuild.p",
+  "c2000_registration": "C:\\Program Files\\MATLAB\\R2026b\\toolbox\\idelink\\extensions\\ticcs\\registerTICCS.m",
+  "hdl_registration": "C:\\Program Files\\MATLAB\\R2026b\\toolbox\\shared\\hdlshared\\attachhdlcconfig.p",
+  "status": "passed",
+  "executed_at_utc": "2026-11-09 02:47:19",
+  "product_installation": {
+    "requested_count": 47,
+    "registered_count": 54,
+    "mpm_exit_code": 0,
+    "finished_local": "2026-11-09T03:44:53+01:00",
+    "original_installer": "F:/Downloads/matlab_R2026b_Windows.exe",
+    "original_installer_preserved": true,
+    "method": "Fresh R2026b downloads from MathWorks using mpm; no R2026a product files copied."
+  },
+  "runtime_skill_audit": {
+    "command": "pwsh -NoProfile -File tools/specialty/audit-runtime-skills.ps1 -ExpectedProfile full -StandaloneRoot agents -Strict -Json",
+    "ok": true,
+    "active_skills": 136,
+    "duplicate_names": [],
+    "missing_expected_skills": [],
+    "mismatched_managed_links": [],
+    "plugin_package_drift": false
+  }
+}

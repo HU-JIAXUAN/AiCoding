@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "scenario_count": 3,
+  "scenario_names": [
+    "controller_limits",
+    "speed_load_step",
+    "position_load_step"
+  ],
+  "metrics": {
+    "controller_limits": {
+      "peak_current_A": 3.5333333333333314,
+      "maximum_acceleration_rad_s2": 200.00000000003126
+    },
+    "speed_load_step": {
+      "final_current_error_A": 1.0661548810464438E-8,
+      "peak_current_A": 0.56870317117431468,
+      "control_mode": 1,
+      "final_speed_error_rad_s": 2.5243789828266472E-5,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.0052989209093639049,
+      "rms_window_start_s": 1.1,
+      "rms_window_end_s": 1.2,
+      "tail_current_rms_A": 4.1163052236761556E-7,
+      "minimum_duty": 0,
+      "maximum_duty": 0.61119628109834545
+    },
+    "position_load_step": {
+      "final_current_error_A": 1.2846540694555486E-6,
+      "peak_current_A": 0.60368249682554131,
+      "control_mode": 2,
+      "final_speed_error_rad_s": 0.00063587439868550239,
+      "final_position_error_rad": 0.00040495861897382746,
+      "current_iae_A_s": 0.0021714922662560161,
+      "rms_window_start_s": 1.4000000000000001,
+      "rms_window_end_s": 1.5,
+      "tail_current_rms_A": 2.0986343266704849E-6,
+      "minimum_duty": 0,
+      "maximum_duty": 0.51804134303062987
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 19:25:26 +0000"
+}

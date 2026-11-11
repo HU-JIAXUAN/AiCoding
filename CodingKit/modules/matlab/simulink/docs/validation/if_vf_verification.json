@@ -1,0 +1,342 @@
+{
+  "status": "passed",
+  "date": "2026-11-11",
+  "release": "R2026b Update 1",
+  "scope": "MIL: independent I-f and V/f Apps with the same average bridge and synthetic SPMSM",
+  "clean_rebuild": {
+    "M_sources": 352,
+    "new_models_copied": false,
+    "engineering_library_dependencies_copied": 24,
+    "promoted_new_models": 4,
+    "embedded_M_matches": true
+  },
+  "shared_command": {
+    "cases": 13,
+    "metrics": "model/lib/无感启动/waveform_analysis/open_loop_metrics.json"
+  },
+  "apps": {
+    "if": {
+      "cases": {
+        "tracking": 6,
+        "protection": 5,
+        "counterexamples": 2
+      },
+      "metrics": "model/app_models/Sensorless/sensorless_if/waveform_analysis/results.json",
+      "native_inventory": "model/app_models/Sensorless/sensorless_if/waveform_analysis/native_inventory.json",
+      "default_speed_mean_rad_s": 62.769075818483955,
+      "default_speed_error_rms_rad_s": 0.6143583115089116,
+      "default_peak_current_A": 3.0255853200467007,
+      "step_convergence": {
+        "coarse_step_s": 1.25e-05,
+        "fine_step_s": 6.25e-06,
+        "mean_speed_difference_rad_s": 0.00018774435812218826,
+        "peak_current_difference_A": 1.0158787246528078e-05,
+        "passed": true
+      }
+    },
+    "vf": {
+      "cases": {
+        "tracking": 6,
+        "protection": 5,
+        "counterexamples": 2
+      },
+      "metrics": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/results.json",
+      "native_inventory": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/native_inventory.json",
+      "default_speed_mean_rad_s": 62.83190582753611,
+      "default_speed_error_rms_rad_s": 0.00038039660614132704,
+      "default_peak_current_A": 2.4843989790794088,
+      "step_convergence": {
+        "coarse_step_s": 1.25e-05,
+        "fine_step_s": 6.25e-06,
+        "mean_speed_difference_rad_s": 6.601278812468081e-07,
+        "peak_current_difference_A": 0.0006929869924530152,
+        "passed": true
+      }
+    }
+  },
+  "default_canonical_replay": {
+    "status": "passed",
+    "release": "2026b",
+    "scope": "Canonical default replay against clean M-source rebuild",
+    "apps": [
+      {
+        "model": "SensorlessIF",
+        "matched": {
+          "time": true,
+          "trace": true,
+          "physical_time": true,
+          "physical_trace": true
+        },
+        "samples": 32001,
+        "columns": 49,
+        "physical_samples": 160001,
+        "stimulus_time_empty": true
+      },
+      {
+        "model": "SensorlessVF",
+        "matched": {
+          "time": true,
+          "trace": true,
+          "physical_time": true,
+          "physical_trace": true
+        },
+        "samples": 32001,
+        "columns": 43,
+        "physical_samples": 160001,
+        "stimulus_time_empty": true
+      }
+    ],
+    "engineering_models_resolved": 76,
+    "reference_model_excluded": true
+  },
+  "model_default_run": {
+    "SensorlessIF": {
+      "passed": true,
+      "control_samples": 32001,
+      "physical_samples": 160001
+    },
+    "SensorlessVF": {
+      "passed": true,
+      "control_samples": 32001,
+      "physical_samples": 160001
+    }
+  },
+  "inherited_sources": {
+    "checked": 397,
+    "modified": [
+      "docs/scripts/initialize_motor_paths.m"
+    ]
+  },
+  "original_reference": {
+    "path": "model/app_models/Sensorless/sensorless_vf/ref/VF_Control.slx",
+    "sha256": "1764d72efe12d70862d3ab4ffbf48309778c6463c067470f56a7891794d60f8d"
+  },
+  "user_symbol_table": {
+    "path": "docs/UserDocs/符号定义表.md",
+    "sha256": "dad60d796874641387c0f2fd527ded95487505afabe140374e5732766337bb25"
+  },
+  "session": {
+    "file_generation_restored": true,
+    "matlab_path_restored": true,
+    "model_editors_open": 0,
+    "visible_figures": 0
+  },
+  "new_MAT_files": 0,
+  "sources": [
+    {
+      "path": "docs/scripts/build_open_loop_app.m",
+      "sha256": "a6d43a726a6a1f5b5786f4585a840b79398683c7b18b575ad792adf37a9839b3"
+    },
+    {
+      "path": "docs/scripts/initialize_motor_paths.m",
+      "sha256": "782c87af44c0347014e8132d6f2bbdcd67da5d451b1b86a31c1a56352d6857d3"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_channels.m",
+      "sha256": "f40caa8663f9923e9e6afe3834111cef3eded60a571c913ff3c91d7357f0481b"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_spec.m",
+      "sha256": "e6a92b94efe1acd61f497ce9fe1104153d7fd30790db476a537bf0e01abf0434"
+    },
+    {
+      "path": "docs/scripts/open_loop_app_stimulus.m",
+      "sha256": "08117a127312cdb0ede26fc02202c3271311230a36d7ffd4950e07d8a768015b"
+    },
+    {
+      "path": "docs/scripts/open_loop_model_edit.m",
+      "sha256": "a3d56ec538e6aa72f121a3dff0e375a80bfcf58db29ab0fe6907675d45baa79f"
+    },
+    {
+      "path": "docs/scripts/refresh_open_loop_app_parameters.m",
+      "sha256": "614b3110e7fdbadf74a326541854b5a9bb0a6142f4cf2a2f07ac33a67ec84788"
+    },
+    {
+      "path": "docs/scripts/run_open_loop_app_case.m",
+      "sha256": "4da4d85fd8a8018aa25d8e77d61ec39327ff3f0aae2a079b8ae842178be05453"
+    },
+    {
+      "path": "docs/scripts/validate_open_loop_app.m",
+      "sha256": "42aa3764fd40c43adbfe497af4123d853c4b2fd33c932141c4f38107da1e1fa5"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/build_if_app.m",
+      "sha256": "32ecf2a9f704faa5e38aa2e585e4dcde7a4736d742c93c837c68d715b522c934"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/initialize_if_app.m",
+      "sha256": "d4c37b5e962dda7cbd8fefc95a823dc464720a9671e1345bd6243044e9507bef"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/run_if_app_case.m",
+      "sha256": "cbe4741dab97a9623d071fb2eedb3ceab4ea97a715918ddaa00e9bd197952ac9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_parameters.m",
+      "sha256": "520e87fca8e32e8f32e6e78aeb494080cf388552c18b00b311017bbc8dc91841"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/parameter/if_app_validation_parameters.m",
+      "sha256": "a16d3ed05e575c1717ddf05f0c97fead247c4b0764f1b0dd4f45209aa14dc7b4"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/run_if_app_validation.m",
+      "sha256": "7bea442d711bde3ba5744977a73a858b61440c748938c445d8a64c26671dd079"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/build_vf_app.m",
+      "sha256": "4fd33ff161903a2b8bca46b7d3efc569ef91273d5634724ae66d6e6bbdd0a36b"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/initialize_vf_app.m",
+      "sha256": "83ff25ec0273fbee69a32102d8c7b5a9de9185e0b57e01f22139714b420f13e9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/run_vf_app_case.m",
+      "sha256": "9358c7874924277ed5d781f258df785aa5556ef38e874b76bd74bfcb049beedb"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_parameters.m",
+      "sha256": "8772e6a66c604d0685907f4e610eabfebb45caa5708a548bed2c975526121475"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/parameter/vf_app_validation_parameters.m",
+      "sha256": "e1b13d87edd8b3da1be54f760f5bef748cae1f9415f729c4e905e02869ed2ae1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/run_vf_app_validation.m",
+      "sha256": "ee99df96f3afd49717ded214be8206ea79776f8ecb3d79b9c2215595509417f2"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/build_open_loop_drive.m",
+      "sha256": "d639fa7dbf2447da5cc3dd8cd500ceba57f003527501f458bac449a8fa216008"
+    },
+    {
+      "path": "model/lib/无感启动/build_process/initialize_open_loop_drive_test.m",
+      "sha256": "d0259ea81c16ec0b9543252149bb3de4196fc41f56e83db9edb9ecd9faed28b4"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/open_loop_drive_parameters.m",
+      "sha256": "2d50d621dc9618239378038464b89d4d3e7cade6e0568dd6407de3c487bbc523"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/open_loop_drive_test_parameters.m",
+      "sha256": "926666c7499db78c4f5304df42867262c9bd0ec1f1bdce48e680949d6e759a10"
+    },
+    {
+      "path": "model/lib/无感启动/parameter/refresh_open_loop_drive_parameters.m",
+      "sha256": "2aa96b944d52ceae2fa51845ba960f028548aba9341c3dc2eeda0c1651f70572"
+    },
+    {
+      "path": "model/lib/无感启动/src/open_loop_drive_output.m",
+      "sha256": "a781b5b4468c920fc99eeaad92d638dd3d83969f7d254f7a84d3d3c8bd94f45d"
+    },
+    {
+      "path": "model/lib/无感启动/src/open_loop_drive_update.m",
+      "sha256": "06dfc62cc80129ff660d208902bd3935178f17cdd427ce67602839b07a045b7e"
+    },
+    {
+      "path": "model/lib/无感启动/waveform_analysis/run_open_loop_drive_validation.m",
+      "sha256": "7a1ac5a56c4ba684a690852e1ebe7139f356195d02e5e53a18b263100c52b267"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "model/lib/无感启动/src/OpenLoopDrive.slx",
+      "sha256": "e6931e24133b68f7013e958d5d0f8b9c62dd5f3ccb0b140ec1d8d8ef88559e1e"
+    },
+    {
+      "path": "model/lib/无感启动/src/OpenLoopDriveTest.slx",
+      "sha256": "4e2c08a47b84504a07fe7cbc1b820c49705ca472b3203960d7ee34f812cedec7"
+    },
+    {
+      "path": "model/lib/无感启动/waveform_analysis/open_loop_metrics.json",
+      "sha256": "becb02a18c2e1b88a695acd7e73147f474d9bde4bc25e4b459ac682eed26088f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/src/SensorlessIF.slx",
+      "sha256": "fb570b297d06c322a23d36e9c806a826ba24028aea65f09ecd777febcaca338a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/build_process/model_diagram.png",
+      "sha256": "6ebb49b72f7242aad2223bf7c6aabe9cb8d46a04b57f8bd29fd3431159fc3ddd"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/default_view.csv",
+      "sha256": "17febf8fe07cb0a905d92db5b85572f866ef7dac83614826ffa2a03c89620fb1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/default.png",
+      "sha256": "a3e4d7619f36b8afbf7954a4879275ca452393bfc9aa48d776ff3b45b5e2ffd6"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/default.svg",
+      "sha256": "d1d439969d5384ff42b500db2a341b8999f0682e5f640a7f48d622ba053f1a21"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/overload_view.csv",
+      "sha256": "41d33a143bce379cf2bb7800b5df6fbfa8f9b0287ad214ca333bbd750c24111f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/overload.png",
+      "sha256": "16737cd36b1f833e1d8a79b1726bc5cd59a3e2c459e2e7c6e4e1d7bda5870634"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/overload.svg",
+      "sha256": "1189d803a01f67e1714e18da1d32d0579a4efaf01501aee8fa9f66746e481c18"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/progress.json",
+      "sha256": "f1a6b3dd56d739bb6a68fc67eda2aeff9b98496572beefcea8f3df62f7d5a08a"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_if/waveform_analysis/results.json",
+      "sha256": "b5074feca1ec264a3030528bd962893ce1a3d223c3cf5f054caaabbeea9205a9"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/src/SensorlessVF.slx",
+      "sha256": "c97833942f62aa5b0fe100f5a8da372271ec1a3cfa1e55a707a14910afb7b265"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/build_process/model_diagram.png",
+      "sha256": "243f4045317f7763051bd45b84f38fa611993a0c5263a3764934048a38859fa1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/default_view.csv",
+      "sha256": "d07458e810cb6a6a8e1ebf20fa8efc4092666427450cedcac083a2575860a68f"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/default.png",
+      "sha256": "1bdff6e7f2dc216aa8c882cd1318dbc71ccc0363c823642a494c7621b4de86e1"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/default.svg",
+      "sha256": "8608d4c700506550ede3b8d4875762c68b4951ac35b3ee05a148aa8304398541"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/overload_view.csv",
+      "sha256": "8b1cf3fe00b10e3bf5e9a48b3ab17077ae7a899a72c521a12262c450782b0938"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/overload.png",
+      "sha256": "feffa3b252a7be05be6da3b2fd17b96d789306c5c2e1ecf6773f55c6595ee0f7"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/overload.svg",
+      "sha256": "4094272356b4be4febceb9e253fa82d593832125e0a0336d328490d5a3b1936e"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/progress.json",
+      "sha256": "a782e82602aea9da30a3be2a1b2aab1476048eb2553cb388dbf3aeec51da4981"
+    },
+    {
+      "path": "model/app_models/Sensorless/sensorless_vf/waveform_analysis/results.json",
+      "sha256": "f0022ff4ee7f6d21d65c43b5606a080a8cbd9131ddaa2f341899b8ffa3af7eb5"
+    }
+  ],
+  "limitations": [
+    "No position or speed estimator; no automatic closed-loop handoff",
+    "A current threshold is not a synchronism monitor",
+    "No C2000 build, PIL or hardware test"
+  ]
+}

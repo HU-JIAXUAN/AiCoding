@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "case": "speed_ramp",
+  "input_speed_slope_rad_s2": 2400,
+  "before_bandwidth_design_Hz": 20,
+  "after_bandwidth_design_Hz": 30,
+  "dynamic_check_window_s": [
+    0.12,
+    0.6
+  ],
+  "before_valid_fraction": 0.46588896989896883,
+  "after_valid_fraction": 1,
+  "before_qualified_to_unqualified_events": 1,
+  "after_qualified_to_unqualified_events": 0,
+  "same_stimulus_and_time": true,
+  "new_assertion": "valid must remain high for all t>=0.12 s",
+  "all_24_cases_rerun": true
+}

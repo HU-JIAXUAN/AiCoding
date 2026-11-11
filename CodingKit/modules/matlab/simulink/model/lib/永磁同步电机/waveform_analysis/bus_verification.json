@@ -1,0 +1,405 @@
+{
+  "status": "passed",
+  "date": "2026-11-10",
+  "matlab_release": "2026b",
+  "scope": "Runtime-bus physical library and component Test; not a sensorless field-weakening App or target-code result.",
+  "model_cases": 10,
+  "normal_and_numeric_cases": 6,
+  "expected_input_refusals": 4,
+  "current_m_rebuild": {
+    "status": "passed",
+    "source_m_files": 11,
+    "source_folder": "C:/Users/24322/AppData/Local/Temp/sensorless-build-v3614sn0/bridge_bus_fresh",
+    "default_trace_columns": 34,
+    "default_rows": 12001,
+    "default_max_difference": 0,
+    "default_time_exact": true,
+    "native": {
+      "release": "2026b",
+      "library_model": "PMSMBridgeBusPlant",
+      "test_model": "PMSMBridgeBusPlantTest",
+      "library_inputs": 4,
+      "library_outputs": 16,
+      "scopes": {
+        "BridgeModeScope": {
+          "block": "BridgeModeScopeChannels",
+          "output_port": 1
+        },
+        "BusCurrentScope": {
+          "block": "Plant",
+          "output_port": 8
+        },
+        "BusVoltageScope": {
+          "block": "Inputs",
+          "output_port": 6
+        },
+        "EnergyScope": {
+          "block": "EnergyScopeChannels",
+          "output_port": 1
+        },
+        "EquationResidualScope": {
+          "block": "ResidualChannels",
+          "output_port": 1
+        },
+        "MechanicalSpeedScope": {
+          "block": "SpeedChannels",
+          "output_port": 1
+        },
+        "PhaseCurrentScope": {
+          "block": "CurrentChannels",
+          "output_port": 1
+        },
+        "PhaseVoltageScope": {
+          "block": "VoltageChannels",
+          "output_port": 1
+        },
+        "PowerScope": {
+          "block": "PowerScopeChannels",
+          "output_port": 1
+        }
+      },
+      "scope_count": 9,
+      "physical_sources_exact": true,
+      "bus_power_uses_runtime_voltage": true,
+      "physical_state_not_reset_on_bus_change": true
+    }
+  },
+  "canonical_replay": {
+    "status": "passed",
+    "release": "2026b",
+    "canonical_module": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant",
+    "case_count": 10,
+    "host_seconds": 97.3213478,
+    "source_paths": {
+      "bridge_bus_settings": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/src/bridge_bus_settings.m",
+      "bridge_bus_test_parameters": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/parameter/bridge_bus_test_parameters.m",
+      "bridge_bus_trace_channels": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/parameter/bridge_bus_trace_channels.m",
+      "bridge_bus_stimulus": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/bridge_bus_stimulus.m",
+      "initialize_bridge_bus_test": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/initialize_bridge_bus_test.m",
+      "run_bridge_bus_case": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/run_bridge_bus_case.m",
+      "build_pmsm_bridge_bus": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/build_pmsm_bridge_bus.m",
+      "inspect_bridge_bus_models": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/inspect_bridge_bus_models.m",
+      "tidy_bridge_bus_models": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/build_process/tidy_bridge_bus_models.m",
+      "run_bridge_bus_validation": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/waveform_analysis/run_bridge_bus_validation.m",
+      "export_bridge_bus_plots": "F:/Study/AI/AiCoding/CodingKit/modules/matlab/simulink/model/lib/pmsm_plant/waveform_analysis/export_bridge_bus_plots.m"
+    },
+    "default_time_exact": true,
+    "default_max_difference": 0,
+    "default_rows": 12001,
+    "default_columns": 34,
+    "native": {
+      "release": "2026b",
+      "library_model": "PMSMBridgeBusPlant",
+      "test_model": "PMSMBridgeBusPlantTest",
+      "library_inputs": 4,
+      "library_outputs": 16,
+      "scopes": {
+        "BridgeModeScope": {
+          "block": "BridgeModeScopeChannels",
+          "output_port": 1
+        },
+        "BusCurrentScope": {
+          "block": "Plant",
+          "output_port": 8
+        },
+        "BusVoltageScope": {
+          "block": "Inputs",
+          "output_port": 6
+        },
+        "EnergyScope": {
+          "block": "EnergyScopeChannels",
+          "output_port": 1
+        },
+        "EquationResidualScope": {
+          "block": "EquationResidualScopeChannels",
+          "output_port": 1
+        },
+        "MechanicalSpeedScope": {
+          "block": "MechanicalSpeedScopeChannels",
+          "output_port": 1
+        },
+        "PhaseCurrentScope": {
+          "block": "PhaseCurrentScopeChannels",
+          "output_port": 1
+        },
+        "PhaseVoltageScope": {
+          "block": "PhaseVoltageScopeChannels",
+          "output_port": 1
+        },
+        "PowerScope": {
+          "block": "PowerScopeChannels",
+          "output_port": 1
+        }
+      },
+      "scope_count": 9,
+      "physical_sources_exact": true,
+      "bus_power_uses_runtime_voltage": true,
+      "physical_state_not_reset_on_bus_change": true
+    },
+    "inventory": [
+      {
+        "model": "PMSMBridgeBusPlant",
+        "path": "model/lib/pmsm_plant/src/PMSMBridgeBusPlant.slx",
+        "type": "library",
+        "root_blocks": [
+          "BridgeBusMotor"
+        ],
+        "editor_open": false
+      },
+      {
+        "model": "PMSMBridgeBusPlantTest",
+        "path": "model/lib/pmsm_plant/src/PMSMBridgeBusPlantTest.slx",
+        "type": "model",
+        "root_blocks": [
+          "BridgeModeScope",
+          "BridgeModeScopeChannels",
+          "BusCurrentScope",
+          "BusPower",
+          "BusVoltageScope",
+          "Duty",
+          "EnergyScope",
+          "EnergyScopeChannels",
+          "EquationResidualScope",
+          "EquationResidualScopeChannels",
+          "Inputs",
+          "MechanicalSpeedScope",
+          "MechanicalSpeedScopeChannels",
+          "PhaseCurrentScope",
+          "PhaseCurrentScopeChannels",
+          "PhaseVoltageScope",
+          "PhaseVoltageScopeChannels",
+          "Plant",
+          "PowerScope",
+          "PowerScopeChannels",
+          "SaveTrace",
+          "Stimulus",
+          "TerminalPower",
+          "TraceChannels"
+        ],
+        "editor_open": false
+      }
+    ]
+  },
+  "results": {
+    "pwm_bus_steps": {
+      "passed": true,
+      "voltage_error_V": 1.7763568394002505e-15,
+      "phase_peak_A": 11.157722835753226
+    },
+    "constant_48V": {
+      "passed": true,
+      "max_absolute_numeric_difference": 0,
+      "max_scaled_difference": 0,
+      "compared_values": 336028
+    },
+    "constant_36V": {
+      "passed": true,
+      "max_absolute_numeric_difference": 0,
+      "max_scaled_difference": 0,
+      "compared_values": 336028
+    },
+    "off_bus_steps": {
+      "passed": true,
+      "phase_peak_A": 7.145536453624231,
+      "returned_bus_energy_J": 1.4786105408052759,
+      "externally_held_speed_rad_per_s": 150
+    },
+    "short_bus_steps": {
+      "passed": true,
+      "physical_trace_difference": 0
+    },
+    "energy_refinement": {
+      "passed": true,
+      "coarse_defect_J": 1.2924720147938773e-05,
+      "fine_defect_J": 6.574956244925767e-06,
+      "ratio": 0.5087116912140134
+    },
+    "refuse_zero": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_negative": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_nan": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    },
+    "refuse_inf": {
+      "passed": true,
+      "message": "Positive finite DC bus voltage required.\n\t'<a href=\"matlab:hilite_system('PMSMBridgeBusPlantTest/Plant/BusSettings')\">PMSMBridgeBusPlantTest/Plant/BusSettings</a>' (<a href=\"matlab:sf('Open', sfprivate('block2chart', 'PMSMBridgeBusPlantTest/Plant/BusSettings'), 3, -2);\">line 4</a>) 中出现错误\n\t\tassert(isfinite(busVoltage) &amp;&amp; busVoltage&gt;0, ..."
+    }
+  },
+  "original_implementation_files_checked": 345,
+  "directory_rename_exceptions": [
+    {
+      "path": "model/lib/mtpa_fw/build_process/run_mtpa_fw_case.m",
+      "before": "4e86a492e5c1642ff9638ccb7073d5e49cceb5751fe3329afe7490c41d8bac90",
+      "after": "3931243826a732302fedc062bf36d0a3ff5e87a3ffd4336e7c276e6b2070cf2f",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "model/lib/mtpa_fw/parameter/reference_case_parameters.m",
+      "before": "78f86f56d83837b89fb2d147dfb678f89686861ed9ac827c12857f289e4f6ff8",
+      "after": "769936ca5bffdcf2f4f1b4c99a396b8433948b59782a36fc49e9b656fe6eccd3",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "docs/scripts/initialize_motor_paths.m",
+      "before": "fc70229f4516183da7e29dd7e6d33597fee36da53d04d9e19111e467336802a4",
+      "after": "8546e6bf071d45d3d6b1524ebd33e73c3407775d204bbb000290cf82ecabbb69",
+      "normalised_code_unchanged": true
+    },
+    {
+      "path": "docs/scripts/run_motor_validation.m",
+      "before": "07769d5d7c68ba73d73cb0dee24bdd14511af8fdbce16efe4194eaaff19adf63",
+      "after": "e2a0cc106a2e6efeaed9653855de5aab88179f65f80d2d879b6cc58c88b6f66a",
+      "normalised_code_unchanged": true
+    }
+  ],
+  "original_source_guard": "All original implementation bytes preserved except the independently recorded path-only directory migration.",
+  "files": [
+    {
+      "path": "model/lib/pmsm_plant/src/bridge_bus_settings.m",
+      "sha256": "f714f7d516e77e62edc8e340208d35ff11db22b96c0251b43839fd7e1451a839"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgeBusPlant.slx",
+      "sha256": "cb31ea5cadc5aa9ba62831a704f59d974daf64ac272fd47f81fe71444aacdc78"
+    },
+    {
+      "path": "model/lib/pmsm_plant/src/PMSMBridgeBusPlantTest.slx",
+      "sha256": "7136aefcbf5849a9a340eceecc18abe747d65ca2ea5d01f9132758028ab91fa0"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/BRIDGE_BUS_PARAMETERS.md",
+      "sha256": "b9ded3984d0489438610b849d9981abd9b3642ebead74f2d37e35c104d2448af"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/bridge_bus_test_parameters.m",
+      "sha256": "c091889b2c14ecceff9442781961fa1be03b2ab5f911ef7ed0485d05a7a112d4"
+    },
+    {
+      "path": "model/lib/pmsm_plant/parameter/bridge_bus_trace_channels.m",
+      "sha256": "d1c0f74e98952bcf0af5b48f03f617cfb27eca080c377f33395e3084f6bf9620"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/BRIDGE_BUS_BUILD.md",
+      "sha256": "fa32224ceb19c355a7f3eb28d1a959b2012e7e2d2a1203e1424587cf5809a09c"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/bridge_bus_stimulus.m",
+      "sha256": "d50fe697a92c005449521e4859a85614d3b21e406e09c8c7079114c9212f28ee"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/BRIDGE_BUS_USAGE.md",
+      "sha256": "be6cf951eaee62dc96e16397085fc28e288b63a26d8babe2512e92a90f175b78"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/build_pmsm_bridge_bus.m",
+      "sha256": "f11c8b84a1aab5f9a42d68b0720b9c6f5f74c747e1c9f8b048d3174d48d964a1"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/bus_library_diagram.png",
+      "sha256": "a0970cfb819869ac69664bba196a7c3269a2d27369350f1adbdca60f18251421"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/bus_library_diagram.svg",
+      "sha256": "24dbc3306a398f4a9f8658f0c18b81c0b23e17a2c2ee88ca67eb8f08e8f58c35"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/bus_test_diagram.png",
+      "sha256": "21cbbf3b52db131ba934a0111c979f8bf5d0eb7ae9cabd081acd698712a0f064"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/bus_test_diagram.svg",
+      "sha256": "b15a6ecc726f3651be2448ea5452332ba2fdc7f0ad03c78cb290ca60dd779043"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/initialize_bridge_bus_test.m",
+      "sha256": "337f146f3dea91e5995c43611c972ff94c51cd292499d1df6704d158121657ab"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/inspect_bridge_bus_models.m",
+      "sha256": "b01a3e5a572b3f9dc0da9d404ed8a6cde756268ab3743784a77c24c29962ebe0"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/run_bridge_bus_case.m",
+      "sha256": "0a3d6000c83a52e301ea4b3fffba4cb14a10c886ebdb5b9e158be6d9b53de8d7"
+    },
+    {
+      "path": "model/lib/pmsm_plant/build_process/tidy_bridge_bus_models.m",
+      "sha256": "b0bca6b65ff346a5c14b11750a3c5ebe92eaddec3c387af12d7d22db374da5ec"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/BRIDGE_BUS_ANALYSIS.md",
+      "sha256": "06312491a5b770c279cd875b070719a0b3549da23fa3b18f31b5763740f63d3b"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_active_short.mat",
+      "sha256": "62e14c3904be18bac09f3b2f2fefc8f22842a19d44e3c87ac3d75dbec975511e"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_energy_refinement.mat",
+      "sha256": "019e3574895aee27ac16b55f6d1cc6141f559de5b66f5f0a563f13e2f0df54e2"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_energy_refinement.png",
+      "sha256": "e8a0f92b9429010ca033b3e73c45e6e77d6c5d99fb054da6c87739f7a3fe0716"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_energy_refinement.svg",
+      "sha256": "df570ab3bbccecac5556a857d6e5a661322c79d373930127135e65937f5a78fd"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_native_inventory.json",
+      "sha256": "d06cfa62d53b626d14c9d9ddd9cf85e6b6cd20052c2eaea3e2560242d236e9e4"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_off_rectification.mat",
+      "sha256": "efa3ee8ecdb17116d66123b00b8cce880c81f19d010c93b04039181ced72978f"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_off_rectification.png",
+      "sha256": "02f75e6c3c083cdd3a9b5d77cd4f81b8aaf1f979f22ba4896ee421c8589ab9d5"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_off_rectification.svg",
+      "sha256": "e130283da05ce9d4d16f1d71b12db5b85ba9e1ae6a5bf1cf08c53bda81520e27"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_pwm_steps.mat",
+      "sha256": "58292a700e0ffdfbe41222d05df5b753babc769109e5c6521475e270510e93dc"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_pwm_steps.png",
+      "sha256": "e78bb46c6db631a143710a0810168cbe0fdcf0ac3b2bd35d1e368119c100f6a5"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_pwm_steps.svg",
+      "sha256": "f763a7e37337ea8697734907b3fd22187a9c9ab5ebe7534c1733394139224b40"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/bus_results.json",
+      "sha256": "306fcd43f3208b3990ec33ac77ffa51c108033728be0b546c6688031bd20a329"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/constant_36V.mat",
+      "sha256": "e312f9b73ee4d54a4a81cefcc0cc5a3172eb202a34f7ff6402d26015f1c38c4e"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/constant_48V.mat",
+      "sha256": "492354c12d16ec6ae017c57282a8b324cb1e6b3fe962b56fe39017225238b245"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/export_bridge_bus_plots.m",
+      "sha256": "a4423aa2ccbaf46f8a8fa6eacbb57aa4c792a8fe7c3406be31dbb9489620d117"
+    },
+    {
+      "path": "model/lib/pmsm_plant/waveform_analysis/run_bridge_bus_validation.m",
+      "sha256": "9e396af0b473b2d41ae6ca6e05dba83515671b24889ec54ae9c63b4edddebde6"
+    }
+  ],
+  "no_new_c2000_or_sil_claim": true
+}

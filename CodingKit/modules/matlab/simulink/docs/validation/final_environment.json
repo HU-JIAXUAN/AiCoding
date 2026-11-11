@@ -1,0 +1,404 @@
+{
+  "release": "2026b",
+  "version": "26.2.0.3433840 (R2026b) Update 1",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "products": [
+    {
+      "Name": "5G Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "AUTOSAR Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Antenna Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Audio Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Automated Driving Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bioinformatics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Bluetooth Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "C2000 Microcontroller Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Communications Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Curve Fitting Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DDS Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Data Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Database Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Datafeed Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning HDL Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Econometrics Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Embedded Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Instruments Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Financial Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fixed-Point Designer",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "GPU Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Global Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "HDL Verifier",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Acquisition Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Industrial Communication Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Instrument Control Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "LTE Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Compiler SDK",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB Copilot",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "MATLAB MCP Server Toolbox",
+      "Version": "0.5.0",
+      "Release": "(R2026b)",
+      "Date": "23-Oct-2026"
+    },
+    {
+      "Name": "Mapping Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Point Cloud Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Powertrain Blockset",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Sensor Fusion and Tracking Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink Coder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Simulink FMU Builder",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Spreadsheet Link",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    },
+    {
+      "Name": "Statistics and Machine Learning Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "11-Jun-2026"
+    },
+    {
+      "Name": "System Identification Toolbox",
+      "Version": "26.2",
+      "Release": "(R2026b)",
+      "Date": "22-May-2026"
+    }
+  ],
+  "product_count": 56,
+  "agentic_addons": [
+    {
+      "Name": "MATLAB MCP Server Toolbox",
+      "Version": "0.5.0",
+      "Identifier": "fce99a56-1b63-4d49-9d70-c32c5605e4eb",
+      "Enabled": true
+    },
+    {
+      "Name": "Simulink Agentic Toolkit",
+      "Version": "1.0.33",
+      "Identifier": "b1d94c2e-8f3a-4c67-9e5d-2a7b6c4f0d81",
+      "Enabled": true
+    }
+  ],
+  "tool_functions": {
+    "model_edit": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\Simulink_Agentic_Toolkit@1.0.33\\tools\\model_edit\\model_edit.p",
+    "model_read": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\Simulink_Agentic_Toolkit@1.0.33\\tools\\model_read\\model_read.p",
+    "model_check": "C:\\Users\\24322\\AppData\\Roaming\\MathWorks\\MATLAB Add-Ons\\Simulink_Agentic_Toolkit@1.0.33\\tools\\model_check\\model_check.p"
+  },
+  "models_loaded": 0,
+  "compiler": {
+    "name": "MinGW64 Compiler (C)",
+    "version": "14.2.0",
+    "location": "C:\\Users\\24322\\AppData\\Local\\Programs\\mingw64"
+  },
+  "yalmip": {
+    "path": "C:\\Program Files\\MATLAB\\R2026b\\bin\\YALMIP\\extras\\yalmip.m",
+    "sdpvar_path": "C:\\Program Files\\MATLAB\\R2026b\\bin\\YALMIP\\@sdpvar\\sdpvar.m",
+    "version": "20250626",
+    "variable_creation": true
+  },
+  "mcp_registration": {
+    "command": "F:\\Study\\AI\\Codex-Skills\\.runtime\\mathworks-agentic-toolkits\\app-data\\v1\\bin\\matlab-mcp-server.exe",
+    "args": [
+      "--matlab-root",
+      "C:\\Program Files\\MATLAB\\R2026b",
+      "--matlab-session-mode",
+      "new",
+      "--matlab-display-mode",
+      "nodesktop",
+      "--extension-file",
+      "F:\\Study\\AI\\Codex-Skills\\.runtime\\mathworks-agentic-toolkits\\app-data\\v1\\toolkits\\simulink-agentic-toolkit\\tools\\tools.json"
+    ],
+    "configuration_sha256": "14674b916a7cd9979707f8f84643bc023932980914d5c0a51cf5433951e85853",
+    "command_sha256": "7c70fdc69e7e7d4762732fede64f348b18ecbc89c3de705f9dde89a86d1883ea",
+    "verification": "Actual official registered server launched in new R2026b headless session; request129 runtime probe. No assertion that an older chat transport has reconnected."
+  },
+  "R2026a_directory_exists": false,
+  "R2026a_uninstall_entries": [],
+  "original_installer": {
+    "path": "F:/Downloads/matlab_R2026b_Windows.exe",
+    "preserved": true
+  },
+  "requested_baseline_products": 47,
+  "missing_requested_products": [],
+  "date": "2026-11-10",
+  "status": "passed",
+  "C2000_validation_performed": false,
+  "source_and_parameter_code_analysis": "model/lib/observer_mras/waveform_analysis/host_codegen/code_analysis.json",
+  "code_analysis_note": "State update and parameter factory: zero diagnostics. Host driver: one advisory recommending filePermissions instead of fileattrib; actual MEX/SIL already passed."
+}

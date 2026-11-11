@@ -1,0 +1,137 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "tests": 13,
+  "records": [
+    {
+      "model": "PMSMPlantTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\pmsm_plant\\src\\PMSMPlantTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "CurrentLoopTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\current_loop\\src\\CurrentLoopTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "InverterTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\inverter\\src\\InverterTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "TimingTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\timing\\src\\TimingTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "MotionLoopTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\motion_loop\\src\\MotionLoopTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "FeedforwardTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\feedforward\\src\\FeedforwardTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "DeadtimeTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\deadtime\\src\\DeadtimeTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.03,
+      "actual_last_sample_s": 0.030000000000000002,
+      "samples": 301,
+      "passed": true
+    },
+    {
+      "model": "SwitchingLegTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\deadtime\\src\\SwitchingLegTest.slx",
+      "old_stop_time": "fixtureCfg.Duration",
+      "parameter_expression": "fixtureCfg.Duration",
+      "duration_s": 0.001,
+      "actual_last_sample_s": 0.001,
+      "samples": 10001,
+      "passed": true
+    },
+    {
+      "model": "DiscretePIDTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\discrete_pid\\src\\DiscretePIDTest.slx",
+      "old_stop_time": "pidTestCfg.Duration",
+      "parameter_expression": "pidTestCfg.Duration",
+      "duration_s": 3,
+      "actual_last_sample_s": 3,
+      "samples": 3001,
+      "passed": true
+    },
+    {
+      "model": "AngleTrackingTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\angle_tracking\\src\\AngleTrackingTest.slx",
+      "old_stop_time": "0.3",
+      "parameter_expression": "pllTestCfg.Duration",
+      "duration_s": 0.3,
+      "actual_last_sample_s": 0.3,
+      "samples": 6001,
+      "passed": true
+    },
+    {
+      "model": "SlidingModeObserverTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\observer_smo\\src\\SlidingModeObserverTest.slx",
+      "old_stop_time": "0.3",
+      "parameter_expression": "smoTestCfg.Duration",
+      "duration_s": 0.3,
+      "actual_last_sample_s": 0.3,
+      "samples": 6001,
+      "passed": true
+    },
+    {
+      "model": "SensorlessStartupTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\sensorless_startup\\src\\SensorlessStartupTest.slx",
+      "old_stop_time": "1.1",
+      "parameter_expression": "startupTestCfg.Duration",
+      "duration_s": 1.1,
+      "actual_last_sample_s": 1.1,
+      "samples": 22001,
+      "passed": true
+    },
+    {
+      "model": "SensorlessHandoverTest",
+      "source": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\lib\\sensorless_handover\\src\\SensorlessHandoverTest.slx",
+      "old_stop_time": "0.35",
+      "parameter_expression": "handoverTestCfg.Duration",
+      "duration_s": 0.35,
+      "actual_last_sample_s": 0.35000000000000003,
+      "samples": 7001,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "status": "passed",
+  "compiled_default": true,
+  "embedded_sources_match": true,
+  "scope_sources": {
+    "AngleScope": [
+      "FluxObserverTest:2.y8",
+      "FluxObserverTest:3.y1",
+      "FluxObserverTest:9.y1"
+    ],
+    "SpeedScope": [
+      "FluxObserverTest:2.y9",
+      "FluxObserverTest:3.y2"
+    ],
+    "RotorFluxScope": [
+      "FluxObserverTest:3.y4",
+      "FluxObserverTest:3.y5",
+      "FluxObserverTest:3.y8"
+    ],
+    "StatorFluxScope": [
+      "FluxObserverTest:3.y6",
+      "FluxObserverTest:3.y7"
+    ],
+    "TorqueScope": [
+      "FluxObserverTest:3.y9"
+    ],
+    "QualityScope": [
+      "FluxObserverTest:3.y3",
+      "FluxObserverTest:3.y12"
+    ],
+    "CompensationScope": [
+      "FluxObserverTest:3.y13",
+      "FluxObserverTest:3.y14"
+    ]
+  },
+  "candidate_tests": 24,
+  "single_tested": false,
+  "SIL_tested": false,
+  "target_tested": false
+}

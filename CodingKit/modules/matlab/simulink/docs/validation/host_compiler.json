@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "matlab_root": "C:\\Program Files\\MATLAB\\R2026b",
+  "compiler": {
+    "name": "MinGW-w64 GCC",
+    "version": "14.2.0",
+    "location": "C:\\Users\\24322\\AppData\\Local\\Programs\\mingw64",
+    "deployment": "Official MathWorks downloaded compiler archive; manual user-level deployment",
+    "source_archive": "mingw142.zip",
+    "archive_sha256": "47F8A91E5EA3CD865F70EEBF687D5660063F499804C9740633D9C24E81A70D02",
+    "user_environment_variable": "MW_MINGW64_LOC",
+    "previous_user_setting": null
+  },
+  "selection": {
+    "C": "MinGW64 Compiler (C)",
+    "CPP": "MinGW64 Compiler (C++)",
+    "version": "14.2.0"
+  },
+  "mex_test": {
+    "source": "C:\\Program Files\\MATLAB\\R2026b\\extern\\examples\\mex\\yprime.c",
+    "compiled_and_executed": true,
+    "result": [
+      0,
+      -80.41433752482952,
+      1,
+      0
+    ],
+    "executed_at_utc": "2026-11-09 03:38:33"
+  },
+  "fresh_configured_mcp": {
+    "status": "passed",
+    "release": "2026b",
+    "version": "26.2.0.3433840 (R2026b) Update 1",
+    "explicit_env": "MW_MINGW64_LOC",
+    "release_root_compiler_assertions": true,
+    "output_marker": "FRESH_R2026B_MCP_COMPILER_ENVIRONMENT_PASSED",
+    "unrelated_configuration_unchanged": true
+  },
+  "simulink_coder": {
+    "download_status": "completed",
+    "download_exit_code": 0,
+    "installed": true,
+    "SIL_executed": false,
+    "installation_exit_code": 0,
+    "installation_finished_local": "2026-11-09T08:37:42+01:00",
+    "source_generation_after_installation": true
+  },
+  "evidence_limits": [
+    "MEX host compiler test; no Simulink SIL execution.",
+    "No C2000 target build, PIL or board execution in this report."
+  ],
+  "sources": [
+    "https://www.mathworks.com/matlabcentral/answers/313298-i-already-have-mingw-on-my-computer-how-do-i-configure-it-to-work-with-matlab",
+    "https://www.mathworks.com/support/requirements/supported-compilers.html"
+  ]
+}

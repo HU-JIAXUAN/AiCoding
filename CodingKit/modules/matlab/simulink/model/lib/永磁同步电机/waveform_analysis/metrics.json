@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "scenario_count": 5,
+  "scenario_names": [
+    "rl_response",
+    "salient_equilibrium",
+    "mechanical_positive",
+    "mechanical_negative",
+    "energy_balance"
+  ],
+  "metrics": {
+    "rl_response": {
+      "analytic_error_A": 4.7961634663806763E-13
+    },
+    "salient_equilibrium": {
+      "equilibrium_error_A": 0,
+      "torque_error_Nm": 0
+    },
+    "mechanical_positive": {
+      "speed_error_rad_s": 5.0182080713057076E-14,
+      "position_error_rad": 2.2106795560805637E-13
+    },
+    "mechanical_negative": {
+      "speed_error_rad_s": 5.0182080713057076E-14,
+      "position_error_rad": 2.2106795560805637E-13
+    },
+    "energy_balance": {
+      "energy_balance_error_J": 1.5104165270937719E-8
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 11:55:22 +0000"
+}

@@ -1,0 +1,116 @@
+{
+  "status": "passed",
+  "scenario_count": 9,
+  "scenario_names": [
+    "ideal_current",
+    "average_current",
+    "timed_current",
+    "extra_delay",
+    "speed_reversal",
+    "parameter_change",
+    "voltage_limit_recovery",
+    "disable_with_feedforward",
+    "reset_with_feedforward"
+  ],
+  "metrics": {
+    "ideal_current": {
+      "final_current_error_A": 2.0650148258027912E-13,
+      "peak_current_A": 2.0023789839779096,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.00065142027736126936,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.11297533079657363,
+      "minimum_duty": 0.36396504768243365,
+      "maximum_duty": 0.63603495231756635
+    },
+    "average_current": {
+      "final_current_error_A": 2.0872192862952943E-13,
+      "peak_current_A": 2.0023789839779096,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.00065142027736127814,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.11297533079657363,
+      "minimum_duty": 0.36396504768243365,
+      "maximum_duty": 0.63603495231756635
+    },
+    "timed_current": {
+      "final_current_error_A": 1.7541523789077473E-13,
+      "peak_current_A": 2.5624701531208824,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.00094415350511733781,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.13901735214846891,
+      "minimum_duty": 0,
+      "maximum_duty": 0.64737119834403023
+    },
+    "extra_delay": {
+      "final_current_error_A": 1.5720758028692217E-13,
+      "peak_current_A": 3.18073433271577,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.0019470941273396886,
+      "rms_window_start_s": 0,
+      "rms_window_end_s": 0.060000000000000005,
+      "tail_current_rms_A": 0.17519159690578251,
+      "minimum_duty": 0,
+      "maximum_duty": 0.65303932135726206
+    },
+    "speed_reversal": {
+      "final_current_error_A": 5.0194032706965541E-7,
+      "peak_current_A": 0.56037503450867843,
+      "control_mode": 1,
+      "final_speed_error_rad_s": 0.00037241147724742518,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.0068669714765843227,
+      "rms_window_start_s": 1.2,
+      "rms_window_end_s": 1.3,
+      "tail_current_rms_A": 2.8136088158148804E-6,
+      "minimum_duty": 0,
+      "maximum_duty": 0.5606219007167198
+    },
+    "parameter_change": {
+      "final_current_error_A": 2.0152421465469139E-6,
+      "peak_current_A": 0.80866570183107056,
+      "control_mode": 1,
+      "final_speed_error_rad_s": 0.0019867835695706049,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 0.00566480767627646,
+      "rms_window_start_s": 1.1,
+      "rms_window_end_s": 1.2,
+      "tail_current_rms_A": 2.0625463754526764E-6,
+      "minimum_duty": 0,
+      "maximum_duty": 0.61515899026968168
+    },
+    "voltage_limit_recovery": {
+      "final_current_error_A": 4.4408920985006262E-16,
+      "peak_current_A": 53.207008302852266,
+      "control_mode": 0,
+      "final_speed_error_rad_s": null,
+      "final_position_error_rad": null,
+      "current_iae_A_s": 1.3474655196946879,
+      "rms_window_start_s": 0.05,
+      "rms_window_end_s": 0.15,
+      "tail_current_rms_A": 8.08704599010157E-6,
+      "minimum_duty": 0,
+      "maximum_duty": 0.98
+    },
+    "disable_with_feedforward": {
+      "request_voltage_V": 0
+    },
+    "reset_with_feedforward": {
+      "request_voltage_V": 0
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 12:03:59 +0000"
+}

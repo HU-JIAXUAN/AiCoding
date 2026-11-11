@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **feat(matlab)**: 为25份Simulink库发布42份受保护模型，记录端口契约、固定配置、原库链接对照和SHA-256；库目录按中文功能名归档，观测器集中维护，工程文档重新分组；验证离散并联PID回算与参考模型的等效关系。 / Adds protected Simulink library distribution, documents interface contracts and verifies equivalent PID back calculation.
+
 - **fix(test)**: 移除自动测试中的可选 Task 可用性探针及 Release CI 的 Task 安装步骤；缺少 Task 不再产生警告，Taskfile 仍保留为可选命令短路由。 / Removes optional Task probing and CI installation so native CLI validation stays warning-free when Task is absent.
 
 - **fix(ci)**: 为私有 Codex-Skills 配置单仓库只读 Deploy Key 与 Actions Secret，按 gitlink 检出并初始化递归依赖；四个 CI job 复用同一检出步骤，保留 Full/Release 验证入口和 SSH 凭据自动清理。 / Restores private dependency checkout with repository-scoped read-only access and exact source pins.

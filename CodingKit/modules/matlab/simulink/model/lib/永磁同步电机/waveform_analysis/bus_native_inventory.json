@@ -1,0 +1,49 @@
+{
+  "release": "2026b",
+  "library_model": "PMSMBridgeBusPlant",
+  "test_model": "PMSMBridgeBusPlantTest",
+  "library_inputs": 4,
+  "library_outputs": 16,
+  "scopes": {
+    "BridgeModeScope": {
+      "block": "BridgeModeScopeChannels",
+      "output_port": 1
+    },
+    "BusCurrentScope": {
+      "block": "Plant",
+      "output_port": 8
+    },
+    "BusVoltageScope": {
+      "block": "Inputs",
+      "output_port": 6
+    },
+    "EnergyScope": {
+      "block": "EnergyScopeChannels",
+      "output_port": 1
+    },
+    "EquationResidualScope": {
+      "block": "EquationResidualScopeChannels",
+      "output_port": 1
+    },
+    "MechanicalSpeedScope": {
+      "block": "MechanicalSpeedScopeChannels",
+      "output_port": 1
+    },
+    "PhaseCurrentScope": {
+      "block": "PhaseCurrentScopeChannels",
+      "output_port": 1
+    },
+    "PhaseVoltageScope": {
+      "block": "PhaseVoltageScopeChannels",
+      "output_port": 1
+    },
+    "PowerScope": {
+      "block": "PowerScopeChannels",
+      "output_port": 1
+    }
+  },
+  "scope_count": 9,
+  "physical_sources_exact": true,
+  "bus_power_uses_runtime_voltage": true,
+  "physical_state_not_reset_on_bus_change": true
+}

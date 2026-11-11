@@ -1,0 +1,155 @@
+{
+  "release": "2026b",
+  "passed": true,
+  "checks": 18,
+  "cases": [
+    {
+      "name": "locked_rotor_PWM_backward_Euler",
+      "passed": true,
+      "details": {
+        "max_current_difference_A": 1.0824674490095276E-14
+      }
+    },
+    {
+      "name": "locked_rotor_active_short_RL",
+      "passed": true,
+      "details": {
+        "max_current_difference_A": 4.4408920985006262E-15
+      }
+    },
+    {
+      "name": "high_impedance_open_EMF",
+      "passed": true,
+      "details": {
+        "max_interval_voltage_difference_V": 1.3318235403403378E-12,
+        "floating_subtraction_bound_V": 8.881784197001251E-11,
+        "disabled_duty_ignored": true
+      }
+    },
+    {
+      "name": "free_coast_viscous_speed",
+      "passed": true,
+      "details": {
+        "speed_difference_rad_s": 4.3200998334214091E-12
+      }
+    },
+    {
+      "name": "turn_off_current_continuity_and_decay",
+      "passed": true,
+      "details": {
+        "first_next_current_norm_A": 2.9726868074590351,
+        "initial_current_norm_A": 3.1622776601683795,
+        "peak_off_current_A": 3.1622776601683795,
+        "returned_energy_J": 0.0060186260019047567,
+        "diode_loss_J": 0.00017939669575242926
+      }
+    },
+    {
+      "name": "active_short_is_not_coast",
+      "passed": true,
+      "details": {
+        "peak_current_A": 15.696196697379104,
+        "final_speed_rad_s": 30.716290553050495
+      }
+    },
+    {
+      "name": "uncontrolled_rectification_direction_+1",
+      "passed": true,
+      "details": {
+        "returned_energy_J": 5.1916307383922362,
+        "peak_current_A": 22.298896813405076,
+        "max_bridge_power_balance_W": 7.87210296948615E-11
+      }
+    },
+    {
+      "name": "uncontrolled_rectification_direction_-1",
+      "passed": true,
+      "details": {
+        "returned_energy_J": 5.1869024501485432,
+        "peak_current_A": 22.236363818164481,
+        "max_bridge_power_balance_W": 7.9197093327820767E-11
+      }
+    },
+    {
+      "name": "SPMSM_independent_neutral_bisection",
+      "passed": true,
+      "details": {
+        "points": 240,
+        "max_current_difference_A": 1.4210854715202004E-14
+      }
+    },
+    {
+      "name": "IPMSM_complementarity_KCL_KVL_power",
+      "passed": true,
+      "details": {
+        "points": 240,
+        "max_flux_balance_V": 0,
+        "max_bridge_power_balance_W": 6.5377037117286818E-11,
+        "max_KCL_A": 3.5527136788005009E-15
+      }
+    },
+    {
+      "name": "locked_rotor_discrete_energy_identity",
+      "passed": true,
+      "details": {
+        "max_accepted_residual_J": 1E-12
+      }
+    },
+    {
+      "name": "free_rotor_energy_step_refinement",
+      "passed": true,
+      "details": {
+        "steps_s": [
+          5E-6,
+          2.5E-6,
+          1.25E-6
+        ],
+        "energy_defect_J": [
+          -0.00026628615773129083,
+          -0.00013605967161942067,
+          -6.8290482315602752E-5
+        ],
+        "ratios": [
+          1.9571277408057635,
+          1.9923665349239197
+        ]
+      }
+    },
+    {
+      "name": "invalid_bridge_mode_rejected",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "invalid_active_duty_rejected",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "invalid_physics_configuration_rejected",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "out_of_range_state_rejected",
+      "passed": true,
+      "details": {}
+    },
+    {
+      "name": "numeric_parameter_types_normalized",
+      "passed": true,
+      "details": {
+        "initial_state_identical": true
+      }
+    },
+    {
+      "name": "non_scalar_initial_state_rejected",
+      "passed": true,
+      "details": {}
+    }
+  ],
+  "independent_SPMSM_points": 240,
+  "IPMSM_KKT_points": 240,
+  "Simscape_reference_executed": false,
+  "hardware_tested": false
+}

@@ -1,0 +1,285 @@
+{
+  "status": "passed",
+  "scenario_count": 25,
+  "group_counts": {
+    "mtpa": 7,
+    "fw": 11,
+    "motor": 7
+  },
+  "metrics": {
+    "mtpa": {
+      "original_bipolar": {
+        "final_id_A": -0.29010137187640256,
+        "final_iq_A": 7.1310358669263127,
+        "peak_reference_current_A": 7.1369343097266968,
+        "minimum_id_A": -0.29010137187640256,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 21.705618229181709,
+        "oracle_error_A": 5.8715546404792678E-11
+      },
+      "salient_mtpa": {
+        "final_id_A": -2.7212647412714981,
+        "final_iq_A": 5.1433636806253888,
+        "peak_reference_current_A": 5.8188892190231449,
+        "minimum_id_A": -2.7212647412714981,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 22.364640774533484,
+        "oracle_error_A": 4.7322529228566168E-10,
+        "mean_current_ratio_all": 0.91393048858572723,
+        "mean_current_ratio_above_1Nm": 0.84607544997915962
+      },
+      "salient_id_zero": {
+        "final_id_A": 0,
+        "final_iq_A": 7.1428571428571423,
+        "peak_reference_current_A": 7.1428571428571423,
+        "minimum_id_A": 0,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 21.702656812616489
+      },
+      "spm_limit": {
+        "final_id_A": 0,
+        "final_iq_A": 7.1428571428571423,
+        "peak_reference_current_A": 7.1428571428571423,
+        "minimum_id_A": 0,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 21.702656812616489
+      },
+      "tiny_saliency": {
+        "final_id_A": -1.4577327747874319E-9,
+        "final_iq_A": 7.1428571428571423,
+        "peak_reference_current_A": 7.1428571428571423,
+        "minimum_id_A": -1.4577327747874319E-9,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 21.702656812616489
+      },
+      "negative_id_bound": {
+        "final_id_A": -1,
+        "final_iq_A": 6.25,
+        "peak_reference_current_A": 6.3294944505860817,
+        "minimum_id_A": -1,
+        "final_allocated_torque_Nm": 1.5,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 22.109338158752017,
+        "oracle_error_A": 9.2132594886606967E-9
+      },
+      "high_torque_low_speed": {
+        "final_id_A": -0.36419839462120357,
+        "final_iq_A": 7.9917056708411964,
+        "peak_reference_current_A": 8,
+        "minimum_id_A": -0.36419839462120357,
+        "final_allocated_torque_Nm": 1.681750870527378,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 21.274085384045058
+      }
+    },
+    "fw": {
+      "entry_exit": {
+        "final_id_A": -0.00518395632380233,
+        "final_iq_A": 0.95235274120943647,
+        "peak_reference_current_A": 4.5774668646136041,
+        "minimum_id_A": -4.4822885901785208,
+        "final_allocated_torque_Nm": 0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "bus_step": {
+        "final_id_A": -3.0681007546926606,
+        "final_iq_A": 0.93597149607535446,
+        "peak_reference_current_A": 7.0596458650344953,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "quadrant_w1_t1": {
+        "final_id_A": -4.4832771823124125,
+        "final_iq_A": 0.92859161746513508,
+        "peak_reference_current_A": 4.57843386819878,
+        "minimum_id_A": -4.4832771823124125,
+        "final_allocated_torque_Nm": 0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "quadrant_w1_tm1": {
+        "final_id_A": -3.0827204971449826,
+        "final_iq_A": -0.93589465727719856,
+        "peak_reference_current_A": 7.58567198940413,
+        "minimum_id_A": -3.0827204971449826,
+        "final_allocated_torque_Nm": -0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "quadrant_wm1_t1": {
+        "final_id_A": -3.0827204971449826,
+        "final_iq_A": 0.93589465727719856,
+        "peak_reference_current_A": 7.58567198940413,
+        "minimum_id_A": -3.0827204971449826,
+        "final_allocated_torque_Nm": 0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "quadrant_wm1_tm1": {
+        "final_id_A": -4.4832771823124125,
+        "final_iq_A": -0.92859161746513508,
+        "peak_reference_current_A": 4.57843386819878,
+        "minimum_id_A": -4.4832771823124125,
+        "final_allocated_torque_Nm": -0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "zero_torque": {
+        "final_id_A": -3.7448311987824305,
+        "final_iq_A": 0,
+        "peak_reference_current_A": 3.7448311987824305,
+        "minimum_id_A": -3.7448311987824305,
+        "final_allocated_torque_Nm": 0,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 0.00011005595836977022
+      },
+      "infeasible_speed": {
+        "final_id_A": -7,
+        "final_iq_A": 0,
+        "peak_reference_current_A": 7,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0,
+        "final_feasible": false,
+        "minimum_feasible_voltage_margin_V": null
+      },
+      "disable_reset": {
+        "final_id_A": -3.2308882830817356,
+        "final_iq_A": 0,
+        "peak_reference_current_A": 4.4847134841341862,
+        "minimum_id_A": -4.3874196126029945,
+        "final_allocated_torque_Nm": 0,
+        "final_feasible": false,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15
+      },
+      "voltage_feedback_branch": {
+        "final_id_A": -0.00518395632380233,
+        "final_iq_A": 0.95235274120943647,
+        "peak_reference_current_A": 7.0596458650344953,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0.2,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": 7.291337649859603
+      },
+      "zero_bus_infeasible": {
+        "final_id_A": -7,
+        "final_iq_A": 0,
+        "peak_reference_current_A": 7,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0,
+        "final_feasible": false,
+        "minimum_feasible_voltage_margin_V": null
+      }
+    },
+    "motor": {
+      "fw_off": {
+        "final_id_A": -0.02657800520952977,
+        "final_iq_A": 0.32364058565607567,
+        "peak_reference_current_A": 0.82505462401609519,
+        "minimum_id_A": -0.036673334955957988,
+        "final_allocated_torque_Nm": 0.067974845053181784,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 179.49756749251875,
+        "final_speed_error_rad_s": 38.502432507481245,
+        "final_speed_integral_Nm": -0.23619436958650325,
+        "peak_actual_current_A": 0.82508638877548779,
+        "tail_current_error_rms_A": 1.5397122650312556E-11
+      },
+      "fw_on": {
+        "final_id_A": -6.7542442999650483,
+        "final_iq_A": 0.331423524679442,
+        "peak_reference_current_A": 6.8605091668369189,
+        "minimum_id_A": -6.8529523743770921,
+        "final_allocated_torque_Nm": 0.072285158725611365,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 218.00000129987862,
+        "final_speed_error_rad_s": 1.299878618965522E-6,
+        "final_speed_integral_Nm": 0.072285181962205555,
+        "peak_actual_current_A": 6.8607207476763916,
+        "tail_current_error_rms_A": 2.5840796676164684E-8
+      },
+      "reverse_rotation": {
+        "final_id_A": -6.7542442999650483,
+        "final_iq_A": -0.33142352467943947,
+        "peak_reference_current_A": 6.8605091668369136,
+        "minimum_id_A": -6.8529523743770868,
+        "final_allocated_torque_Nm": -0.07228515872561081,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": -218.00000129987865,
+        "final_speed_error_rad_s": 1.2998786473872315E-6,
+        "final_speed_integral_Nm": -0.0722851819622055,
+        "peak_actual_current_A": 6.8607207476763872,
+        "tail_current_error_rms_A": 2.5840796428878372E-8
+      },
+      "exit_weakening": {
+        "final_id_A": -0.00046723967449623614,
+        "final_iq_A": 0.28573942169756078,
+        "peak_reference_current_A": 6.85072348834789,
+        "minimum_id_A": -6.8451449552352,
+        "final_allocated_torque_Nm": 0.060005438767041029,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 100.00005644879668,
+        "final_speed_error_rad_s": 5.6448796684094305E-5,
+        "final_speed_integral_Nm": 0.060006452964751385,
+        "peak_actual_current_A": 6.8586769231495124,
+        "tail_current_error_rms_A": 2.4044206820115951E-7
+      },
+      "bus_42V": {
+        "final_id_A": -6.6955909120484991,
+        "final_iq_A": 0.22659518428636297,
+        "peak_reference_current_A": 6.7662707830426534,
+        "minimum_id_A": -6.7627278690419246,
+        "final_allocated_torque_Nm": 0.0494056150880823,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 190.0000003896572,
+        "final_speed_error_rad_s": 3.896572025041678E-7,
+        "final_speed_integral_Nm": 0.0494056220734819,
+        "peak_actual_current_A": 6.7663944549349777,
+        "tail_current_error_rms_A": 8.795879864127737E-10
+      },
+      "unattainable_aw_on": {
+        "final_id_A": -7,
+        "final_iq_A": 0.33271436542831495,
+        "peak_reference_current_A": 7.0444961874650307,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0.072664817409543989,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 221.53737244619728,
+        "final_speed_error_rad_s": 28.462627553802719,
+        "final_speed_integral_Nm": -0.15218988081364929,
+        "peak_actual_current_A": 7.0518136353038869,
+        "tail_current_error_rms_A": 1.5714026098741187E-15
+      },
+      "unattainable_aw_off": {
+        "final_id_A": -7,
+        "final_iq_A": 0.33271436542831223,
+        "peak_reference_current_A": 7.0648419127037778,
+        "minimum_id_A": -7,
+        "final_allocated_torque_Nm": 0.072664817409543392,
+        "final_feasible": true,
+        "minimum_feasible_voltage_margin_V": -3.5527136788005009E-15,
+        "final_speed_rad_s": 221.53737244619731,
+        "final_speed_error_rad_s": 28.46262755380269,
+        "final_speed_integral_Nm": 4.7592715104001853,
+        "peak_actual_current_A": 7.0666897038848262,
+        "tail_current_error_rms_A": 1.4198779739659596E-15
+      }
+    }
+  },
+  "matlab_release": "2026b",
+  "executed_at_utc": "2026-11-09 12:12:31 +0000",
+  "rejected_configuration_count": 5
+}

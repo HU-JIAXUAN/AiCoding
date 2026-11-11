@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "kind": "two concurrently linked MRAS instances with separate Mask configurations",
+  "instance_A_matches_default": true,
+  "instance_B_matches_separate_run": true,
+  "maximum_difference_A": 0,
+  "maximum_difference_B": 0,
+  "B_initial_angle": 1.1,
+  "B_initial_speed": 900,
+  "B_bandwidth_Hz": 40
+}

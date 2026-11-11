@@ -1,0 +1,455 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "MIL_location": "isolated copy; SHA-256 identical artifacts promoted",
+  "foc_MIL_tests": 24,
+  "foc_MIL_passed": 24,
+  "profile_MIL_tests": 8,
+  "profile_MIL_passed": 8,
+  "legacy_motion_MIL_tests": 3,
+  "legacy_motion_MIL_passed": 3,
+  "rebuild": {
+    "profile_builder_from_base_library": true,
+    "profile_default_trace_identical": true,
+    "foc_builder_from_empty": true,
+    "foc_nine_default_traces_identical": true,
+    "release": "2026b",
+    "matlabroot": "C:\\Program Files\\MATLAB\\R2026b"
+  },
+  "legacy_motion_systems": [
+    {
+      "entry": "simulink/systems/system_1.xml",
+      "semantic_identical": true,
+      "ignored_property": "Editor Location; explicit one-in/one-out PortCounts on Saturate; native scope interfaces/expressions also identical"
+    },
+    {
+      "entry": "simulink/systems/system_8.xml",
+      "semantic_identical": true,
+      "ignored_property": "Editor Location; explicit one-in/one-out PortCounts on Saturate; native scope interfaces/expressions also identical"
+    }
+  ],
+  "canonical_smoke_passed": true,
+  "hardware_tested": false,
+  "HFI_EMF_fusion_integrated": false,
+  "comparison_before_model_sha256": "F97391509F64CD8891DFFE45BC99CED9B8182590AD08A91FA874F0BACADC541F",
+  "artifact_base": "simulink project root",
+  "artifact_sha256": [
+    {
+      "relative_path": "model/lib/motion_loop/src/MotionControl.slx",
+      "validated_sha256": "3577C9C9CA33EBE07C867D59DCB86A5572ABCB03D394BB83109B13B7DC729B33",
+      "current_sha256": "3577C9C9CA33EBE07C867D59DCB86A5572ABCB03D394BB83109B13B7DC729B33"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/src/SpeedProfileTest.slx",
+      "validated_sha256": "98234FB2C0D809B140B198360D7C4D18CE6F32564EAC14F8DD36F50B479BD322",
+      "current_sha256": "98234FB2C0D809B140B198360D7C4D18CE6F32564EAC14F8DD36F50B479BD322"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/profile_results.mat",
+      "validated_sha256": "C55A9511DA378669B4363F8F5197968AB1730B1A8BA12010339581BE1C2F8A95",
+      "current_sha256": "C55A9511DA378669B4363F8F5197968AB1730B1A8BA12010339581BE1C2F8A95"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/profile_metrics.json",
+      "validated_sha256": "1F8C6921468C78EEC226CA902B9DBDDAAB19DCDFFCB9F5244D2853DF0D99CAB9",
+      "current_sha256": "1F8C6921468C78EEC226CA902B9DBDDAAB19DCDFFCB9F5244D2853DF0D99CAB9"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/profile_clearing.png",
+      "validated_sha256": "F862DA9A504C476EDC88583C8471E8CA5376648D920272674BC10C1C2C646A5A",
+      "current_sha256": "F862DA9A504C476EDC88583C8471E8CA5376648D920272674BC10C1C2C646A5A"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/profile_clearing.svg",
+      "validated_sha256": "037DD2A2A1415E3879C5E917984AC8BAD5514731113E0972CF2AF34C62B9B0D5",
+      "current_sha256": "037DD2A2A1415E3879C5E917984AC8BAD5514731113E0972CF2AF34C62B9B0D5"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/SensorlessHFIFOC.slx",
+      "validated_sha256": "E9A5E4530F78517208454210191D81CABE093196A88DF379908A9324048F81C0",
+      "current_sha256": "E9A5E4530F78517208454210191D81CABE093196A88DF379908A9324048F81C0"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_results.mat",
+      "validated_sha256": "6AFF118D0A7A5BFB6B71F7ADFE8F9C85115049F6AA3F8158191724234214B9A9",
+      "current_sha256": "6AFF118D0A7A5BFB6B71F7ADFE8F9C85115049F6AA3F8158191724234214B9A9"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_metrics.json",
+      "validated_sha256": "AABA06584E6EB58A730916108246C19874D6B274A1C73FC2D8099E97BFDC7099",
+      "current_sha256": "AABA06584E6EB58A730916108246C19874D6B274A1C73FC2D8099E97BFDC7099"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_repair_comparison.mat",
+      "validated_sha256": "6E325801512D351FA305A583061ECBCCA87E1405E6A438C9C32A3FA0E7217987",
+      "current_sha256": "6E325801512D351FA305A583061ECBCCA87E1405E6A438C9C32A3FA0E7217987"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_tracking.png",
+      "validated_sha256": "8D749F3D6AD75D6DD4B4899A9663794CDCF99E3D60C3B621DC805CDAF6C9131D",
+      "current_sha256": "8D749F3D6AD75D6DD4B4899A9663794CDCF99E3D60C3B621DC805CDAF6C9131D"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_tracking.svg",
+      "validated_sha256": "03D221D6CFDB3CD885530EA9FBE8D13543E4E3929FBBDED917F1415DF575C752",
+      "current_sha256": "03D221D6CFDB3CD885530EA9FBE8D13543E4E3929FBBDED917F1415DF575C752"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_hfi_ripple.png",
+      "validated_sha256": "7AFD4CAC4561C0F8922D8EED2C5DA911A3E61573F9790EF8B8F47A88E2B93CEE",
+      "current_sha256": "7AFD4CAC4561C0F8922D8EED2C5DA911A3E61573F9790EF8B8F47A88E2B93CEE"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_hfi_ripple.svg",
+      "validated_sha256": "7A967642DE7BFC1336B605A683FC4FCF8BD7FACCE74FB5BA148FA1715B64F99E",
+      "current_sha256": "7A967642DE7BFC1336B605A683FC4FCF8BD7FACCE74FB5BA148FA1715B64F99E"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_reversal.png",
+      "validated_sha256": "44B9567697F8CA887A56515E8F0A85DDF0D9CB3108A249B0A4B576C2DE8E773F",
+      "current_sha256": "44B9567697F8CA887A56515E8F0A85DDF0D9CB3108A249B0A4B576C2DE8E773F"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_reversal.svg",
+      "validated_sha256": "6966C379F47D2518FBE74F4820FC7D176AB6C3A045E84B1281FB5A6773476FB8",
+      "current_sha256": "6966C379F47D2518FBE74F4820FC7D176AB6C3A045E84B1281FB5A6773476FB8"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_repairs.png",
+      "validated_sha256": "A64565BB63DA6C3FD68F16C68A21FD56583CB0FC9BA968783F21F386669781C6",
+      "current_sha256": "A64565BB63DA6C3FD68F16C68A21FD56583CB0FC9BA968783F21F386669781C6"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/foc_repairs.svg",
+      "validated_sha256": "9E98621869F165DAB1C602A087B1F0653DA75E9ADD2479B06AA9D2BD6623EAE5",
+      "current_sha256": "9E98621869F165DAB1C602A087B1F0653DA75E9ADD2479B06AA9D2BD6623EAE5"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/build_process/build_speed_profile.m",
+      "validated_sha256": "E0EE87A0776D57A2D8209D0B3612D87CDE7AADEA3B987EE42C36F907CA7AAC71",
+      "current_sha256": "E0EE87A0776D57A2D8209D0B3612D87CDE7AADEA3B987EE42C36F907CA7AAC71"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/build_process/initialize_speed_profile_test.m",
+      "validated_sha256": "E7C1D69CA1BFAC5FFB4AE4B5F81AED06994D7929099E56E4B47E8221D3645E2F",
+      "current_sha256": "E7C1D69CA1BFAC5FFB4AE4B5F81AED06994D7929099E56E4B47E8221D3645E2F"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/build_process/speed_profile_stimulus.m",
+      "validated_sha256": "694095780EBD1C882C7705161DCF289C5AB893868D9D59231C41F9E651761908",
+      "current_sha256": "694095780EBD1C882C7705161DCF289C5AB893868D9D59231C41F9E651761908"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/parameter/motion_loop_test_parameters.m",
+      "validated_sha256": "5235DFD32F84848E353EB9AD38B7974842387A1B75E5FBB0FDD2E11B49CCF103",
+      "current_sha256": "5235DFD32F84848E353EB9AD38B7974842387A1B75E5FBB0FDD2E11B49CCF103"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/parameter/motion_parameters.m",
+      "validated_sha256": "C1C990CDD0B3074029BFD699CB413FBFB4F0D8C5AD17BC0EDE16F12A9F0CD76D",
+      "current_sha256": "C1C990CDD0B3074029BFD699CB413FBFB4F0D8C5AD17BC0EDE16F12A9F0CD76D"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/parameter/refresh_speed_profile_parameters.m",
+      "validated_sha256": "13A98555E1A5410F7ECDFFD13E5FB0E474034E58A6D75ED7B4F0D55C6D3C1CCD",
+      "current_sha256": "13A98555E1A5410F7ECDFFD13E5FB0E474034E58A6D75ED7B4F0D55C6D3C1CCD"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/parameter/speed_profile_parameters.m",
+      "validated_sha256": "6A81F99E9E806A0A7A96E319CA42BE5CE7DF3C32B0DD77E49DDE271B6B8460E4",
+      "current_sha256": "6A81F99E9E806A0A7A96E319CA42BE5CE7DF3C32B0DD77E49DDE271B6B8460E4"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/parameter/speed_profile_test_parameters.m",
+      "validated_sha256": "FC505F6385D93F70D0C54DE0A49C2451AD331050A76BBC6FC9CB19581261094F",
+      "current_sha256": "FC505F6385D93F70D0C54DE0A49C2451AD331050A76BBC6FC9CB19581261094F"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/plot_speed_profile_results.m",
+      "validated_sha256": "42E6049CFAA6608A83381F199239F70D146A98ADF1DCBD021C8357FD4D00AF61",
+      "current_sha256": "42E6049CFAA6608A83381F199239F70D146A98ADF1DCBD021C8357FD4D00AF61"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/run_motion_loop_validation.m",
+      "validated_sha256": "E2C952DD555A642A066538FD3809442E616436A8BCABDA6678888B643BEFE7F0",
+      "current_sha256": "E2C952DD555A642A066538FD3809442E616436A8BCABDA6678888B643BEFE7F0"
+    },
+    {
+      "relative_path": "model/lib/motion_loop/waveform_analysis/run_speed_profile_validation.m",
+      "validated_sha256": "D3F17CC8AD297970A5F461B93A1D3D026217807C8CFDAA3BBE4F8B9DCD4077BF",
+      "current_sha256": "D3F17CC8AD297970A5F461B93A1D3D026217807C8CFDAA3BBE4F8B9DCD4077BF"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_foc.m",
+      "validated_sha256": "2C95A9A4F062436A8E4049C1375445A32E572CBAA9DAC770B52C45BCD91589D6",
+      "current_sha256": "2C95A9A4F062436A8E4049C1375445A32E572CBAA9DAC770B52C45BCD91589D6"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/build_hfi_startup.m",
+      "validated_sha256": "66D82520441465A7016FF03D35C52CD4F16BC747604E7091589793E011E07B2B",
+      "current_sha256": "66D82520441465A7016FF03D35C52CD4F16BC747604E7091589793E011E07B2B"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_foc_stimulus.m",
+      "validated_sha256": "F53B0B808051A4704F88CE5E9FF7A280DF30CDEB614FA6C39870772E617EA71F",
+      "current_sha256": "F53B0B808051A4704F88CE5E9FF7A280DF30CDEB614FA6C39870772E617EA71F"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/hfi_startup_stimulus.m",
+      "validated_sha256": "F2F25E404F279B0A68A55AC5D70E7641BE22630DF065FF2066FF380B11B4BBCC",
+      "current_sha256": "F2F25E404F279B0A68A55AC5D70E7641BE22630DF065FF2066FF380B11B4BBCC"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_foc.m",
+      "validated_sha256": "212FF49DDA0024C7BECAE42BF4066CBBDDA4C3169FD017359FC3E917B9D6B417",
+      "current_sha256": "212FF49DDA0024C7BECAE42BF4066CBBDDA4C3169FD017359FC3E917B9D6B417"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/build_process/initialize_hfi_startup.m",
+      "validated_sha256": "CC9F4BACEAE8F3BDD71277C5855B4EA21F453BCB1D5B00150BDA015E4363BA0D",
+      "current_sha256": "CC9F4BACEAE8F3BDD71277C5855B4EA21F453BCB1D5B00150BDA015E4363BA0D"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_app_parameters.m",
+      "validated_sha256": "BA21D13FF430161E8DF4AF5533D6EA6ECAFFCEF46B1BC84150210BADBBAD3DE0",
+      "current_sha256": "BA21D13FF430161E8DF4AF5533D6EA6ECAFFCEF46B1BC84150210BADBBAD3DE0"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_foc_test_parameters.m",
+      "validated_sha256": "5EF62A64D600B60DDFB3E378011E2253CE34DB84F5B65C8F04EBFCE406AA3E26",
+      "current_sha256": "5EF62A64D600B60DDFB3E378011E2253CE34DB84F5B65C8F04EBFCE406AA3E26"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_app_parameters.m",
+      "validated_sha256": "400ABB64811F6A2AD3AA5627CF823F079654B564511ED6A0A3330A116928F82D",
+      "current_sha256": "400ABB64811F6A2AD3AA5627CF823F079654B564511ED6A0A3330A116928F82D"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/parameter/hfi_startup_test_parameters.m",
+      "validated_sha256": "C43D3F08C60DE57D9CD22ED607ED3694032057F2782E98EEAAE7676222550270",
+      "current_sha256": "C43D3F08C60DE57D9CD22ED607ED3694032057F2782E98EEAAE7676222550270"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/src/hfi_foc_supervise.m",
+      "validated_sha256": "ECED953CB3BD91B3999536F265BC38EAC7C7360B573649662DE1EBC3A413E777",
+      "current_sha256": "ECED953CB3BD91B3999536F265BC38EAC7C7360B573649662DE1EBC3A413E777"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_foc_results.m",
+      "validated_sha256": "5828279542D8B45030936623AC171EB4F82818CE1203FF8D88C9A83DB3675EEB",
+      "current_sha256": "5828279542D8B45030936623AC171EB4F82818CE1203FF8D88C9A83DB3675EEB"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/plot_hfi_startup_results.m",
+      "validated_sha256": "B0869BB4CC7580AFAA8D68B2C3C282571F362FD12C981F5A1EFA461B67FFD25F",
+      "current_sha256": "B0869BB4CC7580AFAA8D68B2C3C282571F362FD12C981F5A1EFA461B67FFD25F"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_foc_validation.m",
+      "validated_sha256": "70B736039BE562E70FF4D3DAB8BAC6A1AF8A29F0EB732B1E4703ADF7D49BA8B7",
+      "current_sha256": "70B736039BE562E70FF4D3DAB8BAC6A1AF8A29F0EB732B1E4703ADF7D49BA8B7"
+    },
+    {
+      "relative_path": "model/app_models/Sensorless/sensorless_hfi/waveform_analysis/run_hfi_startup_validation.m",
+      "validated_sha256": "6F54EBEC0DD9D2F33C306D5D6DD98C58FEB466F4DE44C23D71B071339C8E1831",
+      "current_sha256": "6F54EBEC0DD9D2F33C306D5D6DD98C58FEB466F4DE44C23D71B071339C8E1831"
+    }
+  ],
+  "canonical_foc_nine_traces_identical": true,
+  "canonical_profile_default_identical": true,
+  "canonical_embedded_sources_match": true,
+  "canonical_legacy_motion_MIL": 3,
+  "static_diagnostics": [
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 15
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 48
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 59
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 61
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 62
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 67
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 74
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 119
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 124
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 125
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 149
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "ALIGN",
+      "line": 199
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 199
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 211
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 215
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 241
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 243
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 248
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 249
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 273
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "ALIGN",
+      "line": 286
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 287
+    },
+    {
+      "file": "build_hfi_foc.m",
+      "id": "AGROW",
+      "line": 288
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "NBRAK2",
+      "line": 11
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 85
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 99
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 106
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 108
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 117
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 119
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 133
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 134
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 149
+    },
+    {
+      "file": "build_hfi_startup.m",
+      "id": "AGROW",
+      "line": 150
+    },
+    {
+      "file": "plot_hfi_startup_results.m",
+      "id": "MSNU",
+      "line": 30
+    },
+    {
+      "file": "run_hfi_startup_validation.m",
+      "id": "MSNU",
+      "line": 7
+    },
+    {
+      "file": "build_speed_profile.m",
+      "id": "AGROW",
+      "line": 28
+    },
+    {
+      "file": "build_speed_profile.m",
+      "id": "AGROW",
+      "line": 48
+    }
+  ],
+  "project_model_windows": 0
+}

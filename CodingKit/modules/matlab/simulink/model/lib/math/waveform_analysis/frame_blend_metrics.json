@@ -1,0 +1,20 @@
+{
+  "release": "2026b",
+  "passed": true,
+  "case_count": 2,
+  "vector_count": 513,
+  "cases": [
+    {
+      "name": "explicit_examples",
+      "passed": true,
+      "vectors": 13,
+      "max_physical_error_A": 3.1086244689504383E-15
+    },
+    {
+      "name": "randomized_vectors",
+      "passed": true,
+      "vectors": 500,
+      "max_physical_error_A": 3.5527136788005009E-15
+    }
+  ]
+}

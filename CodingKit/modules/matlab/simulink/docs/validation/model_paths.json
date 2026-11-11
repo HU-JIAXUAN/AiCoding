@@ -1,0 +1,174 @@
+{
+  "status": "passed",
+  "engineered_models_resolved": 76,
+  "reference_model_excluded": true,
+  "replayed": [
+    {
+      "model": "DiscretePIDTest",
+      "stop_s": 0.005,
+      "fields": [
+        "pidTrace",
+        "tout"
+      ]
+    },
+    {
+      "model": "FrameTrackingPITest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "EkfObserverTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "UkfObserverTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "LinearEmfTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "FluxObserverTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "SigmoidSlidingModeObserverTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "HFIAxisTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "MrasObserverTest",
+      "stop_s": 0.005,
+      "fields": [
+        "tout",
+        "trace"
+      ]
+    },
+    {
+      "model": "SensorlessHFIHybrid",
+      "stop_s": 0.005,
+      "fields": [
+        "adc_trace",
+        "angle_error",
+        "axis_trace",
+        "controller_trace",
+        "emf_trace",
+        "fusion_trace",
+        "observer_state_trace",
+        "plant_trace",
+        "polarity_trace",
+        "probe_trace",
+        "state_trace",
+        "tout",
+        "voltage_trace"
+      ]
+    },
+    {
+      "model": "SensorlessFieldWeakeningFOC",
+      "stop_s": 0.005,
+      "fields": [
+        "actuation_trace",
+        "allocation_trace",
+        "controller_trace",
+        "guard_trace",
+        "observer_trace",
+        "plant_trace",
+        "tout"
+      ]
+    },
+    {
+      "model": "EkfSensorlessFOC",
+      "stop_s": 0.005,
+      "fields": [
+        "actuation_trace",
+        "allocation_trace",
+        "controller_trace",
+        "guard_trace",
+        "observer_trace",
+        "plant_trace",
+        "tout"
+      ]
+    },
+    {
+      "model": "UkfSensorlessFOC",
+      "stop_s": 0.005,
+      "fields": [
+        "actuation_trace",
+        "allocation_trace",
+        "controller_trace",
+        "guard_trace",
+        "observer_trace",
+        "plant_trace",
+        "tout"
+      ]
+    },
+    {
+      "model": "SigmoidSensorlessFOC",
+      "stop_s": 0.005,
+      "fields": [
+        "actuation_trace",
+        "allocation_trace",
+        "controller_trace",
+        "guard_trace",
+        "observer_trace",
+        "plant_trace",
+        "tout"
+      ]
+    },
+    {
+      "model": "SensorlessIF",
+      "stop_s": 2,
+      "fields": [
+        "app_trace",
+        "physical_trace",
+        "tout"
+      ]
+    },
+    {
+      "model": "SensorlessVF",
+      "stop_s": 2,
+      "fields": [
+        "app_trace",
+        "physical_trace",
+        "tout"
+      ]
+    }
+  ],
+  "date": "2026-11-11",
+  "protected_models": 42,
+  "libraries": 20,
+  "App_functional_directories": 8,
+  "configuration_file": "docs/scripts/initialize_motor_paths.m",
+  "configuration_sha256": "a16ec9c581c0ef23985dca9cb5482684bda68ff4f024cbac702a1c6aa4b81001"
+}

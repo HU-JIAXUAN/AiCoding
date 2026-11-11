@@ -1,0 +1,13 @@
+{
+  "release": "2026b",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "canonical_default_passed": true,
+  "embedded_source_matches": true,
+  "independent_MIL_cases": 14,
+  "observer_tested": false,
+  "hardware_tested": false,
+  "canonical_full_MIL_passed": true,
+  "linear_reference_cases": 9,
+  "state_only_measurement_output": true,
+  "causality_regression_MIL_tests": 14
+}

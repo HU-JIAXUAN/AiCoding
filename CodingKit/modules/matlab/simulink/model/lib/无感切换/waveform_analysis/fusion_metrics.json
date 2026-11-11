@@ -1,0 +1,309 @@
+{
+  "release": "2026b",
+  "root": "C:\\Program Files\\MATLAB\\R2026b",
+  "kind": "analytic independent trackers; no physical PMSM",
+  "tests": 30,
+  "passed": 30,
+  "metrics": [
+    {
+      "name": "round_trip",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486793649,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "negative_round_trip",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486793572,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "wrap_boundary",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486793933,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "low_only",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000679,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "high_only_start",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.02000000000000033,
+      "final_beta": 1,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "high_start_disabled",
+      "first_valid_s": null,
+      "angle_rms_rad": null,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "no_sources",
+      "first_valid_s": null,
+      "angle_rms_rad": null,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "phase_disagreement",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000138,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "speed_disagreement",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000138,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "qualification_restart",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.010337668488196486,
+      "final_beta": 0.5,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "high_dropout_short",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486793642,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "high_dropout_long",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023073430217679484,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 1,
+      "status": "passed"
+    },
+    {
+      "name": "low_dropout_short",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000679,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "low_dropout_long",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000183,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 1,
+      "status": "passed"
+    },
+    {
+      "name": "phase_jump_high",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023073430217679484,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 1,
+      "status": "passed"
+    },
+    {
+      "name": "high_nan_short",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486793642,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "unused_low_nan",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.022661960955565316,
+      "final_beta": 1,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "disable_restart",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023918745778698677,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "reset",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023777946525250906,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "reset_latched_fault",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000544,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 1,
+      "status": "passed"
+    },
+    {
+      "name": "unanchored_return",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.022337549743793216,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 1,
+      "status": "passed"
+    },
+    {
+      "name": "same_branch_return",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.023750973486795834,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "injection_hysteresis",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.01964432024561415,
+      "final_beta": 1,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "coarse_period",
+      "first_valid_s": 0.0090000000000000011,
+      "angle_rms_rad": 0.023761505279062869,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "unsupported_low_speed",
+      "first_valid_s": null,
+      "angle_rms_rad": null,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "invalid_command",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.030000000000000165,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 2,
+      "status": "passed"
+    },
+    {
+      "name": "low_loss_high_fallback",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.015421238043661384,
+      "final_beta": 1,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "high_loss_low_fallback",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.022213828179633313,
+      "final_beta": 0,
+      "minimum_injection": 1,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "direction_reverse",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.0254997000877464,
+      "final_beta": 0,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 1,
+      "maximum_fault": 0,
+      "status": "passed"
+    },
+    {
+      "name": "negative_high_start",
+      "first_valid_s": 0.00995,
+      "angle_rms_rad": 0.020000000000000229,
+      "final_beta": 1,
+      "minimum_injection": 0,
+      "final_low_pi_flip": 0,
+      "maximum_fault": 0,
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "checks": 1,
+  "parallel_A_difference": 0,
+  "parallel_B_difference": 0,
+  "different_instance_parameters": true,
+  "mask_configuration_readback_matches": true,
+  "temporary_model_saved": false
+}

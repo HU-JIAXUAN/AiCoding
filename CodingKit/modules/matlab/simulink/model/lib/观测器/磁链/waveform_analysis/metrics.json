@@ -1,0 +1,250 @@
+{
+  "release": "2026b",
+  "status": "passed",
+  "tests": 24,
+  "cases": [
+    {
+      "name": "positive",
+      "angle_RMS_rad": 4.4550626175166056E-8,
+      "speed_RMS_electrical_rad_s": 9.5860812628937964E-6,
+      "flux_RMS_Wb": 1.5858788717656772E-9,
+      "torque_RMS_Nm": 1.8072984229665225E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "negative",
+      "angle_RMS_rad": 4.5041160889708483E-8,
+      "speed_RMS_electrical_rad_s": 9.526518170917256E-6,
+      "flux_RMS_Wb": 1.5907778907001696E-9,
+      "torque_RMS_Nm": 1.9900500323862846E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.042723749563286249,
+      "passed": true
+    },
+    {
+      "name": "high_speed",
+      "angle_RMS_rad": 1.8580812518100688E-8,
+      "speed_RMS_electrical_rad_s": 1.0928003090770327E-5,
+      "flux_RMS_Wb": 1.466307396521159E-9,
+      "torque_RMS_Nm": 1.755948158639095E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.063751358986255544,
+      "passed": true
+    },
+    {
+      "name": "acceleration",
+      "angle_RMS_rad": 0.011047932446200113,
+      "speed_RMS_electrical_rad_s": 0.017029827190559413,
+      "flux_RMS_Wb": 0.00014052408248431736,
+      "torque_RMS_Nm": 0.0013211562944460342,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.042569546826843323,
+      "passed": true
+    },
+    {
+      "name": "current_ramp",
+      "angle_RMS_rad": 5.1185492985343584E-8,
+      "speed_RMS_electrical_rad_s": 1.1119342017067535E-5,
+      "flux_RMS_Wb": 1.8194152762015545E-9,
+      "torque_RMS_Nm": 4.3124954497705571E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "resistance_error",
+      "angle_RMS_rad": 0.027770640541108643,
+      "speed_RMS_electrical_rad_s": 9.6207091798039533E-6,
+      "flux_RMS_Wb": 0.0014142136338758545,
+      "torque_RMS_Nm": 0.024000001213433195,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.04850004197455194,
+      "passed": true
+    },
+    {
+      "name": "voltage_bias",
+      "angle_RMS_rad": 3.6485840957760362E-7,
+      "speed_RMS_electrical_rad_s": 7.229594003923177E-5,
+      "flux_RMS_Wb": 1.2509291201210006E-8,
+      "torque_RMS_Nm": 1.451012083311328E-7,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "voltage_bias_no_washout",
+      "angle_RMS_rad": 0.045713318155303669,
+      "speed_RMS_electrical_rad_s": 9.0276168164702426,
+      "flux_RMS_Wb": 0.0017105900788890261,
+      "torque_RMS_Nm": 0.020476169252549487,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.053446611214114856,
+      "passed": true
+    },
+    {
+      "name": "pure_integrator_bias",
+      "angle_RMS_rad": 1.2705343130305289,
+      "speed_RMS_electrical_rad_s": 283.52357916940235,
+      "flux_RMS_Wb": 0.0432328746781591,
+      "torque_RMS_Nm": 0.52168658792503086,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.085829493183221417,
+      "passed": true
+    },
+    {
+      "name": "current_offset",
+      "angle_RMS_rad": 0.00069864821659892484,
+      "speed_RMS_electrical_rad_s": 0.13717585847040764,
+      "flux_RMS_Wb": 2.5866838578929555E-5,
+      "torque_RMS_Nm": 0.0035156192458565935,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047075977106535265,
+      "passed": true
+    },
+    {
+      "name": "measurement_noise",
+      "angle_RMS_rad": 5.2573110610526489E-5,
+      "speed_RMS_electrical_rad_s": 0.051415739469420678,
+      "flux_RMS_Wb": 7.2848817864103817E-6,
+      "torque_RMS_Nm": 0.0009769160247133622,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047046153573265165,
+      "passed": true
+    },
+    {
+      "name": "flux_reference_error",
+      "angle_RMS_rad": 4.3814352645206169E-8,
+      "speed_RMS_electrical_rad_s": 9.4462896765647947E-6,
+      "flux_RMS_Wb": 1.2496144234470953E-9,
+      "torque_RMS_Nm": 1.4233044612633052E-8,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.0377876241845797,
+      "passed": true
+    },
+    {
+      "name": "zero_speed_enabled",
+      "angle_RMS_rad": 0.39999999999999658,
+      "speed_RMS_electrical_rad_s": 0,
+      "flux_RMS_Wb": 0.033060550509633219,
+      "torque_RMS_Nm": 0.42000000000000104,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.0028284271247461905,
+      "passed": true
+    },
+    {
+      "name": "low_speed_enabled",
+      "angle_RMS_rad": 1.4130026871874923,
+      "speed_RMS_electrical_rad_s": 5,
+      "flux_RMS_Wb": 0.033695771183056347,
+      "torque_RMS_Nm": 0.42554445234353477,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.0028284271247461905,
+      "passed": true
+    },
+    {
+      "name": "disable",
+      "angle_RMS_rad": 0.00057612842526975287,
+      "speed_RMS_electrical_rad_s": 0.11346267387715456,
+      "flux_RMS_Wb": 1.9685479911476195E-5,
+      "torque_RMS_Nm": 0.00022920105942535247,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "reset",
+      "angle_RMS_rad": 0.00023415152771155096,
+      "speed_RMS_electrical_rad_s": 0.042811414101234679,
+      "flux_RMS_Wb": 7.6983511931115281E-6,
+      "torque_RMS_Nm": 9.4318938374909068E-5,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "reversal",
+      "angle_RMS_rad": 1.6027026572760439E-5,
+      "speed_RMS_electrical_rad_s": 0.0032961488887197033,
+      "flux_RMS_Wb": 5.5793521210046332E-7,
+      "torque_RMS_Nm": 6.9356565120440467E-6,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "wrap",
+      "angle_RMS_rad": 4.4550572986457147E-8,
+      "speed_RMS_electrical_rad_s": 9.5860824680009656E-6,
+      "flux_RMS_Wb": 1.5858770416249642E-9,
+      "torque_RMS_Nm": 1.8072973192726211E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.040034265054255058,
+      "passed": true
+    },
+    {
+      "name": "leak_only",
+      "angle_RMS_rad": 2.6133996211613372E-13,
+      "speed_RMS_electrical_rad_s": 1.4818207795113779E-10,
+      "flux_RMS_Wb": 2.9221313849207588E-14,
+      "torque_RMS_Nm": 2.8690164693417735E-13,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.053446611214114856,
+      "passed": true
+    },
+    {
+      "name": "direction_column_ignored",
+      "angle_RMS_rad": 4.4550626175166056E-8,
+      "speed_RMS_electrical_rad_s": 9.5860812628937964E-6,
+      "flux_RMS_Wb": 1.5858788717656772E-9,
+      "torque_RMS_Nm": 1.8072984229665225E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.047033598922869728,
+      "passed": true
+    },
+    {
+      "name": "pure_integrator_unknown_initial",
+      "angle_RMS_rad": 1.1363527883132443,
+      "speed_RMS_electrical_rad_s": 308.21189951556204,
+      "flux_RMS_Wb": 0.033065000281100689,
+      "torque_RMS_Nm": 0.39310309913126812,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.068070802126329211,
+      "passed": true
+    },
+    {
+      "name": "no_frequency_compensation",
+      "angle_RMS_rad": 0.37137751349742487,
+      "speed_RMS_electrical_rad_s": 9.0872789354522738E-6,
+      "flux_RMS_Wb": 0.012702570370623631,
+      "torque_RMS_Nm": 0.084127087222016408,
+      "valid_fraction": 0,
+      "max_rotor_flux_Wb": 0.039719567277060046,
+      "passed": true
+    },
+    {
+      "name": "initial_angle_pi",
+      "angle_RMS_rad": 4.4550572579519993E-8,
+      "speed_RMS_electrical_rad_s": 9.5860824415619316E-6,
+      "flux_RMS_Wb": 1.5858770212231539E-9,
+      "torque_RMS_Nm": 1.8072973058741222E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.04004176357773756,
+      "passed": true
+    },
+    {
+      "name": "initial_angle_minus_pi",
+      "angle_RMS_rad": 4.4550574393670477E-8,
+      "speed_RMS_electrical_rad_s": 9.58608244948833E-6,
+      "flux_RMS_Wb": 1.585877088062494E-9,
+      "torque_RMS_Nm": 1.8072973527617875E-8,
+      "valid_fraction": 1,
+      "max_rotor_flux_Wb": 0.040015594243180894,
+      "passed": true
+    }
+  ],
+  "true_position_input": false,
+  "direction_input": false,
+  "hardware_tested": false
+}

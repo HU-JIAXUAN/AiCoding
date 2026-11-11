@@ -1,0 +1,142 @@
+{
+  "matlab_version": "26.2.0.3433840 (R2026b) Update 1",
+  "release": "2026b",
+  "tests": 12,
+  "passed": 12,
+  "metrics": [
+    {
+      "name": "positive",
+      "angle_rms_rad": 4.50924002851584E-15,
+      "angle_max_rad": 1.1546319456101628E-14,
+      "speed_rms_rad_s": 1.1419806836631169E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "negative",
+      "angle_rms_rad": 4.4727557028257334E-15,
+      "angle_max_rad": 1.0658141036401503E-14,
+      "speed_rms_rad_s": 1.1469306926738629E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "wrap",
+      "angle_rms_rad": 4.6793385785623865E-15,
+      "angle_max_rad": 1.1990408665951691E-14,
+      "speed_rms_rad_s": 1.1127644820883214E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "acceleration",
+      "angle_rms_rad": 8.69112976141677E-7,
+      "angle_max_rad": 2.43858325577051E-6,
+      "speed_rms_rad_s": 0.00012569110407275821,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "speed_step",
+      "angle_rms_rad": 3.6397219825147937E-9,
+      "angle_max_rad": 2.1270514488636039E-8,
+      "speed_rms_rad_s": 1.4438455587945242E-6,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "phase_noise",
+      "angle_rms_rad": 0.0015560778576029157,
+      "angle_max_rad": 0.0041249493521844371,
+      "speed_rms_rad_s": 5.2068959615096109,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "amplitude_dropout",
+      "angle_rms_rad": 5.2968493364601791E-7,
+      "angle_max_rad": 2.0403133793311934E-6,
+      "speed_rms_rad_s": 8.86753421518994E-5,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "reset",
+      "angle_rms_rad": 8.7569385169721138E-9,
+      "angle_max_rad": 4.5131651166263609E-8,
+      "speed_rms_rad_s": 2.4957658694142305E-6,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "disable",
+      "angle_rms_rad": 8.580459739348458E-9,
+      "angle_max_rad": 4.4508812829802131E-8,
+      "speed_rms_rad_s": 2.480065580729947E-6,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "speed_limit",
+      "angle_rms_rad": 1.8475634647781514,
+      "angle_max_rad": 3.1356555404306032,
+      "speed_rms_rad_s": 1670.6086825127954,
+      "valid_fraction": 0,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "initial_error",
+      "angle_rms_rad": 4.6246892397950847E-15,
+      "angle_max_rad": 1.0658141036401503E-14,
+      "speed_rms_rad_s": 1.1007106027759542E-11,
+      "valid_fraction": 1,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    },
+    {
+      "name": "no_amplitude",
+      "angle_rms_rad": 1.9115468067232728,
+      "angle_max_rad": 3.1413322353808844,
+      "speed_rms_rad_s": 200,
+      "valid_fraction": 0,
+      "window_start_s": 0.25,
+      "window_end_s": 0.3,
+      "passed": true
+    }
+  ],
+  "channels": [
+    "phase",
+    "magnitude",
+    "enable",
+    "reset",
+    "theta_true",
+    "omega_true",
+    "theta_e_hat",
+    "omega_e_hat",
+    "phase_error",
+    "valid",
+    "integral",
+    "lock_count"
+  ]
+}

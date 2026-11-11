@@ -1,0 +1,16 @@
+{
+  "case": "disable_restart",
+  "reason": "speed PI ramp-end overshoot; no observer or App fault",
+  "before_natural_frequency_rad_s": 20,
+  "after_natural_frequency_rad_s": 30,
+  "high_window_s": [
+    0.8,
+    0.9
+  ],
+  "speed_rms_limit_rad_s": 0.5,
+  "before_speed_rms_rad_s": 0.63863747986708252,
+  "after_speed_rms_rad_s": 0.31735791892907433,
+  "same_criteria_and_stimulus": true,
+  "all_18_cases_rerun_after_parameter_change": true,
+  "status": "passed"
+}

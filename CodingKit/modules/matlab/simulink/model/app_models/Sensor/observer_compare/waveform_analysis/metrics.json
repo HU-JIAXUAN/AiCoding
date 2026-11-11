@@ -1,0 +1,171 @@
+{
+  "release": "2026b",
+  "passed": true,
+  "case_count": 8,
+  "cases": [
+    {
+      "name": "positive",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 0.0013679549783895339,
+      "speed_RMS_electrical_rad_s": 0.0024415375223445068,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.18347547507937861,
+      "first_valid_s": 0.1241,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 30.0691248,
+      "control_trace_difference": null
+    },
+    {
+      "name": "negative",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 0.0013679549783895853,
+      "speed_RMS_electrical_rad_s": 0.0024415375223087532,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.18347547507937859,
+      "first_valid_s": 0.11370000000000001,
+      "angle_age_error_rad": 2.4492935982947064E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 29.6639441,
+      "control_trace_difference": null
+    },
+    {
+      "name": "no_feedback_delay",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 0.0013678636032774577,
+      "speed_RMS_electrical_rad_s": 0.0024391868076700739,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.18347571335875529,
+      "first_valid_s": 0.1241,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 0,
+      "wall_time_s": 30.3828376,
+      "control_trace_difference": null
+    },
+    {
+      "name": "two_feedback_ticks",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 0.0013680454881222759,
+      "speed_RMS_electrical_rad_s": 0.0024438652553048046,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.18347523534038604,
+      "first_valid_s": 0.1241,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 2,
+      "wall_time_s": 28.9186207,
+      "control_trace_difference": null
+    },
+    {
+      "name": "rs_plus_20_percent",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 0.0013639838493362103,
+      "speed_RMS_electrical_rad_s": 0.0024408739841791025,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.18124973466688088,
+      "first_valid_s": 0.12625,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 28.5992061,
+      "control_trace_difference": 0
+    },
+    {
+      "name": "disabled_observer",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 1.8116705013006613,
+      "speed_RMS_electrical_rad_s": 159.88508926839663,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.4976149188287613,
+      "first_valid_s": null,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 27.9457383,
+      "control_trace_difference": 0
+    },
+    {
+      "name": "reset_observer",
+      "passed": true,
+      "window_s": [
+        0.60005000000000008,
+        0.8
+      ],
+      "angle_RMS_rad": 1.8116705013006613,
+      "speed_RMS_electrical_rad_s": 159.88508926839663,
+      "valid_fraction": 0,
+      "residual_RMS_A": 0.4976149188287613,
+      "first_valid_s": null,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 8.8817841970012523E-16,
+      "current_age_error_A": 1.1102230246251565E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 27.4412881,
+      "control_trace_difference": 0
+    },
+    {
+      "name": "imposed_rotation",
+      "passed": true,
+      "window_s": [
+        0.2,
+        0.4
+      ],
+      "angle_RMS_rad": 0.0016188648323509519,
+      "speed_RMS_electrical_rad_s": 2.8847848469181037E-12,
+      "valid_fraction": 1,
+      "residual_RMS_A": 0.22950980080713179,
+      "first_valid_s": 0.0145,
+      "angle_age_error_rad": 4.4408920985006262E-16,
+      "speed_age_error_rad_s": 0,
+      "voltage_age_error_V": 1.7763568394002505E-15,
+      "current_age_error_A": 4.4408920985006262E-16,
+      "feedback_ticks": 1,
+      "wall_time_s": 17.7012079,
+      "control_trace_difference": null
+    }
+  ],
+  "control_feedback": "position_sensor",
+  "observer_in_control_loop": false,
+  "physical_PMSM_MIL": true,
+  "hardware_tested": false
+}

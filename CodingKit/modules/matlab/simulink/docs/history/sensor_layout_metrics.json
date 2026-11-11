@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "scope": "sensor-app-path-migration",
+  "matlab_release": "2026a",
+  "scenario_count": 3,
+  "model_paths": {
+    "MotorExperiment": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\app_models\\Sensor\\experiment\\src\\MotorExperiment.slx",
+    "MTPAFWMotor": "F:\\Study\\AI\\AiCoding\\CodingKit\\modules\\matlab\\simulink\\model\\app_models\\Sensor\\mtpa_fw\\src\\MTPAFWMotor.slx"
+  },
+  "cases": {
+    "MotorExperiment": {
+      "rows": 15001,
+      "columns": 52,
+      "end_time_s": 1.5
+    },
+    "MTPAFWMotor": {
+      "rows": 20001,
+      "columns": 74,
+      "end_time_s": 2,
+      "final_speed_rad_s": 218.00000129987862
+    },
+    "CurrentReferenceTest": {
+      "rows": 2501,
+      "columns": 25,
+      "end_time_s": 0.25
+    }
+  },
+  "executed_at_utc": "2026-11-08 21:49:52 +0000"
+}

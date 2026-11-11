@@ -1,0 +1,163 @@
+{
+  "status": "passed",
+  "release": "2026b",
+  "version": "26.2.0.3433840 (R2026b) Update 1",
+  "matlabroot": "C:\\Program Files\\MATLAB\\R2026b",
+  "kind": "pure M numerical checks; not physical drive MIL or target timing",
+  "kernel_checks": 21,
+  "checks": [
+    {
+      "name": "positive",
+      "state_difference": 2.2204460492503131E-16,
+      "scaled_covariance_difference": 9.9746599868666408E-18,
+      "status": "passed"
+    },
+    {
+      "name": "negative",
+      "state_difference": 5.5511151231257827E-17,
+      "scaled_covariance_difference": 1.3877787807814457E-17,
+      "status": "passed"
+    },
+    {
+      "name": "wrap_positive",
+      "state_difference": 2.2204460492503131E-16,
+      "scaled_covariance_difference": 2.0816681711721685E-17,
+      "status": "passed"
+    },
+    {
+      "name": "wrap_negative",
+      "state_difference": 1.6653345369377348E-16,
+      "scaled_covariance_difference": 2.42861286636753E-17,
+      "status": "passed"
+    },
+    {
+      "name": "alpha_point_two",
+      "state_difference": 2.2204460492503131E-15,
+      "scaled_covariance_difference": 1.3183898417423734E-16,
+      "status": "passed"
+    },
+    {
+      "name": "kappa_two",
+      "state_difference": 1.6653345369377348E-16,
+      "scaled_covariance_difference": 3.4694469519536142E-17,
+      "status": "passed"
+    },
+    {
+      "name": "unit_scales",
+      "state_difference": 2.2204460492503131E-16,
+      "scaled_covariance_difference": 9.9746599868666408E-18,
+      "status": "passed"
+    },
+    {
+      "name": "half_time",
+      "state_difference": 1.6653345369377348E-16,
+      "scaled_covariance_difference": 4.1199682554449168E-18,
+      "status": "passed"
+    },
+    {
+      "name": "public_reference_beta_one_1",
+      "state_difference": 1.1102230246251565E-16,
+      "scaled_covariance_difference": 6.9388939039072284E-18,
+      "status": "passed"
+    },
+    {
+      "name": "beta_two_from_public_weight_delta_1",
+      "state_difference": 1.1102230246251565E-16,
+      "scaled_covariance_difference": 5.2041704279304213E-18,
+      "status": "passed"
+    },
+    {
+      "name": "public_reference_beta_one_2",
+      "state_difference": 0,
+      "scaled_covariance_difference": 1.214306433183765E-17,
+      "status": "passed"
+    },
+    {
+      "name": "beta_two_from_public_weight_delta_2",
+      "state_difference": 0,
+      "scaled_covariance_difference": 1.214306433183765E-17,
+      "status": "passed"
+    },
+    {
+      "name": "shared_linear_current_correction",
+      "state_difference": 5.5511151231257827E-17,
+      "scaled_covariance_difference": 5.1050675731016681E-18,
+      "status": "passed"
+    },
+    {
+      "name": "roundoff_covariance_repaired_after_shared_correction",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "indefinite_covariance_rejected",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "excessive_sigma_angle_rejected",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "ambiguous_circular_mean_rejected",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "invalid_sigma_configuration",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "disabled_predictor_does_not_advance",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "nonfinite_voltage_fault",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    },
+    {
+      "name": "single_precision_kernel_smoke",
+      "state_difference": 0,
+      "scaled_covariance_difference": 0,
+      "status": "passed"
+    }
+  ],
+  "public_reference_behavior": [
+    {
+      "Alpha": 1,
+      "Beta": 0,
+      "Kappa": 0,
+      "states": 4,
+      "function": "[x1^2;x2;x3;x4]",
+      "expected_mean_first_state": 1,
+      "expected_variance_first_state": 3,
+      "observed_mean_first_state": 1,
+      "observed_variance_first_state": 2.0000000000000009,
+      "matches_published_weights": false
+    },
+    {
+      "Alpha": 1,
+      "Beta": 2,
+      "Kappa": 0,
+      "states": 4,
+      "function": "[x1^2;x2;x3;x4]",
+      "expected_mean_first_state": 1,
+      "expected_variance_first_state": 5,
+      "observed_mean_first_state": 1,
+      "observed_variance_first_state": 4.0000000000000018,
+      "matches_published_weights": false
+    }
+  ],
+  "reference_covariance_limit": "For nonlinear beta=2, this installation differs from the published central covariance weight. Use closed-form moments; beta=1 public-reference comparisons are separate."
+}

@@ -1,0 +1,15 @@
+{
+  "case_name": "measurement_noise_original_10mA",
+  "current_noise_std_A": 0.01,
+  "voltage_noise_std_V": 0.02,
+  "angle_rms_rad": 0.011560982746915123,
+  "angle_peak_rad": 0.013206920115102607,
+  "valid_fraction": 0.89910089910089908,
+  "original_minimum_valid_fraction": 0.95,
+  "PLL_LockError": 0.12,
+  "PLL_LockSamples": 100,
+  "PLL_error_exceedance_fraction": 0.000999000999000999,
+  "minimum_emf_V": 6.0247752475913829,
+  "maximum_residual_A": 0.43116763422446913,
+  "fault": 0
+}

@@ -1,0 +1,3 @@
+# MATLAB-generated waveform and model diagrams are rendered evidence.
+model/**/waveform_analysis/**/*.svg -text -diff
+model/**/build_process/**/*.svg -text -diff
