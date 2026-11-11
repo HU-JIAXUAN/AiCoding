@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- **fix(toolchain)**: 将 Go 构建工具链更新至 1.26.11 安全补丁，修复 Release 扫描命中的 `GO-2026-6859`，同步 CI、README 和治理配置。 / Updates the pinned Go toolchain to 1.26.11 to address GO-2026-6859.
+
 - **feat(matlab)**: 新增五参数 MIT Mode 单关节仿真与五段式、七段式 SVPWM 库；拆分 Clarke/Park 源库并保留兼容入口，同步速度环与位置环路径及受保护模型索引。 / Adds joint MIT Mode and both SVPWM variants, and reorganizes the transform and motion libraries.
 
 - **docs(motor)**: 简化 `McMotor.version` 的字段说明并保留非零约束。 / Simplifies the motor parameter version comment and retains the nonzero requirement.

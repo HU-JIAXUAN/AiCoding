@@ -127,10 +127,10 @@
       },
       {
         "label": "Go toolchain",
-        "imageFragment": "Go%20toolchain-1.26.10-00ADD8?logo=go&logoColor=white",
-        "target": "https://go.dev/doc/devel/release#go1.26.10",
+        "imageFragment": "Go%20toolchain-1.26.11-00ADD8?logo=go&logoColor=white",
+        "target": "https://go.dev/doc/devel/release#go1.26.11",
         "authority": "upstream-version",
-        "displayVersion": "1.26.10"
+        "displayVersion": "1.26.11"
       },
       {
         "label": "Staticcheck",

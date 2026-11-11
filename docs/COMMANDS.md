@@ -136,7 +136,7 @@ Release 的 GO-002 从 `config/impact-policy.json` 的 `raceScope.packages` 投�
 继续检查并发包登记；`go test -race ./...` 保留为显式诊断。Full 不重复执行普通与 race 测试。
 Full 不创建 ZIP 或物化发布源码；这些动作由 Release 执行。
 
-构建工具链固定为 `go.mod` 的 Go 1.26.10 安全补丁，CI 四处 `setup-go`、三份入口 README
+构建工具链固定为 `go.mod` 的 Go 1.26.11 安全补丁，CI 四处 `setup-go`、三份入口 README
 badge 与依赖治理锚点同步；Go 语言最低版本仍为 1.22。升级后重新构建 CLI，再生成该 Tree
 的验证凭据；工具链变化不会沿用旧的 Receipt。
 
