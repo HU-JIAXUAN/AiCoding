@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-11-12
+
 - **fix(toolchain)**: 将 Go 构建工具链更新至 1.26.11 安全补丁，修复 Release 扫描命中的 `GO-2026-6859`，同步 CI、README 和治理配置。 / Updates the pinned Go toolchain to 1.26.11 to address GO-2026-6859.
 
 - **feat(matlab)**: 新增五参数 MIT Mode 单关节仿真与五段式、七段式 SVPWM 库；拆分 Clarke/Park 源库并保留兼容入口，同步速度环与位置环路径及受保护模型索引。 / Adds joint MIT Mode and both SVPWM variants, and reorganizes the transform and motion libraries.
@@ -133,6 +135,8 @@
   更新当前文档中的开发辅助技能边界，保留按项目选择流程及 App 资产沉淀要求；
   通过正式 Marketplace 流程刷新已安装插件并保留启用状态。 /
   Pins the verified focused skill package, aligns platform guidance and refreshes the enabled plugin through Marketplace.
+
+## [1.3.0] - 2026-10-26
 
 - **fix(validation-tags)**: pre-push 从实际推送对象递归解析 commit 后核验其 Release Receipt，
   修复附注与嵌套 Tag 被错误拒绝；保留原始对象 ID 审计，拒绝非 commit 目标，不以 HEAD 或可变 ref 代替目标。 /
@@ -666,7 +670,9 @@
 - **docs**: README、命令文档、架构文档、PowerShell 边界文档、Tag policy 和 Release policy 只描述当前 main 的可观测标准。
 - **chore(pwsh)**: Go 默认控制面之外只保留 PowerShell 专项质量、安全、Plan Mode、外部 skill、tag planning / overlay compatibility 和硬件/工具链边界脚本。
 
-[Unreleased]: https://github.com/JiaxI2/AiCoding/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/JiaxI2/AiCoding/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/JiaxI2/AiCoding/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/JiaxI2/AiCoding/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/JiaxI2/AiCoding/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/JiaxI2/AiCoding/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/JiaxI2/AiCoding/compare/v0.10.0...v1.0.0
